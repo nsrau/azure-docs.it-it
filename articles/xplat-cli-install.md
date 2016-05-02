@@ -87,10 +87,10 @@ npm update -g azure-cli
 
 * Per i sistemi Linux, è inoltre possibile installare l'interfaccia della riga di comando di Azure generandola dal [codice sorgente](http://aka.ms/linux-azure-cli). Per altre informazioni sulla compilazione da codice sorgente, vedere il file INSTALL incluso nell'archivio di codici sorgente.
 
-[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
-[windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
+[mac-installer]: http://aka.ms/mac-azure-cli
+[windows-installer]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=windowsazurexplatcli&mode=new
+[linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/azure-cli-arm-commands.md
+[cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

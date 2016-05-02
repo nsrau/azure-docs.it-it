@@ -116,7 +116,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso ****wasb:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
-    È possibile elencare e scaricare questi file usando l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
+    È possibile elencare e scaricare questi file usando l'[Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
 
 		azure storage blob list <container-name> example/curl
 
@@ -192,4 +192,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

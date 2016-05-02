@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 #  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
@@ -25,7 +25,7 @@ Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un 
 
 Questo articolo descrive come creare strumenti di business intelligence personalizzati usando Power BI come output per i processi di Analisi di flusso di Azure e usando un dashboard in tempo reale.
 
-> [AZURE.NOTE] L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. Attualmente, la creazione e la configurazione dell'output di Power BI non è supportata nel portale di Azure, ma solo nel portale di Azure classico.
+> [AZURE.NOTE] Attualmente, la creazione e la configurazione dell'output di Power BI non è supportata nel portale di Azure, ma solo nel portale di Azure classico.
 
 ## Prerequisiti
 
@@ -98,12 +98,13 @@ Fornire i valori come mostrato di seguito:
 * **Alias dell’output** – È possibile usare qualsiasi alias dell’output purché sia di facile riferimento. L’alias dell’output risulta essere particolarmente utile se si decide di avere più output per il processo. In tal caso, è necessario fare riferimento a questo output nella query. Ad esempio, utilizziamo il valore dell’alias di output = “OutPbi”.
 * **Nome set di dati** - Fornire un nome set di dati all’output Power BI. Ad esempio, “pbidemo”.
 *	**Nome tabella** - Fornire un nome tabella nel set di dati dell’output Power BI. Ad esempio, “pbidemo”. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati.
+*	**Area di lavoro** - Selezionare nel tenant Power BI un'area di lavoro in cui verrà creato il set di dati.
 
->	[AZURE.NOTE] Non è necessario creare il set di dati e la tabella nell'account Power BI. Verranno creati automaticamente quando si avvia il processo di analisi di flusso e gli output vengono trasmessi a Power BI. Se la query del processo non restituisce risultati, il set di dati e la tabella non verranno creati.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Fare clic su **OK**, **Connessione di test**. A questo punto la configurazione dell’output è completa.
 
->	[AZURE.WARNING] Inoltre, tenere presente che se Power BI dispone già di un seti di dati e di una tabella caratterizzati dal nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Scrivere query
@@ -161,14 +162,13 @@ A questo punto, quando si visualizza il dashboard con il report aggiunto, si ved
 
 Tenere presente che in questa esercitazione è stato mostrato come creare solo uno dei tipi di grafici possibili per un set di dati. Power BI consente di creare altri strumenti di business intelligence per clienti per l'organizzazione. Per visualizzare un altro esempio di dashboard Power BI, guardare il video [Introduzione a Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Per altre informazioni sulla configurazione di un output di Power BI e per usare i gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Informazioni sugli output di analisi di flusso"). Un’altra risorsa utile per ulteriori informazioni su come creare dashboard con Power BI è [Dashboard nell’anteprima Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Per altre informazioni sulla configurazione di un output di Power BI e per usare i gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Informazioni sugli output di analisi di flusso"). Un'altra risorsa utile per maggiori informazioni sulla creazione di dashboard con Power BI è [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitazioni e procedure consigliate
 
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. 
-Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
 
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
@@ -199,7 +199,7 @@ Per farlo, utilizzare in Power BI domande e risposte, porre una domanda come "Va
 
 ### Rinnovare l'autorizzazione
 
-Esiste una limitazione temporanea in cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con l'output di Power BI. È necessario anche autenticare nuovamente l'account Power BI se la password è stata modificata dopo il processo di creazione o dopo l'ultima autenticazione. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
+Se la password dell'account Power BI è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account. Se Multi-Factor Authentication (MFA) è configurata nel tenant Azure Active Directory (AAD), sarà necessario rinnovare anche l'autorizzazione Power BI ogni due settimane. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
 ![graphic12][graphic12]
 
@@ -233,4 +233,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
 
 ### Se l'app è in esecuzione nel server IIS
 
-Se l'app Web viene eseguita su .NET 4.6 o versione successiva e si [installa Application Insights SDK](app-insights-asp-net.md), nell'app viene automaticamente applicato il rilevamento delle dipendenze. Non è necessario altro.
+Se l'app Web viene eseguita in .NET 4.6 o versione successiva, è possibile [installare Application Insights SDK](app-insights-asp-net.md) nell'app o installare Application Insights Status Monitor. Non sono necessari entrambi.
 
 Altrimenti, installare Application Insights Status Monitor sul server:
 
@@ -95,7 +95,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ### è un progetto di Servizi cloud di Azure
 
-[Aggiungere gli script ai ruoli Web e di lavoro](app-insights-cloudservices.md#dependencies) Oppure [installare .NET Framework 4.6 o versione successiva](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+[Aggiungere gli script ai ruoli Web e di lavoro](app-insights-cloudservices.md#dependencies) oppure [installare .NET Framework 4.6 o versione successiva](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a>Diagnosi dei problemi relativi alle prestazioni delle dipendenze
 
@@ -170,11 +170,17 @@ Ad esempio, se si compila il codice con un assembly non scritto personalmente, s
 
 Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Risoluzione dei problemi
+
+*Il flag di operazione riuscita della dipendenza visualizza sempre true o false*.
+
+* Eseguire l'aggiornamento alla versione più recente dell'SDK. Se la versione di .NET è precedente alla 4.6, installare [Status Monitor](app-insights-monitor-performance-live-website-now.md).
+
 ## Passaggi successivi
 
-- [Eccezioni](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [Dati utente & pagina](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Disponibilità](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Eccezioni](app-insights-asp-net-exception-mvc.md#selector1)
+- [Dati utente & pagina](app-insights-asp-net-client.md#selector1)
+- [Disponibilità](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -196,4 +202,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

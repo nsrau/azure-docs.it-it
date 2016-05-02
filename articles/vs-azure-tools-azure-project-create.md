@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Creazione di un progetto Azure con Visual Studio
@@ -62,4 +62,4 @@ Una soluzione di servizio cloud di Azure contiene i tipi di progetto seguenti:
 
 1. Per rinominare un ruolo aggiunto al progetto, posizionarsi sul ruolo nella finestra di dialogo **Nuovo progetto Azure** e scegliere l'icona **Rinomina** a destra del ruolo. Una volta aggiunto, un ruolo può essere rinominato anche nella soluzione.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 
 ##Panoramica
 
-Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
+Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure ** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
 
 - **Rilevamento volti**
 
@@ -30,7 +30,7 @@ Il processore di contenuti multimediali **Rilevamento multimediale volti di Azur
 
 - **Rilevamento emozioni**
 	
-	Il Rilevamento emozioni è un componente facoltativo del Processore multimediale di rilevamento volti che restituisce un'analisi di vari attributi emotivi dei volti rilevati, inclusi la felicità, la paura, la tristezza, la rabbia e altre emozioni. Questi dati possono essere restituiti in base al volto o come valore di gruppo e possono essere aggregati in un intervallo e in una finestra personalizzabile.
+	Il Rilevamento emozioni è un componente facoltativo del Processore multimediale di rilevamento volti che restituisce un'analisi di vari attributi emotivi dei volti rilevati, inclusi la felicità, la paura, la tristezza, la rabbia e altre emozioni.
 
 Attualmente il processore multimediale **Rilevamento multimediale volti di Azure** è disponibile in Anteprima.
 
@@ -164,18 +164,22 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 	}
 
 
+####Descrizioni degli attributi
+
 Nome attributo|Descrizione
 ---|---
-Mode|Faces: solo rilevamento volti <br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma.
+Mode|Faces: solo rilevamento dei volti <br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma.
 AggregateEmotionWindowMs|Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi.
 AggregateEmotionIntervalMs|Va usato se è selezionata la modalità AggregateEmotion. Specifica con quale frequenza produrre risultati aggregati.
 
-Impostazioni predefinite di aggregazione Seguono i valori consigliati per le impostazioni dell'intervallo e della finestra e aggregazione. La finestra deve essere più lunga dell'intervallo.
+####Impostazioni predefinite degli aggregati
+
+Di seguito sono specificati i valori consigliati per la finestra di aggregazione e le impostazioni di intervallo. Il valore di AggregateEmotionWindowMs non deve essere maggiore del valore di AggregateEmotionIntervalMs.
 
  |Impostazioni predefinite|Max(s)|Min(s)
 ---|---|---|---
-Lunghezza finestra|2|3|1
-Interval|0,5|1|0,25
+AggregateEmotionWindowMs|0,5|2|0,25
+AggregateEmotionIntervalMs|0,5|1|0,25
 
 ###Output JSON
 
@@ -531,4 +535,6 @@ Il programma seguente illustra come:
 
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

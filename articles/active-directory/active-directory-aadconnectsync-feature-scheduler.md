@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/26/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
@@ -48,7 +48,13 @@ Per visualizzare le impostazioni attuali della configurazione, passare a PowerSh
 - **MaintenanceEnabled**: indica se il processo di manutenzione è abilitato. Aggiornerà i certificati/le chiavi e ripulirà i log operazioni.
 - **IsStagingModeEnabled**: indica se il [modello di staging](active-directory-aadconnectsync-operations.md#staging-mode) è abilitato.
 
-È possibile modificare tutte queste impostazioni con `Set-ADSyncScheduler`. Il parametro IsStagingModeEnabled può essere configurato solo dall'installazione guidata.
+Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler`. È possibile modificare i parametri seguenti:
+
+- CustomizedSyncCycleInterval
+- NextSyncCyclePolicyType
+- PurgeRunHistoryInterval
+- SyncCycleEnabled
+- MaintenanceEnabled
 
 La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. Se si dispone di un server di gestione temporanea, qualsiasi modifica apportata nel server primario avrà effetto anche nel server di gestione temporanea (fatta eccezione per IsStagingModeEnabled).
 
@@ -75,7 +81,7 @@ Se è stata apportata una di queste modifiche, è necessario eseguire un ciclo d
 - Sincronizzazione completa su tutti i connettori
 - Esportazione su tutti i connettori
 
-Per avviare un ciclo di sincronizzazione completa, eseguire `Start-ADSyncSyncCycle -PolicyType Initial` da un prompt di PowerShell. Verrà avviato un ciclo di sincronizzazione completa.
+Per avviare un ciclo di sincronizzazione completa, eseguire `Start-ADSyncSyncCycle -PolicyType Initial` a un prompt di PowerShell. Verrà avviato un ciclo di sincronizzazione completa.
 
 ## Arrestare l'utilità di pianificazione
 Se l'utilità di pianificazione sta eseguendo un ciclo di sincronizzazione, potrebbe essere necessario interromperlo. Ad esempio, se si avvia l'installazione guidata e viene visualizzato questo errore:
@@ -86,9 +92,47 @@ Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificar
 
 1. Richiedere prima di tutto all'utilità di pianificazione di interrompere il ciclo corrente con il cmdlet `Stop-ADSyncSyncCycle` di PowerShell.
 2. L'interruzione dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Avviare **Sychronization Service Manager** dal menu Start. Passare a **Connectors**, evidenziare il connettore con stato **Running** e selezionare **Stop** dalle azioni.
+    - Avviare **Sychronization Service** dal menu Start. Passare a **Connectors**, evidenziare il connettore con stato **Running** e selezionare **Stop** dalle azioni.
 
 L'utilità di pianificazione è ancora attiva e verrà riavviata alla successiva opportunità.
+
+## Utilità di pianificazione personalizzata
+I cmdlet illustrati in questa sezione sono disponibili solo nella build [1\.1.130.0](active-directory-aadconnect-version-history.md#111300) e successive.
+
+Se l'utilità di pianificazione predefinita non soddisfa i requisiti, è possibile pianificare i connettori con PowerShell.
+
+### Invoke-ADSyncRunProfile
+È possibile avviare un profilo per un connettore in questo modo:
+
+```
+Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
+
+I nomi da usare come [nomi di connettore](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [nomi di profilo di esecuzione](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) sono indicati nell'[interfaccia utente di Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+
+![Richiamare il profilo di esecuzione](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+
+Il cmdlet `Invoke-ADSyncRunProfile` è sincrono, ovvero non restituisce il controllo fino a quando il connettore non ha completato l'operazione correttamente o con un errore.
+
+Quando si pianificano i connettori, è consigliabile pianificarli nell'ordine seguente:
+
+1. (Completa/differenziale) Importazione da directory locali, ad esempio Active Directory
+2. (Completa/differenziale) Importazione da Azure AD
+3. (Completa/differenziale) Sincronizzazione da directory locali, ad esempio Active Directory
+4. (Completa/differenziale) Sincronizzazione da Azure AD
+5. Esportazione in Azure AD
+6. Esportazione in directory locali, ad esempio Active Directory
+
+Se si esamina l'utilità di pianificazione predefinita, questo è l'ordine in cui verranno eseguiti i connettori.
+
+### Get-ADSyncConnectorRunStatus
+È anche possibile monitorare il motore di sincronizzazione per verificare se è occupato o inattivo. Il cmdlet restituirà un risultato vuoto se il motore di sincronizzazione è inattivo e non è in esecuzione un connettore. Se un connettore è in esecuzione, verrà restituito il nome del connettore.
+
+```
+Get-ADSyncConnectorRunStatus
+```
+
+![Stato di esecuzione del connettore](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) Nella figura precedente, la prima riga proviene da uno stato in cui il motore di sincronizzazione è inattivo. La seconda riga proviene da uno stato in cui Azure AD Connector è in esecuzione.
 
 ## Utilità di pianificazione e installazione guidata
 Se si avvia l'installazione guidata, l'utilità di pianificazione verrà sospesa temporaneamente. Si presuppone infatti che verranno apportate modifiche alla configurazione, che non possono essere applicate se il motore di sincronizzazione è attivamente in esecuzione. Non lasciare quindi aperta l'installazione guidata, perché impedirà al motore di sincronizzazione di eseguire azioni di sincronizzazione.
@@ -98,4 +142,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

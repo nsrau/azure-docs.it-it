@@ -36,7 +36,7 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 
 - __Interfaccia della riga di comando di Azure__. L’interfaccia della riga di comando di Azure viene utilizzata per creare un’entità servizio, quindi viene utilizzata per generare i token di autenticazione per le richieste all'API REST di Azure.
 
-    Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - __cURL__. Questa utilità è disponibile tramite il sistema di gestione del pacchetto o può essere scaricata da [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -358,4 +358,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

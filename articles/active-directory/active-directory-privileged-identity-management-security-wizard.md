@@ -13,58 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
 # Procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management
 
-Alla prima esecuzione di Azure Privileged Identity Management (PIM), verrà visualizzata una procedura guidata che fornisce informazioni sui rischi di sicurezza delle identità con privilegi e su come usare Privileged Identity Management per ridurre i rischi.
+Se si è il primo utente a eseguire Azure Privileged Identity Management (PIM) per l'organizzazione, viene visualizzata una procedura guidata. La procedura guidata offre informazioni sui rischi di sicurezza delle identità con privilegi e su come usare PIM per ridurre tali rischi. Se si vuole farlo in seguito, non è necessario apportare modifiche alle assegnazioni dei ruoli esistenti nella procedura guidata.
 
-La procedura guidata include tre sezioni: **GLI AMMINISTRATORI POTREBBERO COSTITUIRE UN RISCHIO, RIDURRE AL MINIMO LA SUPERFICIE DI ATTACCO** e **DEFINIRE LE IMPOSTAZIONI DEGLI AMMINISTRATORI TEMPORANEI**. Ogni sezione fornisce una panoramica dei concetti e una spiegazione di alcune azioni da intraprendere.
+## Cosa aspettarsi
 
-Inizialmente, tutti gli amministratori globali saranno permanenti. Quando si fa clic su **GLI AMMINISTRATORI POTREBBERO COSTITUIRE UN RISCHIO**, viene visualizzato un elenco di ruoli di amministratore globale con l'indicazione di quelli attualmente disponibili.
+Prima che l'organizzazione inizi a usare PIM, tutte le assegnazioni dei ruoli sono permanenti, ovvero gli utenti sono sempre presenti nei ruoli anche se in quel momento non necessitano dei privilegi del ruolo. Il primo passaggio della procedura guidata visualizza un elenco dei ruoli con privilegi elevati e il numero di utenti attualmente presenti in tali ruoli. È possibile visualizzare i dettagli di un ruolo particolare per visualizzare altre informazioni sugli utenti nel caso in cui uno o più utenti non siano noti.
 
-Facendo clic su **RIDURRE AL MINIMO LA SUPERFICIE DI ATTACCO**, viene offerta la possibilità di impostare gli amministratori come temporanei, lasciarli impostati come permanenti o rimuoverli del tutto dal ruolo.
+Il secondo passaggio della procedura guidata offre la possibilità di modificare le assegnazioni dei ruoli di amministratore.
 
-**DEFINIRE LE IMPOSTAZIONI DEGLI AMMINISTRATORI TEMPORANEI** consente di richiedere l'autenticazione a più fattori, abilitare le notifiche e determinare la durata dei privilegi di un amministratore temporaneo.
+> [AZURE.WARNING] È importante che sia presente almeno un amministratore globale e più amministratori della sicurezza con account aziendali e non account Microsoft. Se è presente un solo amministratore della sicurezza, l'organizzazione non sarà in grado di gestire PIM se tale account viene eliminato. Inoltre, non modificare le assegnazioni dei ruoli in temporanee se un utente ha un account Microsoft. Se si prevede di richiedere l'autenticazione MFA per l'attivazione del ruolo, l'utente verrà bloccato.
 
-## Impostare i ruoli di amministratore globale come temporanei o permanenti
 
-Sono disponibili tre opzioni per modificare la finestra temporale di un amministratore globale:
+Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizzata. Al successivo utilizzo di PIM, anche di un altro amministratore della sicurezza, verrà visualizzato il dashboard di PIM.
 
-1.  Fare clic sul pulsante **Imposta tutti come temporanei** per rendere temporanei tutti gli amministratori globali. Scegliere questa opzione solo se tutti gli amministratori hanno account dell'organizzazione e hanno effettuato la registrazione ad Azure MFA.
+- Se si vuole aggiungere o rimuovere gli utenti dai ruoli o modificare le assegnazioni da permanenti a temporanee, vedere [Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user) per altre informazioni.
+- Se si concedere a più utenti l'accesso per la gestione di PIM, vedere [Come concedere l'accesso per la gestione in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim) per altre informazioni.
 
-2.  Fare clic sul pulsante **Imposta tutti come permanenti** per rendere permanenti tutti gli amministratori globali.
 
-3.  Selezionare **Mantieni come permanente**, **Imposta come temporaneo** o **Rimuovi da ruolo** per ogni amministratore globale.
-
-## Modificare il periodo di attivazione per un ruolo di amministratore globale
-
-È possibile impostare il periodo di attivazione per un ruolo di amministratore globale in due modi:
-
-1.  Spostare il dispositivo di scorrimento relativo al **periodo di attivazione** verso sinistra o verso destra per aumentare o ridurre il periodo di attivazione. Il periodo di attivazione può essere di massimo 72 ore.
-
-2.  Immettere il numero di ore nel campo relativo alle **ore** a destra del dispositivo di scorrimento.
-
-## Abilitare le notifiche
-
-Affinché gli amministratori possano ricevere posta elettronica quando vengono attivati i ruoli, abilitare le notifiche facendo clic sul pulsante **Abilita**. Questa funzionalità può anche essere disabilitata in seguito.
-
-## Richiedere l'autenticazione a più fattori
-
-Se si vuole che gli amministratori usino l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per l'accesso agli account e per richiedere un'estensione del proprio ruolo, abilitare questa funzionalità facendo clic sul pulsante **Abilita**.
-
-<!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
-
-Selezionare i ruoli a cui verranno applicate le impostazioni. Fare clic su **OK**.
-
-> [AZURE.WARNING] In questo momento è importante avere più amministratori della sicurezza con un account dell'organizzazione, non un account Microsoft. Se è presente solo un amministratore della sicurezza, non impostato come permanente e per cui non è stato configurato il servizio MFA, l'utente non potrà amministrare affatto PIM se l'account viene eliminato.
-
-Al termine, fare clic su **OK**.
-
-Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizzata. Sarà comunque possibile accedervi di nuovo facendo clic sul pulsante **Procedura guidata** in **Gestisci le identità**.
 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

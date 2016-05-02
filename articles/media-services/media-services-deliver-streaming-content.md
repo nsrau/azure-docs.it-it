@@ -2,7 +2,7 @@
 	pageTitle="Come distribuire contenuti in streaming da Servizi multimediali" 
 	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato l'SDK di Servizi multimediali per .NET." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portale](media-services-manage-content.md#publish)
 
 ##Panoramica
 
@@ -171,4 +171,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 
 [Asset di download](media-services-deliver-asset-download.md) [Configurare i criteri di sviluppo dell’asset](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

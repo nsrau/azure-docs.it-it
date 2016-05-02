@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight (Linux)
+# Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark Linux su HDInsight (anteprima)
 
-Il cluster Apache Spark in HDInsight (Linux) include notebook di Jupyter che è possibile usare per testare le applicazioni. Per impostazione predefinita il notebook di Jupyter comprende un kernel **Python2**. Un kernel è un programma che esegue e interpreta il codice. I cluster HDInsight Spark offrono due kernel aggiuntivi che è possibile usare con il notebook di Jupyter. Si tratta di:
+Il cluster Apache Spark in HDInsight (Linux) include notebook di Jupyter che è possibile usare per testare le applicazioni. Un kernel è un programma che esegue e interpreta il codice. I cluster HDInsight Spark offrono due kernel che è possibile usare con il notebook di Jupyter. Si tratta di:
 
 1. **PySpark** (per le applicazioni scritte in Python)
 2. **Spark** (per le applicazioni scritte in Scala)
@@ -50,11 +50,11 @@ Questo articolo offre informazioni su come usare questi kernel e i relativi vant
 
 3. Verrà aperto un nuovo notebook con il kernel selezionato.
 
-## Perché usare i nuovi kernel?
+## Perché usare i kernel PySpark o Spark?
 
 L'uso dei nuovi kernel comporta alcuni vantaggi.
 
-1. **Contesti predefiniti**. Con il kernel predefinito **Python2**, disponibile con i notebook Jupyter, è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo. Se si usano i nuovi kernel, **PySpark** o **Spark**, questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
+1. **Contesti predefiniti**. Con i kernel **PySpark** o **Spark**, disponibili con i notebook Jupyter, non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, perché sono disponibili per impostazione predefinita. Questi contesti sono:
 
 	* **sc**: per il contesto Spark
 	* **sqlContext**: per il contesto Hive
@@ -79,13 +79,13 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
 	| help | `%%help` | Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
 	| info | `%%info` | Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
 	| configure | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura i parametri per la creazione di una sessione. Il flag di forzatura (-f) è obbligatorio se è già stata creata una sessione e tale sessione verrà eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
-	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Esegue una query Hive su sqlContext. Se il parametro `-o` viene passato, il risultato della query viene mantenuto nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Esegue una query Hive su sqlContext. Se viene passato il parametro `-o`, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). |
 	| local | `%%local`<br>`a=1` | Tutto il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido. |
 	| logs | `%%logs` | Visualizza i log per la sessione Livy corrente. |
 	| delete | `%%delete -f -s <session number>` | Elimina una sessione specifica dell'endpoint Livy corrente. Si noti che non è possibile eliminare la sessione avviata dal kernel stesso. |
 	| cleanup | `%%cleanup -f` | Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
-3. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive ed SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
+3. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive e SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
 
 ## Parametri supportati con il magic %%sql
 
@@ -93,9 +93,9 @@ Il magic %%sql supporta parametri diversi che è possibile utilizzare per contro
 
 | Parametro | Esempio | Descrizione |
 |-----------|---------------------------------|--------------|
-| -o | `-o <VARIABLE NAME>` | Usare questo parametro per mantenere il risultato della query, nel contesto Python %%local, come un frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
-| -q | `-q` | Consente di disattivare le visualizzazioni per la cella. Se non si desidera visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si desidera disattivare le visualizzazioni senza acquisire i risultati (ad esempio, per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`), utilizzare semplicemente `-q` senza specificare un argomento `-o`. |
-| -m | `-m <METHOD>` | Dove **METHOD** è **take** o **sample** (per impostazione predefinita è **take**). Se il metodo è **take**, il kernel sceglie elementi dall'inizio del set di dati dei risultati specificato da MAXROWS (descritto più avanti in questa tabella). Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
+| -o | `-o <VARIABLE NAME>` | Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
+| -q | `-q` | Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si vuole disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`, usare semplicemente `-q` senza specificare un argomento `-o`. |
+| -m | `-m <METHOD>` | Dove **METHOD** è **take** o **sample**. Per impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
 | -r | `-r <FRACTION>` | Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo sample per la query SQL è `sample`, allora il kernel campionerà automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Ad esempio, se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, allora l'1% delle righe dei risultati verrà campionato in modo casuale. |
 | -n | `-n <MAXROWS>` | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
 
@@ -114,9 +114,7 @@ L'istruzione precedente esegue le operazioni seguenti:
 
 ## Considerazioni per l'uso dei nuovi kernel
 
-Indipendentemente dal kernel usato (Python2, PySpark o Spark), se si lasciano i notebook in esecuzione verranno esaurite le risorse del cluster. Con il notebook di Python2, poiché si creano i contesti in modo esplicito, è anche possibile eliminare questi contesti quando si esce dall'applicazione.
-
-Tuttavia, con i kernel PySpark e Spark i contesti sono preimpostati e quindi non è possibile eliminare anche il contesto in modo esplicito. Quindi, se si esce semplicemente dal notebook il contesto potrebbe essere ancora in esecuzione e usare le risorse del cluster. Una buona norma con i kernel PySpark e Spark consiste nell'usare l'opzione **Close and Halt** dal menu **File** del notebook. Questa operazione elimina il contesto e quindi esce dal notebook.
+Indipendentemente dal kernel usato (PySpark o Spark), se si lasciano i notebook in esecuzione verranno esaurite le risorse del cluster. Con questi kernel, dato che i contesti sono predefiniti, la semplice uscita dal notebook non termina il contesto e pertanto le risorse del cluster restano in uso. Una buona norma con i kernel PySpark e Spark consiste nell'usare l'opzione **Close and Halt** dal menu **File** del notebook. Questa operazione elimina il contesto e quindi esce dal notebook.
 
 
 ## Di seguito sono riportati alcuni esempi
@@ -182,4 +180,4 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

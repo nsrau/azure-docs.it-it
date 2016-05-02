@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Creare un'applicazione Scala autonoma da eseguire nel cluster HDInsight Spark (Linux)
+# Creare un'applicazione Scala autonoma da eseguire nei cluster HDInsight Spark basati su Linux (anteprima)
 
-In questo articolo vengono fornite istruzioni dettagliate sullo sviluppo di applicazioni Spark autonome scritte in Scala usando IntelliJ IDEA. L'articolo usa Apache Maven come sistema di compilazione e un archetipo Maven esistente per Scala fornito da IntelliJ IDEA. In generale, la creazione di un'applicazione Scala in IntelliJ IDEA comporta i passaggi seguenti:
+In questo articolo vengono fornite istruzioni dettagliate sullo sviluppo di applicazioni Spark autonome scritte in Scala usando Maven con IntelliJ IDEA. L'articolo usa Apache Maven come sistema di compilazione e inizia con un archetipo Maven esistente per Scala fornito da IntelliJ IDEA. In generale, la creazione di un'applicazione Scala in IntelliJ IDEA comporta i passaggi seguenti:
 
 
 * Usare Maven come sistema di compilazione.
-* Aggiornare il file del modello a oggetti dei progetti per risolvere le dipendenze del modulo Spark.
+* Aggiornare il file del modello a oggetti dei progetti (POM) per risolvere le dipendenze del modulo Spark.
 * Scrivere l'applicazione in Scala.
 * Generare un file con estensione jar che può essere inviato ai cluster HDInsight Spark.
-* Eseguire l'applicazione nel cluster Spark usando il comando spark-submit.
+* Eseguire l'applicazione in un cluster Spark usando Livy.
+
+>[AZURE.NOTE] HDInsight offre inoltre un plug-in IntelliJ IDEA per semplificare il processo di creazione e di invio di applicazioni a un cluster HDInsight Spark basato su Linux. Per altre informazioni, vedere [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Prerequisiti**
 
@@ -59,7 +62,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 	* Selezionare **Maven** come tipo di progetto.
 	* Specificare un valore per **Project SDK**. Fare clic su New e passare alla directory di installazione Java, in genere `C:\Program Files\Java\jdk1.8.0_66`.
-	* Selezionare l'opzione **Create from archetype**.
+	* Selezionare l’opzione **Create from archetype**.
 	* Nell'elenco di archetipi selezionare **org.scala-tools.archetypes:scala-archetype-simple**. Verrà creata la struttura di directory appropriata e verranno scaricate le dipendenze predefinite necessarie per scrivere un programma Scala.
 
 2. Specificare i valori pertinenti per **GroupId**, **ArtifactId** e **Version**. Fare clic su **Avanti**.
@@ -84,7 +87,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 	4. Fare clic su **Apply** e quindi su **OK**.
 
 
-8. Aggiornare il file di origine Scala per includere il codice dell'applicazione. Aprire e sostituire il codice di esempio esistente con il codice seguente e salvare le modifiche. Questo codice legge i dati di HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo di una cifra nella sesta colonna e scrive l'output di **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
+8. Aggiornare il file di origine Scala per includere il codice dell'applicazione. Aprire e sostituire il codice di esempio esistente con il codice seguente e salvare le modifiche. Questo codice legge i dati del file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo una cifra nella sesta colonna e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
 
 		package com.microsoft.spark.example
 
@@ -140,17 +143,17 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 		![Creazione di un file con estensione jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
-	5. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione per **estrarre nel file con estensione jar di destinazione** sia selezionata e quindi fare clic su **OK**. Verrà creato un singolo file con estensione jar con tutte le dipendenze.
+	5. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione per **estrarre nel file JAR di destinazione** sia selezionata e quindi fare clic su **OK**. Verrà creato un singolo file con estensione jar con tutte le dipendenze.
 
 		![Creazione di un file con estensione jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
-	6. Nella scheda del layout dell'output sono elencati tutti i file con estensione jar inclusi nel progetto Maven. È possibile selezionare ed eliminare quelli in cui l'applicazione Scala non ha dipendenze dirette. Per l'applicazione creata in questo caso, è possibile rimuovere tutti i file tranne l'ultimo (**output di compilazione di SparkSimpleApp**). Selezionare i file con estensione jar da eliminare e quindi fare clic sull'icona **Delete**.
+	6. Nella scheda del layout dell'output sono elencati tutti i file con estensione jar inclusi nel progetto Maven. È possibile selezionare ed eliminare quelli in cui l'applicazione Scala non ha dipendenze dirette. Per l'applicazione creata in questo caso, è possibile rimuovere tutti i file tranne l'ultimo (**output di compilazione di SparkSimpleApp**). Selezionare i file JAR da eliminare e quindi fare clic sull’icona **Delete**.
 
 		![Creazione di un file con estensione jar](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
 
 		Assicurarsi che la casella **Build on make** sia selezionata per garantire che il file jar venga creato ogni volta che il progetto viene creato o aggiornato. Fare clic su **Apply** e quindi su **OK**.
 
-	7. Dalla barra dei menu, fare clic su **Build**, quindi fare clic su **Make Project**. È anche possibile fare clic su **Build Artifacts** per creare il file con estensione jar. Il file con estensione jar di output viene creato in **\\out\\artifacts**.
+	7. Dalla barra dei menu, fare clic su **Build**, quindi fare clic su **Make Project**. È anche possibile fare clic su **Build Artifacts** per creare il file JAR. Il file JAR di output viene creato in **\\out\\artifacts**.
 
 		![Creazione di un file con estensione jar](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 
@@ -158,9 +161,9 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni seguenti:
 
-* **Copiare il file con estensione jar dell'applicazione nel BLOB di archiviazione di Azure** associato al cluster. Per tale scopo è possibile utilizzare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. È possibile usare molti altri client per caricare i dati. Per altre informazioni, vedere [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
+* **Copiare il file jar dell’applicazione nel BLOB di archiviazione Azure** associato al cluster. Per tale scopo è possibile utilizzare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. È possibile usare molti altri client per caricare i dati. Ulteriori informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
-* **Usare Livy per inviare un processo dell'applicazione in modalità remota** al cluster Spark. I cluster Spark in HDInsight includono Livy che espone gli endpoint REST per inviare in modalità remota i processi Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota usando Livy con cluster Spark in HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
+* **Usare Livy per inviare un processo dell’applicazione in modalità remota** al cluster Spark. I cluster Spark in HDInsight includono Livy che espone gli endpoint REST per inviare in modalità remota i processi Spark. Per ulteriori informazioni, vedere [Inviare processi Spark in modalità remota utilizzando Livy con cluster Spark in HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
 
 ## <a name="seealso"></a>Vedere anche
@@ -172,7 +175,7 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -196,4 +199,4 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

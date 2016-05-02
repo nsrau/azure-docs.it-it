@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
-
 
 # Panoramica di Analisi Servizi multimediali di Azure
 
@@ -49,7 +48,9 @@ Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimed
 
 - **Sorveglianza**: con l'aumento delle videocamere IP, si assiste all'esplosione dei video di sorveglianza. Il controllo manuale dei video di sorveglianza richiede molto tempo ed è soggetto a errori umani. Analisi Servizi multimediali di Azure offre diversi componenti, ad esempio il rilevamento del movimento, il rilevamento viso e Hyperlapse per agevolare il processo di controllo, gestione e creazione dei derivati.
 
+##Demo
 
+[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##Percorsi di apprendimento di Media Services
 
@@ -67,4 +68,4 @@ Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimed
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

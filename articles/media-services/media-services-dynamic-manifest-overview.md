@@ -3,8 +3,8 @@
 	description="Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per archiviare questo streaming selettivo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="cenkdin;juliako"/>
 
 #Filtri e manifesti dinamici
 
@@ -236,4 +236,4 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

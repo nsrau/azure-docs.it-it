@@ -18,15 +18,21 @@
 
 #Note sulla versione di Windows Universal Apps SDK
 
+##3\.4.0 (19/04/2016)
+
+-   La sovrimpressione Reach è stata migliorata.
+-   Aggiunta dell'API "TestLogLevel" per abilitare/disabilitare/filtrare i log della console generati da SDK.
+-   Correzione delle notifiche in attività per la prima attività non visualizzata all'avvio dell'applicazione
+
 ##3\.3.1 (18/02/2016)
 
--   Risoluzione dei conflitti tra il contenuto HTML dell'annuncio Web HTML e la pagina HTML dell'SDK.
+-   Correzione dei conflitti tra il contenuto HTML dell'annuncio Web e la pagine HTML di SDK.
 -   Miglioramenti della stabilità.
 
 ##3\.3.0 (22/01/2016)
 
--   Correggere la formattazione di arresto anomalo in app UWP in esecuzione in modalità di rilascio.
--   Correggere il margine di 1px nelle notifiche per le app universali 8.1.
+-   Correzione della formattazione di arresto anomalo in app UWP in esecuzione in modalità di rilascio.
+-   Correzione del margine di 1px nelle notifiche per le app universali 8.1.
 -   Schemi ms-appx e ms-appdata disponibili negli URL di azione.
 -   Miglioramenti della stabilità.
 
@@ -61,4 +67,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

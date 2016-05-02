@@ -324,7 +324,7 @@ Archiviazione BLOB viene partizionata automaticamente in base al nome del blob. 
 
 Le operazioni di scrittura di un singolo blocco (blob in blocchi) o una pagina (blob di pagine) sono atomiche, ma le operazioni che interessano blocchi, pagine o BLOB non lo sono. Se è necessario garantire la coerenza durante l'esecuzione di operazioni di scrittura in blocchi, pagine e BLOB, sarà necessario estrarre un blocco di scrittura usando un lease del BLOB.
 
-L'archiviazione BLOB di Azure supporta velocità di trasferimento fino a 60 MB al secondo o 500 richieste al secondo per ogni BLOB. Se si prevede di superare tali limiti e i dati BLOB sono relativamente statici, provare a replicare BLOB usando la Rete di distribuzione dei contenuti di Azure. Per altre informazioni, vedere la pagina [Uso della rete CDN per Azure] nel sito Web Microsoft. Per altre indicazioni e considerazioni, vedere [Uso della rete CDN per Azure].
+L'archiviazione BLOB di Azure supporta velocità di trasferimento fino a 60 MB al secondo o 500 richieste al secondo per ogni BLOB. Se si prevede di superare tali limiti e i dati BLOB sono relativamente statici, provare a replicare BLOB usando la Rete di distribuzione dei contenuti di Azure. Per altre informazioni, vedere la pagina [Uso della rete CDN per Azure] nel sito Web Microsoft. Per altre indicazioni e considerazioni, vedere [Uso di una rete per la distribuzione di contenuti per Azure].
 
 ## Partizionamento di code di archiviazione di Azure
 
@@ -512,7 +512,7 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 - Il [modello di partizionamento orizzontale] descritto nel sito Web Microsoft riepiloga alcune strategie comuni per il partizionamento orizzontale dei dati.
 - L'[ITP (Index Table Pattern)] descritto nel sito Web Microsoft illustra come creare indici secondari nei dati. Un'applicazione consente di recuperare rapidamente i dati con questo approccio, usando le query che non fanno riferimento alla chiave primaria di una raccolta.
 - Il [modello di vista materializzata] descritto nel sito Web Microsoft illustra come generare viste prepopolate che riepilogano i dati per favorire operazioni di query rapide. Questo approccio può essere utile in un archivio dati partizionati se le partizioni che contengono dati riepilogati vengono distribuite tra più siti.
-- L'articolo [Uso della rete CDN per Azure] nel sito Web Microsoft offre altre istruzioni per la configurazione e l'uso della Rete di distribuzione dei contenuti di Azure.
+- L'articolo [Uso della rete per la distribuzione di contenuti per Azure] nel sito Web Microsoft offre altre istruzioni per la configurazione e l'uso della rete di distribuzione dei contenuti di Azure.
 
 ## Altre informazioni
 
@@ -522,7 +522,7 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 - La pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx) nel sito Web Microsoft descrive gli attuali limiti di ridimensionamento e velocità effettiva dell'archiviazione di Azure.
 - La pagina [Esecuzione di transazioni di gruppi di entità] nel sito Web Microsoft offre informazioni dettagliate sull'implementazione di operazioni transazionali su entità archiviate nell'archiviazione tabelle di Azure.
 - L'articolo [Guida alla progettazione della tabella di archiviazione di Azure] nel sito Web Microsoft include informazioni dettagliate sul partizionamento dei dati nell'archiviazione tabelle di Azure.
-- La pagina [Uso della rete CDN per Azure] nel sito Web Microsoft descrive come replicare i dati contenuti nell'archiviazione BLOB di Azure usando la Rete per la distribuzione di contenuti di Azure.
+- La pagina [Uso della rete per la distribuzione di contenuti per Azure] nel sito Web Microsoft descrive come replicare i dati mantenuti nell'archiviazione BLOB di Azure usando la rete per la distribuzione di contenuti per Azure.
 - La pagina [Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB] nel sito Web Microsoft contiene informazioni su come i database DocumentDB Azure allocano le risorse.
 - La pagina [Che cos'è la Ricerca di Azure?] nel sito Web Microsoft offre una descrizione completa delle funzionalità disponibili in Ricerca di Azure.
 - La pagina [Limiti dei servizi in Ricerca di Azure] nel sito Web Microsoft include informazioni sulla capacità di ogni istanza di Ricerca di Azure.
@@ -555,7 +555,7 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Esercitazione del cluster Redis]: http://redis.io/topics/cluster-tutorial
 [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scalabilità tramite lo strumento di suddivisione-unione del database elastico]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Uso della rete CDN per Azure]: cdn/cdn-how-to-use-cdn.md
+[Uso della rete per la distribuzione di contenuti per Azure]: cdn/cdn-create-new-endpoint.md
 [Quote del bus di servizio]: service-bus/service-bus-quotas.md
 [Limiti dei servizi in Ricerca di Azure]: search/search-limits-quotas-capacity.md
 [Modello di partizionamento orizzontale]: http://aka.ms/Sharding-Pattern
@@ -564,4 +564,4 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Che cos'è la Ricerca di Azure?]: search/search-what-is-azure-search.md
 [Informazioni sul database SQL]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

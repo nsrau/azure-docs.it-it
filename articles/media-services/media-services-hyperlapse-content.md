@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank"/>
 
 
@@ -213,4 +213,6 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

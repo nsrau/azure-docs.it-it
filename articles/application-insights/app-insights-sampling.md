@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 #  Campionamento in Application Insights
@@ -42,6 +42,7 @@ Impostare la frequenza di campionamento nel pannello Quota + prezzi:
 
 Come in altri tipi di campionamento, l'algoritmo consente di mantenere gli elementi di telemetria correlati. Ad esempio, quando si controllano i dati di telemetria nella ricerca, sarà possibile trovare la richiesta correlata a una particolare eccezione. I conteggi di metrica, ad esempio la frequenza delle richieste e delle eccezioni, vengono mantenuti correttamente.
 
+Il campionamento per inserimento non funziona mentre è attivo il campionamento a frequenza fissa o adattivo basato sull'SDK. Se la frequenza di campionamento nell'SDK è inferiore al 100%, la frequenza di campionamento di inserimento impostata viene ignorata.
 
 
 ## Campionamento adattivo nel server Web
@@ -216,7 +217,7 @@ In Esplora metriche, frequenze quali il numero di richieste ed eccezioni vengono
 
 
 
-### Alternativa: abilitare il campionamento a frequenza fissa nel codice del server
+### Alternativa: abilitare il campionamento a frequenza fissa nel codice del server locale
 
 
 Invece di impostare il parametro di campionamento nel file .config, è possibile utilizzare il codice.
@@ -267,7 +268,7 @@ I vantaggi principali del campionamento sono:
 
 * Si usa Application Insights SDK per i servizi Web ASP.NET versione 2.0.0 o successiva e
 * È necessario il campionamento sincronizzato tra client e server, in modo che, quando si esaminano gli eventi in [Cerca](app-insights-diagnostic-search.md), sia possibile spostarsi tra gli eventi correlati nel client e nel server, ad esempio visualizzazioni pagina e richieste http.
-* Si è certi della percentuale di campionamento appropriata per l'app. Deve essere abbastanza elevata da ottenere metriche accurate, ma al di sotto della frequenza che fa superare la quota di prezzo e le soglie di limitazione. 
+* Se è certi della percentuale di campionamento appropriata per l'app. Deve essere abbastanza elevata da ottenere metriche accurate, ma al di sotto della frequenza che fa superare la quota di prezzo e le soglie di limitazione. 
 
 
 **Usare il campionamento adattivo:**
@@ -342,4 +343,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
  * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

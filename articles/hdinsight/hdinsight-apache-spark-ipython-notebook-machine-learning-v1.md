@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Compilare le applicazioni di Machine Learning utilizzando Apache Spark in Azure HDInsight (Windows)
+# Compilare le applicazioni di Machine Learning usando Apache Spark in HDInsight basato su Windows (anteprima)
 
 > [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come creare un'applicazione di Machine Learning nei cluster HDInsight Spark Linux, vedere [Creare applicazioni di Machine Learning utilizzando Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
 
@@ -245,4 +245,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

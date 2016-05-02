@@ -4,7 +4,7 @@
 	keywords="Errore di desktop remoto, errore di connessione al desktop remoto, impossibile connettersi alla macchina virtuale, risoluzione dei problemi di desktop remoto"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows
 
@@ -48,7 +48,7 @@ Questi passaggi aiutano a risolvere la maggior parte degli errori di connessione
 
 - Controllare l'integrità delle risorse della VM per qualsiasi problema di piattaforma.<br> Fare clic su **Sfoglia** > **Macchine virtuali (classico)** > la macchina virtuale Windows > **Impostazioni** > **Controlla integrità**.
 
-## Macchine virtuali create con il modello di distribuzione di Gestione risorse
+### Macchine virtuali create con il modello di distribuzione di Gestione risorse
 
 Questi passaggi aiutano a risolvere la maggior parte degli errori di connessione del desktop remoto nelle macchine virtuali di Azure create con il modello di distribuzione di Gestione risorse. Dopo ogni passaggio, tentare la riconnessione alla VM.
 
@@ -121,7 +121,7 @@ La parte di indirizzo nel file RDP è costituita dal nome di dominio completo de
 
 Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *AutoritàSicurezza*\\*NomeUtente* (esempio: CORP\\User1), la parte *AutoritàSicurezza* indica o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *AutoritàSicurezza*\*NomeUtente* (esempio: CORP\\User1), la parte *AutoritàSicurezza* indica o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
 
 Possibili soluzioni:
 
@@ -136,8 +136,8 @@ Causa: la macchina virtuale di destinazione non ha potuto convalidare il nome e 
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\\Admin4798).
-- Per gli account di dominio, usare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\\johndoe).
+- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio, usare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\\johndoe).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, anche l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato. Ad esempio, se è stato eseguito l'accesso con l'account locale DC1\\DCAdmin e la macchina virtuale è stata innalzata al livello di controller di dominio in una nuova foresta per il dominio corp.contoso.com, l'account locale DC1\\DCAdmin viene eliminato e viene creato un nuovo account di dominio (CORP\\DCAdmin) con la stessa password.
 
@@ -171,4 +171,4 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

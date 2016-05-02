@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Procedura: configurare le impostazioni del firewall | Microsoft Azure"
+	pageTitle="Procedura: Configurare un firewall del database SQL | Microsoft Azure"
 	description="Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,14 +18,14 @@
 	ms.author="rickbyh"/>
 
 
-# Procedura: configurare le impostazioni del firewall su Database SQL mediante TSQL
+# Procedura: Configurare un firewall del database SQL di Azure con TSQL
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Portale di Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-- [REST API](sql-database-configure-firewall-settings-rest.md)
+- [API REST](sql-database-configure-firewall-settings-rest.md)
 
 
 Il database SQL di Microsoft Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL di Azure per consentire l'accesso al database in modo selettivo.
@@ -70,4 +70,4 @@ Il database SQL di Microsoft Azure utilizza le regole del firewall per consentir
 
 Per un'esercitazione sulla creazione di un database, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open-source o di terze parti, vedere [Linee guida per la connessione al database SQL di Azure a livello di programmazione](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per comprendere come spostarsi ai database vedere [Gestione di database e account di accesso in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

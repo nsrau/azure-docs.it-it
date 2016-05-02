@@ -22,12 +22,6 @@
 
 Per impostazione predefinita, i cluster Hadoop non sono ottimizzati per le prestazioni. In questo articolo vengono descritti alcuni dei metodi di ottimizzazione delle prestazioni Hive più comuni che è possibile applicare alle query.
 
-
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-
-* [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
-
 ##Scalabilità orizzontale dei nodi di lavoro
 
 Aumentando il numero di nodi di lavoro in un cluster è possibile usare più mapper e reducer da eseguire in parallelo. Esistono due modi per aumentare la scalabilità orizzontale in HDInsight:
@@ -226,4 +220,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -133,7 +133,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).
+**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
 
 Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
@@ -260,6 +260,12 @@ Aprire Power BI con l’account aziendale o dell’istituto di istruzione e sele
 
 ![In Power BI selezionare il set di dati e i campi.](./media/app-insights-export-power-bi/210.png)
 
+
+### Dati non visualizzati
+
+* Verificare di aver [impostato il formato di data](#set-path-prefix-pattern) correttamente su AAAA-MM-GG (con i trattini).
+
+
 ### Video
 
 Noam Ben Zeev spiega come esportare i dati in Power BI.
@@ -274,4 +280,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

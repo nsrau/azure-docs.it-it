@@ -39,19 +39,21 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 1. Per recuperare le voci di log, eseguire il comando **Get-AzureRmLog**. È possibile usare i parametri **ResourceGroup** e **Status** per restituire solo gli eventi con esito negativo per un singolo gruppo di risorse. Se non si specifica un'ora di inizio e fine, vengono restituite le voci per l'ultima ora. Ad esempio, per recuperare le operazioni non riuscite per l'ultima ora, eseguire:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
     È possibile specificare un determinato intervallo di tempo. Nell'esempio successivo verranno cercate le azioni con esito negativo per gli ultimi 14 giorni.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
       
     In alternativa, è possibile impostare un'ora di inizio e di fine specifica per le azioni con esito negativo:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
 2. Se questo comando restituisce troppe voci e proprietà, è possibile concentrare le attività di controllo recuperando la proprietà **properties**. Per vedere i messaggi di errore, si includerà anche il parametro **DetailedOutput**.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        
+    Il comando restituisce le proprietà delle voci del log nel formato seguente:
         
         Content
         -------
@@ -61,7 +63,9 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 3. È anche possibile limitare i risultati cercando una voce specifica nel messaggio di stato.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        
+    Il comando restituisce il messaggio di stato nel formato seguente:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -74,7 +78,9 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 1. Per ottenere lo stato complessivo di una distribuzione, usare il comando **Get-AzureRmResourceGroupDeployment**. È possibile filtrare i risultati per visualizzare solo le distribuzioni con esito negativo.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Il comando restituisce le distribuzioni con esito negativo nel formato seguente:
         
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleGroup
@@ -95,7 +101,9 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 2. Ciascuna distribuzione in genere è costituita da più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        PS C:\> Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        
+    Il comando restituisce le operazioni nel formato seguente:
         
         Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
         OperationId : 8518B32868A437C8
@@ -103,9 +111,11 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
                       Duration=PT2.8834832S; TrackingId=192fbfbf-a2e2-40d6-b31d-890861f78ed3; StatusCode=Conflict;
                       StatusMessage=; TargetResource=}
 
-3. Per ottenere più dettagli sull'operazione, recuperare l'oggetto **Properties**.
+3. Per altri dettagli sull'operazione, recuperare l'oggetto **Properties**.
 
-        PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        
+    Il comando restituisce le proprietà dell'operazione nel formato seguente:
         
         ProvisioningOperation : Create
         ProvisioningState     : Failed
@@ -120,7 +130,9 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 4. Per concentrarsi sul messaggio di stato delle operazioni non riuscite, usare il comando seguente:
 
-        PS C:\> ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        
+    Il comando restituisce il messaggio di stato nel formato seguente:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -131,6 +143,6 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 ## Passaggi successivi
 
 - Per altre informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima dell'esecuzione, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+- Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

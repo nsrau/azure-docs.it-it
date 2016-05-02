@@ -477,6 +477,8 @@ Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShel
 
 Prima di procedere, assicurarsi di aver installato e configurato l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. Aprire una sessione di shell, il terminale, il prompt dei comandi o altra riga di comando del sistema e usare il comando seguente per passare alla modalità Azure Resource Manager.
 
         azure config mode arm
@@ -544,7 +546,7 @@ Per un esempio relativo all'uso di .NET SDK per applicare script a un cluster, v
 | Set-AzureRmHDInsightPersistedScriptAction | Alzare di livello un'azione script ad hoc per renderla un'azione script persistente |
 | Remove-AzureRmHDInsightPersistedScriptAction | Abbassare di livello un'azione script persistente per renderla un'azione script ad hoc |
 
-> [AZURE.IMPORTANT] L'uso di `Remove-AzureRmHDInsightPersistedScriptAction` non annulla le operazioni eseguite da uno script, rimuove semplicemente il flag persistente in modo che lo script non venga eseguito nei nuovi nodi di lavoro aggiunti al cluster.
+> [AZURE.IMPORTANT] L'uso di `Remove-AzureRmHDInsightPersistedScriptAction` non annulla le operazioni eseguite da uno script, rimuove semplicemente il flag salvato in modo permanente in modo che lo script non venga eseguito nei nuovi nodi di lavoro aggiunti al cluster.
 
 Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e poi abbassare di livello uno script.
 
@@ -575,11 +577,11 @@ Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Alzare di livello un'azione script ad hoc per renderla un'azione script persistente |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Abbassare di livello un'azione script persistente per renderla un'azione script ad hoc |
 
-> [AZURE.IMPORTANT] L'uso di `azure hdinsight script-action persisted delete` non annulla le operazioni eseguite da uno script, rimuove semplicemente il flag persistente in modo che lo script non venga eseguito nei nuovi nodi di lavoro aggiunti al cluster.
+> [AZURE.IMPORTANT] L'uso di `azure hdinsight script-action persisted delete` non annulla le operazioni eseguite da uno script, rimuove semplicemente il flag salvato in modo permanente in modo che lo script non venga eseguito nei nuovi nodi di lavoro aggiunti al cluster.
 
 ### Uso di HDInsight .NET SDK
 
-Per un esempio relativo all'uso di .NET SDK per recuperare la cronologia degli script da un cluster e alzare o abbassare di livello degli script, vedere [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Per un esempio relativo all'uso di .NET SDK per recuperare la cronologia degli script da un cluster e alzare o abbassare di livello gli script, vedere [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## Risoluzione dei problemi
 
@@ -678,4 +680,4 @@ Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione"
- description=""
+ description="Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@ La tabella seguente include descrizioni e collegamenti alla pagina di riferiment
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

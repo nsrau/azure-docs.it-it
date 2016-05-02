@@ -6,7 +6,7 @@
 	authors="szarkos"
 	manager="timlt"
 	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -129,4 +129,4 @@ Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -33,7 +33,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**
 
-- **Interfaccia della riga di comando di Azure**: per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+- **Interfaccia della riga di comando di Azure**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configurare le variabili di ambiente
 
@@ -288,4 +290,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

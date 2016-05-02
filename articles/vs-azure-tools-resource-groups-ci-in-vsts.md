@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/26/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher" />
 
 # Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure
@@ -160,4 +160,4 @@ Per altre informazioni su Gestione risorse di Azure e sui gruppi di risorse di A
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

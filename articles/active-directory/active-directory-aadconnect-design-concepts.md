@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Concetti relativi alla progettazione
@@ -36,6 +36,7 @@ Questo argomento esaminerà sourceAnchor solo relativamente agli utenti. Le stes
 Il valore dell'attributo deve rispettare le regole seguenti:
 
 - La lunghezza del testo deve essere inferiore a 60 caratteri
+    - I caratteri diversi da a-z, A-Z o 0-9 verranno codificati e conteggiati come 3 caratteri
 - Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
 - Deve essere globalmente univoco
 - Deve essere una stringa, un valore intero o un numero binario
@@ -67,4 +68,4 @@ Le restrizioni seguenti sono quindi applicabili ad Azure AD Connect:
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

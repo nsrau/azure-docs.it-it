@@ -41,10 +41,6 @@ Lo script di esempio usato in questo argomento crea un cluster Solr basato su Wi
 
 ## Installare Solr utilizzando il portale
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-v1.md)
-
 1. Avviare la creazione di un cluster tramite l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md#portal).
 2. Nella pagina **Azioni script** della procedura guidata fare clic su **aggiungi azione script** per specificare i dettagli relativi all'azione script, come descritto di seguito:
 
@@ -179,7 +175,7 @@ Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoo
 
 ## Installare Solr tramite .NET SDK
 
-Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 
 
@@ -200,4 +196,4 @@ Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoo
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

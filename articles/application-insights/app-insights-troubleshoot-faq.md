@@ -94,12 +94,6 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. È possibile inviare i dati a una risorsa nuova o esistente in Azure. L'aggiornamento guidato modifica la chiave di strumentazione in ApplicationInsights.config, che determina la destinazione dei dati inviati dall'SDK del server. A meno che non venga deselezionata l'opzione "Aggiorna tutto", modificherà anche la chiave in cui appare nelle pagine Web.
 
 
-## <a name="q06"></a>La mappa nella schermata iniziale di Anteprima di Microsoft Azure mostra lo stato dell'applicazione?
-
-No. Mostra lo stato del servizio di Azure. Per vedere i risultati del test Web, scegliere Sfoglia > Application Insights > (applicazione) e quindi osservare i risultati del test Web.
-
-
-
 #### <a name="data"></a>Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?
 
 Dare un'occhiata all'argomento relativo a [conservazione dei dati e privacy][data].
@@ -136,7 +130,7 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
 ## Automazione
 
-È possibile [scrivere script di PowerShell](app-insights-powershell.md) per creare e aggiornare risorse di Application Insights.
+È possibile [scrivere script di PowerShell](app-insights-powershell.md) per creare e aggiornare le risorse di Application Insights.
 
 ## Altre risposte
 
@@ -153,4 +147,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

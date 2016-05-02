@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -112,13 +112,13 @@ Sono disponibili due costanti diverse da usare per le regole di sincronizzazione
 
 ### ImportedValue
 
-La funzione ImportedValues è diversa dalle altre funzioni, poiché il relativo nome di attributo deve essere racchiuso tra virgolette invece che tra parentesi quadre: ImportedValue("proxyAddresses").
+La funzione ImportedValue è diversa dalle altre funzioni, poiché il relativo nome di attributo deve essere racchiuso tra virgolette anziché parentesi quadre: ImportedValue("proxyAddresses").
 
 In genere, durante la sincronizzazione un attributo userà il valore previsto, anche se non è stato ancora esportato o se è stato ricevuto un errore durante l'esportazione ("livello massimo"). Una sincronizzazione in entrata presupporrà che un attributo che non ha ancora raggiunto una directory connessa la raggiungerà prima o poi. In alcuni casi è importante sincronizzare solo un valore confermato dalla directory connessa e in questo caso verrà usata la funzione ImportedValue ("livello di importazione ologrammi e delta").
 
 Un esempio di questa situazione è disponibile nella regola di sincronizzazione in entrata inclusa nelle impostazioni comuni di Active Directory ed Exchange relative agli utenti. Nella configurazione ibrida di Exchange il valore aggiunto da Exchange Online deve essere sincronizzato solo se ne è stata confermata l'esportazione corretta:
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
@@ -130,4 +130,4 @@ Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

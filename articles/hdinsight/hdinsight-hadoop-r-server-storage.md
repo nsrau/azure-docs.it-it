@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Opzioni di Archiviazione di Azure per R Server in HDInsight Premium | Azure"
-   description="Informazioni sulle diverse opzioni di archiviazione disponibili per gli utenti con Server R in HDInsight Premium"
+   pageTitle="Opzioni di Archiviazione di Azure per R Server su HDInsight (anteprima) | Azure"
+   description="Informazioni sulle diverse opzioni di archiviazione disponibili per gli utenti con R Server su HDInsight (anteprima)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Opzioni di Archiviazione di Azure per R Server in HDInsight Premium
+# Opzioni di Archiviazione di Azure per R Server su HDInsight (anteprima)
 
-R Server in un cluster HDI ha accesso a BLOB di Azure e presto ad Archivio Azure Data Lake come strumenti di salvataggio permanente di dati, codice, oggetti risultato di analisi, ecc.
+R Server su HDInsight (anteprima) ha accesso a BLOB di Azure e presto all'archivio Azure Data Lake come strumenti di salvataggio permanente di dati, codice, oggetti risultato di analisi, ecc.
 
 Quando si crea un cluster Hadoop in HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account è progettato per conservare il file system del cluster creato, ovvero HDFS (Hadoop Distributed File System). Per motivi di prestazioni, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione primario specificato. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Usare l'archiviazione BLOB di Azure con HDInsight").
 
@@ -110,4 +110,4 @@ Dopo aver visto come creare un nuovo cluster HDInsight che include Server R e le
 - [Articolo relativo all'installazione di RStudio Server in HDInsight Premium.](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opzioni del contesto di calcolo per R Server in HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

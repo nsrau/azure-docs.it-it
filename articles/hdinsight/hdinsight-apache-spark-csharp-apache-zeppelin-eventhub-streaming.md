@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Streaming Spark: elaborare eventi dall’Hub eventi di Azure con Apache Spark in HDInsight (Windows)
+# Streaming di Spark: elaborare eventi dall'Hub eventi di Azure con Apache Spark in HDInsight Windows (anteprima)
 
 > [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come eseguire un'applicazione di streaming nei cluster HDInsight Spark Linux, vedere [Streaming Spark: elaborare eventi dall'Hub eventi di Azure con Apache Spark in HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
@@ -196,4 +196,4 @@ Utilizzare Zeppelin per ricevere il flusso di dati in cluster Spark in HDInsight
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

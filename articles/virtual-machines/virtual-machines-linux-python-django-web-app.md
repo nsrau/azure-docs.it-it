@@ -6,7 +6,7 @@
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""
-	tags=“azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -104,7 +104,7 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 ## Configurazione di Apache
 
-1.  Creare un file di configurazione dell'host virtuale Apache **/etc/apache2/sites-available/helloworld.conf**. Impostare il contenuto del file in base al seguente codice e sostituire *yourVmName* con il nome effettivo del computer in uso (ad esempio *pyubuntu*).
+1.  Creare un file di configurazione dell'host virtuale Apache **/etc/apache2/sites-available/helloworld.conf**. Impostare il contenuto del file in base al seguente codice e sostituire *yourVmName*con il nome effettivo del computer in uso (ad esempio *pyubuntu*).
 
 		<VirtualHost *:80>
 		ServerName yourVmName
@@ -129,4 +129,4 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di Azure creata per liberare le risorse per altre esercitazioni e per evitare di incorrere in addebiti per l'utilizzo di Azure.
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #Che cos'è Lab di sviluppo e test?
@@ -66,4 +66,4 @@ I **Criteri** consentono di controllare i costi nel lab. Ad esempio, è possibil
 
 Per iniziare ad utilizzare Lab di sviluppo e test, seguire l’esercitazione dettagliata [Creare un Lab di sviluppo e test di Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

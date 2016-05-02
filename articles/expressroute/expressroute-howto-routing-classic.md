@@ -3,8 +3,8 @@
    description="Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
+   authors="ganesr"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,23 +13,29 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/08/2016"
+   ms.author="ganesr"/>
 
-# Creare e modificare il routing per un circuito ExpressRoute usando PowerShell
+# Creare e modificare il routing per un circuito ExpressRoute
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
 
-Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando PowerShell e il modello di distribuzione classico. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
+
+
+**Informazioni sui modelli di distribuzione di Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Prerequisiti di configurazione
 
 - Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Seguire le istruzioni fornite nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per indicazioni dettagliate su come configurare il computer per l'uso dei moduli di Azure PowerShell. 
-- Prima di procedere con la configurazione, leggere la pagina [prerequisiti](expressroute-prerequisites.md), la pagina [requisiti di routing](expressroute-routing.md) e la pagina [flussi di lavoro](expressroute-workflows.md).
+- Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 - È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
 >[AZURE.IMPORTANT] Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente.
@@ -82,7 +88,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento secondario. Non deve far parte di alcuno spazio indirizzi riservato per le reti virtuali.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
 	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È possibile usare il numero AS privato per questo peering. Assicurarsi di non usare il numero 65515.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 	
 	Per configurare il peering privato di Azure per il circuito, eseguire il cmdlet seguente.
 
@@ -94,7 +100,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT] Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Per ottenere i dettagli relativi al peering privato di Azure
+### Per visualizzare i dettagli relativi al peering privato di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
@@ -144,7 +150,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 2. **Creare un circuito ExpressRoute**
 	
-	Seguire le istruzioni per creare un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e chiedere al provider di connettività di effettuarne il provisioning. Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere al provider di connettività di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
+	Seguire le istruzioni per creare un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e chiedere al provider di connettività di effettuarne il provisioning. Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere al provider di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
 
 3. **Verificare che sia stato eseguito il provisioning del circuito ExpressRoute**
 
@@ -175,10 +181,10 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento primario. Deve essere un prefisso IPv4 pubblico valido.
 	- Una subnet /30 per il collegamento secondario. Deve essere un prefisso IPv4 pubblico valido.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
-	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È necessario usare un numero AS pubblico per questo peering.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 	
-	Per configurare il peering pubblico di Azure per il circuito, eseguire il cmdlet seguente
+	Per configurare il peering pubblico di Azure per il circuito, è possibile eseguire il cmdlet seguente
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
 
@@ -188,7 +194,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 	>[AZURE.IMPORTANT] Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
-### Per ottenere i dettagli relativi al peering pubblico di Azure
+### Per visualizzare i dettagli relativi al peering pubblico di Azure
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente
 
@@ -267,7 +273,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento primario. Deve essere un prefisso IPv4 pubblico valido di proprietà dell'utente e registrato presso un registro RIR o IRR.
 	- Una subnet /30 per il collegamento secondario. Deve essere un prefisso IPv4 pubblico valido di proprietà dell'utente e registrato presso un registro RIR o IRR.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
-	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È necessario usare solo numeri AS pubblici ed essere proprietari del numero AS.
+	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
 	- Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
 	- Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati. **Facoltativo**.
 	- Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
@@ -278,7 +284,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Ottenere i dettagli del peering Microsoft
+### Per visualizzare i dettagli del peering Microsoft
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente.
 
@@ -318,4 +324,4 @@ Successivamente, [Collegare una rete virtuale a un circuito ExpressRoute](expres
 -  Per ulteriori informazioni sui flussi di lavoro, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 -  Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

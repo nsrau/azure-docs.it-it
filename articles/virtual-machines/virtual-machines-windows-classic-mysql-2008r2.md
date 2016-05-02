@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare una macchina virtuale che esegue MySQL | Microsoft Azure"
-	description="Creare una macchina virtuale di Azure creata con il modello di distribuzione classica che esegue Windows Server 2012 R2, quindi installare e configurare il database MySQL nella macchina virtuale."
+	description="Creare una macchina virtuale di Azure che esegue Windows Server 2012 R2 e il database MySQL usando il modello di distribuzione classica."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,29 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 
 # Installare MySQL in una macchina virtuale creata con il modello di distribuzione classica che esegue Windows Server 2012 R2.
 
+[MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Questa esercitazione illustra come installare ed eseguire la versione community di MySQL 5.6.23 come MySQL Server in una macchina virtuale che esegue Windows Server 2012 R2. Per istruzioni sull'installazione di MySQL su Linux, fare riferimento a: [Come installare MySQL in Azure](virtual-machines-linux-mysql-install.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
+## Creare una macchina virtuale che esegue Windows Server 2012 R2
 
-[MySQL](http://www.mysql.com) è un database SQL open source molto diffuso. Dalla raccolta immagini del [portale di Azure classico](http://manage.windowsazure.com), è possibile creare una macchina virtuale che esegue Windows Server 2012 R2 dalla Galleria Immagini. Sarà quindi possibile installarla e configurarla come un server MySQL.
-
-Per istruzioni sull'installazione di MySQL su Linux, fare riferimento a: [Come installare MySQL in Azure](virtual-machines-linux-mysql-install.md).
-
-Questa esercitazione illustra come:
-
-- Usare il portale di Azure classico per creare una macchina virtuale che esegue Windows Server 2012 R2.
-
-- Installare ed eseguire la versione Community di MySQL 5.6.23 come server MySQL Server nella macchina virtuale.
-
-
-## Creare una macchina virtuale che esegue Windows Server
-
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+Se non si ha ancora una VM che esegue Windows Server 2012 R2, è possibile crearla usando questa [esercitazione](virtual-machines-windows-classic-tutorial.md).
 
 ## Collegamento di un disco dati
 
@@ -46,9 +36,7 @@ Vedere [Come collegare un disco dati a una macchina virtuale Windows](virtual-ma
 
 ## Accesso alla macchina virtuale
 
-Collegarsi quindi alla macchina virtuale in modo da poter installare MySQL.
-
-[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+Quindi, [collegarsi alla macchina virtuale](virtual-machines-windows-classic-connect-logon.md) in modo da poter installare MySQL.
 
 ##Installare ed eseguire MySQL Community Server nella macchina virtuale
 
@@ -134,8 +122,8 @@ Per testare la connessione remota al servizio MySQL Server in esecuzione nella m
 		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.com/doc/).
+Per altre informazioni sull'esecuzione di MySQL, vedere la [documentazione di MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

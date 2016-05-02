@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestione identità con privilegi di Azure AD"
-	description="Questo argomento fornisce informazioni sull'estensione Gestione identità con privilegi di Azure AD e spiega come configurarla."
+	pageTitle="Azure AD Privileged Identity Management | Microsoft Azure"
+	description="Argomento che descrive Azure AD Privileged Identity Management e illustra come usare PIM per migliorare la sicurezza del cloud."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/15/2016"
 	ms.author="kgremban"/>
 
-# Azure AD Privileged Identity Management
+# Gestione identità con privilegi di Azure AD
 
-Azure Active Directory (AD) Privileged Identity Management consente di gestire, controllare e monitorare le identità con privilegi e il relativo accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
+Azure Active Directory (AD) Privileged Identity Management consente di gestire, controllare e monitorare le identità con privilegi e l'accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
-Per consentire agli utenti di eseguire operazioni con privilegi, spesso le organizzazioni devono concedere agli utenti accessi con privilegi permanenti in Azure AD, per le risorse di Azure o Office 365 o per altre app SaaS. Per molti clienti questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud, in quanto non è possibile monitorare completamente ciò che gli utenti fanno con i privilegi amministrativi. Un account utente con accesso privilegiato compromesso comporta un rischio elevato per la sicurezza complessiva del cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
+In alcuni casi gli utenti hanno la necessità di eseguire operazioni privilegiate in risorse di Azure o Office 365 o altre app SaaS. Per questa ragione, è spesso necessario che le organizzazioni concedano agli utenti l'accesso con privilegi permanente in Azure AD. Questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud poiché le organizzazioni non sono in grado di monitorare completamente le operazioni eseguite dagli utenti con i privilegi amministrativi. Inoltre, se un account utente con accesso privilegiato è compromesso, tale singola violazione può compromettere la sicurezza dell'intero cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
 
 Azure AD Privileged Identity Management consente di effettuare le operazioni seguenti:
 
 - Individuare gli utenti amministratori di Azure AD
-- Abilitare l'accesso amministrativo su richiesta "just-in-time" alle risorse della directory
-- Ottenere i report sulla cronologia di accesso degli amministratori e sulle modifiche alle assegnazioni degli amministratori
+- Abilitare l'accesso come amministratore Just-In-Time su richiesta ai Microsoft Online Services, ad esempio Office 365 e Intune
+- Ottenere report sulla cronologia degli accessi degli amministratori e sulle modifiche alle assegnazioni degli amministratori
 - Ricevere avvisi relativi all'accesso a un ruolo con privilegi
 
-Azure AD Privileged Identity Management è in grado di gestire i ruoli aziendali predefiniti di Azure Active Directory:
+Azure AD Privileged Identity Management è in grado di gestire i ruoli aziendali predefiniti di Azure Active Directory che includono:
 
 - Amministratore globale
 - Amministratore fatturazione
@@ -39,17 +39,24 @@ Azure AD Privileged Identity Management è in grado di gestire i ruoli aziendali
 
 ## Accesso amministratore just-in-time
 
-In passato, si poteva assegnare un utente a un ruolo amministrativo tramite il portale di gestione di Azure o Windows PowerShell. Di conseguenza, l'utente diventava un **amministratore permanente**, sempre attivo nel ruolo assegnato. In questa versione di anteprima è stato aggiunto il supporto per un **amministratore temporaneo**, ovvero un utente che deve completare un processo di attivazione per il ruolo assegnato. Il processo di attivazione cambia l'assegnazione di un ruolo all'utente in Azure AD da inattiva ad attiva.
+In passato, si poteva assegnare un utente a un ruolo amministratore tramite il portale di gestione di Azure precedente o Windows PowerShell. Di conseguenza, l'utente diventava un **amministratore permanente** per il ruolo, sempre attivo nel ruolo assegnato. Azure AD Privileged Identity Management introduce il concetto di **amministratore temporaneo** per un ruolo, ovvero un utente che deve completare un processo di attivazione per il ruolo assegnato. Il processo di attivazione cambia l'assegnazione dell'utente a un ruolo in Azure AD da inattiva ad attiva per un periodo di tempo specificato, ad esempio otto ore.
 
-## Abilitazione di Gestione identità con privilegi per la directory
+## Abilitare Privileged Identity Management per la directory
 
-Per iniziare a usare Azure AD Privileged Identity Management, accedere al [portale di Azure](https://portal.azure.com/). Al momento, Azure AD Privileged Identity Management è disponibile solo nel portale di Azure. Non è disponibile nel portale classico. Per abilitare Gestione identità con privilegi di Azure AD per una directory è necessario essere un amministratore globale.
+Per iniziare a usare Azure AD Privileged Identity Management, accedere al [portale di Azure](https://portal.azure.com/). Azure AD Privileged Identity Management non è disponibile nelle versioni precedenti del portale classico.
 
-![Portale di Azure - Ricerca di identità con privilegi - Schermata][1]
+>[AZURE.NOTE] Per abilitare Azure AD Privileged Identity Management per una directory è necessario essere un amministratore globale con un account aziendale, non un account Microsoft.
 
-Al termine dell'[inizializzazione di questa estensione](active-directory-privileged-identity-management-getting-started.md), l'utente diventerà il primo **Amministratore della sicurezza** della directory. Solo l'amministratore della sicurezza può accedere a questa estensione per gestire l'accesso per gli altri amministratori.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale della directory.
+2. Se l'organizzazione ha più directory, fare clic sul proprio nome utente nell'angolo superiore destro del portale di Azure e selezionare la directory in cui si userà Azure AD Privileged Identity Management.
+3. Scegliere l’icona **Nuovo** nel riquadro di spostamento sinistro.
+4. Selezionare **Sicurezza e identità**.
+5. Selezionare **Azure AD Privileged Identity Management**.
+6. Selezionare l'opzione **Aggiungi al dashboard** e quindi fare clic sul pulsante **Crea**. Verrà visualizzato il dashboard Privileged Identity Management
 
-Durante l'inizializzazione, verrà aggiunto un riquadro di Azure AD Privileged Identity Management nella schermata iniziale del portale di Azure.
+Se si è il primo utente a usare Azure AD Privileged Identity Management nella directory, la [procedura guidata relativa alla sicurezza](active-directory-privileged-identity-management-security-wizard.md) descriverà passo passo la procedura di assegnazione iniziale. Al termine della procedura guidata, si diventa il primo **Amministratore della sicurezza** della directory.
+
+Solo l'amministratore della sicurezza può accedere all'app PIM per gestire l'accesso per gli altri amministratori. È possibile [consentire ad altri utenti di eseguire operazioni di gestione in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## Dashboard di Gestione identità con privilegi
 
@@ -57,7 +64,7 @@ In Azure AD Privileged Identity Management è disponibile un dashboard che visua
 
 - Numero di utenti assegnati a ogni ruolo con privilegi  
 - Numero di amministratori permanenti e temporanei
-- Cronologia di accesso dell'amministratore
+- Cronologia degli accessi di ogni amministratore
 
 ![Dashboard PIM - Schermata][2]
 
@@ -85,7 +92,7 @@ Un amministratore che vuole attivare un ruolo deve inizializzare Azure AD Privil
 
 Qualsiasi tipo di amministratore può usare Gestione identità con privilegi di Azure AD per attivare il suo ruolo.
 
-L'attivazione del ruolo ha un vincolo di tempo. Nelle impostazioni di attivazione del ruolo è possibile configurare la durata dell'attivazione e le informazioni che l'amministratore dovrà fornire per attivare il ruolo.
+L'attivazione del ruolo ha un vincolo di tempo. Nelle impostazioni di attivazione del ruolo è possibile impostare la durata dell'attivazione e le informazioni che l'amministratore dovrà specificare per attivare il ruolo.
 
 ![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5]
 
@@ -99,11 +106,11 @@ Azure AD Privileged Identity Management consente anche di rilevare le modifiche 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
-[1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
+
 [2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

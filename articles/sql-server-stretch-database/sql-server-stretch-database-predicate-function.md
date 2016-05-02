@@ -24,7 +24,13 @@ Se si archiviano dati cronologici in una tabella separata, è possibile configur
 
 Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-Dalla versione CTP 3.1 alla RC2 l'opzione che consente di specificare un predicato non è disponibile nella procedura guidata Abilitare il database per l'estensione. È necessario usare l'istruzione ALTER TABLE per configurare il Database Estensione con questa opzione. Per altre informazioni, vedere l'articolo relativo all'[abilitazione del Database Estensione per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+In RC3, quando si esegue la procedura guidata Abilitare il database per l'estensione, è possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice basato sulla data nella procedura guidata. Se si vuole utilizzare un predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
+
+-   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare un predicato.
+
+-   Eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata.
+
+La sintassi di ALTER TABLE per l'aggiunta di un predicato è descritta più avanti in questo argomento.
 
 ## Requisiti di base per la funzione con valori di tabella inline
 La funzione con valori di tabella inline necessaria per un predicato del filtro del Database Estensione è simile all'esempio seguente.
@@ -45,7 +51,7 @@ L'associazione allo schema è necessaria per evitare che le colonne usate nel pr
 Se la funzione restituisce un risultato non vuoto, la riga è idonea alla migrazione. In caso contrario, ovvero se la funzione non restituisce un risultato, la riga non è idonea alla migrazione.
 
 ### Condizioni
-Il &lt;*predicato*&gt; può essere costituito da una o più condizioni unite tramite l'operatore logico AND.
+Il &lt;*predicato*&gt; può essere costituito da una condizione o da più condizioni unite dall'operatore logico AND.
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
@@ -70,7 +76,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Confrontare un parametro della funzione in un'espressione costante. ad esempio `@column1 < 1000`.
 
-    In questo esempio viene eseguito il controllo che verifica se il valore di una colonna *date* è &lt; 1/1/2016.
+    Questo esempio verifica se il valore di una colonna *date* è &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -91,7 +97,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Usare l'operatore IN per confrontare un parametro della funzione con un elenco di valori costanti.
 
-    In questo esempio viene eseguito il controllo che verifica se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
+    Questo esempio verifica se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
@@ -151,7 +157,7 @@ Dopo aver associato la funzione alla tabella con predicato, le affermazioni segu
 Non è possibile eliminare una funzione colonne con valori di tabella inline finché una tabella usa la funzione come predicato del filtro.
 
 ## Filtrare le righe per data
-Nell'esempio seguente viene eseguita la migrazione di righe in cui la colonna **date** contiene un valore precedente alla data 01/01/2016.
+Nell'esempio seguente viene eseguita la migrazione delle righe in cui la colonna **date** contiene un valore precedente a 01/01/2016.
 
 ```tsql
 -- Filter by date
@@ -165,7 +171,7 @@ GO
 ```
 
 ## Filtrare le righe in base al valore della colonna dello stato
-Nell'esempio seguente viene eseguita la migrazione di righe in cui la colonna **status** contiene uno dei valori specificati.
+Nell'esempio seguente viene eseguita la migrazione delle righe in cui la colonna **status** contiene uno dei valori specificati.
 
 ```tsql
 -- Filter by status column
@@ -185,7 +191,7 @@ Per filtrare le righe usando una finestra temporale scorrevole, tenere presente 
 
 -   La funzione usa l'associazione allo schema. Non è quindi possibile limitarsi ad aggiornare ogni giorno la funzione "sul posto" chiamando l'istruzione ALTER FUNCTION per spostare la finestra temporale scorrevole.
 
-Iniziare con un predicato del filtro come nell'esempio seguente, che esegue la migrazione di righe in cui la colonna **systemEndTime** contiene un valore precedente a 01/01/2016.
+Iniziare con un predicato del filtro come nell'esempio seguente, che esegue la migrazione delle righe in cui la colonna **systemEndTime** contiene un valore precedente a 01/01/2016.
 
 ```tsql
 CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
@@ -212,7 +218,7 @@ SET (
 
 Quando si desidera aggiornare la finestra temporale scorrevole, eseguire le operazioni seguenti.
 
-1.  Creare una nuova funzione che specifica la nuova finestra temporale scorrevole. Nell'esempio seguente vengono selezionate le date precedenti al 02/01/2016, anziché al 01/01/2016.
+1.  Creare una nuova funzione che specifica la nuova finestra temporale scorrevole. Nell'esempio seguente vengono selezionate date precedenti al 02/01/2016 anziché al 01/01/2016.
 
 2.  Sostituire il predicato del filtro precedente con quello nuovo chiamando ALTER TABLE, come illustrato nell'esempio seguente.
 
@@ -502,4 +508,4 @@ Per controllare il predicato del filtro applicato a una tabella, aprire la vista
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

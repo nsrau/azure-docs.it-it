@@ -1,7 +1,7 @@
 <properties
    pageTitle="Come visualizzare l'integrità aggregata delle entità di Service Fabric | Microsoft Azure"
    description="Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali."
-   services="service-fabric"HealthManager
+   services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
@@ -1132,4 +1132,4 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

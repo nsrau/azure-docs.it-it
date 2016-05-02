@@ -71,7 +71,7 @@ In Ricerca di Azure la chiave del documento identifica un documento in modo univ
 
 La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sintetico denominato `Key`, vale a dire una concatenazione di valori di chiave di partizione e chiave di riga. Ad esempio, se il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` sarà `PK1RK1`.
 
-> AZURE.NOTE Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile gestire i caratteri non validi abilitando l'opzione `base64EncodeKeys` nelle proprietà dell'indicizzatore. In questo caso, si ricordi di codificare le chiavi dei documenti quando le si passa nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) a tale scopo.
+> [AZURE.NOTE] Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile gestire i caratteri non validi abilitando l'opzione `base64EncodeKeys` nelle proprietà dell'indicizzatore. In questo caso, si ricordi di codificare le chiavi dei documenti quando le si passa nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) a tale scopo.
 
 ## Gestione di nomi campo diversi
 
@@ -100,4 +100,4 @@ Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigli
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,8 +3,8 @@
 	description="Questo articolo fornisce informazioni sulle modalità per aggiornare Servizi multimediali dopo aver eseguito il rollover delle chiavi di accesso alle risorse di archiviazione." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,milangada,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako"
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="milangada;cenkdin;juliako"/>
 
 #Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
@@ -159,4 +159,4 @@ Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

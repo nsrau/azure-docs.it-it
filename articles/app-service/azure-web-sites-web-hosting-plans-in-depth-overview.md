@@ -49,7 +49,7 @@ Infine, se si desidera creare una nuova app in un'area diversa, in cui non è pr
 
 ## Creare un piano di servizio app
 
-È possibile creare un **piano di servizio app** vuoto dalla funzionalità di esplorazione del **piano di servizio app** o come parte della creazione di app.
+È possibile creare un **piano di servizio app** vuoto dalla funzionalità di esplorazione dei **piani di servizio app** o durante la creazione di un'app.
 
 A tale scopo, nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) fare clic su **NUOVO**, quindi selezionare **Web e dispositivi mobili** e infine **App Web**, **App per dispositivi mobili**, **App per la logica** o **app per le API**. ![][createWebApp]
 
@@ -107,4 +107,4 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

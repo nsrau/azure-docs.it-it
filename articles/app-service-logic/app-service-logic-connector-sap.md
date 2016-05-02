@@ -18,7 +18,8 @@
 
 
 # Uso del connettore SAP e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+>[AZURE.NOTE] Il connettore è in corso di aggiornamento sulla base del feedback dei clienti. Questa pagina verrà aggiornata quando il connettore sarà pronto. Non è consigliabile usare il connettore SAP prima che sia disponibile la nuova versione. Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Connettersi a SAP locale per chiamare RFC oppure ottenere i metadati. Esistono scenari in cui può essere necessario usare un sistema SAP installato in locale e protetto da un firewall. Inserendo il connettore SAP nel flusso è possibile ottenere un'ampia gamma di scenari. Alcuni esempi:
 
@@ -98,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

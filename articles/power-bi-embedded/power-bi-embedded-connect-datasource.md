@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - Connessione a un'origine dati"
-   description="Microsoft Power BI Embedded - Connessione a un'origine dati"
+   description="Microsoft Power BI Embedded - Connettersi a origini dati"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -55,4 +55,4 @@ Per garantire che le prestazioni delle query inviate all'origine dati sottostant
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

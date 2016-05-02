@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Inviare processi Spark in modalità remota usando Livy con cluster Spark in HDInsight (Linux)
+# Inviare processi Spark in modalità remota a un cluster di HDInsight Spark basato su Linux mediante Livy (anteprima)
 
 Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per l'invio di processi in modalità remota a un cluster Spark da qualsiasi posizione. Per informazioni dettagliate, vedere [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
@@ -189,4 +189,4 @@ Eseguire i passaggi seguenti.
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Esplorazione e gestione delle risorse di archiviazione con Esplora server
@@ -314,4 +314,4 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

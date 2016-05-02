@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
@@ -47,6 +47,8 @@ Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre 
 ### Per abilitare il campionamento per inserimento
 
 Dalla barra Impostazioni aprire il pannello Quota + prezzi. Fare clic su Campionamento e selezionare un rapporto di campionamento.
+
+L'inserimento non funziona se l'SDK sta eseguendo il campionamento fisso o adattivo. Quando la frequenza di campionamento nell'SDK è inferiore al 100%, l'impostazione di campionamento di inserimento viene ignorata.
 
 ### Per abilitare il campionamento adattivo
 
@@ -407,4 +409,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

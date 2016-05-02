@@ -106,15 +106,15 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Ultipro tramite [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) e fornire i seguenti elementi:
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare l'account manager di UltiPro e fornire le informazioni seguenti:
 
     - File del certificato scaricato
 
-    - **URL autorità di certificazione**
+    - **URL dell'autorità di certificazione**
 
     - **URL SSO SAML**
 
-    - **URL servizio Single Sign-Out**
+    - **URL del servizio Single Sign-Out**
 
 
 6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
@@ -182,7 +182,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni, selezionare **Ultipro**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_50.png) <br>
+2. Nell'elenco di applicazioni selezionare **Ultipro**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_50.png) <br>
 
 1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
@@ -221,4 +221,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

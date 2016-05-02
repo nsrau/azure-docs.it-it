@@ -1,5 +1,13 @@
-<properties pageTitle="Configurare il tunneling forzato per i gateway VPN usando PowerShell | Microsoft Azure" description="Se si usa una rete virtuale con modello di distribuzione classico con gateway VPN cross-premise, è possibile reindirizzare o "forzare" il traffico Internet verso la posizione locale." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carmonm" editor="" tags="azure-service-management"/>
-<tags  
+<properties 
+   pageTitle="Configurare il tunneling forzato per i gateway VPN con PowerShell | Microsoft Azure"
+   description="Se si ha una rete virtuale secondo il modello di distribuzione classica con un gateway VPN cross-premise, è possibile reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-service-management"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -63,7 +71,7 @@ Tutte le connessioni in uscita da queste due subnet a Internet verranno forzate 
 
 Prima di iniziare la configurazione, verificare che ci siano le condizioni seguenti:
 
-- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 - Una rete virtuale configurata.
 
@@ -111,7 +119,7 @@ La procedura riportata di seguito consentirà di specificare il tunneling forzat
       </VirtualNetworkSite>
 	</VirtualNetworkSite>
 
-Nell'esempio, la rete virtuale "MultiTier-VNet" include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*) con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
+Nell'esempio, la rete virtuale "MultiTier-VNet" include 3 subnet (*Frontend*, *Midtier* e *Backend*) con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Branch*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
 
 
 1. Creare una tabella di routing. Utilizzare il cmdlet seguente per creare la tabella route.
@@ -167,4 +175,4 @@ Di seguito sono riportasti alcuni altri cmdlet PowerShell che possono risultare 
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

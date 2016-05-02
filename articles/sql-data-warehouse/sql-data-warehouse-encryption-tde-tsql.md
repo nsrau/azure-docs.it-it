@@ -3,7 +3,7 @@
    description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse - TSQL"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Introduzione a Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Gestire le risorse del cluster Apache Spark in Azure HDInsight (Windows)
+# Gestire le risorse del cluster Apache Spark in HDInsight basato su Windows (anteprima)
 
 > [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come gestire le risorse per un cluster Spark in HDInsight Linux, vedere [Gestire le risorse del cluster Apache Spark in HDInsight di Azure (Linux)](hdinsight-apache-spark-resource-manager.md).
 
@@ -84,4 +84,4 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

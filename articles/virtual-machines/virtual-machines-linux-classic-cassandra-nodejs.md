@@ -1,4 +1,12 @@
-<properties pageTitle="Esecuzione di Cassandra con Linux in Azure | Microsoft Azure" description="Informazioni sull'esecuzione di un cluster Cassandra in Linux nelle macchine virtuali di Azure da un'app Node.js" services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/>
+<properties 
+	pageTitle="Eseguire Cassandra con Linux in Azure | Microsoft Azure" 
+	description="Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js" 
+	services="virtual-machines-linux" 
+	documentationCenter="nodejs" 
+	authors="hanuk" 
+	manager="wpickett" 
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -697,4 +705,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

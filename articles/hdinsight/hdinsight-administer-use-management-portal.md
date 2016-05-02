@@ -27,10 +27,6 @@ Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsi
 
 Fare clic sul selettore di schede per informazioni sulla creazione di cluster Hadoop in HDInsight con altri strumenti.
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal-v1.md)
-
 **Prerequisiti**
 
 Per eseguire le procedure descritte nell'articolo è necessario:
@@ -83,8 +79,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard cluster** e **URL**: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux. 
-	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
+	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux. -**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
 	- **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -200,8 +195,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 ##Sospendere/Arrestare i cluster
 
-La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. 
-Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
 Questo processo può essere programmato in molti modi:
 
@@ -389,4 +383,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

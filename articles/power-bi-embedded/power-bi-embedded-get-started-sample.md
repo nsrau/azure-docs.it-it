@@ -1,6 +1,6 @@
 <properties
    pageTitle="Esempio introduttivo"
-   description="Esempio introduttivo"
+   description="Power BI Embedded - Uso di SDK per aggiungere report di Power BI interattivi nell'applicazione di Business Intelligence"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 La **versione di anteprima di Microsoft Power BI Embedded** consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti. Di seguito sono elencate alcune risorse utili per integrare i report di Power BI nelle app:
 
  -	[App Web dashboard di esempio](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[.NET SDK Power BI Embedded (disponibile tramite NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 In questo articolo viene presentato l'**esempio d'introduzione a Power BI Embedded**. Per poter eseguire l'app Web di esempio, è prima necessario configurarla.
@@ -44,7 +44,7 @@ Di seguito viene spiegata la procedura di configurazione dell'ambiente di svilup
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Immettere il nome della **raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) in Introduzione alla versione di anteprima di Microsoft Power BI Embedded.
+6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) in Introduzione alla versione di anteprima di Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

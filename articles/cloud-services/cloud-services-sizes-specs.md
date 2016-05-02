@@ -19,7 +19,7 @@
 
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud (ruoli Web e di lavoro). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
 
-Le macchine virtuali e i servizi cloud di Azure sono due dei diversi tipi di risorse di calcolo offerti da Azure. Per informazioni, vedere [Opzioni di hosting di calcolo fornite da Azure](fundamentals-application-models.md).
+I servizi cloud sono uno dei diversi tipi di risorse di calcolo offerti da Azure. Fare clic [qui](cloud-services-choose-me.md) per altre informazioni sui servizi cloud.
 
 > [AZURE.NOTE]Per i limiti di Azure correlati, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
@@ -41,7 +41,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 * Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno la stessa capacità. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota (RDMA) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI (Message Passing Interface). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
 
-    >[AZURE.NOTE] Se si stanno considerando dimensioni da A8 ad A11, selezionare [qui](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md) per altre informazioni.
+    >[AZURE.NOTE] Se si stanno considerando i formati da A8 ad A11, selezionare [qui](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per altre informazioni.
 
 >[AZURE.NOTE] Tutte le dimensioni delle macchine forniscono un **disco dell’applicazione** che archivia tutti i file del pacchetto di servizio cloud grande circa 1,5 GB.
 
@@ -156,4 +156,4 @@ Di seguito è riportato un esempio per impostare la dimensione del ruolo [Standa
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

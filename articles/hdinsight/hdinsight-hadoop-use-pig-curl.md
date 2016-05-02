@@ -90,7 +90,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso ****wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
-È possibile elencare e scaricare questi file usando l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/pigcurl**, usare il comando seguente:
+È possibile elencare e scaricare questi file usando l'[Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/pigcurl**, usare il comando seguente:
 
 	azure storage blob list <container-name> example/pigcurl
 
@@ -118,4 +118,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

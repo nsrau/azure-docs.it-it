@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Connettori Business to Business e app per le API nel servizio app di Microsoft Azure
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Il servizio app di Microsoft Azure (o servizio app) include numerose app per le API BizTalk, estremamente importanti per gli ambienti di integrazione. Queste app per le API sono basate sui concetti e gli strumenti usati all'interno di BizTalk Server, ma sono ora disponibili come parte del servizio app di Azure.
 
@@ -193,7 +194,7 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 4. Selezionare **OK** per salvare le modifiche.
 
->[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre risorse B2B
 
@@ -208,4 +209,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

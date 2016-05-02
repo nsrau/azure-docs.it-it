@@ -19,9 +19,32 @@
 
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
-*Usare la ricerca con il browser per trovare gli elementi del linguaggio in questa pagina, che combina i contenuti delle pagine Query, Aggregazioni e Valori scalari.*
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[Clausola let](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
+|[qualsiasi](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
+|[argmax](#argmax)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[Direttiva render](#render-directive)|[todouble](#todouble)
+|[Operazioni aritmetiche](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[Valori letterali di matrice e oggetto](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Confronti scalari](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
+|[Valori letterali booleani](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Operazioni booleane](#boolean-operators)|[hash](#hash)|[Valori letterali numerici](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Cast](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[Confronti di stringhe](#string-comparisons)|[variance](#variance)
+|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Valori letterali di stringa](#string-literals)|[where op](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[Espressioni di data e ora](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
+|[Valori letterali di data e ora](#date-and-time-literals)|[Espressioni di percorso JSON](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+
+
 
 
 
@@ -36,9 +59,9 @@ requests
 | count
 ```
     
-Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi, i parametri sono [espressioni scalari](##scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
+Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi i parametri sono [espressioni scalari](##scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
 
-Una query può essere preceduta da una o più [clausole let](#let-clause), che definiscono scalari, tabelle o funzioni che possono essere usate nella query.
+Una query può essere preceduta da una o più [clausole let](#let-clause), che definiscono valori scalari, tabelle o funzioni che possono essere usati nella query.
 
 ```AIQL
 
@@ -50,7 +73,7 @@ Una query può essere preceduta da una o più [clausole let](#let-clause), che d
     req(city) | count
 ```
 
-> `T` viene usato negli esempi di query seguenti per denotare la tabella di origine o la pipeline precedente.
+> `T` viene usato negli esempi di query seguenti per indicare la tabella di origine o la pipeline precedente.
 > 
 
 ### Operatore count
@@ -100,8 +123,8 @@ Una copia della tabella di input, con le colonne aggiuntive specificate.
 
 **Suggerimenti**
 
-* Usare invece [`project`](#project-operator), se si vuole anche rimuovere o rinominare alcune colonne.
-* Non usare `extend` semplicemente per ottenere un nome più breve da usare in un'espressione lunga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* Usare invece [`project`](#project-operator) se si vuole anche rimuovere o rinominare alcune colonne.
+* Non usare `extend` per ottenere semplicemente un nome più breve da usare in un'espressione lunga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     Le colonne native della tabella sono state indicizzate. Il nuovo nome definisce una colonna aggiuntiva non indicizzata, quindi è probabile che la query venga eseguita più lentamente.
 
@@ -130,7 +153,7 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 * *Table1*: "lato sinistro" del join.
 * *Table2*: "lato destro" del join. Può trattarsi di un'espressione di query annidata che restituisce una tabella.
 * *CommonColumn*: colonna con lo stesso nome nelle due tabelle.
-* *Kind*: specifica come le righe delle due tabelle debbano essere associate.
+* *Kind*: specifica come associare le righe delle due tabelle.
 
 **Restituisce**
 
@@ -139,7 +162,7 @@ Una tabella con:
 * Una colonna per ogni colonna in ognuna delle due tabelle, incluse le chiavi corrispondenti. Le colonne del lato destro verranno automaticamente rinominate in caso di conflitti tra i nomi.
 * Una riga per ogni corrispondenza tra le tabelle di input. Una corrispondenza è una riga selezionata da una tabella che ha lo stesso valore per tutti i campi `on` di una riga nell'altra tabella. 
 
-* `Kind` non specificato.
+* `Kind` non specificato
 
     Solo una riga del lato sinistro viene associata a ogni valore della chiave `on`. L'output contiene una riga per ogni corrispondenza di questa riga con le righe a destra.
 
@@ -295,7 +318,7 @@ Il risultato è:
 * *ColumnName:* nel risultato, le matrici nella colonna denominata vengono espanse su più righe. 
 * *ArrayExpression:* espressione che supporta una matrice. Se viene usato questo formato, viene aggiunta una nuova colonna e quella esistente viene mantenuta.
 * *Name:* nome della nuova colonna.
-* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare.
+* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare
 * *RowLimit:* numero massimo di righe generate da ogni riga originale. Il valore predefinito è 128.
 
 **Restituisce**
@@ -307,7 +330,7 @@ La colonna espansa ha sempre il tipo dinamico. Usare un cast, ad esempio `todate
 Sono supportate due modalità di espansione dei contenitori delle proprietà:
 
 * `bagexpansion=bag`: i contenitori delle proprietà vengono espansi in contenitori delle proprietà a voce singola. Questa è l'espansione predefinita.
-* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori (oltre, ad esempio, all'esecuzione di un'aggregazione di conteggi di valori univoci sui nomi delle proprietà). 
+* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori oltre ad eseguire, ad esempio, un'aggregazione di conteggi di valori univoci sui nomi delle proprietà. 
 
 **esempi**
 
@@ -361,10 +384,10 @@ Nell'esempio seguente si supponga che la colonna `EventNarrative` della tabella 
 
 |EventNarrative|
 |---|
-|The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12. Flood stage at Brownsville is 18 feet. Minor flooding occurs at this level. The river overflows lock walls and some of the lower banks, along with some agricultural bottom land.|
-|The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12. Flood stage at Boston is 35 feet. Minor flooding occurs at this level, with some agricultural bottom land covered.|
-|The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
-|The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
+|Il livello del Green River nei pressi di Brownsville ha raggiunto i 5,7 m verso le 03.30 del 12 dicembre (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). Il livello di piena a Brownsville è di 5,5 m (Flood stage at Brownsville is 18 feet). A questo livello si verificano allagamenti moderati (Minor flooding occurs at this level). Il fiume supera i muri di contenimento e alcuni degli argini più bassi, inondando alcuni terreni alluvionali agricoli (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
+|Il livello del Rolling Fork River nei pressi di Boston ha raggiunto i 12 m verso le 11.00 del 12 dicembre (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). Il livello di piena a Boston è di 10,7 m (Flood stage at Boston is 35 feet). A questo livello si verificano allagamenti moderati, con l’inondazione di alcuni terreni alluvionali agricoli (Minor flooding occurs at this level, with some agricultural bottom land covered).|
+|Il livello del Green River nei pressi di Woodbury ha raggiunto gli 11,2 m verso le 00.00 del 16 dicembre (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). Il livello di piena a Woodbury è di 10 m (Flood stage at Woodbury is 33 feet). A questo livello si verificano allagamenti moderati, con l’inondazione di alcuni terreni alluvionali agricoli intorno alla città di Woodbury (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
+|Il livello dell’Ohio River nei pressi di Tell City ha raggiunto gli 11,9 m verso le 01.00 del 18 dicembre (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). Il livello di piena a Tell City è di 11,6 m (Flood stage at Tell City is 38 feet). Il livello di piena a Tell City è di 11,6 m (Flood stage at Tell City is 38 feet). Sono stati segnalati straripamenti sulla Indiana Highway 66 tra Rome e Derby (Indiana Highway 66 floods between Rome and Derby).|
 
 ```AIQL
 
@@ -425,7 +448,7 @@ Selezionare le colonne da includere, rinominare o rimuovere e inserire le nuove 
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata una colonna con quel nome nell'input. 
+* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata un colonna con quel nome nell'input. 
 * *Expression:* espressione scalare facoltativa che fa riferimento alle colonne di input. 
 
     È consentito restituire una nuova colonna calcolata con lo stesso nome di una colonna esistente nell'input.
@@ -472,7 +495,7 @@ Genera una tabella a colonna singola di valori. Si noti che non deve necessariam
 
 * *ColumnName:* nome della colonna singola nella tabella di output.
 * *Start:* il valore più basso nell'output.
-* *Stop:* il valore più alto che viene generato nell'output (o un limite per il valore più alto, se *step* supera questo valore).
+* *Stop:* il valore più alto che viene generato nell'output o un limite per il valore più alto, se *step* supera questo valore.
 * *Step:* la differenza tra due valori consecutivi. 
 
 Gli argomenti devono essere valori numerici, date o intervalli di tempo. Non possono fare riferimento alle colonne di nessuna tabella. Per calcolare l'intervallo basato su una tabella di input, usare la [*funzione* range](#range), ad esempio con l'[operatore mvexpand](#mvexpand-operator).
@@ -566,7 +589,7 @@ Ordina le righe della tabella input in base a una o più colonne.
 
 * *T:* input della tabella da ordinare.
 * *Column:* colonna di *T* in base alla quale eseguire l'ordinamento. Il tipo dei valori deve essere numerico, di data, intervallo di tempo o stringa.
-* `asc` Ordina in senso crescente, dal basso verso l'alto. Il valore predefinito è `desc`, ovvero decrescente dall'alto verso il basso.
+* `asc` ordina in senso crescente, dal basso verso l'alto. Il valore predefinito è `desc`, ovvero decrescente dall'alto verso il basso.
 
 **Esempio**
 
@@ -644,7 +667,7 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 
 * *NumberOfRows:* numero di righe di *T* da restituire.
 * *Sort\_expression:* espressione in base alla quale ordinare le righe. In genere è semplicemente un nome di colonna. È possibile specificare più di un elemento sort\_expression.
-* È possibile che venga visualizzato `asc` o `desc` (valore predefinito) per controllare se la selezione nell'intervallo è effettivamente in ordine crescente o decrescente.
+* `asc` o `desc` (valore predefinito) potrebbe essere visualizzato per controllare se la selezione nell'intervallo è effettivamente in ordine crescente o decrescente.
 
 
 **Suggerimenti**
@@ -666,14 +689,14 @@ Considera due o più tabelle e restituisce le righe di tutte.
 
 **Argomenti**
 
-* *Table1*, *Table2*...
- *  Il nome di una tabella, ad esempio `events`.
+* *Table1*, *Table2* ...
+ *  Il nome di una tabella, ad esempio `events` oppure
  *  Un'espressione di query, ad esempio `(events | where id==42)`
  *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `E*` creerà l'unione di tutte le tabelle del database i cui nomi iniziano con `E`.
 * `kind`: 
  * `inner`: il risultato include il subset di colonne comuni a tutte le tabelle di input.
  * `outer`: il risultato include tutte le colonne presenti in tutti gli input. Le celle non definite da una riga di input vengono impostate su `null`.
-* `withsource=`*ColumnName:* se specificato, l'output includerà una colonna denominata *ColumnName* il cui valore indica quale tabella di origine ha contribuito a ogni riga.
+* `withsource=`*ColumnName:* se specificato, l'output includerà una colonna denominata *ColumnName* il cui valore indica quale tabella di origine ha contribuito per ogni riga.
 
 **Restituisce**
 
@@ -698,7 +721,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-Numero di utenti distinti che hanno generato un evento `exceptions` o un evento `traces` nel corso del giorno passato. Nel risultato la colonna "SourceTable" indicherà "Query" o "Command".
+Numero di utenti distinti che hanno generato un evento `exceptions` o un evento `traces` nel giorno precedente. Nel risultato la colonna "SourceTable" indicherà "Query" o "Command".
 
 ```AIQL
 exceptions
@@ -783,9 +806,9 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-Trova una riga del gruppo che riduce al minimo o al massimo *ExprToMaximize* e restituisce il valore di *ExprToReturn* (o `*` per restituire l'intera riga).
+Trova una riga del gruppo che riduce al minimo o aumenta al massimo *ExprToMaximize* e restituisce il valore di *ExprToReturn* (o `*` per restituire l'intera riga).
 
-**Suggerimento**: le colonne passate vengono rinominate automaticamente. Per verificare di usare i nomi corretti, esaminare i risultati usando `take 5` prima di inviare pipe dei risultati in un altro operatore.
+**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per assicurarsi di usare i nomi corretti, esaminare i risultati usando `take 5` prima di inviare pipe di risultati a un altro operatore.
 
 **esempi**
 
@@ -821,7 +844,7 @@ Calcola la media di *Expression* all'interno del gruppo.
 
 Restituisce lo schema minimo che ammette tutti i valori di *DynamicExpression*.
 
-Il tipo di colonna dei parametri deve essere `dynamic`, un contenitore di matrici o proprietà.
+Il tipo di colonna dei parametri deve essere `dynamic`: un contenitore di matrici o proprietà.
 
 **Esempio**
 
@@ -923,8 +946,8 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
 *Accuracy*, se specificato, controlla il rapporto tra velocità e accuratezza.
 
  * `0` = il calcolo meno accurato e più veloce.
- * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo. Errore dello 0,8 % circa.
- * `2` = il calcolo più accurato e più lento. Errore dello 0,4 % circa.
+ * `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8% circa.
+ * `2` = il calcolo più accurato e più lento; errore dello 0,4% circa.
 
 **Esempio**
 
@@ -983,7 +1006,7 @@ Restituisce una stima per *Expression* del percentile specificato nel gruppo. L'
     
     percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
-Simile a `percentile()`, ma calcola un numero di valori di percentile (operazione più rapida rispetto al calcolo separato di ogni percentile).
+Simile a `percentile()` ma calcola un numero di valori di percentile (operazione più rapida rispetto al calcolo separato di ogni percentile).
 
 **esempi**
 
@@ -1098,7 +1121,7 @@ I tipi supportati sono:
 
 **Restituisce**
 
-Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. Questo è particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà come viene codificato un valore.
+Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. È particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà come viene codificato un valore.
 
 **esempi**
 
@@ -1127,7 +1150,7 @@ Una stringa che rappresenta il tipo di archiviazione sottostante del relativo si
 
 **Argomenti**
 
-* *source*: scalare di origine su cui viene calcolato l'hash.
+* *source*: valore scalare di origine su cui viene calcolato l'hash.
 * *mod*: valore modulo da applicare al risultato hash.
 
 **Restituisce**
@@ -1153,7 +1176,7 @@ La funzione `iff()` calcola il primo argomento (predicato) e restituisce il valo
 **Argomenti**
 
 * *predicate:* espressione che restituisce un valore `boolean`.
-* *ifTrue:* espressione calcolata il cui valore viene restituito dalla funzione se *predicate* restituisce `true`.
+* *ifTrue:* espressione calcolata e il cui valore viene restituito dalla funzione se *predicate* restituisce `true`.
 * *ifFalse:* espressione calcolata il cui valore viene restituito dalla funzione se *predicate* restituisce `false`.
 
 **Restituisce**
@@ -1240,17 +1263,7 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 
@@ -1321,7 +1334,7 @@ Funzione della radice quadrata.
 
 **Restituisce**
 
-* Un numero positivo tale che `sqrt(x) * sqrt(x) == x`
+* Un numero positivo in modo che `sqrt(x) * sqrt(x) == x`
 * `null` se l'argomento è negativo o non può essere convertito in un valore `real`. 
 
 
@@ -1442,7 +1455,7 @@ Numero intero di giorni a partire dalla domenica precedente, come `timespan`.
 
 **Argomenti**
 
-* `a_date`: A `datetime`.
+* `a_date`: valore `datetime`.
 
 **Restituisce**
 
@@ -1559,7 +1572,7 @@ La barra rovesciata (``) viene usata per i caratteri di escape, ad esempio `\t` 
 
 I valori letterali di stringhe offuscate sono stringhe che Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
 
-Per creare un valore letterale di stringa offuscata, anteporre `h` o "H". Ad esempio:
+Per creare un valore letterale di stringa offuscata, anteporre `h` o 'H'. Ad esempio:
 
 ```
 h'hello'
@@ -1642,13 +1655,13 @@ Recupera una corrispondenza di un'[espressione regolare](#regular-expressions) d
 **Argomenti**
 
 * *regex:* [espressione regolare](#regular-expressions).
-* *captureGroup:* costante `int` positiva che indica il gruppo di acquisizione da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
+* *captureGroup:* costante `int` positiva che indica il gruppo Capture da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
 * *text:* valore `string` da ricercare.
 * *typeLiteral:* valore letterale di tipo facoltativo (ad esempio, `typeof(long)`). Se specificato, la sottostringa estratta viene convertita nel tipo. 
 
 **Restituisce**
 
-Se *regex* trova una corrispondenza in *text*: la sottostringa corrispondente nel gruppo di acquisizione indicato *captureGroup*, facoltativamente convertita in *typeLiteral*.
+Se *regex* trova una corrispondenza in *text*: sottostringa corrispondente nel gruppo di acquisizione indicato *captureGroup*, facoltativamente convertita in *typeLiteral*.
 
 Se non esiste alcuna corrispondenza o la conversione del tipo non riesce: `null`.
 
@@ -1718,12 +1731,12 @@ Sostituire tutte le corrispondenze di regex con un'altra stringa.
 **Argomenti**
 
 * *regex:* [espressione regolare](https://github.com/google/re2/wiki/Syntax) per ricercare *text*. Può contenere gruppi di acquisizione tra '('parentesi')'. 
-* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo di acquisizione, `\2` e così via per i gruppi di acquisizione successivi.
+* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo Capture, `\2` e così via per i gruppi Capture successivi.
 * *text:* stringa.
 
 **Restituisce**
 
-*text* dopo la sostituzione di tutte le corrispondenze di *regex* con calcoli di *rewrite*. Le corrispondenze non si sovrappongano.
+*text* dopo la sostituzione di tutte le corrispondenze di *regex* con valutazioni di *rewrite*. Le corrispondenze non si sovrappongano.
 
 **Esempio**
 
@@ -1760,9 +1773,9 @@ Suddivide una stringa specificata in base a un delimitatore specificato e restit
 
 **Argomenti**
 
-* *source*: stringa di origine che verrà suddivisa in base al delimitatore specificato.
-* *delimiter*: delimitatore che verrà usato per suddividere la stringa di origine.
-* *requestedIndex*: indice su base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
+* *source*: stringa di origine che viene suddivisa in base al delimitatore specificato.
+* *delimiter*: delimitatore usato per suddividere la stringa di origine.
+* *requestedIndex*: indice in base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
 
 **Restituisce**
 
@@ -1806,7 +1819,7 @@ Estrarre una sottostringa da una stringa di origine specificata a partire da un 
 **Argomenti**
 
 * *source:* stringa di origine da cui viene ricavata la sottostringa.
-* *startingIndex:* posizione del carattere iniziale su base zero della sottostringa richiesta.
+* *startingIndex:* posizione del carattere iniziale in base zero della sottostringa richiesta.
 * *length:* parametro facoltativo che può essere usato per specificare il numero di caratteri richiesto nella sottostringa. 
 
 **Restituisce**
@@ -1856,7 +1869,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Ma usare `arraylength` e altre funzioni di analisi (non usare ".length").
+* Usare però `arraylength` e altre funzioni di analisi. Non usare ".length".
 
 **Cast** In alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
@@ -1943,12 +1956,12 @@ T
 ```
 
 
-### Operatori e funzioni su tipi dinamici
+## Funzioni di oggetti dinamici
 
 |||
 |---|---|
-| *value* `in` *array*| True se è presente un elemento di *array* che è == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True se non è presente un elemento di *array* che è == *value*
+| *value* `in` *array*| True se è presente un elemento di *array* che == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| True se non è presente un elemento di *array* che == *value*
 |[`arraylength(`array`)`](#arraylength)| Null se non è una matrice
 |[`extractjson(`path,object`)`](#extractjson)|Usa path per navigare nell'oggetto.
 |[`parsejson(`source`)`](#parsejson)| Converte una stringa JSON in un oggetto dinamico.
@@ -1961,7 +1974,7 @@ T
 ### Oggetti dinamici nelle clausole let
 
 
-Poiché le [clausole let](app-analytics-queries.md#let-clause) memorizzano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
+Poiché le [clausole let](app-analytics-queries.md#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2055,7 +2068,7 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 
 ### parsejson
 
-Interpreta un valore `string` come un [valore JSON](http://json.org/) e restituisce il valore come `dynamic`. È preferibile rispetto a `extractjson()` quando è necessario estrarre più di un elemento di un oggetto composto JSON.
+Interpreta `string` come un [valore JSON](http://json.org/) e restituisce il valore come `dynamic`. È preferibile rispetto a `extractjson()` quando è necessario estrarre più di un elemento di un oggetto composto JSON.
 
 **Sintassi**
 
@@ -2071,13 +2084,13 @@ Un oggetto di tipo `dynamic` specificato da *json*.
 
 **Esempio**
 
-Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` simile al seguente:
+In questo esempio, quando `context_custom_metrics` è un valore `string` simile al seguente:
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-il seguente frammento recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
+Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min`, rispettivamente `118.0` e `110.0`.
 
 ```AIQL
 T
@@ -2088,7 +2101,7 @@ T
 
 
 
-#### range
+### range
 
 La funzione `range()` (da non confondere con l'operatore `range`) genera una matrice dinamica contenente una serie di valori equidistanti.
 
@@ -2098,7 +2111,7 @@ La funzione `range()` (da non confondere con l'operatore `range`) genera una mat
 
 **Argomenti**
 
-* *start:* valore del primo elemento nella matrice risultante. 
+* *start:* il valore del primo elemento nella matrice risultante. 
 * *stop:* il valore dell'ultimo elemento nella matrice risultante o il valore minimo che è maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
 * *step:* la differenza tra due elementi consecutivi della matrice.
 
@@ -2148,5 +2161,4 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0420_2016-->

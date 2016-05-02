@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #Controllo degli accessi in base al ruolo: ruoli predefiniti
 
 ## Ruoli predefiniti
 
-Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. I ruoli predefiniti non possono essere modificati. In una futura release di Azure RBAC, sarà possibile definire ruoli personalizzati componendo un set di azioni da un elenco di azioni disponibili che possono essere effettuate sulle risorse di Azure.
+Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
 
-Fare clic sui collegamenti seguenti per visualizzare le proprietà **actions** e **not actions** di una definizione del ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **not actions** di una definizione del ruolo specifica le azioni che devono essere escluse dalle azioni consentite.
+La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle **actions** e delle **non actions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **non actions **specifica le azioni non consentite.
 
 
 | Nome del ruolo | Descrizione |
@@ -45,17 +45,17 @@ Fare clic sui collegamenti seguenti per visualizzare le proprietà **actions** e
 | [Collaboratore raccolte di processi dell'unità di pianificazione](#scheduler-job-collections-contributor) | È in grado di gestire raccolte di processi dell'utilità di pianificazione |
 | [Collaboratore servizi di ricerca](#search-service-contributor) | È in grado di gestire servizi di ricerca |
 | [Gestore della sicurezza SQL](#security-manager) | Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali |
-| [Collaboratore database SQL](#sql-db-contributor) | È in grado di gestire database SQL, ma non i criteri di protezione correlati |
+| [Collaboratore database SQL](#sql-db-contributor) | È in grado di gestire database SQL, ma non i criteri di sicurezza correlati |
 | [Gestione della sicurezza SQL](#sql-security-manager) | È in grado di gestire i criteri di protezione correlati di server e database SQL |
-| [Collaboratore SQL Server](#sql-server-contributor) | Può gestire server e database SQL, ma non i criteri di protezione correlati |
+| [Collaboratore SQL Server](#sql-server-contributor) | È in grado di gestire server e database SQL, ma non i criteri di sicurezza correlati |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) | È in grado di gestire gli account di archiviazione classici |
 | [Collaboratore account di archiviazione](#storage-account-contributor) | È in grado di gestire gli account di archiviazione |
 | [Amministratore accessi utente](#user-access-administrator) | Consente di gestire l’accesso degli utenti alle risorse di Azure |
-| [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) | È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o gli account di archiviazione a cui sono connesse |
-| [Collaboratore macchine virtuali](#virtual-machine-contributor) | È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse |
+| [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) | È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
+| [Collaboratore macchine virtuali](#virtual-machine-contributor) | È in grado di gestire macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
 | [Collaboratore reti virtuali classiche](#classic-network-contributor) | È in grado di gestire reti virtuali classiche e IP riservati |
 | [Collaboratore piani Web](#web-plan-contributor) | È in grado di gestire piani Web |
-| [Collaboratore siti Web](#website-contributor) | È in grado di gestire siti Web, ma non i piani cui sono connessi |
+| [Collaboratore siti Web](#website-contributor) | È in grado di gestire siti Web, ma non i piani Web a cui sono connessi |
 
 ### Collaboratore servizio Gestione API
 È in grado di gestire i servizi Gestione API
@@ -134,7 +134,7 @@ Può gestire tutto ad eccezione degli accessi.
 | ------- | ------ |
 | * | È in grado di creare e gestire ogni tipo di risorsa |
 
-| **Non azioni** | |
+| **Non azioni** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruoli |
 | Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruoli |
@@ -304,7 +304,7 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-| **Non azioni** | |
+| **Non azioni** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossibile modificare i criteri di controllo |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossibile modificare i criteri di connessione |
@@ -346,7 +346,7 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-| **Non azioni** | |
+| **Non azioni** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Non è in grado di modificare i criteri di controllo di server SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Non è in grado di modificare i criteri di controllo dei database di server SQL |
@@ -387,8 +387,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | 
-| Microsoft.Authorization/* | Autorizzazione Lettura |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Autorizzazione Lettura |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche
@@ -486,7 +485,10 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 | Microsoft.Insights/components/* | È in grado di creare e gestire i componenti di Insights |
 
-## Argomenti RBAC
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Vedere anche
+- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione del controllo degli accessi in base al ruolo nel portale di Azure.
+- [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
+- [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
+- [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -26,17 +26,13 @@ In questa esercitazione si presuppone che l'utente abbia installato Visual Studi
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Team Services, seguire questa procedura.
 
-## Passaggio 1: Creare un progetto team
+## 1: Creare un progetto team
 
 Seguire le istruzioni [qui](http://go.microsoft.com/fwlink/?LinkId=512980) per creare il progetto team e collegarlo a Visual Studio. In questa procedura dettagliata si presume che si usi Controllo della versione di Team Foundation (TFVC) come soluzione di controllo del codice sorgente. Per usare Git per il controllo della versione, vedere [la versione per Git di questa procedura dettagliata](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-## Passaggio 2: Archiviare un progetto nel controllo del codice sorgente
+## 2: Archiviare un progetto nel controllo del codice sorgente
 
-1. In Visual Studio, aprire la soluzione che si desidera distribuire o crearne una nuova. 
-È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. 
-Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. 
-Quando richiesto, scegliere **Applicazione Internet**. 
-Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Creare un'app Web ASP.NET in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
+1. In Visual Studio, aprire la soluzione che si desidera distribuire o crearne una nuova. È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. Quando richiesto, scegliere **Applicazione Internet**. Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Creare un'app Web ASP.NET in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] Al momento, Visual Studio Team Services supporta solo le distribuzioni CI di applicazioni Web di Visual Studio. I progetti di sito Web sono esterni all'ambito.
 
@@ -60,7 +56,7 @@ Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.N
 
 	![][9]
 
-## Passaggio 3: Connettere il progetto ad Azure
+## 3: Collegare il progetto ad Azure
 
 1. A questo punto, dopo avere creato un progetto team VS Team Services contenente il codice sorgente, è possibile connettere il progetto team ad Azure. Nel [portale di Azure classico](http://manage.windowsazure.com) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona **+** in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**. Scegliere il collegamento **Imposta pubblicazione con Visual Studio Team Services**.
 
@@ -82,7 +78,7 @@ Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.N
 
 	![][14]
 
-## Passaggio 4: Attivare una ricompilazione e ridistribuire il progetto
+## 4: Attivare una ricompilazione e ridistribuire il progetto
 
 1. In **Team Explorer** di Visual Studio fare clic sul collegamento **Esplora controllo codice sorgente**.
 
@@ -177,19 +173,19 @@ Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.N
 
 	![][33]
 
-## Passaggio 5: Ridistribuire una compilazione precedente
+## 5: Ridistribuire una compilazione precedente
 
 Questo passaggio si applica ai servizi cloud ed è facoltativo. Nel portale di Azure classico selezionare una distribuzione precedente e fare clic sul pulsante **Ridistribuisci** per riportare il sito a un'archiviazione precedente. Si noti che verrà attivata una nuova compilazione in TFS e verrà creata una nuova voce nella cronologia della distribuzione.
 
 ![][34]
 
-## Passaggio 6: Modificare la distribuzione di produzione.
+## 6: Modificare la distribuzione di produzione
 
 Questo passaggio si applica solo ai servizi cloud, non alle app Web. Quando si è pronti, è possibile promuovere l'ambiente di gestione temporanea all'ambiente di produzione scegliendo il pulsante **Scambia** nel portale di Azure classico. L'ambiente di gestione temporanea appena distribuito verrà promosso alla produzione e il precedente ambiente di produzione (se presente) diventerà un ambiente di gestione temporanea. La distribuzione attiva potrebbe differire per gli ambienti di produzione e di gestione temporanea, ma la cronologia di distribuzione delle compilazioni recenti è la stessa indipendentemente dall'ambiente.
 
 ![][35]
 
-## Passaggio 7: Eseguire unit test
+## 7: Eseguire unit test
 
 Questo passaggio si applica solo alle app Web, non ai servizi cloud. Per inserire un controllo qualità nella distribuzione, è possibile eseguire alcuni unit test e, se non riescono, è possibile arrestare la distribuzione.
 
@@ -321,4 +317,4 @@ Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Tea
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

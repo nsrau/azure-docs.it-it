@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
@@ -23,8 +23,6 @@ Gestione risorse di Azure consente ora di controllare l'accesso tramite criteri 
 È possibile creare definizioni dei criteri che descrivono le azioni o le risorse specificamente negate. Le definizioni dei criteri vengono assegnate all'ambito desiderato, ad esempio la sottoscrizione, un gruppo di risorse o una singola risorsa.
 
 Questo articolo illustra la struttura di base del linguaggio di definizione dei criteri che è possibile usare per creare i criteri. Descrive quindi le modalità per l'applicazione di tali criteri in ambiti diversi e infine illustra alcuni esempi di come sia possibile ottenere questi risultati tramite l'API REST.
-
-I criteri sono attualmente disponibili come anteprima.
 
 ## Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 
@@ -56,10 +54,10 @@ I criteri includono fondamentalmente gli elementi seguenti:
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -67,7 +65,7 @@ I criteri includono fondamentalmente gli elementi seguenti:
 
 I criteri vengono valutati quando si verifica la creazione di risorse o la distribuzione del modello utilizzando una richiesta PUT HTTP. In caso di distribuzione del modello, i criteri sono valutati durante la creazione di ogni risorsa nel modello.
 
-Nota: i tipi di risorsa che non supportano tag, tipologia, percorso non vengono valutati dal criterio, come ad esempio Microsoft.Resources/deployments. Il supporto di questa caratteristica verrà aggiunto in futuro. Per evitare problemi di compatibilità con le versioni precedenti, è consigliabile specificare in modo esplicito il tipo durante la creazione di criteri. Ad esempio, viene applicato a tutti i tipi un criterio per i tag senza specificare i tipi, in modo che la distribuzione dei modelli fallisca qualora sia presente una risorsa annidata che non supporta i tag quando verrà aggiunto il tipo di risorsa alla valutazione in un secondo momento.
+> [AZURE.NOTE] I tipi di risorsa che non supportano tag, tipologia, percorso non vengono attualmente valutati dal criterio, come ad esempio il tipo di risorsa Microsoft.Resources/deployments. Il supporto di questo tipo di risorsa verrà aggiunto in futuro. Per evitare problemi di compatibilità con le versioni precedenti, è consigliabile specificare in modo esplicito il tipo durante la creazione di criteri. Ad esempio, a tutti i tipi viene applicato un criterio per i tag che non specifica i tipi, in modo che la distribuzione del modello non sarà completata in presenza di una risorsa annidata che non supporta il tag, mentre il tipo di risorsa della distribuzione sarà aggiunto alla valutazione criteri.
 
 ## Operatori logici
 
@@ -93,47 +91,80 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 | In | "in" : [ "&lt;valore1&gt;","&lt;valore2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nomeChiave&gt;" |
 
-## Campi e origini
+### Campi e origini
 
 Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa. Un'origine rappresenta le caratteristiche della richiesta stessa.
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.*** e **property alias**.
+Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e ** alias proprietà**.
 
 Origini: **action**.
 
-Property alias è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto per PowerShell verrà aggiunto in futuro.
+### Alias delle proprietà 
+L'alias delle proprietà è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto di PowerShell verrà aggiunto in futuro:
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-La definizione di un alias è simile a quanto segue. Come si può vedere, un alias definisce percorsi in diverse versioni di API, anche quando si verifica una modifica del nome di una proprietà.
+Di seguito è illustrata la definizione di un alias. È possibile notare che un alias definisce percorsi in diverse versioni di API, anche in caso di una modifica del nome di una proprietà.
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 Attualmente, gli alias supportati sono:
 
 | Nome alias | Descrizione |
 | ---------- | ----------- |
-| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 
 
 Per ulteriori informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md). Attualmente, il criterio funziona solo su richieste PUT.
 
+## Effetto
+Il criterio supporta tre tipi di effetto: **negazione**, **controllo** e **aggiunta**.
+
+- La negazione genera un evento nel log di controllo e nega la richiesta
+- Il controllo genera un evento nel log di controllo, ma non nega la richiesta
+- L'aggiunta aggiunge il set di campi definiti alla richiesta 
+
+In caso di **aggiunta** è necessario specificare i dettagli illustrati di seguito:
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+Il valore può essere una stringa o un oggetto formato JSON.
 
 ## Esempi di definizioni di criteri
 
@@ -154,6 +185,51 @@ Il criterio seguente nega tutte le richieste senza un tag con la chiave "costCen
         "effect" : "deny"
       }
     }
+
+Il criterio seguente aggiunge il tag costCenter con un valore predefinito se non esistono tag.
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+Il criterio seguente aggiunge il tag costCenter con un valore predefinito se esistono altri tag.
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### Conformità geografica: verifica della posizione delle risorse
@@ -311,22 +387,23 @@ Con un corpo della richiesta simile al seguente:
     }
 
 
-La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version, usare *2015-10-01-preview*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Come api-version, usare *2016-04-01*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Creare una definizione di criteri tramite PowerShell
 
 È possibile creare una nuova definizione di criteri usando il cmdlet New-AzureRmPolicyDefinition, come illustrato di seguito. Negli esempi seguenti viene creato un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
 L'output dell'esecuzione viene archiviato nell'oggetto $policy, in modo da poterlo usare in seguito durante l'assegnazione dei criteri. Per il parametro dei criteri, è anche possibile specificare il percorso di un file con estensione JSON contenente i criteri invece di specificare criteri inline come illustrato di seguito.
 
@@ -343,7 +420,7 @@ Per creare una nuova assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2015-10-01-preview*.
+{policy-assignment} è il nome dell'assegnazione di criteri. Come api-version, usare *2016-04-01*.
 
 Con un corpo della richiesta simile al seguente:
 
@@ -380,11 +457,11 @@ Dopo aver applicato il criterio, si inizierà a visualizzare gli eventi correlat
 
 Per visualizzare tutti gli eventi correlati all'effetto di negazione, è possibile utilizzare il comando seguente.
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibile utilizzare il comando seguente.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

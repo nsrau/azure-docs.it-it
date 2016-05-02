@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Creare cluster Hadoop, HBase, Storm o Spark in Linux in HDInsight tramite la CLI di Azure | Microsoft Azure"
-   	description="Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite la CLI di Azure."
+   	pageTitle="Creare cluster Hadoop, HBase, Storm o Spark con Linux in HDInsight tramite Azure PowerShell | Microsoft Azure"
+   	description="Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -146,4 +146,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,12 +1,14 @@
-## Troubleshoot connectivity issues
-Use the **Diagnostics** tab of **Data Management Gateway Configuration Manager** to troubleshoot connection issues. 
+## Risoluzione dei problemi di connettività
+Usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati** per risolvere i problemi di connessione.
 
-1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image. 
+1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come indicato nell'immagine seguente. 
 
-	![Search gateway](./media/data-factory-troubleshoot-connectivity/search-gateway.png)
-2. Switch to the **Diagnostics** tab.
+	![Ricerca nel gateway](./media/data-factory-troubleshoot-connectivity/search-gateway.png)
+2. Passare alla scheda **Diagnostica**.
 
-	![Gateway diagnostics](./media/data-factory-troubleshoot-connectivity/data-factory-gateway-diagnostics.png) 
-3. Select the **type** of data store (linked service). 
-4. Specify **authentication** and enter **credentials** (or) enter **connection string** to connect to the data store. 
-5. Click **Test connection** to test the connection to the data store. 
+	![Diagnostica del gateway](./media/data-factory-troubleshoot-connectivity/data-factory-gateway-diagnostics.png) 
+3. Selezionare il **tipo** di dati archiviati (servizio collegato). 
+4. Specificare l'**autenticazione** e immettere le **credenziali** o immettere la **stringa di connessione** per la connessione all'archivio dati. 
+5. Fare clic su **Test connessione** per testare la connessione all'archivio dati. 
+
+<!---HONumber=AcomDC_0420_2016-->

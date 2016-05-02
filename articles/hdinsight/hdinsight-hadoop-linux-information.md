@@ -27,6 +27,9 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 
 * [cURL](https://curl.haxx.se/): consente di comunicare con servizi basati su Web
 * [jq](https://stedolan.github.io/jq/): consente di analizzare i documenti JSON
+* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md): consente di gestire in remoto i servizi di Azure
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Nomi di dominio
 
@@ -115,7 +118,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente, sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
+1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -254,4 +257,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

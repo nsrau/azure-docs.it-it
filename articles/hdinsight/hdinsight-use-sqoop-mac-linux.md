@@ -34,6 +34,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Workstation**: un computer con un client SSH.
 - **Interfaccia della riga di comando di Azure**: per ulteriori informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Esportazione con Sqoop
 
 2. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop di usare tale driver per comunicare con il database SQL:
@@ -50,7 +52,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da **wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
+    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da ****wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
 
 5. Al termine dell'esecuzione del comando, usare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -65,7 +67,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory ****wasb:///tutorials/usesqoop/importeddata** in HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -142,4 +144,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

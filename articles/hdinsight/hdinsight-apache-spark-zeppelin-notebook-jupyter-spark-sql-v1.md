@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-# Guida introduttiva: creare Apache Spark in HDInsight ed eseguire query interattive usando SQL Spark (Windows)
+# Avvio rapido: creare Apache Spark in HDInsight Windows ed eseguire query interattive usando Spark SQL (anteprima)
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -262,4 +262,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

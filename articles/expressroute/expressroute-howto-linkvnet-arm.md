@@ -1,30 +1,31 @@
 <properties 
-   pageTitle="Collegamento di reti virtuali a circuiti ExpressRoute | Microsoft Azure"
-   description="Questo documento fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute."
+   pageTitle="Collegamento di una rete virtuale a un circuito ExpressRoute con PowerShell | Microsoft Azure"
+   description="Questo documento offre una panoramica sulle procedure di collegamento delle reti virtuali (Vnet) ai circuiti ExpressRoute usando il modello di distribuzione di Gestione risorse e PowerShell."
    services="expressroute"
    documentationCenter="na"
    authors="ganesr"
-   manager="carolz"
+   manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/14/2016"
    ms.author="ganesr" />
 
-# Collegamento di reti virtuali a circuiti ExpressRoute
+# Collegare una rete virtuale a un circuito ExpressRoute
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classico](expressroute-howto-linkvnet-classic.md)
+- [Portale di Azure - Gestione risorse](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell - Gestione risorse](expressroute-howto-linkvnet-arm.md)
-- [Modello - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell - Classico](expressroute-howto-linkvnet-classic.md)
 
-Questo articolo fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Questo articolo si applica alle reti virtuali distribuite mediante il modello di distribuzione Gestione risorse. Se si vuole collegare una rete virtuale che è stata distribuita con il modello di distribuzione classica, vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
+
+Questo articolo spiega come collegare le reti virtuali (Vnet) ai circuiti ExpressRoute usando il modello di distribuzione di Gestione risorse e PowerShell. Le reti virtuali possono essere nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -33,16 +34,16 @@ Questo articolo fornisce una panoramica delle operazioni per il collegamento di 
 ## Prerequisiti di configurazione
 
 - Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell, la versione 1.0 o quelle successive. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
-- Prima di procedere con la configurazione, leggere la pagina [prerequisiti](expressroute-prerequisites.md), la pagina [requisiti di routing](expressroute-routing.md) e la pagina [flussi di lavoro](expressroute-workflows.md).
+- Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 - È necessario avere un circuito ExpressRoute attivo. 
 	- Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività. 
 	- Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo relativo alla [configurazione del routing](expressroute-howto-routing-arm.md) per istruzioni relative al routing. 
 	- Per abilitare la connettività end-to-end deve essere configurato il peering privato di Azure e deve essere attivo il peering BGP tra la rete e Microsoft.
-	- È necessario disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni relative alla creazione di un [gateway VPN](../articles/vpn-gateway-create-site-to-site-rm-powershell.md) e assicurarsi di usare `-GatewayType ExpressRoute`.
+	- È necessario disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni relative alla creazione di un [gateway VPN](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) e assicurarsi di usare `-GatewayType ExpressRoute`.
 
 È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute. Tutti i circuiti ExpressRoute devono trovarsi nella stessa area geopolitica. È possibile collegare numerose reti virtuali al circuito ExpressRoute se è stato abilitato il componente aggiuntivo ExpressRoute Premium. Per altre informazioni sul componente aggiuntivo Premium, vedere le [domande frequenti](expressroute-faqs.md).
 
-## Collegamento di una rete virtuale della stessa sottoscrizione di Azure a un circuito ExpressRoute
+## Collegamento di una rete virtuale della stessa sottoscrizione a un circuito
 
 È possibile collegare un gateway di rete virtuale a un circuito ExpressRoute usando il cmdlet seguente. Prima di eseguire il cmdlet, assicurarsi che il gateway di rete virtuale sia stato creato e sia pronto per il collegamento.
 
@@ -50,9 +51,11 @@ Questo articolo fornisce una panoramica delle operazioni per il collegamento di 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 
-## Collegare una rete virtuale di una sottoscrizione di Azure diversa a un circuito ExpressRoute
+## Collegamento di una rete virtuale di un'altra sottoscrizione a un circuito
 
-Un circuito ExpressRoute può essere condiviso tra più sottoscrizioni. La figura seguente mostra un semplice schema del funzionamento della condivisione di circuiti ExpressRoute tra più sottoscrizioni. Ognuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ogni reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma può condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
+Un circuito ExpressRoute può essere condiviso tra più sottoscrizioni. La figura seguente mostra un semplice schema del funzionamento della condivisione di circuiti ExpressRoute tra più sottoscrizioni.
+
+Ognuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ogni reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma può condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
 
 >[AZURE.NOTE] I costi relativi a connettività e larghezza di banda per il circuito dedicato saranno addebitati al proprietario del circuito ExpressRoute. Tutte le reti virtuali condividono la stessa larghezza di banda.
 
@@ -72,21 +75,21 @@ Il proprietario del circuito crea un'autorizzazione. Questo comporta la creazion
 
 Il frammento di cmdlet riportato di seguito mostra come creare un'autorizzazione.
 
-		Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-		$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-		$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
 
 La risposta conterrà la chiave di autorizzazione e lo stato
 
-		Name                   : MyAuthorization1
-		Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
-		Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-		AuthorizationKey       : ####################################
-		AuthorizationUseStatus : Available
-		ProvisioningState      : Succeeded
+	Name                   : MyAuthorization1
+	Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
+	Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+	AuthorizationKey       : ####################################
+	AuthorizationUseStatus : Available
+	ProvisioningState      : Succeeded
 
 		
 
@@ -139,4 +142,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

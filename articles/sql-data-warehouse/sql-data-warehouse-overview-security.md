@@ -18,7 +18,7 @@
 
 # Proteggere un database in SQL Data Warehouse
 
-Questo articolo illustra i concetti di base relativi alla protezione del proprio database di Azure SQL Data Warehouse. In particolare l'articolo spiegherà come iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database.
+Questo articolo illustra i concetti di base relativi alla protezione del proprio database di Azure SQL Data Warehouse. In particolare l'articolo spiega come iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database.
 
 ## Sicurezza delle connessioni
 
@@ -29,7 +29,7 @@ Le regole del firewall vengono usate dal server e dal database per rifiutare i t
 
 ## Autenticazione
 
-Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. SQL Data Warehouse attualmente supporta l'autenticazione SQL con un nome utente e una password.
+Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. SQL Data Warehouse attualmente supporta l'autenticazione di SQL Server con un nome utente e una password.
 
 Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Utilizzando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo".
 
@@ -67,15 +67,15 @@ L'account di amministrazione del server a cui ci si sta connettendo è un membro
 
 Esistono modi per limitare ulteriormente le operazioni possibili con il database SQL di Azure:
 
-- È possibile utilizzare [ruoli del database][] diversi da db\_datareader e db\_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti.
-- È possibile utilizzare [autorizzazioni][] che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database.
+- È possibile utilizzare [autorizzazioni][] che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. Usare le autorizzazioni granulari per avere il massimo controllo e concedere solo le autorizzazioni necessarie. Il sistema di autorizzazioni granulari è complesso; per usarlo in modo efficace è necessario un certo grado di preparazione.
+- È possibile utilizzare [ruoli del database][] diversi da db\_datareader e db\_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. I ruoli del database predefiniti incorporati sono una soluzione semplice per la concessione di autorizzazioni, ma possono concedere più autorizzazioni di quelle necessarie.
 - È possibile utilizzare le [Stored procedure][] per limitare le operazioni che possono essere eseguite nel database.
 
 La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per ulteriori informazioni su questo argomento, vedere [Controllo di accesso basato sui ruoli nel portale di Azure][].
 
 ## Crittografia
 
-Azure SQL Data Warehouse consente di proteggere i dati mediante la crittografia dei dati quando sono in stato "inattivo" o vengono archiviati in file di database e backup, utilizzando la funzionalità [Transparent Data Encryption][]. Per crittografare il database, connettersi al database master nel server ed eseguire:
+Azure SQL Data Warehouse consente di proteggere i dati mediante la crittografia dei dati quando sono in stato "inattivo" o vengono archiviati in file di database e backup, utilizzando la funzionalità [Transparent Data Encryption][]. Per abilitare Transparent Data Encryption è necessario essere un amministratore o un membro del ruolo dbmanager nel database master. Per crittografare il database, connettersi al database master nel server ed eseguire:
 
 
 ```sql
@@ -84,7 +84,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure classico][].
+È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure classico][]. Per altre informazioni, vedere [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Controllo
 
@@ -92,6 +92,7 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+
 
 <!--Image references-->
 
@@ -112,4 +113,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

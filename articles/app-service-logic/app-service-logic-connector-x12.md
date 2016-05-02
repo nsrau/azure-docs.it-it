@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Uso dell'app per le API di BizTalk X12 e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Usare il servizio BizTalk X12 per ricevere e inviare messaggi mediante il protocollo X12 nelle comunicazioni B2B (Business to Business). X12 è anche noto come ASC X12 (Accredited Standards Committee X12) ed è ampiamente usato in vari settori.
 
@@ -42,25 +44,17 @@ Il connettore X12 può essere usato come trigger o come azione.
 
 ### Trigger
 - Avviare la progettazione del flusso delle app per la logica di Azure.
-- Fare clic sul connettore X12 dal riquadro destro:
-![Impostazioni di trigger][3]
-- Fare clic su ->:
-![Opzioni di trigger][4]
-- Il connettore BizTalk X12 espone un solo trigger. Selezionare *Release Batch*:
-![Input di Release Batch][5]
-- Questo trigger non include input. Fare clic su ->:
-![Configurazione di Release Batch][6]
+- Fare clic sul connettore X12 dal riquadro destro: ![Impostazioni di trigger][3]
+- Fare clic su ->: ![Opzioni di trigger][4]
+- Il connettore BizTalk X12 espone un solo trigger. Selezionare *Release Batch*: ![Input di Release Batch][5]
+- Questo trigger non include input. Fare clic su ->: ![Configurazione di Release Batch][6]
 - Come parte dell'output, il connettore restituisce il payload X12, l'ID del contratto nonché informazioni che indicano se il messaggio viene inviato in batch.
 
 ### Azione
-- Fare clic sul connettore X12 dal riquadro destro:
-![Impostazioni di azione][7]
-- Fare clic su ->:
-![Elenco di azioni][8]
-- Il connettore X12 supporta molte azioni. Selezionare *Encode*:
-![Input di Encode][9]
-- Fornire gli input per l'azione e configurarla:
-![Configurazione di Encode][10]
+- Fare clic sul connettore X12 dal riquadro destro: ![Impostazioni di azione][7]
+- Fare clic su ->: ![Elenco di azioni][8]
+- Il connettore X12 supporta molte azioni. Selezionare *Encode*: ![Input di Encode][9]
+- Fornire gli input per l'azione e configurarla: ![Configurazione di Encode][10]
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
@@ -93,4 +87,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

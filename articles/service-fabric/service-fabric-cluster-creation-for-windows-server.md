@@ -23,9 +23,9 @@ Azure Service Fabric permette di creare cluster Service Fabric su qualsiasi macc
 
 Questo articolo illustra i passaggi per creare un cluster tramite il pacchetto autonomo per il Service Fabric locale, anche se può essere facilmente adattato a qualsiasi altro ambiente, ad esempio cloud.
 
-## Pacchetto autonomo Service Fabric
+## Download del pacchetto autonomo Service Fabric
 
-Il pacchetto autonomo per le distribuzioni di Service Fabric per Windows Server 2012 R2 si chiama *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* e può essere scaricato [qui](http://go.microsoft.com/fwlink/?LinkId=730690).
+[Scaricare il pacchetto autonomo per Service Fabric per Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), denominato *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 Nel pacchetto di download sono disponibili i seguenti file:
 
@@ -114,4 +114,4 @@ Leggere le seguenti informazioni introduttive sulla distribuzione e sullo svilup
 Per ulteriori informazioni sui cluster di Azure e sui cluster autonomi:
 - [Panoramica della funzionalità di creazione di cluster autonomi e confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

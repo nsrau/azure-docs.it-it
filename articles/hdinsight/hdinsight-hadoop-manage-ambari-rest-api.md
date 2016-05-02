@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'API REST Ambari
@@ -29,6 +29,9 @@ Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop graz
 
 * [cURL](http://curl.haxx.se/): cURL è un'utilità multipiattaforma che consente di utilizzare le API REST dalla riga di comando. In questo documento viene usata per comunicare con l'API REST Ambari.
 * [jq](https://stedolan.github.io/jq/): jq è un'utilità da riga di comando multipiattaforma per l'utilizzo di documenti JSON. In questo documento viene usata per analizzare i documenti JSON restituiti dall'API REST Ambari.
+* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md): è un'utilità da riga di comando multipiattaforma per lavorare con i servizi Azure.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##<a id="whatis"></a>Cos'è Ambari?
 
@@ -111,7 +114,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-È quindi possibile usare queste informazioni con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per caricare o scaricare dati dal contenitore. Ad esempio:
+È quindi possibile usare queste informazioni con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per caricare o scaricare dati dal contenitore.
 
 1. Ottenere il gruppo di risorse per l'account di archiviazione. Sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
@@ -163,7 +166,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
     È necessario copiare il nome del componente, ad esempio __spark\_thrift\_sparkconf__, e il valore __tag__ dall'elenco.
     
-2. Recuperare la configurazione del componente e del tag usando il comando seguente. Sostituire __spark-thrift-sparkconf__ e __INITIAL__ con il componente e il tag di cui si desidera recuperare la configurazione.
+2. Recuperare la configurazione del componente e del tag usando il comando seguente. Sostituire __spark-thrift-sparkconf__ e __INITIAL__ con il componente e il tag di cui si vuole recuperare la configurazione.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
@@ -171,11 +174,11 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
     
     * Crea un valore univoco contenente la stringa "version" e la data che viene archiviato in __newtag__
     * Crea un documento radice per la nuova configurazione desiderata
-    * Ottiene il contenuto della matrice .items e lo aggiunge sotto l'elemento __desired\_config__.
+    * Ottiene il contenuto della matrice items e lo aggiunge sotto l'elemento __desired\_config__.
     * Elimina gli elementi __href__, __version__ e __Config__ poiché non sono necessari per l'invio di una nuova configurazione
-    * Aggiunge un nuovo elemento __tag__ e imposta il valore su __version#################__ dove la parte numerica è basata sulla data corrente. Ogni configurazione deve avere un tag univoco.
+    * Aggiunge un nuovo elemento __tag__ e ne imposta il valore su __version#################__, dove la parte numerica è basata sulla data corrente. Ogni configurazione deve avere un tag univoco.
     
-    Infine, i dati vengono salvati nel documento __newconfig.json__. La struttura del documento sarà simile a quella riportata di seguito:
+    Infine i dati vengono salvati nel documento __newconfig.json__. La struttura del documento sarà simile a quella riportata di seguito:
     
         {
             "Clusters": {
@@ -206,7 +209,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
 ###Esempio: Riavviare un componente del servizio
 
-A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark richiederà il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio. In particolare:
+A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark richiederà il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio.
 
 1. Usare il codice seguente per attivare la modalità di manutenzione del servizio Spark.
 
@@ -254,4 +257,4 @@ Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle
 
 > [AZURE.NOTE] Alcune funzionalità di Ambari sono disabilitate, perché vengono gestite dal servizio cloud HDInsight, ad esempio, l'aggiunta o la rimozione di host dal cluster o l'aggiunta di nuovi servizi.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

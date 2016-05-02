@@ -19,7 +19,7 @@
 
 # Collegare un disco dati a una macchina virtuale Windows nel portale di Azure
 
-In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Linux nel portale di Azure](virtual-machines-linux-attach-disk-portal.md). Prima di procedere, rivedere i suggerimenti seguenti:
+Questo articolo illustra come collegare dischi nuovi o esistenti a una macchina virtuale Windows tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Linux nel portale di Azure](virtual-machines-linux-attach-disk-portal.md). Prima di procedere, rivedere i suggerimenti seguenti:
 
 - La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md).
 - Per utilizzare l'archiviazione Premium, è necessario utilizzare una macchina virtuale della serie DS o serie GS. È possibile utilizzare dischi dagli account di archiviazione sia Premium che Standard con queste macchine virtuali. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
@@ -31,7 +31,7 @@ In questo articolo viene illustrato come collegare dischi nuovi o esistenti a un
 
 ## <a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
 
-1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-windows-log-on.md).
+1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows Server](virtual-machines-windows-connect-logon.md).
 
 2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
 
@@ -55,4 +55,4 @@ In questo articolo viene illustrato come collegare dischi nuovi o esistenti a un
 
 Se l'applicazione deve usare l'unità D: per archiviare i dati, è possibile [modificare la lettera di unità del disco temporaneo di Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

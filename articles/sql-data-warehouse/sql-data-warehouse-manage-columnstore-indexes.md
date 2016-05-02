@@ -123,7 +123,7 @@ Dopo avere eseguito la query, è possibile iniziare a esaminare i dati e analizz
 | [OPEN\_rowgroup\_rows\_MIN] | I gruppi aperti indicano che i dati vengono caricati gradualmente nella tabella o che il carico precedente ha distribuito le righe rimanenti in questo rowgroup. Usare le colonne MIN, MAX, AVG per visualizzare la quantità di dati rimasta nei rowgroup OPEN. Per le tabelle di piccole dimensioni potrebbe essere il 100% di tutti i dati. In tal caso, usare ALTER INDEX REBUILD per forzare i dati nel columnstore. |
 | [OPEN\_rowgroup\_rows\_MAX] | Come sopra. |
 | [OPEN\_rowgroup\_rows\_AVG] | Come sopra. |
-| [CLOSED\_rowgroup\_rows] | Esaminare le righe dei rowgroup Closed come controllo di integrità. Se |
+| [CLOSED\_rowgroup\_rows] | Esaminare le righe dei rowgroup Closed come controllo di integrità. |
 | [CLOSED\_rowgroup\_count] | Il numero di rowgroup Closed deve essere basso o non essere visualizzato affatto. I rowgroup Closed possono essere convertiti in rowgroup Compressed usando il comando ALTER INDEX... REORGANISE. In genere questa operazione non è tuttavia richiesta. I gruppi Closed vengono convertiti automaticamente in rowgroup del columnstore dal processo in background del "motore di tuple". |
 | [CLOSED\_rowgroup\_rows\_MIN] | I rowgroup Closed devono avere una velocità di riempimento (fill rate) molto elevata. Se la velocità di riempimento per un rowgroup Closed è bassa, è necessaria un'ulteriore analisi del columnstore. |
 | [CLOSED\_rowgroup\_rows\_MAX] | Come sopra. |
@@ -259,4 +259,4 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica della [gesti
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

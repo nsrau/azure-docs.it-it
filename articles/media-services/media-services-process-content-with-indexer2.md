@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
 # Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
-
 
 ##Panoramica
 
@@ -91,7 +90,7 @@ Azure Media Indexer 2 Preview supporta il riconoscimento vocale per le lingue se
 
 ## Codice di esempio
 
-Il programma seguente illustra come eseguire queste operazioni:
+Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
 1. Creare un processo con un'attività di indicizzazione in base al file di configurazione che contiene il set di impostazioni JSON seguente.
@@ -286,6 +285,8 @@ Il programma seguente illustra come eseguire queste operazioni:
 
 ## Collegamenti correlati
 
-[Panoramica dell'analisi di Servizi multimediali di Azure](media-services-analytics-overview.md)
+[Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

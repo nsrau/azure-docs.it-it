@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cos'è R su HDInsight? Introduzione a R Server su HDInsight | Microsoft Azure"
-	description="Cos'è R su HDInsight e come usare R per creare applicazioni per l'analisi di Big Data."
+	pageTitle="Cos'è R su HDInsight? Introduzione a R Server su HDInsight (anteprima) | Microsoft Azure"
+	description="Cos'è R Server su HDInsight (anteprima) e come usare R per creare applicazioni per l'analisi di Big Data."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,7 +17,7 @@
    ms.author="jeffstok"/>
 
 
-# Panoramica: R Server su HDInsight
+#Panoramica: R Server su HDInsight (anteprima)
 
 R Server è ora disponibile come opzione in HDInsight Premium quando si creano cluster HDInsight in Azure. Questa nuova capacità offre ai data scientist, agli statistici e ai programmatori R l'accesso su richiesta a metodi di analisi scalabili e distribuiti su HDInsight. I cluster possono essere dimensionati in base ai progetti e alle attività ed eliminati quando non servono più. Essendo parte di Azure HDInsight, questi cluster includono il supporto 24/7 a livello di organizzazione, un contratto di servizio che prevede tempi di attività pari al 99,9% e la flessibilità di integrazione con altri componenti dell'ecosistema Azure.
 
@@ -109,4 +109,4 @@ Per leggere altre informazioni sull'uso di R Server con i cluster HDInsight, seg
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

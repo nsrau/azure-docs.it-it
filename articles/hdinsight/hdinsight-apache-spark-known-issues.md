@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Problemi noti di Apache Spark in Azure HDInsight (Linux)
+# Problemi noti di Apache Spark su HDInsight Linux (anteprima)
 
 Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di HDInsight Spark.
 
 ##Livy perde la sessione interattiva
  
-**Sintomo:**
-
 Quando Livy viene riavviato con una sessione interattiva (da Ambari oppure a causa del riavvio della macchina virtuale con nodo head 0) ancora attiva, una sessione interattiva andrà persa. Per questo motivo, i nuovi processi possono rimanere bloccati in stato Accettato e non possono essere avviati.
 
 **Soluzione:**
@@ -46,8 +44,6 @@ Verranno avviati nuovi processi.
 
 ##Il server cronologia Spark non viene avviato 
 
-**Sintomo:**
- 
 Il server cronologia Spark non viene avviato automaticamente dopo la creazione di un cluster.
 
 **Soluzione:**
@@ -56,8 +52,6 @@ Avviare manualmente il server cronologia da Ambari.
 
 ## Problema di autorizzazioni nella directory log Spark 
 
-**Sintomo:**
- 
 Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (autorizzazione negata) e il log del driver non viene scritto.
 
 **Soluzione:**
@@ -71,13 +65,21 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 
 Seguito alcuni problemi noti relativi ai notebook Jupyter.
 
+### Non è possibile scaricare i notebook Jupyter nel formato ipynb
+
+Se si esegue la versione più recente dei notebook Jupyter per HDInsight Spark e si tenta di scaricare una copia del notebook in formato **ipynb** dall'interfaccia utente del notebook Jupyter, si potrebbe visualizzare un errore interno del server.
+
+**Soluzione:**
+
+1.	Un metodo efficace è scaricare il notebook in un formato diverso da ipynb, ad esempio con estensione txt.  
+2.	Se occorre il file ipynb, è possibile scaricarlo dal contenitore del cluster nell'account di archiviazione nel percorso **/HdiNotebooks**. Ciò vale solo per la versione più recente dei notebook Jupyter per HDInsight, che supporta i backup del notebook nell'account di archiviazione. Questo problema non si verifica con le versioni precedenti dei notebook Jupyter per HDInsight Spark.
+
+
 ### Notebook con nomi di file contenenti caratteri non ASCII
 
 I notebook Jupyter utilizzabili nei cluster HDInsight Spark non devono contenere nei nomi di file caratteri non ASCII. Se si tenta di caricare tramite l'interfaccia utente Jupyter un file con un nome di file non ASCII, l'operazione si interromperà senza avvisi. Questo significa che Jupyter non consentirà di caricare il file, ma non genererà un errore visibile.
 
 ### Errore durante il caricamento di notebook di maggiori dimensioni
-
-**Sintomo:**
 
 Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore **`Error loading notebook`**.
 
@@ -92,17 +94,13 @@ Per evitare questo errore in futuro, è necessario seguire alcune procedure cons
 
 ### L'avvio iniziale del notebook richiede più tempo del previsto 
 
-**Sintomo:**
-
-La prima istruzione nel notebook di Jupyter tramite magic Spark potrebbe richiedere più di un minuto.
+La prima istruzione del codice nel notebook di Jupyter tramite il magic Spark potrebbe richiedere più di un minuto.
 
 **Spiegazione:**
  
 Ciò accade quando viene eseguita la prima cella di codice. In background viene avviata la configurazione della sessione e vengono impostati i contesti Spark, SQL e Hive. La prima istruzione viene eseguita dopo l'impostazione di questi contesti, dando l'impressione che l'esecuzione dell'istruzione impieghi molto tempo.
 
 ### Timeout del notebook di Jupyter durante la creazione della sessione
-
-**Sintomo:**
 
 Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei kernel Spark e Pyspark nel notebook di Jupyter quando si cerca di creare la sessione.
 
@@ -124,4 +122,4 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 - [Panoramica: Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introduzione: eseguire il provisioning di Apache Spark in Azure HDInsight (Linux) ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Eseguire attività di preparazione e completamento di processi in nodi di calcolo di Azure Batch
 
 I processi di Azure Batch spesso richiedono una forma di installazione prima dell'esecuzione e, analogamente, una sorta di manutenzione post-processo al completamento delle attività del processo. Batch fornisce i meccanismi per tali operazioni di preparazione e manutenzione sotto forma di attività facoltative di *preparazione del processo* e *rilascio del processo*.
@@ -78,7 +78,7 @@ In questo frammento di codice `myBatchClient` è un'istanza completamente inizia
 
 		await myJob.CommitAsync();
 
-Come indicato in precedenza, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. La conclusione di un processo con l'API Batch .NET viene eseguita chiamando [PoolOperations.TerminateJobAsync][net_job_terminate]. L'eliminazione di un processo viene eseguita con [PoolOperations.DeleteJobAsync][net_job_delete]. Entrambe queste azioni vengono in genere eseguite quando si completano le attività di un processo o quando si raggiunge un timeout definito dall'utente.
+Come indicato in precedenza, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. La conclusione di un processo con l'API .NET Batch viene eseguita chiamando [JobOperations.TerminateJobAsync][net_job_terminate]. L'eliminazione di un processo viene eseguita con [JobOperations.DeleteJobAsync][net_job_delete]. Entrambe queste azioni vengono in genere eseguite quando si completano le attività di un processo o quando si raggiunge un timeout definito dall'utente.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ L'immagine seguente illustra le proprietà dell'attività di preparazione e rila
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->
