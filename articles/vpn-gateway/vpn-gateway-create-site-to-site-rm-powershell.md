@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/16/2016"
+   ms.date="04/21/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager
@@ -189,4 +189,4 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -57,6 +57,18 @@ Protocol | TCP
 
 ![](media/dcos/dcos6.png)
 
+Se si vuole eseguire il mapping in modo statico della porta del contenitore a una porta dell'agente, è necessario usare "JSON Mode". A tale scopo, nella procedura guidata New Application passare a JSON Mode usando l'interruttore e immettere le informazioni seguenti nella sezione 'portMappings' della definizione dell'applicazione. Questo esempio associa la porta 80 del contenitore alla porta 80 dell'agente di DC/OS. Una volta apportata questa modifica, si può passare di nuovo da JSON Mode e alla procedura guidata.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+Il cluster CD/OS viene distribuito con un set di agenti privati e pubblici. Per accedere alle applicazioni da Internet, è necessario distribuirle a un agente pubblico. A tale scopo, selezionare la scheda 'optional' della procedura guidata New Application e immettere 'slave\_public' per 'Accepted Resource Roles'.
+
+![](media/dcos/dcos14.png)
+
 Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato di distribuzione del contenitore.
 
 ![](media/dcos/dcos7.png)
@@ -71,7 +83,7 @@ Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
 
 ## Ridimensionare i contenitori
 
-L'interfaccia utente di Marathon consente di ridimensionare il numero di istanze di un contenitore. A questo scopo, passare alla pagina di Marathon, selezionare il contenitore da ridimensionare e quindi fare clic sul pulsante **Ridimensiona**. Nella finestra di dialogo **Ridimensiona applicazione** immettere il numero di istanze del contenitore desiderato e selezionare **Ridimensiona applicazione**.
+L'interfaccia utente di Marathon consente di ridimensionare il numero di istanze di un contenitore. A questo scopo, passare alla pagina di Marathon, selezionare il contenitore da ridimensionare e quindi fare clic sul pulsante **Scale**. Nella finestra di dialogo **Scale Application** immettere il numero desiderato di istanze del contenitore e selezionare **Scale Application**.
 
 ![](media/dcos/dcos10.png)
 
@@ -85,4 +97,4 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 [Utilizzare l'API Marathon e DC/OS](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
@@ -290,4 +290,4 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 - Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

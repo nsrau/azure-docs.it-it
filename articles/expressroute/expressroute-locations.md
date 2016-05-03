@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
 
 Le tabelle in questo articolo includono informazioni su provider di connettività ExpressRoute, copertura geografica di ExpressRoute, servizi cloud Microsoft supportati tramite ExpressRoute e integratori di sistemi ExpressRoute.
 
-## Provider di connettività ExpressRoute
+## <a name="partners"></a>Provider di connettività ExpressRoute
 
 ExpressRoute è supportato in tutte le aree e le località di Azure. La mappa seguente fornisce un elenco di aree di Azure e località per ExpressRoute. Per località ExpressRoute si intendono le aree in cui è attivo il peering di Microsoft con alcuni provider di servizi.
 
@@ -118,7 +118,7 @@ Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn
 | **e-shelter** | Presto disponibile | Non supportato | Berlino+|
 | **Interxion** | Supportato | Non supportato | Francoforte|
 
-## Connettività tramite provider di servizi non elencati
+## <a name="nonpartners"></a>Connettività tramite provider di servizi non elencati
 
 Se il provider di connettività non è incluso nelle sezioni precedenti, sarà comunque possibile creare una connessione.
 
@@ -157,4 +157,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

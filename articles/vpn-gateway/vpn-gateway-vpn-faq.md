@@ -3,8 +3,8 @@
    description="Domande frequenti sul gateway VPN. Domande frequenti relative alle connessioni cross-premise di Rete virtuale di Microsoft Azure, alle connessioni con configurazioni ibride e ai gateway VPN"
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="yushwang"
+   manager="rossort"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/10/2016"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Domande frequenti sul gateway VPN
 
@@ -273,4 +273,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

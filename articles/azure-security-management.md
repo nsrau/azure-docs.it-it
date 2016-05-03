@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
 # Gestione della sicurezza in Azure
@@ -28,7 +28,7 @@ Il rischio di attacco aumenta in questo tipo di ambiente perché risulta diffici
 
 ### Minacce relative alla gestione remota
 
-Gli utenti malintenzionati provano spesso a ottenere l'accesso con privilegi elevati mediante la compromissione delle credenziali dell'account, ad esempio tramite attacchi di forza bruta alle password, phishing e recupero di credenziali, oppure inducendo gli utenti a eseguire codice dannoso, ad esempio da siti Web dannosi con download inconsapevoli o da allegati dannosi in messaggi di posta elettronica. In un ambiente cloud con gestione remota le violazioni degli account possono comportare un aumento del rischio a causa dell'accesso da qualsiasi posizione e in qualsiasi momento.
+Gli utenti malintenzionati provano spesso a ottenere l'accesso con privilegi mediante la compromissione delle credenziali dell'account, ad esempio tramite attacchi di forza bruta alle password, phishing e recupero di credenziali, oppure inducendo gli utenti a eseguire codice dannoso, ad esempio da siti Web dannosi con download inconsapevoli o da allegati dannosi in messaggi di posta elettronica. In un ambiente cloud con gestione remota le violazioni degli account possono comportare un aumento del rischio a causa dell'accesso da qualsiasi posizione e in qualsiasi momento.
 
 Anche se sono disponibili controlli rigorosi sugli account amministratore principali, gli account degli utenti a livelli inferiori possono essere usati per sfruttare i punti deboli della strategia di sicurezza. Anche una formazione insufficiente a livello di sicurezza può provocare violazioni tramite diffusione o esposizione accidentale delle informazioni sull'account.
 
@@ -38,21 +38,28 @@ In genere, la maggior parte degli attacchi specifici che generano violazioni dei
 
 ### Concetti fondamentali sulla sicurezza operativa
 
-Per ottenere una gestione e operazioni più sicure, è possibile ridurre al minimo la superficie di attacco di un client riducendo il numero di punti di ingresso possibili. Per ottenere questo risultato, è possibile usare le entità di sicurezza di tipo "separazione dei compiti" e "separazione di ambienti". L'isolamento tra le diverse funzioni riservate consente di ridurre la probabilità che un errore a un livello provochi una violazione in un altro. Non è quindi possibile combinare le attività amministrative con attività che potrebbero generare compromissioni, ad esempio malware in un messaggio di posta elettronica dell'amministratore che infetta un server di infrastruttura. Analogamente, la workstation usata per operazioni con riservatezza elevata non deve essere lo stesso sistema usato per finalità ad alto rischio, ad esempio l'esplorazione su Internet.
+Per ottenere una gestione e operazioni più sicure, è possibile ridurre al minimo la superficie di attacco di un client riducendo il numero di punti di ingresso possibili. Per ottenere questo risultato, è possibile usare le entità di sicurezza di tipo "separazione di compiti" e "separazione di ambienti".
 
-Ogni applicazione o servizio installato nella workstation di un amministratore aumenta i rischi di sicurezza a causa di potenziali vulnerabilità che possono essere sfruttate. La riduzione della superficie di attacco di un sistema tramite la rimozione di software non necessario da un'immagine di sistema di installazione standard consente quindi di migliorare la gestibilità e la stabilità del client e di ottimizzare il profilo di sicurezza software del client. Ad esempio, una workstation standard per l'amministrazione, il supporto o la distribuzione non necessita dell'installazione di un client di posta elettronica o di altre applicazioni per la produttività se la finalità principale del dispositivo consiste nella gestione dei servizi cloud.
+L'isolamento delle diverse funzioni riservate consente di ridurre la probabilità che un errore a un livello provochi una violazione in un altro. Esempi:
 
-La rete dovrebbe gestire i sistemi client con accesso di amministratore ai componenti dell'infrastruttura come se avessero lo stesso livello di riservatezza dei componenti stessi dell'infrastruttura. Poiché la compromissione di un amministratore o di un sistema amministratore potrebbe provocare una violazione del servizio, è consigliabile applicare al client i criteri più rigorosi possibile per ridurre i rischi alla sicurezza. I criteri di sicurezza che aumentano il livello di controllo sui dispositivi client che possiedono privilegi amministrativi possono includere le impostazioni di Criteri di gruppo che negano l'accesso aperto a Internet dal dispositivo e l'uso di una configurazione restrittiva per il firewall.
+- Le attività amministrative non devono quindi essere combinate con attività che potrebbero generare compromissioni, ad esempio malware in un messaggio di posta elettronica dell'amministratore che infetta un server di infrastruttura.
+- Una workstation usata per operazioni con riservatezza elevata non deve essere lo stesso sistema usato per finalità ad alto rischio, ad esempio l'esplorazione su Internet.
 
-È possibile implementare altre misure, tra cui:
+Ridurre la superficie di attacco di un sistema tramite la rimozione di software non necessario. Esempio:
 
-- Uso di VPN IPsec (Internet Protocol Security) se l'accesso diretto è necessario.
-- Configurazione di domini di Active Directory separati per la gestione e lo sviluppo.
-- Isolamento e filtri per il traffico di rete della workstation di gestione.
-- Uso di software antimalware.
-- Implementazione dell'autenticazione a più fattori per ridurre il rischio di furto delle credenziali.
+- Una workstation standard per l'amministrazione, il supporto o la distribuzione non necessita dell'installazione di un client di posta elettronica o di altre applicazioni per la produttività se la finalità principale del dispositivo consiste nella gestione dei servizi cloud.
+
+Ai sistemi client con accesso di amministratore ai componenti dell'infrastruttura è consigliabile applicare i criteri più rigorosi possibile per ridurre i rischi alla sicurezza. Esempi:
+
+- I criteri di sicurezza possono includere le impostazioni di Criteri di gruppo che negano l'accesso aperto a Internet dal dispositivo e l'uso di una configurazione restrittiva per il firewall.
+- Usare VPN IPsec (Internet Protocol Security) se l'accesso diretto è necessario.
+- Configurare domini di Active Directory separati per la gestione e lo sviluppo.
+- Isolare e filtrare il traffico di rete della workstation di gestione.
+- Usare software antimalware.
+- Implementare l'autenticazione a più fattori per ridurre il rischio di furto delle credenziali.
 
 Il consolidamento delle risorse di accesso e l'eliminazione degli endpoint non gestiti consentono anche di semplificare le attività di gestione.
+
 
 ### Sicurezza per la gestione remota di Azure
 
@@ -92,7 +99,7 @@ La configurazione dei servizi cloud di Azure viene eseguita mediante il portale 
 
 Le applicazioni distribuite in macchine virtuali forniscono strumenti e interfacce client specifiche in base alla necessità, ad esempio Microsoft Management Console (MMC), una console di gestione aziendale, ad esempio Microsoft System Center o Windows Intune, oppure un'altra applicazione di gestione, ad esempio Microsoft SQL Server Management Studio. Questi strumenti si trovano in genere in un ambiente aziendale o in una rete client. Possono dipendere da protocolli di rete specifici, ad esempio Remote Desktop Protocol (RDP), che richiedono connessioni dirette e con stato. Alcuni strumenti possono avere interfacce abilitate per il Web, che non devono essere pubblicate apertamente o accessibili tramite Internet.
 
-È possibile limitare l'accesso alla gestione dell'infrastruttura e dei servizi della piattaforma in Azure usando [l'autenticazione a più fattori](multi-factor-authentication/multi-factor-authentication.md), i [certificati di gestione X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e le regole del firewall. Il portale di Azure e SMAPI richiedono il protocollo TLS (Transport Layer Security). I servizi e le applicazioni distribuiti in Azure richiedono tuttavia misure di protezione appropriate in base all'applicazione. Questi meccanismi possono essere spesso abilitati con maggiore facilità tramite una configurazione di workstation con protezione avanzata standardizzata.
+È possibile limitare l'accesso alla gestione dell'infrastruttura e dei servizi della piattaforma in Azure usando l'[autenticazione a più fattori](multi-factor-authentication/multi-factor-authentication.md), i [certificati di gestione X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e le regole del firewall. Il portale di Azure e SMAPI richiedono il protocollo TLS (Transport Layer Security). I servizi e le applicazioni distribuiti in Azure richiedono tuttavia misure di protezione appropriate in base all'applicazione. Questi meccanismi possono essere spesso abilitati con maggiore facilità tramite una configurazione di workstation con protezione avanzata standardizzata.
 
 ### Gateway di gestione
 
@@ -240,4 +247,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

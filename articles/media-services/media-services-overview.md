@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="04/18/2016"
+ 	ms.date="04/26/2016"
 	ms.author="juliako;anilmur"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -38,7 +38,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 	- [Portale di Azure classico](http://manage.windowsazure.com/) 
 	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
@@ -70,7 +70,7 @@ Per una serie di procedure che illustra tutti i componenti principali di Servizi
 
 In questa sezione vengono descritti scenari comuni e vengono forniti collegamenti agli argomenti rilevanti. Il seguente diagramma illustra le parti principali della piattaforma di Servizi multimediali che riguardano la fornitura di contenuti su richiesta.
 
-![Flusso di lavoro VoD][vod-overview]
+![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
 ###Protezione dei contenuti nella risorsa di archiviazione e distribuzione dei flussi multimediali in chiaro (non crittografati)
@@ -105,14 +105,19 @@ Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un
 1. Pubblicare l'asset creando un localizzatore OnDemand.
 1. Trasmettere in streaming i contenuti pubblicati. 
 
-###Indicizzazione dei contenuti
+###Usare Analisi Servizi multimediali per derivare analisi approfondite di utilità pratica dai propri video 
+
+Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai propri file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
-1. Indicizzare i contenuti.
-
-	Il processo di indicizzazione genera dei file che possono essere usati come sottotitoli nella riproduzione del video. Genera anche dei file che consentono di eseguire ricerche all'interno dei video e passare all'esatta posizione di un video.
-
-1. Usare i contenuti indicizzati.
+2. Usare uno dei servizi di Analisi Servizi multimediali seguenti per elaborare i video:
+	
+	- **Indicizzatore**: [elaborazione di video con Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+	- **Hyperlapse**: [file multimediali di Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md).
+	- **Rilevamento movimento**: [rilevamento del movimento per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
+	- **Rilevamento viso ed emozioni**: [rilevamento dei visi e delle emozioni per Analisi Servizi multimediali di Azure](media-services-face-and-emotion-detection.md).
+	- **Riepilogo video**: [uso di anteprime video multimediali di Azure per creare un riepilogo video](media-services-video-summarization.md).
+3. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure. 
 
 
 ###Definizione del download progressivo 
@@ -133,7 +138,7 @@ Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un
 - [Come ottenere un'istanza del processore di contenuti multimediali](media-services-get-media-processor.md)
 - [Procedura: Codificare contenuti](media-services-manage-content.md#encode)
 - [Come monitorare i processi](media-services-portal-check-job-progress.md)
-- [Come indicizzare i contenuti](media-services-manage-content.md#index)
+- [Come usare l'analisi](media-services-analytics-overview.md)
 - [Come proteggere i contenuti](media-services-manage-content.md#encrypt)
 - [Come proteggere la pubblicazione](media-services-manage-content.md#publish)
 - [Come scalare la codifica](media-services-portal-encoding-units.md)
@@ -210,11 +215,6 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 
 Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
 
-##Indicazioni su modelli e procedure
-
-[Indicazioni su modelli e procedure](https://wamsg.codeplex.com/) [Documentazione online](https://msdn.microsoft.com/library/dn735912.aspx) [EBook scaricabile](https://www.microsoft.com/download/details.aspx?id=42629)
-
-
 ##Fornire commenti e suggerimenti
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
@@ -236,4 +236,4 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

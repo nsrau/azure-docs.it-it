@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="04/25/2016"
    ms.author="cherylmc" />
 
 # Informazioni sui dispositivi VPN per le connessioni di gateway VPN
@@ -58,6 +58,7 @@ Per agevolare la configurazione del dispositivo VPN, fare riferimento ai collega
 | Juniper | ISG | ScreenOS 6.3 (basato su criteri e basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper | SSG | ScreenOS 6.2 (basato su criteri e basato su route) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Esempi Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Macchina virtuale | Routing and Remote Access Service | Windows Server 2012 | Non compatibile | [Esempi Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Open Systems AG | Mission Control Security Gateway | N/D | [Guida all'installazione](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Guida all'installazione](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan | Openswan | 2\.6.32 | (Presto disponibile) | Non compatibile |
 | Palo Alto Networks | Tutti i dispositivi che eseguono PAN-OS 5.0 o versione successiva | PAN-OS 5x o versione successiva | [Palo Alto Networks](https://support.paloaltonetworks.com/) | Non compatibile |
 | WatchGuard | Tutti | Fireware XTM v11.x | [Istruzioni di configurazione](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Non compatibile |
@@ -117,8 +118,8 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
 | Durata (tempo) associazione di sicurezza (SA) fase 2 | 3\.600 secondi | 3\.600 secondi |
 | Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - | 
-| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* di seguito | 
-| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1, 2, 5, 14, 24) | 
+| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (più avanti) | 
+| Perfect Forward Secrecy (PFS) | No | Sì (DH Group1, 2, 5, 14, 24) | 
 | Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
@@ -151,4 +152,4 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

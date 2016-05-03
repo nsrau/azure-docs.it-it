@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="04/20/2016"
    ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Update 2)
@@ -282,6 +282,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
  
 - Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!----HONumber=AcomDC_0323_2016-->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

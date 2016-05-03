@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Monitoraggio dello stato d3lla sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
+   pageTitle="Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
    description="Questo documento consente di iniziare a utilizzare le funzionalità di monitoraggio nel Centro sicurezza di Azure."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
-#Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure
+#Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
 Questo documento descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare la conformità ai criteri.
 
 > [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
@@ -69,11 +69,11 @@ Il pannello **Aggiornamenti di sistema mancanti** mostra una tabella con le info
 - **MACCHINA VIRTUALE**: nome della macchina virtuale priva di aggiornamenti.
 - **AGGIORNAMENTI DI SISTEMA**: numero di aggiornamenti di sistema mancanti.
 - **ORA ULTIMA ANALISI**: ora dell'ultima volta in cui il Centro sicurezza di Azure ha verificato la disponibilità di aggiornamenti per le VM.
-- **STATO**: stato attuale della raccomandazione: 
+- **STATO**: stato attuale della raccomandazione:
 	- **Aperta**: la raccomandazione non è ancora stata risolta.
 	- **In corso**: la raccomandazione è stata applicata alle risorse specificate e non è richiesta alcuna azione da parte dell'utente.
 	- **Risolta**: la raccomandazione è già stata completata. Dopo che il problema è stato risolto, la voce è visualizzata in grigio.
-- **GRAVITÀ**: descrive il livello di gravità della raccomandazione: 
+- **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
 	- **Elevata**: esiste una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale, gruppo di sicurezza di rete, che richiede attenzione.
 	- **Media**: sono necessari passaggi aggiuntivi, o non critici, per completare un processo o eliminare una vulnerabilità.
 	- **Bassa**: vulnerabilità che è opportuno risolvere, ma non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
@@ -105,7 +105,7 @@ La sezione relativa allo stato di prevenzione per la rete elenca le reti virtual
 Dopo aver aperto il pannello, verranno visualizzate due sezioni:
 - Raccomandazioni di rete
 - Rete
- 
+
 In ogni sezione è possibile selezionare una singola opzione per altri dettagli sulla raccomandazione. Di seguito viene fornita una descrizione dettagliata delle singole sezioni.
 
 ####Raccomandazioni di rete
@@ -118,8 +118,8 @@ La sezione dei dettagli sullo stato della rete elenca i problemi di sicurezza po
 
 - [ACL sugli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) non abilitati.
 - [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) non abilitati.
-- Sono elencati le subnet integre e l'accesso nei gruppi di sicurezza di rete senza restrizioni. 
- 
+- Sono elencati le subnet integre e l'accesso nei gruppi di sicurezza di rete senza restrizioni.
+
 Quando si fa clic su una delle raccomandazioni, si apre un pannello con altre informazioni su di essa, come illustrato nell'esempio seguente:
 
 ![Limita endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
@@ -185,7 +185,8 @@ In questo documento è stato descritto come utilizzare le funzionalità di monit
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

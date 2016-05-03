@@ -13,11 +13,13 @@
 
 ### Aggiungere o rimuovere prefissi se è già stata creata una connessione del gateway VPN
 
-Se è stata creata la connessione VPN e si vuole aggiungere o rimuovere i prefissi di indirizzo IP contenuti nel gateway di rete locale, è necessario seguire questa procedura nell'ordine indicato. Ciò comporterà periodi di inattività per la connessione VPN, in quanto sarà necessario rimuovere e ricreare il gateway. Tuttavia, poiché è stato richiesto un indirizzo IP per la connessione, non sarà necessario riconfigurare il router VPN locale a meno che non si decide di modificare i valori usati in precedenza.
+Se è stata creata la connessione VPN e si vuole aggiungere o rimuovere i prefissi di indirizzo IP contenuti nel gateway di rete locale, è necessario seguire questa procedura nell'ordine indicato. Questo comporterà periodi di inattività per la connessione VPN.
+
+>[AZURE.IMPORTANT] Non eliminare il gateway VPN. In caso contrario sarà necessario ripercorrere i passaggi necessari per ricrearlo, nonché riconfigurare il router locale con le nuove impostazioni.
  
-1. Rimuovere la connessione del gateway. 
+1. Rimuovere la connessione IPsec. 
 2. Modificare i prefissi per il gateway di rete locale. 
-3. Creare una nuova connessione del gateway. 
+3. Creare una nuova connessione IPsec. 
 
 È possibile usare l'esempio seguente come linea guida.
 
@@ -31,4 +33,4 @@ Se è stata creata la connessione VPN e si vuole aggiungere o rimuovere i prefis
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

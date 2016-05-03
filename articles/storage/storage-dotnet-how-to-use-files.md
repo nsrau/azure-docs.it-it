@@ -199,8 +199,8 @@ Grazie al supporto per SMB 3.0, Archiviazione file ora supporta la crittografia 
 
 Quando un client accede al servizio Archiviazione file, la versione di SMB usata dipende dalla versione di SMB supportata dal sistema operativo. La tabella seguente mostra un riepilogo del supporto per i client Windows. Per altre informazioni, vedere il blog sulle [versioni di SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
-| Client Windows | Supporto versione SMB |
-|------------------------|----------------------|
+| Client Windows | Versione di SMB supportata |
+|------------------------|-----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -642,4 +642,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

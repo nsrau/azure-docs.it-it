@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione ad ASP.NET e al servizio app di Azure | Microsoft Azure"
-	description="Informazioni su come creare un progetto Web ASP.NET in Visual Studio e distribuirlo in una nuova app Web nel servizio app di Azure."
+	pageTitle="Introduzione al servizio app di Azure e ad ASP.NET | Microsoft Azure"
+	description="Informazioni su come distribuire un progetto Web ASP.NET in una nuova app Web nel servizio app di Azure con Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Creare un'app Web ASP.NET nel servizio app di Azure con Visual Studio
+# Introduzione alle app Web nel servizio app di Azure con ASP.NET e Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -293,4 +293,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

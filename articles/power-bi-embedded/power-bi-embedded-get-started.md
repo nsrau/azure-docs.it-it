@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/18/2016"
+   ms.date="04/24/2016"
    ms.author="derrickv"/>
 
 # Introduzione a Microsoft Power BI Embedded - Anteprima
@@ -107,4 +107,4 @@ Nei passaggi precedenti è stata creata una raccolta di aree di lavoro e i primi
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->
