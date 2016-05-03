@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="04/18/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -65,6 +65,8 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 
 - Per impostazione predefinita, gli **Avvisi** vengono inviati se si verificano errori in tre posizioni in cinque minuti. Un errore in una posizione può indicare un errore di rete e non un problema con il sito. È comunque possibile modificare la soglia in modo da aumentare la sensibilità del test e modificare i destinatari a cui inviare i messaggi di posta elettronica.
+
+    È possibile configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) chiamato quando viene generato un avviso.
 
 #### Testare più URL
 
@@ -235,7 +237,8 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 ## Automazione
 
-È possibile [usare gli script di PowerShell per configurare un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
+* È possibile [usare script di PowerShell per configurare un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
+* Configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) chiamato quando viene generato un avviso.
 
 ## Domande? Problemi?
 
@@ -393,4 +396,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

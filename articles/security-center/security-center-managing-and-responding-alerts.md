@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
+   pageTitle="Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
    description="Questo documento illustra come usare le funzionalità del Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza."
    services="security-center"
    documentationCenter="na"
@@ -9,14 +9,14 @@
 
 <tags
    ms.service="security-center"
-   ms.topic="hero-article" 
+   ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
- 
-# Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure
+
+# Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare le funzionalità del Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
 
 > [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
@@ -26,7 +26,7 @@ Questo documento illustra come usare le funzionalità del Centro sicurezza di Az
 
 ## Informazioni sugli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log dalle risorse di Azure, dalla rete e dalle soluzioni antimalware e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza con priorità, inclusi gli avvisi relativi a soluzioni dei partner integrate, nonché le informazioni che è necessario esaminare rapidamente e indicazioni su come risolvere un attacco.
- 
+
 I ricercatori Microsoft sulla sicurezza sono costantemente impegnati nell'analisi delle minacce emergenti in tutto il mondo, inclusi nuovi modelli di attacco e tendenze osservati nei prodotti consumer ed enterprise, oltre che nei servizi online. Il Centro sicurezza può quindi aggiornare gli algoritmi di rilevamento man mano che vengono individuati nuovi attacchi e vulnerabilità, per consentire ai clienti a essere aggiornati sulle minacce in costante evoluzione. Ecco alcuni esempi di tipi di minacce che il Centro sicurezza può rilevare:
 
 - **Attacchi di forza bruta sui dati di rete**: usa modelli di apprendimento automatico che riconoscono i modelli di traffico di rete tipici per le applicazioni e consente un rilevamento più efficace dei tentativi di accesso eseguiti da utenti malintenzionati invece che da utenti autorizzati.
@@ -34,7 +34,7 @@ I ricercatori Microsoft sulla sicurezza sono costantemente impegnati nell'analis
 - **Macchine virtuali che comunicano con indirizzi IP dannosi**: confronta il traffico di rete con le informazioni di Microsoft sulle minacce globali e individua i computer compromessi che comunicano con i server di comando e controllo (C&C) e viceversa.
 - **Macchine virtuali compromesse**: in base all'analisi del comportamento dei log dei computer e in correlazione con altri segnali identifica gli eventi anomali, probabilmente risultanti da compromissione e sfruttamento delle vulnerabilità dei computer.
 
-## Gestire gli avvisi di sicurezza 
+## Gestire gli avvisi di sicurezza
 
 È possibile esaminare gli avvisi correnti visualizzando il riquadro **Avvisi di sicurezza**. Per visualizzare altri dettagli su ogni avviso, seguire questa procedura:
 
@@ -85,8 +85,9 @@ Nel campo **Avviso** di questo pannello sono disponibili altri dettagli sull'eve
 ## Passaggi successivi
 In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Monitoraggio dello stato di sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,3 +1,7 @@
+### API Web ASP.NET
+
+L'esercitazione presuppone che l'utente abbia una conoscenza di base dell'uso dell'[API Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET in Visual Studio.
+
 ### Account Azure
 
 Per completare l'esercitazione, è necessario un account Azure. È possibile:
@@ -13,10 +17,6 @@ L'esercitazione è stata scritta per Visual Studio 2015 con Azure SDK per .NET 2
 
 Se è disponibile Visual Studio 2013 e si lo si vuole usare, [scaricare la versione più recente di Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Le istruzioni sono fondamentalmente le stesse, ma alcune schermate possono essere diverse.
 
->[AZURE.NOTE] in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
+>[AZURE.NOTE] In base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
 
-### API Web ASP.NET
-
-L'esercitazione presuppone che l'utente abbia una conoscenza di base di come usare l'[API Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET in Visual Studio.
-
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

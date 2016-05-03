@@ -30,10 +30,11 @@ Nella tabella seguente sono evidenziate alcune differenze di alto livello.
 | Prestazioni prevedibili | Latenza variabile |
 | Prezzi prevedibili | Prezzi variabili in base all'uso |
 | Possibilità di adattare il carico di lavoro | N/D |
+| Dimensioni dei messaggi > 256 KB | Dimensioni dei messaggi = 256 KB |
 
 La **messaggistica di livello Premium del bus di servizio di Azure** fornisce l'isolamento delle risorse a livello di CPU e memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse viene chiamato *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2 o 4 unità di messaggistica per ogni spazio dei nomi Premium del bus di servizio. Un singolo carico di lavoro o un'entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in base alle esigenze, anche se la fatturazione prevede un addebito a frequenza giornaliera o a 24 ore. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
 
-Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. La messaggistica Premium del bus di servizio crea il motore di archiviazione introdotto in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Con la messaggistica Premium, le prestazioni massime sono più rapide rispetto al livello Standard.
+Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. La messaggistica Premium del bus di servizio è basata sul motore di archiviazione introdotto in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Con la messaggistica Premium, le prestazioni massime sono più rapide rispetto al livello Standard.
 
 ## Differenze tecniche della messaggistica Premium
 
@@ -57,4 +58,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

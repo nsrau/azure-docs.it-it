@@ -40,6 +40,7 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 ## America del Sud
 
 - São Paulo
+- Rio de Janeiro
 - Quito
 - Medellin
 - Buenos Aires
@@ -84,4 +85,4 @@ In questo argomento vengono elencate le località POP (point of presence) corren
 
 È possibile che si sia venuti a conoscenza della [collaborazione tra Microsoft e Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). Nei prossimi mesi questa collaborazione verrà usata per aumentare la diffusione della rete CDN di Azure in tutto il mondo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

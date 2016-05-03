@@ -192,7 +192,7 @@ Se un'utilità di pianificazione non riesce, è possibile specificare un criteri
 
 Per impostare un criterio di ripetizione, è possibile specificare due impostazioni aggiuntive: un intervallo tra i tentativi (**retryInterval**) e il numero di tentativi (**retryCount**).
 
-L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'intervallo di tempo tra i tentativi. Il valore predefinito è di 1 minuto, il valore minimo è di 1 minuto, e il valore massimo è di 18 mesi. Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 5 e il valore massimo è 20. Sia **retryInterval** che **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
+L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. I processi inclusi nelle raccolte di processi del livello Gratuito hanno un valore minimo configurabile di 1 ora. Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20. Sia **retryInterval** che **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
 
 ## Vedere anche
 
@@ -214,4 +214,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

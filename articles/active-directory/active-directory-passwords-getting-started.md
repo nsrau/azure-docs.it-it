@@ -50,7 +50,7 @@ Prima di poter abilitare e usare la reimpostazione delle password self-service, 
 - Associare il tenant di AAD alla sottoscrizione di Azure. Per altre informazioni, vedere [Associazione delle sottoscrizioni Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 - Eseguire l'aggiornamento ad Azure AD Premium o Basic oppure usare una licenza di Office 365 a pagamento. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] Per abilitare la reimpostazione delle password self-service per gli utenti del cloud, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic oppure usare una licenza di Office 365 a pagamento. Per abilitare la reimpostazione delle password self-service per gli utenti locali, è necessario eseguire l'aggiornamento ad Azure AD Premium. Per altre informazioni, vedere Edizioni di Azure Active Directory. Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
+  >[AZURE.NOTE] Per abilitare la reimpostazione delle password self-service per gli utenti del cloud, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic oppure usare una licenza di Office 365 a pagamento. Per abilitare la reimpostazione delle password self-service per gli utenti locali, è necessario eseguire l'aggiornamento ad Azure AD Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
 
 - Creare almeno un account amministratore e un account utente nella directory di AAD.
 - Assegnare una licenza di AAD Premium o Basic oppure una licenza di Office 365 a pagamento agli account amministratore e utente creati.
@@ -77,7 +77,7 @@ Per configurare criteri di reimpostazione della password utente, completare i pa
 
     ![][004]
 
-6.	Per configurare i criteri di reimpostazione della password utente, impostare l'opzione **Utenti abilitati per la reimpostazione della password** su **Sì**. Verranno così visualizzati molti altri controlli che consentono di configurare il modo in cui usare questa funzionalità nella propria directory. Sarà quindi possibile personalizzare la funzionalità di reimpostazione delle password in base alle proprie esigenze specifiche. Per saperne di più sul funzionamento di ognuno dei controlli dei criteri di reimpostazione delle password, vedere [Personalizzare: Gestione delle password di Azure AD](active-directory-passwords-customize).
+6.	Per configurare i criteri di reimpostazione della password utente, impostare l'opzione **Utenti abilitati per la reimpostazione della password** su **Sì**. Verranno così visualizzati molti altri controlli che consentono di configurare il modo in cui usare questa funzionalità nella propria directory. Sarà quindi possibile personalizzare la funzionalità di reimpostazione delle password in base alle proprie esigenze specifiche. Per saperne di più sul funzionamento di ognuno dei controlli dei criteri di reimpostazione delle password, vedere [Personalizzare: Gestione delle password di Azure AD](active-directory-passwords-customize.md).
 
     ![][005]
 
@@ -198,7 +198,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Per verificare la versione di Azure AD Sync
-1.	Passare a %Programmi%\Azure Active Directory Sync**.
+1.	Passare a %Programmi%\\Azure Active Directory Sync**.
 2.	Trovare il file eseguibile **ConfigWizard.exe**.
 3.	Fare clic con il pulsante destro del mouse sul file eseguibile e scegliere **Proprietà** dal menu di scelta rapida.
 4.	Fare clic sulla scheda **Dettagli**.
@@ -247,7 +247,7 @@ Dopo aver abilitato il writeback delle password nello strumento Azure AD Connect
 1.	Una volta completata l'installazione, se si bloccano le connessioni in uscita sconosciute nell'ambiente di installazione, sarà anche necessario aggiungere le seguenti regole del firewall. Assicurarsi di riavviare il computer con AAD Connect dopo aver apportato queste modifiche:
    - Consentire le connessioni in uscita sulla porta TCP 443
    - Consentire le connessioni in uscita a https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - Se si usa un proxy o si hanno problemi di connettività in generale, consentire le connessioni in uscita sulla porta TCP 9350-9354
+   - Se si usa un proxy o si hanno problemi di connettività in generale, consentire le connessioni in uscita sulla porta TCP 9350-9354 e 5671
 
 ### Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
 Per ogni foresta che contiene utenti di cui verranno reimpostate le password, se X è l'account specificato per tale foresta nella configurazione guidata iniziale, sarà necessario assegnare a X i diritti estesi **Reimposta password**, **Modifica password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet` sull'oggetto radice per ogni dominio della foresta. I diritti devono essere contrassegnati come ereditati da tutti gli oggetti utente.
@@ -280,9 +280,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -353,4 +351,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

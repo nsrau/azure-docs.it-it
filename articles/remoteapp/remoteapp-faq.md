@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/25/2016" 
+	ms.date="04/08/2016" 
 	ms.author="elizapo"/>
 
 # Domande frequenti su Azure RemoteApp
@@ -37,14 +37,14 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
 ## Raccolte - cos'è supportato, cosa è opportuno utilizzare e altro
 - **Le applicazioni personalizzate LOB (line-of-business) sono supportate?** Sì. Per usare un'applicazione personalizzata in Azure RemoteApp, creare un'[immagine modello personalizzata](remoteapp-create-custom-image.md) e caricarla nella raccolta RemoteApp.
-- **L'applicazione LOB personalizzata funzionerà in Azure RemoteApp?** Il modo migliore per verificarlo è provarla. Verificare i [requisiti di compatibilità dell'applicazione](http://www.microsoft.com/download/details.aspx?id=18704) e il [centro di compatibilità di Desktop remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
+- **L'applicazione LOB personalizzata funzionerà in Azure RemoteApp?** Il modo migliore per verificarlo è provarla. Vedere il [centro di compatibilità di Desktop remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Quale metodo di distribuzione (cloud o ibrido) è più adatto per la propria organizzazione?** Le raccolte ibride offrono un'esperienza più completa se si desidera integrazione completa con Single Sign-On (SSO) e connettività di rete protetta in locale. Le raccolte nel cloud offrono un modo semplice e rapido di isolare la distribuzione usando più metodi di autenticazione. Altre informazioni sulle [opzioni di distribuzione](remoteapp-whatis.md).
 - **Al momento si usa SQL o un altro database, in locale o in Azure. Che tipo di distribuzione è consigliabile usare?** Questo dipende dal luogo in cui risiede il database SQL o back-end. Se si trova in una rete privata, usare la raccolta ibrida. Se invece il database è esposto a Internet e consente connessioni client, è possibile usare la raccolta nel cloud.
 - **E per quanto riguarda il mapping delle unità, le porte USB e seriali, la condivisione degli Appunti e il reindirizzamento della stampante?** Tutte queste funzionalità sono supportate in Azure RemoteApp. Il reindirizzamento della stampante e la condivisione degli Appunti sono abilitati per impostazione predefinita. Altre informazioni sul reindirizzamento sono disponibili [qui](remoteapp-redirection.md). 
 
 
 ## Immagini modello
-- **È possibile usare un cloud o una macchina virtuale esistente come modello per la propria raccolta RemoteApp?** Sì. È possibile creare un'immagine basata su una macchina virtuale di Azure, usare una delle immagini incluse nella sottoscrizione o o creare un'immagine personalizzata. Verificare le [opzioni per le immagini di RemoteApp](remoteapp-imageoptions.md).
+- **È possibile usare un cloud o una macchina virtuale esistente come modello per la propria raccolta RemoteApp?** Sì. È possibile creare un'immagine basata su una macchina virtuale di Azure, usare una delle immagini incluse nella sottoscrizione o creare un'immagine personalizzata. Verificare le [opzioni per le immagini di RemoteApp](remoteapp-imageoptions.md).
 
 
 ## Opzioni di rete
@@ -114,4 +114,4 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

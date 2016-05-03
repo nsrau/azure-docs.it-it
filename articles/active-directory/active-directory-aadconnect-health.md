@@ -44,7 +44,7 @@ Azure AD Connect Health per AD FS supporta AD FS 2.0 su Windows Server 2008 R2, 
 
 Il video seguente fornirà una panoramica di Azure AD Connect Health per AD FS.
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 Azure AD Connect Health per la sincronizzazione monitora e fornisce informazioni sulle sincronizzazioni che si verificano tra Active Directory locale e Azure Active Directory. Azure AD Connect Health per la sincronizzazione fornisce il set di funzionalità chiave seguente:
@@ -80,7 +80,7 @@ Le operazioni per iniziare a usare Azure AD Connect Health sono molto semplici. 
 
 
 ## Portale di Azure AD Connect Health
-Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e i dati analitici di utilizzo. https://aka.ms/aadconnecthealth visualizza il pannello principale di Azure AD Connect Health. paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento. Dopo la distribuzione degli agenti, vengono visualizzati gli identificatori dei servizi monitorati da Azure AD Connect Health.
+Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e le analisi di utilizzo. https://aka.ms/aadconnecthealth visualizza il pannello principale di Azure AD Connect Health. Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento. Dopo la distribuzione degli agenti, vengono visualizzati gli identificatori dei servizi monitorati da Azure AD Connect Health.
 
 ![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -106,4 +106,4 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

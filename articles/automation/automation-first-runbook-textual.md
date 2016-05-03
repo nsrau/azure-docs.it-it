@@ -4,7 +4,7 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
+    manager="jwhit"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/23/2016"
+    ms.date="04/21/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook del flusso di lavoro PowerShell
@@ -26,10 +26,9 @@ Questa esercitazione illustra la creazione di un [runbook del flusso di lavoro P
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti.
 
--	sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
--	[Account di automazione](automation-configuring.md) che conterrà il runbook.
+-	Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-account/" target="_blank">[iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
+-	[Account di Automazione](automation-security-overview.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 -	Macchina virtuale di Azure. Si arresterà e si avvierà la macchina virtuale in modo che non sia di produzione.
--	[Utente di Azure Active Directory e Asset credenziali di Automazione](automation-configuring.md) per l'autenticazione con le risorse di Azure. Questo utente deve avere l'autorizzazione per arrestare e avviare la macchina virtuale.
 
 ## Passaggio 1: Creare nuovo runbook
 
@@ -47,7 +46,7 @@ Si inizierà creando un runbook semplice che restituisce il testo *Hello World*.
 È possibile digitare il codice direttamente nel runbook, oppure è possibile selezionare i cmdlet, i runbook e le risorse dal controllo della libreria e aggiungerle al runbook con tutti i parametri correlati. Per questa procedura dettagliata, si digiterà direttamente nel runbook.
 
 1.	Il runbook è attualmente vuoto con solo la parola chiave richiesta *workflow*, il nome del runbook e le parentesi graffe che racchiuderanno l'intero flusso di lavoro.<br> ![Controllo Runbook](media/automation-first-runbook-textual/empty-runbook.png)
-2.	Digitare *Write-Output "Hello World".* tra parentesi graffe. <br> ![Hello World](media/automation-first-runbook-textual/hello-world.png)
+2.	Digitare *Write-Output "Hello World".*tra parentesi graffe. <br> ![Hello World](media/automation-first-runbook-textual/hello-world.png)
 3.	Salvare il runbook facendo clic su **Salva**.<br> ![Salvataggio del runbook](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
 ## Passaggio 3: Testare il runbook
@@ -86,8 +85,8 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 3.	Posizionare il cursore su una riga vuota tra parentesi graffe.
 4.	Nel controllo libreria, espandere**Assets**e quindi**Credentials**.
 5.	Fare clic con il pulsante destro sulle credenziali e fare clic su **Aggiungi all'area di disegno**. Questo aggiunge un’attività **Get-AutomationPSCredential** per le credenziali.
-6.	Davanti a **Get-AutomationPSCredential**, digitare *$Credential =* per assegnare le credenziali a una variabile.
-7.	Nella riga successiva, digitare *Add-AzureAccount-Credential $Credential*. <br> ![Autentica](media/automation-first-runbook-textual/authentication.png)
+6.	Davanti a **Get-AutomationPSCredential**, digitare *$Credential =*per assegnare le credenziali a una variabile.
+7.	Nella riga successiva, digitare*Add-AzureAccount-Credential $Credential*. <br> ![Autentica](media/automation-first-runbook-textual/authentication.png)
 8.	Fare clic sul **Pannello di test** in modo da testare il runbook.
 9.	Fare clic su **Avvia** per avviare il test. Una volta che viene completato, si dovrebbe ricevere un output simile al seguente che restituisce le informazioni per l'utente nella credenziale. Questo conferma che la credenziale è valida.<br> ![Autentica](media/automation-first-runbook-textual/authentication-test.png)
 
@@ -117,4 +116,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 -	[Il primo runbook grafico](automation-first-runbook-graphical.md)
 -	[Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

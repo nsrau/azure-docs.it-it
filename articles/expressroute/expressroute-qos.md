@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Requisiti ExpressRoute QoS
@@ -21,7 +21,7 @@ Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestion
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Nota:** i requisiti QoS si applicano solo al peering di Microsoft.
+>[AZURE.NOTE] I requisiti QoS si applicano solo ai peer Microsoft.
 
 La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype per aziende. Fare riferimento a [Gestione QoS per Skype per aziende](https://technet.microsoft.com/library/gg405409.aspx) per ulteriori informazioni.
 
@@ -50,4 +50,4 @@ La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype 
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->
