@@ -82,7 +82,7 @@ Ecco le differenze tra l'**importazione** e la modalità **DirectQuery**.
 
 |Importazione | DirectQuery
 |---|---
-|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne * vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
+|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne* vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
 
 Per altre informazioni sulla connessione a un'origine dati, vedere [Connessione a un'origine dati](power-bi-embedded-connect-datasource.md).
 
