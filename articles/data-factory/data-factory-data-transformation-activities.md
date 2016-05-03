@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Trasformazione e analisi tramite Data factory di Azure
@@ -24,15 +24,18 @@ Le attività di trasformazione in Azure Data factory trasformano ed elaborano i 
 
 Attività di trasformazione | Ambiente di calcolo 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop]
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
 [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) | Macchina virtuale di Azure 
 [Stored procedure](data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server |
 [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) | Azure Data Lake Analytics. 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Batch di Azure
    
+> [AZURE.NOTE] 
+È possibile usare l'attività MapReduce per eseguire i programmi Spark nel cluster HDInsight Spark. Per i dettagli, vedere [Chiamare i programmi Spark da Azure Data Factory](data-factory-spark.md). È possibile creare un'attività personalizzata per eseguire gli script R nel cluster HDInsight con R installato. Vedere [Esecuzione di script R con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+ 
 
 È necessario creare un servizio collegato per l'ambiente di calcolo e quindi utilizzare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory.
 
@@ -41,4 +44,4 @@ Attività di trasformazione | Ambiente di calcolo
 
 Per informazioni sui servizi collegati di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

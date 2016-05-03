@@ -54,21 +54,18 @@ Modificare il file `App.xaml.cs`:
 
 ## Integrazione
 
-Engagement fornisce due metodi per implementare il servizio di notifiche e annunci di Reach: l'integrazione di una sovrimpressione e quella di una visualizzazione Web.
+Engagement offre due modi per aggiungere i banner in-app, le visualizzazioni intermedie di annunci e i sondaggi Reach all'applicazione: l'integrazione di una sovrimpressione e l'integrazione manuale di visualizzazioni Web. È consigliabile non combinare entrambe le soluzioni nella stessa pagina.
 
-L'integrazione di una sovrimpressione non richiede la scrittura di molto codice nell'applicazione. È sufficiente contrassegnare i file di pagine, xaml e cs con EngagementPageOverlay. Inoltre, se si personalizza la visualizzazione predefinita di Engagement, la personalizzazione viene condivisa con tutte le pagine contrassegnate ed è sufficiente definirla una sola volta. Tuttavia, se le pagine devono ereditare da un oggetto diverso da EngagementPageOverlay, si è costretti a usare l'integrazione di una visualizzazione Web.
+La scelta tra uno dei due tipi d'integrazione può essere riassunta nel modo seguente:
 
-L'integrazione di una visualizzazione Web è più complessa da implementare. Tuttavia, se le pagine dell'app devono ereditare da un oggetto diverso da "Page", è necessario integrare la visualizzazione Web e il relativo comportamento.
-
-> [AZURE.TIP] È consigliabile aggiungere un elemento `<Grid></Grid>` radice per racchiudere il contenuto della pagina. Per l'integrazione di una visualizzazione Web, è sufficiente aggiungere Webview come figlio della griglia. Se è necessario impostare il componente Engagement altrove, tenere presente che è necessario gestire manualmente le dimensioni di visualizzazione.
+-   Se le pagine ereditano già dall'agente `EngagementPage`, è consigliabile scegliere l'integrazione di una sovrimpressione. È sufficiente sostituire `EngagementPage` con `EngagementPageOverlay` e `xmlns:engagement="using:Microsoft.Azure.Engagement"` con `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` nelle pagine.
+-   È possibile scegliere l'integrazione manuale di visualizzazioni Web se si vuole inserire l'interfaccia utente di Reach in un punto preciso nelle pagine oppure se non si vuole aggiungere un altro livello di ereditarietà alle pagine. 
 
 ### Integrazione di una sovrimpressione
 
-Engagement fornisce una sovrimpressione per la visualizzazione di notifiche e annunci.
+La sovrimpressione di Engagement aggiunge in modo dinamico gli elementi dell'interfaccia utente utilizzati per visualizzare le campagne Reach nella pagina. Se la sovrimpressione non è adatta al layout, considerare invece l'integrazione manuale delle visualizzazioni Web.
 
-Se si vuole applicarla, non usare l'integrazione di una visualizzazione Web.
-
-Nel file con estensione xaml modificare il riferimento EngagementPage in EngagementPageOverlay
+Nel file con estensione xaml modificare il riferimento `EngagementPage` in `EngagementPageOverlay`
 
 -   Aggiungere le dichiarazioni di spazi dei nomi:
 
@@ -81,7 +78,7 @@ Nel file con estensione xaml modificare il riferimento EngagementPage in Engagem
 		<engagement:EngagementPage 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPage>
 
 **Con EngagementPageOverlay:**
@@ -89,19 +86,10 @@ Nel file con estensione xaml modificare il riferimento EngagementPage in Engagem
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPageOverlay>
 
-> **Con EngagementPageOverlay per 8.1 e versioni successive:**
-
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		    <Grid>
-		      <!-- layout -->
-		    </Grid>
-		</engagement:EngagementPageOverlay>
-
-Quindi nel file con estensione cs contrassegnare la pagina in "EngagementPageOverlay" anziché "EngagementPage" e importare "Microsoft.Azure.Engagement.Overlay".
+Quindi, nel file con estensione cs contrassegnare la pagina in `EngagementPageOverlay` anziché `EngagementPage` e importare `Microsoft.Azure.Engagement.Overlay`.
 
 			using Microsoft.Azure.Engagement.Overlay;
 
@@ -131,156 +119,33 @@ Quindi nel file con estensione cs contrassegnare la pagina in "EngagementPageOve
 			  }
 			}
 
-Ora questa pagina usa il meccanismo di sovrimpressione di Engagement e non è necessario inserire una visualizzazione Web.
 
-La sovrimpressione di Engagement usa il primo elemento "Grid" trovato nel file con estensione xaml per aggiungere due visualizzazioni Web nella pagina. Se si vuole trovare la posizione in cui verranno impostate le visualizzazioni Web, è possibile definire una griglia denominata "EngagementGrid" come la seguente:
+La sovrimpressione di Engagement aggiunge un elemento `Grid` in alto alla pagina che è costituita dal layout e dai due elementi `WebView`, uno per il banner e l'altro per la visualizzazione intermedia.
 
-			<Grid x:Name="EngagementGrid"></Grid>
+È possibile personalizzare gli elementi della sovrimpressione direttamente nel file `EngagementPageOverlay.cs`.
 
-È possibile personalizzare le notifiche e gli annunci in sovrimpressione direttamente nei relativi file xaml e cs:
+### Integrazione manuale delle visualizzazioni Web
 
--   `EngagementAnnouncement.html`: progettazione HTML della visualizzazione Web `Announcement`.
--   `EngagementOverlayAnnouncement.xaml`: progettazione XAML di `Announcement`.
--   `EngagementOverlayAnnouncement.xaml.cs`: codice collegato di `EngagementOverlayAnnouncement.xaml`.
--   `EngagementNotification.html`: progettazione HTML della visualizzazione Web `Notification`.
--   `EngagementOverlayNotification.xaml`: progettazione XAML di `Notification`.
--   `EngagementOverlayNotification.xaml.cs`: codice collegato di `EngagementOverlayNotification.xaml`.
--   `EngagementPageOverlay.cs`: codice di visualizzazione annunci e notifiche di `Overlay`.
+Reach cerca nelle pagine i due elementi `WebView` che determinano la visualizzazione del banner e della visualizzazione intermedia. L'unica cosa necessaria da fare è aggiungere quei due elementi `WebView` in un punto qualsiasi delle pagine. Ecco un esempio:
 
-### Integrazione di una visualizzazione Web
+    <Grid x:Name="engagementGrid">
 
-Se si vuole applicarla, non usare l'integrazione di una sovrimpressione.
+      <!-- Your layout -->
 
-Per visualizzare il contenuto di Engagement, è necessario integrare i due elementi WebView xaml in ogni pagina in cui devono essere visualizzati annunci e notifiche. Aggiungere quindi questo codice nel file xaml:
+      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+    </Grid>
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **Per l'integrazione di 8.1 o versioni successive:**
+In questo esempio gli elementi `WebView` vengono allungati per adattarsi al contenitore che automaticamente li ridimensiona nel caso in cui lo schermo viene ruotato o la dimensione della pagina cambia.
 
-			<engagement:EngagementPage
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			    <Grid>
-			      <!-- Your layout -->
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			    </Grid>
-			</engagement:EngagementPage>
-
-Il file con estensione cs associato deve apparire come segue:
-
-    using Microsoft.Azure.Engagement;
-    using System;
-    using Windows.ApplicationModel.Core;
-    using Windows.UI.ViewManagement;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Navigation;
-
-    namespace My.Namespace.Example
-    {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
-              /* Attach events when page is navigated. */
-              protected override void OnNavigatedTo(NavigationEventArgs e)
-              {
-                /* Update the webview when the app window is resized. */
-                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
-
-                /* Update the webview when the app/status bar is resized. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
-    #endif
-                base.OnNavigatedTo(e);
-              }
-
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
-    #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-    #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
-    #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-    #endif
-			  #endregion
-			}
-    }
-
-> Questa implementazione ha incorporato il ridimensionamento di WebView quando lo schermo del dispositivo è attivo.
+> [AZURE.WARNING] È importante che gli elementi `WebView` mantengano la stessa denominazione `engagement_notification_content` e `engagement_announcement_content`, poiché Reach li identifica dal nome.
 
 ## Gestire il push di dati (facoltativo)
 
 Se si desidera che l'applicazione sia in grado di ricevere push di dati Reach, è necessario implementare due eventi della classe EngagementReach:
 
-In App.xaml.cs in "Public App(){}" aggiungere:
+In App.xaml.cs nel costruttore App () aggiungere:
 
 			EngagementReach.Instance.DataPushStringReceived += (body) =>
 			{
@@ -469,4 +334,4 @@ Per usare questo protocollo modificare `App.xaml.cs` con il metodo `OnActivated`
 			  #endregion
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,10 +1,10 @@
 <properties 
-   pageTitle=""Configurare il tunneling forzato per i gateway VPN tramite Gestione risorse | Microsoft Azure" 
-   description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet al sistema locale. Questo articolo si applica al modello di distribuzione di Gestione risorse. " 
+   pageTitle="Configurare il tunneling forzato per i gateway VPN con Resource Manager | Microsoft Azure"
+   description="Se si ha una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale. Questo articolo si applica al modello di distribuzione di Azure Resource Manager."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags 
@@ -13,18 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/17/2015"
+   ms.date="04/12/2016"
    ms.author="cherylmc" />
 
 # Configurare il tunneling forzato tramite PowerShell e Gestione risorse di Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
-- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+- [PowerShell - Gestione servizi](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Gestione risorse](vpn-gateway-forced-tunneling-rm.md)
 
-Questo articolo si applica alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione di Gestione risorse di Azure. Se si vuole configurare il tunneling forzato per le reti virtuali create usando Gestione dei servizi (noto anche come modello di distribuzione classico), vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
+Questo articolo si applica alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione di Gestione risorse di Azure.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**Informazioni sui modelli di distribuzione di Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Strumenti e modelli di distribuzione per il tunneling forzato**
+
+[AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
+
 
 ## Informazioni sul tunneling forzato
 
@@ -60,16 +67,17 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 La procedura seguente consente di creare un gruppo di risorse e una rete virtuale. Si passerà quindi alla creazione di un gateway VPN e alla configurazione del tunneling forzato.
 
-Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*), con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
+Nell'esempio, la rete virtuale "MultiTier-VNet" include 3 subnet (*Frontend*, *Midtier* e *Backend*) con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Branch*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
 
 	
 ### Prima di iniziare
 
 Prima di iniziare la configurazione, verificare di essere in possesso dei requisiti seguenti.
 
-- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlet di Azure PowerShell (1.0 o versione successiva). I cmdlet necessari per questa configurazione non sono presenti nelle versioni precedenti alla 1.0. È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](https://azure.microsoft.com/downloads/). Se non si ha familiarità con l'installazione e la configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per altre informazioni.
+- È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager (versione 1.0 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+
 
 ### Procedura di configurazione
 
@@ -83,7 +91,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 
 2. Specificare la sottoscrizione da usare.
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Creare un gruppo di risorse.
 
@@ -142,4 +150,4 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

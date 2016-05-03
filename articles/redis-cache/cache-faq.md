@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Domande frequenti sulla Cache Redis di Azure" 
+	pageTitle="Domande frequenti su Cache Redis di Azure | Microsoft Azure" 
 	description="Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure." 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2016" 
+	ms.date="04/18/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -49,19 +49,19 @@ Da questa tabella è possibile trarre le seguenti conclusioni.
 
 | Pricing tier | Dimensione | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Dimensioni della cache livello Standard** | &nbsp; |**Megabit al secondo (Mbps)** | **Richieste al secondo (RPS)** |
-| C0 | 250 MB | 5 | 600 |
-| C1 | 1 GB | 100 | 12200 |
-| C2 | 2,5 GB | 200 | 24000 |
-| C3 | 6 GB | 400 | 49000 |
-| C4 | 13 GB | 500 | 61000 |
-| C5 | 26 GB | 1000 | 115000 |
-| C6 | 53 GB | 2000 | 150000 |
+| **Dimensioni della cache livello Standard** | &nbsp; |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** | **Richieste al secondo (RPS)** |
+| C0 | 250 MB | 5 / 0,625 | 600 |
+| C1 | 1 GB | 100 / 12,5 | 12200 |
+| C2 | 2,5 GB | 200 / 25 | 24000 |
+| C3 | 6 GB | 400 / 50 | 49000 |
+| C4 | 13 GB | 500 / 62,5 | 61000 |
+| C5 | 26 GB | 1000 / 125 | 115000 |
+| C6 | 53 GB | 2000 / 250 | 150000 |
 | **Dimensioni della cache livello Premium** | &nbsp; | &nbsp; | **Richieste al secondo (RPS) per partizione** |
-| P1 | 6 GB | 1000 | 140000 |
-| P2 | 13 GB | 2000 | 220000 |
-| P3 | 26 GB | 2000 | 220000 |
-| P4 | 53 GB | 4000 | 250000 |
+| P1 | 6 GB | 1000 / 125 | 140000 |
+| P2 | 13 GB | 2000 / 250 | 220000 |
+| P3 | 26 GB | 2000 / 250 | 220000 |
+| P4 | 53 GB | 4000 / 500 | 250000 |
 
 
 Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
@@ -147,9 +147,9 @@ Il pool di thread fornisce nuovi thread di lavoro o thread di completamento I/O 
 Quando il numero di thread esistenti, o occupati, raggiunge il minimo, l'oggetto ThreadPool limita la frequenza di inserimento dei nuovi thread a uno ogni 500 millisecondi. Ciò significa che se il sistema riceve un picco di lavoro che necessita di un thread IOCP, il lavoro viene elaborato molto rapidamente. Tuttavia, se il picco di lavoro è superiore all'impostazione minima configurata, ci sarà un ritardo nell'elaborazione di una parte del lavoro mentre l'oggetto ThreadPool attende che si verifichi una delle condizioni seguenti.
 
 1. Un thread esistente diventa disponibile per elaborare il lavoro.
-1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
+1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
 
-In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
+In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
 
 Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.0.450 o versione successiva, si noterà che ora le statistiche dell'oggetto ThreadPool vengono stampate. Di seguito sono riportati i dettagli relativi a IOCP e WORKER.
 
@@ -158,7 +158,7 @@ Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.
 	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
 	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
+Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
 
 Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
 
@@ -264,25 +264,7 @@ Poiché ogni client è diverso, non è disponibile alcun riferimento di classe c
 
 ## Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?
 
->[AZURE.IMPORTANT] Microsoft consiglia l'uso di Cache Redis di Azure per tutte le nuove soluzioni sviluppate.
-
-Cache di Azure presenta attualmente tre offerte:
-
--	Cache Redis di Azure
--	Servizio cache gestito di Azure
--	Cache nel ruolo di Azure
-
->[AZURE.IMPORTANT]Microsoft annuncia per il 30 novembre 2016 il ritiro del Servizio cache gestita di Azure e di Cache nel ruolo di Azure. Si consiglia di eseguire la migrazione a Cache Redis di Azure in preparazione a tale ritiro.
->
->Cache Redis di Azure è stata la soluzione Azure consigliata per la memorizzazione nella cache da quando il servizio è diventato disponibile a livello generale ed è ora disponibile in tutte le aree di Azure, tra cui Cina e Stati Uniti. A causa di tale disponibilità, Microsoft annuncia l'imminente ritiro del Servizio cache gestita e del servizio Cache nel ruolo.
->
->Servizio cache gestita e il servizio Cache nel ruolo rimarranno disponibili per gli attuali clienti per un massimo di 12 mesi dalla data di questo annuncio, 30 novembre 2015, la data di scadenza dei servizi è il 30 novembre 2016. Dopo questa data, Servizio cache gestita e il servizio Cache nel ruolo non saranno più supportati.
->
->Microsoft rimuoverà il supporto per la creazione di nuove cache nel ruolo nella prima versione di Azure SDK che sarà rilasciata dopo il 1 febbraio 2016. I clienti potranno aprire i progetti esistenti in cui sono presenti cache nel ruolo.
->
->Durante questo periodo, si consiglia a tutti gli attuali clienti di Servizio cache gestita e del servizio Cache nel ruolo di eseguire la migrazione a Cache Redis di Azure. Cache Redis di Azure fornisce più funzionalità e un maggiore valore complessivo. Per altre informazioni sulla migrazione, visitare la pagina Web della documentazione [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](cache-migrate-to-redis.md).
->
->Per eventuali domande, [contattare Microsoft](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
+>[AZURE.IMPORTANT]Sulla base dell'[annuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) dello scorso anno, il servizio cache gestita di Azure e il servizio cache nel ruolo di Azure verranno ritirati il 30 novembre 2016. È consigliabile usare [Cache Redis di Azure](https://azure.microsoft.com/services/cache/). Per informazioni sulla migrazione, vedere [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](cache-migrate-to-redis.md).
 
 ### Cache Redis di Azure
 Cache Redis di Azure è in genere disponibile per dimensioni fino a 53 GB e prevede un contratto di servizio con disponibilità del 99,9%. Il nuovo [livello Premium](cache-premium-tier-intro.md) offre dimensioni fino a 530 GB, oltre al supporto per clustering, reti virtuali e persistenza, con Contratti di servizio del 99,9%.
@@ -296,11 +278,11 @@ Un altro aspetto chiave del successo di Redis è l'ecosistema open source integr
 Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, vedere [Come usare Cache Redis di Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e la [documentazione di Cache Redis di Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Servizio cache gestita
-Servizio cache gestita è destinato al ritiro il 30 novembre 2016.
+[Servizio cache gestita è destinato al ritiro il 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### In-Role Cache
-Cache nel ruolo è destinato al ritiro il 30 novembre 2016.
+[Cache nel ruolo è destinato al ritiro il 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

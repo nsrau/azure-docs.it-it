@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"
+ 	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di aprile 2016](#apr_changes16)
 - [Versione di febbraio 2016](#feb_changes16)
 - [Versione di gennaio 2016](#jan_changes_16)
 - [Versione di dicembre 2015](#dec_changes_15)
@@ -67,7 +68,7 @@ Nell'API REST non sono fornite alcune intestazioni HTTP comuni.|Se si sviluppano
 La codifica di un asset con un nome di file contenente caratteri di escape, (ad esempio %20), genera un errore simile al seguente "MediaProcessor: File non trovato.”|I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.
 Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
 Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** e **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Problemi relativi all'SDK di Servizi multimediali per .NET
@@ -80,9 +81,13 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
+##<a id="apr_changes16"></a>Versione di aprile 2016
+
+In questa versione di Servizi multimediali di Azure è stata introdotta la funzionalità di Analisi servizi multimediali di Azure per una straordinaria esperienza di video intelligence. Per informazioni dettagliate, vedere (Informazioni generali su Analisi servizi multimediali di Azure) [media-services-analisi-overview.md].
+
 ##<a id="feb_changes16"></a>Versione di febbraio 2016
 
-La versione più recente di Azure Media Services SDK per .NET (3.5.3) contiene una correzione di bug relativa a Widevine. Problema: non è possibile usare di nuovo AssetDeliveryPolicy per più asset crittografati con Widevine. All'interno di questa correzione di bug, è stato aggiunto all'SDK la proprietà seguente: **WidevineBaseLicenseAcquisitionUrl**.
+La versione più recente di Azure Media Services SDK per .NET (3.5.3) contiene una correzione di bug relativa a Widevine. Problema: non è possibile usare di nuovo AssetDeliveryPolicy per più asset crittografati con Widevine. Per correggere il bug è stata anche aggiunta la proprietà seguente a SDK: **WidevineBaseLicenseAcquisitionUrl**.
 	
 	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -411,7 +416,7 @@ Per altre informazioni, vedere [Logica di retry in Media Services SDK for .NET].
 
 Le modifiche apportate alle versioni 3.0.0.1 e 3.0.0.2 includono:
 
-* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
+* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
 
 * Soluzioni di test in [GitHub] divise in test basati su unità e test basati su scenario.
 
@@ -654,4 +659,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

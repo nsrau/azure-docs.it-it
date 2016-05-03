@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="deonhe"/>
 
 
 # Il connettore Twitter è stato migliorato 
 
-Questo connettore è ora supportato solo nella nuova [versione dello schema delle app per la logica 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) e nelle versioni successive.
+Da questa pagina è stato rimosso il contenuto destinato alle app per la logica versione 2014-12-01-preview. Questo connettore, infatti, è stato aggiornato e ora è supportato solo per la nuova versione [dello schema delle app per la logica (2015-08-01-preview)](./app-service-logic-schema-2015-08-01.md) e per le versioni successive.
 
 
 ## Passaggi successivi    
 
 - [Leggere ulteriori informazioni su questo nuovo connettore](../connectors/connectors-create-api-twitter.md)
-- [Eseguire la migrazione dei connettori meno recenti](../connectors/connectors-schema-migration.md) alla nuova versione dello schema delle app per la logica 2015-08-01-preview
-- Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che vengono eseguiti nella nuova versione dello schema delle app per la logica 2015-08-01-preview  
+- Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

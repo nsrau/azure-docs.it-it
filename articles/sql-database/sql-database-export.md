@@ -25,17 +25,17 @@
 
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per archiviare un database SQL di Azure in un file BACPAC nell'archivio BLOB di Azure.
 
-Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file ZIP con estensione BACPAC. In un secondo momento il file BACPAC può essere salvato nell'archivio BLOB di Azure o in un archivio e un percorso locali e successivamente reimportato nel database SQL di Azure o in un'installazione locale di SQL Server.
+Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file zip con estensione bacpac. Un file BACPAC in un secondo momento può essere archiviato nell'archivio BLOB di Azure o in un percorso locale e successivamente reimportato nel database SQL di Azure o in un'istallazione locale di SQL Server.
 
 ***Considerazioni***
 
 - Perché un archivio sia coerente dal punto di vista transazionale, è necessario assicurarsi che non si verifichino attività di scrittura durante l'esportazione oppure è necessario eseguire l'esportazione da una [copia coerente dal punto di vista transazionale](sql-database-copy.md) del database SQL di Azure
 - La dimensione massima di un file BACPAC salvato nell'archivio BLOB di Azure è pari a 200 GB. Per archiviare un file BACPAC più grande in un percorso locale, usare l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Questa utilità è disponibile sia in Visual Studio che in SQL Server. È inoltre possibile [scaricare](https://msdn.microsoft.com/library/mt204009.aspx) la versione più recente di SQL Server Data Tools per ottenere questa utilità.
-- La memorizzazione in Archiviazione Premium di Azure tramite un file BACPAC non è supportata.
+- L'archiviazione Premium di file BACPAC in Azure non è supportata.
 - Se l'operazione di esportazione dura oltre 20 ore, potrebbe essere annullata. Per migliorare le prestazioni durante l'esportazione è possibile:
  - Aumentare temporaneamente il livello di servizio. 
  - Interrompere tutte le attività di lettura e scrittura durante l'esportazione.
- - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, un'esportazione di durata superiore a 6-12 ore potrebbe avere esito negativo. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero.
+ - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero.
 
 > [AZURE.NOTE] I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
@@ -87,9 +87,8 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 ## Passaggi successivi
 
-- [Importare un database SQL di Azure][5]
-
-
+- [Importare un file BACPAC in un database SQL di Azure](sql-database-import.md)
+- [Importare un file BACPAC in un database SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## Risorse aggiuntive
 
@@ -105,4 +104,4 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -36,12 +36,9 @@ Ora aprire una shell ed eseguire il comando seguente, dove:
 
 **PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per DC/OS usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse.
 
-> La porta di connessione SSH è la 2200, non la porta 22 standard.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### Tunnel DC/OS
@@ -120,4 +117,4 @@ Distribuire e gestire contenitori con DC/OS o Swarm.
 
 [Utilizzo del servizio contenitore di Azure e DC/OS](./container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

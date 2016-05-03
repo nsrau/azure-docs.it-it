@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # Override del comportamento HTTP predefinito mediante il motore regole
 
 ## Panoramica
 
-Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP, come ad esempio il blocco della distribuzione di determinati tipi di contenuto, la definizione di un criterio di memorizzazione nella cache e la modifica della intestazioni HTTP. Questa esercitazione illustra la creazione di una regola che modifica il comportamento di memorizzazione nella cache degli asset della rete CDN.
+Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP, come ad esempio il blocco della distribuzione di determinati tipi di contenuto, la definizione di un criterio di memorizzazione nella cache e la modifica della intestazioni HTTP. Questa esercitazione illustra la creazione di una regola che modifica il comportamento di memorizzazione nella cache degli asset della rete CDN. Nella sezione "[Vedere anche](#see-also)" sono disponibili anche contenuti video.
 
 > [AZURE.NOTE] Il motore regole è una funzionalità del piano Premium per la rete CDN. Per un confronto delle funzionalità della rete CDN Standard e Premium, vedere [Panoramica della rete CDN di Azure](cdn-overview.md).
 
@@ -63,10 +63,7 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 - L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l’override delle azioni specificate da una regola precedente.
 
 ## Vedere anche
+* [Vedere il video relativo alle nuove potenti funzionalità Premium della rete CDN di Azure](../../videos/azure-cdns-powerful-new-premium-features/)
 * [Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole](cdn-rules-engine-details.md)
-* [Panoramica della rete CDN di Azure](cdn-overview.md)
-* [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
-* [Report HTTP avanzati](cdn-advanced-http-reports.md)
-* [Analizzare delle prestazioni edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -45,7 +45,9 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Visual Studio 2013 con [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) per la GUI di gestione dei BLOB
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (usato dalla procedura per [automatizzare il caricamento del contenuto dall'applicazione ASP.NET all'endpoint della rete CDN](#upload))
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio i siti Web. È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.
+> + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/). Con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="static"></a>
 ## Rendere disponibile il contenuto statico da un endpoint della rete CDN di Azure ##
@@ -256,7 +258,9 @@ L'integrazione di Azure App Service o Servizi cloud di Azure con la rete CDN di 
 - Facile aggiornamento dei pacchetti NuGet gestiti dalla rete CDN, come le versioni jQuery o Bootstrap 
 - Gestione dell'applicazione Web e del contenuto gestito dalla rete CDN dalla stessa interfaccia di Visual Studio
 
-Per le relative esercitazioni, vedere:- [Usare la rete CDN di Azure in Azure App Service](../app-service-web/cdn-websites-with-cdn.md) - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
+Per le relative esercitazioni, vedere:
+- [Usare la rete CDN di Azure in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
+- [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 
 Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure è possibile usare la rete CDN di Azure per i bundle di script, con le seguenti avvertenze:
 
@@ -270,7 +274,7 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 - [Usare la rete CDN di Azure in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 - [Come eseguire il mapping del contenuto della rete per la distribuzione di contenuti (CDN) a un dominio personalizzato](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
+- [Uso della rete CDN di Azure](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

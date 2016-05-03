@@ -13,47 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Azure AD Privileged Identity Management: Come usare il log di controllo
+# Come usare il log di controllo in Azure AD Privileged Identity Management
 
 È possibile usare il log di controllo di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni per un periodo di tempo specificato.
 
-## Accesso al log di controllo
-È possibile accedere al log di controllo facendo clic su **Cronologia dei controlli** nel dashboard di PIM.
+## Accedere al log di controllo
+Nel dashboard del [portale di Azure](https://portal.azure.com) selezionare l'app **Azure AD Priviliged Identity Management**. È possibile accedere al log di controllo facendo clic su **Cronologia dei controlli** nel dashboard di PIM.
 
 ## Grafico del log di controllo
 È possibile usare il log di controllo per visualizzare il totale delle attivazioni, il numero massimo di attivazioni per giorno e il numero medio di attivazioni per giorno in un grafico a linee. È anche possibile filtrare i dati per ruolo se sono presenti più ruoli nella cronologia di controlli.
 
-È possibile eseguire l'ordinamento per **ora**, **azione** o **ruolo** usando i pulsanti corrispondenti.
+Usare i pulsanti **Ora**, **Azione** e **Ruolo** per ordinare il log.
 
 ## Elenco del log di controllo
 Le colonne nell'elenco del log di controllo sono le seguenti:
 
-- **Richiedente**: persona che ha richiesto l'attivazione del ruolo.
-- **Utente**: utente dell'attivazione del ruolo.
-- **Ruolo**: ruolo assegnato all'utente.
-- **Azione**: azioni intraprese con il ruolo/utente.
+- **Richiedente**: utente che ha richiesto l'attivazione del ruolo o la modifica. Se il valore è "Azure System", vedere il log di controllo di Azure per altre informazioni.
+- **Utente**: utente che esegue l'attivazione o è assegnato a un ruolo.
+- **Ruolo**: ruolo assegnato o attivato dall'utente.
+- **Azione**: azioni eseguite dal richiedente. Le azioni possono includere assegnazione, annullamento dell'assegnazione, attivazione o disattivazione.
 - **Ora**: quando si è verificata l'azione.
 - **Motivo**: eventuale testo immesso nel campo del motivo durante l'attivazione.
-- **Scadenza**: se l'anno di scadenza è 9999, il ruolo è assegnato in modo permanente all'utente.
+- **Scadenza**: rilevante solo per l'attivazione dei ruoli.
 
-## Applicazione di un filtro nel log di controllo
+## Filtrare il log di controllo
 
-È anche possibile filtrare le informazioni visualizzate nel log di controllo facendo clic sul pulsante **Filtro**. Verrà visualizzato il pannello **Aggiorna parametri grafico**.
+È possibile filtrare le informazioni visualizzate nel log di controllo facendo clic sul pulsante **Filtro**. Verrà visualizzato il pannello **Aggiorna parametri grafico**.
+
+Dopo aver impostato i filtri, fare clic su **Aggiorna** per filtrare i dati del log. Se i dati non vengono visualizzati immediatamente, aggiornare la pagina.
+
 
 ### Modificare l'intervallo di date
-Modificare l'intervallo di date del log di controllo scegliendo uno dei pulsanti **Oggi**, **Settimana precedente**, **Mese precedente** o **Personalizzato**. Se si sceglie il pulsante **Personalizzato**, verranno visualizzati i campi di data **Da** e **A** per specificare l'intervallo di date desiderato per il log. È possibile immettere le date nel formato MM/GG/AAAA o fare clic sull'icona **calendario** e scegliere la data da un calendario.
+Usare i pulsanti **Oggi**, **Ultima settimana**, **Mese precedente** o **Personalizzato** per modificare l'intervallo di tempo del log di controllo.
+
+Se si sceglie il pulsante **Personalizzato**, vengono visualizzati i campi di data **Da** e **A** per specificare un intervallo di date per il log. È possibile immettere le date nel formato MM/GG/AAAA o fare clic sull'icona **calendario** e scegliere la data da un calendario.
 
 ### Modificare i ruoli inclusi nel log
 
-Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruolo che si desidera includere o escludere dal log.
+Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruolo per includerlo o escluderlo dal log.
 
-Dopo aver impostato tutti i filtri desiderati per il log di controllo, fare clic sul pulsante di aggiornamento per filtrare i dati nel log. Se i dati non vengono visualizzati immediatamente, aggiornare la pagina.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

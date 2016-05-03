@@ -37,8 +37,6 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip).
 
-- L'__interfaccia della riga di comando di Azure__. Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
-
 ##Ricevere un feed Twitter
 
 Twitter consente di recuperare i [dati relativi ad ogni tweet](https://dev.twitter.com/docs/platform-objects/tweets) come documento JSON (JavaScript Object Notation) attraverso un'API REST. Per l'autenticazione all'API, è necessario [OAuth](http://oauth.net). È inoltre necessario creare un'_applicazione Twitter_ contenente le impostazioni usate per accedere all'API.
@@ -319,4 +317,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

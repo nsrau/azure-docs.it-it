@@ -3,7 +3,7 @@
    description="Informazioni su come usare il portale di Azure per creare un account di Analisi Data Lake, creare un processo di Analisi Data Lake mediante U-SQL e inviare il processo." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Esercitazione: Introduzione a Analisi di Azure Data Lake con il portale di Azure
 
@@ -24,16 +24,9 @@ Informazioni su come usare il portale di Azure per creare account di Analisi di 
 
 In questa esercitazione si svilupperà un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione. Dopo il completamento del primo processo, è possibile iniziare a scrivere trasformazioni di dati più complesse con U-SQL.
 
-**Processo di Analisi Data Lake di base:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Analisi Data Lake di Azure - Diagramma di flusso del processo](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Creare un account di Analisi Data Lake.
-2. Preparare i dati di origine. I processi di Analisi Data Lake possono leggere dati da account di Archivio Data Lake di Azure o da account di archiviazione BLOB di Azure. In questo esempio si userà Archivio Data Lake di Azure.  
-3. Sviluppare uno script U-SQL.
-4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, elabora i dati come indicato nello script U-SQL e quindi salva l'output in un account di Data Lake Store o in un account di archiviazione BLOB.
-
-###Prerequisiti
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
@@ -51,7 +44,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 2. Fare clic su **Nuovo**, su **Dati e Analisi** e quindi su **Analisi Data Lake**.
 6. Immettere o selezionare le informazioni seguenti:
 
-    ![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
+    ![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nome**: nome dell'account di Analisi.
 	- **Archivio Data Lake**: ogni account di Analisi Data Lake dispone di un account di Archivio Data Lake dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
@@ -162,4 +155,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0427_2016-->

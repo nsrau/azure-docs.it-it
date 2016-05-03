@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="03/13/2016"
 	ms.author="awills"/>
 
 # Dashboard e navigazione nel portale Application Insights
@@ -21,15 +21,16 @@ Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md
 
 ## Dashboard
 
-Quando si accede al [portale Azure](https://portal.azure.com), viene innanzitutto visualizzato il dashboard. È possibile personalizzarlo o attivare la modalità schermo intero. Nell'esempio il dashboard è stato personalizzato per visualizzare i grafici di interesse per i proprietari.
+Quando si accede al [portale Azure](https://portal.azure.com), viene innanzitutto visualizzato il dashboard. È possibile personalizzarlo o attivare la modalità schermo intero.
 
+Il dashboard è particolarmente utile per monitorare una soluzione costituita da più applicazioni, indipendentemente da dove sono ospitate. Se il sistema include componenti di Azure, ad esempio l'analisi di flusso, è possibile aggiungere al dashboard anche i grafici di monitoraggio di tali componenti.
 
 ![Un dashboard personalizzato.](./media/app-insights-dashboards/30.png)
 
 1. Fare clic nell'angolo superiore in qualsiasi momento per tornare al dashboard.
-2. **+ Nuovo** crea una nuova risorsa. Una [risorsa di Application Insights](app-insights-create-new-resource.md) è una posizione in cui è possibile archiviare e analizzare la telemetria dell'app.
+2. **+Nuovo** crea una nuova risorsa. Una [risorsa di Application Insights](app-insights-create-new-resource.md) è una posizione in cui è possibile archiviare e analizzare la telemetria dell'app.
 3. La barra di spostamento consente di aprire le risorse esistenti.
-4. Modificare e creare dashboard usando la barra degli strumenti del dashboard.
+4. Modificare e creare dashboard usando la barra degli strumenti del dashboard. È possibile [creare dashboard diversi](#dashboards) per applicazioni diverse.
 
 ## Trovare i dati di telemetria
 
@@ -41,38 +42,6 @@ La pagina della panoramica mostra alcuni dati di telemetria di base e include co
 
 
 
-## Intervallo di tempo
-
-È possibile modificare l'intervallo di tempo coperto dai grafici o dalle griglie in tutti i pannelli.
-
-![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/app-insights-dashboards/03-range.png)
-
-
-Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli regolari, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
-
-Per ingrandire una parte di un grafico, trascinare il puntatore sulla parte specifica e fare clic sul simbolo di lente di ingrandimento:
-
-![Trascinare il puntatore su una parte di un grafico.](./media/app-insights-dashboards/12-drag.png)
-
-
-
-## Granularità e valori dei punti
-
-Posizionare il mouse sul grafico per visualizzare i valori delle metriche in quel punto.
-
-![Posizionare il mouse su un grafico](./media/app-insights-dashboards/02-focus.png)
-
-Il valore della metrica in un punto particolare viene aggregato in base all'intervallo di campionamento precedente.
-
-L'intervallo di campionamento o "granularità" è visibile nella parte superiore del pannello.
-
-![Intestazione di un pannello.](./media/app-insights-dashboards/11-grain.png)
-
-È possibile modificare la granularità nel pannello Intervallo di tempo:
-
-![L'intestazione di un pannello.](./media/app-insights-dashboards/grain.png)
-
-Le granularità disponibili dipendono dall'intervallo di tempo selezionato. Le granularità esplicite costituiscono alternative alla granularità "automatica" per l'intervallo di tempo.
 
 ## Pannello Panoramica dell'app
 
@@ -98,6 +67,10 @@ Scegliere gli elementi da visualizzare nella panoramica. In Personalizza è poss
 ## Dashboard
 
 Il dashboard del portale di Azure è la home page visualizzata quando si accede per la prima volta al [portale](https://portal.azure.com). Qui è possibile raggruppare grafici e riquadri, ovvero gruppi di grafici, provenienti da più risorse.
+
+Se il sistema include più componenti, ad esempio un'app Web, un server back-end e anche alcuni servizi di Azure, è possibile visualizzare gli indicatori di prestazioni chiave di tutti i componenti in un'unica schermata.
+
+Se si ha più di un'applicazione, è possibile creare e passare tra diversi dashboard.
 
 ![Fare clic su Edit. Spostare i grafici e i riquadri. Aggiungere i riquadri dalla raccolta. Fare quindi clic su Fine.](./media/app-insights-dashboards/30.png)
 
@@ -181,7 +154,41 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 ![Nei pulsanti nella parte superiore di Esplora metriche](./media/app-insights-dashboards/17-reset.png)
 
-## Ricerca
+
+## Intervallo di tempo
+
+È possibile modificare l'intervallo di tempo coperto dai grafici o dalle griglie in tutti i pannelli.
+
+![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/app-insights-dashboards/03-range.png)
+
+
+Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli regolari, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
+
+Per ingrandire una parte di un grafico, trascinare il puntatore sulla parte specifica e fare clic sul simbolo di lente di ingrandimento:
+
+![Trascinare il puntatore su una parte di un grafico.](./media/app-insights-dashboards/12-drag.png)
+
+
+
+## Granularità e valori dei punti
+
+Posizionare il mouse sul grafico per visualizzare i valori delle metriche in quel punto.
+
+![Posizionare il mouse su un grafico](./media/app-insights-dashboards/02-focus.png)
+
+Il valore della metrica in un punto particolare viene aggregato in base all'intervallo di campionamento precedente.
+
+L'intervallo di campionamento o "granularità" è visibile nella parte superiore del pannello.
+
+![Intestazione di un pannello.](./media/app-insights-dashboards/11-grain.png)
+
+È possibile modificare la granularità nel pannello Intervallo di tempo:
+
+![Intestazione di un pannello.](./media/app-insights-dashboards/grain.png)
+
+Le granularità disponibili dipendono dall'intervallo di tempo selezionato. Le granularità esplicite costituiscono alternative alla granularità "automatica" per l'intervallo di tempo.
+
+## Search
 
 La ricerca visualizza i singoli eventi, ad esempio visualizzazioni pagina, richieste, eccezioni, tracce di log ed eventi personalizzati. Non mostra le metriche aggregate o le istanze della chiamata a TrackMetric().
 
@@ -231,4 +238,12 @@ Per visualizzare nuovamente la ricerca, **andare al pannello Panoramica** e apri
 
 Se è stato salvato con intervallo di tempo Relativo, il pannello riaperto presenterà i dati più recenti. Se è stato salvato con intervallo di tempo Assoluto,verranno visualizzati gli stessi dati ogni volta.
 
-<!---HONumber=AcomDC_0309_2016-->
+## Analytics
+
+[Analytics](app-insights-analytics.md) è la funzionalità di ricerca avanzata che consente di esaminare e comprendere le questioni relative alle prestazioni dell'app.
+
+![Esempio di Analytics](./media/app-insights-dashboards/025.png)
+
+Fare clic sul riquadro Analytics per visualizzare la funzionalità.
+
+<!---HONumber=AcomDC_0420_2016-->

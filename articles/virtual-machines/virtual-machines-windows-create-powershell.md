@@ -50,15 +50,14 @@ Accedere al proprio account.
 
 	Login-AzureRmAccount
 
-Ottenere il nome della sottoscrizione usando il comando seguente.
+È possibile ottenere le sottoscrizioni disponibili usando il comando seguente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
 	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 ## Passaggio 3: Creare le risorse
 
@@ -393,4 +392,4 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

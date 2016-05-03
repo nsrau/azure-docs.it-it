@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Usare i notebook di Zeppelin con cluster Spark in HDInsight (Linux)
+# Usare i notebook di Zeppelin con il cluster Spark in HDInsight Linux (anteprima)
 
 Informazioni su come installare i notebook di Zeppelin in cluster Spark e su come usare i notebook di Zeppelin.
 
@@ -332,4 +332,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

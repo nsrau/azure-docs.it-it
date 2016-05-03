@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Come creare ruoli Web e di lavoro PHP
@@ -26,7 +26,7 @@ Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di
 
 Azure offre tre modelli di calcolo per le applicazioni in esecuzione: Servizio App di Azure, Macchine virtuali di Azure e Servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
 
-Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](./cloud-services/fundamentals-application-models.md).
+Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](./cloud-services/cloud-services-choose-me.md).
 
 ## Scaricare Azure SDK per PHP
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione"
- description=""
+ description="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -30,7 +30,7 @@ L’Utilità di pianificazione di Azure è disponibile tramite l'interfaccia ute
 
 Non solo l'Utilità di pianificazione di Azure è disponibile per le richieste di gestione, ma il proprio processo è anche replicato geograficamente. Quando si verifica un'interruzione di servizio in un'area, l’Utilità di pianificazione di Azure va in failover e assicura che il processo venga eseguito da un altro data center nell'area geografica associata.
 
-Ad esempio, se è stato creato un processo negli USA centro-meridionali, l’Utilità di pianificazione di Azure replica automaticamente tale processo negli USA centro-settentrionale. Quando si verifica un errore negli USA centro-meridionali, l’Utilità di pianificazione Azure garantisce che il processo venga eseguito dagli USA centro-settentrionali. [Per una spiegazione dettagliata delle funzionalità di replica geografica di Azure, vedere questo argomento.](../sql-database/sql-database-business-continuity-design.md)
+Ad esempio, se è stato creato un processo negli USA centro-meridionali, l’Utilità di pianificazione di Azure replica automaticamente tale processo negli USA centro-settentrionale. Quando si verifica un errore negli USA centro-meridionali, l’Utilità di pianificazione Azure garantisce che il processo venga eseguito dagli USA centro-settentrionali.
 
 ![][1]
 
@@ -85,4 +85,4 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # Risolvere i problemi relativi agli aggiornamenti delle applicazioni
@@ -190,7 +190,7 @@ L'aggiornamento continuerà dal dominio di aggiornamento in corrispondenza del q
 
 Possibile causa 1:
 
-Service Fabric converte tutte le percentuali in numeri effettivi di entità (ad esempio repliche, partizioni e servizi) per la valutazione dell'integrità ed esegue l'arrotondamento sempre al numero intero di entità più prossimo. Se ad esempio il valore massimo di _MaxPercentUnhealthyReplicasPerPartition_ è 21% e sono presenti cinque repliche, Service Fabric accetterà la non integrità di un massimo di due repliche, ovvero `Math.Ceiling (5*0.21)`, durante la valutazione dell'integrità della partizione. I criteri di integrità devono essere impostati in modo da tenere conto di questo comportamento.
+Service Fabric converte tutte le percentuali in numeri effettivi di entità (ad esempio repliche, partizioni e servizi) per la valutazione dell'integrità ed esegue l'arrotondamento sempre al numero intero di entità più prossimo. Se ad esempio il valore massimo di _MaxPercentUnhealthyReplicasPerPartition_ è 21% e sono presenti cinque repliche, Service Fabric accetterà un massimo di due repliche danneggiate, ovvero `Math.Ceiling (5*0.21)`, durante la valutazione dell'integrità della partizione. I criteri di integrità devono essere impostati in modo da tenere conto di questo comportamento.
 
 Possibile causa 2:
 
@@ -233,4 +233,4 @@ Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'a
 Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

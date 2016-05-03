@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/14/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
@@ -463,7 +463,13 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No | 
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
-| sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
+| allowPolyBase | Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT per caricare i dati in Azure SQL Data Warehouse. <br/><br/>Si noti che al momento è supportato solo il set di dati **BLOB di Azure** con **format** impostato su **TextFormat** come set di dati di origine. Il supporto per altri tipi di origine sarà presto disponibile. <br/><br/>Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse). | True <br/>False (valore predefinito) | No |  
+| polyBaseSettings | Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. | &nbsp; | No |  
+| rejectValue | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione **Argomenti** dell'argomento [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). | 0 (impostazione predefinita), 1, 2, … | No |  
+| rejectType | Indica se l'opzione rejectValue viene specificata come valore letterale o come percentuale. | Value (impostazione predefinita), Percentage | No |   
+| rejectSampleValue | Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate. | 1, 2, … | Sì se **rejectType** è **percentage** |  
+| useTypeDefault | Specifica come gestire i valori mancanti nei file con testo delimitato quando PolyBase recupera dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Argomenti in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). | True, False (valore predefinito) | No | 
+
 
 #### Esempio SqlDWSink
 
@@ -471,8 +477,113 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
     "sink": {
         "type": "SqlDWSink",
         "writeBatchSize": 1000000,
-        "writeBatchTimeout": "00:05:00",
+        "writeBatchTimeout": "00:05:00"
     }
+
+## Usare PolyBase per caricare dati in Azure SQL Data Warehouse
+**PolyBase** consente di caricare in modo efficiente quantità elevate di dati da un archivio BLOB di Azure ad Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito.
+
+Se l'archivio dati di origine non è un archivio BLOB di Azure, prendere in considerazione prima di tutto la copia dei dati dall'archivio dati di origine all'archivio BLOB di Azure come fase di staging e quindi usare PolyBase per caricare i dati in Azure SQL Data Warehouse dall'archivio di staging. In questo scenario si useranno due attività di copia, con la prima attività di copia configurata per copiare i dati dall'archivio dati di origine all'archivio BLOB di Azure e la seconda attività di copia per copiare i dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse mediante PolyBase.
+
+Impostare la proprietà **allowPolyBase** su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà **polyBaseSettings**. Per informazioni dettagliate sulle proprietà disponibili con polyBaseSettings, vedere la sezione [SqlDWSink](#SqlDWSink).
+
+
+    "sink": {
+        "type": "SqlDWSink",
+		"allowPolyBase": true,
+		"polyBaseSettings":
+		{
+			"rejectType": "percentage",
+			"rejectValue": 10,
+			"rejectSampleValue": 100,
+			"useTypeDefault": true 
+		}
+
+    }
+
+Azure Data Factory verifica se i dati soddisfano i requisiti seguenti prima di usare PolyBase per copiare i dati in Azure SQL Data Warehouse. Se i requisiti non vengono soddisfatti, verrà usato automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
+
+1.	Il **servizio collegato di origine** è di tipo **Archiviazione di Azure** e non è configurato per l'uso dell'autenticazione con firma di accesso condiviso. Per informazioni dettagliate, vedere [Servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).  
+2. Il **set di dati di input** è di tipo **BLOB di Azure** e le proprietà del tipo di set di dati soddisfano i criteri seguenti: 
+	1. **Type** deve essere **TextFormat**. 
+	2. **rowDelimiter** deve essere **\\n**. 
+	3. **nullValue** è impostata su **stringa vuota** (""). 
+	4. **encodingName** è impostata su **utf-8**, ovvero il valore **predefinito**, quindi non impostarla su un valore diverso. 
+	5. **escapeChar** e **quoteChar** non sono specificate. 
+	6. **Compression** non è **BZIP2**.
+	 
+			"typeProperties": {
+				"folderPath": "<blobpath>",
+				"format": {
+					"type": "TextFormat",     
+					"columnDelimiter": "<any delimiter>", 
+					"rowDelimiter": "\n",       
+					"nullValue": "",           
+					"encodingName": "utf-8"    
+				},
+            	"compression": {  
+                	"type": "GZip",  
+	                "level": "Optimal"  
+    	        }  
+			},
+3.	Non è disponibile alcuna impostazione **skipHeaderLineCount** in **BlobSource** per l'attività di copia nella pipeline. 
+4.	Non è disponibile alcuna impostazione **sliceIdentifierColumnName** in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità**, è possibile usare **sqlWriterCleanupScript**.
+5.	Nell'attività di copia associata non viene usato alcun valore **columnMapping**. 
+
+### Procedure consigliate per l'uso di PolyBase
+
+#### Limitazione delle dimensioni delle righe
+Polybase non supporta righe con dimensioni superiori a 32 KB. Un tentativo di caricare una tabella con righe superiori a 32 KB provocherebbe l'errore seguente:
+
+	Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
+
+Se sono presenti dati di origine con righe di dimensioni superiori a 32 KB, è consigliabile suddividere verticalmente le tabelle di origine in alcune tabelle più piccole, in cui le dimensioni massime delle righe di ogni tabella non supera il limite previsto. Le tabelle più piccole possono essere quindi caricate usando PolyBase e unite in Azure SQL Data Warehouse.
+
+#### tableName in Azure SQL Data Warehouse
+La tabella seguente fornisce esempi relativi a come specificare la proprietà **tableName** nel set di dati JSON per diverse combinazioni di nomi di schema e di tabella.
+
+| Schema di database | Nome tabella | Proprietà JSON tableName |
+| --------- | -----------| ----------------------- | 
+| dbo | MyTable | MyTable o dbo.MyTable o [dbo].[MyTable] |
+| dbo1 | MyTable | dbo1.MyTable o [dbo1].[MyTable] |
+| dbo | My.Table | [My.Table] o [dbo].[My.Table] |
+| dbo1 | My.Table | [dbo1].[My.Table] |
+
+Se viene visualizzato un errore analogo al seguente, è possibile che si sia verificato un problema con il valore specificato per la proprietà tableName. Per informazioni sul modo corretto per specificare i valori per la proprietà JSON tableName, vedere la tabella precedente.
+
+	Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
+
+#### Colonne con valori predefiniti
+La funzionalità PolyBase in Data Factory accetta attualmente lo stesso numero di colonne disponibili nella tabella di destinazione. Se, ad esempio, è disponibile una tabella con 4 colonne e una di esse è definita con un valore predefinito, i dati di input conterranno comunque 4 colonne. Se si specifica un set di dati di input con 3 colonne, si verificherà un errore analogo al seguente:
+
+	All columns of the table must be specified in the INSERT BULK statement.
+
+Il valore NULL è una forma speciale di valore predefinito. Se la colonna ammette valori Null, i dati di input (nel BLOB) per tale colonna possono essere vuoti, ma non possono essere mancanti dal set di dati di input. PolyBase inserirà automaticamente NULL per tali valori in Azure SQL Data Warehouse.
+
+#### Sfruttamento dei vantaggi della copia in due fasi per usare PolyBase
+PolyBase ha alcune limitazioni relativi agli archivi dati e ai formati utilizzabili. Se lo scenario non soddisfa i requisiti, è necessario sfruttare i vantaggi dell'attività di copia per copiare i dati in un archivio dati supportato da PolyBase e/o convertire i dati in un formato supportato da PolyBase. Ecco alcuni esempi delle trasformazioni che è possibile eseguire:
+
+-	Convertire i file di origine con altre codifiche nei BLOB di Azure in UTF-8.
+-	Serializzare i dati in SQL Server/database SQL di Azure in BLOB di Azure in formato CSV.
+-	Cambiare l'ordine delle colonne specificando la proprietà columnMapping.
+
+Ecco alcuni suggerimenti relativi alle trasformazioni:
+
+- Selezione di un delimitatore appropriato durante la conversione di dati tabulari nei file CSV.
+
+	È consigliabile usare come delimitatori di colonna caratteri che molto probabilmente non compariranno dei dati. I delimitatori comuni includono virgola (,), tilde (~), barra verticale (|) e tabulazione (\\t). Se i dati contengono questi caratteri, è possibile impostare il delimitatore di colonna su caratteri non stampabili, ad esempio "\\u0001". Polybase accetta delimitatori di colonna con più caratteri. Ciò consente di creare delimitatori di colonna più complessi.	
+- Formato di oggetti datetime.
+
+	Quando gli oggetti datetime vengono serializzati, l'attività di copia usa per impostazione predefinita il formato "aaaa-MM-gg HH:mm:ss.fffffff", che, per impostazione predefinita, non è supportato da PolyBase. Per informazioni sui formati di datetime supportati, vedere [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). Se non si rispettano i requisiti di PolyBase in merito al formato di datetime, si verificherà un errore analogo al seguente:
+
+		Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.
+		(/AccountDimension)Column ordinal: 97, Expected data type: DATETIME NOT NULL, Offending value: 2010-12-17 00:00:00.0000000  (Column Conversion Error), Error: Conversion failed when converting the NVARCHAR value '2010-12-17 00:00:00.0000000' to data type DATETIME.
+
+	Per risolvere questo errore, specificare il formato di datetime come illustrato nell'esempio seguente:
+	
+		"structure": [
+    		{ "name" : "column", "type" : "int", "format": "yyyy-MM-dd HH:mm:ss" }
+		]
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
@@ -531,4 +642,7 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+## Prestazioni e ottimizzazione  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati (attività di copia) in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+
+<!---HONumber=AcomDC_0420_2016-->

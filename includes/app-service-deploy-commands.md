@@ -6,4 +6,4 @@ Per distribuire le risorse in Azure, è necessario aver eseguito l'accesso all'a
 
 Gli esempi seguenti presuppongono che nell'account sia già stato creato un gruppo di risorse con il nome specificato.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

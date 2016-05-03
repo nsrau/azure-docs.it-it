@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso  
 
-Informazioni sulla gestione della sicurezza del database SQL, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server. Comprendere alcune differenze e analogie nelle opzioni di sicurezza degli account di accesso tra il database SQL e un server SQL locale.
+Informazioni sulla gestione della sicurezza del database SQL, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server. Comprendere alcune differenze e analogie nelle opzioni di sicurezza degli account di accesso tra il database SQL e un server SQL locale. Per un'esercitazione rapida, vedere [Esercitazione del database SQL di Azure: introduzione alla sicurezza per il database SQL di Azure](sql-database-get-started-security.md).
 
 ## Provisioning del database e account di accesso delle entità di sicurezza a livello di server
 
@@ -28,7 +28,7 @@ Nel Database SQL di Microsoft Azure, quando si effettua l'iscrizione per il serv
 
 L'account dell’entità di livello server di Database SQL di Azure dispone sempre dell'autorizzazione per gestire la sicurezza a livello di server e a livello di database. In questo argomento viene descritto come utilizzare l'entità di livello server e altri account per gestire gli account di accesso e i database nel Database SQL.
 
-Gli utenti di Azure che accedono al database SQL tramite il controllo di accesso in base al ruolo di Azure (RBAC) e l'API REST di Azure Resource Manager ricevono le autorizzazioni dai relativi ruoli di Azure. Questi ruoli forniscono accesso alle operazioni del piano di gestione, ma non alle operazioni del piano dati. Tali operazioni del piano di gestione includono la capacità di leggere diverse proprietà ed elementi dello schema nel database SQL. Inoltre, consente la creazione, l’eliminazione e la configurazione di alcune funzionalità a livello di server relative al database SQL. Molte di queste operazioni del piano di gestione sono gli elementi visibili e configurabili quando si utilizza il portale di Azure. Durante l’utilizzo dei ruoli RBAC, le azioni dei membri con ruolo Azure all’interno del database (come ad esempio l’elenco delle tabelle) sono eseguite dal motore del database, in modo che tali ruoli non siano interessati dal sistema di autorizzazioni di dichiarazioni GRANT/REVOKE/DENY dell’SQL Server standard. I ruoli RBAC non includono la possibilità di leggere o modificare i dati, poiché queste sono operazioni del piano dati. Per altre informazioni, vedere [RBAC: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
+Gli utenti di Azure che accedono al database SQL tramite il controllo di accesso in base al ruolo di Azure (RBAC) e l'API REST di Azure Resource Manager ricevono le autorizzazioni dai relativi ruoli di Azure. Questi ruoli forniscono accesso alle operazioni del piano di gestione, ma non alle operazioni del piano dati. Tali operazioni del piano di gestione includono la capacità di leggere diverse proprietà ed elementi dello schema nel database SQL. Inoltre, consente la creazione, l’eliminazione e la configurazione di alcune funzionalità a livello di server relative al database SQL. Molte di queste operazioni del piano di gestione sono gli elementi visibili e configurabili quando si utilizza il portale di Azure. Durante l’utilizzo dei ruoli RBAC, le azioni dei membri con ruolo Azure all’interno del database (come ad esempio l’elenco delle tabelle) sono eseguite dal motore del database, in modo che tali ruoli non siano interessati dal sistema di autorizzazioni di dichiarazioni GRANT/REVOKE/DENY dell’SQL Server standard. I ruoli RBAC non includono la possibilità di leggere o modificare i dati, poiché queste sono operazioni del piano dati. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
 
 > [AZURE.IMPORTANT] SQL Database versione 12 consente agli utenti di autenticarsi nel database utilizzando utenti del database indipendente. Gli utenti del database indipendente non richiedono account di accesso. Questo rende i database più portabili ma riduce la capacità dell'entità di livello server di controllare l'accesso al database. L’abilitazione degli utenti del database indipendente ha effetti importanti sulla sicurezza. Per ulteriori informazioni, vedere [Utenti di database indipendente - rendere portatile un Database](https://msdn.microsoft.com/library/ff929188.aspx), [Database indipendenti](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -174,6 +174,6 @@ SELECT * FROM sys.databases;
 
 ## Vedere anche
 
-[Linee guida sulla sicurezza e limiti del Database SQL di Azure](sql-database-security-guidelines.md) [Connessione al Database SQL tramite l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
+[Esercitazione del database SQL di Azure: Introduzione alla sicurezza del database SQL di Azure](sql-database-get-started-security.md) [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](sql-database-security-guidelines.md) [Connessione al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

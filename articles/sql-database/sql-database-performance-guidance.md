@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/11/2016"
+	ms.date="04/19/2016"
 	ms.author="carlrab" />
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
 
-## Panoramica 
+## Panoramica
 
 Il database SQL di Microsoft Azure offre tre [livelli di servizio](sql-database-service-tiers.md), ovvero Basic, Standard e Premium. I tre livelli isolano rigorosamente la risorsa fornita al database SQL di Azure e garantiscono prestazioni prevedibili. La velocità effettiva garantita per il database aumenta dal livello Basic a quello Standard fino al livello Premium.
 
@@ -39,10 +39,10 @@ Per comprendere in che modo i livelli di servizio Basic, Standard e Premium migl
 
 Microsoft include anche numerose funzionalità automatiche di gestione nel database SQL di Azure, ad esempio la disponibilità elevata automatica e la gestione incorporata.
 
-### Disponibilità elevata automatica (HA) 
+### Disponibilità elevata automatica (HA)
  Il database SQL di Azure mantiene almeno tre repliche per ogni database utente e include anche una logica per eseguire automaticamente il commit di ogni modifica in modo sincrono a un quorum di repliche. Ciò garantisce che qualsiasi errore di una singola macchina non causerà la perdita di dati. Inoltre, ogni replica viene posizionata in rack hardware differenti in modo che eventuali perdite di alimentazione o commutazioni di rete non influiscano sul database. Infine, è disponibile una logica per ricompilare automaticamente le repliche in caso di perdita di una macchina in modo che tramite il sistema vengano mantenute automaticamente le proprietà di integrità desiderate anche se la macchina è compromessa. Grazie a questi meccanismi viene evitato il lungo processo richiesto oggi per installare e configurare le attuali soluzioni a disponibilità elevata. Con una soluzione a disponibilità elevata preconfigurata per i dati viene risolto un altro annoso problema relativo alla compilazione di una soluzione di database di importanza critica usando le tecniche tradizionali.
 
-### Gestione incorporata 
+### Gestione incorporata
  Il database SQL di Azure viene gestito come servizio. Di conseguenza, vi sono obiettivi di tempo definiti per ogni database, che evitano lunghi tempi di inattività di manutenzione. Microsoft offre una soluzione con fornitore unico per il servizio, quindi sarà necessario contattare un'unica società in caso di eventuali problemi. Inoltre, aggiorna continuamente il servizio, aggiungendo in ogni aggiornamento funzionalità, capacità e modalità di ricerca per migliorare l'esperienza utente. Gli aggiornamenti vengono eseguiti in modo trasparente e senza tempi di inattività, di conseguenza vengono integrati nel normale meccanismo di failover di disponibilità elevata. Questo consente di usare immediatamente le nuove funzionalità ogni volta che Microsoft ne annuncia la disponibilità, anziché attendere l'aggiornamento di un server durante eventuali tempi di inattività.
 
 Tutte queste funzionalità vengono fornite in tutti i livelli di servizio, a partire da una fascia di prezzo di base bassa, pari a pochi euro al mese. Si tratta di un prezzo molto inferiore rispetto al costo di acquisto ed esecuzione del proprio server, pertanto anche per il progetto più piccolo è possibile avvalersi di Azure senza spendere molto.
@@ -123,12 +123,12 @@ L'**archiviazione OLTP in memoria massima** fa riferimento alla quantità massim
 
 **Numero massimo di richieste simultanee** è il numero massimo di richieste simultanee eseguite da un utente o da un'applicazione contemporaneamente nel database. Per visualizzare il numero di richieste simultanee, eseguire la query Transact-SQL seguente sul database SQL:
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 
 Se si analizza il carico di lavoro di un database SQL Server locale, è necessario modificare la query per filtrare il database specifico che si sta analizzando. Ad esempio, se si dispone di un database locale denominato MyDatabase, la query Transact-SQL seguente restituirà il numero di richieste simultanee in tale database.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 	INNER JOIN sys.databases D ON D.database_id = R.database_id
 	AND D.name = 'MyDatabase'
@@ -176,14 +176,14 @@ La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn8009
 Poiché questa vista fornisce una visione più granulare sull'utilizzo delle risorse, è consigliabile usare innanzitutto **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
 
 	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
-	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
-	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
-	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent',
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent',
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent',
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent'
 	FROM sys.dm_db_resource_stats;  
 
 Per altre query, vedere gli esempi in [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
@@ -206,9 +206,9 @@ Il database SQL di Azure espone le informazioni sulla risorsa utilizzata per ogn
 
 L'esempio seguente illustra l'esposizione dei dati in questa vista:
 
-	SELECT TOP 10 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 10 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![Statistiche relative alle risorse di sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
@@ -218,16 +218,16 @@ L'esempio seguente illustra i vari modi mediante i quali è possibile comprender
 >[AZURE.NOTE] Alcune delle colonne di **sys.resource\_stats** sono state modificate nella versione 12 dei database correnti, pertanto è possibile che le query di esempio negli esempi seguenti generino errori. Gli aggiornamenti futuri di questo argomento forniranno le nuove versioni delle query per risolvere questo problema.
 
 1. Ad esempio, per esaminare l'utilizzo delle risorse della settimana passata per il database, "userdb1", è possibile eseguire la query seguente.
-	
-		SELECT * 
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND 
+
+		SELECT *
+		FROM sys.resource_stats
+		WHERE database_name = 'userdb1' AND
 		      start_time > DATEADD(day, -7, GETDATE())
 		ORDER BY start_time DESC;
-	
+
 2. Per valutare l'idoneità del livello di prestazioni in rapporto al carico di lavoro, è necessario eseguire il drill-down in corrispondenza di ogni aspetto delle metriche delle risorse: CPU, operazioni di lettura e scrittura, numero dei thread di lavoro e numero di sessioni. Di seguito è riportata la query modificata usando sys.resource\_stats per segnalare i valori medi e massimi di queste metriche delle risorse.
-	
-		SELECT 
+
+		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
 		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
@@ -238,41 +238,41 @@ L'esempio seguente illustra i vari modi mediante i quali è possibile comprender
 		    max(active_session_count) AS 'Maximum # of Sessions',
 		    avg(active_worker_count) AS 'Average # of Workers',
 		    max(active_worker_count) AS 'Maximum # of Workers'
-		FROM sys.resource_stats 
+		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 3. Con le informazioni sopra riportate sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità del livello di prestazioni scelto in rapporto al carico di lavoro. Nella maggior parte dei casi, i valori medi di sys.resource\_stats garantiscono una buona base di riferimento da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. Ad esempio, se si usa il livello di servizio Standard con il livello di prestazioni S2, le percentuali di utilizzo medio della CPU e delle operazioni di lettura e scrittura non superano il 40%, il numero medio di thread di lavoro non supera 50 e il numero medio di sessioni è inferiore a 200, il carico di lavoro in esame può rientrare nel livello di prestazioni S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in un livello di prestazioni inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU del livello di prestazioni inferiore per il numero di DTU del livello di prestazioni corrente e moltiplicare il risultato per 100:
-	
+
 	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-	
+
 	Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra i due livelli di prestazioni. Se l'utilizzo di risorse corrente non supera questa percentuale, il carico di lavoro può rientrare nel livello di prestazioni inferiore a quello attuale. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di utilizzo delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nel livello di prestazioni inferiore. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in precedenza.
-	
-		SELECT 
+
+		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	In base all'obiettivo del livello di servizio (SLO) del database, è possibile stabilire se il carico di lavoro può rientrare nel livello di prestazioni inferiore. Se l'obiettivo del livello di servizio del carico di lavoro del database è 99,9% e dalla query precedente vengono restituiti valori maggiori di 99,9 per tutte e tre le dimensioni della risorsa, con ogni probabilità il carico di lavoro può rientrare nel livello di prestazioni inferiore.
-	
+
 	La percentuale calcolata in precedenza consente inoltre di stabilire se è necessario usare il livello di prestazioni superiore a quello attualmente in uso per soddisfare l'obiettivo del livello di servizio. Ad esempio, l'utilizzo di "userdb1" della settimana precedente è il seguente.
-	
+
 	| Percentuale CPU media | Percentuale CPU massima |
 	|---|---|
 	| 24,5 | 100,00 |
-	
+
 	L'utilizzo medio della CPU corrisponde a circa un quarto del limite del livello di prestazioni, che potrebbe rientrare esattamente nel livello di prestazioni del database. Il valore massimo corrisponde tuttavia al limite del livello di prestazioni del database. Per decidere se è necessario passare al livello di prestazioni superiore a quello attualmente in uso, occorre considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e confrontare tale numero con l'obiettivo del livello di servizio del carico di lavoro del database.
-	
-		SELECT 
+
+		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
 		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	Se la query precedente restituisce un valore inferiore a 99,9 per ciascuna delle tre dimensioni della risorsa, è consigliabile prendere in esame la possibilità di passare al livello di prestazioni superiore a quello attualmente in uso o, in alternativa, usare tecniche di ottimizzazione dell'applicazione per ridurre il carico nel database SQL di Azure.
-	
+
 4. L'esercizio precedente deve tener conto anche dell'aumento di carico di lavoro previsto in futuro.
 
 ## Ottimizzazione dell'applicazione
@@ -316,8 +316,8 @@ L'esempio seguente crea un caso in cui il piano di query selezionato contiene un
 	END
 	COMMIT TRANSACTION;
 	GO
-	SELECT m1.col1 
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
+	SELECT m1.col1
+	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
 	WHERE m1.col2 = 4;
 
 ![Piano di query con indici mancanti](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
@@ -328,25 +328,25 @@ Il database SQL di Azure include una funzionalità per suggerire agli amministra
 
 La query seguente può essere usata per valutare i potenziali indici mancanti.
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
-	    mig.index_group_handle, mid.index_handle, 
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
-	              (' + ISNULL (mid.equality_columns,'') 
-	              + CASE WHEN mid.equality_columns IS NOT NULL 
-	                          AND mid.inequality_columns IS NOT NULL 
+	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+	    mig.index_group_handle, mid.index_handle,
+	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+	              (' + ISNULL (mid.equality_columns,'')
+	              + CASE WHEN mid.equality_columns IS NOT NULL
+	                          AND mid.inequality_columns IS NOT NULL
 	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')' 
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
-	    migs.*, 
-	    mid.database_id, 
+	              + ')'
+	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+	    migs.*,
+	    mid.database_id,
 	    mid.[object_id]
 	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
+	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
 	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid 
+	INNER JOIN sys.dm_db_missing_index_details AS mid
 	    ON mig.index_handle = mid.index_handle
 	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
@@ -371,7 +371,7 @@ Di seguito è riportata un'impostazione di esempio.
 
 	DROP TABLE psptest1;
 	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
-	
+
 	DECLARE @a int = 0;
 	SET NOCOUNT ON;
 	BEGIN TRANSACTION
@@ -384,16 +384,16 @@ Di seguito è riportata un'impostazione di esempio.
 	COMMIT TRANSACTION
 	CREATE INDEX i1 on psptest1(col2);
 	GO
-	
+
 	CREATE PROCEDURE psp1 (@param1 int)
 	AS
 	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 
+	    INSERT INTO t1 SELECT * FROM psptest1
 	    WHERE col2 = @param1
 	    ORDER BY col2;
 	END
 	GO
-	
+
 	CREATE PROCEDURE psp2 (@param2 int)
 	AS
 	BEGIN
@@ -402,7 +402,7 @@ Di seguito è riportata un'impostazione di esempio.
 	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
 	END
 	GO
-	
+
 	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 	GO
 
@@ -413,7 +413,7 @@ Tramite il codice di installazione viene creata una tabella indicante la differe
 	-- Prime Procedure Cache with scan plan
 	EXEC psp1 @param1=1;
 	TRUNCATE TABLE t1;
-	
+
 	-- Iterate multiple times to show the performance difference
 	DECLARE @i int = 0;
 	WHILE @i < 1000
@@ -427,7 +427,7 @@ Tramite il codice di installazione viene creata una tabella indicante la differe
 
 	EXEC psp2 @param2=1;
 	TRUNCATE TABLE t1;
-	
+
 	DECLARE @i int = 0;
 	WHILE @i < 1000
 	BEGIN
@@ -452,9 +452,9 @@ La seconda parte dell'esempio usa un hint per la query per indicare a Query Opti
 
 Il relativo impatto può essere visualizzato esaminando la tabella di **sys.resource\_stats**. Si noti che vi sarà un ritardo dal momento in cui si esegue il test al momento in cui i dati vengono popolati nella tabella. Per questo esempio, la parte 1 è stata eseguita durante l'intervallo di tempo 22:25:00 e la parte 2 nell'intervallo di tempo 22:35: 00. Si noti che nell'intervallo di tempo precedente sono state usate più risorse rispetto a quello successivo (in seguito ai miglioramenti di efficienza di piano).
 
-	SELECT TOP 1000 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 1000 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_4.png)
@@ -491,4 +491,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -27,6 +27,9 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 
 * [cURL](https://curl.haxx.se/): consente di comunicare con servizi basati su Web
 * [jq](https://stedolan.github.io/jq/): consente di analizzare i documenti JSON
+* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md): consente di gestire in remoto i servizi di Azure
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Nomi di dominio
 
@@ -95,7 +98,7 @@ Poiché è l'archivio predefinito per HDInsight, in genere non è necessario ese
 
 	hadoop fs -ls /example/data
 
-Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre ****WASB://** al comando.
+Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre **wasb://** al comando.
 
 HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **WASB://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
 
@@ -115,7 +118,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente, sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
+1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -254,4 +257,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

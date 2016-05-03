@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -34,6 +34,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - Un __database SQL di Azure__. Come archivio dati di destinazione verrà usato un database SQL di Azure. Se non si ha già un database SQL, vedere l'[esercitazione sul database SQL per creare un database SQL in pochi minuti](../sql-database/sql-database-get-started.md).
 
 - L'__interfaccia della riga di comando di Azure__. Se l'interfaccia della riga di comando di Azure non è installata, vedere l'articolo relativo all'[installazione e configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per altri passaggi.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##Scaricare i dati relativi ai voli
@@ -187,7 +189,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
     Quando viene completato il comando, verrà restituito un messaggio di conferma positiva.
 
-	> [AZURE.NOTE] se viene visualizzato un errore che indica che non si dispone dell'accesso, potrebbe essere necessario aggiungere l'indirizzo IP della workstation client per il firewall del database SQL utilizzando il seguente:
+	> [AZURE.NOTE] se viene visualizzato un errore che indica che non si dispone dell'accesso, potrebbe essere necessario aggiungere l'indirizzo IP della workstation client per il firewall del database SQL usando il seguente:
 	>
 	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
@@ -201,7 +203,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Dopo aver installato  FreeTDS, utilizzare il comando seguente per connettersi al server di database SQL creato in precedenza:
+4. Dopo aver installato FreeTDS, usare il comando seguente per connettersi al server di database SQL creato in precedenza:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
@@ -238,7 +240,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 	
 ##Esportare i dati con Sqoop
 
-1. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop utilizzare tale driver per comunicare con il database SQL:
+1. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop di usare tale driver per comunicare con il database SQL:
 
 		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
 
@@ -304,4 +306,4 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

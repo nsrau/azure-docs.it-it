@@ -288,12 +288,24 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 23. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
+
+Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+
+- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
+	
+		Get-AzureRmResourceProvider
+- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+
  
 ## Monitorare la pipeline
 
 6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
 	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
-		 ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
@@ -364,7 +376,7 @@ Considerare la definizione JSON seguente per un servizio collegato Archiviazione
 ### Aggiungere un file di configurazione
 Per aggiungere un file di configurazione per ogni ambiente, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto di Data Factory nella soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
+1. Fare clic con il pulsante destro del mouse sul progetto Data Factory nella soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 2. Selezionare **Config** nell'elenco di modelli installati a sinistra, selezionare **File di configurazione**, immettere un **nome** per il file di configurazione e fare clic su **Aggiungi**.
 
 	![Aggiungere un file di configurazione](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -434,8 +446,8 @@ Quando si pubblicano entità di Data factory di Azure in VS, è possibile specif
 
 Per pubblicare entità in un progetto di Data factory di Azure usando il file di configurazione:
 
-1. Fare clic con il pulsante destro del mouse sul progetto di Data Factory e scegliere **Pubblica** per visualizzare la finestra di dialogo **Pubblica elementi**. 
-2. Selezionare una data factory esistente o specificare i valori per creare una nuova data factory nella pagina **Configura data factory** e fare clic su **Avanti**.   
+1. Fare clic con il pulsante destro del mouse sul progetto Data Factory e scegliere **Pubblica** per visualizzare la finestra di dialogo **Pubblica elementi**. 
+2. Selezionare una data factory esistente o specificare i valori per crearne una nuova nella pagina **Configura data factory** e fare clic su **Avanti**.   
 3. Nella pagina **Pubblica elementi** sarà presente un elenco a discesa con le configurazioni disponibili per il campo **Seleziona configurazione di distribuzione**.
 
 	![Selezionare un file di configurazione](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
@@ -450,4 +462,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -15,17 +15,19 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
+   ms.date="04/21/2016"
    ms.author="cfowler;mahender"/>
    
    
 # Panoramica di Funzioni di Azure
 
+Questo argomento offre una panoramica generale di Funzioni di Azure Se si vuole iniziare immediatamente a usare Funzioni di Azure, passare subito a [Creare la prima funzione di Azure](functions-create-first-azure-function.md). Per informazioni più tecniche su Funzioni, vedere [Guida di riferimento per gli sviluppatori](functions-reference.md).
+
 ## Creazione rapida di funzioni
 
 Scrivere una funzione in meno di un minuto, ad esempio quando è necessario un processo semplice per pulire un database o per compilare una funzionalità che elabori milioni di messaggi provenienti dai dispositivi connessi. Usare il linguaggio di sviluppo preferito (C#, Node.JS, Python e altri). Pagare solo per il tempo in cui il codice viene eseguito ed essere certi che Azure venga ridimensionato in base alle esigenze.
 
-Funzioni di Azure è una soluzione per eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. In questo modo lo sviluppo può essere ancora più produttivo ed è possibile [iniziare a usare la prima funzione](functions-create-first-azure-function.md) in pochi minuti.
+Funzioni di Azure è una soluzione per eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. In questo modo, lo sviluppo può essere ancora più produttivo ed è possibile [iniziare a usare la prima funzione](functions-create-first-azure-function.md) in pochi minuti.
 
 ## Quali operazioni si possono eseguire con Funzioni?
 
@@ -44,19 +46,19 @@ Per informazioni più approfondite su Funzioni e per alcune configurazioni di es
 
 Funzioni di Azure è una piattaforma aziendale completa, dotata di funzionalità che semplificano anche le attività di integrazione e connettività più complesse. Con questo set di funzionalità di base, gli sviluppatori, usando Funzioni di Azure, possono aumentare ulteriormente la produttività concentrandosi solo sul vero obiettivo invece di assemblare un'intera infrastruttura.
 
-In Funzioni di Azure sono incluse le funzionalità seguenti:
+Funzioni di Azure include le caratteristiche seguenti:
     
-* **Scelta del linguaggio**: scrivere funzioni con C#, Node.js, Python, F#, PHP, batch, bash, Java o un eseguibile.  
-* **Modello di determinazione prezzi in base al consumo**: pagare solo per il tempo impiegato per l'esecuzione del codice. Vedere più avanti l'opzione relativa al piano di servizio app dinamico nella [sezione sui prezzi](#pricing).  
+* **Scelta del linguaggio**: è possibile scrivere funzioni con C#, Node.js, Python, F#, PHP, batch, bash, Java o qualsiasi eseguibile.  
+* **Modello tariffario in base al consumo**: si paga solo per il tempo impiegato per l'esecuzione del codice. Vedere più avanti il piano dinamico per il servizio app nella [sezione sui prezzi](#pricing).  
 * **Trasferimento delle dipendenze**: poiché Funzioni supporta NuGet e NPM, è possibile usare le proprie librarie preferite.  
-* **Sicurezza integrata**: proteggere le funzioni attivate da HTTP con provider OAuth, ad esempio Azure Active Directory, Facebook, Google, Twitter e account Microsoft.  
-* **Integrazione senza codice**: sfruttare facilmente i servizi di Azure e le offerte di software come un servizio (SaaS). Per alcuni esempi, vedere più avanti la [sezione sulle integrazioni](#integrations).  
-* **Sviluppo flessibile**: modificare le funzioni con un editor nel portale o configurare l'integrazione continua e distribuire il codice con GitHub, Visual Studio Team Services e altro.  
-* **Open source**: Funzioni è open source e [disponibile su GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
+* **Sicurezza integrata**: è possibile proteggere le funzioni attivate da HTTP con provider OAuth, come Azure Active Directory, Facebook, Google, Twitter e account Microsoft.  
+* **Integrazione senza codice**: è possibile sfruttare in tutta semplicità i servizi di Azure e le offerte di software come un servizio (SaaS). Per alcuni esempi, vedere più avanti la [sezione sulle integrazioni](#integrations).  
+* **Sviluppo flessibile**: è possibile modificare le funzioni con un editor nel portale oppure configurare l'integrazione continua e distribuire il codice con GitHub, Visual Studio Team Services e altro.  
+* **Open source**: Funzioni è open source e [disponibile in GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ### <a name="integrations"></a>Integrazioni
 
-Azure Functions supporta svariate integrazioni con servizi di Azure e di terze parti. È possibile usarli per attivare la funzione e avviare l'esecuzione o come input e output per il codice. La tabella seguente illustra alcune integrazioni di esempio supportate da Funzioni di Azure.
+Funzioni di Azure supporta svariate integrazioni con servizi di Azure e di terze parti. È possibile usarli per attivare la funzione e avviare l'esecuzione o come input e output per il codice. La tabella seguente illustra alcune integrazioni di esempio supportate da Funzioni di Azure.
 
 [AZURE.INCLUDE [Calcolo dinamico](../../includes/functions-bindings.md)]
 
@@ -64,12 +66,20 @@ Azure Functions supporta svariate integrazioni con servizi di Azure e di terze p
 
 È possibile eseguire Funzioni di Azure in due modi: con un piano di servizio app dinamico e con un piano di servizio app classico.
 
-In un **piano di servizio app dinamico** non ci si dovrà preoccupare della gestione risorse. Quando la funzione viene eseguita, Azure fornisce sempre tutte le risorse di calcolo necessarie. Si paga solo per il tempo impiegato per l'esecuzione del codice. I dettagli completi sui prezzi sono disponibili nella [pagina Prezzi di Funzioni](/pricing/details/functions).
+In un **piano dinamico per il servizio app** non è necessario occuparsi della gestione delle risorse. Quando la funzione viene eseguita, Azure fornisce sempre tutte le risorse di calcolo necessarie. Si paga solo per il tempo impiegato per l'esecuzione del codice. I dettagli completi sui prezzi sono disponibili nella [pagina Prezzi di Funzioni](/pricing/details/functions).
 
-Un **piano di servizio app classico** consente di eseguire funzioni esattamente come le app Web, per dispositivi mobili e per le API. È un'ottima soluzione se si usa già il servizio app per altre applicazioni, perché le funzioni possono essere eseguite nello stesso piano senza costi aggiuntivi. I dettagli completi sono disponibili nella pagina [Prezzi di Servizio app](/pricing/details/app-service/).
+Un **piano classico per il servizio app** permette di eseguire funzioni esattamente come le app Web, per dispositivi mobili e per le API. È un'ottima soluzione se si usa già il servizio app per altre applicazioni, perché le funzioni possono essere eseguite nello stesso piano senza costi aggiuntivi. I dettagli completi sono disponibili nella [pagina dei prezzi del servizio app](/pricing/details/app-service/).
 
 ## Segnalazione di problemi
 
 [AZURE.INCLUDE [Segnalazione di problemi](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+##Passaggi successivi
+
++ [Creare la prima funzione di Azure](functions-create-first-azure-function.md) Informazioni su come iniziare immediatamente a creare la prima funzione usando l'avvio rapido di Funzioni di Azure. 
++ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md) Contiene informazioni più tecniche sul runtime di Funzioni di Azure e altre informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
++ [Testing di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per testare le funzioni.
++ [Come ridimensionare Funzioni di Azure](functions-scale.md) Descrive i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato. 
++ [che cos'è Servizio app di Azure?](../app-service/app-service-value-prop-what-is.md) Funzioni di Azure sfrutta la piattaforma Servizio app di Azure per funzionalità di base come distribuzioni, variabili di ambiente e diagnostica. 
+
+<!---HONumber=AcomDC_0427_2016-->

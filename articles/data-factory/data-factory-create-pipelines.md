@@ -12,12 +12,14 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="02/08/2016" 
+	ms.topic="article"
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Pipeline e attività in Azure Data Factory
-Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. In questo articolo si presuppone di avere verificato gli articoli sulla [panoramica](data-factory-introduction.md) e sulla [ creazione di set di dati](data-factory-create-datasets.md).
+Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda.
+
+> [AZURE.NOTE] In questo articolo si presuppone che siano già stati letti gli articoli sulla [panoramica di Azure Data Factory](data-factory-introduction.md) e sulla [ creazione dei set di dati](data-factory-create-datasets.md). Se non si ha ancora provato a creare materialmente una data factory, l'esercitazione [Creare la prima data factory](data-factory-build-your-first-pipeline.md) può essere utile per comprendere meglio questo articolo.
 
 ## Che cos'è una pipeline?
 **La pipeline è un raggruppamento logico di attività**. Tali attività vengono usate per raggruppare in un'unità attività che eseguono un'operazione. Per comprendere meglio le pipeline, è necessario comprendere innanzitutto un'attività.
@@ -25,9 +27,9 @@ Questo articolo consentirà di conoscere le pipeline e le attività in Data fact
 ### Che cos'è un'attività?
 Le attività definiscono le azioni da eseguire sui dati. Ogni attività accetta zero o più [set di dati](data-factory-create-datasets.md) come input e produce uno o più set di dati come output. **Un'attività è un'unità di orchestrazione in Data factory di Azure.**
 
-Ad esempio, è possibile usare un'attività Copia per orchestrare la copia dei dati da un set di dati a un altro. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster di Azure HDInsight per trasformare o analizzare i dati. Data factory di Azure offre un’ampia gamma di [attività di trasformazione, analisi ](data-factory-data-transformation-activities.md) e [spostamento dei dati](data-factory-data-movement-activities.md). È inoltre possibile scegliere di creare un'attività personalizzata .NET per eseguire il proprio codice.
+Ad esempio, è possibile usare un'attività Copia per orchestrare la copia dei dati da un set di dati a un altro. Allo stesso modo, è possibile usare un'attività HDInsight per eseguire una query Hive su un cluster di Azure HDInsight e trasformare o analizzare i dati. Data factory di Azure offre un’ampia gamma di [attività di trasformazione, analisi ](data-factory-data-transformation-activities.md) e [spostamento dei dati](data-factory-data-movement-activities.md). È inoltre possibile scegliere di creare un'attività personalizzata .NET per eseguire il proprio codice.
 
-Considerare i due set di dati indicati di seguito:
+Prendere in considerazione i due set di dati indicati di seguito:
 
 **Set di dati di SQL Azure**
 
@@ -115,7 +117,7 @@ I dati vengono copiati in un nuovo BLOB ogni ora e il percorso del BLOB riflette
 	}
 
 
-L'attività di copia nella pipeline seguente copia i dati da SQL Azure all'Archivio BLOB di Azure. Accetta una tabella di SQL Azure come set di dati di input con frequenza oraria e scrive i dati nell’archivio BLOB di Azure rappresentato dal set di dati 'AzureBlobOutput'. Anche il set di dati di output ha una frequenza oraria. Vedere la sezione relativa alla pianificazione e all’esecuzione per comprendere come i dati vengono copiati nell’unità di tempo. Questa pipeline ha un periodo attivo di 3 ore da "2015-01-01T08:00:00" a "2015-01-01T11:00:00".
+L'attività di copia nella pipeline seguente copia i dati da SQL Azure all'Archivio BLOB di Azure. Accetta una tabella di SQL Azure come set di dati di input con frequenza oraria e scrive i dati nell’archivio BLOB di Azure rappresentato dal set di dati 'AzureBlobOutput'. Anche il set di dati di output ha una frequenza oraria. Per comprendere in che modo i dati vengono copiati nell'unità di tempo, vedere la sezione relativa [alla pianificazione e all'esecuzione](#scheduling-and-execution). Questa pipeline ha un periodo attivo di 3 ore da "2015-01-01T08:00:00" a "2015-01-01T11:00:00".
 
 **Pipeline:**
 	
@@ -168,7 +170,7 @@ Ora che abbiamo una breve conoscenza di cosa sia un'attività, passiamo a vedere
  
 La pipeline è un raggruppamento logico di attività. Tali attività vengono usate per raggruppare in un'unità attività che eseguono un'operazione. **Una pipeline è anche l'unità di distribuzione e gestione per le attività.** Ad esempio, è possibile che si desideri raggruppare attività correlate logicamente come una pipeline, in modo che possano essere nello stato attivo o sospeso insieme.
 
-Un set di dati di output di un'attività in una pipeline può essere il set di dati di input per un’altra attività nella stessa pipeline o in un’altra pipeline, mediante la definizione delle dipendenze tra attività. Tutto questo è illustrato dettagliatamente nella sezione relativa alla [pianificazione e all’esecuzione](#scheduling-and-execution).
+Un set di dati di output di un'attività in una pipeline può essere il set di dati di input per un’altra attività nella stessa pipeline o in un’altra pipeline, mediante la definizione delle dipendenze tra attività. Per maggiori dettagli, vedere la sezione relativa a [pianificazione ed esecuzione](#chaining-activities).
 
 I passaggi tipici durante la creazione di una pipeline in Data factory di Azure sono:
 
@@ -224,18 +226,18 @@ Nella tabella seguente vengono descritte le proprietà all'interno delle definiz
 
 Tag | Descrizione | Obbligatorio
 --- | ----------- | --------
-name | Nome dell'attività o della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>I caratteri seguenti non sono consentiti: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sì
+name | Nome dell'attività o della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>I caratteri seguenti non sono consentiti: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sì
 description | Testo che descrive l’uso previsto per l'attività o la pipeline | Sì
-type | Specifica il tipo dell'attività. Vedere gli articoli sulle [attività di sposatmento dei dati](data-factory-data-movement-activities.md) e [di trasformazione dei dati](data-factory-data-transformation-activities.md) per i diversi tipi di attività. | Sì
-input | Le tabelle di input utilizzate dall’attività<p>// una tabella di input<br/>"inputs":  [ { "name": "inputtable1" } ],</p><p>// due tabelle di input <br/>"inputs":  [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sì
-outputs | Le tabelle di output utilizzate dall’attività.<p>// una tabella di output<br/>"outputs":  [ { "name": “outputtable1” } ],</p><p>//due tabelle di output<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sì
-linkedServiceName | Nome del servizio collegato utilizzato dall’attività. <p>Un'attività può richiedere di specificare il servizio collegato che si collega all'ambiente di calcolo richiesto.</p>| Sì per l’attività HDInsight e per l’attività di assegnazione dei punteggi di batch di Azure Machine Learning<p>No per tutte le altre</p>
+type | Specifica il tipo dell'attività. Per i diversi tipi di attività, vedere gli articoli sulle attività di [spostamento dei dati](data-factory-data-movement-activities.md) e [trasformazione dei dati](data-factory-data-transformation-activities.md). | Sì
+input | Tabelle di input usate dall'attività<br/><br/>// una tabella di input<br/>"inputs": [ { "name": "inputtable1" } ],<br/><br/>// due tabelle di input <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ], | Sì
+output | Tabelle di output usate dall'attività.// una tabella di output<br/>"outputs": [ { "name": “outputtable1” } ],<br/><br/>// due tabelle di output<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ], | Sì
+linkedServiceName | Nome del servizio collegato usato dall'attività. <br/><br/>Un'attività può richiedere che venga specificato il servizio collegato che si collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight e per l'attività di assegnazione punteggio batch di Azure Machine Learning <br/><br/>No per tutte le altre
 typeProperties | Le proprietà della sezione typeProperties dipendono dal tipo di attività. Consultare l'articolo su ogni singola attività per ulteriori informazioni sull’attività | No
 policy | Criteri che influiscono sul comportamento in fase di esecuzione dell'attività. Se vengono omessi, verranno usati i criteri predefiniti. Scorrere di seguito per informazioni dettagliate | No
-start | Data e ora di inizio della pipeline. Devono essere nel [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. <p>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono prodotte solo in questo periodo attivo.</p> | No<p>Se si specifica un valore per la proprietà end, è necessario specificare il valore per la proprietà start.</p><p>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline, ma entrambe devono avere un valore per impostare un periodo attivo per l'esecuzione della pipeline.Il periodo attivo per una pipeline può essere impostato anche utilizzando il cmdlet Set-AzureDataFactoryPipelineActivePeriod</p>
-End | Data e ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: 2014-10-14T17:32:41Z <p>Se non specificate, vengono calcolate come "inizio + 48 ore". Per eseguire la pipeline per un tempo illimitato, specificare 9999-09-09 come valore per la proprietà end.</p>| No <p>Se si specifica un valore per la proprietà start, è necessario specificare il valore per la proprietà end.</p><p>Vedere le note della proprietà **start** .
-isPaused | Se impostata su true, la pipeline non verrà eseguita. Valore predefinito = false. È possibile utilizzare questa proprietà per abilitare o disabilitare. | No
-scheduler | La proprietà “scheduler” viene utilizzata per definire la pianificazione per l’attività. Le relative proprietà secondarie sono quelle indicate nella [proprietà availability in un set di dati](data-factory-create-datasets.md#Availability). | No |   
+start | Data e ora di inizio della pipeline. Devono essere nel [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Ecco un esempio: "2016-02-27T06:00:00**-05:00**", ossia le 6:00 EST.<br/><br/>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in tale periodo attivo. | No<br/><br/>Se si specifica un valore per la proprietà end, è necessario specificare il valore per la proprietà start.<br/><br/>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline, ma devono avere entrambe un valore per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specificano le ore di inizio e fine durante la creazione di una pipeline, è possibile impostare tali valori in un secondo momento mediante il cmdlet Set-AzureRmDataFactoryPipelineActivePeriod.
+end | Data-ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: 2014-10-14T17:32:41Z <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Ecco un esempio: "2016-02-27T06:00:00**-05:00**", ossia le 6:00 EST.<br/><br/>Per eseguire la pipeline per un tempo illimitato, specificare 9999-09-09 come valore della proprietà end. | No <br/><br/>Se si specifica un valore per la proprietà start, è necessario specificare il valore per la proprietà end.<br/><br/>Vedere le note della proprietà **start**.
+isPaused | Se impostata su true, la pipeline non viene eseguita. Valore predefinito = false. È possibile utilizzare questa proprietà per abilitare o disabilitare. | No
+scheduler | La proprietà “scheduler” viene utilizzata per definire la pianificazione per l’attività. Le relative proprietà secondarie sono quelle indicate nella [proprietà availability in un set di dati](data-factory-create-datasets.md#Availability). | No | 
 
 ### Tipi di attività
 Data factory di Azure fornisce una vasta gamma di attività di [spostamento dei dati](data-factory-data-movement-activities.md) e [trasformazione dei dati](data-factory-data-transformation-activities.md).
@@ -246,14 +248,14 @@ I criteri influiscono sul comportamento in fase di esecuzione di un'attività, i
 Proprietà | Valori consentiti | Valore predefinito | Descrizione
 -------- | ----------- | -------------- | ---------------
 Concorrenza | Integer <br/><br/>Valore massimo: 10 | 1 | Numero di esecuzioni simultanee dell'attività.<br/><br/>Determina il numero di esecuzioni di attività parallele che possono verificarsi in sezioni diverse. Ad esempio, se un'attività deve passare attraverso grandi set di dati disponibili, con una concorrenza maggiore che consente di velocizzare l'elaborazione dei dati. 
-executionPriorityOrder | NewestFirst<br/><br/>OldestFirst | OldestFirst | Determina l'ordine delle sezioni di dati che vengono elaborate.<br/><br/>Ad esempio, se si dispone di 2 sezioni (una alle 16:00 e l'altra alle 17:00) ed entrambe sono in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, verrà elaborata per prima la sezione delle 17.00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione delle 16:00. 
+executionPriorityOrder | NewestFirst<br/><br/>OldestFirst | OldestFirst | Determina l'ordine delle sezioni di dati che vengono elaborate.<br/><br/>Ad esempio, nel caso in cui si abbiano 2 sezioni, una alle 16:00 e l'altra alle 17:00, ed entrambe siano in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, verrà elaborata per prima la sezione delle 17.00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione delle 16:00. 
 retry | Integer<br/><br/>Il valore massimo può essere 10 | 3 | Numero di tentativi prima che l'elaborazione dei dati per la sezione sia contrassegnata come errore. L'esecuzione dell’attività per una sezione di dati viene ritentata fino al numero di tentativi specificato. Il tentativo viene eseguito appena possibile dopo l'errore.
 timeout | TimeSpan | 00:00:00 | Timeout per l'attività. Esempio: 00:10:00 (implica un timeout di 10 minuti)<br/><br/>Se un valore viene omesso oppure è 0, il timeout è infinito.<br/><br/>Se il tempo di elaborazione dei dati in una sezione supera il valore di timeout, viene annullato e il sistema tenta di ripetere l'elaborazione. Il numero di tentativi dipende dalla proprietà retry. Quando si verifica il timeout, lo stato sarà TimedOut.
-delay | TimeSpan | 00:00:00 | Specificare il ritardo prima che l'elaborazione dei dati della sezione abbia inizio.<br/><br/>L'esecuzione dell'attività per una sezione di dati viene avviata una volta che delay ha superato il tempo di esecuzione previsto.<br/><br/>Esempio: 00:10:00 (implica un ritardo di 10 minuti)
-longRetry | Integer<br/><br/>Valore massimo: 10 | 1 | Numero di tentativi longRetry prima che l'esecuzione della sezione dia esito negativo.<br/><br/>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se viene specificato sia Retry che longRetry, ogni tentativo longRetry includerà dei tentativi Retry e il numero massimo di tentativi sarà dato dal valore di Retry * longRetry.<br/><br/>Ad esempio, se nei criteri attività è presente quanto segue:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>è presumibile che la sezione da eseguire sia una soltanto, con stato Waiting, e che l'esecuzione dell'attività abbia esito negativo ogni volta. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i tre tentativi sulla sezione, lo stato sarà LongRetry.<br/><br/>Dopo un'ora (vale a dire il valore di longRetryInteval), verrà eseguita un'altra serie di tre tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Pertanto, sono stati eseguiti sei tentativi.<br/><br/>Nota: se l'esecuzione ha esito positivo, lo stato della sezione sarà Ready e non verranno effettuati altri tentativi.<br/><br/>longRetry può essere usato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l'ambiente complessivo in cui si verifica l'elaborazione dei dati è abbastanza debole. In tali casi, l'esecuzione di tentativi consecutivi potrebbe non essere utile, mentre l'applicazione di un intervallo consente di ottenere il risultato desiderato.<br/><br/>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati implicano altri problemi sistemici che vengono eliminati con questo sistema 
+delay | TimeSpan | 00:00:00 | Specificare il ritardo prima che abbia inizio l'elaborazione dei dati della sezione.<br/><br/>L'esecuzione dell'attività per una sezione di dati viene avviata non appena delay supera il tempo di esecuzione previsto.<br/><br/>Esempio: 00:10:00 (implica un ritardo di 10 minuti)
+longRetry | Integer<br/><br/>Valore massimo: 10 | 1 | Numero di tentativi estesi prima che l'esecuzione della sezione dia esito negativo.<br/><br/>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se si specifica sia Retry che longRetry, ogni tentativo longRetry includerà dei tentativi Retry e il numero massimo di tentativi corrisponderà a Retry * longRetry.<br/><br/>Ad esempio, se nei criteri attività è presente quanto segue:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>si presume che la sezione da eseguire sia solo una, con stato Waiting, e che l'esecuzione dell'attività abbia ogni volta esito negativo. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i tre tentativi sulla sezione, lo stato sarà LongRetry.<br/><br/>Dopo un'ora (vale a dire il valore di longRetryInteval), verrà eseguita un'altra serie di tre tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Pertanto, sono stati eseguiti sei tentativi.<br/><br/>Nota: se l'esecuzione ha esito positivo, lo stato della sezione sarà Ready e non verranno effettuati altri tentativi.<br/><br/>longRetry può essere usato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l'ambiente complessivo in cui si verifica l'elaborazione dei dati è abbastanza debole. In tali casi, l'esecuzione di tentativi consecutivi potrebbe non essere utile, mentre l'applicazione di un intervallo consente di ottenere il risultato desiderato.<br/><br/>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati implicano altri problemi sistemici che vengono eliminati con questo sistema 
 longRetryInterval | TimeSpan | 00:00:00 | Il ritardo tra tentativi longRetry 
 
-## Concatenare le attività
+## Concatenamento di attività
 Se si dispone di più attività in una pipeline che non dipendono l'una dall'altra (l'output di un'attività non è l'input di un'altra attività), le attività possono essere eseguite in parallelo se le sezioni di dati di input per le attività sono pronte.
 
 È possibile concatenare due attività usando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente.
@@ -281,7 +283,7 @@ Una pipeline è attiva solo tra l'ora di inizio e l’ora di fine. Non viene ese
 Vedere [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md)per comprendere il funzionamento della pianificazione e dell'esecuzione in Data factory di Azure.
 
 ### Elaborazione parallela delle sezioni
-Impostare **concurrency** nella definizione JSON dell'attività su un valore maggiore di 1, in modo che vengano elaborate più sezioni in parallelo da più istanze dell'attività in fase di esecuzione. Ciò è particolarmente utile durante l'elaborazione di sezioni che vengono specificate a posteriori.
+Impostare **concurrency** su un valore maggiore di 1 nella definizione JSON dell'attività, in modo che vengano elaborate più sezioni in parallelo da più istanze dell'attività nel runtime. Ciò è particolarmente utile durante l'elaborazione di sezioni che vengono specificate a posteriori.
 
 
 ## Creazione e gestione di una pipeline
@@ -320,15 +322,15 @@ Per una procedura dettagliata per la creazione di una data factory con una pipel
 
 Per una procedura dettagliata per la creazione di una data factory con una pipeline, vedere [Introduzione ad Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md).
 
-
-### Uso dell'API REST
-È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creare o aggiornare una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
-
 ### Uso di .NET SDK
 È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md).
 
+
 ### Uso di un modello di Azure Resource Manager (ARM)
-È possibile creare e distribuire pipeline usando un modello di Azure Resource Manager (ARM). Per altre informazioni, vedere [Introduzione ad Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md).
+È possibile creare e distribuire pipeline usando un modello di Azure Resource Manager (ARM). Per altre informazioni su questo argomento, vedere [Introduzione ad Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md).
+
+### Uso dell'API REST
+È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creare o aggiornare una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 
 ## Gestione e monitoraggio  
@@ -366,4 +368,4 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

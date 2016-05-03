@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come utilizzare la rete CDN | Microsoft Azure"
+	pageTitle="Uso della rete CDN di Azure"
 	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,12 +12,12 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Uso della rete CDN per Azure
+# Uso della rete CDN di Azure
 
 La rete per la distribuzione di contenuti (rete CDN) di Azure è il blocco predefinito fondamentale per la scalabilità di qualsiasi applicazione HTTP/HTTPS in Azure. Offre ai clienti di Azure una soluzione globale memorizzando nella cache e distribuendo contenuti vicino agli utenti finali. Di conseguenza, invece di raggiungere l'origine ogni volta, le richieste degli utenti vengono instradate in modo intelligente al nodo perimetrale della rete CDN (POP, Point Of Presence) che garantisce i tempi di risposta migliori. Ciò migliora in modo significativo le prestazioni e l'esperienza utente. Per un elenco aggiornato delle località in cui si trovano i nodi della rete CDN, vedere [Località POP della rete per la distribuzione di contenuti (CDN) di Azure](cdn-pop-locations.md).
 
@@ -128,7 +128,6 @@ L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
 - È necessario usare il certificato fornito dalla rete CDN. I certificati di terze parti non sono supportati.
 - È necessario usare il dominio della rete CDN per accedere al contenuto. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
 
-Per altre informazioni sull'abilitazione di HTTPS per il contenuto della rete CDN, vedere [Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](cdn-create-new-endpoint.md).
 
 
 ## Accesso al contenuto memorizzato nella cache con domini personalizzati
@@ -149,4 +148,4 @@ La rete CDN di Microsoft Azure può essere gestita a livello di codice usando le
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST del Provider di risorse della rete CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

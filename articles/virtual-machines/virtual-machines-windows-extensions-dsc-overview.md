@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure #
@@ -144,4 +144,4 @@ Per trovare altre funzionalità che è possibile gestire con PowerShell DSC, [ce
 
 Per altre informazioni sul passaggio di parametri sensibili nelle configurazioni, vedere l'articolo relativo alla [gestione sicura delle credenziali con il gestore dell'estensione DSC](virtual-machines-windows-extensions-dsc-credentials.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

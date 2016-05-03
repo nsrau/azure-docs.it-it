@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="04/14/2016"
    ms.author="ryanwi"/>
 
 
@@ -57,32 +57,34 @@ Per gli esempi, vedere gli articoli relativi all'[introduzione ai modelli di pro
 Per gli esempi, vedere l'articolo relativo alla [distribuzione di un'applicazione](service-fabric-deploy-remove-applications.md).
 
 ## Test
-1. Dopo la distribuzione nel cluster di sviluppo locale o in un cluster di test, uno *sviluppatore di servizi* esegue lo scenario di test di failover predefinito usando le classi [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) e [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) o il cmdlet [**Invoke-ServiceFabricFailoverTestScenario**](https://msdn.microsoft.com/library/azure/mt125935.aspx). Lo scenario di test di failover esegue un servizio specifico attraverso importanti transizioni e failover per verificare che sia sempre disponibile e funzionante.
+1. Dopo la distribuzione nel cluster di sviluppo locale o in un cluster di test, uno *sviluppatore di servizi* esegue lo scenario di test di failover predefinito usando le classi [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) e [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) o il cmdlet [**Invoke-ServiceFabricFailoverTestScenario**](https://msdn.microsoft.com/library/azure/mt644783.aspx). Lo scenario di test di failover esegue un servizio specifico attraverso importanti transizioni e failover per verificare che sia sempre disponibile e funzionante.
 
-2. Lo *sviluppatore di servizi* esegue quindi lo scenario di test CHAOS predefinito usando le classi [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) e [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) o il [**cmdlet Invoke-ServiceFabricChaosTestScenario**](https://msdn.microsoft.com/library/azure/mt126036.aspx). Lo scenario di test CHAOS induce nel cluster più errori casuali di nodi, pacchetti di codice e repliche.
+2. Lo *sviluppatore di servizi* esegue quindi lo scenario di test CHAOS predefinito usando le classi [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) e [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) o il [**cmdlet Invoke-ServiceFabricChaosTestScenario**](https://msdn.microsoft.com/library/azure/mt644774.aspx). Lo scenario di test CHAOS induce nel cluster più errori casuali di nodi, pacchetti di codice e repliche.
 
-Per gli esempi, vedere l'articolo relativo agli [scenari di testabilità](service-fabric-testability-scenarios.md).
+3. Lo *sviluppatore di servizi* [testa la comunicazione tra servizi](service-fabric-testability-scenarios-service-communication.md) creando scenari di test che spostano le repliche primarie nel cluster.
 
-## Aggiornare
+Per altre informazioni, vedere la pagina sull'[introduzione al servizio di analisi degli errori](service-fabric-testability-overview.md).
+
+## Aggiornamento
 1. Uno *sviluppatore di servizi* aggiorna i servizi costituenti dell'applicazione di cui sono state create istanze e/o corregge i bug e fornisce una nuova versione del manifesto del servizio.
 
 2. Uno *sviluppatore di applicazioni* esegue l'override e la parametrizzazione delle impostazioni di configurazione e distribuzione dei servizi coerenti e fornisce una nuova versione del manifesto dell'applicazione. Lo sviluppatore di applicazioni incorpora quindi le nuove versioni dei manifesti dei servizi nell'applicazione e fornisce una nuova versione del tipo di applicazione in un pacchetto applicazione aggiornato.
 
 3. Un *amministratore di applicazioni* incorpora la nuova versione del tipo di applicazione nell'applicazione di destinazione aggiornando i parametri appropriati.
 
-4. Un *operatore* carica il pacchetto applicazione aggiornato nell’archivio immagini cluster usando il metodo [**CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) o il cmdlet [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Il pacchetto applicazione contiene il manifesto dell'applicazione e la raccolta di pacchetti servizio.
+5. Un *operatore* carica il pacchetto applicazione aggiornato nell’archivio immagini cluster usando il metodo [**CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) o il cmdlet [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Il pacchetto applicazione contiene il manifesto dell'applicazione e la raccolta di pacchetti servizio.
 
-5. Un *operatore* effettua il provisioning della nuova versione dell'applicazione nel cluster di destinazione usando il metodo [**ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), il cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) o l'operazione [**Provision an Application** REST](https://msdn.microsoft.com/library/azure/dn707672.aspx).
+6. Un *operatore* effettua il provisioning della nuova versione dell'applicazione nel cluster di destinazione usando il metodo [**ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), il cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) o l'operazione [**Provision an Application** REST](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-6. Un *operatore* aggiorna l'applicazione di destinazione alla nuova versione usando il metodo [**UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), il cmdlet [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) o l'operazione REST di [**aggiornamento di un'applicazione**](https://msdn.microsoft.com/library/azure/dn707633.aspx).
+7. Un *operatore* aggiorna l'applicazione di destinazione alla nuova versione usando il metodo [**UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), il cmdlet [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) o l'operazione REST di [**aggiornamento di un'applicazione**](https://msdn.microsoft.com/library/azure/dn707633.aspx).
 
-7. Un *operatore* controlla lo stato dell'aggiornamento usando il metodo [**GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), il cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) o l'operazione [**Get Application Upgrade Progress** REST](https://msdn.microsoft.com/library/azure/dn707631.aspx).
+8. Un *operatore* controlla lo stato dell'aggiornamento usando il metodo [**GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), il cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) o l'operazione [**Get Application Upgrade Progress** REST](https://msdn.microsoft.com/library/azure/dn707631.aspx).
 
-8. Se necessario, l'*operatore* modifica e riapplica i parametri dell'aggiornamento dell'applicazione corrente usando il metodo [**UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), il cmdlet [**Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) o l'operazione [**Update Application Upgrade** REST](https://msdn.microsoft.com/library/azure/mt628489.aspx).
+9. Se necessario, l'*operatore* modifica e riapplica i parametri dell'aggiornamento dell'applicazione corrente usando il metodo [**UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), il cmdlet [**Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) o l'operazione [**Update Application Upgrade** REST](https://msdn.microsoft.com/library/azure/mt628489.aspx).
 
-9. Se necessario, l'*operatore* esegue il rollback dell'aggiornamento dell'applicazione corrente usando il metodo [**RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), il cmdlet [**Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) o l'operazione [**Rollback Application Upgrade** REST](https://msdn.microsoft.com/library/azure/mt628494.aspx).
+10. Se necessario, l'*operatore* esegue il rollback dell'aggiornamento dell'applicazione corrente usando il metodo [**RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), il cmdlet [**Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) o l'operazione [**Rollback Application Upgrade** REST](https://msdn.microsoft.com/library/azure/mt628494.aspx).
 
-10. Service Fabric aggiorna l'applicazione di destinazione in esecuzione nel cluster senza perdere la disponibilità dei servizi costituenti.
+11. Service Fabric aggiorna l'applicazione di destinazione in esecuzione nel cluster senza perdere la disponibilità dei servizi costituenti.
 
 Per gli esempi, vedere l'articolo relativo all'[esercitazione sull'aggiornamento di un'applicazione](service-fabric-application-upgrade-tutorial.md).
 
@@ -119,4 +121,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 - [Panoramica di Testabilità](service-fabric-testability-overview.md)
 - [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

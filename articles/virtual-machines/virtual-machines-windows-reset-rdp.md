@@ -3,7 +3,7 @@
 	description="Reimpostare la password di amministratore o i servizi Desktop remoto in una VM Windows creata con il modello di distribuzione di gestione risorse."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows
 
@@ -27,7 +27,7 @@ Se non è possibile connettersi a una macchina virtuale Windows perché si è di
 A seconda del modello di distribuzione della macchina virtuale, è possibile usare il portale di Azure o l'estensione di accesso alle VM in Azure PowerShell. Se si usa PowerShell, verificare che nel computer di lavoro sia installato il modulo PowerShell più recente e di aver effettuato la connessione alla sottoscrizione di Azure. Per la procedura dettagliata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] È possibile verificare la versione di PowerShell installata usando il comando `Get-Module azure | format-table version`.
+> [AZURE.TIP] È possibile verificare la versione di PowerShell installata usando `Import-Module Azure; Get-Module Azure | Format-Table Version`.
 
 
 ## Macchine virtuali Windows nel modello di distribuzione classica
@@ -140,4 +140,4 @@ Se non è ancora possibile connettersi in remoto alla macchina virtuale, vedere 
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

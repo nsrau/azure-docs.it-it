@@ -75,4 +75,6 @@ Per iniziare con la rete CDN, vedere l'articolo sull'[uso della rete CDN di Azur
 
 I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete CDN attraverso il [portale di Microsoft Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0420_2016-->
+Per vedere come funziona la rete CDN, guardare il [video della sessione Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+<!---HONumber=AcomDC_0427_2016-->

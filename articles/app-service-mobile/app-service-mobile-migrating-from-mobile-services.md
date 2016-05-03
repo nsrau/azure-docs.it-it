@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
@@ -38,44 +38,20 @@ La migrazione trasforma il servizio mobile di Azure in un'app del [servizio app 
 
 Per altre informazioni sui vantaggi del servizio app di Azure, vedere [Confronto tra Servizi mobili e il servizio app].
 
-## <a name="why-not-migrate"></a>Perché non eseguire la migrazione del sito
-
-Potrebbe non essere consigliabile eseguire ora la migrazione da Servizi mobili di Azure per vari motivi:
-
-  *  L'attuale mole di lavoro non consente il riavvio del sito in questo momento.
-  *  Si preferisce testare il processo di migrazione prima che possa influire sul sito di produzione.
-  *  Sono presenti più siti nel piano tariffario Basic e in quello gratuito e non si vuole eseguire la migrazione di tutti i siti contemporaneamente.
-
-Se l'attuale mole di lavoro non permette la migrazione, è consigliabile prevederne l'esecuzione durante una finestra di manutenzione pianificata. Il processo di migrazione riavvia il sito e gli utenti potrebbero rilevare una temporanea interruzione della disponibilità.
-
-Sono disponibili soluzioni alternative per la maggior parte dei problemi appena elencati. Per informazioni dettagliate, vedere la sezione [Prima di iniziare](#before-you-begin) di seguito.
-
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di procedere alla migrazione del sito, seguire questa procedura:
+Prima di iniziare qualsiasi attività importante nel sito, è consigliabile [eseguire un backup degli script e del database SQL di Servizi mobili].
 
-  *  Eseguire il [backup degli script del servizio mobile] e del database SQL
-  *  (Facoltativo) Passare al livello di servizio Standard per il servizio mobile
+Se si vuole testare il processo di migrazione prima di eseguire la migrazione del sito di produzione, duplicare Servizi mobili di Azure di produzione in una nuova [area di Azure] con una copia dell'origine dati e testare la migrazione rispetto al nuovo URL. Per verificare correttamente il sito di cui è stata eseguita la migrazione è anche necessaria un'implementazione client di test che punta al sito di test.
 
-Se si vuole testare il processo di migrazione prima di eseguire la migrazione del sito di produzione, duplicare il servizio mobile di Azure di produzione (con una copia dell'origine dati) e testare la migrazione rispetto al nuovo URL. Per verificare correttamente il sito di cui è stata eseguita la migrazione è anche necessaria un'implementazione client di test che punta al sito di test.
+## <a name="migrating-site"></a>Migrazione dei siti
 
-### <a name="opt-raise-service-tier"></a>(Facoltativo) Passare al livello di servizio Standard per il servizio mobile
-
-Tutti i siti di Servizi mobili che condividono lo stesso piano di hosting vengono migrati contemporaneamente. I servizi mobili nel piano tariffario Basic e in quello gratuito condividono il piano di hosting con gli altri servizi nello stesso piano tariffario e nella stessa [area di Azure]. I servizi mobili con un piano tariffario Standard hanno un piano di hosting proprio. Per eseguire la migrazione dei singoli siti nel piano tariffario Basic e in quello gratuito, è necessario passare temporaneamente al piano tariffario Standard per il servizio mobile. Per fare ciò, è possibile usare il menu PIANO per il servizio mobile.
-
-  1.  Accedere al [portale di Azure classico].
-  2.  Selezionare il servizio mobile
-  3.  Selezionare la scheda **AUMENTA**.
-  4.  In **Livello servizio mobile** scegliere il livello **STANDARD**. Fare clic sull'icona **SALVA** nella parte inferiore della pagina.
-
-Ricordarsi di impostare il piano tariffario appropriato dopo la migrazione.
-
-## <a name="migrating-site"></a>Migrazione del sito
+Il processo di migrazione esegue la migrazione di tutti i siti all'interno di una singola area di Azure.
 
 Per eseguire la migrazione del sito:
 
   1.  Accedere al [portale di Azure classico].
-  2.  Selezionare il servizio mobile
+  2.  Selezionare un servizio mobile nell'area di cui si vuole eseguire la migrazione.
   3.  Fare clic sul pulsante **Esegui la migrazione al servizio app**.
 
     ![Pulsante di migrazione][0]
@@ -83,8 +59,6 @@ Per eseguire la migrazione del sito:
   4.  Leggere il contenuto della finestra di dialogo Esegui la migrazione al servizio app.
   5.  Immettere il nome del servizio mobile nell'apposita casella. Ad esempio, se il nome di dominio è contoso.azure-mobile.net, immettere _contoso_ nell'apposita casella.
   6.  Fare clic sul pulsante con il segno di spunta.
-
-Se si esegue la migrazione di un servizio mobile nel piano tariffario Basic o in quello gratuito, tutti i servizi mobili in quel piano tariffario vengono migrati contemporaneamente. Per aggirare questo problema è possibile [passare al livello di servizio Standard per il servizio mobile](#opt-raise-service-tier) durante la migrazione.
 
 È possibile controllare lo stato della migrazione nel monitoraggio attività. La *migrazione* del sito sarà riportata nel portale di Azure classico.
 
@@ -249,16 +223,16 @@ Tutti i processi dell'Utilità di pianificazione sono disponibili tramite la sez
   2. Selezionare **Sfoglia>**, immettere **Pianificazione** nella casella _Filtro_ e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
   3. Selezionare la raccolta di processi per il sito. Verrà denominata _nomesito_-Processi.
   4. Fare clic su **Impostazioni**.
-  5. Fare clic sull'area dei **processi dell'Utilità di pianificazione** in GESTISCI.
+  5. Fare clic su **Processi dell'Utilità di pianificazione** in GESTISCI.
 
 Verranno elencati i processi pianificati con la frequenza specificata prima della migrazione. I processi su richiesta verranno disabilitati. Per eseguire un processo su richiesta:
 
   1. Selezionare il processo che si desidera eseguire.
   2. Se necessario, fare clic su **Abilita** per abilitare il processo.
   3. Fare clic su **Impostazioni** e quindi su **Pianifica**.
-  4. Selezionare una ricorrenza di **Una sola volta** e quindi fare clic su **Salva**
+  4. Selezionare la ricorrenza **Una sola volta** e quindi fare clic su **Salva**
 
-I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`. Si consiglia di convertire tutti i processi su richiesta in [processi Web]. È consigliabile scrivere nuovi processi dell'Utilità di pianificazione come [Processi Web].
+I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`. Si consiglia di convertire tutti i processi su richiesta in [processi Web]. È consigliabile scrivere i nuovi processi dell'Utilità di pianificazione come [processi Web].
 
 ### <a name="notification-hubs"></a>Hub di notifica
 
@@ -282,6 +256,12 @@ L'hub di notifica viene gestito attraverso il [portale di Azure]. Prendere nota 
 Per altre informazioni, vedere la documentazione relativa a [Hub di notifica].
 
 > [AZURE.TIP] Le funzionalità di gestione di Hub di notifica nel [portale di Azure] sono ancora in anteprima. Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
+
+### <a name="legacy-push"></a>Impostazioni push legacy
+
+Se si è configurata la funzione di push per il servizio mobile prima dell'introduzione negli Hub di notifica, si sta usando la funzione di _push legacy_. Se si usa la funzione di push e nella configurazione non è presente un Hub di notifica, è probabile che si stia usando la funzione di _push legacy_. Questa funzionalità sarà ancora disponibile dopo la migrazione, analogamente a tutte le altre. È tuttavia consigliabile eseguire l'aggiornamento a Hub di notifica subito dopo il completamento della migrazione.
+
+Nel frattempo tutte le impostazioni push legacy, con l'importante eccezione del certificato del servizio APN, sono disponibili in Impostazioni app. Il certificato del servizio APN può essere sostituito sostituendo il file appropriato nel sito. Questa operazione può essere eseguita tramite una delle opzioni di distribuzione disponibili per Servizio app di Azure.
 
 ### <a name="app-settings"></a>Altre impostazioni app
 
@@ -374,17 +354,17 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi di Servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[Prezzi di Servizio app]: https://azure.microsoft.com//pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentazione sulla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [portale di Azure]: https://portal.azure.com
-[area di Azure]: https://azure.microsoft.com/regions/
+[area di Azure]: https://azure.microsoft.com//regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
 [distribuzione continua]: ../app-service-web/web-sites-publish-source-control.md
-[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com//blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -396,9 +376,9 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
 [monitoraggio delle prestazioni]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[backup degli script del servizio mobile]: ../mobile-services/mobile-services-disaster-recovery.md
+[eseguire un backup degli script e del database SQL di Servizi mobili]: ../mobile-services/mobile-services-disaster-recovery.md
 [slot di staging]: ../app-service-web/web-sites-staged-publishing.md
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

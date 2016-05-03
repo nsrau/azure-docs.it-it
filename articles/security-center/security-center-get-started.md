@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introduzione al Centro sicurezza di Azure | Microsoft Azure"
+   pageTitle="Guida introduttiva per il Centro sicurezza di Azure | Microsoft Azure"
    description="Questo documento consente di iniziare rapidamente a utilizzare il Centro protezione Azure guidando attraverso i componenti di gestione del monitoraggio e dei criteri di sicurezza e fornendo un collegamento ai passaggi successivi."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Introduzione al Centro sicurezza di Azure
+# Guida introduttiva per il Centro sicurezza di Azure
 
 Questo documento consente di iniziare rapidamente a utilizzare il Centro protezione Azure guidando attraverso i componenti di gestione del monitoraggio e dei criteri di sicurezza e fornendo un collegamento ai passaggi successivi.
 
@@ -27,7 +27,7 @@ Questo documento consente di iniziare rapidamente a utilizzare il Centro protezi
 
 ## Prerequisiti
 
-Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza viene abilitato con la sottoscrizione. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza viene abilitato con la sottoscrizione. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
  È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per altre informazioni, vedere la [documentazione sul portale](https://azure.microsoft.com/documentation/services/azure-portal/).
 
@@ -47,7 +47,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**. ![Centro sicurezza][3]
 
-2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare una sottoscrizione. ![Pannello Avvisi di sicurezza nel Centro sicurezza di Azure][4]
+2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare una sottoscrizione. ![Pannello Criteri di sicurezza nel Centro sicurezza di Azure][4]
 
 3. Nel pannello **Criterio di sicurezza** attivare **Raccolta dati** per raccogliere automaticamente i log. L’attivazione della **Raccolta dati** inoltre effettuerà il provisioning dell'estensione di monitoraggio in tutte le VM correnti e nuove nella sottoscrizione.
 4. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
@@ -82,26 +82,18 @@ Gestire gli **Avvisi di sicurezza**:
 Visualizzare l'integrità delle **Soluzioni partner**:
 
 1. Tornare al pannello **Centro sicurezza PC**. Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
-2. Selezionare il riquadro **Soluzioni partner**. Viene visualizzato un pannello contenente un elenco di soluzioni dei partner collegato al Centro sicurezza. ![Soluzioni partner][9]
+2. Selezionare il riquadro **Soluzioni partner**. Viene visualizzato un pannello contenente un elenco di soluzioni dei partner connesse al Centro sicurezza. ![Soluzioni partner][9]
 
-3. Selezionare una soluzione dei partner. In questo esempio, si selezionerà la soluzione **F5-WAF2**. Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione del partner per questa soluzione. ![Dettagli della soluzione di un partner][10]
-
-Lo **STATO** di una soluzione del partner può essere:
-
-- Integro (verde): non sono presenti problemi di integrità.
-- Non integro (rosso): è presente un problema di integrità che richiede attenzione immediata.
-- Segnalazione arrestata (arancione): la soluzione ha interrotto la segnalazione dello stato di integrità.
-- Sconosciuto (arancione): lo stato di integrità della soluzione è sconosciuto al momento, a causa di un processo di aggiunta di una nuova risorsa alla soluzione esistente non riuscito.
-- Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può essere non segnalato se è appena stata connesso e ancora in fase di distribuzione.
-
+3. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **F5-WAF2**. Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione. ![Dettagli della soluzione di un partner][10]
 
 ## Passaggi successivi
 In questo documento sono stati presentati i componenti del monitoraggio della sicurezza e della gestione dei criteri nel Centro sicurezza. Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
-- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni contribuiscono alla protezione delle risorse di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e come rispondervi.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
@@ -117,4 +109,4 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

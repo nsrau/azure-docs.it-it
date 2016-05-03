@@ -147,12 +147,16 @@ Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di poc
 - Un server Windows Server 2012 R2 per il server Proxy applicazione Web con la gestione remota abilitata
 - Un certificato SSL per il nome del servizio federativo che si intende usare, ad esempio sts.contoso.com
 
+### Prerequisiti di configurazione di AD FS
+
+Per configurare correttamente la farm ADFS con Azure AD Connect, accertarsi che WinRM sia abilitata sui server remoti. Vedere anche i requisiti relativi alle porte elencati nella [Tabella 3: Azure AD Connect e server federativi/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)
+
 ### Creare una nuova farm ADFS o usare una farm ADFS esistente
 È possibile usare una farm ADFS esistente oppure scegliere di creare una nuova farm ADFS. Se si sceglie di crearne una nuova, è necessario fornire il certificato SSL. Se il certificato SSL è protetto da password, verrà richiesto di fornire la password.
 
 ![Farm ADFS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**Nota:** se si sceglie di usare una farm AD FS esistente, verranno ignorate alcune pagine e si verrà indirizzati direttamente alla schermata di configurazione di una relazione di trust tra AD FS e Azure AD.
+**Nota:** se si sceglie di usare una farm AD FS esistente, verranno ignorate alcune pagine e si verrà indirizzati direttamente alla schermata di configurazione della relazione di trust tra AD FS e Azure AD.
 
 ### Specificare i server ADFS
 Immettere qui i server specifici nei quali si desidera installare ADFS. È possibile aggiungere uno o più server in base alle esigenze di pianificazione della capacità. Questi server devono essere tutti uniti a un dominio di Active Directory prima di eseguire questa configurazione. Si consiglia di installare un singolo server AD FS per le distribuzioni pilota e di test e di distribuire server aggiuntivi aprendo nuovamente Azure AD Connect dopo l'installazione iniziale e distribuendo AD FS nei server aggiuntivi in base alle esigenze di ridimensionamento.
@@ -178,7 +182,7 @@ Verrà richiesto di immettere le credenziali in modo che il server applicazione 
 ### Specificare l'account di servizio per il servizio ADFS
 Il servizio ADFS richiede un account di servizio del dominio per autenticare gli utenti e cercare le informazioni utente in Active Directory. Supporta due tipi di account di servizio:
 
-- **Account del servizio gestito di gruppo**: si tratta di un tipo di account di servizio introdotto in Servizi di dominio Active Directory con Windows Server 2012. Questo tipo di account fornisce servizi quali ADFS per utilizzare un singolo account senza la necessità di aggiornare la password dell'account a intervalli regolari. Utilizzare questa opzione se si dispone già di controller di dominio di Windows Server 2012 nel dominio a cui appartengono i server ADFS.
+- **Account del servizio gestito del gruppo**: si tratta di un tipo di account di servizio introdotto in Servizi di dominio Active Directory con Windows Server 2012. Questo tipo di account fornisce servizi quali ADFS per utilizzare un singolo account senza la necessità di aggiornare la password dell'account a intervalli regolari. Utilizzare questa opzione se si dispone già di controller di dominio di Windows Server 2012 nel dominio a cui appartengono i server ADFS.
 - **Account utente di dominio**: questo tipo di account richiederà di fornire una password e di aggiornarla regolarmente nel momento in cui cambia. Usare questo account solo quando non sono disponibili controller di dominio Windows Server 2012 nel dominio a cui appartengono i server AD FS.
 
 Se è stato selezionato l'account del servizio gestito del gruppo e questa funzionalità non è mai stata usata in Active Directory, verranno richieste anche le credenziali di amministratore dell'organizzazione. Queste ultime verranno usate per avviare l'archivio chiavi e abilitare la funzionalità di Active Directory.
@@ -240,4 +244,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

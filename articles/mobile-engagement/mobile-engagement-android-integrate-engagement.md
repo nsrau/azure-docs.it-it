@@ -310,27 +310,31 @@ L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagem
 
 ##Configurazione avanzata (in AndroidManifest.xml)
 
+### Wakelocking
+
 Per assicurarsi che le statistiche vengano inviate in tempo reale quando si usa una connessione Wi-Fi o quando lo schermo è spento, aggiungere la seguente autorizzazione facoltativa:
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+### Segnalazione di arresto anomalo
 
 Per disabilitare la segnalazione di arresti anomali del sistema, aggiungere quanto segue tra i tag `<application>` e `</application>`:
 
 			<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
+### Soglia del burst
+
 Per impostazione predefinita, il servizio Engagement segnala i log in tempo reale. Se l'applicazione segnala i log molto spesso, è preferibile memorizzare i log nel buffer e segnalarli tutti insieme con cadenza regolare (la cosiddetta "modalità burst"). A tale scopo, aggiungere quanto segue tra i tag `<application>` e `</application>`:
 
-			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
+			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi).
 
-Per impostazione predefinita, il servizio Engagement stabilisce la connessione al server non appena la rete è disponibile. Per posticipare la connessione, aggiungere quanto segue tra i tag `<application>` e `</application>`:
-
-			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
+### Timeout della sessione
 
 Per impostazione predefinita, una sessione viene terminata 10 secondi dopo la fine dell'ultima attività, che in genere si verifica premendo Home o Indietro, impostando l'inattività del telefono o passando a un'altra applicazione. Questo avviene per evitare una divisione di sessione ogni volta che l'utente esce e rientra nell'applicazione molto rapidamente, come può accadere quando preleva un'immagine, controlla una notifica e così via. Questo parametro può essere modificato. A tale scopo, aggiungere quanto segue tra i tag `<application>` e `</application>`:
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
+			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ##Disabilitare la segnalazione di log
 
@@ -380,4 +384,4 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

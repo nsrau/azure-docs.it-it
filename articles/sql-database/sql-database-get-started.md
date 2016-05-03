@@ -59,4 +59,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 [Panoramica del database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

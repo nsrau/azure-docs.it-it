@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Come gestire le configurazioni e i profili dei servizi
@@ -63,7 +63,7 @@ Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di 
 
     Verrà visualizzata la finestra di dialogo **Gestisci configurazioni di servizio**.
 
-1. Per rinominare una configurazione del servizio, scegliere la nuova configurazione del servizio dall'elenco **Nome**, quindi fare clic su **Rinomina**. Nella casella di testo **Nome**, digitare il nome da usare per questa configurazione del servizio, quindi fare clic su **OK**.
+1. Per rinominare una configurazione del servizio, scegliere la nuova configurazione del servizio dall'elenco **Nome**, quindi fare clic su **Rinomina**. Nella casella di testo **Nome** digitare il nome da usare per questa configurazione del servizio, quindi fare clic su **OK**.
 
     Il nome del file di configurazione del servizio viene modificato nel progetto Azure in Esplora soluzioni.
 
@@ -131,4 +131,4 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 
 Per informazioni sulla configurazione di altre parti del progetto Azure da Visual Studio, vedere [Configurazione di un progetto Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

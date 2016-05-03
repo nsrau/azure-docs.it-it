@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Domande frequenti
@@ -22,27 +22,11 @@
 
 ### Che cos'è Data factory di Azure?
 
-Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
-
-Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per inserire, preparare, trasformare, analizzare e pubblicare i dati. È possibile usare Data factory per la composizione di servizi in pipeline di flussi di dati gestite per trasformare i dati mediante servizi quali [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) per le esigenze di calcolo relative ai Big Data e tramite [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) per rendere operative le soluzioni di analisi, in modo da superare le visualizzazioni di monitoraggio tabulari e avvalersi delle visualizzazioni avanzate offerte da Data factory per visualizzare rapidamente le derivazioni e le dipendenze tra le pipeline di dati. Data factory permette di monitorare tutte le pipeline dei flussi di dati da un'unica visualizzazione unificata per individuare rapidamente i problemi e configurare avvisi di monitoraggio.
+Data Factory è un servizio di integrazione dei dati basato sul cloud che **automatizza lo spostamento e la trasformazione dei dati**. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
+ 
+Il servizio Data Factory consente di creare flussi di lavoro basati sui dati per spostare dati dagli archivi locali a quelli sul cloud e viceversa nonché per elaborare o trasformare i dati usando servizi di calcolo come Azure HDInsight e Analisi Azure Data Lake. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica, ad esempio ogni ora, giorno, settimana e così via.
 
 Vedere[Panoramica e concetti chiave](data-factory-introduction.md)per ulteriori dettagli.
- 
-### Quali esigenze del cliente soddisfa Data factory?
-
-Data factory di Azure bilancia la possibilità di sfruttare archiviazioni dati diversificate, servizi di elaborazione e trasferimento attraverso tradizionali risorse di archiviazione relazionali parallelamente ai dati non strutturati con le funzionalità di controllo e monitoraggio di un servizio completamente gestito.
-
-### A chi si rivolge Data factory?
-
-
-- Agli sviluppatori di dati, che sono responsabili della creazione di servizi di integrazione tra Hadoop e altri sistemi:
-	- Devono stare al passo con un panorama in continua evoluzione e favorire l'integrazione
-	- Devono scrivere codice personalizzato per la produzione di informazioni, costoso e di difficile manutenzione, non ad elevata disponibilità né a tolleranza di errore
-
-- Ai professionisti IT, che mirano a integrare dati sempre più diversificati nella propria infrastruttura IT:
-	- Devono analizzare tutti i dati aziendali per definire una visione completa dell'attività
-	- Devono gestire le risorse di calcolo e archiviazione per il bilanciamento dei costi e la scalabilità in locale e nel cloud
-	- Devono aggiungere rapidamente diverse origini ed elaborazioni per soddisfare nuove esigenze aziendali, pur mantenendo la visibilità in tutte le risorse di calcolo e di archiviazione
 
 ### Dove posso trovare informazioni dettagliate sui prezzi di Data factory di Azure?
 
@@ -50,18 +34,12 @@ Per saperne di più, vedere la [pagina relativa ai prezzi di Data factory di Azu
 
 ### In che modo è possibile iniziare a usare Data factory di Azure?
 
-- Per una panoramica di Data factory di Azure, vedere [Introduzione al servizio Data factory di Azure][adf-introduction].
-- Per una rapida esercitazione, vedere [Introduzione a Data factory di Azure][adfgetstarted].
-- Per una documentazione completa, vedere [Documentazione di Data factory][adf-documentation-landingpage].
-
+- Per una panoramica di Data factory di Azure, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
+- Per una rapida esercitazione, vedere [Introduzione a Data factory di Azure](data-factory-get-started.md).
+- Per una documentazione completa, vedere [Documentazione di Data factory](https://azure.microsoft.com/documentation/services/data-factory/).
   
-### In che modo i clienti accedono a Data factory?
-
-I clienti possono accedere a Data factory tramite il [portale di Azure][azure-portal].
-
 ### In quali paesi è disponibile Data factory?
-
-Data Factory è disponibile in Europa settentrionale e negli Stati Uniti occidentali. I servizi di calcolo e di archiviazione usati dalle istanze di Data factory possono essere disponibili in altri paesi.
+Data Factory è disponibile negli **Stati Uniti occidentali** e in **Europa settentrionale**. I servizi di calcolo e di archiviazione usati dalle istanze di Data factory possono essere disponibili in altri paesi. Vedere [Aree supportate](data-factory-introduction.md#supported-regions).
  
 ### Quali sono i limiti sul numero di Data factory/pipeline/attività/set di dati?
  
@@ -72,22 +50,29 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 
 È possibile creare data factory con uno degli strumenti seguenti:
 
-- **Portale di Azure** I pannelli di Data factory nel portale di Azure offrono una ricca interfaccia per creare data factory e servizi collegati. L'**editor di Data factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Per un esempio dell'uso del portale o dell'editor per creare e distribuire un'istanza di Data factory, vedere l'articolo di [introduzione a Data factory][datafactory-getstarted].   
-- **Azure PowerShell**. Gli utenti di PowerShell potrebbero voler usare PowerShell invece dell'interfaccia utente del portale. In tal caso, i cmdlet di Data factory di Azure disponibili in Azure PowerShell consentono di creare e distribuire data factory. Per un semplice esempio, vedere l'articolo relativo alla [creazione e monitoraggio di Data factory di Azure con Azure PowerShell][create-data-factory-using-powershell]. Per un esempio avanzato relativo all'uso dei cmdlet di PowerShell per creare e distribuire un'istanza di Data factory, vedere [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial]. Per la documentazione completa dei cmdlet di Data factory, vedere le [informazioni di riferimento sui cmdlet di Data factory][adf-powershell-reference] in MSDN Library.  
-- **Visual Studio** È inoltre possibile utilizzare Visual Studio per creare, monitorare e gestire le factory di dati a livello di programmazione. Vedere l’articolo [Creazione, monitoraggio e gestione di data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md)per maggiori dettagli.  
-- **Libreria di classi .NET**. È possibile creare data factory a livello di codice usando .NET SDK per Data factory. Per la procedura dettagliata per la creazione di un'istanza di Data factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante .NET SDK][create-factory-using-dotnet-sdk]. Per la documentazione completa di Data Factory .NET SDK, vedere le [informazioni di riferimento sulla libreria di classi per Data factory][msdn-class-library-reference].  
-- **API REST**. Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Data factory di Azure. Per la documentazione completa, vedere [Informazioni di riferimento sull'API REST di Data factory][msdn-rest-api-reference]. 
+- **Portale di Azure** I pannelli di Data Factory nel portale di Azure offrono una ricca interfaccia utente per la creazione di data factory e servizi collegati. L'**editor di Data factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Per un esempio dell'uso del portale o dell'editor per creare e distribuire una data factory, vedere l'articolo di [introduzione a Data Factory](data-factory-get-started.md).   
+
+- **Azure PowerShell** Gli utenti di PowerShell che preferiscono usare PowerShell anziché l'interfaccia utente del portale possono usare i cmdlet di Azure Data Factory inclusi in Azure PowerShell per creare e distribuire data factory. Per un semplice esempio, vedere l'articolo relativo alla [creazione e monitoraggio di Data factory di Azure con Azure PowerShell](data-factory-monitor-manage-using-powershell.md). Per un esempio avanzato relativo all'uso dei cmdlet di PowerShell per creare e distribuire un'istanza di Data factory, vedere [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial]. Per la documentazione completa dei cmdlet di Data factory, vedere le [informazioni di riferimento sui cmdlet di Data factory][adf-powershell-reference] in MSDN Library.
+  
+- **Visual Studio** È anche possibile usare Visual Studio per creare, monitorare e gestire le data factory a livello di programmazione. Vedere l’articolo [Creazione, monitoraggio e gestione di data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md)per maggiori dettagli.
+  
+- **.NET Class Library** È possibile creare data factory a livello di programmazione usando .NET SDK per Data Factory. Per la procedura dettagliata per la creazione di un'istanza di Data factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante .NET SDK][create-factory-using-dotnet-sdk]. Per la documentazione completa di Data Factory .NET SDK, vedere le [informazioni di riferimento sulla libreria di classi per Data factory][msdn-class-library-reference].
+
+- **API REST** Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Azure Data Factory. Per la documentazione completa, vedere [Informazioni di riferimento sull'API REST di Data factory][msdn-rest-api-reference].
+ 
+- **Modello di Azure Resource Manager** Per i dettagli, vedere [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
 
 ### È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
 
 ## Attività - Domande frequenti
-### Quali sono le origini dati e le attività supportate?
+### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 
 
-Vedere gli articoli[Attività di spostamento dati](data-factory-data-movement-activities.md)e[Attività di trasformazione dati](data-factory-data-transformation-activities.md)articoli per le origini dati e le attività supportate.
+- [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per spostare i dati.
+- [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per elaborare o trasformare i dati. 
 
 ### Quando viene eseguita un'attività?
-L'impostazione di configurazione **availability** della tabella dati di output determina quando viene eseguita l'attività. Prima dell'inizio dell'esecuzione, l'attività verifica se sono state soddisfatte tutte le dipendenze dei dati di input, ovvero lo stato **Pronto**.
+L'impostazione di configurazione **availability** della tabella dati di output determina quando viene eseguita l'attività. Se vengono specificati set di dati di input, prima dell'esecuzione l'attività verifica se sono soddisfatte tutte le dipendenze dei dati di input, ad esempio lo stato **Pronto**.
 
 ## Attività di copia - Domande frequenti
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
@@ -152,19 +137,12 @@ Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il
 L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste nell'eliminare la pipeline e crearla di nuovo. Se si sceglie di eliminare la pipeline, NON sarà necessario eliminare le tabelle e i servizi collegati usati da essa.
 
 
-
-[adfgetstarted]: data-factory-get-started.md
-[adf-introduction]: data-factory-introduction.md
-[adf-troubleshoot]: data-factory-troubleshoot.md
-[datafactory-getstarted]: data-factory-get-started.md
-[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
-[adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
@@ -174,4 +152,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ Per configurare l'integrazione di Keylight in Azure AD, è necessario aggiungere
 
 7. Nel riquadro dei risultati selezionare **Keylight** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Keylight con un utente test di nome "Britta Simon".
@@ -93,7 +93,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Keylight, è 
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Keylight](#creating-a-Keylight-test-user)**: per avere una controparte di Britta Simon in Keylight collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Keylight](#creating-a-keylight-test-user)**: per avere una controparte di Britta Simon in Keylight collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -134,11 +134,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     a. Accedere al proprio account Keylight come amministratore.
 
-    b. Nel menu in alto, fare clic su **Person (Persona)** e selezionare **Keylight Setup (Configurazione Keylight)**.
+    b. Nel menu in alto fare clic su **Person (Persona)** e selezionare **Keylight Setup (Configurazione Keylight)**.
        
 	![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/401.png)
 
-    c. Nella visualizzazione albero a sinistra fare clic su **SAML (SAML)**.
+    c. Nella visualizzazione albero a sinistra fare clic su **SAML**.
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/402.png)
 
@@ -147,27 +147,27 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 	![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/404.png)
   
 
-5. Nella pagina della finestra **Edit SAML Settings (Modifica impostazioni SAML)** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Edit SAML Settings (Modifica impostazioni SAML)** seguire questa procedura:
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/405.png)
 
-    a. Impostare **SAML authentication (Autenticazione SAML)** su **Active (Attivo)**.
+    a. Impostare **SAML authentication (Autenticazione SAML)** su **Active (Attiva)**.
 
 
-    b. Nel portale di Azure AD classico copiare il valore in **URL SSO SAML** e incollarlo nella casella di testo **Identity Provider Login URL (URL di accesso al provider di identità)**.
+    b. Nel portale di Azure AD classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Identity Provider Login URL (URL di accesso al provider di identità)**.
 
-    c. Nel portale di Azure AD classico copiare il valore in **URL SSO SAML** e incollarlo nella casella di testo **Identity Provider Logout URL (URL di disconnessione dal provider di identità)**.
+    c. Nel portale di Azure AD classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Identity Provider Logout URL (URL di disconnessione dal provider di identità)**.
 
     d. Fare clic su **Choose File (Scegli file)** per selezionare il certificato Keylight scaricato e quindi fare clic su **Open (Apri)** per caricare il certificato.
 
 
-    e. In **SAML User ID Location (Posizione ID utente SAML)**, selezionare **NameIdentifier element of the subject statement (Elemento NameIdentifier dell'istruzione Subject)**.
+    e. Impostare **SAML User Id location (Posizione ID utente SAML)** su **NameIdentifier element of the subject statement (Elemento NameIdentifier dell'istruzione Subject)**.
    
     f. Immettere il **Keylight Service Provider (Provider di servizi Keylight) adottando il modello seguente: **https://&lt;Company Name&gt;.keylightgrc.com**.
 
     g. Impostare **Auto-provision users (Utenti che eseguono il provisioning automatico)** su **Active (Attivo)**.
 
-    h. Impostare **Auto-provision account type (Tipo di accoint di provisioning automatico)** su **Full User (Utente completo)**.
+    h. Impostare **Auto-provision account type (Tipo di account di provisioning automatico)** su **Full User (Utente completo)**.
 
     i. Per **Auto-provision security role (Ruolo di sicurezza del provisioning automatico)** selezionare **Standard User with SAML (Utente standard con SAML)**.
    
@@ -218,7 +218,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_03.png)
 
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png)
 
@@ -246,7 +246,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**.
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png)
 
@@ -264,7 +264,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 In questa sezione viene creato un utente chiamato Britta Simon in Keylight. Keylight supporta il provisioning just-in-time, abilitato per impostazione predefinita.
 
-Non è necessario alcun intervento dell'utente in questa sezione. Quando si accede a Keylight se l'utente non esiste ancora, viene creato un nuovo utente. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
+Non è necessario alcun intervento dell'utente in questa sezione. Quando si accede a Keylight se l'utente non esiste ancora, viene creato un nuovo utente.
 
 > [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di Keylight.
 
@@ -291,7 +291,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+2. Fare clic su **Assegna** nella barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -329,4 +329,4 @@ Quando si fa clic sul riquadro Keylight nel pannello di accesso, si dovrebbe acc
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

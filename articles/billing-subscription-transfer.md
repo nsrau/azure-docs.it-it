@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2016"
+   ms.date="04/14/2016"
    ms.author="genli"/>
 
 # Trasferimento di una sottoscrizione di Azure
@@ -61,7 +61,7 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 -   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**-   
     Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
-   
+
 -   **Se si rileva la proprietà della fatturazione di una sottoscrizione da un'altra organizzazione, quest'ultima continuerà ad avere accesso alle risorse del nuovo proprietario?**
 
     Se la sottoscrizione viene trasferita a un altro tenant, gli utenti associati al tenant precedente perderanno l'accesso alla sottoscrizione. Anche se un utente non è più amministratore del servizio o coamministratore, potrebbe avere ancora accesso alla sottoscrizione tramite altri meccanismi di sicurezza, Sono state illustrate le seguenti operazioni:
@@ -100,15 +100,19 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     Sì. In questo caso esistono limitazioni, nel senso che la cronologia di fatturazione della sottoscrizione viene suddivisa tra i due account, ma si ha il vantaggio di poter eseguire questa operazione senza dover [contattare il Supporto tecnico](http://go.microsoft.com/fwlink/?LinkID=619338).
 
+-   **Il metodo di pagamento verrà in qualche modo interessato dal trasferimento di una sottoscrizione di Azure?**
+
+    Per accettare un trasferimento di sottoscrizione, è necessario specificare un metodo di pagamento con carta di credito o un metodo simile. Ad esempio, se Bob trasferisce una sottoscrizione a Jane e Jane accetta il trasferimento, anche Jane deve specificare un metodo di pagamento che userà per la sottoscrizione. Al termine del trasferimento, a Bob non verrà più addebitato alcun importo per la sottoscrizione che ha trasferito a Jane.
+
 ## Passaggi successivi dopo aver accettato la proprietà di una sottoscrizione
 
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkID=533293)
 2. Inoltre, è possibile utilizzare il controllo di accesso basato sui ruoli (RBAC) per la sottoscrizione e i servizi. Visitare il [portale di Azure](https://portal.azure.com) [Ulteriori informazioni su RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Aggiornare le credenziali associate ai servizi della sottoscrizione. Sono state illustrate le seguenti operazioni:
-    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -   Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
     -	Chiavi di accesso per servizi quali Archiviazione. Per ulteriori informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso all’archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Le credenziali di accesso remote per servizi quali macchine virtuali di Azure
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

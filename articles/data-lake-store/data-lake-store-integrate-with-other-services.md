@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Integrazione di Data Lake Store con altri servizi di Azure
@@ -47,6 +47,10 @@ Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [
 
 Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, che consente di copiare dati da Archiviazione BLOB di Azure a un account di Archivio Data Lake. Per altre informazioni, vedere [Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md).
 
+## Copiare i dati dal database SQL di Azure nell'Archivio Data Lake
+
+È possibile usare Apache Sqoop per importare ed esportare dati da un database SQL di Azure in un Archivio Data Lake. Per altre informazioni, vedere [Copiare i dati tra Archivio Data Lake e un database SQL di Azure usando Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+
 
 ## Vedere anche
 
@@ -54,4 +58,4 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 - [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

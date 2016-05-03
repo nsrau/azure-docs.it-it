@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sethm"/>
 
 # Inserire una scala di telemetria ed eventi applicazione
  
-Le applicazioni moderne creano una gran quantità di informazioni quando sono in esecuzione. Indipendentemente dal fatto che si tratti di azioni dell'utente in un'app per dispositivi mobili o di dati clickstream su un sito Web, i dati di telemetria sono preziosi sia per l'analisi a lungo termine sia per il monitoraggio dell'integrità in tempo reale o per il supporto decisionale. Il bus di servizio fornisce gli strumenti necessari ad acquisire ed elaborare queste informazioni.
+Le applicazioni moderne creano una gran quantità di informazioni quando sono in esecuzione. Indipendentemente dal fatto che si tratti di azioni dell'utente in un'app per dispositivi mobili o di dati clickstream su un sito Web, i dati di telemetria sono preziosi sia per l'analisi a lungo termine sia per il monitoraggio dell'integrità in tempo reale o per il supporto decisionale. Il bus di servizio di Microsoft Azure offre gli strumenti necessari ad acquisire ed elaborare queste informazioni.
 
 
 ## Esplorazione
@@ -37,4 +37,4 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
 - [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

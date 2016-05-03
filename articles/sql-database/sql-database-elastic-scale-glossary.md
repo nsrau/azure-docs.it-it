@@ -3,7 +3,7 @@
     description="Spiegazione dei termini utilizzati per gli strumenti dei database elastici" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -34,6 +34,14 @@ Questi termini vengono usati in [Aggiungere una partizione mediante gli strument
 **Mappa partizioni locale**: archiviata in una partizione, la mappa partizioni locale contiene i mapping per gli shardlet che risiedono nella partizione.
 
 **Esecuzione di query su più partizioni**: la possibilità di eseguire una query su più partizioni; i set di risultati vengono restituiti usando la semantica di UNION ALL (nota anche come "query di tipo fan-out"). Confrontare con **Routing dipendente dai dati**.
+
+**Multi-tenant** e a **tenant singolo**: l'immagine mostra un database a tenant singolo e un database multi-tenant:
+
+![Database a tenant singolo e multi-tenant](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizionati**.
+
+![Database a tenant singolo e multi-tenant](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Mappa partizioni di tipo intervallo**: una mappa partizioni in cui la strategia di distribuzione delle partizioni è basata su più intervalli di valori contigui.
 
@@ -82,4 +90,4 @@ Questi termini vengono usati in [Aggiungere una partizione mediante gli strument
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -44,7 +44,7 @@ Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
 ##Interfaccia della riga di comando di Azure
 
-> [AZURE.NOTE] Se l’interfaccia della riga di comandi di Azure non è stata installata e configurata, usare la procedura riportata nel documento [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Da un prompt, usare il comando seguente per eliminare il cluster:
 
@@ -52,4 +52,4 @@ Da un prompt, usare il comando seguente per eliminare il cluster:
     
 Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
    description="Informazioni su come creare zone DNS per il DNS di Azure dettagliato per avviare l'hosting del dominio DNS utilizzando CLI"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Introduzione a DNS di Azure utilizzando CLI
 
@@ -43,7 +43,7 @@ Installare l'interfaccia della riga di comando di Azure. È possibile installare
 
 ### Passaggio 2
 
-DNS di Azure usa Gestione risorse di Azure. Assicurarsi di abilitare l'interfaccia della riga di comando di Azure per l'uso dei comandi di Gestione risorse di Azure e DNS.
+DNS di Azure usa Gestione risorse di Azure. Assicurarsi di passare alla modalità interfaccia della riga di comando per usare i comandi di Azure Resource Manager.
 
 	Azure config mode arm
 
@@ -78,15 +78,15 @@ Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network
 
 ## Tag
 
-I tag sono diversi dagli Etag. I tag sono un elenco di coppie nome-valore, usati da Gestione risorse di Azure per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md). L'interfaccia della riga di comando di DNS di Azure supporta i tag sia nelle zone che nei set di record specificati usando il parametro '-Tag'. L'esempio seguente illustra come creare una zona DNS con due tag: "project = demo" e "env = test":
+I tag sono un elenco di coppie nome-valore, usati da Gestione risorse di Azure per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md). L'interfaccia della riga di comando DNS di Azure supporta i tag nelle zone DNS specificate con il parametro facoltativo '-Tag'. L'esempio seguente illustra come creare una zona DNS con due tag: "project = demo" e "env = test":
 
-	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Creare una zona DNS
 
 Una zona DNS viene creata utilizzando il comando `azure network dns zone create`. Nell'esempio seguente verrà creata una zona DNS denominata "contoso.com" nel gruppo di risorse denominato "MyResourceGroup":
 
-    Azure network dns zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create myresourcegroup contoso.com
 
 
 >[AZURE.NOTE] In Azure DNS, è necessario specificare i nomi di zona senza una terminazione ‘.’, ad esempio, ‘contoso.com’ anziché ‘contoso.com’.
@@ -121,7 +121,7 @@ Nell'esempio seguente, l’esecuzione del comando con il gruppo di risorse "myre
 	data:      Refresh time                  : 900
 	data:      Retry time                    : 300
 	data:                                    :
-<BR> Per visualizzare i record NS creati, usare il comando seguente:
+<BR> Per visualizzare i record NS creati con la zona, usare il comando seguente:
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
@@ -141,7 +141,7 @@ Nell'esempio seguente, l’esecuzione del comando con il gruppo di risorse "myre
 
 >[AZURE.NOTE] I set di record alla radice (o "vertice") di una zona DNS usano "@" come nome del set di record.
 
-Dopo aver creato la prima zona DNS, è possibile eseguirne il test usando gli strumenti DNS, ad esempio nslookup, DIG o il **cmdlet di PowerShell Resolve-DnsName**. Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario indirizzare la query DNS direttamente a uno dei server dei nomi per la zona. I server dei nomi per la zona sono specificati nei record NS, ottenuti tramite il comando "azure network dns-record-set show" mostrato sopra. Assicurarsi di sostituire i valori corretti per la propria zona nel comando seguente.
+Dopo aver creato la prima zona DNS, è possibile eseguirne il test usando gli strumenti DNS, ad esempio nslookup, DIG o il **cmdlet di PowerShell Resolve-DnsName**. Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario indirizzare la query DNS direttamente a uno dei server dei nomi per la zona. I server dei nomi per la zona sono specificati nei record NS, ottenuti tramite il comando "azure network dns-record-set show" precedente. Assicurarsi di sostituire i valori corretti per la propria zona nel comando seguente.
 
 L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando i server dei nomi assegnati per la zona DNS. La query deve fare riferimento a un server dei nomi usato in precedenza `@<name server for the zone>` e al nome della zona tramite DIG.
 
@@ -171,4 +171,4 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 Dopo aver creato una zona DNS, è necessario creare [set di record e record](dns-getstarted-create-recordset-cli.md) per avviare la risoluzione dei nomi per il dominio Internet.<BR> È anche possibile apprendere [come gestire le zone DNS](dns-operations-dnszones-cli.md) e le relative operazioni per zone DNS.<BR> Informazioni su [come gestire i record DNS](dns-operations-recordsets-cli.md) e [automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md).<BR> [Riferimento all'API REST di Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

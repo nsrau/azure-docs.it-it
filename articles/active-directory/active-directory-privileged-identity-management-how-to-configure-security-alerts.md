@@ -13,50 +13,54 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Azure AD Privileged Identity Management: Come configurare gli avvisi di sicurezza
+# Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 
-## Panoramica degli avvisi di sicurezza
-Azure Privileged Identity Management (PIM) consente di configurare gli avvisi seguenti. Gli avvisi di sicurezza possono essere visualizzati nella sezione degli avvisi del dashboard PIM.
+## Avvisi di sicurezza
+Azure Privileged Identity Management (PIM) genera gli avvisi seguenti, che possono essere visualizzati nella sezione Avvisi del dashboard di PIM.
 
-| Avviso | Trigger |
-| ------------- | ------------- |
-| **Sospetto attacco di attivazione permanente** | Un amministratore ha attivato il proprio ruolo temporaneo all'esterno di PIM. |
-| **Rinnovo attivazione sospetto di ruoli con privilegi** | È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. |
-| **Uso sospetto di utente Amministratore globale honeytoken** | È stato rilevato l'uso di un utente "honeypot".|
-| **Autenticazione debole configurata per l'attivazione del ruolo** | Sono presenti ruoli senza MFA nelle impostazioni. |
-| **Gli amministratori ridondanti aumentano la superficie di attacco** | Sono presenti amministratori temporanei che non hanno attivato i ruoli nel numero di giorni definiti nelle impostazioni. |
-| **Un numero elevato di amministratori globali aumenta la superficie di attacco** | Sono presenti più amministratori globali di quanto consentito nelle impostazioni. |
+| Avviso | Trigger | Raccomandazione |
+| ----- | ------- | -------------- |
+| **Attivazione permanente** | Un amministratore è stato assegnato a un ruolo in modo permanente, all'esterno di PIM. | Rivedere l'assegnazione del nuovo ruolo e modificarlo in ruolo temporaneo, se necessario. |
+| **Rinnovo attivazione sospetto di ruoli con privilegi** | È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. | Contattare l'utente per assicurarsi che possa attivare il ruolo correttamente. |
+| **Autenticazione debole configurata per l'attivazione del ruolo** | Sono presenti ruoli senza MFA nelle impostazioni. | È consigliabile richiedere l'autenticazione MFA per l'attivazione di tutti i ruoli. |
+| **Numero eccessivo di amministratori** | Sono presenti amministratori temporanei che non hanno attivato i loro ruoli di recente. | Rimuovere le assegnazioni dei ruoli non più necessari. |
+| **Numero eccessivo di amministratori globali** | Sono presenti più amministratori globali di quanti consigliati. | Rimuovere le assegnazioni dei ruoli che non sono più necessarie o modificare alcuni ruoli in ruoli temporanei. |
 
-## Configurazione degli avvisi di sicurezza
+## Configurare le impostazioni degli avvisi di sicurezza
 
-### Configurare l'avviso "Rinnovi sospetti dell'attivazione di ruoli con privilegi"
+### Avviso "Rinnovi sospetti dell'attivazione di ruoli con privilegi"
+
+Configurare le impostazioni **Intervallo di tempo per il rinnovo delle attivazioni** e **Numero di rinnovi** per specificare quando attivare l'avviso.
+
 1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
 2. Fare clic su **Impostazioni**.
-3. Impostare il valore di **Intervallo di tempo rinnovi attivazione** regolando il dispositivo di scorrimento o immettendo il numero di minuti nel campo di testo. Il numero massimo consentito è 100.
-4. Impostare il valore di **Numero rinnovi attivazione** nell'intervallo di tempo dei rinnovi dell'attivazione regolando il dispositivo di scorrimento o immettendo il numero di rinnovi nel campo di testo. Il numero massimo di rinnovi è 100.
+3. Impostare il valore di **Intervallo di tempo rinnovi attivazione** regolando il dispositivo di scorrimento o immettendo il numero di minuti nel campo di testo. Il valore massimo è 100.
+4. Impostare il valore di **Numero rinnovi attivazione** nell'intervallo di tempo dei rinnovi dell'attivazione regolando il dispositivo di scorrimento o immettendo il numero di rinnovi nel campo di testo. Il valore massimo è 100.
 5. Fare clic su **Save**.
 
-### Configurare l'avviso "Un numero eccessivo di amministratori aumenta la superficie di attacco"
+### Avviso "Numero eccessivo di amministratori"
 1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
 2. Fare clic su **Impostazioni**.
 3. Selezionare il numero di giorni consentiti senza attivazione del ruolo regolando il dispositivo di scorrimento o immettendo il numero di giorni nel campo di testo.
 4. Fare clic su **Save**.
 
-### Configurare l'avviso "Un numero eccessivo di amministratori globali aumenta la superficie di attacco"
+### Avviso "Numero eccessivo di amministratori globali"
 
-Esistono due impostazioni che possono attivare l'avviso. Se sono presenti più amministratori del consentito, l'avviso verrà attivato dal numero minimo di amministratori globali. L'avviso verrà attivato anche se la percentuale di amministratori globali nel numero totale di amministratori è superiore alla percentuale specificata nelle impostazioni.
+Esistono due impostazioni che possono attivare questo avviso:
+- **Numero minimo di amministratori globali** attiva l'avviso se sono presenti più amministratori del numero consentito.
+- **Percentuale di amministratori globali** attiva l'avviso se la percentuale di amministratori globali è maggiore di quella consentita dalle impostazioni.
 
 1. Nella sezione **Attività** del dashboard selezionare **Avvisi di sicurezza**. Verrà visualizzato il pannello **Avvisi di sicurezza attivi**.
 2. Fare clic su **Impostazioni**.
 3. Impostare il campo **Numero minimo di amministratori globali** regolando il dispositivo di scorrimento o immettendo il numero nel campo di testo.
-4. Impostare il campo **Percentuale di amministratori globali** regolando il dispositivo di scorrimento o immettendo il numero nel campo di testo.
+4. Impostare **Percentuale di amministratori globali** regolando il dispositivo di scorrimento o immettendo la percentuale nel campo di testo.
 5. Fare clic su **Save**.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
@@ -653,7 +653,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 Vedere [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md) per i passaggi dettagliati per il monitoraggio di set di dati e pipeline.
 
-Il servizio Data Factory crea un processo in Azure Batch denominato **adf-<pool name>:job-xxx**. Per ogni esecuzione attività di una sezione viene creata un'attività. Se sono presenti 10 sezioni pronte per l'elaborazione, vengono create 10 attività nel processo. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
+Il servizio Data Factory crea un processo in Azure Batch denominato **adf-<pool name>:job-xxx**. Per ogni esecuzione attività di una sezione viene creata un'attività. Se sono presenti 10 sezioni pronte per l'elaborazione, vengono create 10 attività nel processo. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
 	
 ![Attività di Batch Explorer](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
 
@@ -823,6 +823,15 @@ Nella **pipeline JSON** usare il servizio collegato HDInsight (su richiesta o pr
 	  }
 	}
 
+## esempi
+
+| Esempio | Funzioni delle attività personalizzate| 
+| ------ | ----------- | 
+| [Downloader dati HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Scarica i dati da un endpoint HTTP per l'archivio BLOB di Azure usando l'attività personalizzata C# in Data Factory. |
+| [Esempio di analisi del sentimento su Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Chiama un modello ML di Azure ed esegue l'analisi del sentimento, l'assegnazione dei punteggi, la stima e così via. |
+| [Esecuzione di script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Chiama lo script R eseguendo RScript.exe sul cluster HDInsight in cui è già installato R. | 
+| [Attività .NET per dominio app](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versioni di assembly diverse da quelle usate dal servizio di avvio di Data Factory, ad esempio WindowsAzure.Storage v4.3.0, Newtonsoft.Jsn v6.0.x e così via.
+ 
 
 ## Vedere anche
 
@@ -863,4 +872,4 @@ Nella **pipeline JSON** usare il servizio collegato HDInsight (su richiesta o pr
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

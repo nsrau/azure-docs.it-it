@@ -3,22 +3,24 @@
 	description="Creare una macchina virtuale di SQL Server in modalità Gestione risorse di Azure Questa esercitazione usa principalmente l'interfaccia utente e gli strumenti invece dello scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="MikeRayMSFT"
-    editor=""
-	manager="jeffreyg"
+	authors="rothja"
+	editor=""
+	manager="jhubbard"
 	tags="azure-resource-manager" />
-
-
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
-	ms.author="mikeray" />
+	ms.date="04/22/2016"
+	ms.author="jroth" />
 
 # Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure
+
+> [AZURE.SELECTOR]
+- [Portale](virtual-machines-windows-portal-sql-server-provision.md)
+- [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
 ## Panoramica
 
@@ -30,7 +32,7 @@ La raccolta di macchine virtuali (VM) di Azure include numerose immagini che con
 
 In questa esercitazione si apprenderà come:
 
-- [Connettersi al portale di Azure ed effettuare il provisioning di un'immagine della VM di SQL dalla raccolta con il modello di distribuzione di Gestione risorse](#Provision)
+- [Connettersi al portale di Azure ed effettuare il provisioning di un'immagine della VM di SQL dalla raccolta con il modello di distribuzione di Resource Manager](#Provision)
 
 - [Configurare le impostazioni della macchina virtuale e di SQL Server](#ConfigureVM)
 
@@ -45,7 +47,7 @@ In questa esercitazione si presuppone che sia già disponibile un account Azure.
 ## <a id="Provision">Effettuare il provisioning di un'immagine della VM di SQL dalla raccolta con il modello di distribuzione di Resource Manager
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
-1. Nel portale di Azure fare clic su **+Nuovo**. Nel portale si aprirà il pannello **Nuovo**. I modelli di VM di SQL Server sono nel gruppo **Calcolo** del Marketplace.
+1. Nel portale di Azure fare clic su **+Nuovo**. Nel portale verrà visualizzato il pannello **Nuovo**. I modelli di VM di SQL Server sono nel gruppo **Calcolo** del Marketplace.
 
 1. Nel pannello **Nuovo** fare clic su **Calcolo**.
 1. Per visualizzare tutti i tipi di risorse nel pannello **Calcolo**, fare clic su **Visualizza tutto**. <br/> ![Pannello Calcolo di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png) <br/>
@@ -63,19 +65,19 @@ Nel portale di Azure sono disponibili cinque pannelli per configurare una macchi
 1.	Esaminare il riepilogo
 
 ## 1\. Configurare le impostazioni di base
-Nel pannello **Crea macchina virtuale** in **Informazioni di base** specificare le informazioni seguenti:
+Nel pannello **Crea macchina virtuale** in **Nozioni di base** specificare le informazioni seguenti:
 
 * Un **Nome** di macchina virtuale univoco.
 * Nella casella **Nome utente** digitare un nome utente univoco per l'account amministratore locale della macchina virtuale. Questo account sarà anche membro del ruolo predefinito del server sysadmin di SQL Server.
 * Nella casella **Password** digitare una password complessa.
 * Se sono disponibili più sottoscrizioni, verificare che la sottoscrizione sia corretta per la VM che si sta creando.
-* Nella casella **Gruppo di risorse** digitare un nome per il gruppo di risorse. In alternativa, fare clic su **Seleziona esistente** per usare un gruppo di risorse esistente. Un gruppo di risorse è una raccolta di servizi correlati in Azure. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md). Verificare che il valore in **Percorso** sia corretto per le esigenze locali.
+* Nella casella **Gruppo di risorse** digitare un nome per il gruppo di risorse. In alternativa, fare clic su **Seleziona esistente** per usare un gruppo di risorse esistente. Un gruppo di risorse è una raccolta di servizi correlati in Azure. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md). Verificare che il valore in **Posizione** sia corretto per le esigenze specifiche.
 * Fare clic su **OK** per salvare le impostazioni. <br/>
 
 >![Nozioni di base di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
 
 ## 2\. Scegliere le dimensioni della macchina virtuale
-Nel pannello **Crea macchina virtuale** scegliere una dimensione di macchina virtuale in **Dimensioni**. Il portale di Azure visualizzerà le dimensioni consigliate. Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md). Le dimensioni sono basate sul modello selezionato. Le dimensioni stimano il costo mensile per l'esecuzione della VM. Selezionare le dimensioni della macchina virtuale per il server. Per considerazioni sulle dimensioni delle VM di SQL Server, vedere l'articolo relativo alle [procedure consigliate sulle prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
+Nel pannello **Crea macchina virtuale** scegliere una dimensione per la macchina virtuale in **Dimensioni**. Il portale di Azure visualizzerà le dimensioni consigliate. Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md). Le dimensioni sono basate sul modello selezionato. Le dimensioni stimano il costo mensile per l'esecuzione della VM. Selezionare le dimensioni della macchina virtuale per il server. Per considerazioni sulle dimensioni delle VM di SQL Server, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 ## 3\. Configurare le impostazioni della macchina virtuale
 Nel pannello **Crea macchina virtuale** configurare l'archiviazione di Azure, la rete e il monitoraggio per la macchina virtuale in **Impostazioni**.
@@ -88,7 +90,7 @@ Nel pannello **Crea macchina virtuale** configurare l'archiviazione di Azure, la
 
 - In **Rete** è possibile accettare i valori popolati automaticamente per le funzionalità o fare clic su ogni funzionalità per configurare **Rete virtuale**, **Subnet**, **Indirizzo IP pubblico** e **Gruppo di sicurezza di rete**. Per impostazione predefinita, Azure configura automaticamente questi valori.
 
-- Azure abilita l'opzione **Monitoraggio** con lo stesso account di archiviazione designato per la VM, per impostazione predefinita. Queste impostazioni possono essere modificate qui, se necessario.
+- Azure abilita l'opzione **Monitoraggio** per impostazione predefinita con lo stesso account di archiviazione designato per la VM. Queste impostazioni possono essere modificate qui, se necessario.
 
 - In **Set di disponibilità** specificare un set di disponibilità. Ai fini di questa esercitazione, è possibile selezionare **nessuno**. Se si prevede di impostare i gruppi di disponibilità SQL AlwaysOn, configurare la disponibilità per evitare di ricreare la macchina virtuale. Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-windows-manage-availability.md).
 
@@ -103,64 +105,64 @@ Nel pannello **Crea macchina virtuale** configurare le impostazioni e le ottimiz
 - Integrazione dell'insieme di credenziali delle chiavi
 
 ### Connettività
-In **Connettività SQL** specificare **Pubblico (Internet)** per consentire le connessioni a SQL Server da computer o servizi in Internet. Selezionando questa opzione, Azure configura automaticamente il firewall e il gruppo di sicurezza di rete per consentire il traffico sulla porta 1433. <br/>![Connettività di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png) <br/>
+In **Connettività SQL** specificare **Pubblica (Internet)** per consentire le connessioni a SQL Server da computer o servizi in Internet. Selezionando questa opzione, Azure configura automaticamente il firewall e il gruppo di sicurezza di rete per consentire il traffico sulla porta 1433. <br/>![Connettività di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png) <br/>
 
 Per connettersi a SQL Server tramite Internet, è necessario abilitare anche Autenticazione di SQL Server.
 
 >[AZURE.NOTE]Per motivi di sicurezza, limitare la porta di origine usando Gruppo di sicurezza di rete. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
 Se si preferisce non abilitare automaticamente le connessioni al motore di database con Internet, scegliere una delle opzioni seguenti:
-- **Locale (solo all'interno della VM)** per consentire le connessioni a SQL Server solo dalla VM.
-- **Privata (nella rete virtuale)** per consentire le connessioni a SQL Server da computer o servizi nella stessa rete virtuale.
+- **Locale (solo all'interno della macchina virtuale)** per consentire le connessioni a SQL Server solo dalla VM.
+- **Privata (solo all'interno della rete virtuale)** per consentire le connessioni a SQL Server da computer o servizi nella stessa rete virtuale.
 
 
-Il valore predefinito di **Porta** è 1433, ma è possibile specificare un numero di porta diverso. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+Il valore predefinito di **Porta** è 1433. ma è possibile specificare un numero di porta diverso. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 
 
 ### Autenticazione
-Se si richiede l'autenticazione di SQL Server, fare clic su **Abilita** in **Autenticazione SQL**.
+Se si richiede l'autenticazione di SQL Server, fare clic su **Attiva** in **Autenticazione SQL**.
 
 <br/>![Autenticazione di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png) <br/>
 
 
-Se si abilita l'autenticazione di SQL Server specificare un **Nome di accesso** e una **Password**. Questo nome utente sarà un account di accesso con autenticazione di SQL Server e membro del ruolo predefinito del server sysadmin. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](http://msdn.microsoft.com/library/ms144284.aspx). Per impostazione predefinita, SQL Server non abilita l'autenticazione di SQL Server. In questo scenario gli amministratori locali nella macchina virtuale possono connettersi all'istanza di SQL Server.
+Se si abilita l'autenticazione di SQL Server specificare **Nome di accesso** e **Password**. Questo nome utente sarà un account di accesso con autenticazione di SQL Server e membro del ruolo predefinito del server sysadmin. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](http://msdn.microsoft.com/library/ms144284.aspx). Per impostazione predefinita, SQL Server non abilita l'autenticazione di SQL Server. In questo scenario gli amministratori locali nella macchina virtuale possono connettersi all'istanza di SQL Server.
 
 >[AZURE.NOTE] Se si prevede di accedere a SQL Server tramite internet, ovvero l'opzione di connettività Pubblico, è necessario abilitare l'autenticazione di SQL in questa area. L'accesso pubblico a SQL Server richiede l'uso dell'autenticazione di SQL.
 
 ### Ottimizzazione dell'archiviazione
 Fare clic su **Configurazione dell'archiviazione** per specificare i requisiti di archiviazione. È possibile specificare requisiti come operazioni di I/O al secondo, velocità effettiva in Mbps e dimensioni di archiviazione totali. Configurare questi elementi usando i dispositivi di scorrimento. Il portale calcola automaticamente il numero di dischi in base a questi requisiti.
 
-Per impostazione predefinita, Azure ottimizza l'archiviazione per 5000 operazioni di I/O al secondo, 200 Mbps e 1 TB di spazio di archiviazione. È possibile modificare queste impostazioni di archiviazione in base al carico di lavoro. In **Ottimizzazione dell'archiviazione** selezionare una delle impostazioni seguenti.
+Per impostazione predefinita, Azure ottimizza l'archiviazione per 5000 operazioni di I/O al secondo, 200 Mbps e 1 TB di spazio di archiviazione. È possibile modificare queste impostazioni di archiviazione in base al carico di lavoro. In **Ottimizzazione dell'archiviazione** selezionare una delle impostazioni seguenti:
 
 - **Generale**: è l'impostazione predefinita e supporta la maggior parte dei carichi di lavoro.
-- **Elaborazione transazionale**: ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionale.
+- **Transazionale**: questo tipo di elaborazione ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali.
 - **Data warehousing**: ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report.
 
 L'immagine seguente mostra il pannello Configurazione dell'archiviazione. <br/>![Archiviazione di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE] I limiti per la configurazione dell'archiviazione dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] I limiti per la configurazione dell'archiviazione dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md)
 
 ### Applicazione di patch
-**Applicazione automatica delle patch di SQL** è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. Specificare un giorno della settimana, un'ora e una durata per la finestra di manutenzione. Azure eseguirà l'applicazione di patch nella finestra di manutenzione. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Se non si vuole consentire ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo, fare clic su **Disabilita**.
+La funzione **Applicazione automatica delle patch di SQL** è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. Specificare un giorno della settimana, un'ora e una durata per la finestra di manutenzione. Azure eseguirà l'applicazione di patch nella finestra di manutenzione. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Se non si vuole consentire ad Azure di applicare automaticamente le patch per SQL Server e per il sistema operativo, fare clic su **Disattiva**.
 
 <br/>![Applicazione di patch di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
-Per altre informazioni, vedere l'articolo relativo all'[applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-patching.md).
+Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backup
-Abilitare i backup automatici del database per tutti i database in **Backup automatico di SQL**. Quando si abilita il backup automatico di SQL è possibile configurare quanto segue:
+Abilitare i backup automatici dei database per tutti i database in **Backup automatico di SQL**. Quando si abilita il backup automatico di SQL è possibile configurare quanto segue:
 
 - Periodo di conservazione dei backup in giorni
 - L'account di archiviazione da usare per i backup
-- Se applicare o meno la crittografia al backup. Per crittografare il backup, fare clic su **Abilita**. Se i backup automatizzati sono crittografati, specificare una password. Azure crea un certificato per crittografare i backup e usa la password specificata per proteggere il certificato.
+- Se applicare o meno la crittografia al backup. Per crittografare il backup, fare clic su **Attiva**. Se i backup automatizzati sono crittografati, specificare una password. Azure crea un certificato per crittografare i backup e usa la password specificata per proteggere il certificato.
 
 <br/>![Backup di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png) <br/>
 
  Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Integrazione dell'insieme di credenziali delle chiavi
-Per archiviare i segreti di sicurezza in Azure per la crittografia, fare clic su **Integrazione dell'insieme di credenziali delle chiavi di Azure** e quindi su **Abilita**.
+Per archiviare i segreti di sicurezza in Azure per la crittografia, fare clic su **Integrazione dell'insieme di credenziali delle chiavi di Azure** e quindi su **Attiva**.
 
 <br/>![Integrazione dell'insieme di credenziali delle chiavi di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png) <br/>
 
@@ -173,18 +175,18 @@ La tabella seguente include l'elenco dei parametri necessari per configurare l'i
 | **Segreto dell'entità**|Nome dell'entità servizio di Azure Active Directory. È detto anche Segreto client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nome credenziali**|**Nome della credenziale**: l'integrazione di AKV crea una credenziale all'interno di SQL Server, consentendo alla macchina virtuale di avere accesso all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale.| mycred1|
 
-Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in Macchine virtuali di Azure ](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5\. Esaminare il riepilogo
-Esaminare il riepilogo e fare clic su **OK** per creare SQL Server, il gruppo di risorse e le risorse specificate per questa VM. È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
+Esaminare il riepilogo e fare clic su **OK** per creare SQL Server, il gruppo di risorse e le risorse, in base a quanto specificato per questa VM. È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
 
-##<a id="Open"> Aprire la macchina virtuale tramite Desktop remoto e completare la configurazione
+##<a id="Open"> Aprire la macchina virtuale con Desktop remoto e completare la configurazione
 Seguire questa procedura per usare Desktop remoto per aprire la macchina virtuale:
 
 1.	Dopo la compilazione della VM di Azure, nel dashboard di Azure verrà visualizzata un'icona per la macchina virtuale. Fare clic sull'icona per visualizzare le informazioni sulla VM.
 1.	Nella parte superiore del pannello della VM fare clic su **Connetti**. Il browser scaricherà un file RDP per la VM. Aprire del file RDP.
 1.	Connessione Desktop remoto informerà l'utente che non è possibile identificare l'autore della connessione remota e chiederà se si vuole connettersi comunque. Fare clic su **Connect**.
-1.	Nella finestra di dialogo **Sicurezza di Windows** fare clic su **Usa un altro account**. Per **Nome utente** digitare <machine name><nome utente> specificato durante la configurazione della VM.
+1.	Nella finestra di dialogo **Sicurezza di Windows** fare clic su **Usa un altro account**. Per **Nome utente** digitare il <machine name><nome utente> specificato durante la configurazione della VM.
 
 Dopo essersi connessi alla macchina virtuale di SQL Server, è possibile avviare SQL Server Management Studio e connettersi con l'autenticazione di Windows usando le credenziali di amministratore locale. In questo modo è possibile modificare le impostazioni del firewall o le impostazioni di configurazione di SQL Server post-provisioning, se necessario.
 
@@ -192,7 +194,7 @@ Dopo essersi connessi alla macchina virtuale di SQL Server, è possibile avviare
 
 Per connettersi al motore di database di SQL Server da Internet, sono necessari alcuni passaggi, ad esempio configurazione del firewall, abilitazione dell'autenticazione di SQL Server e configurazione del gruppo di sicurezza di rete. È necessario avere una regola del gruppo di sicurezza di rete per consentire il traffico TCP sulla porta 1433.
 
-Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblico** per l'opzione di connettività SQL e si abilita l'autenticazione di SQL Server. Per accedere all'istanza di SQL Server da Internet, è tuttavia necessario completare alcuni passaggi rimanenti.
+Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblica** per l'opzione di connettività SQL e si abilita l'autenticazione di SQL Server. Per accedere all'istanza di SQL Server da Internet, è tuttavia necessario completare alcuni passaggi rimanenti.
 
 >[AZURE.NOTE] Se non si è selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
@@ -203,4 +205,4 @@ I passaggi seguenti non sono necessari se si deve solo accedere alla macchina vi
 ##<a id="Next">Passaggi successivi
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

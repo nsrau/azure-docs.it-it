@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con Spark in HDInsight (Linux)
+# Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con Spark basato su HDInsight Linux (anteprima)
 
-> [AZURE.TIP] Questa esercitazione è disponibile anche come notebook Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
+> [AZURE.TIP] Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
 
 
 Questo articolo illustra come usare **MLLib**, le librerie di apprendimento automatico predefinite di Spark, per eseguire una semplice analisi predittiva su un set di dati aperto. MLLib è una libreria Spark di base che fornisce alcune utilità che agevolano le attività di apprendimento automatico, incluse utilità adatte a:
@@ -412,4 +412,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

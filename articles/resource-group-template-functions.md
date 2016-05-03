@@ -439,7 +439,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare ****http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base ****http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base **http://contoso.com/resources/**.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
@@ -611,7 +611,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 | providerNamespace | Sì | Spazio dei nomi del provider
 | resourceType | No | Il tipo di risorsa all'interno dello spazio dei nomi specificato.
 
-Ogni tipo supportato viene restituito nel formato seguente:
+Ogni tipo supportato viene restituito nel formato seguente. Non è garantito l'ordine della matrice:
 
     {
         "resourceType": "",
@@ -807,4 +807,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

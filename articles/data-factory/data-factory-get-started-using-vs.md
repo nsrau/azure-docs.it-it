@@ -220,6 +220,17 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
 
+Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+
+- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
+	
+		Get-AzureRmResourceProvider
+- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+
 
 ## Usare Esplora Server per visualizzare le data factory
 
@@ -239,4 +250,4 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 ## Vedere anche
 Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate su **Attività di copia** in Azure Data Factory.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

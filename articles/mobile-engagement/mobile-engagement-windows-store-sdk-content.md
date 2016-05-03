@@ -28,9 +28,9 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 
 ### Cartella /html
 
-- `EngagementNotification.html`: progettazione HTML della visualizzazione Web `Notification`.
+- `EngagementNotification.html` : la progettazione HTML per la visualizzazione Web di `Notification` in banner in-app.
 
-- `EngagementAnnouncement.html`: progettazione HTML della visualizzazione Web `Announcement`.
+- `EngagementAnnouncement.html` : la progettazione HTML per la visualizzazione Web di `Announcement` in visualizzazioni intermedie.
 
 ### Cartella /images
 
@@ -44,17 +44,7 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 
 ### Cartella /overlay
 
-- `EngagementBaseOverlay.cs` : Il codice di base utilizzato dalle sovrapposizioni `Announcement` e `Notification`.
-
-- `EngagementOverlayAnnouncement.xaml`: progettazione XAML di `Announcement`.
-
-- `EngagementOverlayAnnouncement.xaml.cs`: codice collegato di `EngagementOverlayAnnouncement.xaml`.
- 
-- `EngagementOverlayNotification.xaml`: progettazione XAML di `Notification`.
- 
-- `EngagementOverlayNotification.xaml.cs`: codice collegato di `EngagementOverlayNotification.xaml`.
- 
-- `EngagementPageOverlay.cs`: codice di visualizzazione annunci e notifiche di `Overlay`.
+- `EngagementPageOverlay.cs` : la pagina di sovrimpressione che determina l'aggiunta dell'interfaccia utente in-app Reach di Engagement al figlio.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="04/12/2016"
    ms.author="cherylmc"/>
 
 # Domande frequenti su ExpressRoute
@@ -86,8 +86,11 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 ### In caso di errore di un collegamento a ExpressRoute, verrà persa la connettività?
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete. Si possono creare più circuiti in sedi di peering diverse per ottenere una maggiore resilienza agli errori.
 
-### Per permettere il funzionamento del servizio, si devono configurare entrambi i collegamenti?
-Se si effettua la connessione tramite un partner che fornisce servizi di terzo livello, tale partner gestirà automaticamente la configurazione di collegamenti ridondanti. Se tuttavia si condivide già un provider Cloud Exchange, è necessario configurare due collegamenti LAN alla piattaforma Cloud Exchange. Se si esegue la connessione al provider cloud tramite un singolo collegamento WAN dal data center privato, è necessario terminare il collegamento WAN sul proprio router e quindi configurare due collegamenti LAN alla piattaforma Cloud Exchange.
+### Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft? 
+No, è sufficiente una connessione fisica se il provider di servizi è in grado di stabilire due circuiti virtuali Ethernet sulla connessione fisica. La connessione fisica, ad esempio una fibra ottica, viene terminata su un dispositivo di livello 1 (L1) (vedere la figura seguente). I due circuiti virtuali Ethernet sono contrassegnati con ID VLAN diversi, uno per il circuito primario e uno per quello secondario. Gli ID VLAN sono nell'intestazione Ethernet 802.1Q esterna. L'intestazione Ethernet 802.1Q interna, non indicata nella figura, viene mappata a un [dominio di routing ExpressRoute](expressroute-circuit-peerings.md) specifico.
+
+![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+
 
 ### Si può estendere una delle reti VLAN ad Azure tramite ExpressRoute?
 No. Non sono supportate estensioni alla connettività di livello 2 in Azure.
@@ -122,7 +125,7 @@ Per altri dettagli, vedere [Condivisione di un circuito ExpressRoute tra più so
 No. Tutte le reti virtuali collegate allo stesso circuito ExpressRoute appartengono allo stesso dominio di routing e non sono isolate tra loro dal punto di vista del routing. Se è necessario l'isolamento delle route, creare un circuito ExpressRoute separato.
 
 ### È possibile connettere una sola rete virtuale a più circuiti ExpressRoute?
-Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute. Devono essere ordinati tramite 4 [località per ExpressRoute](expressroute-locations.md) diverse.
+Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute. Devono essere ordinati in 4 [località per ExpressRoute](expressroute-locations.md) diverse.
 
 ### Si può accedere a Internet usando le reti virtuali connesse a circuiti ExpressRoute?
 Sì. Se non è stata eseguita la pubblicazione di route predefinite (0.0.0.0/0) o prefissi di route Internet tramite la sessione BGP, sarà possibile connettersi a Internet da una rete virtuale collegata a un circuito ExpressRoute.
@@ -221,16 +224,19 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 1. Per assicurarsi di soddisfare i requisiti previsti, vedere la [pagina relativa ai prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md).
 3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-4. Seguire i passaggi elencati nei flussi di lavoro seguenti per configurare la connettività dei [Flussi di lavoro di ExpressRoute per il provisioning di circuiti e stati dei circuiti](expressroute-workflows.md).
+4. Attenersi alla procedura indicata nei flussi di lavoro che seguono per configurare la connettività dei [flussi di lavoro di ExpressRoute per il provisioning e lo stato dei circuiti](expressroute-workflows.md).
 
 >[AZURE.IMPORTANT] Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a CRM Online.
+
+### È necessario abilitare il peering pubblico di Azure per connettersi ai servizi Office 365 e CRM Online?
+No, è sufficiente abilitare il peering Microsoft. Il traffico di autenticazione verrà inviato ad Azure AD attraverso il peering Microsoft.
 
 ### I circuiti ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365 e a CRM Online?
 Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e verificare che sia stato abilitato il componente aggiuntivo Premium. Per pianificare i requisiti a livello di connettività, vedere la pagina relativa a [pianificazione e perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/). Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 
-Per un elenco aggiornato dei servizi supportati tramite ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
+Per un elenco aggiornato dei servizi supportati con ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
 
 ### Quanto costa ExpressRoute per i servizi di Office 365 e CRM Online?
 Per i servizi di Office 365 e CRM Online deve essere abilitato il componente aggiuntivo Premium. Per informazioni dettagliate sui costi di ExpressRoute, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/expressroute/).
@@ -241,4 +247,4 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

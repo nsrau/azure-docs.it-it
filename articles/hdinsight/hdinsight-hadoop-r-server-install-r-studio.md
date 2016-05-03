@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installare RStudio in un cluster HDInsight con R Server | Microsoft Azure"
-	description="Come installare RStudio in un cluster HDInsight con R Server."
+	pageTitle="Installare RStudio con R Server su HDInsight (anteprima) | Microsoft Azure"
+	description="Installazione di RStudio con R Server su HDInsight (anteprima)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,16 +17,18 @@
    ms.author="jeffstok"/>
 
 
-# Installazione di RStudio in un cluster HDInsight con R Server
+# Installazione di RStudio con R Server su HDInsight (anteprima)
 
 Sono attualmente disponibili più ambienti di sviluppo integrato (IDE) per R, tra cui [R Tools per Visual Studio](https://www.visualstudio.com/it-IT/features/rtvs-vs.aspx) (RTVS) recentemente annunciato da Microsoft, una famiglia di strumenti desktop e server di [RStudio](https://www.rstudio.com/products/rstudio-server/), o [StatET](http://www.walware.de/goto/statet), un IDE basato su Eclipse di Walware. Molto diffuso in Linux è l'uso di [RStudio Server](https://www.rstudio.com/products/rstudio-server/) che offre un IDE basato sul browser per l'uso da parte di client remoti. L'installazione di RStudio Server nel nodo perimetrale di un cluster HDInsight Premium offre un'esperienza IDE completa per lo sviluppo e l'esecuzione di script R con R Server nel cluster e può essere molto più produttiva rispetto all'uso della console di R predefinita.
 
 In questo articolo si apprenderà come installare la versione Community (gratuita) di RStudio Server nel nodo perimetrale di un cluster usando uno script personalizzato. Se si preferisce la versione Pro con licenza commerciale di RStudio Server, è necessario seguire le istruzioni di installazione da [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
 
+> [AZURE.NOTE] La procedura descritta in questo documento richiede un R Server basato su un cluster HDInsight e non funzionerà correttamente se si usa un cluster HDInsight dove R è stato installato con l'[Installazione di script R](hdinsight-hadoop-r-scripts-linux.md).
+
 ## Prerequisiti
 
-* Un cluster Azure HDInsight con R Server Per istruzioni, vedere l'articolo di [introduzione a R Server in cluster HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
-* Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+* Un cluster Azure HDInsight con R Server Per istruzioni in merito vedere l'articolo di [introduzione a R Server in cluster HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 
 
 ## Installare RStudio nel cluster usando uno script personalizzato
@@ -71,7 +73,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 6. Creare un tunnel SSH al cluster tramite il mapping di `localhost:8787` sul cluster HDInsight per il computer client. Prima di aprire una nuova sessione del browser, è necessario creare un tunnel SSH.
 
-	* In un client Linux o Windows (usando [Cygwin](http://www.redhat.com/services/custom/cygwin/)) aprire una sessione terminal e usare il comando seguente.
+	* Tramite [Cygwin](http://www.redhat.com/services/custom/cygwin/) aprire in un client Linux o Windows una sessione terminal e usare il comando seguente.
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
 			
@@ -122,4 +124,4 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

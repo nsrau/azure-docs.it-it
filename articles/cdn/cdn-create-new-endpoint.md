@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Come usare la rete CDN di Azure"
+	 pageTitle="Uso della rete CDN di Azure"
 	 description="Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure. Questa esercitazione illustra la creazione di un nuovo profilo ed endpoint della rete CDN."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,14 +12,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="04/15/2016" 
+	 ms.date="04/26/2016" 
 	 ms.author="casoper"/>
 
-# Come usare la rete CDN di Azure  
+# Uso della rete CDN di Azure  
 
-La rete CDN può essere abilitata nel [portale di Azure](https://portal.azure.com). Sono supportati diversi tipi di origini di Azure integrati, compresi App Web, archiviazione BLOB, e Servizi Cloud. È inoltre possibile abilitare la rete CDN per l'endpoint di streaming di Servizi multimediali di Azure. Se l'origine non corrisponde a uno di questi servizi di Azure o è ospitata all'esterno di Azure, è possibile creare un'origine personalizzata. Dopo aver abilitato un endpoint della rete CDN per l'origine, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN.
+Questo argomento descrive in dettaglio l'abilitazione della rete CDN di Azure creando un nuovo profilo di rete CDN e un endpoint.
 
->[AZURE.NOTE] Per un'introduzione al funzionamento della rete CDN, nonché per un elenco delle funzionalità, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-overview.md).
+>[AZURE.IMPORTANT] Per un'introduzione al funzionamento della rete CDN e per un elenco delle funzionalità, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-overview.md).
 
 ## Creare un nuovo profilo di rete CDN
 
@@ -32,7 +32,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 **Per creare un nuovo profilo di rete CDN**
 
-1. Nel [portale di Azure](https://portal.azure.com), in alto a sinistra, fare clic su **Nuovo**. Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** in alto a sinistra. Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
 
     Viene visualizzato il pannello del nuovo profilo di rete CDN.
 
@@ -70,10 +70,10 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 3. Immettere un **Nome** per questo endpoint della rete CDN. Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`.
 
-4. Nell'elenco a discesa **Tipo origine** selezionare il tipo di origine.
+4. Nell'elenco a discesa **Tipo origine** selezionare il tipo di origine. Selezionare **Archiviazione** per un account di archiviazione di Azure, **Servizio Cloud** per un servizio cloud di Azure, **App Web** per un'app Web di Azure oppure **Origine personalizzata** per qualsiasi altra origine di server Web accessibile pubblicamente, ospitata in Azure o altrove.
 
 	![Tipo di origine della rete CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
+		
 5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine. Nell’elenco a discesa compariranno tutte le origini disponibili del tipo specificato nel passaggio 4. Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
 
 6. Nella casella di testo **Percorso origine** inserire il percorso per le risorse che si desidera memorizzare nella cache oppure lasciare vuoto per consentire la memorizzazione nella cache di qualsiasi risorsa nel dominio specificato nel passaggio 5.
@@ -85,7 +85,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 	> [AZURE.TIP] L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
 	> 
 	> - È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
-	> - È necessario usare il dominio fornito dalla rete CDN (`<identifier>.azureedge.net`) per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
+	> - È necessario usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
 
 9. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi**.
 
@@ -93,7 +93,10 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
     ![Endpoint della rete CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE] L'endpoint non sarà immediatamente disponibile per l'uso. Ci possono volere fino a 90 minuti per far sì che la registrazione si propaghi attraverso la rete CDN. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 404 fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
+    > [AZURE.IMPORTANT] L'endpoint non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. In genere è disponibile entro 90 minuti, ma in alcuni casi può richiedere più tempo.
+	>	 
+	> Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404.
+
 
 ##Vedere anche
 - [Controllo del comportamento di memorizzazione nella cache delle richieste della rete CDN con le stringhe di query](cdn-query-string.md)
@@ -107,4 +110,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

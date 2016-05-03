@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/18/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -24,17 +24,18 @@ In questo argomento viene illustrato come spostare le risorse da un gruppo di ri
 2. Una risorsa non condivide più lo stesso ciclo di vita stesso delle risorse con cui era stata precedentemente raggruppata. Si desidera spostare la risorsa in un nuovo gruppo di risorse in modo da poterla gestire separatamente rispetto alle altre risorse.
 3. Una risorsa condivide lo stesso ciclo di vita di altre risorse in un gruppo di risorse diverso. Si desidera spostare la risorsa nel gruppo di risorse assieme ad altre risorse in modo da poterle gestire insieme.
 
-## Considerazioni prima di spostare le risorse
+Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
 
-Prima di spostare una risorsa è necessario tenere presenti alcuni importanti problemi:
+Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
-1. Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
-2. Attualmente non tutti i servizi supportano lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui servizi che supportano lo spostamento di risorse.
-3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Ad esempio, se si sposta un'istanza del servizio Gestione API in una sottoscrizione che non ha registrato il provider di risorse **Microsoft.ApiManagement**, lo spostamento avrà esito negativo. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services/#resource-providers-and-types).
-4. Il gruppo di risorse di destinazione deve contenere solo le risorse che condividono un ciclo di vita dell'applicazione uguale a quello delle risorse che si desidera spostare.
-5. Se si utilizza Azure PowerShell o CLI di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
-6. L'operazione di spostamento può richiedere alcuni minuti e durante tale intervallo il prompt attenderà il completamento dell'operazione.
-7. Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
+## Controllo prima di spostare le risorse
+
+Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. Verificando queste condizioni è possibile evitare errori.
+
+1. Il servizio deve supportare lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui [servizi che supportano lo spostamento di risorse](#services-that-support-move).
+2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti verrà visualizzato un errore che indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere la pagina relativa a [provider e tipi di risorse](../resource-manager-supported-services/#resource-providers-and-types).
+3. Se si usa Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
+4. Se si sta spostando un'app del Servizio app, è stata rivista la sezione [Limitazioni del servizio app](#app-service-limitations).
 
 ## Servizi che supportano lo spostamento
 
@@ -90,14 +91,14 @@ Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizion
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
-    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 Nel secondo esempio viene illustrato come spostare più risorse in un nuovo gruppo di risorse.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 
 Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro **DestinationSubscriptionId**.
 
@@ -132,9 +133,9 @@ Specificare dove si vuole spostare la risorsa. Se insieme a tale risorsa devono 
 ![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)
 
 ## Passaggi successivi
-- [Utilizzo di Azure PowerShell con Gestione risorse](./powershell-azure-resource-manager.md)
-- [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](./xplat-cli-azure-resource-manager.md)
-- [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
-- [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
+- Per altre informazioni sui cmdlet PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
+- Per altre informazioni sulla interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere la pagina relativa all'[uso dell'interfaccia della riga di comando di Azure con Resource Manager](xplat-cli-azure-resource-manager.md).
+- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere la pagina relativa all'[uso del portale di Azure per gestire le risorse](./azure-portal/resource-group-portal.md).
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

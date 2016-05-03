@@ -1,6 +1,6 @@
 <properties
  pageTitle="Piani e fatturazione nell'utilità di pianificazione di Azure"
- description=""
+ description="Piani e fatturazione nell'utilità di pianificazione di Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -85,4 +85,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

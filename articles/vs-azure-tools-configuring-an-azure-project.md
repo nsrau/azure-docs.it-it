@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configurare un progetto di servizio cloud di Azure con Visual Studio
@@ -47,7 +47,7 @@ Nella figura seguente viene illustrato come selezionare una configurazione da us
 
 1. Per selezionare la configurazione del servizio che si desidera usare durante l'esecuzione o il debug del servizio cloud in locale, nell'elenco **Configurazione servizio** scegliere la configurazione del servizio.
 
-  >[AZURE.NOTE]Se si desidera creare una configurazione del servizio da usare, vedere Procedura: Gestire i profili e le configurazioni del servizio. Se si desidera modificare una configurazione del servizio per un ruolo, vedere [Procedura: Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+  >[AZURE.NOTE] Se si desidera creare una configurazione del servizio da usare, vedere Procedura: Gestire i profili e le configurazioni del servizio. Se si desidera modificare una configurazione del servizio per un ruolo, vedere [Procedura: Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 1. Per avviare l'emulatore di archiviazione di Azure durante l'esecuzione o il debug del servizio cloud in locale, in **Avvia l'emulatore di archiviazione di Microsoft Azure** scegliere **True**.
 
@@ -61,4 +61,4 @@ Nella figura seguente viene illustrato come selezionare una configurazione da us
 
 Per altre informazioni su come configurare i progetti di servizio cloud in Visual Studio, vedere [Configurazione di un progetto Azure usando configurazioni del servizio multiple](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

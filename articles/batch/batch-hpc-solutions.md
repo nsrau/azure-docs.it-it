@@ -1,6 +1,6 @@
 <properties
    pageTitle="Soluzioni Batch e HPC nel cloud | Microsoft Azure"
-   description="Introduce i batch e scenari di elaborazione (Big Compute) ad alte prestazioni e soluzioni in Azure"
+   description="Introduce scenari Batch e High Performance Computing (HPC e Big Compute) e opzioni per le soluzioni in Azure"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/21/2016"
+   ms.date="04/21/2016"
    ms.author="danlep"/>
 
 # Soluzioni Batch e HPC nel cloud di Azure
@@ -26,7 +26,7 @@ Le organizzazioni hanno problemi di elaborazione su larga scala tra cui progetta
 
 * Eseguire carichi di lavoro e strumenti di cluster HPC interamente in Azure
 
-* Utilizzare un servizio gestito e scalabile di Azure quale [Batch](https://azure.microsoft.com/documentation/services/batch/) per eseguire carichi di lavoro complessi senza dover distribuire e gestire dell'infrastruttura di calcolo
+* Usare servizi di Azure gestiti e scalabili come [Batch](https://azure.microsoft.com/documentation/services/batch/) per eseguire carichi di lavoro a elevato utilizzo di risorse di calcolo senza dover distribuire e gestire un'infrastruttura di calcolo
 
 Nonostante non rientri nell'ambito di questo articolo, Azure offre anche a sviluppatori e partner un set completo di funzionalità, opzioni di architettura e strumenti di sviluppo per creare flussi di lavoro Big Compute personalizzati su larga scala. Un ecosistema di partner in crescita è inoltre pronto a fornire suggerimenti per rendere produttivi i carichi di lavoro Big Compute nel cloud di Azure.
 
@@ -68,7 +68,7 @@ La linea di demarcazione tra le applicazioni Big Compute e Big Data non è sempr
 
 ## Gestione del calcolo e pianificazione dei processi
 
-L'esecuzione di applicazioni Batch e HPC in genere include un'applicazione di *gestione cluster* e un'*utilità di pianificazione processi* per gestire le risorse di calcolo cluster e allocarle alle applicazioni che eseguono i processi. Queste funzioni possono essere eseguite da strumenti separati o da uno strumento o un servizio integrato.
+L'esecuzione di applicazioni Batch e HPC in genere include un'applicazione di *gestione cluster* e un'*utilità di pianificazione dei processi* per gestire le risorse di calcolo cluster e allocarle alle applicazioni che eseguono i processi. Queste funzioni possono essere eseguite da strumenti separati o da uno strumento o un servizio integrato.
 
 * **Gestione cluster**: effettua il provisioning, rilascia e gestisce le risorse di calcolo (o nodi di calcolo). Un'applicazione di gestione cluster può automatizzare l'installazione di immagini del sistema operativo e applicazioni nei nodi di calcolo, aumentare le risorse di calcolo in base alle esigenze e monitorare le prestazioni dei nodi.
 
@@ -85,9 +85,9 @@ Ecco tre scenari comuni per eseguire carichi di lavoro Big Compute in Azure, sfr
 
  | Scenario | Perché sceglierlo
 ------------- | ----------- | ---------------
-**Potenziamento di un cluster HPC in Azure**<br/><br/>[![Potenziamento dei cluster][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Altre informazioni:<br/>• [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Configurare un cluster di elaborazione ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• Combinare il cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) locale con risorse di Azure aggiuntive in una soluzione ibrida.<br/><br/>• Estendere i carichi di lavoro Big Compute per l'esecuzione in istanze di macchine virtuali di piattaforma distribuita come servizio (PaaS), attualmente solo per Windows Server.<br/><br/>• Accedere a un archivio dati o un server licenze locale tramite una rete virtuale di Azure facoltativa.|• È disponibile un cluster HPC Pack esistente e sono necessarie altre risorse <br/><br/>• Non si vuole acquistare e gestire un'infrastruttura cluster HPC aggiuntiva<br/><br/>• Si verificano periodi di picco temporanei o si hanno progetti speciali
+**Potenziamento di un cluster HPC in Azure**<br/><br/>[![Potenziamento dei cluster][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Altre informazioni:<br/>• [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Configurare un cluster di elaborazione ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• Combinare [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) o un altro cluster locale con risorse di Azure aggiuntive in una soluzione ibrida.<br/><br/>• Estendere i carichi di lavoro Big Compute per l'esecuzione in istanze di macchine virtuali della piattaforma distribuita come servizio (PaaS). Attualmente solo per Windows Server.<br/><br/>• Accedere a un archivio dati o un server licenze locale tramite una rete virtuale di Azure facoltativa.|• È disponibile un cluster HPC esistente e sono necessarie altre risorse. <br/><br/>• Non si vuole acquistare e gestire un'infrastruttura cluster HPC aggiuntiva.<br/><br/>• Si verificano periodi di picco della domanda temporanei o si hanno progetti speciali.
 **Creare un cluster HPC interamente in Azure**<br/><br/>[![Cluster in IaaS][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>Altre informazioni:<br/>• [Soluzioni cluster HPC in Azure](./big-compute-resources.md)<br/><br/>|• Distribuire rapidamente e in modo coerente applicazioni e strumenti cluster in macchine virtuali di infrastruttura distribuita come servizio (IaaS) Windows o Linux standard o personalizzate.<br/><br/>• Eseguire una vasta gamma di carichi di lavoro Big Compute usando la soluzione di pianificazione processi preferita.<br/><br/>• Usare servizi di Azure aggiuntivi, tra cui rete e archiviazione, per creare soluzioni complete basate sul cloud. |Non si vuole acquistare e gestire un'infrastruttura cluster HPC Windows o Linux aggiuntiva •<br/><br/>• Si verificano periodi di picco temporanei o di hanno progetti speciali<br/><br/>• È necessario un cluster aggiuntivo per un periodo di tempo, ma non si vuole investire in computer e spazio per la distribuzione<br/><br/>• Si vuole trasferire l'applicazione a elevato utilizzo di calcolo, per eseguirla come servizio interamente nel cloud
-**Ridimensionare un'applicazione parallela in Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Altre informazioni:<br/>• [Nozioni di base su Azure Batch](./batch-technical-overview.md)<br/><br/>• [Introduzione alla libreria di Azure Batch per .NET](./batch-dotnet-get-started.md)|• Sviluppare con le API [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) per ridimensionare un'ampia gamma di carichi di lavoro Big Compute per l'esecuzione in pool di macchine virtuali di piattaforma distribuita come servizio (PaaS), attualmente solo per Windows Server.<br/><br/>• Usare un servizio di Azure per gestire la distribuzione e il ridimensionamento automatico delle macchine virtuali, la pianificazione dei processi, il ripristino di emergenza, lo spostamento dei dati, la gestione delle dipendenze e la distribuzione di applicazioni, senza richiedere un cluster HPC o un'utilità di pianificazione processi separata.|• Non si vogliono gestire risorse di calcolo o un'utilità di pianificazione processi, ma al contrario ci si vuole concentrare sull'esecuzione delle applicazioni<br/><br/>• Si vuole trasferire l'applicazione a elevato utilizzo di calcolo per eseguirla come servizio nel cloud<br/><br/>• Si vogliono ridimensionare automaticamente le risorse di calcolo in modo che corrispondano al carico di lavoro di calcolo
+**Ridimensionare un'applicazione parallela in Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Altre informazioni:<br/>• [Nozioni di base su Azure Batch](./batch-technical-overview.md)<br/><br/>• [Introduzione alla libreria di Azure Batch per .NET](./batch-dotnet-get-started.md)|• Sviluppare con le API [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) per ridimensionare un'ampia gamma di carichi di lavoro Big Compute per l'esecuzione in pool di macchine virtuali Windows o Linux.<br/><br/>• Usare un servizio di Azure per gestire la distribuzione e il ridimensionamento automatico delle macchine virtuali, la pianificazione dei processi, il ripristino di emergenza, lo spostamento dei dati, la gestione delle dipendenze e la distribuzione di applicazioni, senza richiedere un cluster HPC o un'utilità di pianificazione processi separata.|• Non si vogliono gestire risorse di calcolo o un'utilità di pianificazione processi, ma al contrario ci si vuole concentrare sull'esecuzione delle applicazioni<br/><br/>• Si vuole trasferire l'applicazione a elevato utilizzo di calcolo per eseguirla come servizio nel cloud<br/><br/>• Si vogliono ridimensionare automaticamente le risorse di calcolo in modo che corrispondano al carico di lavoro di calcolo
 
 
 ## Servizi di Azure per Big Compute
@@ -98,15 +98,15 @@ In questa sezione sono illustrati i servizi di calcolo, gestione dati, rete e se
 
 ### Servizi di calcolo
 
-I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i diversi servizi offrono vantaggi per scenari diversi. A livello di base, questi servizi offrono modalità diverse alle applicazioni per l'esecuzione in istanze di calcolo basate su macchine virtuali fornite da Azure tramite la tecnologia Hyper-V di Windows Server. Queste istanze possono eseguire un'ampia gamma di strumenti e sistemi operativi Linux e Windows standard e personalizzati. Azure offre un'ampia gamma di [dimensioni delle istanze](../virtual-machines/virtual-machines-linux-sizes.md) con diverse configurazioni di core CPU, memoria, capacità del disco e altre caratteristiche. In base alle proprie esigenze è possibile ridimensionare le istanze a migliaia di core e quindi ridurle quando sono necessarie meno risorse.
+I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i diversi servizi offrono vantaggi per scenari diversi. A livello di base, questi servizi offrono modalità diverse alle applicazioni per l'esecuzione in istanze di calcolo basate su macchine virtuali fornite da Azure tramite la tecnologia Hyper-V di Windows Server. Queste istanze possono eseguire un'ampia gamma di strumenti e sistemi operativi Linux e Windows standard e personalizzati. Azure offre un'ampia gamma di [dimensioni delle istanze](../virtual-machines/virtual-machines-windows-sizes.md) con diverse configurazioni di core CPU, memoria, capacità del disco e altre caratteristiche. In base alle proprie esigenze è possibile ridimensionare le istanze a migliaia di core e quindi ridurle quando sono necessarie meno risorse.
 
 >[AZURE.NOTE] È possibile sfruttare le istanze A8-A11 per migliorare le prestazioni di alcuni carichi di lavoro HPC, tra cui applicazioni MPI parallele che richiedono una rete di applicazioni a bassa latenza e velocità effettiva elevata. Vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 Servizio | Descrizione
 ------------- | -----------
 **[Servizi cloud](https://azure.microsoft.com/documentation/services/cloud-services/)**<br/><br/> |• Possono eseguire applicazioni Big Compute in istanze di ruolo di lavoro, ovvero macchine virtuali su cui è in esecuzione una versione di Windows Server e gestite completamente da Azure<br/><br/>• Promuovono l'utilizzo di applicazioni scalabili e affidabili con sovraccarico amministrativo ridotto, in esecuzione in un modello PaaS (Platform as-a Service)<br/><br/>• Potrebbero richiedere ulteriori strumenti o sviluppo per l'integrazione con soluzioni cluster HPC locali
-**[Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Forniscono potenza di calcolo IaaS (Infrastructure as-a Service) mediante la tecnologia Microsoft Hyper-V<br/><br/>• Consentono di eseguire il provisioning e gestire computer cloud permanenti basati su immagini Windows Server o Linux standard, altre immagini e dischi di dati o provenienti dall'[Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Permettono l'esecuzione di strumenti cluster di elaborazione locali e di applicazioni interamente nel cloud
-**[Batch](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• Esegue carichi di lavoro su larga scala in parallelo e in batch in un servizio completamente gestito<br/><br/>• Garantisce la pianificazione dei processi e il ridimensionamento automatico di un pool di macchine virtuali gestito<br/><br/>• Consente agli sviluppatori di compilare ed eseguire applicazioni come un servizio o abilitare applicazioni esistenti per il cloud<br/>
+**[Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Forniscono un'infrastruttura distribuita come servizio (IaaS) di calcolo mediante la tecnologia Microsoft Hyper-V.<br/><br/>• Consentono di effettuare il provisioning e gestire computer cloud permanenti basati su immagini standard di Windows Server o Linux o immagini e dischi dati forniti dall'utente o provenienti da [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Possono essere distribuiti e gestiti come [set di scalabilità di macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/) per creare servizi su larga scala da macchine virtuali identiche, con ridimensionamento automatico per aumentare o ridurre automaticamente la capacità.<br/><br/>• Consentono l'esecuzione di applicazioni e strumenti cluster di elaborazione locali interamente nel cloud.<br/><br/>
+**[Batch](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• Esegue carichi di lavoro su larga scala in parallelo e in batch in un servizio completamente gestito.<br/><br/>• Garantisce la pianificazione dei processi e il ridimensionamento automatico di un pool gestito di macchine virtuali.<br/><br/>• Consente agli sviluppatori di compilare ed eseguire applicazioni come un servizio o abilitare applicazioni esistenti per il cloud.<br/>
 
 ### Servizi di archiviazione
 
@@ -114,17 +114,19 @@ In genere una soluzione Big Compute opera su un set di dati di input e genera da
 
 * [BLOB, tabelle e archiviazione delle code](https://azure.microsoft.com/documentation/services/storage/): gestione di grandi quantità di dati non strutturati, dati NoSQL e messaggi per flusso di lavoro e comunicazione, rispettivamente. Ad esempio, è possibile utilizzare l'archiviazione BLOB per grandi set di dati tecnici o le immagini di input o i file multimediali per i processi applicativi. È possibile utilizzare le code per la comunicazione asincrona in una soluzione. Vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md).
 
-* [File di archiviazione Azure](https://azure.microsoft.com/services/storage/files/): condivisioni di file e dati in Azure utilizzando il protocollo SMB standard, necessario per alcune soluzioni cluster HPC comuni.
+* [Archivio file di Azure](https://azure.microsoft.com/services/storage/files/): consente la condivisione di file e dati in Azure con il protocollo SMB standard, necessario per alcune soluzioni cluster HPC comuni.
+
+* [Archivio Data Lake](https://azure.microsoft.com/services/data-lake-store/): fornisce un file system distribuito Apache Hadoop iperscalabile per il cloud, particolarmente utile per le analisi batch, in tempo reale e interattive.
 
 ### Servizi dati e analisi
 
 Alcuni scenari di Big Compute implicano i flussi di dati su larga scala o generano i dati che necessitano di ulteriore elaborazione o analisi. Per gestire questa situazione, Azure offre una serie di servizi dati e l'analisi, tra cui:
 
-* [Data factory](https://azure.microsoft.com/documentation/services/data-factory/): consente la creazione di flussi di lavoro basati sui dati (pipeline) che uniscono, aggregano e trasformano dati da archivi dati Internet, locali e basati sul cloud.
+* [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/): consente la creazione di flussi di lavoro basati sui dati (pipeline) che uniscono, aggregano e trasformano dati da archivi dati locali, basati sul cloud e Internet.
 
 * [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/): fornisce le funzionalità principali di un sistema di gestione di database relazionali Microsoft SQL Server in un servizio gestito.
 
-* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/): distribuisce ed effettua il provisioning di cluster di Windows Server o Apache Hadoop basati su Linux nel cloud per gestire, analizzare e creare report su Big Data.
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/): distribuisce ed effettua il provisioning di cluster Windows Server o Apache Hadoop basati su Linux nel cloud per gestire, analizzare e creare report di Big Data.
 
 * [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/): consente di creare, testare, usare e gestire soluzioni di analisi predittiva in un servizio completamente gestito.
 
@@ -140,7 +142,7 @@ La soluzione Big Compute può richiedere altri servizi di Azure per connettersi 
 
 ## Passaggi successivi
 
-* Vedere [Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)](big-compute-resources.md) per trovare informazioni tecniche aggiuntive per la compilazione della soluzione.
+* Vedere [Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)](big-compute-resources.md) per trovare informazioni tecniche per la compilazione della soluzione.
 
 * Discutere le opzioni di Azure con i partner inclusi Cycle Computing e UberCloud.
 
@@ -155,4 +157,4 @@ La soluzione Big Compute può richiedere altri servizi di Azure per connettersi 
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

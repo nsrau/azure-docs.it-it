@@ -2,7 +2,7 @@
 	pageTitle="Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure | Microsoft Azure" 
 	description="Informazioni su come distribuire un account DocumentDB, app Web del servizio app di Azure e un'applicazione Web di esempio usando un modello di Gestione risorse di Azure." 
 	services="documentdb, app-service\web" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2016" 
-	ms.author="ryancraw"/>
+	ms.author="stbaro"/>
 
-# Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure #
+# Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure
 
 Questa esercitazione illustra come usare un modello di Gestione risorse di Azure per distribuire e integrare [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
@@ -26,7 +26,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 -	Come è possibile usare un modello di Gestione risorse di Azure per distribuire e integrare un account DocumentDB, un'app Web nelle app Web del servizio app e un'applicazione WebDeploy?
 
 <a id="Prerequisites"></a>
-## Prerequisiti ##
+## Prerequisiti
 > [AZURE.TIP] Sebbene questa esercitazione non presupponga esperienza nell'uso dei modelli di Gestione risorse di Azure, di JSON o di Azure PowerShell, qualora si intendano modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento saranno necessarie le opportune nozioni per ciascuna di tali aree.
 
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
@@ -47,7 +47,7 @@ Per iniziare, scaricare i file di esempio che verranno usati in questa esercitaz
 ![Schermata della finestra Proprietà con pulsante Sblocca evidenziato](./media/documentdb-create-documentdb-website/image1.png)
 
 <a id="Build"></a>
-##Passaggio 2: Distribuire l'esempio relativo ad account DocumentDB, app Web del servizio app e applicazione demo ##
+##Passaggio 2: Distribuire l'esempio relativo ad account DocumentDB, app Web del servizio app e applicazione demo
 
 Si procederà a questo punto alla distribuzione del primo modello.
 
@@ -147,7 +147,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 12. È possibile verificare la funzionalità del portale di DocumentDB o modificare l'applicazione ToDo di esempio. A questo punto si è pronti per distribuire un altro modello.
 	
 <a id="Build"></a>
-## Passaggio 3: Distribuire l'esempio relativo ad account DocumentDB e app Web ##
+## Passaggio 3: Distribuire l'esempio relativo ad account DocumentDB e app Web
 
 Si procederà ora alla distribuzione del secondo modello.
 
@@ -210,4 +210,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

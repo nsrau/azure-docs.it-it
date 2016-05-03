@@ -521,14 +521,14 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	
 	``` 
 	... 
-	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	 <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 	<script>(function() { 
 		var loadFallback, 
 			len = document.styleSheets.length; 
 		for (var i = 0; i < len; i++) { 
 			var sheet = document.styleSheets[i]; 
 			if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { 
-		 	   var meta = document.createElement('meta'); 
+			   var meta = document.createElement('meta'); 
 			   meta.className = 'sr-only'; 
 			   document.head.appendChild(meta); 
 			   var value = window.getComputedStyle(meta).getPropertyValue('width'); 
@@ -569,10 +569,10 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso della rete CDN per Azure](../cdn/cdn-how-to-use-cdn.md)
+- [Uso della rete CDN di Azure](../cdn/cdn-create-new-endpoint.md)
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

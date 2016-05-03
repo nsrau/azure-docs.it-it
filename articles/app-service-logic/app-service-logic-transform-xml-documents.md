@@ -2,7 +2,7 @@
 	pageTitle="Uso di BizTalk Transform in app per la logica in Servizio app di Azure | Microsoft Azure" 
 	description="Informazioni su come trasformare documenti XML da uno schema a un altro" 
 	authors="anuragdalmia" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/20/2016"
 	ms.author="anuragdalmia"/>
 
 # BizTalk Transform
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Panoramica
 L'app per le API BizTalk Transform converte i dati da un formato in un altro formato. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
@@ -117,4 +117,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

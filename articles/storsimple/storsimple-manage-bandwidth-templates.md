@@ -12,22 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/14/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire i modelli di larghezza di banda StorSimple.
 
 ## Panoramica
 
-I modelli di larghezza di banda consentono di configurare pianificazioni orarie per suddividere su livelli i dati del dispositivo StorSimple nel cloud. Inoltre, consentono di creare, modificare, eliminare e salvare tali pianificazioni come modelli. Questi modelli di larghezza di banda possono essere applicati nei contenitori del volume al fine di controllare la larghezza di banda utilizzata dal dispositivo StorSimple durante l'esecuzione di operazioni relative al cloud. A seconda del modello relativo all'utilizzo della larghezza di banda, è possibile scegliere da un elenco di modelli predefiniti.
+I modelli di larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie, per suddividere in livelli i dati del dispositivo StorSimple nel cloud.
 
 Utilizzando le pianificazioni relative alla limitazione larghezza di banda è possibile:
 
-- Specificare le pianificazioni che consentono di personalizzare l'utilizzo della larghezza di banda in base ai carichi di lavoro.
+- Specificare pianificazioni della larghezza di banda personalizzate in base agli utilizzi di rete dipendenti dal carico di lavoro.
 
 - Centralizzare la gestione e riutilizzare le pianificazioni su più dispositivi in modo semplice e immediato.
 
-Questa funzionalità è disponibile soltanto per i dispositivi fisici StorSimple e non per quelli virtuali. Tutti i modelli di larghezza di banda relativi al servizio vengono visualizzati in formato tabulare e contengono le informazioni seguenti:
+> [AZURE.NOTE] Questa funzionalità è disponibile soltanto per i dispositivi fisici StorSimple e non per quelli virtuali.
+   
+Tutti i modelli di larghezza di banda relativi al servizio vengono visualizzati in formato tabulare e contengono le informazioni seguenti:
 
 - **Nome**: il nome univoco assegnato al modello di larghezza di banda al momento della creazione.
 
@@ -35,13 +37,7 @@ Questa funzionalità è disponibile soltanto per i dispositivi fisici StorSimple
 
 - **Utilizzato da**: il numero di volumi che utilizzano i modelli di larghezza di banda.
 
-Per gestire i modelli di larghezza di banda, è possibile utilizzare la pagina la pagina **Configura** del servizio StorSimple Manager presente nel portale di Azure classico. Le attività più comuni relative ai modelli di larghezza di banda che possono essere eseguite in questa pagina sono:
-
-- Aggiunta di un modello di larghezza di banda
-- Modifica di un modello di larghezza di banda
-- Eliminazione di un modello di larghezza di banda
-- Utilizzo di un modello di larghezza di banda predefinito
-- Creazione di un modello di larghezza di banda giornaliero che viene avviato a un determinato orario
+Per gestire i modelli di larghezza di banda, è possibile utilizzare la pagina la pagina **Configura** del servizio StorSimple Manager presente nel portale di Azure classico.
 
 Inoltre, è possibile trovare ulteriori informazioni per configurare i modelli di larghezza di banda in:
 
@@ -94,7 +90,7 @@ Eseguire la procedura seguente per modificare un modello di larghezza di banda.
 
 3. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina. Fare clic su **Sì**, quando viene richiesta la conferma.
 
-> [AZURE.NOTE]Non è possibile salvare le modifiche se la pianificazione modificata si sovrappone a una esistente nel modello di larghezza di banda che si sta modificando.
+> [AZURE.NOTE] Non è possibile salvare le modifiche se la pianificazione modificata si sovrappone a una esistente nel modello di larghezza di banda che si sta modificando.
 
 ## Eliminazione di un modello di larghezza di banda
 
@@ -176,4 +172,4 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

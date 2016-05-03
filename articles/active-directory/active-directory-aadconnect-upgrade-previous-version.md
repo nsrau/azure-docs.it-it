@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/29/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente
@@ -45,26 +45,28 @@ Se è presente una distribuzione complessa o molti oggetti, può essere impratic
 
 Il metodo consigliato è invece una migrazione swing. Per questo metodo sono necessari almeno due server, uno attivo e uno di gestione temporanea. Il server attivo (linee blu continue nell'immagine seguente) sarà responsabile del carico attivo. Il server di gestione temporanea (linee viola tratteggiate nell'immagine seguente) verrà preparato con la nuova versione e, una volta completata la preparazione, verrà reso attivo. Il server precedentemente attivo, su cui ora è installata la versione precedente, diventerà il server di gestione temporanea e verrà aggiornato.
 
+I due server possono usare versioni diverse. Ad esempio il server attivo per il quale è stata pianificata la rimozione delle autorizzazioni può usare Azure AD Sync, mentre il nuovo server di gestione temporanea può usare Azure AD Connect.
+
 ![Server di gestione temporanea](./media/active-directory-aadconnect-upgrade-previous-version/stagingserver1.png)
 
 Nota: si è notato che alcuni clienti preferiscono avere tre o quattro server per eseguire questa operazione. Poiché è in corso l'aggiornamento del server di gestione temporanea, durante l'operazione non sarà presente un server di backup in caso di [ripristino di emergenza](active-directory-aadconnectsync-operations.md#disaster-recovery). Con un massimo di quattro server è possibile preparare un nuovo set di server primari o di standby con la nuova versione, per assicurare che sia sempre presente un server di gestione temporanea pronto a sostituire il server attivo.
 
-Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una soluzione con FIM + Azure AD Connector. Questa procedura non è indicata per DirSync, ma è disponibile lo stesso metodo con migrazione swing (detto anche distribuzione parallela) con i passaggi per DirSync nell'argomento relativo all'[aggiornamento del servizio di sincronizzazione di Azure Active Directory (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una soluzione con FIM + Azure AD Connector. Questa procedura non è indicata per DirSync, ma è disponibile lo stesso metodo con migrazione swing, chiamato anche distribuzione parallela, con i passaggi per DirSync nell'argomento [Aggiornamento del servizio di sincronizzazione di Microsoft Azure Active Directory (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### Passaggi della migrazione swing
 
-1. Verificare che il server attivo e il server di gestione temporanea usino la stessa versione.
+1. Se si usa Azure AD Connect in entrambi i server, assicurarsi che il server attivo e il server di gestione temporanea usino entrambi la stessa versione prima di iniziare l'aggiornamento. Ciò renderà più facile un successivo confronto delle differenze. Se si esegue l'aggiornamento da Azure AD Sync, questi server hanno versioni diverse.
 2. Se è stata eseguita una configurazione personalizzata che non è presente nel server di gestione temporanea, seguire i passaggi descritti in [Spostare la configurazione personalizzata dal server attivo al server di gestione temporanea](#move-custom-configuration-from-active-to-staging-server).
-3. Aggiornare il server di gestione temporanea alla versione più recente.
-4. Consentire al motore di sincronizzazione di eseguire un'importazione completa e una sincronizzazione completa.
+3. Se si esegue l'aggiornamento da una versione precedente di Azure AD Connect, aggiornare il server di gestione temporanea alla versione più recente. Se si esegue lo spostamento da Azure AD Sync, installare Azure AD Connect nel server di gestione temporanea.
+4. Consentire al motore di sincronizzazione di eseguire un'importazione completa e una sincronizzazione completa nel server di gestione temporanea.
 5. Verificare che la nuova configurazione non abbia causato modifiche impreviste seguendo i passaggi descritti nella sezione **Verificare** di [Verificare la configurazione di un server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se alcuni elementi non funzionano come previsto, correggerli, eseguire l'importazione e la sincronizzazione, quindi verificare che i dati siano corretti. Questi passaggi sono disponibili nell'argomento collegato.
 6. Impostare il server di gestione temporanea come server attivo. Questo è il passaggio finale, dal titolo **Cambiare il server attivo**, di [Verificare la configurazione di un server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
-7. Aggiornare il server in modalità di gestione temporanea alla versione più recente. Seguire gli stessi passaggi descritti in precedenza per aggiornare i dati e la configurazione.
+7. Se si esegue l'aggiornamento di Azure AD Connect, eseguire ora l'aggiornamento del server in modalità di gestione temporanea alla versione più recente. Seguire gli stessi passaggi descritti in precedenza per aggiornare i dati e la configurazione. Se si esegue lo spostamento da Azure AD Sync, è possibile disattivare e rimuovere le autorizzazioni dal server precedente.
 
 ### Spostare la configurazione personalizzata dal server attivo al server di gestione temporanea
 Se sono state apportate modifiche di configurazione al server attivo, è necessario assicurarsi che le stesse modifiche vengano applicate al server di gestione temporanea.
 
-Le regole di sincronizzazione personalizzate create possono essere spostate con PowerShell. Qualsiasi altra modifica deve essere applicata nello stesso modo in entrambi i sistemi.
+Le regole di sincronizzazione personalizzate create possono essere spostate con PowerShell. Qualsiasi altra modifica deve essere applicata nello stesso modo in entrambi i sistemi e non è possibile eseguirne la migrazione.
 
 Elementi che devono essere configurati allo stesso modo in entrambi i server:
 
@@ -83,4 +85,4 @@ Elementi che devono essere configurati allo stesso modo in entrambi i server:
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Per informazioni sulla scalabilità delle unità di codifica, vedere i seguenti 
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
 
-Si noti che le unità riservate sono le stesse per le attività di codifica e indicizzazione.
+Si noti che le unità riservate sono le stesse per le attività di codifica e i processi di indicizzazione.
 
 ##<a id="storage"></a>Scalabilità delle risorse di archiviazione
 
@@ -51,4 +51,4 @@ Per altre informazioni, vedere [Gestione di asset di Servizi multimediali su pi�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

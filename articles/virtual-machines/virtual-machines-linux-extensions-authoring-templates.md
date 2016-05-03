@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Creazione di modelli di Azure Resource Manager con le estensioni di VM Linux
@@ -49,4 +49,4 @@ Vedere quanto segue per ottenere un modello completo con estensioni di VM.
 
 Dopo aver creato il modello, è possibile distribuirlo usando l'interfaccia della riga di comando di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

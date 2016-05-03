@@ -23,25 +23,13 @@
 
 ## Panoramica
 
-Un account di archiviazione di Azure consente di accedere ai servizi BLOB, di accodamento, tabelle e file nel servizio di archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per gli oggetti dati dell'archiviazione di Azure. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
+Un account di archiviazione di Azure offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Tutti gli oggetti in un account di archiviazione vengono fatturati insieme come gruppo. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
 
-Sono disponibili due tipi di account di archiviazione:
-
-- Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file.
-- Un account di archiviazione Premium attualmente supporta solo dischi di macchine virtuali di Azure. Per una panoramica approfondita del servizio di archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+[AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 ## Fatturazione dell'account di archiviazione
 
-L'importo fatturato per l'uso di Archiviazione di Azure dipende dall'account di archiviazione. I costi di archiviazione sono determinati da quattro fattori: capacità di archiviazione, schema di replica, transazioni di archiviazione e uscita dei dati.
-
-- La capacità di archiviazione fa riferimento alla quantità di unità di servizio dell'account di archiviazione in uso per l'archiviazione dei dati. Il costo dell'archiviazione dei dati è determinato dalla quantità di dati archiviata e dalla modalità di replica dei dati.
-- La replica determina quante copie dei dati vengono gestite in una sola volta e in quali posizioni.
-- Le transazioni fanno riferimento a tutte le operazioni di lettura e scrittura in Archiviazione di Azure.
-- L'uscita dati fa riferimento ai dati trasferiti all'esterno di un'area di Azure. Quando un'applicazione non in esecuzione nella stessa area geografica accede ai dati nell'account di archiviazione, indipendentemente dal fatto che l'applicazione sia un servizio cloud o un altro tipo di applicazione, verrà addebitato il trasferimento dei dati in uscita. Per i servizi di Azure è possibile raggruppare dati e servizi nello stesso data center per ridurre o evitare del tutto gli addebiti per il trasferimento dei dati in uscita.  
-
-Nella pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage) sono disponibili informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/) sono disponibili informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita.
-
-Per informazioni sugli obiettivi di capacità e prestazioni dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
+[AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [AZURE.NOTE] Quando si crea una macchina virtuale di Azure, un account di archiviazione viene creato automaticamente nel percorso di distribuzione se non si ha già un account di archiviazione in tale percorso. Non è quindi necessario attenersi alla procedura riportata sotto per creare un account di archiviazione per i dischi della macchina virtuale. Il nome dell'account di archiviazione sarà basato sul nome della macchina virtuale. Per altri dettagli, vedere la [documentazione relativa alle macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -59,9 +47,11 @@ Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, gli endp
 
 - Servizio file: http://*mystorageaccount*.file.core.windows.net
 
+> [AZURE.NOTE] Un account di archiviazione BLOB espone solo l'endpoint di servizio BLOB.
+
 L'URL per accedere a un oggetto in un account di archiviazione viene formato aggiungendo la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo BLOB è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per informazioni dettagliate sugli account di archiviazione classici, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md). Per gli account di archiviazione ARM, questa funzionalità non è stata ancora aggiunta al [portale di Azure](https://portal.azure.com), ma è possibile configurarla con PowerShell. Per altre informazioni, vedere il cmdlet [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
+È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per informazioni dettagliate sugli account di archiviazione classici, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md). Per gli account di archiviazione di Azure Resource Manager, questa funzionalità non è stata ancora aggiunta al [portale di Azure](https://portal.azure.com), ma è possibile configurarla con PowerShell. Per altre informazioni, vedere il cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
 ## Creare un account di archiviazione
 
@@ -69,23 +59,27 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 2. Nel menu Hub selezionare **Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**.
 
-3. Immettere un nome per l'account di archiviazione.
+3. Immettere un nome per l'account di archiviazione. Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints).
 
 	> [AZURE.NOTE] I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 	>  
-	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
+	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il Portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
 
-	Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti.
+4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
-4. Specificare il modello di distribuzione da usare: **Azure Resource Manager ** o **Classico**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+	> [AZURE.NOTE] Gli account di archiviazione BLOB possono essere creati solo usando il modello di distribuzione di Resource Manager.
 
-5. Specificare il livello di prestazioni per l'account di archiviazione: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per altre informazioni sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+5. Selezionare il tipo di account di archiviazione: **Utilizzo generico** o **Archivio BLOB**. L'impostazione predefinita è **Utilizzo generico**.
 
-6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **RA-GRS** o **ZRS**. L'opzione predefinita predefinito è **RA-GRS**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+	Se è stata selezionata l'opzione **Utilizzo generico**, specificare il livello di prestazioni: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione con prestazioni elevate per i carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+
+	Se è stata selezionata l'opzione **Archivio BLOB**, specificare il livello di accesso: **Frequente** o **Non frequente**. Il livello predefinito è **Frequente**. Per informazioni dettagliate, vedere l'articolo relativo ai [livelli Frequente e Non frequente dell'archiviazione BLOB di Azure](storage-blob-storage-tiers.md).
+
+6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **Archiviazione con ridondanza geografica e accesso in lettura** o **ZRS**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
 7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
 9. Selezionare la posizione geografica dell'account di archiviazione.
 
@@ -95,31 +89,35 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ### Modificare la configurazione dell'account
 
-Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio l'opzione di replica usata per l'account. Nel portale di Azure passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account. La modifica dell'opzione di replica modifica i prezzi.
+Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio modificando l'opzione di replica usata per l'account o il livello di accesso per un account di archiviazione BLOB. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
 > [AZURE.NOTE] A seconda del livello di prestazioni che scelto durante la creazione dell'account di archiviazione, alcune opzioni di replica potrebbero non essere disponibili.
+
+La modifica dell'opzione di replica modifica i prezzi. Per informazioni più dettagliate, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+
+Per gli account di archiviazione BLOB, la modifica del livello di accesso potrebbe comportare costi per la modifica stessa oltre alla variazione dei prezzi. Per informazioni dettagliate, vedere la sezione relativa a [prezzi e fatturazione per gli account di archiviazione BLOB](storage-blob-storage-tiers.md#pricing-and-billing).
 
 ### Gestire le chiavi di accesso alle risorse di archiviazione
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
 
-Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e fare clic su **Tutte le impostazioni** e quindi su **Chiavi di acceso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
+Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi su **Chiavi di acceso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
 
 #### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
 
 Si consiglia di modificare periodicamente le chiavi di accesso all'account di archiviazione per mantenere le connessioni dell'archiviazione sicure. Vengono assegnate due chiavi di accesso in modo da mantenere le connessioni all'account di archiviazione mediante una chiave di accesso mentre si rigenera l'altra.
 
-> [AZURE.WARNING] La rigenerazione delle chiavi di accesso influisce sulle macchine virtuali, sui servizi multimediali e sulle applicazioni che dipendono dall'account di archiviazione. È necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account di archiviazione per l'uso della nuova chiave.
-
-**Macchine virtuali** - Se l'account di archiviazione contiene macchine virtuali in esecuzione, sarà necessario ridistribuire tutte le macchine virtuali dopo aver rigenerato le chiavi di accesso. Per evitare la ridistribuzione, arrestare le macchine virtuali prima di rigenerare le chiavi di accesso.
+> [AZURE.WARNING] La rigenerazione delle chiavi di accesso può influire sui servizi in Azure e sulle applicazioni che dipendono dall'account di archiviazione. È necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account di archiviazione per l'uso della nuova chiave.
 
 **Servizi multimediali**: se si dispone di servizi multimediali dipendenti dall'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il proprio servizio multimediale dopo la rigenerazione delle chiavi.
 
 **Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, le connessioni andranno perse se si rigenerano le chiavi, a meno che non venga eseguito il rollover delle chiavi.
+
+**Strumenti di esplorazione di archiviazione**: se si usano [strumenti di esplorazione di archiviazione](storage-explorers.md), sarà probabilmente necessario aggiornare la chiave di archiviazione usata da tali applicazioni.
 
 Di seguito è riportato il processo per la rotazione delle chiavi di accesso alle risorse di archiviazione:
 
@@ -143,19 +141,20 @@ Per eliminare un account di archiviazione associato a una macchina virtuale di A
 
 Se l'account di archiviazione usa il modello di distribuzione classica, è possibile rimuovere il disco della macchina virtuale seguendo questa procedura nel [portale di Azure](https://manage.windowsazure.com):
 
-1. Passare al [portale di Azure classico](https://manage.windowsazure.com).
+1. Passare al [portale classico](https://manage.windowsazure.com).
 2. Passare alla scheda Macchine virtuali.
 3. Fare clic sulla scheda Dischi.
 4. Selezionare il disco dati, quindi fare clic su Elimina disco.
 5. Per eliminare le immagini del disco, passare alla scheda Immagini ed eliminare le eventuali immagini archiviate nell'account.
 
-Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Passaggi successivi
 
+- [Livelli Frequente e Non frequente dell'archiviazione BLOB di Azure](storage-blob-storage-tiers.md)
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
 - [Configurare le stringhe di connessione di archiviazione di Azure](storage-configure-connection-string.md)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -378,5 +378,12 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
 			{"subscription":"2013-12-07","premium":"true"}
  
+##Registrazione
+###Abilitare la registrazione
 
-<!---HONumber=AcomDC_0302_2016-->
+È possibile configurare SDK per generare log di test nella console IDE. Questi log non sono abilitati per impostazione predefinita. Per eseguire una personalizzazione, aggiornare la proprietà `EngagementAgent.Instance.TestLogEnabled` scegliendo uno dei valori disponibili nell'enumerazione `EngagementTestLogLevel`, ad esempio:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+<!---HONumber=AcomDC_0420_2016-->

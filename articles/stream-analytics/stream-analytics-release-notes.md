@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+	ms.date="04/15/2016" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di analisi di flusso
+
+## Note per la versione 15/04/2016 di Analisi di flusso ##
+
+Questa versione contiene l'aggiornamento seguente.
+
+Titolo | Descrizione
+---|---
+Disponibilità generale per gli output di Power BI | [Gli output di Power BI](stream-analytics-power-bi-dashboard.md) sono ora disponibili a livello generale. La scadenza dell'autorizzazione per Power BI dopo 90 giorni è stata rimossa. Per altre informazioni sugli scenari in cui è necessario rinnovare l'autorizzazione, vedere la sezione relativa al [rinnovo dell'autorizzazione](stream-analytics-power-bi-dashboard.md#Renew-authorization) di Creare un dashboard di Power BI.
 
 ## Note per la versione 03/03/2016 di Analisi di flusso ##
 
@@ -24,7 +32,7 @@ Questa versione contiene l'aggiornamento seguente.
 
 Titolo | Descrizione
 ---|---
-Nuovi elementi del linguaggio di query di Analisi di flusso | Il linguaggio di query di Analisi di flusso include ora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Pagina MSDN su GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Pagina MSDN su TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Pagina MSDN su REGEXMATCH").
+Nuovi elementi del linguaggio di query di Analisi di flusso | SAQL include ora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Pagina MSDN su GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Pagina MSDN su TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Pagina MSDN su REGEXMATCH").
 
 ## Note per la versione 10/12/2015 di Analisi di flusso ##
 
@@ -141,4 +149,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

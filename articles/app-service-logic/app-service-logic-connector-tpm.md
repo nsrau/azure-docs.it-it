@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Uso di BizTalk Trading Partner Management e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Il servizio BizTalk Trading Partner Management (TPM) consente di definire e mantenere relazioni Business to Business, come partner e contratti, insieme ad elementi associati come schemi e certificati. Queste relazioni possono essere quindi applicate da servizi API correlati come AS2, EDIFACT e X12.
 
@@ -41,4 +43,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

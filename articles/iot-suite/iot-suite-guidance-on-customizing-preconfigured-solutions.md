@@ -58,15 +58,13 @@ Oltre a modificare i processi preconfigurati di analisi di flusso di Azure, è p
 
 Una delle attività di estensione più comuni è l'uso di dispositivi specifici per lo scenario. Esistono diversi metodi per usare i dispositivi, tra cui modificare un dispositivo simulato in modo che corrisponda allo scenario o usare l'[SDK per dispositivi IoT][] per connettere il dispositivo fisico alla soluzione.
 
-Per indicazioni dettagliate sull'aggiunta di dispositivi alla soluzione preconfigurata per il monitoraggio remoto, vedere il documento relativo ai [dispositivi di connessione a IoT Suite](iot-suite-connecting-devices.md).
+Per una guida dettagliata sull'aggiunta di dispositivi alla soluzione preconfigurata per il monitoraggio remoto, vedere il documento relativo ai [dispositivi di connessione a Iot Suite](iot-suite-connecting-devices.md) e l'[esempio C SDK per il monitoraggio remoto](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring), studiato per usare la soluzione preconfigurata per il monitoraggio remoto.
 
 ### Creazione del dispositivo simulato
 
 Nel codice sorgente della soluzione per il monitoraggio remoto (a cui viene fatto riferimento più indietro) è incluso un simulatore .NET. Il provisioning di questo simulatore viene eseguito nell'ambito della soluzione ed è possibile modificarlo per inviare metadati diversi e la telemetria o per rispondere a comandi diversi.
 
-Il simulatore preconfigurato nella soluzione preconfigurata di monitoraggio remoto è un dispositivo più freddo che emette dati di telemetria su temperatura e umidità e che può essere modificato nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando è stato duplicato il repository GitHub.
-
-Azure IoT fornisce inoltre un [esempio di SDK C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) progettato per usare la soluzione preconfigurata per il monitoraggio remoto.
+Nella soluzione preconfigurata per il monitoraggio remoto il simulatore preconfigurato rappresenta un dispositivo di raffreddamento che invia messaggi di telemetria su temperatura e umidità. Il simulatore può essere modificato nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) dopo aver duplicato il repository GitHub.
 
 ### Compilazione e uso del proprio dispositivo (fisico)
 
@@ -74,7 +72,7 @@ Gli [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks) forniscono librerie
 
 ## Configurazione manuale dei ruoli dell’applicazione
 
-La procedura seguente descrive come aggiungere i ruoli dell’applicazione **Admin** e **ReadOnly** a una soluzione preconfigurata. Le soluzioni preconfigurate di cui è stato eseguito il provisioning dal sito azureiotsuite.com includono i ruoli **Admin** e **ReadOnly**.
+La procedura seguente descrive come aggiungere i ruoli applicazione **Admin** e **ReadOnly** a una soluzione preconfigurata. Si noti che le soluzioni preconfigurate per le quali è stato eseguito il provisioning dal sito azureiotsuite.com includono già i ruoli **Admin** e **ReadOnly**.
 
 I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei dispositivi, ma non sono autorizzati ad aggiungere dispositivi, modificare gli attributi del dispositivo o inviare comandi. I membri del ruolo **Admin** hanno accesso completo a tutte le funzionalità nella soluzione.
 
@@ -88,7 +86,7 @@ I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei
 
 5. Fare clic sul nome dell'applicazione che coincide con il nome della soluzione preconfigurata. Se l'applicazione non viene visualizzata nell'elenco, selezionare **Applicazioni di proprietà dell'azienda** nell'elenco a discesa **Mostra** e fare clic sul segno di spunta.
 
-6.  Nella parte inferiore della pagina fare clic su **Gestisci manifesto**, quindi su **Scarica manifesto**.
+6.  Nella parte inferiore della pagina fare clic su **Gestisci manifesto** e quindi su **Scarica manifesto**.
 
 7. Verrà scaricato un file con estensione JSON nel computer locale. Aprire il file per modificarlo in un editor di testo di propria scelta.
 
@@ -125,15 +123,15 @@ I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei
 
 9. Salvare il file con estensione JSON aggiornato (è possibile sovrascrivere il file esistente).
 
-10.  Nel portale di gestione di Azure, nella parte inferiore della pagina, selezionare **Gestisci manifesto** quindi **Carica manifesto** per caricare il file con estensione JSON salvato nel passaggio precedente.
+10.  Nel portale di gestione di Azure, nella parte inferiore della pagina selezionare **Gestisci manifesto** e quindi **Carica manifesto** per caricare il file con estensione json salvato nel passo precedente.
 
 11. Sono stati aggiunti all’applicazione i ruoli **Admin** e **ReadOnly**.
 
-12. Per assegnare uno di questi ruoli a un utente nella directory, vedere [Autorizzazioni nel sito azureiotsuite.com][lnk-permissions].
+12. Per assegnare uno di questi ruoli a un utente nella directory, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions].
 
 ## Commenti e suggerimenti
 
-Per altre informazioni relative a una personalizzazione, Per inviare suggerimenti sulle funzionalità, usare [UserVoice](https://feedback.azure.com/forums/321918-azure-iot) oppure lasciare un commento nell'apposita sezione alla fine di questo articolo.
+Per altre informazioni relative a una personalizzazione, inviare suggerimenti a [UserVoice](https://feedback.azure.com/forums/321918-azure-iot) oppure lasciare un commento nell'apposita sezione alla fine di questo articolo.
 
 ## Passaggi successivi
 
@@ -143,4 +141,4 @@ Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azu
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

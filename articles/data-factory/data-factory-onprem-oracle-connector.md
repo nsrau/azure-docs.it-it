@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da Oracle locale mediante Data factory di Azure 
@@ -292,7 +292,7 @@ XML | String
 
 ## Suggerimenti per la risoluzione dei problemi
 
-**** Problema: ** viene visualizzato il seguente **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName', messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
+**Problema:** viene visualizzato il seguente **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName', messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
 
 **Possibili cause**
 
@@ -312,4 +312,8 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+
+## Ottimizzazione delle prestazioni  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+
+<!---HONumber=AcomDC_0420_2016-->

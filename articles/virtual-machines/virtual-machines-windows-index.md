@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 [Informazioni sulle distribuzioni di Azure Resource Manager](../resource-group-overview.md)
 
 [Macchine virtuali e contenitori in Azure](virtual-machines-windows-containers.md)
-
-[Panoramica dei set di scalabilità di macchine virtuali](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Configurazione dell'ambiente
@@ -115,8 +112,6 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 [Backup automatico per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -329,8 +324,6 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Creazione di una macchina virtuale per un’applicazione web con Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Applicazione Web Hello World Django in una macchina virtuale di Windows Server.](virtual-machines-windows-classic-python-django-web-app.md)
@@ -375,4 +368,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

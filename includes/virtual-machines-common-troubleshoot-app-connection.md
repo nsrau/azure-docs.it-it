@@ -25,7 +25,7 @@ Provare ad accedere all'applicazione con il programma client appropriato dalla m
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-Ad esempio, se l'applicazione è un server Web, eseguire un browser nella macchina virtuale e provare ad accedere a una pagina Web ospitata nella macchina virtuale.
+Ad esempio, se l'applicazione è un server Web, aprire un browser nella VM e provare ad accedere a una pagina Web ospitata nella VM.
 
 Se è possibile accedere all'applicazione, passare al [Passaggio 2](#step2).
 
@@ -102,4 +102,4 @@ Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività de
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

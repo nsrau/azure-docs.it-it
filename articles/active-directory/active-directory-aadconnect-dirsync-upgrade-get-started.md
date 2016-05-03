@@ -12,9 +12,9 @@
    ms.workload="identity"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="article"
-   ms.date="03/16/2016"
-   ms.author="shoatman;billmath"/>
+   ms.topic="get-started-article"
+   ms.date="04/25/2016"
+   ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Aggiornamento del servizio di sincronizzazione di Microsoft Azure Active Directory (DirSync)
 
@@ -199,4 +199,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

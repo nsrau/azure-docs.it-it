@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # Tracciare i messaggi B2B
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Informazioni sul rilevamento B2B
 La comunicazione B2B implica l'elaborazione dei messaggi tra due partner commerciali. Le relazioni sono definite come contratti tra due partner commerciali. Dopo aver stabilito la comunicazione, sarà necessario ricorrere a un metodo per monitorarne il corretto funzionamento.
@@ -47,4 +47,4 @@ Se vengono creati dei batch nell'ambito dei contratti X12 all'interno dell'app p
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

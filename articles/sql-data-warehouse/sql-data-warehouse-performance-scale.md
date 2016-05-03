@@ -3,7 +3,7 @@
    description="Comprendere l'elasticità di SQL Data Warehouse mediante l'uso di unità data warehouse per aumentare o ridurre le risorse di calcolo. Esempi di codice forniti."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/29/2016"
-   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Scalabilità e prestazioni elastiche con SQL Data Warehouse
 Per aumentare o ridurre in modo elastico la potenza di calcolo di cui si dispone, è sufficiente modificare il numero delle unità data warehouse (DWU) allocate alla propria istanza di SQL Data Warehouse. Le unità data warehouse sono un nuovo concetto introdotto con SQL Data Warehouse per consentirne una gestione semplice ed efficace. Questo argomento è un'introduzione alle unità data warehouse in cui viene spiegato come usarle per scalare in modo elastico la potenza di calcolo. L'articolo fornisce anche alcune indicazioni iniziali su come impostare un valore DWU ragionevole per l'ambiente in uso.
@@ -98,4 +98,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

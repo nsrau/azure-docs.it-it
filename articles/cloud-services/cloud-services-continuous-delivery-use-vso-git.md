@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services e Git
@@ -23,11 +23,12 @@
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services: è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services:
+è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Team Services, seguire questa procedura.
 
-## Passaggio 1: Creare un repository Git
+## 1: Creare un repository Git
 
 1. Se non si ha già un account Visual Studio Team Services, è possibile ottenerne uno [qui](http://go.microsoft.com/fwlink/?LinkId=397665). Quando si crea il progetto team, scegliere Git come sistema di controllo del codice sorgente. Seguire le istruzioni per collegare Visual Studio al progetto team.
 
@@ -37,7 +38,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 3. Specificare il percorso della copia locale e quindi scegliere il pulsante **Clona**.
 
-## Passaggio 2: Creare un progetto ed eseguirne il commit nel repository
+## 2: Creare un progetto ed eseguirne il commit nel repository
 
 1. Nella sezione **Soluzioni** di **Team Explorer** scegliere il collegamento **Nuovo** per creare un nuovo progetto nel repository locale.
 
@@ -57,7 +58,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 6. È stato eseguito il commit delle modifiche nella copia locale del repository. A questo punto, sincronizzare le modifiche con il server scegliendo il collegamento **Sincronizza**.
 
-## Passaggio 3: Connettere il progetto ad Azure
+## 3: Collegare il progetto ad Azure
 
 1. Ora si dispone di un repository Git in Visual Studio Team Services contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure classico](http://manage.windowsazure.com) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**.
 
@@ -81,7 +82,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	Quando si effettuerà di nuovo il push di un commit al repository, Visual Studio Team Services compilerà e distribuirà il progetto in Azure.
 
-## Passaggio 4: Attivare una ricompilazione e ridistribuire il progetto
+## 4: Attivare una ricompilazione e ridistribuire il progetto
 
 1. In Visual Studio aprire un file e modificarlo. Ad esempio, modificare il file `_Layout.cshtml` nella cartella Views\\Shared in un ruolo Web MVC.
 
@@ -170,19 +171,19 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][33]
 
-## Passaggio 5: Ridistribuire una compilazione precedente
+## 5: Ridistribuire una compilazione precedente
 
 Questo passaggio è facoltativo. Nel portale di Azure classico, selezionare una distribuzione precedente e fare clic sul pulsante **Ridistribuisci** per riportare il sito a un'archiviazione precedente. Si noti che verrà attivata una nuova compilazione in TFS e verrà creata una nuova voce nella cronologia della distribuzione.
 
 ![][34]
 
-## Passaggio 6: Modificare la distribuzione di produzione.
+## 6: Modificare la distribuzione di produzione
 
 Quando si è pronti, è possibile alzare di livello l'ambiente di gestione temporanea all'ambiente di produzione scegliendo **Scambia** nel portale di Azure classico. L'ambiente di gestione temporanea appena distribuito verrà promosso alla produzione e il precedente ambiente di produzione (se presente) diventerà un ambiente di gestione temporanea. La distribuzione attiva potrebbe differire per gli ambienti di produzione e di gestione temporanea, ma la cronologia di distribuzione delle compilazioni recenti è la stessa indipendentemente dall'ambiente.
 
 ![][35]
 
-## Passaggio 6: Distribuire da un branch di lavoro.
+## 6: Distribuire da una divisione operativa
 
 Quando si usa Git, in genere si apportano modifiche in un branch di lavoro che vengono integrate nel branch master quando lo sviluppo è terminato. Durante la fase di sviluppo di un progetto, è consigliabile compilare e distribuire il branch di lavoro in Azure.
 
@@ -272,4 +273,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

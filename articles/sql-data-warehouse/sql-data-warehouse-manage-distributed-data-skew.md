@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestire la differenza dati per le tabelle distribuite in Azure SQL Data Warehouse
@@ -27,6 +27,18 @@ In questa esercitazione si apprenderà come:
 - Capire quando risolvere una differenza dati
 - Ricreare la tabella per risolvere la differenza dati.
 
+## DBCC PDW\_SHOWSPACEUSED
+
+Un metodo per l'identificazione della differenza dati è l'uso di [DBCC PDW\_SHOWSPACEUSED()][]
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+Questo è un metodo molto semplice e rapido per vedere il numero di righe della tabella archiviate in ognuna delle 60 distribuzioni del database. Tenere presente che per ottenere prestazioni più bilanciate, le righe nella tabella distribuita vanno suddivise in modo uniforme in tutte le distribuzioni.
+
+Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Il resto di questo articolo mostra come eseguire questa attività.
 
 ## Passaggio 1: Creare una visualizzazione che individua la differenza dati
 
@@ -147,7 +159,7 @@ Per risolvere la differenza dati è possibile procedere in due modi. Scegliere u
 
 ### Metodo 1: Ricreare la tabella con una colonna di distribuzione diversa
 
-Il modo più comune per risolvere la differenza dati è ricreare la tabella con una colonna di distribuzione diversa. Per istruzioni su come selezionare una colonna di distribuzione hash, vedere [Distribuzione hash e relativo effetto sulle prestazioni delle query in SQL Data Warehouse][]. In questo esempio si usa [CTAS][] per ricreare una tabella con una colonna di distribuzione diversa.
+Il modo più comune per risolvere la differenza dati è ricreare la tabella con una colonna di distribuzione diversa. Per istruzioni su come selezionare una colonna di distribuzione hash, vedere [Distribuzione hash][]. In questo esempio si usa [CTAS][] per ricreare una tabella con una colonna di distribuzione diversa.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey] 
@@ -216,10 +228,10 @@ Per altre informazioni sulla distribuzione delle tabelle, vedere gli articoli se
 <!--Article references-->
 [Progettazione della tabella]: sql-data-warehouse-develop-table-design.md
 [Distribuzione hash]: sql-data-warehouse-develop-hash-distribution-key.md
-[Distribuzione hash e relativo effetto sulle prestazioni delle query in SQL Data Warehouse]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW\_SHOWSPACEUSED()]: https://msdn.microsoft.com/it-IT/library/mt204028.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

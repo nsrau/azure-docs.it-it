@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure
@@ -72,4 +72,4 @@ Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm 
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
    description="Informazioni su come usare Azure PowerShell per creare un account di Data Lake Store, creare un processo di Data Lake Analytics mediante U-SQL e inviare il processo." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Esercitazione: Introduzione ad Azure Data Lake Analytics con Azure PowerShell
 
@@ -24,22 +24,14 @@ Informazioni su come usare Azure PowerShell per creare gli account di Azure Data
 
 In questa esercitazione si svilupperà un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede nella parte superiore di questa sezione.
 
-**Processo di Data Lake Analytics di base:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagramma di flusso del processo di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Creare un account di Analisi Data Lake.
-2. Preparare i dati di origine. I processi di Data Lake Analytics possono leggere dati da account di Azure Data Lake Store o da account di archiviazione BLOB di Azure.   
-3. Sviluppare uno script U-SQL.
-4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, li elabora come indicato nello script U-SQL e quindi salva l'output in un account di Archivio Data Lake o in un account di archiviazione BLOB.
-
-
-**Prerequisiti**
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Workstation con Azure PowerShell**. Vedere la sezione relativa ai prerequisiti di [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md#prerequisites).
+- **Workstation con Azure PowerShell**. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 	
 ##Creare un account di Analisi Data Lake
 
@@ -217,4 +209,4 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

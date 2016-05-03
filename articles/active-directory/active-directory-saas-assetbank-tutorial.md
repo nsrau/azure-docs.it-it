@@ -85,6 +85,7 @@ Per configurare l'integrazione di Asset Bank in Azure AD, è necessario aggiunge
 
 7. Nel riquadro dei risultati selezionare **Asset Bank** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Asset Bank in base a un utente test di nome "Britta Simon".
@@ -124,11 +125,11 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 	![Configura accesso Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_04.png)
 
 
-    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Asset Bank adottando il modello seguente: **"https://<nome società>.assetbank-server.com"**.
+    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Asset Bank adottando il modello seguente: **"https://<nome società>.assetbank-server.com"**.
 
     b. Fare clic su **Avanti**.
 
-4. Nella pagina **Configura accesso Single Sign-On in Asset Bank**, seguire questa procedura:
+4. Nella pagina **Configura accesso Single Sign-On in Asset Bank** seguire questa procedura:
  
 	![Configura accesso Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_05.png)
 
@@ -137,7 +138,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di Asset Bank all'indirizzo [support@assetbank.co.uk](mailto:support@assetbank.co.uk), allegando il file di metadati al messaggio di posta elettronica.
+5. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di Asset Bank all'indirizzo [support@assetbank.co.uk](mailto:support@assetbank.co.uk) e allegare il file di metadati al messaggio di posta elettronica.
 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
@@ -170,7 +171,7 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_04.png)
 
@@ -198,11 +199,10 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_08.png)
 
@@ -243,7 +243,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+2. Fare clic su **Assegna** nella barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -281,4 +281,4 @@ Quando si fa clic sul riquadro Asset Bank nel pannello di accesso, si dovrebbe a
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -197,7 +197,7 @@ Il pannello di accesso di Azure AD consente agli utenti finali di avviare le pro
 
 | Guida agli articoli | |
 | :---: | --- |
-| Confronto tra le diverse opzioni disponibili per la distribuzione di app Single Sign-On agli utenti. | [Distribuzione di applicazioni integrate di Azure AD agli utenti](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| Confronto tra le diverse opzioni disponibili per la distribuzione di app Single Sign-On agli utenti. | [Distribuzione di applicazioni integrate di Azure AD agli utenti](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Panoramica del pannello di accesso e dell'equivalente App personali per dispositivi mobili. | [Introduzione al Pannello di accesso e ad App personali](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Come accedere alle app di Azure AD dal sito Web di Office 365 | [Uso dell'icona di avvio delle app di Office 365](https://support.office.com/it-IT/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Come accedere alle app di Azure AD dall'app per dispositivi mobili Intune Managed Browser | [Intune Managed Browser](https://technet.microsoft.com/it-IT/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

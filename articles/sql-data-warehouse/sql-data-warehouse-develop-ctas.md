@@ -21,7 +21,7 @@ Create Table As Select o `CTAS` è una delle funzionalità più importanti dispo
 
 ## Uso di CTAS per copiare una tabella
 
-Probabilmente uno degli usi più comuni di `CTAS` consiste nel creare una copia di una tabella in modo da poter modificare il DDL. Se ad esempio la tabella è stata originariamente creata come `ROUND_ROBIN` e ora si desidera modificarla in una tabella distribuita su una colonna, per modificare la colonna di distribuzione si usa `CTAS`. È possibile usare `CTAS` anche per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
+Probabilmente uno degli usi più comuni di `CTAS` consiste nel creare una copia di una tabella in modo da poter modificare il DDL. Se ad esempio la tabella è stata creata in origine come `ROUND_ROBIN` e ora si vuole convertirla in una tabella distribuita su una colonna, per modificare la colonna di distribuzione si usa `CTAS`. È possibile usare `CTAS` anche per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
 
 Si supponga che questa tabella sia stata creata usando il tipo di distribuzione predefinito di `ROUND_ROBIN` distribuito, in quanto non è stata specificata alcuna colonna di distribuzione in `CREATE TABLE`.
 
@@ -433,4 +433,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->
