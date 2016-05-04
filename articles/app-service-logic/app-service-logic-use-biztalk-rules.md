@@ -174,7 +174,7 @@ Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a crea
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
    1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
