@@ -14,7 +14,7 @@ Grazie per l'interesse dimostrato nei confronti della documentazione di Azure.
 * [Usare GitHub, Git e questo repository](#use-github-git-and-this-repository)
 * [Come usare markdown per formattare l'argomento](#how-to-use-markdown-to-format-your-topic)
 * [Altre risorse](#more-resources)
-* [Indice di tutti gli articoli della Guida per i collaboratori](./contributor-guide/contributor-guide-index.md) (viene aperta una nuova pagina)
+* [Indice di tutti gli articoli della Guida per i collaboratori](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (viene aperta una nuova pagina)
 
 ## Come fornire il proprio contributo
 
@@ -48,7 +48,7 @@ La cartella *\articles* contiene gli articoli della documentazione formattati co
 
 Gli articoli nella directory radice sono pubblicati in Azure.Microsoft.com nel percorso *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Nomi file degli articoli:** vedere le [informazioni aggiuntive sulla denominazione dei file](./contributor-guide/file-names-and-locations.md).
+* **Nomi file degli articoli:** vedere le [informazioni aggiuntive sulla denominazione dei file](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md).
 
 Gli articoli nella relativa cartella del servizio sono pubblicati in Azure.Microsoft.com nel percorso 
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
@@ -57,7 +57,7 @@ Gli articoli nella relativa cartella del servizio sono pubblicati in Azure.Micro
 
 ### \includes
 
-È possibile creare sezioni di contenuto riutilizzabile da includere in uno o più articoli. Vedere la sezione relativa alle [estensioni personalizzate usate nel contenuto tecnico](./contributor-guide/custom-markdown-extensions.md).
+È possibile creare sezioni di contenuto riutilizzabile da includere in uno o più articoli. Vedere la sezione relativa alle [estensioni personalizzate usate nel contenuto tecnico](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -69,9 +69,9 @@ Questa cartella contiene gli articoli che fanno parte della Guida per i collabor
 
 ## Usare GitHub, Git e questo repository
 
-Per informazioni su come fornire il proprio contributo, usare l'interfaccia utente di GitHub per contribuire con piccole modifiche e creare un fork del repository e clonarlo per i contributi più significativi, vedere l'articolo che illustra come [installare e configurare gli strumenti per la creazione in GitHub](./contributor-guide/tools-and-setup.md).
+Per informazioni su come fornire il proprio contributo, usare l'interfaccia utente di GitHub per contribuire con piccole modifiche e creare un fork del repository e clonarlo per i contributi più significativi, vedere l'articolo che illustra come [installare e configurare gli strumenti per la creazione in GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
 
-Se si installa GitBash e si sceglie di lavorare in locale, la procedura per creare un nuovo ramo di lavoro locale, apportare modifiche e rinviare le modifiche al ramo principale è descritta nell'articolo relativo ai [comandi Git per la creazione di un nuovo articolo o l'aggiornamento di un articolo esistente](./contributor-guide/git-commands-for-master.md)
+Se si installa GitBash e si sceglie di lavorare in locale, la procedura per creare un nuovo ramo di lavoro locale, apportare modifiche e rinviare le modifiche al ramo principale è descritta nell'articolo relativo ai [comandi Git per la creazione di un nuovo articolo o l'aggiornamento di un articolo esistente](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md)
 
 ### Rami
 
@@ -87,16 +87,16 @@ Tutti gli articoli in questo repository usano GitHub Flavored Markdown (GFM). Ec
 
 - [Nozioni di base su markdown](https://help.github.com/articles/markdown-basics/)
 
-- [Foglio informativo stampabile relativo a markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Foglio informativo stampabile relativo a markdown](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
 - Per un elenco di editor di markdown, vedere l'[argomento su strumenti e installazione](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Metadati dell'articolo
 
-I metadati dell'articolo abilitano determinate funzionalità nel sito Web azure.microsoft.com, ad esempio attribuzione dell'autore e del collaboratore, percorsi, descrizioni di articoli e ottimizzazioni motore di ricerca, nonché segnalazione degli usi da parte di Microsoft per valutare le prestazioni del contenuto. I metadati sono quindi importanti. [Ecco le informazioni aggiuntive per verificare che i metadati siano configurati correttamente](./contributor-guide/article-metadata.md).
+I metadati dell'articolo abilitano determinate funzionalità nel sito Web azure.microsoft.com, ad esempio attribuzione dell'autore e del collaboratore, percorsi, descrizioni di articoli e ottimizzazioni motore di ricerca, nonché segnalazione degli usi da parte di Microsoft per valutare le prestazioni del contenuto. I metadati sono quindi importanti. [Ecco le informazioni aggiuntive per verificare che i metadati siano configurati correttamente](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## Altre risorse
 
-Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collaboratori](./contributor-guide/contributor-guide-index.md).
+Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collaboratori](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
 <!---HONumber=AcomDC_0307_2016-->
