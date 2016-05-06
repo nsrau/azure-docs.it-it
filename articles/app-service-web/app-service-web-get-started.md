@@ -139,4 +139,4 @@ In alternativa, è possibile trovare altri contenuti sull'intervallo di app che 
 - [Creare App per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/)
 - [Creare app per le API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
