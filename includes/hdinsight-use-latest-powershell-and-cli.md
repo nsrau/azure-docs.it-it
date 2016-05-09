@@ -1,3 +1,3 @@
 > [AZURE.IMPORTANT] La procedura descritta in questo documento è stata testata con la versione più recente di Azure PowerShell e dell'interfaccia della riga di comando di Azure. Se si usa una versione precedente, la procedura potrebbe non funzionare o restituire errori. Per installare la versione più recente, usare la procedura descritta nei documenti [Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) o [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

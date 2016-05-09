@@ -32,7 +32,7 @@ In questa pagina verrà illustrata la sequenza delle singole attività da esegui
 
 Gli elementi seguenti devono essere configurati prima di creare un servizio di bilanciamento del carico:
 
-- Configurazione IP front end: aggiungerà un indirizzo IP pubblico al pool di IP front end per il traffico di rete in ingresso per il bilanciamento del carico. 
+- Configurazione IP front end: aggiungerà un indirizzo IP pubblico al pool di IP front end per il traffico di rete in ingresso per il bilanciamento del carico.
 
 - Pool di indirizzi back end: configurerà le interfacce di rete che riceveranno il traffico con carico bilanciato proveniente dal pool di IP front end.
 
@@ -54,7 +54,7 @@ I passaggi seguenti illustrano come configurare il servizio di bilanciamento del
 
 
 ### Passaggio 1
-Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
+Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -107,7 +107,7 @@ Crea la rete virtuale e aggiunge la subnet lb-subnet-be alla rete virtuale NRPVN
 
 Creare un indirizzo IP pubblico che verrà usato dal pool di indirizzi IP front-end:
 
-	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
+	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip
 
 >[AZURE.NOTE]La proprietà Label del nome di dominio dell’indirizzo IP pubblico sarà il prefisso per il nome di dominio completo per il servizio di bilanciamento del carico.
 
@@ -115,14 +115,14 @@ Creare un indirizzo IP pubblico che verrà usato dal pool di indirizzi IP front-
 
 Configurazione di un pool di indirizzi IP front-end per il traffico di rete in ingresso del servizio di bilanciamento del carico e un pool di indirizzi back-end per ricevere il traffico sottoposto a bilanciamento del carico.
 
-### Passaggio 1 
+### Passaggio 1
 
 Usando la variabile IP pubblica ($publicIP), creare il pool di indirizzi IP front-end.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP
 
 
-### Passaggio 2 
+### Passaggio 2
 
 Configurare un pool di indirizzi back-end usato per ricevere il traffico in ingresso dal pool di indirizzi IP front-end:
 
@@ -157,7 +157,7 @@ L'esempio precedente crea gli elementi seguenti:
 
 Creare il servizio di bilanciamento del carico aggiungendo tutti gli oggetti (regole NAT, regole di bilanciamento del carico, configurazioni di probe):
 
-	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
 
 ## Creare interfacce di rete
@@ -165,18 +165,18 @@ Creare il servizio di bilanciamento del carico aggiungendo tutti gli oggetti (re
 Dopo aver creato il servizio di bilanciamento del carico, è necessario definire quali interfacce di rete riceveranno il traffico di rete con bilanciamento del carico in ingresso, regole NAT e probe. In questo caso, l'interfaccia di rete viene configurata singolarmente e può essere assegnata a una macchina virtuale in un secondo momento.
 
 
-### Passaggio 1 
+### Passaggio 1
 
 
 Ottenere la rete virtuale di risorse e la subnet per creare interfacce di rete:
 
 	$vnet = Get-AzureVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
+	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 
 
 In questo passaggio viene creata un'interfaccia di rete che farà parte del pool di back-end del servizio di bilanciamento del carico e viene associata la prima regola NAT per RDP per questa interfaccia di rete:
-	
+
 	$backendnic1= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### Passaggio 2
@@ -238,7 +238,7 @@ PS C:\> $backendnic1
 
 
 
-### Passaggio 3 
+### Passaggio 3
 
 Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a una macchina virtuale.
 
@@ -280,6 +280,5 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 [Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

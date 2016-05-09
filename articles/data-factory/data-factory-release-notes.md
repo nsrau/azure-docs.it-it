@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Data factory di Azure
@@ -270,7 +270,10 @@ Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recent
 
 Fare clic sul titolo degli elenchi oppure sui **... (puntini di sospensione)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
  
-È comunque possibile visualizzare le sezioni ordinate in base all'ora della sezione facendo clic sul riquadro **Sezioni dati (in base all'ora della sezione)**. Le sezioni in tali raccolte sono ordinate in base all'ora della sezione. Ad esempio, se si tratta di una pianificazione oraria, le sezioni saranno le seguenti: - 4/4/2015 17.00 In corso - 4/4/2015 16.00 Completata - 4/4/2015 15.00 Non riuscita
+È comunque possibile visualizzare le sezioni ordinate in base all'ora della sezione facendo clic sul riquadro **Sezioni dati (in base all'ora della sezione)**. Le sezioni in tali raccolte sono ordinate in base all'ora della sezione. Ad esempio, se si tratta di una pianificazione oraria, le sezioni saranno:
+- 4/4/2015 5pm In progress 
+- 4/4/2015 4pm Succeeded
+- 4/4/2015 3pm Failed
 
 Se tuttavia viene rieseguita una sezione precedente, non verrà visualizzata all'inizio dell'elenco, anche se probabilmente l'utente sarà maggiormente interessato a tale sezione.
 
@@ -353,4 +356,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

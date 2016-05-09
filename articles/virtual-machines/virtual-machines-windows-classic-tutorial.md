@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Creare una macchina virtuale con Windows nel portale di Azure classico
@@ -56,4 +56,4 @@ Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gest
 
 - Collegare un disco per archiviare i dati. È possibile collegare sia dischi vuoti sia dischi contenenti dati. Per istruzioni, vedere [Collegare un disco dati da una macchina virtuale Windows creata con il modello di distribuzione classica](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -173,7 +173,7 @@ L'esempio seguente mostra come creare due regole: una per il percorso "/image" c
     
 	$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
 
-	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting01
+	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 
 La configurazione del mapping dei percorsi della regola configura anche un pool back-end predefinito da usare in caso di mancata corrispondenza con le regole di percorso predefinite.
 
@@ -196,4 +196,4 @@ Creare un gateway applicazione con tutti gli oggetti di configurazione illustrat
 ## Ottenere il gateway applicazione
 	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

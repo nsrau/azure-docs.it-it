@@ -3,8 +3,8 @@
    description="Panoramica dei servizi di hosting di DNS di Azure in Microsoft Azure e avvio dell'hosting del dominio in Microsoft Azure" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Panoramica di DNS di Azure
 
@@ -44,4 +44,4 @@ DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Per acquis
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

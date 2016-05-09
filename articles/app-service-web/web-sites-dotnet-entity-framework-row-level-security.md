@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/25/2016"
 	ms.author="thmullan"/>
 
 # Esercitazione: App Web con database multi-tenant che usa Entity Framework e la sicurezza a livello di riga
@@ -250,4 +250,4 @@ Questa esercitazione offre solo un'idea delle possibilità della sicurezza a liv
 
 Microsoft si impegna anche a migliorare continuamente la sicurezza a livello di riga. In caso di domande, idee o suggerimenti, inviare commenti. I commenti e suggerimenti degli utenti sono molto apprezzati.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

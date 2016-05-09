@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Caso d'uso - Consigli sui prodotti 
 
-Data factory di Azure è uno dei numerosi servizi disponibili per implementare i Solution Accelerator inclusi nella suite Cortana Analytics. Vedere la pagina dedicata a [Cortana Analytics](http://www.microsoft.com/cortanaanalytics) per informazioni dettagliate sulla suite. Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Data factory di Azure e altri servizi di Cortana Analytics.
+Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite. Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
 
 ## Scenario
 
@@ -36,7 +36,7 @@ In terzo luogo, i consigli devono essere immediatamente resi disponibili agli ut
 
 ## Panoramica della soluzione
 
-Questo caso d'uso di esempio è stato risolto e implementato da utenti reali di Azure usando Data factory di Azure e altri servizi di Cortana Analytics, tra cui [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/), per acquisire, preparare, trasformare, analizzare e pubblicare i dati finali.
+Questo caso d'uso di esempio è stato risolto e implementato da utenti reali di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence, tra cui [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/), per acquisire, preparare, trasformare, analizzare e pubblicare i dati finali.
 
 Il rivenditore online usa un archivio BLOB di Azure, un server SQL locale, un database SQL Azure e un data mart relazionale come soluzioni di archiviazione per le varie fasi del flusso di lavoro. L'archivio BLOB contiene informazioni sui clienti, dati sul comportamento dei clienti e informazioni sui prodotti, che comprendono informazioni sui marchi dei prodotti e un catalogo prodotti archiviato localmente in SQL Data Warehouse.
 
@@ -52,7 +52,7 @@ Il set di risultati ottenuto dai consigli personalizzati sui prodotti viene infi
 
 ## Vantaggi
 
-Ottimizzando la strategia di raccomandazione dei prodotti e allineandola agli obiettivi aziendali, la soluzione ha soddisfatto gli obiettivi commerciali e di marketing del rivenditore online. Ha inoltre consentito di rendere operativo e gestire il flusso di lavoro di raccomandazione dei prodotti in maniera efficiente, affidabile ed economica, in modo da semplificare l'aggiornamento del modello e ottimizzarne l'efficacia in base alle statistiche di conversione di clic in vendite. Usando Data factory di Azure, inoltre, il rivenditore ha potuto abbandonare la gestione manuale delle risorse cloud, eccessivamente lunga e costosa, per passare a una gestione delle risorse cloud di tipo on-demand, che consente di risparmiare tempo e denaro e ridurre i tempi di distribuzione della soluzione. Grazie all'intuitiva interfaccia di gestione e monitoraggio di Data factory, accessibile dal portale di Azure classico, è possibile anche visualizzare e risolvere facilmente eventuali problemi relativi alla condizione dei servizi operativi e alle viste di derivazione dei dati. Questa soluzione, infine, può essere pianificata e gestita in modo che vengano prodotti e distribuiti agli utenti dati finiti e le dipendenze di elaborazione vengano gestite automaticamente senza l'intervento umano.
+Ottimizzando la strategia di raccomandazione dei prodotti e allineandola agli obiettivi aziendali, la soluzione ha soddisfatto gli obiettivi commerciali e di marketing del rivenditore online. Ha inoltre consentito di rendere operativo e gestire il flusso di lavoro di raccomandazione dei prodotti in maniera efficiente, affidabile ed economica, in modo da semplificare l'aggiornamento del modello e ottimizzarne l'efficacia in base alle statistiche di conversione di clic in vendite. Usando Data factory di Azure, inoltre, il rivenditore ha potuto abbandonare la gestione manuale delle risorse cloud, eccessivamente lunga e costosa, per passare a una gestione delle risorse cloud di tipo on-demand, che consente di risparmiare tempo e denaro e ridurre i tempi di distribuzione della soluzione. Grazie all'intuitiva interfaccia di gestione e monitoraggio di Data Factory, accessibile dal portale di Azure, è possibile anche visualizzare e risolvere facilmente eventuali problemi relativi alla condizione dei servizi operativi e alle viste di derivazione dei dati. Questa soluzione, infine, può essere pianificata e gestita in modo che vengano prodotti e distribuiti agli utenti dati finiti e le dipendenze di elaborazione vengano gestite automaticamente senza l'intervento umano.
 
 Offrendo un'esperienza di acquisto personalizzata, il rivenditore ha messo a punto un'esperienza utente più coinvolgente e competitiva e, quindi, ha aumentato le vendite e la soddisfazione complessiva dei clienti.
 
@@ -60,4 +60,4 @@ Offrendo un'esperienza di acquisto personalizzata, il rivenditore ha messo a pun
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

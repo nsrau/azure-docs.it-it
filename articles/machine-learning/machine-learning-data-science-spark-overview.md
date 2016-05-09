@@ -3,7 +3,7 @@
 	description="Il toolkit Spark MLlib introduce importanti funzionalità di modellazione di Machine Learning nell'ambiente distribuito HDInsight."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/26/2016"
 	ms.author="bradsev" />
 
 # Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
@@ -22,22 +22,25 @@
 
 ## Introduzione
 
-Spark in Azure HDInsight può modificare i dati in memoria mentre vengono elaborati in un cluster HDInsight (Hadoop) in modo distribuito. Questo cluster Spark combina quindi velocità e capacità. Include anche il supporto per Jupyter Notebook nel cluster Spark in grado di eseguire query Spark SQL interattive per trasformare, filtrare e la visualizzare dati archiviati in BLOB di Azure (WASB).
+[Spark](http://spark.apache.org/) è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni delle applicazioni analitiche di Big Data. Il motore di elaborazione Spark è costruito per la velocità, la semplicità d'uso e le analisi sofisticate. Le funzionalità di elaborazione distribuita in memoria rendono Spark uno strumento valido per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning. [MLlib](http://spark.apache.org/mllib/) è la libreria scalabile per il Machine Learning di Spark che introduce funzionalità di modellazione nell'ambiente distribuito.
 
-[Spark](http://spark.apache.org/) è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Il motore di elaborazione Spark è costruito per la velocità, la semplicità d'uso e le analisi sofisticate. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning. [MLlib](http://spark.apache.org/mllib/) è la libreria di Machine Learning scalabile di Spark.
+HDInsight Spark è l'offerta ospitata in Azure di Spark open source. Include anche il supporto per Jupyter Notebook nel cluster Spark in grado di eseguire query Spark SQL interattive per trasformare, filtrare e la visualizzare dati archiviati in BLOB di Azure (WASB).
 
-HDInsight Spark è l'offerta ospitata in Azure di Spark open source. La procedura di installazione e il codice fornito in questa procedura dettagliata è per HDInsight Spark. Tuttavia, il codice è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui.
+La raccolta di argomenti collegati nel menu fornisce una dimostrazione mediante l'uso di attività di classificazione binaria e regressione su un campione di corse dei taxi di NYC e un set di dati delle tariffe del 2013 e quindi l'archiviazione del modello in WASB. I modelli creati includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti. Mostrano anche come usare questi modelli per classificare e valutare le prestazioni predittive dei modelli. Argomenti più avanzati illustreranno la modalità di training dei modelli con la convalida incrociata e sweep di iperparametri.
 
-Il toolkit Spark MLlib introduce importanti funzionalità di modellazione di Machine Learning in questo ambiente distribuito. La raccolta di argomenti collegati nel menu fornisce una dimostrazione mediante l'uso di attività di classificazione binaria e regressione su un campione di corse dei taxi di NYC e un set di dati delle tariffe del 2013 e quindi l'archiviazione dei risultati del modello in BLOB di archiviazione di Azure (WASB). I modelli includono regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti. Illustrano anche come utilizzare i risultati dei modelli per classificarli e valutarli rispetto ad altri set di dati archiviati in WASB. Argomenti più avanzati illustreranno la modalità di training dei modelli con la convalida incrociata e sweep di iperparametri.
+La procedura di modellazione in questi argomenti include anche codice che illustra come eseguire il training, valutare, salvare e utilizzare ogni tipo di modello. Python (PySpark) in esecuzione in Jupyter Notebook installato nei cluster Spark è stato usato per creare il codice della soluzione e visualizzare i tracciati rilevanti per la visualizzazione dei dati.
 
-La procedura di modellazione in questi argomenti include anche codice che illustra come eseguire il training, valutare, salvare e utilizzare ogni tipo di modello. Python è stato usato per creare il codice della soluzione e visualizzare i tracciati rilevanti e i notebook Python forniti che possono essere eseguiti in Jupyter Notebook installati nei cluster Spark.
-
+La procedura di installazione e il codice fornito in questa procedura dettagliata è per HDInsight Spark. Tuttavia, il codice è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui.
 
 ## Prerequisiti
 
 1\.Prima di iniziare a esaminare questi argomenti, è necessario avere una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [come ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2\.Per creare il cluster HDInsight Spark, vedere [Introduzione: creare Apache Spark in HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+2\.Per creare il cluster HDInsight Spark, versione Spark 1.5.2 (HDI 3.3), vedere [Introduzione: creare cluster Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+
+>[AZURE.NOTE] Il kernel python2 usato dai notebook e dal codice in questa procedura attualmente deve usare Spark (anteprima) -> Spark versione 1.5.2 (HDI 3.3).
+
+![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -105,21 +108,21 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 
 ## Eseguire il codice da Jupyter Notebook nel cluster Spark 
 
-È possibile avviare Jupyter Notebook dal portale di Azure: trovare il cluster Spark e selezionarlo per accedere alla pagina dettagliata di gestione di cluster. È possibile fare clic su **Dashboard cluster** dove si trova l'icona per Jupyter Notebook associato al cluster di Spark.
+È possibile avviare Jupyter Notebook dal portale di Azure: trovare il cluster Spark e selezionarlo per accedere alla pagina dettagliata di gestione di cluster. Da lì è possibile fare clic sui **Dashboard cluster**, in cui l'icona di Jupyter Notebook è associata al cluster Spark.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-È anche possibile passare a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** per accedere a Jupyter Notebook. Sarà necessaria la password dell'account amministratore accedere al notebook.
+È anche possibile passare a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** per accedere ai notebook di Jupyter. Sarà necessaria la password dell'account amministratore accedere al notebook.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Passare a Python per vedere i notebook esistenti che eseguono script Python. Si noterà una directory che contiene l'elenco di alcuni esempi di notebook preconfezionati. Il notebook che contiene gli esempi di codice in questo argomento è disponibile in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
 
-È possibile caricare il notebook direttamente da Github nel server Jupyter Notebook del cluster Spark. Nella home page di Jupyter fare clic sul pulsante **Upload** a destra della schermata. Si aprirà una finestra di esplorazione file. Qui è possibile incollare l'URL di Github (contenuto non elaborato) del Notebook e fare clic su **Apri**. Il nome file verrà visualizzato nell'elenco di file Jupyter con un altro pulsante **Upload**. Fare clic sul pulsante **Upload**. A questo punto, il notebook è stato importato. Ripetere questi passaggi per caricare il notebook seguenti da questa procedura dettagliata.
+È possibile caricare il notebook direttamente da Github nel server Jupyter Notebook del cluster Spark. Nella home page di Jupyter fare clic sul pulsante **Upload** a destra nella schermata. Si aprirà una finestra di esplorazione file. Qui è possibile incollare l'URL di Github (contenuto non elaborato) di Notebook e fare clic su **Open**. Il nome del file verrà visualizzato nell'elenco di file Jupyter premendo di nuovo il pulsante **Upload**. Fare clic sul pulsante **Upload**. A questo punto, il notebook è stato importato. Ripetere questi passaggi per caricare il notebook seguenti da questa procedura dettagliata. Nota: è possibile fare clic con il pulsante destro del mouse sui collegamenti seguenti sul browser e scegliere **Copia collegamento** per ottenere l'URL del contenuto non elaborato di github da incollare nella finestra di dialogo di esplorazione file per il caricamento in Jupyter.
 
-1.	machine-learning-data-science-spark-data-exploration-modeling.ipynb
-2.	machine-learning-data-science-spark-model-consumption.ipynb
-3.	machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb
+1.	[machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-data-exploration-modeling.ipynb)
+2.	[machine-learning-data-science-spark-model-consumption.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-model-consumption.ipynb)
+3.	[machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
 
 A questo punto è possibile:
 
@@ -130,10 +133,12 @@ A questo punto è possibile:
 
 ## Passaggi successivi
 
-Dopo avere configurato un cluster HDInsight Spark e avere caricato i Jupyter Notebook, si è pronti per utilizzare gli argomenti che corrispondono a questi tre notebook, che illustrano come creare, utilizzare modellare con la convalida incrociata e sweep di iperparametri.
+Dopo avere configurato un cluster HDInsight Spark e avere caricato Jupyter Notebook, è possibile usare gli argomenti corrispondenti a questi tre notebook, che illustrano come esplorare i dati e creare e usare i modelli. Il notebook per la modellazione e l'esplorazione avanzata dei dati approfondisce la convalida incrociata, lo sweep degli iperparametri e la valutazione del modello.
 
-**Creazione del modello:** creare i modelli di Machine Learning per l'assegnazione di punteggi e la valutazione illustrati nell'argomento [creare modelli di regressione e classificazione binaria per i dati con il toolkit Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md).
+**Esplorazione dei dati e creazione del modello con Spark:** esplorare il set di dati, creare i modelli di Machine Learning per l'assegnazione di punteggi e la valutazione illustrati nell'argomento [Creare modelli di regressione e classificazione binaria per i dati con il toolkit Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md).
 
-**Utilizzo dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli regressivi e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
+**Utilizzo dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi e valutare i modelli di Machine Learning compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+**Convalida incrociata e sweep di iperparametri**: vedere [Modellazione ed esplorazione avanzata dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
+
+<!---HONumber=AcomDC_0427_2016-->

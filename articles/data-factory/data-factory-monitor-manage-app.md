@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="spelluru"/>
 
 # Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione
@@ -21,9 +21,11 @@
 - [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
 
-Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'**app di monitoraggio e gestione**. Contiene anche informazioni su come creare avvisi e ricevere notifiche sugli errori tramite l'applicazione.
+Questo articolo descrive le procedure di monitoraggio, gestione e debug delle pipeline e indica come creare avvisi per ricevere notifiche sugli errori usando l'**app di monitoraggio e gestione**. L'uso dell'app di monitoraggio e gestione è illustrato anche nel video riportato di seguito.
+   
+> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
       
-## Avvio dell'app di monitoraggio e gestione 
+## Avvio dell'app di monitoraggio e gestione
 Per avviare l'app di monitoraggio e gestione, fare clic sul riquadro **Monitoring & Manage** nel pannello **DATA FACTORY** della data factory.
 
 ![Riquadro di monitoraggio nella home page di Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
@@ -32,7 +34,11 @@ L'app di monitoraggio e gestione verrà avviata in una scheda o finestra separat
 
 ![App di monitoraggio e gestione](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] Se non viene visualizzata la finestra attività nell’elenco in fondo, fare clic sul pulsante **Refresh** sulla barra degli strumenti per aggiornare l’elenco. Impostare inoltre i valori corretti per i filtri **Start time** ed **End time**.
+> [AZURE.NOTE] Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione di **blocco dei cookie di terze parti e dei dati dei siti** oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** e provare di nuovo ad avviare la procedura guidata.
+
+
+Se non vengono visualizzate finestre attività nell’elenco nella parte inferiore, fare clic sul pulsante **Refresh** nella barra degli strumenti per aggiornare l'elenco. Impostare anche i valori corretti per i filtri **Start time** ed **End time**.
+
 
 ## Informazioni sull'app di monitoraggio e gestione
 A sinistra sono disponibili tre schede, **Resource Explorer**, **Monitoring Views** e **Alerts**. La scheda Resource Explorer è selezionata per impostazione predefinita.
@@ -90,11 +96,11 @@ Nel riquadro destro passare alla scheda **Activity Window Explorer** per visuali
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Saranno inoltre mostrate le **variabili risolte** per ciascun tentativo di esecuzione di attività nella sezione **Attempts**.
+Verranno visualizzate anche le **variabili risolte** per ciascun tentativo di esecuzione di attività nella sezione **Attempts**.
 
 ![Variabili risolte](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Passare alla scheda **Script** per vedere la definizione dello script JSON per l’oggetto selezionato.
+Passare alla scheda **Script** per vedere la definizione dello script JSON per l'oggetto selezionato.
 
 ![Script tabl](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
@@ -204,7 +210,7 @@ La finestra **Activity Window Explorer** si trova nel riquadro destro dell'app d
 
 Per passare a una finestra attività diversa, fare clic su di essa nella visualizzazione calendario in alto. È anche possibile usare i pulsanti con la freccia **sinistra** o **destra** nella parte superiore per visualizzare le finestre attività della settimana precedente o successiva.
 
-I pulsanti della barra degli strumenti nel riquadro inferiore permettono di **rieseguire** la finestra attività o di **aggiornare** i dettagli nel riquadro.
+I pulsanti della barra degli strumenti nel riquadro inferiore consentono di **rieseguire** la finestra attività o di **aggiornare** i dettagli nel riquadro.
 
 ### Script 
 È possibile usare la scheda **Script** per visualizzare la definizione JSON dell’entità Data Factory selezionata (servizio collegato, set di dati e pipeline).
@@ -212,7 +218,7 @@ I pulsanti della barra degli strumenti nel riquadro inferiore permettono di **ri
 ![Script tabl](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## Uso delle viste di sistema
-L'app di monitoraggio e gestione include viste di sistema predefinite, **Recent activity windows**, **Failed activity windows** e **In-Progress activity windows**, che permettono di visualizzare le finestre attività recenti, non riuscite e in corso della data factory.
+L'app di monitoraggio e gestione include viste di sistema predefinite, **Recent activity windows**, **Failed activity windows** e **In-Progress activity windows**, che consentono di visualizzare le finestre attività recenti, non riuscite e in corso della data factory.
 
 Fare clic per passare alla scheda **Monitoring Views** a sinistra.
 
@@ -222,7 +228,7 @@ Al momento sono disponibili tre viste di sistema supportate. Selezionare un'opzi
 
 Quando si seleziona l'opzione **Recent activity windows**, le finestre attività recenti vengono visualizzate in ordine decrescente in base all'**ora dell'ultimo tentativo**.
 
-L'opzione **Failed activity windows** permette di visualizzare tutte le finestre attività non riuscite nell'elenco. Selezionare una finestra attività non riuscita dall'elenco per visualizzarne i dettagli nella finestra **Properties** o in **Activity Window Explorer**. È anche possibile scaricare i log relativi a una finestra attività non riuscita.
+L'opzione **Failed activity windows** consente di visualizzare tutte le finestre attività non riuscite nell'elenco. Selezionare una finestra attività non riuscita dall'elenco per visualizzarne i dettagli nella finestra **Properties** o in **Activity Window Explorer**. È anche possibile scaricare i log relativi a una finestra attività non riuscita.
 
 
 ## Ordinamento e filtro delle finestre attività
@@ -232,7 +238,7 @@ Modificare le impostazioni relative all'**ora di inizio** e all'**ora di fine** 
 
 > [AZURE.NOTE] Al momento, nell'app di monitoraggio e gestione le ore sono in formato UTC.
 
-Nell'elenco **Activity Windows** fare clic sul nome di una colonna, ad esempio Status.
+Nell'**elenco Activity Windows** fare clic sul nome di una colonna, ad esempio Status.
 
 ![Menu della colonna nell'elenco Activity Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -254,9 +260,9 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 ## Esecuzione di azioni batch
 
 ### Rieseguire finestre attività selezionate
-Selezionare una finestra attività, fare clic sulla freccia GIÙ del primo pulsante nella barra dei comandi e selezionare **Rerun** o **Rerun with upstream in pipeline**. L'opzione **Rerun with upstream in pipeline** permette di rieseguire anche tutte le finestre attività upstream. ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+Selezionare una finestra attività, fare clic sulla freccia giù del primo pulsante nella barra dei comandi e selezionare **Rerun** o **Rerun with upstream in pipeline**. L'opzione **Rerun with upstream in pipeline** consente di rieseguire anche tutte le finestre attività upstream. ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato, ad esempio **Failed**, e quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causava l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.
+È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato, ad esempio **Failed**, e quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causa l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.
 
 ### Sospendere o riprendere l'esecuzione di più pipeline
 È possibile selezionare due o più pipeline con il tasto CTRL e usare i pulsanti della barra dei comandi, evidenziati dal rettangolo rosso nell'immagine seguente, per sospendere o riprendere l'esecuzione di più pipeline contemporaneamente.
@@ -273,13 +279,10 @@ La pagina Alerts consente di creare nuovi avvisi e di visualizzare, modificare e
 1. Fare clic su **Add Alert** per aggiungere un avviso. Verrà visualizzata la pagina dei Details. 
 
 	![Creazione di avvisi: pagina Details](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-1. Specificare il **nome** e la **descrizione** dell'avviso e fare clic su **Next**. Verrà visualizzata la pagina **Filters**.
+1. Specificare il **nome** e la **descrizione** dell'avviso e fare clic su **Next**. Viene visualizzata la pagina **Filters**.
 
 	![Creazione di avvisi: pagina Filters](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
 
-	È anche possibile **aggregare** gli eventi di avviso, come illustrato di seguito:
-
-	![Avvisi aggregati](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
 2. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole ricevere un avviso dal servizio Data Factory e fare clic su **Next**. Dovrebbe essere visualizzata la pagina **Recipients**.
 
 	![Creazione di avvisi: pagina Recipients](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
@@ -310,4 +313,4 @@ Cluster HDI su richiesta eliminato | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->
