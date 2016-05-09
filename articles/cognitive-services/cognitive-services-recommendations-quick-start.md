@@ -89,11 +89,11 @@ L'API Recommendations apprenderà dal catalogo e dalle transazioni per fornire c
 
  Si noti che un file di catalogo può essere molto più ampio, ad esempio è possibile aggiungere i metadati sui prodotti (denominiamoli *funzioni dell'elemento*). Verrà visualizzata la sezione [formato catalogo](http://go.microsoft.com/fwlink/?LinkID=760716) nel riferimento API per altre informazioni sul formato del catalogo.
 
-1. Procediamo nello stesso modo per i dati di utilizzo. Si noterà che i dati di utilizzo si presentano nel formato `<User Id>,<Item Id>`.
+1. Procediamo nello stesso modo per i dati di utilizzo. Si noterà che i dati di utilizzo sono nel formato `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
-  > 00030000A11B024B,GZA-00202<br> 0003BFFD93B934B7,P2W-00004<br> 000300009C01C881,W6F-00121<br> 00060000AF0D2B04,QR2-00011<br>
+  > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase 0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase 00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase 0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase 00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
- Si tratta dei dati minimi necessari perché un file di utilizzo sia valido. Un file di utilizzo più complesso potrebbe contenere informazioni aggiuntive su ogni transazione, incluso un timestamp per la transazione e il tipo di evento che si è verificato (un clic, un acquisto e così via). È possibile ottenere altre informazioni sul [formato di utilizzo](http://go.microsoft.com/fwlink/?LinkID=760712).
+Si noti che i primi tre elementi sono obbligatori. Il tipo di evento è facoltativo. È possibile ottenere altre informazioni sul [formato di utilizzo](http://go.microsoft.com/fwlink/?LinkID=760712).
 
  > **Quanti dati sono necessari?**
  <p>
@@ -107,11 +107,11 @@ Ora che si dispone di un account e dei dati, creiamo il primo modello.
 
 In questa attività, si utilizzerà l'applicazione di esempio per creare il primo modello.
 
-1. Prima di tutto è necessario aver consultato il [riferimento per l'API Recommendations](http://go.microsoft.com/fwlink/?LinkId=759348).
+1. Prima di tutto è necessario aver consultato il [riferimento per l'API Consigli](http://go.microsoft.com/fwlink/?LinkId=759348).
 
 1. Scaricare l'[applicazione di esempio](http://go.microsoft.com/fwlink/?LinkID=759344) in una cartella locale.
 
-1. Aprire la soluzione **RecommendationsSample.sln** situata nella cartella **c#** con Visual Studio.
+1. Aprire la soluzione **RecommendationsSample.sln** che si trova nella cartella **c#** con Visual Studio.
 
 1. Aprire il file **SampleApp.cs**. Si noti che i seguenti passaggi nel file:
  + Creare il modello
@@ -121,20 +121,20 @@ In questa attività, si utilizzerà l'applicazione di esempio per creare il prim
  + Creare una raccomandazione su una coppia di elementi
 <p></p>
 
-1. Sostituire i valori nei campi **accountEmail** e **accountKey** con l'indirizzo di posta elettronica e con la chiave fornita nell'attività 1.
+1. Sostituire il valore per il **campo AccountKey** con la chiave dell'attività 1.
 
 1. Esaminare la soluzione e verranno visualizzate le modalità di creazione di un modello.
 
 1. Provare a sostituire i file del catalogo e dei dati di utilizzo scaricati per creare un nuovo modello per Microsoft Store o per le raccomandazioni del manuale. È necessario modificare anche il nome del modello e gli elementi per cui si richiedono le raccomandazioni.
 
-1. Una volta creato il modello, prendere nota dell'**ID modello** poiché sarà necessario per la richiesta di raccomandazioni nell'ambiente di produzione.
+1. Dopo aver creato il modello, prendere nota dell'**ID modello** poiché sarà necessario per la richiesta di consigli nell'ambiente di produzione.
 
 <a name="Ex1Task4"></a>
 ### Mettere il modello in funzione. ###
 
 Dopo aver appreso come creare un modello e usare le raccomandazioni, il passaggio successivo consiste nella messa in funzione sul proprio sito Web e sulle applicazioni per dispositivi mobili o nell'integrazione nel sistema CRM o ERP. Ovviamente, ognuna di queste implementazioni è differente. Poiché le API Recommendations sono richieste come servizio Web, sarà facilmente possibile richiamarle da qualsiasi di questi ambienti diversi.
 
-**Importante:** se si desidera visualizzare le raccomandazioni da un client pubblico (ad esempio, il sito e-commerce), è consigliabile creare un server proxy per fornire le raccomandazioni. Questo è importante per non esporre la chiave API a entità esterne (potenzialmente non attendibili).
+**Importante:** è consigliabile creare un server proxy per visualizzare i consigli da un client pubblico, ad esempio il proprio sito di e-commerce. Questo è importante per non esporre la chiave API a entità esterne (potenzialmente non attendibili).
 
 Di seguito sono riportati alcuni suggerimenti delle posizioni in cui è possibile usare le raccomandazioni:
 
@@ -160,10 +160,10 @@ Di seguito sono riportati alcuni suggerimenti delle posizioni in cui è possibil
 Un modello di raccomandazione può accettare come input un id utente. La cronologia delle transazioni per tale utente verrà utilizzata per fornire raccomandazioni personalizzate all'utente specificato.
 </p>
 
-Vedere [Ottenere la documentazione per le raccomandazioni sugli elementi ](http://go.microsoft.com/fwlink/?LinkID=760719).
+Vedere la [documentazione su come ottenere i consigli sugli elementi](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
 ### Passaggi successivi
-Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, è possibile visitare l'intero [Riferimento all'API Recommendations](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande, non esitare a contattarci all'indirizzo mlapi@microsoft.com
+Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, vedere la versione integrale della [documentazione sull'API Consigli](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande, contattare Microsoft all'indirizzo mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

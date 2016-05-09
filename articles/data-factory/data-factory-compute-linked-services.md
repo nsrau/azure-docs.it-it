@@ -32,7 +32,7 @@ Il servizio Data factory di Azure può creare automaticamente un cluster HDInsig
 Tenere presente i seguenti punti **importanti**sul servizio collegato HDInsight su richiesta:
 
 - Non verrà visualizzato il cluster HDInsight su richiesta creato nella sottoscrizione di Azure; il servizio di Azure Data Factory gestisce il cluster HDInsight su richiesta per conto dell'utente.
-- I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. È possibile accedere a questi log dal portale di Azure classico nel pannello **Dettagli di esecuzione di attività**. Per informazioni dettagliate, vedere l'articolo [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
+- I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. È possibile accedere a questi log dal portale di Azure nel pannello **Dettagli di esecuzione di attività**. Per informazioni dettagliate, vedere l'articolo [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
 - Ti verrà addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
 
 > [AZURE.IMPORTANT] Richiede in genere più di**15 minuti**per il provisioning di un cluster HDInsight di Azure su richiesta.
@@ -200,7 +200,7 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
 
 
 - [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Batch di Azure (o)[Portale di Azure classico](../batch/batch-account-create-portal.md)per creare l'account Batch di Azure tramite il portale di Azure classico. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare l’argomento [Utilizzo di Azure PowerShell per gestire l'account Batch di Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Batch di Azure oppure [portale di Azure](../batch/batch-account-create-portal.md)per creare l'account Batch di Azure tramite il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare l’argomento [Utilizzo di Azure PowerShell per gestire l'account Batch di Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 - Cmdlet [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Batch di Azure.
 
 ### Esempio
@@ -339,4 +339,4 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
 
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

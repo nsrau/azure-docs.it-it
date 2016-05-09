@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Gateway di gestione dati
@@ -22,11 +22,21 @@ Una delle maggiori difficoltà relative all'integrazione moderna dei dati consis
 
 Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
-## Versione corrente (1.10.5892.1)
+## Versione corrente: 1.11.5918.1.
 
-• Miglioramenti delle prestazioni • Correzioni dei bug
+- La dimensione massima del registro eventi del gateway è aumentata da 1 MB a 40 MB.
+- Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo. 
+- In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo 3 volte.
+- Miglioramenti delle prestazioni
+	- È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
+- Correzioni di bug
 
 ## Versioni precedenti
+
+## 1\.10.5892.1
+
+- Miglioramenti delle prestazioni
+- Correzioni di bug
 
 ## 1\.9.5865.2
 
@@ -34,7 +44,8 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 - Nuova icona dell'area di notifica con indicatori di stato del gateway
 - Possibilità di scegliere "Aggiorna adesso" dal client
 - Possibilità di impostare l'ora di pianificazione dell'aggiornamento
-- Script di PowerShell per attivare o disattivare l'aggiornamento automatico 
+- Script di PowerShell per attivare o disattivare l'aggiornamento automatico
+- Supporto per il formato JSON  
 - Miglioramenti delle prestazioni
 - Correzioni di bug
 
@@ -134,4 +145,4 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 ### Perché Gestione origine dati prova a connettersi a un gateway?
 Si tratta di una progettazione di sicurezza secondo cui è possibile configurare solo origini dati locali per l'accesso cloud all'interno della rete aziendale, evitando la propagazione delle credenziali all'esterno del firewall aziendale. Assicurarsi che il computer possa raggiungere il computer in cui è installato il gateway.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

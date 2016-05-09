@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="04/25/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga 
@@ -312,4 +312,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

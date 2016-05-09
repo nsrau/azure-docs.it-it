@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure
@@ -92,7 +92,7 @@ Tenere presente quanto segue:
 - Se si dispone già di una distribuzione cloud ibrida Azure esistente, è possibile adattare o ignorare le istruzioni delle fasi 1 e 2 per ospitare la nuova farm di SharePoint nella subnet appropriata.
 - Tutti i server si trovano in una singola subnet nella rete virtuale di Azure. Se si desidera garantire una maggiore protezione equivalente all'isolamento di subnet, è possibile usare i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
-Per compilare un ambiente di sviluppo e test o un modello di prova di questa configurazione, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Per compilare un ambiente di sviluppo e test o un modello di prova di questa configurazione, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Server AlwaysOn, vedere [Configurare gruppi di disponibilità AlwaysOn di SQL Server 2012 per SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
@@ -100,4 +100,4 @@ Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Ser
 
 - Iniziare la configurazione di questo carico di lavoro dalla [Fase 1](virtual-machines-windows-ps-sp-intranet-ph1.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

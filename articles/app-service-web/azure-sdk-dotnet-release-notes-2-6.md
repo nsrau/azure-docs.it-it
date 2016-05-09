@@ -4,7 +4,7 @@
    services="app-service/web" 
    documentationCenter=".net" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
 
-
+ 
 # Note sulla versione di Azure SDK per .NET 2.6
 
 Questo documento contiene le note sulla versione per Azure SDK per .NET 2.6.
@@ -56,7 +56,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 ##Aggiornamenti alla Cache nel ruolo
 
-- La **Cache nel ruolo** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo** ha usato Azure Storage SDK versione 1.7.
+- La **Cache nel ruolo ** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo ** ha usato Azure Storage SDK versione 1.7.
 
 	I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK.
 
@@ -108,4 +108,4 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

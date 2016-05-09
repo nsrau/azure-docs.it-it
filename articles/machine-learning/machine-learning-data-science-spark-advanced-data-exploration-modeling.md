@@ -1,0 +1,1358 @@
+<properties
+	pageTitle="Esplorazione e modellazione avanzate dei dati con Spark | Microsoft Azure"
+	description="Da definire"
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev,deguhath,gokuma"
+	manager="paulettm"
+	editor="cgronlun"  />
+
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/26/2016"
+	ms.author="deguhath;bradsev" />
+
+# Esplorazione e modellazione avanzate dei dati con Spark 
+
+[AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
+
+Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei dati e attività di classificazione binaria e modellazione basata sulla regressione, usando la convalida incrociata e l'ottimizzazione di iperparametri per eseguire il training dei modelli su un campione del set di dati relativo alle corse e alle tariffe dei taxi della città di New York nel 2013. Illustra i passaggi end-to-end del [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess) usando un cluster HDInsight Spark per l'elaborazione e BLOB di Azure per l'archiviazione dei dati e dei modelli. Il processo analizza e visualizza i dati ottenuti da un BLOB di Archiviazione di Azure e li prepara per la compilazione di modelli predittivi. Per il codice della soluzione e per visualizzare i relativi tracciati è stato usato Python. I modelli vengono compilati con il toolkit MLlib di Spark per l'esecuzione di attività di classificazione binaria e modellazione basata sulla regressione.
+
+- L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
+- L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 
+
+La procedura di modellazione include anche del codice che illustra come eseguire il training, valutare e salvare ogni tipo di modello. Questo argomento illustra alcuni dei concetti di base dell'argomento [Esplorazione e modellazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md), ma viene definito "avanzato" perché usa anche la convalida incrociata in combinazione con sweep di iperparametri per eseguire il training di modelli di classificazione e regressione estremamente accurati.
+
+**Convalida incrociata** è una tecnica che consente di valutare in che modo un modello con training eseguito su un set di dati noto verrà generalizzato per stimare le funzionalità di set di dati su cui non è stato eseguito il training. L'idea generale alla base di questa tecnica consiste nell'eseguire il training di un modello su un set di dati noti e quindi di testare l'accuratezza delle stime su un set di dati indipendente. Un'implementazione comune usata qui consiste nel dividere un set di dati in K riduzioni e quindi eseguire il training del modello in base a uno schema round robin su tutte le riduzioni eccetto una.
+
+L'**ottimizzazione degli iperparametri** consiste nello scegliere un set di iperparametri per un algoritmo di apprendimento, in genere con l'obiettivo di ottimizzare una misura delle prestazioni dell'algoritmo su un set di dati indipendente. Gli **iperparametri** sono valori che devono essere specificati al di fuori della procedura di training del modello. I presupposti di questi valori possono influire sulla flessibilità e l'accuratezza dei modelli. Gli alberi delle decisioni includono, ad esempio, iperparametri come la profondità desiderata e il numero di foglie nell'albero. Le macchine a vettori di supporto (SVM, Support Vector Machine) richiedono l'impostazione di una penalità per errata classificazione.
+
+Un modo comune per eseguire l'ottimizzazione degli iperparametri usato in questo articolo è una ricerca nella griglia o **sweep di parametri**. Si tratta di eseguire una ricerca completa nei valori di un subset specificato dello spazio degli iperparametri per un algoritmo di apprendimento. La convalida incrociata può fornire metriche delle prestazioni per selezionare i risultati ottimali generati dall'algoritmo di ricerca nella griglia. La convalida incrociata usata con lo sweep di iperparametri limita i problemi come l'overfitting di un modello rispetto ai dati di training, in modo che il modello mantenga la capacità di essere applicato al set di dati generale da cui sono stati estratti i dati di training.
+
+I modelli proposti includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti:
+
+- [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastica (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate. 
+- [Regressione logistica con L-BFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), o regressione "logit", è un modello di regressione che può essere usato quando la variabile dipendente usata per la classificazione dei dati è categoriale. L'algoritmo L-BFGS è un algoritmo di ottimizzazione quasi-Newton che approssima l'algoritmo di Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando una quantità limitata di memoria del computer ed è ampiamente usato nell'apprendimento automatico.
+- Le [foreste casuali](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sono insiemi di alberi delle decisioni. Combinano diversi alberi delle decisioni per ridurre il rischio di overfitting. Le foreste casuali vengono usate per la classificazione e la regressione e possono gestire funzionalità categoriche, si estendono all'impostazione di classificazione multiclasse, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Le foreste casuali sono tra i modelli di apprendimento automatico più diffusi per la classificazione e la regressione.
+- [Alberi con boosting a gradienti](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT, Gradient boosted tree) sono insiemi di alberi delle decisioni. Gli alberi GBT eseguono il training degli alberi delle decisioni in modo iterativo per ridurre al minimo la perdita di funzioni. Gli alberi GBT vengono usati per la classificazione e la regressione e possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
+
+Esempi di modelli che usano la convalida incrociata e sweep di iperparametri sono illustrati per il problema della classificazione binaria. Esempi più semplici, senza sweep di parametri, sono illustrati nell'argomento principale per le attività di regressione. Nell'appendice sono tuttavia descritte anche la convalida con Elastic Net per la regressione lineare e la convalida incrociata con sweep dei parametri per la regressione tramite foresta casuale. **Elastic Net** è un metodo di regressione regolarizzata per l'adattamento di modelli di regressione lineare che combina in modo lineare le metriche L1 e L2 come penalità dei metodi [Lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [Ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization).
+
+
+
+>[AZURE.NOTE] Anche se il toolkit Spark MLlib è progettato per funzionare con set di dati di grandi dimensioni, per illustrarne le funzionalità di modellazione, per maggiore praticità viene usato un campione relativamente ridotto di circa 30 Mb che usa 170.000 righe, ovvero lo 0,1% circa del set di dati originale della città di New York. L'esercizio qui proposto viene eseguito in modo efficiente in un cluster HDInsight con 2 nodi di lavoro, in circa 10 minuti. Lo stesso codice può essere usato per elaborare set di dati di dimensioni maggiori, con poche modifiche appropriate per la memorizzazione nella cache dei dati in memoria o la modifica delle dimensioni del cluster.
+
+
+## Prerequisiti
+
+Per iniziare questa procedura dettagliata è necessario avere un account Azure e un cluster HDInsight Spark, versione di Spark 1.5.2 (HDI 3.3). Per tali requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da Jupyter Notebook nel cluster Spark, vedere la [panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** che contiene gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+
+## Configurazione: percorsi di archiviazione, librerie e contesto Spark
+
+Spark può eseguire operazioni di lettura e scrittura in BLOB di Archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
+
+Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: "wasb///". "wasb://" fa riferimento ad altri percorsi.
+
+### Impostare percorsi di directory per i percorsi di archiviazione in WASB
+
+L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui verrà salvato l'output del modello.
+
+	# SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
+
+	# LOCATION OF TRAINING DATA
+	taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
+
+	
+	# SET THE MODEL STORAGE DIRECTORY PATH 
+	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
+
+	# PRINT START TIME
+	import datetime
+	datetime.datetime.now()
+
+**OUTPUT**
+
+datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
+
+
+### Importare le librerie necessarie e impostare il contesto Spark 
+
+Impostare il contesto Spark e importare le librerie necessarie usando il codice seguente.
+
+	# LOAD PYSPARK LIBRARIES
+	import pyspark
+	from pyspark import SparkConf
+	from pyspark import SparkContext
+	from pyspark.sql import SQLContext
+	%matplotlib inline
+	import matplotlib
+	import matplotlib.pyplot as plt
+	#matplotlib.style.use('ggplot')
+	from pyspark.sql import Row
+	from pyspark.sql.functions import UserDefinedFunction
+	from pyspark.sql.types import *
+	import atexit
+	from numpy import array
+	import numpy as np
+	import datetime
+	
+	# SET SPARK CONTEXT
+	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
+	sqlContext = SQLContext(sc)
+	atexit.register(lambda: sc.stop())
+	
+	sc.defaultParallelism
+
+**OUTPUT**
+
+4
+
+## Inserimento di dati: 
+
+Questa sezione contiene il codice per una serie di attività necessarie per inserire il campione di dati da modellare. Leggere un campione unito in join pari allo 0,1% del file TSV relativo alle corse e alle tariffe dei taxi, formattare e pulire i dati, creare e memorizzare nella cache un frame di dati in memoria e quindi registrarlo come tabella temporanea in un contesto SQL.
+
+Il primo passaggio del processo di analisi scientifica dei dati consiste nel prelevare i dati da analizzare dalle origini esterne o dai sistemi in cui risiedono e inserirli nell'ambiente di modellazione ed esplorazione dei dati. In questa procedura dettagliata l'ambiente è Spark. Questa sezione contiene il codice per completare una serie di attività:
+
+- Inserimento del campione di dati da modellare.
+- Lettura del set di dati di input archiviato come file TSV.
+- Formattazione e pulizia dei dati.
+- Creazione di oggetti, RDD o frame di dati, e memorizzazione nella cache in memoria.
+- Registrazione come tabella temporanea in un contesto SQL.
+
+Di seguito è riportato il codice per l'inserimento di dati.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# IMPORT FILE FROM PUBLIC BLOB
+	taxi_train_file = sc.textFile(taxi_train_file_loc)
+	
+	# GET SCHEMA OF THE FILE FROM HEADER
+	schema_string = taxi_train_file.first()
+	fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
+	fields[7].dataType = IntegerType() #Pickup hour
+	fields[8].dataType = IntegerType() # Pickup week
+	fields[9].dataType = IntegerType() # Weekday
+	fields[10].dataType = IntegerType() # Passenger count
+	fields[11].dataType = FloatType() # Trip time in secs
+	fields[12].dataType = FloatType() # Trip distance
+	fields[19].dataType = FloatType() # Fare amount
+	fields[20].dataType = FloatType() # Surcharge
+	fields[21].dataType = FloatType() # Mta_tax
+	fields[22].dataType = FloatType() # Tip amount
+	fields[23].dataType = FloatType() # Tolls amount
+	fields[24].dataType = FloatType() # Total amount
+	fields[25].dataType = IntegerType() # Tipped or not
+	fields[26].dataType = IntegerType() # Tip class
+	taxi_schema = StructType(fields)
+	
+	# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+	taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
+	taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
+	        .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
+	                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
+	                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
+	
+	    
+	# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+	taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
+	    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
+	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
+	    .drop('direct_distance').drop('surcharge')\
+	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+	
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	taxi_df_train_cleaned.cache()
+	taxi_df_train_cleaned.count()
+	
+	# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+	taxi_df_train_cleaned.registerTempTable("taxi_train")
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 17,73 secondi.
+
+
+## Visualizzazione ed esplorazione dei dati 
+
+Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione vengono esaminati i dati relativi ai taxi tramite query SQL e vengono tracciate le variabili di destinazione e le funzionalità potenziali per l'esame visivo. In particolare, viene tracciata la frequenza del numero di passeggeri nelle corse dei taxi, la frequenza dell'importo delle mance e la variazione delle mance in base al tipo e all'importo del pagamento.
+
+### Tracciare un istogramma delle frequenze del numero di passeggeri nel campione di corse dei taxi
+
+Il codice usa una query SQL per il campionamento dei dati e converte i risultati in un frame di dati Pandas da tracciare.
+
+	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
+
+	# SQL SQUERY
+	sqlStatement = """
+	    SELECT passenger_count, COUNT(*) as trip_counts 
+	    FROM taxi_train 
+	    WHERE passenger_count > 0 and passenger_count < 7
+	    GROUP BY passenger_count 
+	"""
+	sqlResults = sqlContext.sql(sqlStatement)
+	
+	#CONVERT TO PANDAS DATA-FRAMES FOR PLOTTING IN PYTHON
+	resultsPDDF = sqlResults.toPandas()
+	
+	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
+	x_labels = resultsPDDF['passenger_count'].values
+	fig = resultsPDDF[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+	fig.set_xticklabels(x_labels)
+	fig.set_title('Counts of trips by passenger count')
+	fig.set_xlabel('Passenger counts')
+	fig.set_ylabel('Trip counts')
+	plt.show()
+
+**OUTPUT**
+
+![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
+
+
+### Tracciare un istogramma dell'importo delle mance e della relativa variazione in base al numero di passeggeri e all'importo delle corse.
+
+Il codice usa una query SQL per il campionamento dei dati e converte i risultati in un frame di dati Pandas da tracciare.
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# SQL SQUERY
+	sqlStatement = """
+	    SELECT fare_amount, passenger_count, tip_amount, tipped
+	    FROM taxi_train 
+	    WHERE passenger_count > 0 AND passenger_count < 7
+	    AND fare_amount > 0 AND fare_amount < 200
+	    AND payment_type in ('CSH', 'CRD')
+	    AND tip_amount > 0 AND tip_amount < 25
+	"""
+	sqlResults = sqlContext.sql(sqlStatement)
+	
+	# CONVERT TO PANDAS DATA-FRAME FOR PLOTTING IN PYTHON
+	resultsPDDF= sqlResults.toPandas()
+	
+	# TIP BY PAYMENT TYPE AND PASSENGER COUNT
+	ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+	ax1.set_title('Tip amount distribution')
+	ax1.set_xlabel('Tip Amount ($)')
+	ax1.set_ylabel('Counts')
+	plt.suptitle('')
+	plt.show()
+	
+	# TIP BY PASSENGER COUNT
+	ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
+	ax2.set_title('Tip amount ($) by Passenger count')
+	ax2.set_xlabel('Passenger count')
+	ax2.set_ylabel('Tip Amount ($)')
+	plt.suptitle('')
+	plt.show()
+	
+	# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
+	ax = resultsPDDF.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(resultsPDDF.passenger_count))
+	ax.set_title('Tip amount by Fare amount ($)')
+	ax.set_xlabel('Fare Amount')
+	ax.set_ylabel('Tip Amount')
+	plt.axis([-2, 120, -2, 30])
+	plt.show()
+	
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**Output:**
+
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
+
+![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
+
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
+
+Tempo impiegato per eseguire questa cella: 10,42 secondi.
+
+
+## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
+
+Questa sezione descrive le procedure usate per preparare i dati da usare nella modellazione per l'apprendimento automatico, fornisce il relativo codice e illustra come eseguire queste attività:
+
+- Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
+- Indicizzare funzionalità categoriche e applicare la codifica one-hot
+- Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
+- Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
+- Ridimensionamento di funzionalità
+- Memorizzazione nella cache di oggetti in memoria
+
+
+### Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
+
+Questo codice illustra come ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto e come memorizzare nella cache il frame di dati risultante in memoria. Quando si usano ripetutamente RDD (Resilient Distributed Dataset) e frame di dati, la memorizzazione nella cache consente di migliorare i tempi di esecuzione. RDD e frame di dati vengono quindi memorizzati nella cache in varie fasi di questa procedura dettagliata.
+
+	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+	sqlStatement = """
+	    SELECT *,
+	    CASE
+	     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
+	     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+	     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+	     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+	    END as TrafficTimeBins
+	    FROM taxi_train 
+	"""
+	taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
+	
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	taxi_df_train_with_newFeatures.cache()
+	taxi_df_train_with_newFeatures.count()
+
+**OUTPUT**
+
+126050
+
+
+### Indicizzare funzionalità categoriche e applicare la codifica one-hot
+
+Questa sezione illustra come indicizzare o codificare le funzionalità categoriche per l'inserimento nelle funzioni di modellazione. Per poter usare le funzioni di modellazione e previsione di MLlib, è necessario prima indicizzare o codificare le funzionalità con dati di input categorici.
+
+A seconda del modello, è necessario indicizzare o codificare tali funzioni in modi diversi. Ad esempio, i modelli logistici e di regressione lineare richiedono la codifica one-hot. Ad esempio, una funzionalità con 3 categorie può essere espansa in 3 colonne di funzionalità, in cui ogni colonna contiene 0 o 1 a seconda della categoria di un'osservazione. Per eseguire la codifica one-hot in MLlib è disponibile la funzione [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder). Questo codificatore esegue il mapping di una colonna di indici etichetta a una colonna di vettori binari, con al massimo un singolo valore unico. Questa codifica permette di applicare a funzionalità categoriche gli algoritmi che prevedono funzionalità con valori numerici, ad esempio la regressione logistica.
+
+Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzionalità categoriche:
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	
+	# INDEX AND ENCODE VENDOR_ID
+	stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
+	model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
+	indexed = model.transform(taxi_df_train_with_newFeatures)
+	encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
+	encoded1 = encoder.transform(indexed)
+	
+	# INDEX AND ENCODE RATE_CODE
+	stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
+	model = stringIndexer.fit(encoded1)
+	indexed = model.transform(encoded1)
+	encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
+	encoded2 = encoder.transform(indexed)
+	
+	# INDEX AND ENCODE PAYMENT_TYPE
+	stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
+	model = stringIndexer.fit(encoded2)
+	indexed = model.transform(encoded2)
+	encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
+	encoded3 = encoder.transform(indexed)
+	
+	# INDEX AND TRAFFIC TIME BINS
+	stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
+	model = stringIndexer.fit(encoded3)
+	indexed = model.transform(encoded3)
+	encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
+	encodedFinal = encoder.transform(indexed)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 1,22 secondi.
+
+
+### Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
+
+Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come tipo di dati punto etichettato e codificarli per l'uso per il training e il testing della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o una risposta.
+
+
+	# FUNCTIONS FOR BINARY CLASSIFICATION
+
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.regression import LabeledPoint
+	from numpy import array
+
+	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+	def parseRowIndexingBinary(line):
+	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
+	                         line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
+	    labPt = LabeledPoint(line.tipped, features)
+	    return  labPt
+	
+	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+	def parseRowOneHotBinary(line):
+	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+	                               line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
+	    labPt = LabeledPoint(line.tipped, features)
+	    return  labPt
+
+
+	# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
+
+	# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+	def parseRowIndexingRegression(line):
+	    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
+	                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+	                         line.trip_distance, line.fare_amount])
+	    labPt = LabeledPoint(line.tip_amount, features)
+	    return  labPt
+	
+	# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
+	def parseRowOneHotRegression(line):
+	    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+	                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+	                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+	                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+	    labPt = LabeledPoint(line.tip_amount, features)
+	    return  labPt
+
+
+
+### Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
+
+Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento e come usarlo quando necessario. Nei campioni di grandi dimensioni questa operazione permette di risparmiare molto tempo durante il training dei modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# SPECIFY SAMPLING AND SPLITTING FRACTIONS
+	from pyspark.sql.functions import rand
+	
+	samplingFraction = 0.25;
+	trainingFraction = 0.75; testingFraction = (1-trainingFraction);
+	seed = 1234;
+	encodedFinalSampled = encodedFinal.sample(False, samplingFraction, seed=seed)
+	
+	# SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CV (SHOWN LATER)
+	# INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS
+	dfTmpRand = encodedFinalSampled.select("*", rand(0).alias("rand"));
+	trainData, testData = dfTmpRand.randomSplit([trainingFraction, testingFraction], seed=seed);
+	
+	# CACHE TRAIN AND TEST DATA
+	trainData.cache()
+	testData.cache()
+	
+	# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+	indexedTRAINbinary = trainData.map(parseRowIndexingBinary)
+	indexedTESTbinary = testData.map(parseRowIndexingBinary)
+	oneHotTRAINbinary = trainData.map(parseRowOneHotBinary)
+	oneHotTESTbinary = testData.map(parseRowOneHotBinary)
+	
+	# FOR REGRESSION TRAINING AND TESTING
+	indexedTRAINreg = trainData.map(parseRowIndexingRegression)
+	indexedTESTreg = testData.map(parseRowIndexingRegression)
+	oneHotTRAINreg = trainData.map(parseRowOneHotRegression)
+	oneHotTESTreg = testData.map(parseRowOneHotRegression)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 0,4 secondi.
+
+
+### Ridimensionamento di funzionalità
+
+Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. Per ridimensionare le funzionalità alla varianza unitaria, il relativo codice usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler). Viene fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico, come la regressione regolarizzata o le macchine a vettori di supporto (SVM).
+
+
+>[AZURE.NOTE] L'algoritmo LinearRegressionWithSGD è risultato sensibile al ridimensionamento di funzionalità.
+
+
+Ecco il codice per ridimensionare le variabili per l'uso con l'algoritmo SGD lineare regolarizzato.
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.regression import LabeledPoint
+	from pyspark.mllib.linalg import Vectors
+	from pyspark.mllib.feature import StandardScaler, StandardScalerModel
+	from pyspark.mllib.util import MLUtils
+	
+	# SCALE VARIABLES FOR REGULARIZED LINEAR SGD ALGORITHM
+	label = oneHotTRAINreg.map(lambda x: x.label)
+	features = oneHotTRAINreg.map(lambda x: x.features)
+	scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+	dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+	oneHotTRAINregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+	
+	label = oneHotTESTreg.map(lambda x: x.label)
+	features = oneHotTESTreg.map(lambda x: x.features)
+	scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+	dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+	oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 7,33 secondi.
+
+### Memorizzazione nella cache di oggetti in memoria
+
+La memorizzazione nella cache degli oggetti del frame di dati di input usati per la classificazione, la regressione e le funzionalità con ridimensionamento permette di ridurre il tempo impiegato per il training e il testing degli algoritmi di apprendimento automatico.
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+	indexedTRAINbinary.cache()
+	indexedTESTbinary.cache()
+	oneHotTRAINbinary.cache()
+	oneHotTESTbinary.cache()
+	
+	# FOR REGRESSION TRAINING AND TESTING
+	indexedTRAINreg.cache()
+	indexedTESTreg.cache()
+	oneHotTRAINreg.cache()
+	oneHotTESTreg.cache()
+	
+	# SCALED FEATURES
+	oneHotTRAINregScaled.cache()
+	oneHotTESTregScaled.cache()
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**Output:**
+
+Tempo impiegato per eseguire questa cella: 0,11 secondi.
+
+
+## Uso di modelli di classificazione binaria per prevedere se viene lasciata o meno una mancia
+
+Questa sezione illustra come usare tre modelli per l'attività di classificazione binaria di previsione di una possibile mancia lasciata per una corsa in taxi. I modelli presentati sono:
+
+- Regressione logistica 
+- Foresta casuale
+- Alberi con boosting a gradienti.
+
+Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
+
+1. Dati di **training del modello** con un set di parametri.
+2. **Valutazione del modello** su un set di dati di test con metriche.
+3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro.
+
+Ecco due modi per eseguire la convalida incrociata con sweep di parametri:
+
+1. Tramite codice **generico** personalizzato che può essere applicato a qualsiasi algoritmo in MLlib e a qualsiasi set di parametri in un algoritmo. 
+1. Tramite la **funzione della pipeline CrossValidator pySpark**. Si noti che anche se utile, in base all'esperienza CrossValidator presenta alcune limitazioni per Spark 1.5.0: 
+
+	- I modelli di pipeline non possono essere salvati/resi persistenti per un utilizzo futuro.
+	- Non può essere usato per ogni parametro in un modello.
+	- Non può essere usato per ogni algoritmo MLlib.
+
+
+### Convalida incrociata generica e sweep di iperparametri usati con l'algoritmo di regressione logistica per la classificazione binaria
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm), che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York. Il training del modello viene eseguito con convalida incrociata e sweep di iperparametri implementati con codice personalizzato, che è possibile applicare a qualsiasi algoritmo di apprendimento in MLlib.
+
+
+>[AZURE.NOTE] L'esecuzione del codice personalizzato di convalida incrociata può richiedere alcuni minuti.
+
+
+	# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
+	from pyspark.mllib.evaluation import BinaryClassificationMetrics
+	
+	# CREATE PARAMETER GRID FOR LOGISTIC REGRESSION PARAMETER SWEEP
+	from sklearn.grid_search import ParameterGrid
+	grid = [{'regParam': [0.01, 0.1], 'iterations': [5, 10], 'regType': ["l1", "l2"], 'tolerance': [1e-3, 1e-4]}]
+	paramGrid = list(ParameterGrid(grid))
+	numModels = len(paramGrid)
+	
+	# SET NUM FOLDS AND NUM PARAMETER SETS TO SWEEP ON
+	nFolds = 3;
+	h = 1.0 / nFolds;
+	metricSum = np.zeros(numModels);
+	
+	# BEGIN CV WITH PARAMETER SWEEP
+	for i in range(nFolds):
+	    # Create training and x-validation sets
+	    validateLB = i * h
+	    validateUB = (i + 1) * h
+	    condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
+	    validation = trainData.filter(condition)
+	    # Create labeled points from data-frames
+	    if i > 0:
+	        trainCVLabPt.unpersist()
+	        validationLabPt.unpersist()
+	    trainCV = trainData.filter(~condition)
+	    trainCVLabPt = trainCV.map(parseRowOneHotBinary)
+	    trainCVLabPt.cache()
+	    validationLabPt = validation.map(parseRowOneHotBinary)
+	    validationLabPt.cache()
+	    # For parameter sets compute metrics from x-validation
+	    for j in range(numModels):
+	        regt = paramGrid[j]['regType']
+	        regp = paramGrid[j]['regParam']
+	        iters = paramGrid[j]['iterations']
+	        tol = paramGrid[j]['tolerance']
+	        # Train logistic regression model with hypermarameter set
+	        model = LogisticRegressionWithLBFGS.train(trainCVLabPt, regType=regt, iterations=iters,  
+	                                                  regParam=regp, tolerance = tol, intercept=True)
+	        predictionAndLabels = validationLabPt.map(lambda lp: (float(model.predict(lp.features)), lp.label))
+	        # Use ROC-AUC as accuracy metrics
+	        validMetrics = BinaryClassificationMetrics(predictionAndLabels)
+	        metric = validMetrics.areaUnderROC
+	        metricSum[j] += metric
+	
+	avgAcc = metricSum / nFolds;
+	bestParam = paramGrid[np.argmax(avgAcc)];
+	
+	# UNPERSIST OBJECTS
+	trainCVLabPt.unpersist()
+	validationLabPt.unpersist()
+	    
+	# TRAIN ON FULL TRAIING SET USING BEST PARAMETERS FROM CV/PARAMETER SWEEP
+	logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestParam['regType'], 
+	                                              iterations=bestParam['iterations'], 
+	                                              regParam=bestParam['regParam'], tolerance = bestParam['tolerance'], 
+	                                              intercept=True)
+	
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 160,47 secondi.
+
+
+**Valutare il modello di classificazione binaria con le metriche standard e tracciare la curva ROC**
+
+Il codice in questa sezione illustra come valutare un modello di regressione logistica su un set di dati di test, incluso un tracciato della curva ROC.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from sklearn.metrics import roc_curve,auc
+	from pyspark.mllib.evaluation import BinaryClassificationMetrics
+	from pyspark.mllib.evaluation import MulticlassMetrics
+	
+	# PREDICT ON TEST DATA WITH BEST/FINAL MODEL
+	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitBest.predict(lp.features)), lp.label))
+	
+	# INSTANTIATE METRICS OBJECT
+	metrics = BinaryClassificationMetrics(predictionAndLabels)
+
+	# AREA UNDER PRECISION-RECALL CURVE
+	print("Area under PR = %s" % metrics.areaUnderPR)
+
+	# AREA UNDER ROC CURVE
+	print("Area under ROC = %s" % metrics.areaUnderROC)
+	metrics = MulticlassMetrics(predictionAndLabels)
+
+	# OVERALL STATISTICS
+	precision = metrics.precision()
+	recall = metrics.recall()
+	f1Score = metrics.fMeasure()
+	print("Summary Stats")
+	print("Precision = %s" % precision)
+	print("Recall = %s" % recall)
+	print("F1 Score = %s" % f1Score)
+	
+	
+	# CREATE A PANDAS DATA-FRAME AND PLOT ROC-CURVE, FROM PREDICTED PROBS AND LABELS                                     
+	logitBest.clearThreshold() # This clears threshold for classification (0.5) and outputs probabilities
+	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitBest.predict(lp.features)), lp.label))
+	predictionAndLabelsDF = predictionAndLabels.toDF()
+	test_predictions = predictionAndLabelsDF.toPandas()
+	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
+	
+	prob = predictions_pddf["probability"] 
+	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
+	roc_auc = auc(fpr, tpr)
+	
+	# PLOT ROC CURVE
+	plt.figure(figsize=(5,5))
+	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+	plt.plot([0, 1], [0, 1], 'k--')
+	plt.xlim([0.0, 1.0])
+	plt.ylim([0.0, 1.05])
+	plt.xlabel('False Positive Rate')
+	plt.ylabel('True Positive Rate')
+	plt.title('ROC Curve')
+	plt.legend(loc="lower right")
+	plt.show()
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+Area in PR = 0,985319161941
+
+Area in ROC = 0,983511076103
+
+Statistiche di riepilogo
+
+Precisione = 0,984187223276
+
+Richiamo = 0,984187223276
+
+Punteggio F1 = 0,984187223276
+
+![Curva ROC di regressione logistica per approccio generico](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
+
+Tempo impiegato per eseguire questa cella: 5,02 secondi.
+
+
+**Rendere persistente il modello in un BLOB per l'utilizzo in futuro**
+
+Il codice in questa sezione illustra come salvare il modello di regressione logistica per l'utilizzo.
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.classification import LogisticRegressionModel
+	
+	# PERSIST MODEL
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
+	dirfilename = modelDir + logisticregressionfilename;
+	
+	logitBest.save(sc, dirfilename);
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+
+**OUTPUT**
+
+Tempo impiegato per eseguire questa cella: 9,96 secondi.
+
+
+### Usare la funzione della pipeline CrossValidator di MLlib con il modello LogisticRegression (regressione elastica)
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm), che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York. Il training del modello viene eseguito con convalida incrociata e sweep di iperparametri implementati con la funzione della pipeline CrossValidator MLlib per convalida incrociata con sweep di iperparametri.
+
+
+>[AZURE.NOTE] L'esecuzione del codice di convalida incrociata MLlib può richiedere alcuni minuti.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.ml.classification import LogisticRegression
+	from pyspark.ml import Pipeline
+	from pyspark.ml.evaluation import BinaryClassificationEvaluator
+	from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+	from sklearn.metrics import roc_curve,auc
+	
+	# DEFINE ALGORITHM / MODEL
+	lr = LogisticRegression()
+	
+	# DEFINE GRID PARAMETERS
+	paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
+	                              .addGrid(lr.maxIter, (5, 10))\
+	                              .addGrid(lr.tol, (1e-4, 1e-5))\
+	                              .addGrid(lr.elasticNetParam, (0.25,0.75))\
+	                              .build()
+	
+	# DEFINE CV WITH PARAMETER SWEEP
+	cv = CrossValidator(estimator= lr,
+	                    estimatorParamMaps=paramGrid,
+	                    evaluator=BinaryClassificationEvaluator(),
+	                    numFolds=3)
+	
+	# CONVERT TO DATA-FRAME: THIS WILL NOT RUN ON RDDs
+	trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "label"])
+	
+	# TRAIN WITH CROSS-VALIDATION
+	cv_model = cv.fit(trainDataFrame)
+	
+
+	## PREDICT AND EVALUATE ON TEST DATA-SET
+
+	# USE TEST DATASET FOR PREDICTION
+	testDataFrame = sqlContext.createDataFrame(oneHotTESTbinary, ["features", "label"])
+	test_predictions = cv_model.transform(testDataFrame)
+	
+	# CONVERT RTO PANDAS DATA-FRAME FOR CALCULATING AND PLOTTING ROC CURVE
+	predictions_pddf = test_predictions.toPandas()
+	predictions_pddf.dtypes
+	prob = [x[1] for x in predictions_pddf["probability"]]
+	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
+	roc_auc = auc(fpr, tpr)
+	
+	# PLOT ROC CURVE
+	plt.figure(figsize=(5,5))
+	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+	plt.plot([0, 1], [0, 1], 'k--')
+	plt.xlim([0.0, 1.0])
+	plt.ylim([0.0, 1.05])
+	plt.xlabel('False Positive Rate')
+	plt.ylabel('True Positive Rate')
+	plt.title('ROC Curve')
+	plt.legend(loc="lower right")
+	plt.show()
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+**OUTPUT**
+
+![Curva ROC di regressione logistica con CrossValidator di MLlib](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
+
+Tempo impiegato per eseguire questa cella: 118,25 secondi.
+
+
+### Classificazione tramite foresta casuale
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare una regressione tramite foresta casuale, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.tree import RandomForest, RandomForestModel
+	from pyspark.mllib.util import MLUtils
+	from pyspark.mllib.evaluation import BinaryClassificationMetrics
+	from pyspark.mllib.evaluation import MulticlassMetrics
+	
+	# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+	categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+	
+	# TRAIN RANDOMFOREST MODEL
+	rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
+	                                       categoricalFeaturesInfo=categoricalFeaturesInfo,
+	                                       numTrees=25, featureSubsetStrategy="auto",
+	                                       impurity='gini', maxDepth=5, maxBins=32)
+	## UN-COMMENT IF YOU WANT TO PRING TREES
+	#print('Learned classification forest model:')
+	#print(rfModel.toDebugString())
+	
+	# PREDICT ON TEST DATA AND EVALUATE
+	predictions = rfModel.predict(indexedTESTbinary.map(lambda x: x.features))
+	predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+	
+	# AREA UNDER ROC CURVE
+	metrics = BinaryClassificationMetrics(predictionAndLabels)
+	print("Area under ROC = %s" % metrics.areaUnderROC)
+	
+	# PERSIST MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	rfclassificationfilename = "RandomForestClassification_" + datestamp;
+	dirfilename = modelDir + rfclassificationfilename;
+	
+	rfModel.save(sc, dirfilename);
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+Area in ROC = 0,985240932843
+
+Tempo impiegato per eseguire questa cella: 22,9 secondi.
+
+
+### Classificazione tramite alberi con boosting a gradienti
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe taxi della città di New York.
+
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+	
+	# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+	categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+	
+	gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo,
+	                                                numIterations=10)
+	## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
+	#print('Learned classification GBT model:')
+	#print(bgtModel.toDebugString())
+	
+	# PREDICT ON TEST DATA AND EVALUATE
+	predictions = gbtModel.predict(indexedTESTbinary.map(lambda x: x.features))
+	predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+	
+	# Area under ROC curve
+	metrics = BinaryClassificationMetrics(predictionAndLabels)
+	print("Area under ROC = %s" % metrics.areaUnderROC)
+	
+	# PERSIST MODEL IN A BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp;
+	dirfilename = modelDir + btclassificationfilename;
+	
+	gbtModel.save(sc, dirfilename)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+Area in ROC = 0,985240932843
+
+Tempo impiegato per eseguire questa cella: 22,41 secondi.
+
+
+## Prevedere l'importo delle mance con di modelli di regressione (senza usare la convalida incrociata)
+
+Questa sezione illustra come usare tre modelli per l'attività di regressione relativa alla previsione dell'importo della mancia lasciata per una corsa in taxi in base ad altre funzionalità relative alle mance. I modelli presentati sono:
+
+- Regressione lineare regolarizzata
+- Foresta casuale
+- Alberi con boosting a gradienti.
+
+Questi modelli sono stati descritti nell'introduzione. Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
+
+1. Dati di **training del modello** con un set di parametri.
+2. **Valutazione del modello** su un set di dati di test con metriche.
+3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro.   
+
+
+>NOTA PER AZURE: la convalida incrociata non viene usata con i tre modelli di regressione in questa sezione. Nell'appendice di questo argomento viene fornito un esempio che illustra come usare la convalida incrociata con Elastic Net per la regressione lineare.
+
+
+>NOTA PER AZURE: la convergenza di modelli LinearRegressionWithSGD può risultare problematica ed è necessario modificare oppure ottimizzare attentamente i parametri per ottenere un modello valido. Il ridimensionamento delle variabili può essere molto utile per la convergenza. Per migliorare la convergenza, è anche possibile usare la regressione Elastic Net illustrata nell'appendice di questo argomento.
+
+
+### Regressione lineare con SGD
+
+Il codice riportato in questa sezione illustra come usare le funzionalità con ridimensionamento per il training di una regressione lineare che usa la discesa del gradiente stocastica (SGD) per l'ottimizzazione e come assegnare punteggi, valutare e salvare il modello in BLOB di Archiviazione di Azure (WASB).
+
+
+	# LINEAR REGRESSION WITH SGD 
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
+	from pyspark.mllib.evaluation import RegressionMetrics
+	from scipy import stats
+	
+	# USE SCALED FEATURES TO TRAIN MODEL
+	linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
+	
+	# SCORE ON SCALED TEST DATA-SET & EVALUATE
+	predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
+	testMetrics = RegressionMetrics(predictionAndLabels)
+	
+	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+	print("R-sqr = %s" % testMetrics.r2)
+	
+	# SAVE MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
+	dirfilename = modelDir + linearregressionfilename;
+	
+	linearModel.save(sc, dirfilename)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+RMSE = 1,29395294535
+
+R-sqr = 0,588405443258
+
+Tempo impiegato per eseguire questa cella: 36,14 secondi.
+
+
+### Regressione tramite foresta casuale
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di foresta casuale, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi della città di New York.
+
+
+>[AZURE.NOTE] Nell'appendice è illustrata la convalida incrociata con sweep di parametri tramite codice personalizzato.
+
+
+	#PREDICT TIP AMOUNTS USING RANDOM FOREST
+
+	# RECORD START TIME
+	timestart= datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.tree import RandomForest, RandomForestModel
+	from pyspark.mllib.util import MLUtils
+	from pyspark.mllib.evaluation import RegressionMetrics
+	
+	
+	# TRAIN MODEL
+	categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+	rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+	                                    numTrees=25, featureSubsetStrategy="auto",
+	                                    impurity='variance', maxDepth=10, maxBins=32)
+	# UN-COMMENT IF YOU WANT TO PRING TREES
+	#print('Learned classification forest model:')
+	#print(rfModel.toDebugString())
+	
+	# PREDICT AND EVALUATE ON TEST DATA-SET
+	predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
+	predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
+	
+	testMetrics = RegressionMetrics(predictionAndLabels)
+	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+	print("R-sqr = %s" % testMetrics.r2)
+	
+	# SAVE MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	rfregressionfilename = "RandomForestRegression_" + datestamp;
+	dirfilename = modelDir + rfregressionfilename;
+	
+	rfModel.save(sc, dirfilename);
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT**
+
+RMSE = 0,962262172157
+
+R-sqr = 0,69142848223
+
+Tempo impiegato per eseguire questa cella: 29,3 secondi.
+
+
+### Regressione tramite alberi con boosting a gradienti
+
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi della città di New York.
+
+
+	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
+
+	# RECORD START TIME
+	timestart= datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+	from pyspark.mllib.util import MLUtils
+	
+	# TRAIN MODEL
+	categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+	gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
+	                                                numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
+	
+	# EVALUATE A TEST DATA-SET
+	predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
+	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+	
+	testMetrics = RegressionMetrics(predictionAndLabels)
+	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+	print("R-sqr = %s" % testMetrics.r2)
+	
+	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
+	test_predictions_pddf = test_predictions.toPandas()
+	
+	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
+	fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
+	ax.set_title('Actual vs. Predicted Tip Amounts ($)')
+	ax.set_xlabel("Actual")
+	ax.set_ylabel("Predicted")
+	ax.plot(test_predictions_pddf['_1'], fit[0] * test_predictions_pddf['_1'] + fit[1], color='magenta')
+	plt.axis([-1, 20, -1, 20])
+	plt.show(ax)
+	
+	# SAVE MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
+	dirfilename = modelDir + btregressionfilename;
+	
+	gbtModel.save(sc, dirfilename)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+RMSE = 0,962160568829
+
+R-sqr = 0,717354800581
+
+![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
+
+
+## Appendice: Attività di regressione aggiuntive tramite convalida incrociata con sweep di parametri
+
+Questa appendice contiene il codice che illustra come eseguire la convalida incrociata con Elastic Net per la regressione lineare e come eseguire la convalida incrociata con sweep di parametri usando codice personalizzato per la regressione tramite foresta casuale.
+
+
+### Convalida incrociata con Elastic Net per la regressione lineare
+
+Il codice in questa sezione illustra come eseguire la convalida incrociata usando Elastic Net per la regressione lineare e come valutare il modello rispetto a dati di test.
+
+	###  CV USING ELASTIC NET FOR LINEAR REGRESSION
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+	
+	# LOAD PYSPARK LIBRARIES
+	from pyspark.ml.regression import LinearRegression
+	from pyspark.ml import Pipeline
+	from pyspark.ml.evaluation import RegressionEvaluator
+	from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+	
+	# Define algo / model
+	lr = LinearRegression()
+	
+	# Define grid parameters
+	paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
+	                              .addGrid(lr.maxIter, (5, 10))\
+	                              .addGrid(lr.tol, (1e-4, 1e-5))\
+	                              .addGrid(lr.elasticNetParam, (0.25,0.75))\
+	                              .build() 
+	
+	# Define pipeline, in this case, simply the modeling (without any transformations etc.)
+	pipeline = Pipeline(stages=[lr])
+	
+	# Define CV with parameter sweep
+	cv = CrossValidator(estimator= lr,
+	                    estimatorParamMaps=paramGrid,
+	                    evaluator=RegressionEvaluator(),
+	                    numFolds=3)
+	
+	# Convert to data-frame, as CrossValidator won't run on RDDs
+	trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
+	
+	# Train with cross-validation
+	cv_model = cv.fit(trainDataFrame)
+	
+	timeend = datetime.datetime.now()
+	timeend-timestart
+	
+
+	# EVALUATE MODEL ON TEST SET
+	testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
+	
+	# MAKE PREDICTIONS ON TEST DOCUMENTS 
+	#THE cvModel USES THE BEST MODEL FOUND (lrModel).
+	test_predictions = cv_model.transform(testDataFrame)
+	predictions_pddf = test_predictions.toPandas()
+	
+	corstats = stats.linregress(predictions_pddf['label'],predictions_pddf['prediction'])
+	r2 = (corstats[2]*corstats[2])
+	print("R-sqr = %s" % r2)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+R-sqr = 0,594830601664
+
+Tempo impiegato per eseguire questa cella: 129,51 secondi.
+
+
+### Convalida incrociata con sweep di parametri usando codice personalizzato per la regressione tramite foresta casuale
+
+Il codice in questa sezione illustra come eseguire la convalida incrociata con sweep di parametri usando codice personalizzato per la regressione tramite foresta casuale e come valutare il modello rispetto a dati di test.
+
+
+	# RECORD START TIME
+	timestart= datetime.datetime.now()
+
+	# LOAD PYSPARK LIBRARIES
+	# GET ACCURARY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
+	from pyspark.mllib.tree import RandomForest, RandomForestModel
+	from pyspark.mllib.util import MLUtils
+	from pyspark.mllib.evaluation import RegressionMetrics
+	from sklearn.grid_search import ParameterGrid
+	
+	## CREATE PARAMETER GRID
+	grid = [{'maxDepth': [5,10], 'numTrees': [25,50]}]
+	paramGrid = list(ParameterGrid(grid))
+	
+	## SPECIFY LEVELS OF CATEGORICAL VARIBLES
+	categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+	
+	# SPECIFY NUMFOLDS AND ARRAY TO HOLD METRICS
+	nFolds = 3;
+	numModels = len(paramGrid)
+	h = 1.0 / nFolds;
+	metricSum = np.zeros(numModels);
+	
+	for i in range(nFolds):
+	    # Create training and x-validation sets
+	    validateLB = i * h
+	    validateUB = (i + 1) * h
+	    condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
+	    validation = trainData.filter(condition)
+	    # Create labeled points from data-frames
+	    if i > 0:
+	        trainCVLabPt.unpersist()
+	        validationLabPt.unpersist()
+	    trainCV = trainData.filter(~condition)
+	    trainCVLabPt = trainCV.map(parseRowIndexingRegression)
+	    trainCVLabPt.cache()
+	    validationLabPt = validation.map(parseRowIndexingRegression)
+	    validationLabPt.cache()
+	    # For parameter sets compute metrics from x-validation
+	    for j in range(numModels):
+	        maxD = paramGrid[j]['maxDepth']
+	        numT = paramGrid[j]['numTrees']
+	        # Train logistic regression model with hypermarameter set
+	        rfModel = RandomForest.trainRegressor(trainCVLabPt, categoricalFeaturesInfo=categoricalFeaturesInfo,
+	                                    numTrees=numT, featureSubsetStrategy="auto",
+	                                    impurity='variance', maxDepth=maxD, maxBins=32)
+	        predictions = rfModel.predict(validationLabPt.map(lambda x: x.features))
+	        predictionAndLabels = validationLabPt.map(lambda lp: lp.label).zip(predictions)
+	        # Use ROC-AUC as accuracy metrics
+	        validMetrics = RegressionMetrics(predictionAndLabels)
+	        metric = validMetrics.rootMeanSquaredError
+	        metricSum[j] += metric
+	
+	avgAcc = metricSum/nFolds;
+	bestParam = paramGrid[np.argmin(avgAcc)];
+	
+	# UNPERSIST OBJECTS
+	trainCVLabPt.unpersist()
+	validationLabPt.unpersist()
+	        
+	## TRAIN FINAL MODL WIHT BEST PARAMETERS
+	rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+	                                    numTrees=bestParam['numTrees'], featureSubsetStrategy="auto",
+	                                    impurity='variance', maxDepth=bestParam['maxDepth'], maxBins=32)
+
+	# EVALUATE MODEL ON TEST DATA
+	predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
+	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+	
+	#PRINT TEST METRICS
+	testMetrics = RegressionMetrics(predictionAndLabels)
+	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+	print("R-sqr = %s" % testMetrics.r2)
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+RMSE = 0,990182456723
+
+R-sqr = 0,609523627251
+
+Tempo impiegato per eseguire questa cella: 72,5 secondi.
+
+
+### Pulire gli oggetti dalla memoria e stampare i percorsi dei modelli
+
+Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
+
+	# UNPERSIST OBJECTS CACHED IN MEMORY
+
+	# REMOVE ORIGINAL DFs
+	taxi_df_train_cleaned.unpersist()
+	taxi_df_train_with_newFeatures.unpersist()
+	trainData.unpersist()
+	trainData.unpersist()
+	
+	# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+	indexedTRAINbinary.unpersist()
+	indexedTESTbinary.unpersist()
+	oneHotTRAINbinary.unpersist()
+	oneHotTESTbinary.unpersist()
+	
+	# FOR REGRESSION TRAINING AND TESTING
+	indexedTRAINreg.unpersist()
+	indexedTESTreg.unpersist()
+	oneHotTRAINreg.unpersist()
+	oneHotTESTreg.unpersist()
+	
+	# SCALED FEATURES
+	oneHotTRAINregScaled.unpersist()
+	oneHotTESTregScaled.unpersist()
+
+	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
+	print "logisticRegFileLoc = modelDir + "" + logisticregressionfilename + """;
+	print "linearRegFileLoc = modelDir + "" + linearregressionfilename + """;
+	print "randomForestClassificationFileLoc = modelDir + "" + rfclassificationfilename + """;
+	print "randomForestRegFileLoc = modelDir + "" + rfregressionfilename + """;
+	print "BoostedTreeClassificationFileLoc = modelDir + "" + btclassificationfilename + """;
+	print "BoostedTreeRegressionFileLoc = modelDir + "" + btregressionfilename + """;
+
+
+**OUTPUT**
+
+PythonRDD[119] at RDD at PythonRDD.scala:43
+
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-04-1817\_40\_35.796789"
+
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-04-1817\_44\_00.993832"
+
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-04-1817\_42\_58.899412"
+
+randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-04-1817\_44\_27.204734"
+
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-04-1817\_43\_16.354770"
+
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-04-1817\_44\_46.206262"
+
+## Passaggi successivi
+
+Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, è possibile imparare a valutare e assegnare punteggi a questi modelli.
+
+**Utilizzo dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
+
+<!---HONumber=AcomDC_0427_2016-->

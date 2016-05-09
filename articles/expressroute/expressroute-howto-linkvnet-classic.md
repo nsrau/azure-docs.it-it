@@ -44,7 +44,7 @@ Questo articolo spiega come collegare le reti virtuali (Vnet) ai circuiti Expres
 
 ## Collegamento di una rete virtuale della stessa sottoscrizione a un circuito
 
-Yon possibile collegare una rete virtuale a un circuito ExpressRoute usando il cmdlet seguente. Prima di eseguire il cmdlet, assicurarsi che il gateway di rete virtuale sia stato creato e sia pronto per il collegamento.
+È possibile collegare una rete virtuale a un circuito ExpressRoute usando il cmdlet seguente. Prima di eseguire il cmdlet, assicurarsi che il gateway di rete virtuale sia stato creato e sia pronto per il collegamento.
 
 	New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 	Provisioned
@@ -156,4 +156,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

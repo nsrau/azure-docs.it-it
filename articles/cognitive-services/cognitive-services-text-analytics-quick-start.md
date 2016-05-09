@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -240,4 +240,4 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 
 Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile vedere come si usa uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati, nonché per automatizzare informazioni dettagliate per ottenere una visualizzazione in tempo reale dei dati di testo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

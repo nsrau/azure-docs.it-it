@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -38,7 +38,7 @@ In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 2. [Creare il servizio collegato di SQL Server](#create-sql-server-linked-service). In questo passaggio prima si creano un database e una tabella nel computer SQL Server locale e quindi si crea il servizio collegato: **OnPremSqlLinkedService**.
 3. [Creare il set di dati e la pipeline](#create-dataset-and-pipeline). In questo passaggio si creeranno una tabella **MarketingCampaignEffectivenessOnPremSQLTable** e una pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Monitorare la pipeline](#monitor-pipeline). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure classico.
+4. [Monitorare la pipeline](#monitor-pipeline). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure.
 
 
 ## Creare il gateway di gestione dati
@@ -170,4 +170,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

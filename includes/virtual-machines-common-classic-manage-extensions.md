@@ -19,13 +19,11 @@ Attività più comuni:
 
 ##Individuare le estensioni disponibili
 
-Le estensioni di macchina virtuale di Azure sono (per un elenco completo delle estensioni in base alle funzionalità supportate, vedere [Estensioni VM e funzionalità di Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)). È possibile individuare l'estensione, insieme a informazioni estese, usando:
+È possibile trovare l'estensione, insieme a informazioni estese, usando:
 
 -   PowerShell
 -   Interfaccia multi-piattaforma di Azure (riga di comando di Azure)
 -   API REST di gestione dei servizi
-
-Per informazioni sulle estensioni disponibili, è possibile usare i cmdlet di [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) o le [API REST di gestione dei servizi](https://msdn.microsoft.com/library/ee460799.aspx).
 
 ###Azure PowerShell
 
@@ -121,4 +119,4 @@ Per sapere se un'estensione richiede una configurazione di parametri pubblici e 
 
 >[AZURE.NOTE]Le estensioni possono anche usare configurazioni definite con JSON. Quando si applicano questi tipi di estensioni, viene usato solo l'elemento **SampleConfig**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

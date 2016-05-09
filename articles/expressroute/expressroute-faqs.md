@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Domande frequenti su ExpressRoute
@@ -86,7 +86,7 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 ### In caso di errore di un collegamento a ExpressRoute, verrà persa la connettività?
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete. Si possono creare più circuiti in sedi di peering diverse per ottenere una maggiore resilienza agli errori.
 
-### Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft? 
+### <a name="onep2plink"></a>Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft? 
 No, è sufficiente una connessione fisica se il provider di servizi è in grado di stabilire due circuiti virtuali Ethernet sulla connessione fisica. La connessione fisica, ad esempio una fibra ottica, viene terminata su un dispositivo di livello 1 (L1) (vedere la figura seguente). I due circuiti virtuali Ethernet sono contrassegnati con ID VLAN diversi, uno per il circuito primario e uno per quello secondario. Gli ID VLAN sono nell'intestazione Ethernet 802.1Q esterna. L'intestazione Ethernet 802.1Q interna, non indicata nella figura, viene mappata a un [dominio di routing ExpressRoute](expressroute-circuit-peerings.md) specifico.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -149,9 +149,7 @@ Si deve stabilire un circuito ExpressRoute e configurare le route per il peering
 Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e 200 ciascuno per il peering pubblico e il peering Microsoft. Se si abilita la funzionalità Premium di ExpressRoute, sarà possibile aumentare questo valore fino a 10.000 route per il peering privato.
 
 ### Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
-I prefissi pubblicati tramite BGP devono essere pari a /29 o superiori (da /28 a /8).
-
-I prefissi privati (RFC1918) saranno esclusi tramite filtro dalla sessione BGP per il peering pubblico.
+I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering pubblico.
 
 ### Cosa succede se si superano i limiti per BGP?
 Le sessioni BGP saranno rimosse. Saranno ripristinate quando il numero di prefissi tornerà sotto il limite consentito.
@@ -247,4 +245,4 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

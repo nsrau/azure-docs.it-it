@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/07/2016"
+	ms.date="04/01/2016"
 	ms.author="spelluru"/>
 
 # Esercitazione: Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure
@@ -98,7 +98,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 Eseguire le operazioni seguenti:
 
-- Fare clic sul collegamento [Tramite l'editor di Data factory](data-factory-get-started-using-editor.md) in alto per eseguire l'esercitazione usando l'editor di Data factory, incluso nel portale di Azure classico.
+- Fare clic sul collegamento [Tramite l'editor di Data factory](data-factory-get-started-using-editor.md) in alto per eseguire l'esercitazione usando l'Editor di Data factory, incluso nel portale di Azure.
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-get-started-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio 2013.
 
@@ -116,4 +116,4 @@ Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

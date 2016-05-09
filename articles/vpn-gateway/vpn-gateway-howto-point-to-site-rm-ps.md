@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
+   ms.date="03/30/2016"
    ms.author="cherylmc" />
 
 # Configurare una connessione da punto a sito a una rete virtuale con PowerShell
@@ -22,11 +22,22 @@
 - [PowerShell - Gestione risorse](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portale - Classica](vpn-gateway-point-to-site-create.md)
 
-Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. La configurazione da punto a sito è la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulle connessioni cross-premise](vpn-gateway-cross-premises-options.md).
+Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. La configurazione da punto a sito è la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
 
-Questo articolo si applica alle reti virtuali e ai gateway VPN creati con il modello di distribuzione di **Azure Resource Manager**. Per configurare una connessione da punto a sito per una rete virtuale creata con Gestione dei servizi, noto anche come modello di distribuzione classica, vedere [Configurare una connessione VPN da punto a sito a una rete virtuale](vpn-gateway-point-to-site-create.md).
+Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulla connettività sicura cross-premises per le reti virtuali](vpn-gateway-cross-premises-options.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione di Resource Manager ** (Gestione dei servizi).
+
+**Informazioni sui modelli di distribuzione di Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Strumenti e modelli di distribuzione per le connessioni da punto a sito**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+![Diagramma da punto a sito](./media/vpn-gateway-point-to-site-create/point2site.png "da punto a sito")
+
 
 ## Informazioni sulla configurazione
 
@@ -37,20 +48,20 @@ Per questa configurazione si useranno i valori seguenti:
 - Nome: **TestVNet** con spazi degli indirizzi **192.168.0.0/16** e **10.254.0.0/16**. Si noti che è possibile usare più di uno spazio degli indirizzi per una rete virtuale.
 - Nome subnet: **FrontEnd** con **192.168.1.0/24**
 - Nome subnet: **BackEnd** con **10.254.1.0/24**
-- Nome subnet: **GatewaySubnet** con **192.168.200.0/24**. Il nome della subnet *GatewaySubnet* è obbligatorio per il funzionamento del gateway. 
+- Nome subnet: **GatewaySubnet** con **192.168.200.0/24**. Il nome subnet *GatewaySubnet* è obbligatorio per il funzionamento del gateway. 
 - Pool di indirizzi client VPN: **172.16.201.0/24**. I client VPN che si connettono alla rete virtuale tramite questa connessione da punto a sito riceveranno un indirizzo IP da questo pool.
 - Sottoscrizione: verificare di avere la sottoscrizione corretta se si dispone di più di una sottoscrizione.
 - Gruppo di risorse: **TestRG**
-- Location: **Stati Uniti orientali**
-- Server DNS: **indirizzo IP** del server DNS che si desidera usare per la risoluzione dei nomi.
-- Nome GW: **GW**
+- Località: **Stati Uniti orientali**
+- Server DNS: **indirizzo IP** del server DNS che si vuole usare per la risoluzione dei nomi.
+- Nome gateway: **GW**
 - Nome IP pubblico: **GWIP**
 - VpnType: **RouteBased**
 
 
 ## Prima di iniziare
 
-- Verificare di possedere una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 	
 - È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure (1.0.2 o versione successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -135,7 +146,7 @@ Ogni client che si connette ad Azure tramite una connessione da punto a sito dev
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Generare e installare i certificati client (*.pfx) creati dal certificato radice nei computer client. È possibile usare qualsiasi metodo di installazione con cui si ha maggiore familiarità. Se si usa un certificato radice autofirmato e la familiarità con le procedure per eseguire questa operazione è limitata, è possibile fare riferimento all'articolo [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
+2. Generare e installare i certificati client (*.pfx) creati dal certificato radice nei computer client. È possibile usare qualsiasi metodo di installazione con cui si ha maggiore familiarità. Se si usa un certificato radice autofirmato e si ha scarsa familiarità con le procedure per eseguire questa operazione, è possibile fare riferimento all'articolo [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
 
 3. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella appena creata. Avrà lo stesso nome della rete virtuale. Fare clic su **Connect**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. In questo caso, fare clic su **Continue** per usare privilegi elevati.
 
@@ -229,4 +240,4 @@ I certificati vengono usati per autenticare client VPN per VPN da punto a sito. 
 
 È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

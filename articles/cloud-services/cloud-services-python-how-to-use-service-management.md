@@ -39,11 +39,11 @@ Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sotto
 ### Certificati di gestione in Windows/Mac/Linux (OpenSSL)
 Per creare il certificato di gestione, è possibile usare [OpenSSL](http://www.openssl.org/). È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem`, eseguire il comando seguente:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Per creare il certificato `.cer`, eseguire il comando seguente:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Per altre informazioni sui certificati di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](./cloud-services-certs-create.md). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -435,4 +435,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
 [servizio cloud]: https://azure.microsoft.com/it-IT/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="04/25/2016"
 	ms.author="yuridio"/>
 
 # Considerazioni di progettazione dell'identità ibrida di Azure Active Directory
@@ -55,4 +55,4 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 
                                                              
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,15 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/22/2016"
 	ms.author="spelluru"/>
 
 
 # Tutti gli argomenti per il servizio Azure Data Factory
 
-In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio Azure Data Factory. Nella pagina Web è possibile eseguire ricerche per parole chiave usando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
+In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio Azure Data Factory. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
 
 
+
+
+## Nuovo
+
+
+| Titolo | Descrizione |
+| :-- | :-- |
+| [Chiamare i programmi Spark da Data Factory](data-factory-spark.md) | È possibile chiamare i programmi Spark da una data factory di Azure usando l'attività MapReduce. |
 
 
 ## Concetti principali
@@ -29,8 +37,8 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 | Titolo | Descrizione |
 | :-- | :-- |
-| [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) | Informazioni su come usare il servizio Data factory di Azure per comporre l'elaborazione dei dati, l'archiviazione dei dati e servizi di spostamento dei dati al fine di creare pipeline che producono informazioni attendibili. |
 | [Set di dati in Azure Data Factory](data-factory-create-datasets.md) | Comprendere i set di dati di Data Factory di Azure e come crearli. |
+| [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) | Informazioni su come usare il servizio Data factory di Azure per comporre l'elaborazione dei dati, l'archiviazione dei dati e servizi di spostamento dei dati al fine di creare pipeline che producono informazioni attendibili. |
 | [Pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md) | Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere usate per una maggiore conoscenza |
 | [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) | Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 
@@ -40,18 +48,19 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 | Titolo | Descrizione |
 | :-- | :-- |
-| [Esercitazione: Creare la prima data factory (informazioni generali)](data-factory-build-your-first-pipeline.md) | Questa esercitazione mostra come creare una data factory con una pipeline di dati che trasforma i dati usando Azure HDInsight. |
 | [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando Visual Studio. |
 | [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure. |
 | [Creare la prima data factory di Azure con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando Azure PowerShell. |
 | [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando il modello di Gestione risorse di Azure. |
+| [Esercitazione: Creare la prima data factory (informazioni generali)](data-factory-build-your-first-pipeline.md) | Questa esercitazione mostra come creare una data factory con una pipeline di dati che trasforma i dati usando Azure HDInsight. |
 | [Esercitazione: Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](data-factory-get-started.md) | In questa esercitazione viene illustrato come utilizzare l'attività Copia in una pipeline di Data factory di Azure per copiare i dati da un BLOB di Azure a un database SQL di Azure. |
 | [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Azure PowerShell. |
-| [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor](data-factory-get-started-using-editor.md) | In questa esercitazione viene creata una pipeline di esempio di Data factory di Azure con un'attività di copia usando l'editor di Data factory nel portale di Azure classico. |
+| [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) | In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando la Copia guidata supportata da Data Factory. |
+| [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor](data-factory-get-started-using-editor.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure. |
 | [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio](data-factory-get-started-using-vs.md) | In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Visual Studio. |
-| [Esercitazione: valutazione dell'efficacia di una campagna di marketing](data-factory-tutorial.md) | Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure e Data Factory Editor nel portale di Azure classico. |
+| [Esercitazione: Spostare ed elaborare i file di log con Azure Data Factory (Portale di Azure)](data-factory-tutorial.md) | Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure e Data Factory Editor nel portale di Azure. |
 | [Esercitazione: Spostare ed elaborare i file di log con Data factory [PowerShell]](data-factory-tutorial-using-powershell.md) | Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure e Azure PowerShell. |
-| [Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (portale di Azure classico)](data-factory-tutorial-extend-onpremises.md) | Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure classico in modo che le copie della pipeline producano dei dati in un database SQL Server. |
+| [Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (portale di Azure)](data-factory-tutorial-extend-onpremises.md) | Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure in modo che le copie della pipeline producano dei dati in un database SQL Server. |
 | [Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | Questa procedura dettagliata estende l'esercitazione utilizzando Azure PowerShell in modo che le copie della pipeline producano dei dati in un database SQL Server. |
 
 
@@ -94,13 +103,13 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | [Creare pipeline predittive con le attività di Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md) | Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning |
 | [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | Informazioni su come usare l'attività di Hadoop Streaming in una Data factory di Azure per eseguire i programmi di Hadoop Streaming in un cluster HDInsight personalizzato o on demand. |
 | [Attività Hive](data-factory-hive-activity.md) | Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight. |
+| [Orchestrazione di HPC e dati con Azure Batch e Data factory](data-factory-data-processing-using-batch.md) | Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch. |
 | [Richiamare i programmi MapReduce da Data factory](data-factory-map-reduce.md) | Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure. |
 | [Attività di Pig](data-factory-pig-activity.md) | Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight. |
 | [Eseguire script U-SQL in Azure Data Lake Analytics da Data factory di Azure](data-factory-usql-activity.md) | Informazioni su come elaborare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics. |
 | [Attività di stored procedure di SQL Server](data-factory-stored-proc-activity.md) | Informazioni sull'uso dell'attività di stored procedure di SQL Server da una pipeline di Data factory per richiamare una stored procedure in un database SQL di Azure o in Azure SQL Data Warehouse. |
 | [Trasformazione e analisi tramite Data factory di Azure](data-factory-data-transformation-activities.md) | Informazioni su come usare il servizio Data factory di Azure per trasformare e analizzare i dati. |
 | [Usare attività personalizzate in una pipeline di Data factory di Azure](data-factory-use-custom-activities.md) | Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure. |
-| [Orchestrazione di HPC e dati con Azure Batch e Data factory](data-factory-data-processing-using-batch.md) | Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch. |
 
 
 ## Esempi
@@ -126,7 +135,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 | Titolo | Descrizione |
 | :-- | :-- |
-| [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md) | Informazioni su come usare il portale di Azure classico e Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create. |
+| [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md) | Sono disponibili informazioni sull'uso del portale di Azure e di Azure PowerShell per monitorare e gestire le data factory di Azure e le pipeline create. |
 
 
 ## SDK
@@ -153,12 +162,12 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 #### Dati aggiuntivi
 
-- Grafica del percorso di apprendimento: [Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-
 - [Ricerca della documentazione di Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 
-- [Visualizzare gli aggiornamenti più recenti per il servizio Data Factory](http://azure.microsoft.com/updates/?service=data-factory)
+- [Visualizzare gli aggiornamenti più recenti per il servizio data factory](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Grafiche del percorso di apprendimento per i servizi di Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_0309_2016-->
+- Grafica del percorso di apprendimento: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+<!---HONumber=AcomDC_0427_2016-->

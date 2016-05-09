@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # Informazioni di riferimento sull'analisi
@@ -25,27 +25,25 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[Clausola let](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
-|[qualsiasi](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
-|[argmax](#argmax)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
-|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[Direttiva render](#render-directive)|[todouble](#todouble)
-|[Operazioni aritmetiche](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[Valori letterali di matrice e oggetto](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Confronti scalari](#scalar-comparisons)|[toint](#toint)
-|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
-|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
-|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
-|[Valori letterali booleani](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
-|[Operazioni booleane](#boolean-operators)|[hash](#hash)|[Valori letterali numerici](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
-|[buildschema](#buildschema)|[iff](#iff)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
-|[Cast](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
-|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[Confronti di stringhe](#string-comparisons)|[variance](#variance)
-|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Valori letterali di stringa](#string-literals)|[where op](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
-|[Espressioni di data e ora](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
-|[Valori letterali di data e ora](#date-and-time-literals)|[Espressioni di percorso JSON](#json-path-expressions)|[rand](#rand)|[sum](#sum)
-
-
-
+|[ago](#ago)|[dayofweek](#dayofweek)|[Clausola let](#let-clause)|[rand](#rand)|[sum](#sum)
+|[qualsiasi](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range](#range)|[summarize op](#summarize-operator)
+|[argmax](#argmax)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)|[log](#log)|[range op](#range-operator)|[take op](#take-operator)
+|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
+|[Operazioni aritmetiche](#arithmetic-operators)|[extend op](#extend-operator)|[makeset](#makeset)|[Direttiva render](#render-directive)|[todouble](#todouble)
+|[Valori letterali di matrice e oggetto](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[Clausola restrict](#restrict-clause)|[toint](#toint)
+|[avg](#avg)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[Confronti scalari](#scalar-comparisons)|[tolong](#tolong)
+|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[sort op](#sort-operator)|[tolower](#tolower)
+|[Valori letterali booleani](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[top op](#top-operator)
+|[Operazioni booleane](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[hash](#hash)|[Valori letterali numerici](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Cast](#casts)|[iff](#iff)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
+|[count](#count)|[isempty](#isempty)|[parse op](#parse-operator)|[stdev](#stdev)|[union op](#union-operator)
+|[count op](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
+|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Confronti di stringhe](#string-comparisons)|[where op](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[Valori letterali di stringa](#string-literals)
+|[Espressioni di data e ora](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[strlen](#strlen)
+|[Valori letterali di data e ora](#date-and-time-literals)|[Espressioni di percorso JSON](#json-path-expressions)|[Operatore project-away](#project-away-operator)|[substring](#substring)
 
 
 ## Query e operatori
@@ -54,12 +52,15 @@ Una query sulla telemetria è costituita da un riferimento a un flusso di origin
 
 
 ```AIQL
-requests
-| where client_City == "London" and timestamp > ago(3d)
-| count
+requests // The request table starts this pipeline.
+| where client_City == "London" // filter the records
+   and timestamp > ago(3d)
+| count 
 ```
     
 Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi i parametri sono [espressioni scalari](##scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
+
+Le query possono contenere singole interruzioni di riga, ma terminano con una riga vuota. Possono includere commenti tra `//` e la fine della riga.
 
 Una query può essere preceduta da una o più [clausole let](#let-clause), che definiscono valori scalari, tabelle o funzioni che possono essere usati nella query.
 
@@ -114,7 +115,7 @@ Aggiunge una o più colonne calcolate a una tabella.
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da aggiungere. 
+* *ColumnName:* nome di una colonna da aggiungere. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o '\_'. Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* calcolo eseguito sulle colonne esistenti.
 
 **Restituisce**
@@ -223,7 +224,7 @@ Ottenere le attività estese da un log in cui alcune voci contrassegnano l'inizi
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-Una clausola let associa un nome a un risultato tabulare, a un valore scalare o a una funzione. La clausola è un prefisso di una query e l'ambito del binding è tale query. Let non consente di assegnare un nome agli elementi usati più avanti nella sessione.
+Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore scalare o a una funzione. La clausola è un prefisso di una query e l'ambito del binding è tale query. Let non consente di assegnare un nome agli elementi usati più avanti nella sessione.
 
 **Sintassi**
 
@@ -237,9 +238,6 @@ Una clausola let associa un nome a un risultato tabulare, a un valore scalare o 
 * *plain\_query:* una query non preceduta da una clausola let.
 
 **esempi**
-
-
-
 
     let rows(n:long) = range steps from 1 to n step 1;
     rows(10) | ...
@@ -315,10 +313,10 @@ Il risultato è:
 
 **Argomenti**
 
-* *ColumnName:* nel risultato, le matrici nella colonna denominata vengono espanse su più righe. 
+* *ColumnName:* nel risultato le matrici nella colonna denominata vengono espanse su più righe. 
 * *ArrayExpression:* espressione che supporta una matrice. Se viene usato questo formato, viene aggiunta una nuova colonna e quella esistente viene mantenuta.
 * *Name:* nome della nuova colonna.
-* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare
+* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare.
 * *RowLimit:* numero massimo di righe generate da ogni riga originale. Il valore predefinito è 128.
 
 **Restituisce**
@@ -448,7 +446,7 @@ Selezionare le colonne da includere, rinominare o rimuovere e inserire le nuove 
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata un colonna con quel nome nell'input. 
+* *ColumnName:* nome di una colonna da visualizzare nell'output. Se *Expression* non è presente, deve essere visualizzata una colonna con quel nome nell'input. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o '\_'. Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* espressione scalare facoltativa che fa riferimento alle colonne di input. 
 
     È consentito restituire una nuova colonna calcolata con lo stesso nome di una colonna esistente nell'input.
@@ -464,13 +462,18 @@ L'esempio seguente illustra diverse tipologie di manipolazioni che possono esser
 ```AIQL
 T
 | project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
+    X=C,               // Rename column C to X
+    A=2*B,             // Calculate a new column A from the old B
     C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
+    B=2*B,              // Calculate a new column B from the old B
+    ['where'] = client_City // rename, using a keyword as a column name
 ```
 
+### Operatore project-away
 
+    T | project-away column1, column2, ...
+
+Escludere le colonne specificate. Il risultato contiene tutte le colonne di input ad eccezione di quelle denominate.
 
 ### Operatore range
 
@@ -572,6 +575,15 @@ Ad esempio, il risultato di `reduce by city` può includere:
 
 Indica al livello di presentazione la modalità di visualizzazione della tabella. Deve essere l'ultimo elemento della pipe. Si tratta di una valida alternativa all'uso dei controlli su schermo che consente di salvare una query con un metodo di presentazione specifico.
 
+### Clausola restrict 
+
+Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. ad esempio:
+
+    let e1 = requests | project name, client_City;
+    let e2 =  requests | project name, success;
+    // Exclude predefined tables from the union:
+    restrict access to (e1, e2);
+    union * |  take 10 
 
 ### Operatore sort 
 
@@ -625,7 +637,7 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 
 **Argomenti**
 
-* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione. 
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o '\_'. Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Aggregation:* chiamata a una funzione di aggregazione, ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere [aggregazioni](#aggregations).
 * *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 
@@ -689,10 +701,10 @@ Considera due o più tabelle e restituisce le righe di tutte.
 
 **Argomenti**
 
-* *Table1*, *Table2* ...
- *  Il nome di una tabella, ad esempio `events` oppure
- *  Un'espressione di query, ad esempio `(events | where id==42)`
- *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `E*` creerà l'unione di tutte le tabelle del database i cui nomi iniziano con `E`.
+* *Table1*, *Table2*...
+ *  Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause).
+ *  Un'espressione di query, ad esempio `(requests | where success=="True")`.
+ *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `e*` forma l'unione di tutte le tabelle definite nelle clausole let precedenti il cui nome inizia per "e", insieme alla tabella "exceptions".
 * `kind`: 
  * `inner`: il risultato include il subset di colonne comuni a tutte le tabelle di input.
  * `outer`: il risultato include tutte le colonne presenti in tutti gli input. Le celle non definite da una riga di input vengono impostate su `null`.
@@ -700,7 +712,7 @@ Considera due o più tabelle e restituisce le righe di tutte.
 
 **Restituisce**
 
-Una tabella con un numero di righe corrispondente a quello delle righe di tutte le tabelle di input.
+Una tabella con un numero di righe pari a quelle presenti in tutte le tabelle di input e un numero di colonne pari al numero di nomi di colonna univoci negli input.
 
 **Esempio**
 
@@ -780,7 +792,11 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 
 
-## Aggregazioni e summarize
+## Aggregazioni
+
+Le aggregazioni sono funzioni usate per combinare i valori in gruppi creati nell'[operazione di riepilogo](#summarize-operator). In questa query, ad esempio, dcount() è una funzione di aggregazione:
+
+    requests | summarize dcount(name) by success
 
 ### qualsiasi 
 
@@ -808,7 +824,7 @@ traces
 
 Trova una riga del gruppo che riduce al minimo o aumenta al massimo *ExprToMaximize* e restituisce il valore di *ExprToReturn* (o `*` per restituire l'intera riga).
 
-**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per assicurarsi di usare i nomi corretti, esaminare i risultati usando `take 5` prima di inviare pipe di risultati a un altro operatore.
+**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per verificare di usare i nomi corretti, esaminare i risultati usando `take 5` prima di inviare pipe dei risultati in un altro operatore.
 
 **esempi**
 
@@ -935,7 +951,16 @@ Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`
 **Suggerimento per le prestazioni**: usare `summarize count(filter)` anziché `where filter | summarize count()`
 
 > [AZURE.NOTE] Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
-   
+
+### countif
+
+    countif(Predicate)
+
+Restituisce un conteggio delle righe per il quale *Predicate* restituisce `true`.
+
+**Suggerimento per le prestazioni**: usare `summarize countif(filter)` anziché `where filter | summarize count()`
+
+> [AZURE.NOTE] Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
 
 ### dcount
 
@@ -946,13 +971,13 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
 *Accuracy*, se specificato, controlla il rapporto tra velocità e accuratezza.
 
  * `0` = il calcolo meno accurato e più veloce.
- * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8% circa.
- * `2` = il calcolo più accurato e più lento; errore dello 0,4% circa.
+ * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo. Errore dello 0,8 % circa.
+ * `2` = il calcolo più accurato e più lento. Errore dello 0,4 % circa.
 
 **Esempio**
 
     pageViews 
-    | summarize countries=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/dcount.png)
@@ -976,7 +1001,7 @@ Restituisce una matrice `dynamic` (JSON) del set di valori distinct che *Expr* i
 **Esempio**
 
     pageViews 
-    | summarize countries=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/makeset.png)
@@ -1006,7 +1031,7 @@ Restituisce una stima per *Expression* del percentile specificato nel gruppo. L'
     
     percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
-Simile a `percentile()` ma calcola un numero di valori di percentile (operazione più rapida rispetto al calcolo separato di ogni percentile).
+Simile a `percentile()`, ma calcola un numero di valori di percentile, operazione più rapida rispetto al calcolo separato di ogni percentile.
 
 **esempi**
 
@@ -1121,7 +1146,7 @@ I tipi supportati sono:
 
 **Restituisce**
 
-Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. È particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà come viene codificato un valore.
+Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. Questo è particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà come viene codificato un valore.
 
 **esempi**
 
@@ -1150,7 +1175,7 @@ Una stringa che rappresenta il tipo di archiviazione sottostante del relativo si
 
 **Argomenti**
 
-* *source*: valore scalare di origine su cui viene calcolato l'hash.
+* *source*: scalare di origine su cui viene calcolato l'hash.
 * *mod*: valore modulo da applicare al risultato hash.
 
 **Restituisce**
@@ -1176,7 +1201,7 @@ La funzione `iff()` calcola il primo argomento (predicato) e restituisce il valo
 **Argomenti**
 
 * *predicate:* espressione che restituisce un valore `boolean`.
-* *ifTrue:* espressione calcolata e il cui valore viene restituito dalla funzione se *predicate* restituisce `true`.
+* *ifTrue:* espressione calcolata il cui valore viene restituito dalla funzione se *predicate* restituisce `true`.
 * *ifFalse:* espressione calcolata il cui valore viene restituito dalla funzione se *predicate* restituisce `false`.
 
 **Restituisce**
@@ -1263,17 +1288,7 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 
@@ -1314,18 +1329,34 @@ L'espressione seguente calcola un istogramma di durate, con dimensione del bucke
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+### exp
+
+    exp(v)   // e raised to the power v
+    exp2(v)  // 2 raised to the power v
+    exp10(v) // 10 raised to the power v
+
+
 
 ### floor
 
 Alias di [`bin()`](#bin).
 
 
+### log
+
+    log(v)    // Natural logarithm of v
+    log2(v)   // Logarithm base 2 of v
+    log10(v)  // Logarithm base 10 of v
+
+
+`v` deve essere un numero reale > 0. In caso contrario, viene restituito null.
+
 ### rand
 
 Generatore di numeri casuali.
 
-* `rand()`: numero reale compreso tra 0,0 e 1,0
-* `rand(n)`: numero intero compreso tra 0 e n-1
+* `rand()`: numero reale compreso tra 0,0 e 1,0.
+* `rand(n)`: numero intero compreso tra 0 e n-1.
 
 
 
@@ -1344,7 +1375,7 @@ Funzione della radice quadrata.
 
 **Restituisce**
 
-* Un numero positivo in modo che `sqrt(x) * sqrt(x) == x`
+* Un numero positivo in modo che `sqrt(x) * sqrt(x) == x`.
 * `null` se l'argomento è negativo o non può essere convertito in un valore `real`. 
 
 
@@ -1582,7 +1613,7 @@ La barra rovesciata (``) viene usata per i caratteri di escape, ad esempio `\t` 
 
 I valori letterali di stringhe offuscate sono stringhe che Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
 
-Per creare un valore letterale di stringa offuscata, anteporre `h` o 'H'. Ad esempio:
+Per creare un valore letterale di stringa offuscata, anteporre `h` o "H". Ad esempio:
 
 ```
 h'hello'
@@ -1631,8 +1662,8 @@ Conta le occorrenze di una sottostringa in una stringa. Le corrispondenze di str
 **Argomenti**
 
 * *text:* stringa.
-* *search:* stringa di testo normale o [espressione regolare](app-analytics-reference.md#regular-expressions) da ricercare all'interno di *text*.
-* *kind:* `"normal"|"regex"` Valore predefinito `normal`. 
+* *search:* stringa di testo normale o espressione regolare da ricercare all'interno di *text*.
+* *kind:* `"normal"|"regex"` valore predefinito `normal`. 
 
 **Restituisce**
 
@@ -1665,9 +1696,9 @@ Recupera una corrispondenza di un'[espressione regolare](#regular-expressions) d
 **Argomenti**
 
 * *regex:* [espressione regolare](#regular-expressions).
-* *captureGroup:* costante `int` positiva che indica il gruppo Capture da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
+* *captureGroup:* costante `int` positiva che indica il gruppo di acquisizione da estrarre. 0 indica la corrispondenza completa, 1 per il valore corrispondente alle prime '(' parentesi')' nell'espressione regolare, 2 o successivi per le parentesi successive.
 * *text:* valore `string` da ricercare.
-* *typeLiteral:* valore letterale di tipo facoltativo (ad esempio, `typeof(long)`). Se specificato, la sottostringa estratta viene convertita nel tipo. 
+* *typeLiteral:* valore letterale di tipo facoltativo, ad esempio `typeof(long)`. Se specificato, la sottostringa estratta viene convertita nel tipo. 
 
 **Restituisce**
 
@@ -1741,12 +1772,12 @@ Sostituire tutte le corrispondenze di regex con un'altra stringa.
 **Argomenti**
 
 * *regex:* [espressione regolare](https://github.com/google/re2/wiki/Syntax) per ricercare *text*. Può contenere gruppi di acquisizione tra '('parentesi')'. 
-* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo Capture, `\2` e così via per i gruppi Capture successivi.
+* *rewrite:* regex di sostituzione per ogni corrispondenza creata da *matchingRegex*. Usare `\0` per fare riferimento all'intera corrispondenza, `\1` per il primo gruppo di acquisizione, `\2` e così via per i gruppi di acquisizione successivi.
 * *text:* stringa.
 
 **Restituisce**
 
-*text* dopo la sostituzione di tutte le corrispondenze di *regex* con valutazioni di *rewrite*. Le corrispondenze non si sovrappongano.
+*text* dopo la sostituzione di tutte le corrispondenze di *regex* con calcoli di *rewrite*. Le corrispondenze non si sovrappongano.
 
 **Esempio**
 
@@ -1785,7 +1816,7 @@ Suddivide una stringa specificata in base a un delimitatore specificato e restit
 
 * *source*: stringa di origine che viene suddivisa in base al delimitatore specificato.
 * *delimiter*: delimitatore usato per suddividere la stringa di origine.
-* *requestedIndex*: indice in base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
+* *requestedIndex*: indice su base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
 
 **Restituisce**
 
@@ -1829,7 +1860,7 @@ Estrarre una sottostringa da una stringa di origine specificata a partire da un 
 **Argomenti**
 
 * *source:* stringa di origine da cui viene ricavata la sottostringa.
-* *startingIndex:* posizione del carattere iniziale in base zero della sottostringa richiesta.
+* *startingIndex:* posizione del carattere iniziale su base zero della sottostringa richiesta.
 * *length:* parametro facoltativo che può essere usato per specificare il numero di caratteri richiesto nella sottostringa. 
 
 **Restituisce**
@@ -1865,12 +1896,12 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici, oggetti e dynamic
 
-[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
 
-![](./media/app-analytics-scalars/310.png)
+![](./media/app-insights-analytics-scalars/310.png)
 
 **Indicizzazione:** indicizzare matrici e oggetti come in JavaScript:
 
@@ -1881,7 +1912,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 * Usare però `arraylength` e altre funzioni di analisi. Non usare ".length".
 
-**Cast** In alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
+**Cast:** in alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
     exceptions 
     | summarize count() 
@@ -1891,7 +1922,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Valori letterali** Per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast:
+**Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
@@ -1902,7 +1933,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-analytics-scalars/410.png)
+![](./media/app-insights-analytics-scalars/410.png)
 
 
 **treepath:** per trovare tutti i percorsi in un oggetto complesso:
@@ -1912,7 +1943,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand path
 
 
-![](./media/app-analytics-scalars/420.png)
+![](./media/app-insights-analytics-scalars/420.png)
 
 **buildschema:** per trovare lo schema minimo che ammette tutti i valori dell'espressione nella tabella:
 
@@ -1970,21 +2001,21 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True se è presente un elemento di *array* che == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True se non è presente un elemento di *array* che == *value*
+| *value* `in` *array*| True se è presente un elemento di *array* che è == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| True se non è presente un elemento di *array* che è == *value*
 |[`arraylength(`array`)`](#arraylength)| Null se non è una matrice
 |[`extractjson(`path,object`)`](#extractjson)|Usa path per navigare nell'oggetto.
 |[`parsejson(`source`)`](#parsejson)| Converte una stringa JSON in un oggetto dinamico.
 |[`range(`from,to,step`)`](#range)| Una matrice di valori
-|[`mvexpand` listColumn](app-analytics-queries.md#mvexpand-operator) | Replica una riga per ogni valore in un elenco in una cella specificata.
-|[`summarize buildschema(`column`)`](app-analytics-queries.md#summarize-operator) |Deduce lo schema del tipo dal contenuto della colonna
-|[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Rende flat gruppi di righe e inserisce i valori della colonna in una matrice.
-|[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Rende flat gruppi di righe e inserisce i valori della colonna in una matrice, senza duplicazione.
+|[`mvexpand` listColumn](#mvexpand-operator) | Replica una riga per ogni valore in un elenco in una cella specificata.
+|[`summarize buildschema(`column`)`](#buildschema) |Deduce lo schema del tipo dal contenuto della colonna
+|[`summarize makelist(`column`)`](#makelist)| Rende flat gruppi di righe e inserisce i valori della colonna in una matrice.
+|[`summarize makeset(`column`)`](#makeset) | Rende flat gruppi di righe e inserisce i valori della colonna in una matrice, senza duplicazione.
 
 ### Oggetti dinamici nelle clausole let
 
 
-Poiché le [clausole let](app-analytics-queries.md#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
+Poiché le [clausole let](#let-clause) memorizzano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2094,13 +2125,13 @@ Un oggetto di tipo `dynamic` specificato da *json*.
 
 **Esempio**
 
-In questo esempio, quando `context_custom_metrics` è un valore `string` simile al seguente:
+Nell'esempio seguente quando `context_custom_metrics` è un valore `string` simile al seguente:
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min`, rispettivamente `118.0` e `110.0`.
+il seguente frammento recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 T
@@ -2113,7 +2144,7 @@ T
 
 ### range
 
-La funzione `range()` (da non confondere con l'operatore `range`) genera una matrice dinamica contenente una serie di valori equidistanti.
+La funzione `range()`, da non confondere con l'operatore `range`, genera una matrice dinamica contenente una serie di valori equidistanti.
 
 **Sintassi**
 
@@ -2121,9 +2152,9 @@ La funzione `range()` (da non confondere con l'operatore `range`) genera una mat
 
 **Argomenti**
 
-* *start:* il valore del primo elemento nella matrice risultante. 
-* *stop:* il valore dell'ultimo elemento nella matrice risultante o il valore minimo che è maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
-* *step:* la differenza tra due elementi consecutivi della matrice.
+* *start:* valore del primo elemento nella matrice risultante. 
+* *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
+* *step:* differenza tra due elementi consecutivi della matrice.
 
 **esempi**
 
@@ -2167,8 +2198,29 @@ Una matrice di espressioni di percorso.
 
 Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice usato da un percorso specifico.
 
+## Nomi
 
+I nomi possono contenere fino a 1024 caratteri. Fanno distinzione tra maiuscole e minuscole e possono contenere lettere, cifre e caratteri di sottolineatura (`_`).
+
+Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri caratteri o usare una parola chiave come nome. ad esempio:
+
+```AIQL
+
+    requests | 
+    summarize  ["distinct urls"] = dcount(name) // non-alphanumerics
+    by  ['where'] = client_City, // using a keyword as a name
+        ['outcome!'] = success // non-alphanumerics
+```
+
+
+|||
+|---|---|
+|['path\\file\\n'x''] | Usare \\ per i caratteri di escape|
+|["d-e.=/f#\\n"] | |
+|[@'path\\file'] | Nessun carattere di escape, \\ è un valore letterale|
+|[@"\\now & then"] | |
+|[where] | Parola chiave della lingua usata come nome|
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

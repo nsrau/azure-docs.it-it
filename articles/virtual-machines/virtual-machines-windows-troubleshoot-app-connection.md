@@ -3,7 +3,7 @@
 	description="Se è impossibile accedere a un'applicazione in esecuzione su una macchina virtuale di Azure, è possibile utilizzare questi passaggi per isolare l'origine del problema."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/21/2016"
+	ms.author="iainfou"/>
 
 # Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure
 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

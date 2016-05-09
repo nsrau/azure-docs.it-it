@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
@@ -85,7 +85,7 @@ Questa è un'architettura indicativa predefinita. Tenere presente quanto segue:
 - Se già c'è un'implementazione di cloud ibrido Azure esistente, è possibile adattare o ignorare le istruzioni delle fasi 1 e 2 per ospitare le macchine virtuali per la nuova applicazione nella subnet appropriata.
 - Tutti i server si trovano in una singola subnet nella rete virtuale di Azure. Se si desidera garantire una maggiore protezione equivalente all'isolamento di subnet, è possibile utilizzare [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
-Per compilare un ambiente di sviluppo e test o un modello di prova di questa configurazione, vedere [Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Per compilare un ambiente di sviluppo e test o un modello di prova di questa configurazione, vedere [Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 Per altre informazioni sulla progettazione di carichi di lavoro IT per Azure, vedere [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-linux-infrastructure-service-guidelines.md).
 
@@ -93,4 +93,4 @@ Per altre informazioni sulla progettazione di carichi di lavoro IT per Azure, ve
 
 - Iniziare la configurazione di questo carico di lavoro dalla [Fase 1](virtual-machines-windows-ps-lob-ph1.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

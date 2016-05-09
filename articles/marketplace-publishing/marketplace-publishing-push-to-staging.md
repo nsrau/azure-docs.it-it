@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="04/25/2016"
    ms.author="hascipio"/>
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -29,32 +29,61 @@ In questo passaggio del processo di pubblicazione, sarà necessario fornire alcu
   > [AZURE.IMPORTANT] Tutti i campi devono essere completati, incluse le immagini, per poter passare alla gestione temporanea.
 
 ### Dettagli
-1. Immettere il riepilogo dell'offerta, un riepilogo più approfondito e la descrizione dell'offerta.
-2.	Caricare immagini delle specifiche richieste (menzionate nel portale di pubblicazione) in formato PNG, una per ogni dimensione.
+1. Immettere nella scheda **Dettagli** il titolo dell'offerta composto da 50 caratteri al massimo, il riepilogo dell'offerta di 100 caratteri al massimo, il riepilogo lungo dell'offerta di 256 caratteri al massimo, la descrizione dell'offerta di 1300 caratteri al massimo e il logo.
+2. Immettere nella scheda **Piani** il titolo dello SKU di 50 caratteri al massimo, il riepilogo dello SKU di 100 caratteri al massimo e la descrizione dello SKU di 2000 caratteri al massimo.
+3. Non immettere testi duplicati nell'offerta e nella descrizione dello SKU.
+4. Non immettere testi duplicati nel titolo dello SKU e nel riepilogo lungo dell'offerta.
+5. Non immettere testi duplicati nel titolo dello SKU e nel riepilogo dell'offerta.
+6. Caricare le immagini delle specifiche richieste indicate nel portale di pubblicazione in formato PNG, una per ogni dimensione.
+7. Assicurarsi che il logo sia conforme alle linee guida per il logo di Azure Marketplace riportate di seguito.
 
-  ![disegno](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![disegno](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *Titolo, descrizione e logo dell’offerta*
+**Linee guida per il Logo di Azure Marketplace**
+
+Ogni logo caricato nel portale di pubblicazione deve rispettare le seguenti linee guida:
+
+- La progettazione di Azure ha una tavolozza dei colori semplice. Mantenere un numero basso di colori primari e secondari nel logo.
+- Il logo non deve essere posizionato su uno sfondo bianco. È consigliabile usare colori primari semplici o sfondi trasparenti.
+- Non usare uno sfondo sfumato sul logo.
+- Evitare di inserire testo, anche il nome del marchio o della società, sul logo.
+- L'aspetto del logo deve essere semplice e senza sfumature.
+- Il logo non può essere allungato.
+- Il formato del logo piccolo deve essere di 40 X 40 pixel
+- Il formato del logo medio deve essere 90 X 90 pixel
+- Il formato del logo grande deve essere di 115 X 115 pixel
+- Il formato del logo largo deve essere di 255 X 115 pixel
+- Il formato del logo alto deve essere di 815 X 290 pixel
+
+  ![disegno](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**Indicazioni aggiuntive per il banner del logo alto:**
+
+- Il logo alto è facoltativo. È possibile scegliere di non caricare un logo alto.
+- Il nome visualizzato dell'autore, il titolo dello SKU, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati automaticamente all'interno del logo alto quando l'offerta viene pubblicata. Pertanto, non è necessario immetterli mentre si progetta il logo alto.
+- Dato che il nome visualizzato dell'autore, il titolo dello SKU e il riepilogo lungo dell'offerta vengono visualizzati in bianco, è consigliabile evitare di usare lo sfondo bianco o chiaro per l'icona alta.
+- Lasciare spazio per il testo sopra l'icona alta. Lo spazio per il testo è di 415 x 100, con uno scostamento verso sinistra di 370 pixel.
+
+  ![disegno](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Collegamenti
 Nella scheda dei **Collegamenti** sulla barra a sinistra immettere tutti i collegamenti con informazioni utili per i clienti. Immettere un nome e un URL per ogni collegamento.
 
-![disegno](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![disegno](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Immagini di esempio (facoltative)
 > [AZURE.NOTE] L’inclusione di un'immagine di esempio è un passaggio facoltativo. È possibile completare gli altri contenuti di marketing per soddisfare i requisiti per il push nella gestione temporanea.
 
 Nella scheda **Immagini di esempio** nel menu a sinistra caricare una nuova immagine facendo clic su **Carica una nuova immagine**. Se si dispone di un'immagine esistente e si desidera sostituirla, fare clic su **Sostituisci immagine**.
 
-![disegno](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### Piani
-![disegno](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![disegno](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### Note legali
-Nella scheda **Note legali** specificare un collegamento alle politiche/condizioni per l'utilizzo. Immettere o incollare le condizioni per l'utilizzo nella casella grande **Condizioni per l'utilizzo**.
+Nella scheda **Note legali** specificare un collegamento alle politiche/condizioni per l'utilizzo. Immettere o incollare le condizioni per l'utilizzo nella casella grande **Condizioni per l'utilizzo**. Il limite di caratteri per le condizioni per l'utilizzo è 1.000.000 caratteri.
 
-> [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando lo SKU è in gestione temporanea o attivo: **Identificatore offerta**, **Identificatore publisher** e **Identificatore SKU**.
+![disegno](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
+
+> [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando lo SKU è in gestione temporanea o attivo: **Identificatore offerta**, **Identificatore autore** e **Identificatore SKU**.
 
 ## Passaggio 2: Impostare i prezzi
 ### Modelli di prezzi
@@ -89,7 +118,7 @@ Nella scheda **Note legali** specificare un collegamento alle politiche/condizio
 5.	Verrà aperta una procedura guidata relativa ai prezzi. Eseguire tutti i passaggi per completare l'impostazione dei prezzi, inclusi quelli per gli altri paesi se si è scelto di consentire gli acquisti al di fuori del mercato specificato.
 6.	Alcuni paesi sono paesi di rimessa ISV. Per vendere in un paese di rimessa ISV, è necessario essere in grado di addebitare e tassare gli SKU, nonché di calcolare e pagare le imposte all'autorità del paese. Microsoft non è in condizione di fornire supporto legale o fiscale. Vedere la sezione "Vendere a paesi dell'offerta" nell'Introduzione di questo documento per ulteriori informazioni su "Vendere a paesi".
 
-  > [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando un SKU è attivo, poiché influisce sulla fatturazione dei clienti esistenti: **Modifica dei prezzi**, **Modifica del modello di fatturazione** e **Rimozione delle aree di fatturazione**.
+  > [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando uno SKU è attivo, poiché influisce sulla fatturazione dei clienti esistenti: **Modifica dei prezzi**, **Modifica del modello di fatturazione** e **Rimozione delle aree di fatturazione**.
 
 ### 2\.2. Impostare i prezzi del servizio di sviluppatore
 I piani possono essere qualsiasi combinazione di Base + Consumo, dove base è il prezzo mensile e l'eccedenza è il prezzo da pagare in base all’utilizzo. (Vedere di seguito per ulteriori dettagli).
@@ -107,7 +136,7 @@ I piani possono essere qualsiasi combinazione di Base + Consumo, dove base è il
 |Gold|$1,000/mese|Quota di 10.000 funzionalità X, 1.000 funzionalità Y e un numero illimitato di funzionalità Z.|È possibile eseguire la migrazione a tutti i piani, ad eccezione di quello gratuito|
 
 ## Passaggio 3: Fornire informazioni di supporto
-Alcune di queste informazioni verranno completate durante il passaggio di certificazione. È possibile aggiungere informazioni o modificarle come indicato nei passaggi seguenti. I dettagli di contatto vengono utilizzati per comunicazioni interne solo tra partner e Microsoft. L’URL del supporto sarà disponibile ai clienti finali.
+I dettagli di contatto vengono utilizzati per comunicazioni interne solo tra partner e Microsoft. L’URL del supporto sarà disponibile ai clienti finali.
 
 1.	Passare all'intestazione **Supporto** sul lato sinistro del portale di pubblicazione.
 2.	Immettere le informazioni nella sezione **Contatto tecnico**.
@@ -118,7 +147,7 @@ Alcune di queste informazioni verranno completate durante il passaggio di certif
 La scheda **Categorie** fornisce una matrice delle selezioni. L'offerta può essere associata a tali opzioni ed è possibile selezionare fino a cinque categorie.
 
 ## Visualizzazione del marketing
-Di seguito è riportata una visualizzazione dettagliata di come vengono utilizzate le informazioni di marketing dell’offerta nel [sito Web di Azure Marketplace](https://azure.microsoft.com/marketplace/) e nel [Portale di anteprima di Azure](https://ms.portal.azure.com).
+Di seguito è riportata una visualizzazione dettagliata di come vengono usate le informazioni di marketing dell'offerta nel [sito Web di Azure Marketplace](https://azure.microsoft.com/marketplace/) e nel [portale di Azure](https://portal.azure.com).
 
 ### Sito Web di Azure Marketplace
 ![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -135,14 +164,14 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono utilizza
 
 *Descrizione dei dettagli dei prezzi dell’offerta nel sito Web del marketplace di Azure*
 
-### Portale di anteprima di Azure
+### Portale di Azure
 ![disegno](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Elenco di offerte nel portale di anteprima di Azure*
+*Elenco di offerte nel portale di Azure*
 
 ![disegno](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Descrizione dei dettagli dell’offerta nel portale di anteprima di Azure*
+*Descrizione dei dettagli dell'offerta nel portale di Azure*
 
 ## Passaggi successivi
 Ora che il contenuto del Marketplace è caricato, è possibile passare al test dell'offerta nella gestione temporanea. Tuttavia, è necessario selezionare il tipo di offerta appropriato dall'elenco riportato di seguito, poiché i passaggi variano in base al tipo di offerta.
@@ -163,4 +192,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

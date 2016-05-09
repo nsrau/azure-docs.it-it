@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Anteprima di Servizi di dominio Azure Active Directory: Domande frequenti
@@ -36,18 +36,21 @@ Il servizio stesso non supporta direttamente questo scenario. Servizi di dominio
 PowerShell e la distribuzione automatizzata di Servizi di dominio Azure AD non sono attualmente disponibili.
 
 #### Servizi di dominio Azure AD è disponibile nel nuovo portale di Azure?
-No. È possibile configurare Servizi di dominio Azure AD solo nel portale di gestione di Azure precedente (ovvero https://manage.windowsazure.com). Microsoft prevede di estendere il supporto per il nuovo portale di gestione di Microsoft Azure (ovvero https://portal.azure.com) in futuro.
+No. È possibile configurare Servizi di dominio Azure AD solo nel [portale di Azure classico](https://manage.windowsazure.com). Microsoft prevede di estendere il supporto per il [portale di Azure](https://portal.azure.com) in futuro.
 
 #### È possibile aggiungere controller di dominio a un dominio gestito di Servizi di dominio Azure Active Directory?
 No. Il dominio fornito da Servizi di dominio Azure Active Directory è un dominio gestito. Non è necessario eseguire il provisioning, configurare o gestire in altro modo i controller di dominio per questo dominio. Queste attività di gestione vengono fornite come servizio da Microsoft. Non sarà quindi possibile aggiungere altri controller di dominio, di lettura-scrittura o sola lettura, per il dominio gestito.
 
 ### Amministrazione e gestione
 
+#### È possibile connettersi al controller di dominio per il dominio gestito tramite Desktop remoto?
+No. Poiché si tratta di un dominio gestito, non è possibile connettersi al controller di dominio per il dominio tramite Desktop remoto. I membri del gruppo "AAD DC Administrators" possono occuparsi del dominio gestito usando gli strumenti di amministrazione di Active Directory, ad esempio Centro amministrativo di Active Directory e Active Directory PowerShell. Tramite la funzionalità Strumenti di amministrazione remota del server, questi strumenti vengono installati su un server Windows aggiunto al dominio gestito.
+
 #### Dopo aver abilitato Servizi di dominio Azure AD, quale account utente è necessario usare per aggiungere i computer a questo dominio?
-Eventuali account utente aggiunti al gruppo amministrativo (ovvero 'AAD DC Administrators') potranno aggiungere computer al dominio. Gli utenti di questo gruppo, inoltre, sono autorizzati per l'accesso con Desktop remoto ai computer aggiunti al dominio.
+Qualsiasi account utente aggiunto al gruppo amministrativo, ad esempio il gruppo "AAD DC Administrators", sarà autorizzato ad aggiungere computer a questo dominio. Gli utenti di questo gruppo, inoltre, sono autorizzati per l'accesso con Desktop remoto ai computer aggiunti al dominio.
 
 #### È possibile esercitare i privilegi di amministratore di dominio per il dominio fornito da Servizi di dominio Azure AD?
-No. Trattandosi di un servizio gestito, non si disporrà dei privilegi amministrativi per il dominio. Questo significa che sia i privilegi di amministratore di dominio che di amministratore dell'organizzazione non saranno disponibili nel dominio. I gruppi di amministratori del dominio o di amministratori dell'organizzazione esistenti nella directory di Azure AD, inoltre, non disporranno di privilegi di amministratore del dominio/dell'organizzazione per questo dominio.
+No. Trattandosi di un servizio gestito, non è possibile avere privilegi amministrativi per il dominio. Questo significa che, per il dominio, non è possibile avere né privilegi di amministratore di dominio né di amministratore dell'organizzazione. Anche i gruppi di amministratori di dominio o dell'organizzazione esistenti nella directory di Azure AD non avranno privilegi di amministratore di dominio/dell'organizzazione per questo dominio.
 
 #### È possibile modificare le appartenenze ai gruppi tramite LDAP o altri strumenti di amministrazione di Active Directory nei domini forniti da Servizi di dominio Azure AD?
 No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti da Servizi di dominio Azure AD. Lo stesso vale per gli attributi utente. È tuttavia possibile modificare le appartenenze ai gruppi o gli attributi utente in Azure AD o nel dominio locale. Tali modifiche verranno sincronizzate automaticamente in Servizi di dominio Azure AD.
@@ -56,7 +59,7 @@ No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti d
 No. Lo schema è amministrato da Microsoft per il dominio gestito. Le estensioni dello schema non sono supportate da Servizi di dominio Azure Active Directory.
 
 #### È possibile modificare i record DNS forniti da Servizi di dominio di Azure AD?
-Sì. Gli utenti che fanno parte del gruppo amministrativo (ad esempio gli amministratori di controller di dominio di AAD) dispongono delle autorizzazioni di amministratore DNS per modificare i record DNS.
+Sì. Agli utenti del gruppo "AAD DC Administrators" vengono concessi privilegi di amministratore DNS per modificare i record DNS nel dominio gestito. Per la gestione DNS, questi utenti possono usare la console Gestore DNS su un computer con Windows Server aggiunto al dominio gestito. Per usare questa console, installare sul server Strumenti server DNS, una parte della funzionalità facoltativa Strumenti di amministrazione remota del server. Altre informazioni sulle [utilità di amministrazione, monitoraggio e risoluzione dei problemi DNS](https://technet.microsoft.com/library/cc753579.aspx) sono disponibili su TechNet.
 
 ### Fatturazione e disponibilità
 
@@ -67,7 +70,7 @@ Il servizio è disponibile a un prezzo ridotto speciale per la durata del period
 Questo servizio è incluso nella versione di valutazione gratuita di Azure. È possibile iscriversi per una [valutazione gratuita di un mese di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### È possibile ottenere Servizi di dominio Azure AD come parte di Enterprise Mobility Suite (EMS)?
-No. Servizi di dominio Azure AD è un servizio di Azure con pagamento in base al consumo e non fa parte di EMS. Servizi di dominio Azure AD è disponibile per tutti gli SKU di Azure AD (ovvero Free, Basic e Premium) e il servizio viene fatturato su base oraria in base all'utilizzo.
+No. Servizi di dominio Azure AD è un servizio di Azure con pagamento in base al consumo e non fa parte di EMS. Servizi di dominio Azure AD è disponibile per tutti gli SKU di Azure AD, ovvero Free, Basic e Premium e il servizio viene fatturato su base oraria in base all'uso.
 
 #### In quale aree di Azure è disponibile il servizio?
 Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure AD, fare riferimento alla [pagina delle aree](active-directory-ds-regions.md).
@@ -75,4 +78,4 @@ Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure A
 #### Quando sarà disponibile a livello generale Servizi di dominio Azure AD?
 Non è attualmente possibile condividere informazioni sulla tempistica prevista per la disponibilità del servizio a livello generale.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

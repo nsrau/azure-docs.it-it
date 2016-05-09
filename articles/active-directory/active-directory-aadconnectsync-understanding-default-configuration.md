@@ -11,8 +11,8 @@
     ms.workload="identity"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+	ms.topic="article"
+    ms.date="04/25/2016"
     ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
@@ -240,4 +240,4 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

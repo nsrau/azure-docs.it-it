@@ -77,11 +77,11 @@ Questa funzionalità è supportata solo per gli account di archiviazione di Azur
 
 -   Per registrarsi alla funzionalità, è possibile usare il cmdlet Register-AzureRmProviderFeature di PowerShell.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   Per eseguire query relative allo stato della registrazione, in modo da verificare se la sottoscrizione è stata approvata, è possibile usare il cmdlet Get-AzureRmProviderFeature di PowerShell.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 Quando per lo stato della registrazione viene restituito il valore "Registrata", la sottoscrizione è stata approvata. Visitare anche il gruppo relativo all'anteprima di Crittografia del servizio di archiviazione di Azure su Yammer.
 
@@ -225,4 +225,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,7 +3,7 @@
 	description="Questo argomento tratta le risorse create con il modello di distribuzione classica e descrive le funzionalità di Business Intelligence (BI) disponibili per SQL Server in esecuzione in macchine virtuali (VM) di Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # SQL Server Business Intelligence in Macchine virtuali di Azure
 
@@ -334,7 +334,7 @@ I passaggi descritti in questa sezione **riepilogano** l'installazione della mod
 
 1. Fare clic su **Avanti** nella pagina degli aggiornamenti del prodotto.
 
-1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server** e fare clic su **Avanti**.
+1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server ** e fare clic su **Avanti**.
 
 1. Nella pagina **Impostazione ruolo** fare clic su **Installazione funzionalità SQL Server**.
 
@@ -388,9 +388,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 	|Port|Tipo|Descrizione|
 |---|---|---|
-|**80**|TCP|Accesso remoto al server di report (*). | 
-|**1433**|TCP|SQL Server Management Studio (*).| 
-|**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
+|**80**|TCP|Accesso remoto al server di report (*). | |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
 |**2382**|TCP|Browser SQL Server.|
 |**2383**|TCP|Istanza predefinita di SQL Server Analysis Services e cluster delle istanze denominate.|
 |**Definito dall'utente**|TCP|Creare una porta statica dell’istanza Analysis Services per un numero di porta e sbloccare il numero di porta nel firewall.|
@@ -433,4 +431,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
