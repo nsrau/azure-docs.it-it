@@ -18,7 +18,7 @@
 
 # Come usare la gestione dei servizi da Python
 
-In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](../python-how-to-install.md) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
+In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](../python-how-to-install.md) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] \(ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
 
 > [AZURE.NOTE] L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima. Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
 
@@ -433,6 +433,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[servizio cloud]: https://azure.microsoft.com/it-IT/documentation/services/cloud-services/
+[servizio cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0427_2016-->

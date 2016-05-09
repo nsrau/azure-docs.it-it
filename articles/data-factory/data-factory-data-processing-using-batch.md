@@ -761,11 +761,11 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 	-   **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di <spazio dei nomi>.<nomeclasse> nel codice.
+	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di \<spazio dei nomi\>.\<nomeclasse\> nel codice.
 
 	-   **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato lo stesso account di archiviazione di Azure.
 
-	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: <contenitoreperlozip>/<nomedellozip.zip>.
+	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: \<contenitoreperlozip\>/\<nomedellozip.zip\>.
 
 	-   L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
 

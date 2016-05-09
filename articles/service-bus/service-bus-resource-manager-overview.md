@@ -251,6 +251,6 @@ Finora sono stati illustrati il flusso di lavoro di base e i comandi per la dist
 
 [Panoramica di Gestione risorse di Azure]: ../resource-group-overview.md
 [Distribuire le risorse con i modelli di Azure Resource Manager]: ../resource-group-template-deploy.md
-[Modelli di avvio rapido di Azure]: https://azure.microsoft.com/it-IT/documentation/templates/?term=service+bus
+[Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 <!---HONumber=AcomDC_0427_2016-->

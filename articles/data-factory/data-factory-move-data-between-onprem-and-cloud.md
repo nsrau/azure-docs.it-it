@@ -104,7 +104,12 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 
 | Nomi di dominio | Porte | Descrizione |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | | *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | 
+| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
 

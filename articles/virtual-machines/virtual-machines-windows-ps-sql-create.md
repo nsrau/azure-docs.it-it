@@ -26,7 +26,7 @@
 
 Questa esercitazione illustra come creare una singola macchina virtuale di Azure usando il modello di distribuzione **Azure Resource Manager** con i cmdlet di Azure PowerShell. In questa esercitazione verrà creata una singola macchina virtuale con una singola unità disco da un'immagine di SQL Gallery. Verranno creati nuovi provider per le risorse di archiviazione, rete e calcolo che verranno usate dalla macchina virtuale. Se esistono già provider per queste risorse, è possibile usarli.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica. Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con la versione classica di Azure PowerShell](virtual-machines-windows-classic-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica. Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con la versione classica di Azure PowerShell](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Prerequisiti
 
