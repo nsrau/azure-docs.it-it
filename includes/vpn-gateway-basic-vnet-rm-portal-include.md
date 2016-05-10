@@ -19,7 +19,7 @@ Per altre informazioni sull'uso delle reti virtuali, vedere [Panoramica della re
 
 5. Verificare che la **Sottoscrizione** sia quella corretta. È possibile modificare le sottoscrizioni tramite l'elenco a discesa.
 
-6. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo digitandone il nome. Se si crea un nuovo gruppo, denominare il gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
+6. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo digitandone il nome. Se si crea un nuovo gruppo, denominare il gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
 
 7. Selezionare quindi le impostazioni relative alla **Località** per la rete virtuale. Si noti che questa impostazione determinerà la posizione in cui risiedono le risorse che si distribuiscono in questa rete virtuale. Non è possibile modificare questa impostazione in un secondo momento senza ridistribuire le risorse.
 
@@ -32,4 +32,4 @@ Per altre informazioni sull'uso delle reti virtuali, vedere [Panoramica della re
 
 	![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

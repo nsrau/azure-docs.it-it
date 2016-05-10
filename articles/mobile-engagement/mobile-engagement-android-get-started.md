@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="04/08/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Introduzione a Azure Mobile Engagement per app Android
@@ -36,7 +36,7 @@ Per completare questa esercitazione, è necessario disporre di [Android Develope
 
 ## Connettere l'app al back-end di Mobile Engagement
 
-Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione relativa all'integrazione completa è disponibile nelle [procedure di integrazione di Mobile Engagement SDK per Android](../mobile-engagement-android-sdk-overview/).
+Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione relativa all'integrazione completa è disponibile nelle [procedure di integrazione di Mobile Engagement SDK per Android](mobile-engagement-android-sdk-overview.md).
 
 Si creerà un'app di base con Android Studio per illustrare l'integrazione.
 
@@ -175,4 +175,4 @@ Mobile Engagement consente di interagire con gli utenti e COINVOLGERLI tramite n
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

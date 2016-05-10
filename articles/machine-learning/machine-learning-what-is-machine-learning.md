@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/02/2016"
+    ms.date="04/28/2016"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -55,7 +55,7 @@ Azure Machine Learning include tutto quanto è necessario per creare soluzioni d
 * Usare una grande libreria di [moduli e algoritmi di Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio per implementare rapidamente i modelli predittivi. Scegliere da una libreria esperimenti di esempio, pacchetti R e Python e i migliori algoritmi di aziende Microsoft, come Xbox e Bing. Estendere i moduli di Studio con gli script [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizzati.
 * In [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) è possibile provare soluzioni di analisi create da altri utenti o pubblicare i propri servizi di Azure, tra cui Machine Learning, HDInsight (Hadoop), analisi di flusso, Analisi Data Lake, nonché i servizi di gestione dati e archivi Big Data di Azure. Inviare domande o commenti sugli esperimenti nella community oppure condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.  
 
-	![Provare gli esperimenti predittivi o pubblicare il proprio esperimento in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Provare gli esperimenti predittivi o pubblicare il proprio esperimento in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 
 ### Rendere operative le soluzioni di analisi predittiva: acquistare servizi Web o pubblicare i propri
 
@@ -118,4 +118,4 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

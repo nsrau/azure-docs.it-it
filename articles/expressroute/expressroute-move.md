@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica a quello di Resource Manager | Microsoft Azure"
-   description="Questa pagina offre una panoramica delle informazioni utili sul bridging dei modelli di distribuzione classica e di Resource Manager."
+   pageTitle="Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager | Microsoft Azure"
+   description="Questo articolo offre una panoramica delle informazioni utili sul bridging dei modelli di distribuzione Resource Manager e classica."
    documentationCenter="na"
    services="expressroute"
    authors="ganesr"
@@ -15,60 +15,64 @@
    ms.date="04/01/2016"
    ms.author="ganesr"/>
 
-# Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica a quello di Resource Manager
+# Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
 
-Questo articolo offre una panoramica di che cosa si intenda per spostamento di un circuito ExpressRoute dal modello di distribuzione classica a quello di Resource Manager.
+Questo articolo offre una panoramica di cosa si intende per spostamento di un circuito Azure ExpressRoute dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Per connettersi alle reti virtuali distribuite con i modelli di distribuzione sia classica che di Resource Manager, si può usare un solo circuito ExpressRoute. Un circuito ExpressRoute, indipendentemente da come viene creato, ora può essere collegato alle reti virtuali in entrambi i modelli di distribuzione.
+Per connettersi alle reti virtuali distribuite nei modelli di distribuzione Resource Manager o classica è possibile usare un solo circuito ExpressRoute. Indipendentemente da come viene creato, un circuito ExpressRoute ora può essere collegato alle reti virtuali in entrambi i modelli di distribuzione.
 
-![](./media/expressroute-move/expressroute-move-1.png)
+![Circuito ExpressRoute collegato a reti virtuali in entrambi i modelli di distribuzione](./media/expressroute-move/expressroute-move-1.png)
 
 ## Circuiti ExpressRoute creati nel modello di distribuzione classica
 
-I circuiti ExpressRoute creati nel modello di distribuzione classica dovranno essere spostati nel modello di distribuzione di Resource Manager prima di abilitare la connettività ai modelli di distribuzione sia classica che di Resource Manager Non si verificheranno perdite o interruzioni della connettività durante lo spostamento di una connessione. Tutti i collegamenti circuito-rete virtuale nel modello di distribuzione classica (nella stessa sottoscrizione e tra sottoscrizioni) verranno mantenuti. Al termine dello spostamento, il circuito ExpressRoute avrà esattamente lo stesso aspetto e le stesse prestazioni di un circuito ExpressRoute creato nel modello di distribuzione di Resource Manager. Ora sarà possibile creare le connessioni alle reti virtuali nel modello di distribuzione di Resource Manager.
+I circuiti ExpressRoute creati nel modello di distribuzione classica devono prima essere spostati nel modello di distribuzione Resource Manager per abilitare la connettività a entrambi i modelli di distribuzione. Non si verificano perdite o interruzioni della connettività durante lo spostamento di una connessione. Vengono mantenuti tutti i collegamenti circuito-rete virtuale nel modello di distribuzione classica, nella stessa sottoscrizione e tra sottoscrizioni.
 
-Una volta spostato un circuito ExpressRoute nel modello di distribuzione di Resource Manager, sarà possibile gestire il ciclo di vita del circuito ExpressRoute solo usando il modello di distribuzione Resource Manager. Quindi operazioni come l'aggiunta/aggiornamento/eliminazione di peering, l'aggiornamento di proprietà dei circuiti, ad esempio la larghezza di banda, la SKU e il tipo di fatturazione, e l'eliminazione dei circuiti possono essere eseguite solo nel modello di distribuzione di Resource Manager. Vedere la sezione seguente sui circuiti creati nel modello di distribuzione di Resource Manager per altri dettagli su come sia possibile gestire l'accesso a entrambi i modelli di distribuzione.
+Al termine dello spostamento, il circuito ExpressRoute ha esattamente lo stesso aspetto e le stesse prestazioni di un circuito ExpressRoute creato nel modello di distribuzione Resource Manager. Ora è possibile creare le connessioni alle reti virtuali nel modello di distribuzione Resource Manager.
+
+Dopo aver spostato un circuito ExpressRoute nel modello di distribuzione Resource Manager, il ciclo di vita del circuito ExpressRoute può essere gestito unicamente con il modello di distribuzione Resource Manager. Ciò significa che operazioni come l'aggiunta, l'aggiornamento o l'eliminazione di peering, l'aggiornamento di proprietà dei circuiti, ad esempio la larghezza di banda, lo SKU e il tipo di fatturazione, e l'eliminazione dei circuiti possono essere eseguite solo nel modello di distribuzione Resource Manager. Vedere la sezione seguente sui circuiti creati nel modello di distribuzione Resource Manager per altri dettagli su come gestire l'accesso a entrambi i modelli di distribuzione.
 
 Per eseguire lo spostamento, non è necessario coinvolgere il provider di connettività.
 
-## Circuiti ExpressRoute creati nel modello di distribuzione di Resource Manager
+## Circuiti ExpressRoute creati nel modello di distribuzione Resource Manager
 
-È possibile fare in modo che i circuiti ExpressRoute creati nel modello di distribuzione di Resource Manager siano accessibili da entrambi i modelli di distribuzione. È possibile fare in modo che un circuito ExpressRoute nella sottoscrizione sia accessibile da entrambi i modelli di distribuzione.
+È possibile fare in modo che i circuiti ExpressRoute creati nel modello di distribuzione Resource Manager siano accessibili da entrambi i modelli di distribuzione. È possibile fare in modo che un circuito ExpressRoute nella sottoscrizione sia accessibile da entrambi i modelli di distribuzione.
 
-- I circuiti ExpressRoute creati nel modello di distribuzione di Resource Manager non avranno accesso al modello di distribuzione classica per impostazione predefinita.
-- I circuiti ExpressRoute che sono stati spostati dal modello di distribuzione classica al modello di distribuzione di Resource Manager saranno accessibili da entrambi i modelli di distribuzione per impostazione predefinita.
-- Un circuito ExpressRoute avrà sempre accesso al modello di distribuzione di Resource Manager indipendentemente dal fatto che sia stato creato nel modello di distribuzione di Resource Manager o nel modello di distribuzione classica. Ciò significa che è possibile creare connessioni alle reti virtuali create nel modello di distribuzione di Resource Manager seguendo le istruzioni su [come collegare le reti virtuali](expressroute-howto-linkvnet-arm.md). 
-- L'accesso al modello di distribuzione classica è controllato dal parametro "allowClassicOperations" nel circuito ExpressRoute. 
+- I circuiti ExpressRoute creati nel modello di distribuzione Resource Manager non hanno accesso al modello di distribuzione classica per impostazione predefinita.
+- I circuiti ExpressRoute che sono stati spostati dal modello di distribuzione classica al modello di distribuzione Resource Manager sono accessibili da entrambi i modelli di distribuzione per impostazione predefinita.
+- Un circuito ExpressRoute ha sempre accesso al modello di distribuzione Resource Manager, indipendentemente dal modello di distribuzione, classica o Resource Manager, in cui è stato creato. Ciò significa che è possibile creare connessioni alle reti virtuali create nel modello di distribuzione Resource Manager seguendo le istruzioni su [come collegare le reti virtuali](expressroute-howto-linkvnet-arm.md).
+- L'accesso al modello di distribuzione classica è controllato dal parametro **allowClassicOperations** nel circuito ExpressRoute.
 
->[AZURE.IMPORTANT] Verranno applicate tutte le quote documentate nella pagina relativa ai [limiti dei servizi](../azure-subscription-service-limits.md). Ad esempio, un circuito standard può avere al massimo 10 collegamenti/connessioni alle reti virtuali sia nel modello di distribuzione classica che in quello di Resource Manager.
+>[AZURE.IMPORTANT] Vengono applicate tutte le quote documentate nella pagina relativa ai [limiti dei servizi](../azure-subscription-service-limits.md). Ad esempio, un circuito standard può avere al massimo 10 collegamenti/connessioni di rete virtuale sia nel modello di distribuzione classica che nel modello di distribuzione Resource Manager.
 
 
-### Controllo dell'accesso al modello di distribuzione classica
+## Controllo dell'accesso al modello di distribuzione classica
 
-È possibile abilitare un circuito ExpressRoute per il collegamento alle reti virtuali in entrambi i modelli di distribuzione impostando il parametro "allowClassicOperations" del circuito ExpressRoute.
+È possibile abilitare un unico circuito ExpressRoute per il collegamento alle reti virtuali in entrambi i modelli di distribuzione impostando il parametro **allowClassicOperations** del circuito ExpressRoute.
 
-Impostando "allowClassicOperations" su TRUE, sarà possibile collegare le reti virtuali da entrambi i modelli di distribuzione al circuito ExpressRoute. Per creare i collegamenti alle reti virtuali nel modello di distribuzione classica, seguire le istruzioni su [come collegare le reti virtuali nel modello di distribuzione classica](expressroute-howto-linkvnet-classic.md). Per creare i collegamenti alle reti virtuali nel modello di distribuzione di Resource Manager, seguire le istruzioni su [come collegare le reti virtuali nel modello di distribuzione di Resource Manager](expressroute-howto-linkvnet-arm.md).
+Impostando **allowClassicOperations** su TRUE è possibile collegare le reti virtuali da entrambi i modelli di distribuzione al circuito ExpressRoute. Per creare i collegamenti alle reti virtuali nel modello di distribuzione classica, seguire le istruzioni su [come collegare le reti virtuali nel modello di distribuzione classica](expressroute-howto-linkvnet-classic.md). Per creare i collegamenti alle reti virtuali nel modello di distribuzione Resource Manager, seguire le istruzioni su [come collegare le reti virtuali nel modello di distribuzione Resource Manager](expressroute-howto-linkvnet-arm.md).
 
-Impostando "allowClassicOperations" su FALSE, verrà bloccato l'accesso al circuito dal modello di distribuzione classica. Tutti i collegamenti alle reti virtuali nel modello di distribuzione classica verranno tuttavia conservati. In questo caso, il circuito ExpressRoute non sarà visibile nel modello di distribuzione classica.
+Impostando **allowClassicOperations** su FALSE viene bloccato l'accesso al circuito dal modello di distribuzione classica. Tuttavia, tutti i collegamenti alle reti virtuali nel modello di distribuzione classica vengono conservati. In tal caso il circuito ExpressRoute non è visibile nel modello di distribuzione classica.
 
-### Operazioni supportate nel modello di distribuzione classica
+## Operazioni supportate nel modello di distribuzione classica
 
-Le operazioni classiche seguenti sono supportate in un circuito ExpressRoute quando "allowClassicOperations" è impostato su TRUE.
+Le operazioni classiche seguenti sono supportate in un circuito ExpressRoute quando **allowClassicOperations** è impostato su TRUE:
 
- - Ottenere informazioni sul circuito ExpressRoute
- - Creare/Aggiornare/Ottenere/Eliminare i collegamenti delle reti virtuali alle reti virtuali classiche
- - Creare/Aggiornare/Ottenere/Eliminare le autorizzazioni per i collegamenti delle reti virtuali per la connettività tra sottoscrizioni
+ - Ottenere informazioni sul circuito ExpressRoute.
+ - Creare, aggiornare, ottenere o eliminare collegamenti alle reti virtuali classiche.
+ - Creare, aggiornare, ottenere o eliminare autorizzazioni dei collegamenti alle reti virtuali per la connettività tra sottoscrizioni.
 
-Non sarà possibile eseguire le operazioni classiche seguenti quando "allowClassicOperations" è impostato su TRUE.
+Non è possibile eseguire le operazioni classiche seguenti quando **allowClassicOperations** è impostato su TRUE:
 
- - Creare/Aggiornare/Ottenere/Eliminare i peering BGP per i peering privati di Azure, pubblici di Azure e Microsoft
- - Eliminare un circuito ExpressRoute
+ - Creare, aggiornare, ottenere o eliminare peering BGP (Border Gateway Protocol) per peering pubblici e privati di Azure e peering Microsoft.
+ - Eliminare circuiti ExpressRoute.
 
-## Comunicazione dalla distribuzione classica alla distribuzione di Resource Manager
+## Comunicazione tra i modelli di distribuzione Resource Manager e classica
 
-Il circuito ExpressRoute fungerà da ponte tra i modelli di distribuzione classica e quello di Resource Manager. Il traffico tra le macchine virtuali distribuite nelle reti virtuali nel modello di distribuzione classica e quelle distribuite nelle reti virtuali nel modello di distribuzione di Resource Manager scorrerà attraverso ExpressRoute se entrambe le reti virtuali sono collegate allo stesso circuito ExpressRoute. La velocità effettiva aggregata verrà limitata dalla capacità di velocità effettiva del gateway di rete virtuale. In questi casi, il traffico non avrà accesso alle reti dell'utente o del provider di connettività. Il flusso del traffico tra le reti virtuali sarà interamente contenuto nella rete Microsoft.
+Il circuito ExpressRoute fa da bridge tra il modello di distribuzione classica e il modello di distribuzione Resource Manager. Il traffico tra le macchine virtuali nelle reti virtuali del modello di distribuzione classica e quelle nelle reti virtuali del modello di distribuzione Resource Manager passa attraverso ExpressRoute se entrambe le reti virtuali sono collegate allo stesso circuito ExpressRoute.
+
+La velocità effettiva aggregata è limitata dalla capacità di velocità effettiva del gateway di rete virtuale. In questi casi il traffico non ha accesso alle reti dell'utente o del provider di connettività. Il flusso del traffico tra le reti virtuali è interamente contenuto nella rete Microsoft.
 
 ## Accesso alle risorse di peering Microsoft e peering pubblico di Azure
 
@@ -76,34 +80,34 @@ Il circuito ExpressRoute fungerà da ponte tra i modelli di distribuzione classi
 
 ## Attività supportate
 
-Questa sezione descrive che cosa è supportato con questa funzionalità
+Questa sezione descrive le attività supportate per i circuiti ExpressRoute:
 
- - Per accedere alle reti virtuali distribuite con i modelli di distribuzione sia classica che di Resource Manager, si può usare un solo circuito ExpressRoute.
- - È possibile spostare un circuito ExpressRoute dal modello di distribuzione classica a quello di Resource Manager. Una volta spostato, il circuito ExpressRoute avrà lo stesso aspetto e le stesse prestazioni di qualsiasi altro circuito ExpressRoute creato nel modello di distribuzione di Resource Manager.
- - Solo il circuito ExpressRoute può essere spostato. I gateway VPN, le reti virtuali e i collegamenti del circuito non verranno spostati con questa operazione.
- - Una volta spostato un circuito ExpressRoute nel modello di distribuzione di Resource Manager, sarà possibile gestire il ciclo di vita del circuito ExpressRoute solo usando il modello di distribuzione Resource Manager. Quindi operazioni come l'aggiunta/aggiornamento/eliminazione di peering, l'aggiornamento di proprietà dei circuiti, ad esempio la larghezza di banda, la SKU e il tipo di fatturazione, e l'eliminazione dei circuiti possono essere eseguite solo nel modello di distribuzione di Resource Manager.
- - Il circuito ExpressRoute fungerà da ponte tra i modelli di distribuzione classica e quello di Resource Manager. Il traffico tra le macchine virtuali distribuite nelle reti virtuali nel modello di distribuzione classica e quelle distribuite nelle reti virtuali nel modello di distribuzione di Resource Manager scorrerà attraverso ExpressRoute se entrambe le reti virtuali sono collegate allo stesso circuito ExpressRoute. 
- - Connettività tra sottoscrizioni sia nel modello di distribuzione classica che in quello di Resource Manager.
+ - Per accedere alle reti virtuali distribuite nei modelli di distribuzione Resource Manager o classica, è possibile usare un solo circuito ExpressRoute.
+ - È possibile spostare un circuito ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager. Dopo lo spostamento, il circuito ExpressRoute ha lo stesso aspetto e le stesse prestazioni di qualsiasi altro circuito ExpressRoute creato nel modello di distribuzione Resource Manager.
+ - Solo il circuito ExpressRoute può essere spostato. I gateway VPN, le reti virtuali e i collegamenti del circuito non possono essere spostati con questa operazione.
+ - Dopo aver spostato un circuito ExpressRoute nel modello di distribuzione Resource Manager, il ciclo di vita del circuito ExpressRoute può essere gestito unicamente con il modello di distribuzione Resource Manager. Ciò significa che operazioni come l'aggiunta, l'aggiornamento o l'eliminazione di peering, l'aggiornamento di proprietà dei circuiti, ad esempio la larghezza di banda, lo SKU e il tipo di fatturazione, e l'eliminazione dei circuiti possono essere eseguite solo nel modello di distribuzione Resource Manager.
+ - Il circuito ExpressRoute fa da bridge tra il modello di distribuzione classica e il modello di distribuzione Resource Manager. Il traffico tra le macchine virtuali nelle reti virtuali del modello di distribuzione classica e quelle nelle reti virtuali del modello di distribuzione Resource Manager passa attraverso ExpressRoute se entrambe le reti virtuali sono collegate allo stesso circuito ExpressRoute.
+ - La connettività tra sottoscrizioni è supportata sia nel modello di distribuzione classica che nel modello di distribuzione Resource Manager.
 
-## Attività NON supportate
+## Attività non supportate
 
-Questa sezione descrive che cosa non è supportato con questa funzionalità
+Questa sezione descrive le attività non supportate per i circuiti ExpressRoute:
 
- - Spostamento delle rete virtuali, dei gateway e dei collegamenti del circuito dal modello di distribuzione classica a quello di Resource Manager.
- - Gestione del ciclo di vita del circuito ExpressRoute dal modello di distribuzione classica.
- - Supporto del controllo degli accessi in base al ruolo per il modello di distribuzione classica. Non sarà possibile eseguire i controlli degli accessi in base al ruolo per il circuito nel modello di distribuzione classica. Tutti gli amministratori/coamministratori della sottoscrizione potranno collegare/scollegare le reti virtuali nel circuito.
+ - Spostamento delle reti virtuali, dei gateway e dei collegamenti del circuito dal modello di distribuzione classica al modello di distribuzione Resource Manager.
+ - Gestione del ciclo di vita di un circuito ExpressRoute dal modello di distribuzione classica.
+ - Supporto del Controllo degli accessi in base al ruolo per il modello di distribuzione classica. Non è possibile eseguire il Controllo degli accessi in base al ruolo per un circuito nel modello di distribuzione classica. Qualsiasi amministratore o coamministratore della sottoscrizione può collegare o scollegare le reti virtuali dal circuito.
 
 ## Configurazione
 
-Seguire le istruzioni descritte in [Spostamento di un circuito ExpressRoute dal modello di distribuzione classica a quello di Resource Manager](expressroute-howto-move-arm.md)
+Vedere le istruzioni riportate nell'articolo [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-howto-move-arm.md).
 
 ## Passaggi successivi
 
 - Per informazioni sul flusso di lavoro, vedere [Flussi di lavoro e stati di provisioning di un circuito ExpressRoute](expressroute-workflows.md).
-- Configurare la connessione ExpressRoute.
+- Per configurare la connessione ExpressRoute:
 
 	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
 	- [Configurare il routing](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

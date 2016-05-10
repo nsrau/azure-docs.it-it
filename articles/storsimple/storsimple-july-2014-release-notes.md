@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Note sulla versione di rilascio di StorSimple serie 8000 - Luglio 2014 
@@ -42,4 +42,4 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0427_2016-->

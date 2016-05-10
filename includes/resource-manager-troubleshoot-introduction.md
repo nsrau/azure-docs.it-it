@@ -1,5 +1,7 @@
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
+È possibile risolvere i problemi relativi alla distribuzione esaminando i log di controllo o le operazioni di distribuzione. Questo argomento illustra entrambi i metodi.
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](../articles/resource-group-template-deploy.md).
+È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Per altre informazioni, vedere [Distribuire un gruppo di risorse con un modello Azure Resource Manager](../articles/resource-group-template-deploy.md).
 
-For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](../articles/resource-manager-common-deployment-errors.md).
+Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../articles/resource-manager-common-deployment-errors.md).
+
+<!---HONumber=AcomDC_0427_2016-->

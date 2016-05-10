@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Gestione dei nomi di dominio personalizzati in Azure Active Directory
@@ -74,10 +74,10 @@ La maggior parte delle attività di gestione relative ai nomi di dominio in Azur
 
 -   [Uso dell'API Graph per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-**Passaggi successivi**
+## Passaggi successivi
 
 -   [Informazioni sui nomi di dominio in Azure AD](active-directory-add-domain-concepts.md)
 
 -   [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

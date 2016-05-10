@@ -3,7 +3,7 @@
 	description="Usare la libreria client del database elastico e Entity Framework per la codifica di database" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/26/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Libreria client dei database elastici con Entity Framework 
@@ -281,4 +281,4 @@ Seguendo le procedure descritte in questo documento, le applicazioni Entity Fram
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

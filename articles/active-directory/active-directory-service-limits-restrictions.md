@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/01/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Restrizioni e limiti del servizio Azure AD
@@ -26,4 +26,4 @@ Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vede
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

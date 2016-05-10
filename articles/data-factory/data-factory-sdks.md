@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Guida di riferimento per gli sviluppatori di Data factory di Azure
 
-È possibile creare, monitorare e gestire le factory con il portale di Azure classico, Azure PowerShell, la libreria di classi .NET o con API REST.
+È possibile creare, monitorare e gestire le factory con il portale di Azure, Azure PowerShell, la libreria di classi .NET o con API REST.
 
 Metodo | Percorso della risorsa | Riferimenti per gli sviluppatori
 ---------------------------------------------------- | ------------------------------ | -----------
@@ -30,4 +30,4 @@ API REST | È possibile usare l'API REST di Data factory per creare, monitorare 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

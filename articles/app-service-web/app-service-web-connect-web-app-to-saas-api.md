@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-web"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
 	ms.date="02/26/2016"
@@ -89,4 +89,4 @@ Seguire le istruzioni fornite in [Come distribuire un'app Web di Azure](web-site
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

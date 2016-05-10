@@ -18,13 +18,7 @@
 
 # Django e MySQL in Azure con Python Tools 2.2 per Visual Studio 
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [schede](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 In questa esercitazione si userà [Python Tools per Visual Studio] al fine di creare una semplice app Web per sondaggi con uno dei modelli di esempio PTVS. Questa esercitazione è anche disponibile in formato [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
@@ -217,4 +211,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/p
 [MySQL]: http://www.mysql.com/
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

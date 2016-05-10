@@ -18,7 +18,7 @@
 
 # Come usare la gestione dei servizi da Python
 
-In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](../python-how-to-install.md) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
+In questa guida verrà descritto come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](../python-how-to-install.md) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] \(ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
 
 > [AZURE.NOTE] L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima. Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
 
@@ -39,11 +39,11 @@ Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sotto
 ### Certificati di gestione in Windows/Mac/Linux (OpenSSL)
 Per creare il certificato di gestione, è possibile usare [OpenSSL](http://www.openssl.org/). È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem`, eseguire il comando seguente:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Per creare il certificato `.cer`, eseguire il comando seguente:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Per altre informazioni sui certificati di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](./cloud-services-certs-create.md). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -433,6 +433,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[servizio cloud]: https://azure.microsoft.com/it-IT/documentation/services/cloud-services/
+[servizio cloud]: https://azure.microsoft.com/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

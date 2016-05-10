@@ -37,7 +37,7 @@ In primo luogo, è necessario creare un'applicazione di Azure Active Directory (
 
 3. Immettere un nome per l'applicazione, selezionare **App Web/API**, quindi fare clic sul pulsante **Avanti**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Nuova applicazione")
 
-4. In **URL di accesso** immettere: **http://login.windows.net*. In **URI ID app** immettere un URI univoco. Selezionare quindi **Completa**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Nuova seconda applicazione")
+4. In **URL di accesso** immettere: **http://login.windows.net**. In **URI ID app** immettere un URI univoco. Selezionare quindi **Completa**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Nuova seconda applicazione")
 
 5. Una volta creata l'applicazione di ADD, selezionare la scheda **Configura**. In questa scheda è possibile configurare le autorizzazioni per l'applicazione.
 

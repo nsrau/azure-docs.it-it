@@ -34,6 +34,7 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 |Operazione completata|	Area|	Categoria|	Domanda
 |----|------|-----------|-----------
 ||Tutti i servizi|	Obiettivi di scalabilità|[L'applicazione è progettata per evitare di raggiungere gli obiettivi di scalabilità?](#subheading1)
+||Tutti i servizi|	Obiettivi di scalabilità|[La convenzione di denominazione è stata progettata per consentire un miglior bilanciamento del carico?](#subheading47)
 ||Tutti i servizi|	Rete|	[I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#subheading2)
 ||Tutti i servizi|	Rete|	[I dispositivi sul lato client hanno un collegamento di qualità adeguata?](#subheading3)
 ||Tutti i servizi|	Rete|	[L'applicazione client è "accanto" all'account di archiviazione?](#subheading4)
@@ -105,8 +106,17 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 ####Risorse utili
 I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità:
 -	Per informazioni sugli obiettivi di scalabilità, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
--	Per informazioni sulle opzioni di ridondanza di archiviazione, vedere [Replica di Archiviazione di Azure](storage-redundancy.md) e il post di blog relativo alle [opzioni di ridondanza di Archiviazione di Azure e archiviazione con ridondanza geografica con accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx).
+-	Per informazioni sulle opzioni di ridondanza di archiviazione, vedere [Replica di Archiviazione di Azure](storage-redundancy.md) e il post di blog relativo alle [opzioni di ridondanza di Archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx).
 -	Per informazioni aggiornate sui prezzi dei servizi Azure, vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/overview/).  
+
+###<a name="subheading47"></a>Convenzione di denominazione delle partizioni
+Archiviazione di Azure usa uno schema di partizionamento basato sugli intervalli per la scalatura e il bilanciamento del carico del sistema. La chiave di partizione è usata per suddividere i dati in intervalli; tali intervalli vengono bilanciati a livello di carico nell'intero sistema. Ciò significa che le convenzioni di denominazione quali l'ordinamento lessicale (ad esempio msftpayroll, msftperformance, msftemployees e così via) o l'uso di timestamp (log20160101, log20160102, log20160102 e così via) determinano la possibilità che le partizioni vengano condivise nello stesso server di partizioni, finché un'operazione di bilanciamento del carico non le suddivide in intervalli più piccoli. Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un'ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con carico ridotto i cui nomi sono disposti in ordine lessicale può essere servito da un unico server, fino a quando il carico di uno o di tutti gli account non ne richiede la suddivisione su più server di partizioni. Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del sistema di gestire un improvviso picco di traffico destinato a una partizione è limitata dalla scalabilità di un singolo server di partizioni, fino a quando non viene attivata l'operazione di bilanciamento del carico che torna a bilanciare l'intervallo di chiavi di partizione.
+
+Alcune procedure consigliate consentono di ridurre la frequenza di queste operazioni.
+
+-	Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Considerare l'aggiunta di un prefisso ai nomi di account con un hash di 3 cifre, mediante la funzione di hashing più adatta alle esigenze.  
+-	Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Ad esempio, se sono presenti operazioni giornaliere che usano un oggetto BLOB con un timestamp quale aaaammgg, tutto il traffico dell'operazione giornaliera viene indirizzato a un singolo oggetto, gestito da un unico server di partizioni. Verificare se i limiti per blob e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio nomi della chiave. Se l'uso di timestamp o ID numerici è imprescindibile, apporre come prefisso un hash di 3 cifre. Nel caso dei timestamp, aggiungere come prefisso i secondi nella stringa di data/ora, ad esempio ssaaaammgg. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.  
+-	Per altre informazioni sullo schema di partizionamento usato in Archiviazione di Azure, leggere il documento SOSP [qui](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ###Rete
 Oltre alle chiamate API, anche i vincoli fisici della rete dell'applicazione hanno spesso effetti significativi sulle prestazioni. Di seguito vengono descritte alcune limitazioni che gli utenti possono incontrare.
@@ -119,7 +129,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva. L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.
 
 #####Risorse utili
-Per altre informazioni sulle dimensioni della macchina virtuale e la larghezza di banda allocata, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md).
+Per altre informazioni sulle dimensioni della macchina virtuale e sulla larghezza di banda allocata, vedere [Dimensioni della macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Dimensioni della macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Posizione
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un sito Web di Azure che usa l'archiviazione di Azure, posizionare entrambi in un'unica area (ad esempio, Stati Uniti occidentali o Asia sudorientale). In questo modo si riducono latenza e costi. Attualmente, infatti, l'uso della larghezza di banda in un'unica area è gratuito.
@@ -229,7 +239,7 @@ Le copie nello stesso account di archiviazione vengono generalmente completate r
 Per altre informazioni, vedere [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usare AzCopy
-Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni su questa utilità e per scaricarla, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
+Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni sullo strumento e per scaricarlo, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Servizio di importazione/esportazione di Azure
 Per volumi di dati molto grandi (più di 1 TB), l'archiviazione di Azure offre il servizio di importazione/esportazione che consente di caricare e scaricare dall'archiviazione BLOB tramite l'invio di dischi rigidi. È possibile inserire i dati in un disco rigido e inviarlo a Microsoft per il caricamento oppure inviare un disco rigido vuoto a Microsoft per scaricare i dati. Per altre informazioni, vedere [Usare il servizio di Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](storage-import-export-service.md). Questo metodo può risultare più efficace rispetto al caricamento/download di elevati volumi di dati tramite rete.
@@ -394,4 +404,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 ##Conclusioni
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

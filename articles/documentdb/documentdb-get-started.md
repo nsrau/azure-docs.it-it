@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB
@@ -61,12 +61,15 @@ Creare un account DocumentDB. Se si ha già un account, è possibile ignorare qu
 
 1. Aprire **Visual Studio 2015** nel computer.
 2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.
-3. Nella finestra di dialogo **Nuovo progetto** selezionare **Modelli** / **Visual C#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **OK**. ![Screenshot della finestra Nuovo progetto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. Nella finestra di dialogo **Nuovo progetto** selezionare **Modelli** / **Visual C#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **OK**. 
+![Screenshot della finestra Nuovo progetto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. In **Esplora soluzioni**, fare clic sulla nuova applicazione console che si trova nella soluzione di Visual Studio.
-5. Senza uscire dal menu fare clic su **Gestisci pacchetti NuGet** ![Screenshot del menu selezionato con il pulsante destro del mouse per il progetto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. Nel riquadro sinistro della finestra **Gestisci pacchetti NuGet** fare clic su **Online** / **nuget.org**.
-7. Nella casella di input **Cerca Online** cercare **DocumentDB**.
-8. Individuare tra i risultati della ricerca la **libreria client di Microsoft Azure DocumentDB** e fare clic su **Installa**. L'ID del pacchetto per la libreria client di DocumentDB è [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Screenshot del menu NuGet per la ricerca di DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+5. Senza uscire dal menu fare clic su **Gestisci pacchetti NuGet** 
+![Screenshot del menu selezionato con il pulsante destro del mouse per il progetto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+6. Nella scheda **NuGet** fare clic su **Sfoglia** e digitare **azure documentdb** nella casella di ricerca.
+7. Nei risultati trovare **Microsoft.Azure.DocumentDB** e fare clic su **Installa**. 
+L'ID pacchetto per la libreria client di DocumentDB è [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) 
+![Screenshot del menu NuGet per la ricerca di DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziamo a scrivere il codice. Un progetto di codice completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -74,10 +77,11 @@ L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziam
 
 In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, nel file Program.cs:
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -85,7 +89,7 @@ In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, n
 
 > [AZURE.IMPORTANT] Per completare questa esercitazione su NoSQL, assicurarsi di aggiungere le dipendenze illustrate sopra.
 
-A questo punto, aggiungere queste due costanti e la variabile *client* sotto la classe pubblica *Program*.
+Aggiungere ora queste due costanti e la variabile *client* sotto la classe pubblica *Program*.
 
 	public class Program
 	{
@@ -104,7 +108,7 @@ Fare clic sull'icona delle **chiavi** sulla barra **Informazioni di base**. Copi
 
 Per avviare l'applicazione introduttiva, si creerà una nuova istanza di **DocumentClient**.
 
-Sotto il metodo **Main** aggiungere la nuova attività asincrona denominata **GetStartedDemo** e creare la nuova istanza di **DocumentClient**.
+Sotto il metodo **Main** aggiungere la nuova attività asincrona denominata **GetStartedDemo** che creerà la nuova istanza di **DocumentClient**.
 
 	static void Main(string[] args)
 	{
@@ -116,7 +120,7 @@ Sotto il metodo **Main** aggiungere la nuova attività asincrona denominata **Ge
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-Aggiungere il codice seguente per eseguire l'attività asincrona dal metodo **Main**. Il metodo **Main** rileva le eccezioni e le scrivere nella console.
+Aggiungere il codice seguente per eseguire l'attività asincrona dal metodo **Main**. Il metodo **Main** rileva le eccezioni e le scrive nella console.
 
 	static void Main(string[] args)
 	{
@@ -141,7 +145,6 @@ Aggiungere il codice seguente per eseguire l'attività asincrona dal metodo **Ma
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
 Premere **F5** per eseguire l'applicazione.
 
@@ -162,7 +165,7 @@ Copiare e incollare il metodo **WriteToConsoleAndPromptToContinue** sotto il met
 
 È possibile creare un [database](documentdb-resources.md#databases) di DocumentDB usando il metodo [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
-Copiare e incollare il metodo **CreateDatabaseIfNotExists** sotto il metodo **GetStartedDemo**.
+Copiare e incollare il metodo **CreateDatabaseIfNotExists** sotto il metodo **WriteToConsoleAndPromptToContinue**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -188,7 +191,7 @@ Copiare e incollare il metodo **CreateDatabaseIfNotExists** sotto il metodo **Ge
 			}
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto la creazione del client. Verrà creato un database denominato *FamilyDB*.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del client. Verrà creato un database denominato *FamilyDB*.
 
 	private async Task GetStartedDemo()
 	{
@@ -203,7 +206,7 @@ Congratulazioni. La creazione di un database di DocumentDB è stata completata.
 
 ##<a id="CreateColl"></a>Passaggio 5: Creare una raccolta  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** crea una nuova raccolta con velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 
 È possibile creare una [raccolta](documentdb-resources.md#collections) usando il metodo [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
 
@@ -243,7 +246,7 @@ Copiare e incollare il metodo **CreateDocumentCollectionIfNotExists** sotto il m
 		}
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto la creazione del database. Verrà creata una raccolta di documenti denominata *FamilyCollection*.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del database. Verrà creata una raccolta di documenti denominata *FamilyCollection*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -339,7 +342,7 @@ Copiare e incollare il metodo **CreateFamilyDocumentIfNotExists** sotto il metod
 
 Inserire anche due documenti, relativi rispettivamente alla famiglia Andersen e alla famiglia Wakefield.
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto la creazione della raccolta di documenti.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione della raccolta di documenti.
 
 	await this.CreateDatabaseIfNotExists("FamilyDB");
 
@@ -457,7 +460,7 @@ Copiare e incollare il metodo **ExecuteSimpleQuery** sotto il metodo **CreateFam
 			Console.ReadKey();
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto la creazione del secondo documento.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di creazione del secondo documento.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -494,7 +497,7 @@ Copiare e incollare il metodo **ReplaceFamilyDocument** sotto il metodo **Execut
 			}
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto l'esecuzione della query. Dopo aver sostituito il documento, verrà eseguita di nuovo la stessa query per visualizzare il documento modificato.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della query. Dopo aver sostituito il documento, verrà eseguita di nuovo la stessa query per visualizzare il documento modificato.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -532,7 +535,7 @@ Copiare e incollare il metodo **DeleteFamilyDocument** sotto il metodo **Replace
 			}
 	}
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto l'esecuzione della seconda query.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della seconda query.
 
 	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
@@ -549,7 +552,7 @@ Congratulazioni. L'eliminazione di un documento di DocumentDB è stata completat
 
 Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via).
 
-Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto l'eliminazione del documento per eliminare l'intero database e tutte le risorse figlio.
+Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di eliminazione del documento per eliminare l'intero database e tutte le risorse figlio.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -611,4 +614,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

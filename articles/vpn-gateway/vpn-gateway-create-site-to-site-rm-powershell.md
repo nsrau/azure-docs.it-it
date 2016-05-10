@@ -21,10 +21,10 @@
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portale di Azure - Classico](vpn-gateway-site-to-site-create.md)
+- [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il modello di distribuzione di **Azure Resource Manager**. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
+Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il modello di distribuzione Azure Resource Manager. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -49,7 +49,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 - È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
-## 1\. Eseguire la connessione alla sottoscrizione 
+## 1. Eseguire la connessione alla sottoscrizione 
 
 Verificare di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
 
@@ -65,9 +65,11 @@ Specificare la sottoscrizione da usare.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## 2\. Creare una rete virtuale e una subnet del gateway
+## 2. Creare una rete virtuale e una subnet del gateway
 
-I seguenti esempi mostrano una subnet del gateway di /28. Anche se è possibile, non è consigliabile creare una subnet del gateway più piccola di /29. È consigliabile creare una subnet del gateway con dimensioni di /27 o superiori (/26, /25 e così via) per soddisfare i requisiti di funzionalità aggiuntive. Se si ha già una rete virtuale con una subnet del gateway con dimensioni di /29 o superiori, è possibile procedere direttamente al [Passaggio 3: Aggiungere il gateway di rete locale](#localnet).
+I seguenti esempi mostrano una subnet del gateway di /28. Anche se è possibile, non è consigliabile creare una subnet del gateway più piccola di /29. È consigliabile creare una subnet del gateway con dimensioni di /27 o superiori (/26, /25 e così via) per soddisfare i requisiti di funzionalità aggiuntive.
+
+Se si ha già una rete virtuale con una subnet del gateway con dimensioni di /29 o superiori, è possibile procedere direttamente ad [Aggiungere il gateway di rete locale](#localnet).
 
 ### Per creare una rete virtuale e una subnet del gateway
 
@@ -98,7 +100,7 @@ A questo punto, impostare la configurazione.
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3\. <a name="localnet"></a>Aggiungere il gateway di rete locale
+## 3. <a name="localnet"></a>Aggiungere il gateway di rete locale
 
 In una rete virtuale il gateway di rete locale in genere fa riferimento al percorso locale. Assegnare al sito un nome che Azure possa usare come riferimento e specificare il prefisso dello spazio dell'indirizzo per il gateway di rete locale.
 
@@ -122,7 +124,7 @@ Per aggiungere un gateway di rete locale con più prefissi di indirizzo:
 Talvolta è possibile modificare i prefissi del gateway di rete locale. I passaggi necessari per modificare i prefissi di indirizzo IP dipendono dal fatto che sia stata creata o meno una connessione di gateway VPN. Vedere la sezione [Per modificare i prefissi di indirizzo IP per un gateway di rete locale](#modify) di questo articolo.
 
 
-## 4\. Richiedere un indirizzo IP pubblico del gateway VPN
+## 4. Richiedere un indirizzo IP pubblico del gateway VPN
 
 Successivamente, si richiederà un indirizzo IP pubblico da allocare per il gateway VPN di rete virtuale di Azure. Non si tratta dello stesso indirizzo IP assegnato al dispositivo VPN, ma viene assegnato al gateway VPN di Azure stesso. Non è possibile specificare l'indirizzo IP che si desidera usare; questo viene allocato in modo dinamico al gateway. Si utilizzerà questo indirizzo IP quando si configura il dispositivo VPN locale per la connessione al gateway.
 
@@ -132,7 +134,7 @@ Utilizzare l'esempio di PowerShell riportato di seguito. Il metodo di allocazion
 
 >[AZURE.NOTE] Il gateway VPN di Azure per il modello di distribuzione di Gestione risorse supporta attualmente solo indirizzi IP pubblici usando il metodo di allocazione dinamica. Ciò non significa però che l'indirizzo IP verrà modificato. L'indirizzo IP del gateway VPN di Azure viene modificato solamente quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway non cambierà in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN di Azure.
 
-## 5\. Creare la configurazione di indirizzamento IP gateway
+## 5. Creare la configurazione di indirizzamento IP gateway
 
 La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. Per creare la configurazione del gateway, usare l'esempio seguente.
 
@@ -140,20 +142,20 @@ La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da u
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6\. Creare il gateway di rete virtuale
+## 6. Creare il gateway di rete virtuale
 
 In questo passaggio si creerà il gateway di rete virtuale. Si noti che la creazione di un gateway può richiedere molto tempo. Spesso anche oltre 20 minuti.
 
 Usare i valori seguenti:
 
-- Il valore di **-GatewayType** per una configurazione da sito a sito è **Vpn**. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Ad esempio, altre configurazioni di gateway possono richiedere -GatewayType ExpressRoute. 
+- Il valore di *-GatewayType* per una configurazione da sito a sito è *Vpn*. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Ad esempio, altre configurazioni di gateway possono richiedere -GatewayType ExpressRoute. 
 
-- Il valore di **-VpnType** può essere **RouteBased**, definito Gateway dinamico in alcuni documenti, o **PolicyBased**, definito Gateway statico in alcuni documenti. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md#vpntype).
-- Il valore di **-GatewaySku** può essere **Basic**, **Standard** o **HighPerformance**. 	
+- Il valore di *-VpnType* può essere *RouteBased*, definito Gateway dinamico in alcuni documenti, o *PolicyBased*, definito Gateway statico in alcuni documenti. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md#vpntype).
+- Il valore di *-GatewaySku* può essere *Basic*, *Standard* o *HighPerformance*. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-## 7\. Configurare il dispositivo VPN
+## 7. Configurare il dispositivo VPN
 
 A questo punto, è necessario l'indirizzo IP pubblico del gateway della rete virtuale per la configurazione del dispositivo VPN locale. Utilizzare il produttore del dispositivo per le informazioni di configurazione specifiche. Per altre informazioni, vedere anche [Dispositivi VPN](vpn-gateway-about-vpn-devices.md).
 
@@ -161,9 +163,9 @@ Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, utilizzare l'e
 
 	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## 8\. Creare la connessione VPN
+## 8. Creare la connessione VPN
 
-Successivamente, verrà creata la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN. Assicurarsi di sostituire i valori con i propri. La chiave condivisa deve corrispondere al valore utilizzato per la configurazione del dispositivo VPN. Si noti che `-ConnectionType` per la connessione da sito a sito è **IPsec**.
+Successivamente, verrà creata la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN. Assicurarsi di sostituire i valori con i propri. La chiave condivisa deve corrispondere al valore utilizzato per la configurazione del dispositivo VPN. Si noti che `-ConnectionType` per la connessione da sito a sito è *IPsec*.
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -172,7 +174,7 @@ Successivamente, verrà creata la connessione VPN da sito a sito tra il gateway 
 
 La connessione verrà stabilita in breve tempo.
 
-## 9\. Verificare una connessione VPN
+## 9. Verificare una connessione VPN
 
 Esistono diversi modi per verificare la connessione VPN. Di seguito viene illustrato come eseguire una verifica di base usando il portale di Azure e PowerShell.
 
@@ -187,6 +189,8 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 ## Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+- Per informazioni su BGP, vedere [Panoramica di BGP con i gateway VPN di Azure](vpn-gateway-bgp-overview.md) e l'articolo che illustra [come configurare BGP nei gateway VPN di Azure con Azure Resource Manager e PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
+
+<!---HONumber=AcomDC_0504_2016-->

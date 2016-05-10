@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="04/29/2016"
    ms.author="v-livech"/>
 
 
@@ -23,22 +23,29 @@ Questo articolo illustra come distribuire rapidamente una macchina virtuale Linu
 
 ## Breve riepilogo del comando
 
+Un solo comando per distribuire la VM e collegare la chiave SSH
+
 ```
-# One command to deploy the VM and attach your SSH key
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Distribuire la VM Linux
 
 Usando lo stesso comando illustrato in precedenza verrà mostrato ogni prompt con l'output previsto.
 
-Per ImageURN verrà usato `canonical:ubuntuserver:14.04.2-LTS:latest` per distribuire una VM Ubuntu 14.04. Per trovare un'immagine nel Marketplace, [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) oppure è possibile [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
+Per ImageURN si userà `canonical:ubuntuserver:14.04.2-LTS:latest` per distribuire una VM Ubuntu 14.04. Per trovare un'immagine nel Marketplace, [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) oppure è possibile [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
 
 Nell'analisi dettagliata del comando seguente sostituire i prompt con i valori dell'ambiente in uso, perché qui vengono usati valori di esempio. L'output dovrebbe essere simile al blocco di output seguente.
 
+Seguire le istruzioni e immettere i nomi personalizzati
+
 ```bash
-# Follow the prompts and enter your own names
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+```
+
+Output
+
+```bash
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -48,10 +55,6 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
-```
-
-```bash
-########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
@@ -130,7 +133,7 @@ info:    vm quick-create command OK
 Ora è possibile connettersi alla VM con SSH usando la porta SSH predefinita 22 e l'indirizzo IP pubblico (o il nome di dominio completo) indicato nell'output precedente.
 
 ```
-ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
 ## Passaggi successivi
@@ -138,11 +141,11 @@ ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 Il comando `azure vm quick-create` consente di distribuire rapidamente una VM per poter accedere a una shell bash e iniziare a lavorare. L'uso di `vm quick-create` non offre i vantaggi aggiuntivi di un ambiente complesso. Per distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere gli articoli seguenti.
 
 - [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md)
-- [Creare un ambiente personalizzato per una VM Linux usando direttamente i comandi dell'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md)
+- [Creare un ambiente personalizzato per una VM Linux usando direttamente i comandi dell'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md).
 - [Creare una VM Linux in Azure usando i modelli](virtual-machines-linux-cli-deploy-templates.md)
 - [Creare una VM Linux protetta con SSH in Azure usando i modelli](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Creare una VM Linux usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
 
 Questi articoli illustrano come iniziare a compilare un'infrastruttura di Azure oltre a un numero qualsiasi di strumenti di orchestrazione, configurazione e distribuzione delle infrastrutture proprietarie e open source.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

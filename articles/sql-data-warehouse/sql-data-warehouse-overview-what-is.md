@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="05/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -154,11 +154,11 @@ Dopo avere appreso alcune nozioni su SQL Data Warehouse, per iniziare, vedere [C
 
 <!--Article references-->
 [Carico di lavoro del data warehouse]: ./sql-data-warehouse-overview-workload.md
-[Caricare i dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
+[Caricare i dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [provisioning]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -127,4 +127,4 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 - [Accedere alle risorse locali](web-sites-hybrid-connection-get-started.md)
 - [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md) 
 
-<!----HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->

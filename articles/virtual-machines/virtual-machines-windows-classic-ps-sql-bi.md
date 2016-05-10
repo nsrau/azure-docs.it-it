@@ -3,7 +3,7 @@
 	description="Questo argomento tratta le risorse create con il modello di distribuzione classica e descrive le funzionalità di Business Intelligence (BI) disponibili per SQL Server in esecuzione in macchine virtuali (VM) di Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # SQL Server Business Intelligence in Macchine virtuali di Azure
 
@@ -433,4 +433,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

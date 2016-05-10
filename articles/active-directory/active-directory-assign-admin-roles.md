@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Assegnazione dei ruoli di amministratore in Azure Active Directory (Azure AD)
@@ -31,8 +31,8 @@ Sono disponibili i ruoli di amministratore seguenti:
 - **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password possono reimpostare le password solo per gli utenti e gli altri amministratori password.
 
 - **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
-> [AZURE.NOTE]
-> Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
+
+	> [AZURE.NOTE] Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
 
 - **Amministratore utenti**: reimposta le password, monitora l'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. Alle autorizzazioni di un amministratore Gestione utenti si applicano alcune limitazioni. Ad esempio, non possono eliminare un amministratore globale o creare altri amministratori. Non possono inoltre reimpostare le password per gli amministratori fatturazione, globali e del servizio.
 
@@ -102,4 +102,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

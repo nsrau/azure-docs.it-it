@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 
@@ -99,9 +99,9 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    L'input per questo processo viene letto da ****wasb:///example/data/gutenberg/davinci.txt**.
+    L'input per questo processo viene letto da **wasb:///example/data/gutenberg/davinci.txt**.
 
-    L'output per questo esempio verrà archiviato in ****wasb:///example/data/davinciwordcount**.
+    L'output per questo esempio verrà archiviato in **wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] Come indicato nelle informazioni della guida per l'esempio wordcount, è anche possibile specificare più file di input. Ad esempio, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` eseguirebbe il conteggio delle parole in davinci.txt e in ulysses.txt.
 
@@ -196,11 +196,11 @@ In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 Usare i passaggi seguenti per generare dati, ordinarli e quindi convalidare l'output:
 
-1. Generare 10 GB di dati che verranno archiviati nell'archiviazione predefinita del cluster HDInsight in ****wasb:///example/data/10GB-sort-input**:
+1. Generare 10 GB di dati che verranno archiviati nell'archiviazione predefinita del cluster HDInsight in **wasb:///example/data/10GB-sort-input**:
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in ****wasb:///example/data/10GB-sort-input**.
+	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in **wasb:///example/data/10GB-sort-input**.
 
 2. Eseguire il comando seguente per ordinare i dati:
 
@@ -236,4 +236,4 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

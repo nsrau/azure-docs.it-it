@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo" />
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Swift
@@ -40,7 +40,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##<a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 
-Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nella [integrazione di Mobile Engagement iOS SDK](../mobile-engagement-ios-sdk-overview/)
+Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nella [integrazione di Mobile Engagement iOS SDK](mobile-engagement-ios-sdk-overview.md)
 
 Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
@@ -203,4 +203,4 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

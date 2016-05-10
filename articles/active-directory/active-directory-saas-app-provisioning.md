@@ -3,7 +3,7 @@
     description="Introduzione all'uso di Azure AD per eseguire automaticamente il provisioning, il deprovisioning e l'aggiornamento continuo degli account utente in più applicazioni SaaS di terze parti."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -116,4 +116,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -75,7 +75,7 @@ Il proprietario del circuito crea un'autorizzazione. Questo comporta la creazion
 
 Il frammento di cmdlet riportato di seguito mostra come creare un'autorizzazione.
 
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
@@ -106,7 +106,7 @@ Il proprietario del circuito può esaminare tutte le autorizzazioni rilasciate i
 Il proprietario del circuito può aggiungere le autorizzazioni usando il cmdlet seguente.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -117,7 +117,7 @@ Il proprietario del circuito può aggiungere le autorizzazioni usando il cmdlet 
 
 Il proprietario del circuito può revocare o eliminare le autorizzazioni usando il cmdlet seguente.
 
-	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -Circuit $circuit
+	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Operazioni dell'utente del circuito
@@ -142,4 +142,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

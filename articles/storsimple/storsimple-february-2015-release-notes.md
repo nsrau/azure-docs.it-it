@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Note sulla versione dell'aggiornamento 0.3 di StorSimple serie 8000 - Febbraio 2015
@@ -27,7 +27,7 @@ Si consiglia di cercare e installare eventuali aggiornamenti disponibili subito 
 
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT]   
 >
 > - Utilizzare il servizio StorSimple Manager e non Windows PowerShell per StorSimple per installare l'aggiornamento di febbraio.   
 > - L’installazione di questo aggiornamento richiede circa un'ora. Tuttavia, se si installano aggiornamenti cumulativi, il processo può richiedere circa 3 ore.  
@@ -86,4 +86,4 @@ Questa versione non contiene aggiornamenti per il controller SAS (Serial Attache
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0427_2016-->

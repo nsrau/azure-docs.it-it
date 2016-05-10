@@ -38,7 +38,7 @@ Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, 
 
 Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di lavoro senza stato e quindi concettualmente può essere associato anch'esso a un servizio senza stato di Service Fabric. Tuttavia, a differenza dei ruoli Web, Service Fabric non supporta IIS. Per eseguire la migrazione di un'applicazione Web da un ruolo Web a un servizio senza stato è necessario passare prima a un framework Web che possa essere self-hosted e non dipenda da IIS o System.Web, ad esempio ASP.NET Core 1.
 
-****Applicazione ** | **Supportata** | **Percorso di migrazione**
+**Applicazione** | **Supportata** | **Percorso di migrazione**
 --- | --- | ---
 Web Form ASP.NET | No | Convertire in ASP.NET Core 1 MVC
 ASP.NET MVC | Con migrazione | Aggiornare ad ASP.NET Core 1
@@ -277,4 +277,4 @@ Altre informazioni su Reliable Services di Service Fabric e le differenze fondam
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

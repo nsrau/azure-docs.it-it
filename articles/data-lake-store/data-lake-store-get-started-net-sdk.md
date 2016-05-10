@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store con .NET SDK
@@ -34,11 +34,17 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 * Visual Studio 2013 o 2015. Le istruzioni seguenti fanno riferimento a Visual Studio 2015.
 * Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-* **Creare un'applicazione di Azure Active Directory**. Vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md). Per un'applicazione console .NET creata in questo articolo, è necessario creare un'**applicazione client nativa**, non un'applicazione Web come indicato nel collegamento. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
-	- Ottenere l'**ID client** e l'**URI di reindirizzamento** per l'applicazione.
-	- Impostare autorizzazioni delegate
+* **Creare un'applicazione di Azure Active Directory**. Esistono due modalità di autenticazione con Azure Active Directory: **interattiva** e **non interattiva**. I prerequisiti sono diversi a seconda della modalità di autenticazione.
+	* **Per l'autenticazione interattiva** (usata in questo articolo): in Azure Active Directory è necessario creare un'**applicazione client nativa**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
+		- Ottenere l'**ID client** e l'**URI di reindirizzamento** per l'applicazione
+		- Impostare autorizzazioni delegate
 
-	Le istruzioni per il recupero di questi valori e per impostare le autorizzazioni sono disponibili nel collegamento fornito in precedenza.
+	* **Per l'autenticazione non interattiva**: in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
+		- Ottenere l'**ID client** il **Segreto client** e l'**URI di reindirizzamento** per l'applicazione
+		- Impostare autorizzazioni delegate
+		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. 
+
+	Per istruzioni su come recuperare questi valori, impostare le autorizzazioni e assegnare i ruoli, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 
 ## Creare un'applicazione .NET
 
@@ -67,14 +73,14 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 
 		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creare un nuovo account di Azure Data Lake")
 
-	4. Installare anche il pacchetto `Microsoft.IdentityModel.Clients.ActiveDirectory` per l'autenticazione di Azure Active Directory. Assicurarsi di *deselezionare* la casella di controllo **Includi versione preliminare** per poter installare una versione stabile del pacchetto.
+	4. Installare anche il pacchetto `Microsoft.IdentityModel.Clients.ActiveDirectory` per l'autenticazione di Azure Active Directory. Per poter installare una versione stabile del pacchetto, assicurarsi di *deselezionare* la casella di controllo **Includi versione preliminare**.
 
 		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Creare un nuovo account di Azure Data Lake")
 
 
 	5. Chiudere la finestra **Gestione pacchetti NuGet**.
 
-7. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le seguenti istruzioni per aggiungere riferimenti agli spazi dei nomi.
+7. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
 		using System;
         using System.IO;
@@ -122,9 +128,9 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 
 Per l'autenticazione tramite Azure Active Directory, è possibile procedere in due modi.
 
-* **Interattivo**, in cui l'utente accede tramite l'applicazione. Viene implementato nel metodo `AuthenticateUser` nel frammento di codice seguente.
+* **Interattiva**, in cui l'utente accede tramite l'applicazione. Viene implementata nel metodo `AuthenticateUser` del frammento di codice seguente.
 
-* **Non interattivo**, in cui l'applicazione fornisce le proprie credenziali. Viene implementato nel metodo `AuthenticateAppliaction` nel frammento di codice seguente.
+* **Non interattiva**, in cui l'applicazione fornisce le proprie credenziali. Viene implementata nel metodo `AuthenticateAppliaction` del frammento di codice seguente.
 
 ### Autenticazione interattiva
 
@@ -133,7 +139,7 @@ Il frammento seguente illustra il metodo `AuthenticateUser` che è possibile usa
  	// Authenticate the user with AAD through an interactive popup.
     // You need to have an application registered with AAD in order to authenticate.
     //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -151,7 +157,7 @@ Il frammento seguente illustra il metodo `AuthenticateApplication` che è possib
 	// Authenticate the application with AAD through the application's secret key.
 	// You need to have an application registered with AAD in order to authenticate.
 	//   For more information and instructions on how to register your application with AAD, see:
-	//   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+	//   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -227,7 +233,7 @@ Il frammento seguente illustra il metodo `GetItemInfo` che è possibile usare pe
 
 ## Elencare file o directory
 
-Il frammento seguente illustra il metodo `ListItem` che è possibile usare per elencare file e directory in un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `ListItem` che è possibile usare per elencare il file e le directory in un account Archivio Data Lake.
 	
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
@@ -288,7 +294,7 @@ Il frammento seguente è un esempio di codice completo che è possibile copiare 
 
 Anche se il frammento di codice seguente fornisce i metodi per entrambi gli approcci, ovvero interattivo e non interattivo, il blocco di codice non interattivo è impostato come commento. Questo metodo richiede l'immissione dell'ID client dell'applicazione AAD e dell'URI di reindirizzamento. Il collegamento nella sezione dei prerequisiti include le istruzioni per ottenere tali valori.
 
->[AZURE.NOTE] Per modificare il frammento di codice e usare invece il metodo `AuthenticateApplication` non interattivo, oltre all'ID client e all'URI di risposta è necessario specificare anche la chiave di autenticazione client come input del metodo. Per informazioni anche su come generare e recuperare la chiave di autenticazione client, vedere l'articolo [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
+>[AZURE.NOTE] Per modificare il frammento di codice e usare invece il metodo `AuthenticateApplication` non interattivo, oltre all'ID client e all'URI di risposta del client è necessario specificare anche la chiave di autenticazione client come input del metodo. Per informazioni anche su come generare e recuperare la chiave di autenticazione client, vedere l'articolo [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 	
 Assicurarsi infine che il nome file e percorso locale forniti esistano già nel computer. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [repository Git di Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
@@ -394,7 +400,7 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
             // Authenticate the user with AAD through an interactive popup.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -409,7 +415,7 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
             // Authenticate the application with AAD through the application's secret key.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -520,4 +526,4 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
@@ -120,4 +120,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

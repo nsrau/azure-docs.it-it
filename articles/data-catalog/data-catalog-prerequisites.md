@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
+   ms.date="04/25/2016"
    ms.author="maroche"/>
 
 # Prerequisiti del Catalogo dati di Azure
@@ -26,7 +26,7 @@ Vi sono alcune cose di cui è necessario occuparsi prima di poter impostare il *
 ## Sottoscrizione di Azure
 Per configurare Azure Data Catalog l'utente deve essere proprietario o comproprietario di una sottoscrizione di Azure.
 
-Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse del servizio cloud, come Catalogo dati di Azure. Consentono inoltre di controllare come l'utilizzo delle risorse viene segnalato, fatturato e pagato. Ogni sottoscrizione può disporre di un’impostazione di fatturazione e pagamento diversa, in modo da poter avere sottoscrizioni e piani diversi per reparto, progetto, ufficio regionale e così via. Ogni servizio cloud appartiene a una sottoscrizione ed è necessario che la sottoscrizione sia disponibile prima di impostare il Catalogo dati di Azure. Per ulteriori informazioni, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse del servizio cloud, come Catalogo dati di Azure. Consentono inoltre di controllare come l'utilizzo delle risorse viene segnalato, fatturato e pagato. Ogni sottoscrizione può disporre di un’impostazione di fatturazione e pagamento diversa, in modo da poter avere sottoscrizioni e piani diversi per reparto, progetto, ufficio regionale e così via. Ogni servizio cloud appartiene a una sottoscrizione ed è necessario che la sottoscrizione sia disponibile prima di impostare il Catalogo dati di Azure. Per ulteriori informazioni, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Azure Active Directory
 Per configurare Azure Data Catalog, è necessario accedere con un account utente di Azure Active Directory.
@@ -45,4 +45,4 @@ I criteri di autenticazione globali consentono di abilitare i metodi di autentic
 
 Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/library/dn486781.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

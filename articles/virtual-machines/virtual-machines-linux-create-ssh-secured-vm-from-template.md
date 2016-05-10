@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Creare una VM Linux protetta usando un modello di Azure
@@ -66,4 +66,4 @@ info:    group create command OK
 
 Dopo aver creato le VM Linux con i modelli, è possibile vedere quali altri framework per app sono disponibili per l'uso con i modelli. Eseguire una ricerca nella [raccolta di modelli](https://azure.microsoft.com/documentation/templates/) per scoprire quali framework per app si possono distribuire successivamente.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

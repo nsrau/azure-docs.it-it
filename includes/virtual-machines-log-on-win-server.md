@@ -2,9 +2,11 @@
 
 4. Facendo clic su **Connetti** si crea e si scarica un file Remote Desktop Protocol (file con estensione rdp). Fare clic su **Apri** per utilizzare questo file.
 
-5. Nella finestra di Desktop remoto, fare clic su **Connetti** per continuare.
+	![Screenshot del file RDP scaricato.](./media/virtual-machines-log-on-win-server/open-rdp.png)
 
-	![Screenshot di un avviso su un server di pubblicazione sconosciuto.](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+5. Verrà visualizzato un avviso che indica che l'autore del file con estensione rdp è sconosciuto. Si tratta di una situazione normale. Nella finestra di Desktop remoto, fare clic su **Connetti** per continuare.
+
+	![Screenshot di un avviso relativo a un autore sconosciuto.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 
 6. Nella finestra Protezione di Windows, digitare le credenziali dell'account della macchina virtuale, quindi fare clic su **OK**.
 
@@ -16,6 +18,6 @@
 
 7.	Fare clic su **Sì** per verificare l'identità della macchina virtuale e terminare la procedura di accesso.
 
-	![Screenshot che visualizza un messaggio sulla verifica dell'identità della VM.](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![Screenshot che visualizza un messaggio sulla verifica dell'identità della VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

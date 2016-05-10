@@ -81,9 +81,9 @@ Accedere all'account Azure. Se per qualche motivo questo comando PowerShell gene
 Login-AzureRmAccount
 ```
 
-Lo script seguente crea un nuovo gruppo di risorse e/o un insieme di credenziali delle chiavi, se non sono già presenti. **Nota: se si utilizza un insieme di credenziali delle chiavi esistente, deve essere configurato per supportare la distribuzione, tramite questo script.**
+Lo script seguente crea un nuovo gruppo di risorse e/o un insieme di credenziali delle chiavi, se non sono già presenti. **Nota: se si utilizza un insieme di credenziali delle chiavi esistente, deve essere configurato con questo script per supportare la distribuzione.**
 ```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
 
 ```
@@ -134,11 +134,11 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 Dal momento che si tratta di un certificato autofirmato, è necessario importarlo nell'archivio "Persone attendibili" del computer prima di poterlo usare per la connessione a un cluster protetto.
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
 ```
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
 ```
 
 Al termine dell'esecuzione dello script si ottiene un output simile al seguente, che sarà necessario per il passaggio 3.
@@ -161,7 +161,7 @@ I certificati necessari sono specificati a livello di tipo di nodo nelle configu
 Parametri obbligatori:
 
 - **Modalità di sicurezza.** Selezionare **Certificato X.509**. Indica a Service Fabric che si vuole configurare un cluster protetto.
-- **Livello di protezione del cluster.** Per comprendere il significato di ognuno di questi valori, fare riferimento a questo [documento sul livello di protezione](https://msdn.microsoft.com/library/aa347692.aspx). Anche se sono consentiti tre valori, EncryptAndSign, Sign e None, è consigliabile mantenere il valore predefinito EncryptAndSign, a meno di essere consapevoli delle conseguenze.
+- **Livello di protezione del cluster.** Per comprendere il significato di ognuno di questi valori, vedere questo [documento sul livello di protezione](https://msdn.microsoft.com/library/aa347692.aspx). Anche se sono consentiti tre valori, EncryptAndSign, Sign e None, è consigliabile mantenere il valore predefinito EncryptAndSign, a meno di essere consapevoli delle conseguenze.
 - **Insieme di credenziali di origine.** Si riferisce all'ID risorsa dell'insieme di credenziali delle chiavi. Deve essere nel formato:
 
     ```
@@ -262,4 +262,4 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

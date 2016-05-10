@@ -252,8 +252,8 @@ La query seguente non dispone di un filtro per la chiave di partizione (DeviceId
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        "XMS-001-FE24C",
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        "XMS-001-FE24C");
 
 Nella sezione successiva verrà illustrato come passare alle raccolte partizionate da raccolte a partizione singola.
 
@@ -319,4 +319,4 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

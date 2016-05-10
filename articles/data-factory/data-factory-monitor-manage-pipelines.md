@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitorare e gestire le pipeline di Data factory di Azure" 
-	description="Informazioni su come usare il portale di Azure classico e Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create." 
+	description="Sono disponibili informazioni sull'uso del portale di Azure e di Azure PowerShell per monitorare e gestire le data factory di Azure e le pipeline create." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -187,14 +187,14 @@ Ad esempio:
 
 
 ## Eseguire il debug delle pipeline
-Tramite il portale di Azure classico e Azure PowerShell, Data factory di Azure offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
+Con il portale di Azure e Azure PowerShell, Azure Data Factory offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
 
 ### Trovare gli errori in una pipeline
 Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Data factory di Azure usando i meccanismi seguenti.
 
-#### Usare il portale di Azure classico per eseguire il debug di un errore:
+#### Usare il portale di Azure per eseguire il debug di un errore:
 
-1.	Fare clic su **Con errori** nel riquadro **Set di dati** della home page data factory.
+1.	Fare clic su **Con errori** nel riquadro **Set di dati** della home page della data factory.
 	
 	![Riquadro Set di dati con errore](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	Nel pannello **Set di dati con errori** fare clic sulla tabella che interessa.
@@ -265,7 +265,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 ## Eseguire nuovamente le operazioni non riuscite in una pipeline
 
-### Uso del portale di Azure classico
+### Uso del portale di Azure
 
 Dopo avere risolto i problemi relativi agli errori in una pipeline e averne eseguito il debug, è possibile eseguire nuovamente le operazioni non riuscite passando alla sezione degli errori e facendo clic sul pulsante **Esegui** sulla barra dei comandi.
 
@@ -585,4 +585,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 
 ![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -44,11 +44,7 @@ Usare il portale di Azure classico.
 
 	Nel dashboard della nuova macchina virtuale è possibile fare clic su **Configure** per verificare che la macchina virtuale appartenga al nuovo set di disponibilità.
 
-Se si vogliono usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere il seguente argomento:
-
-
-- [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
-- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+Per usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.##
 
@@ -80,7 +76,7 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 ## Risorse aggiuntive
 
-[Articoli sulle Macchine virtuali nella gestione dei servizi]
+[Articoli sulle macchine virtuali classiche][]
 
 <!-- LINKS -->
 [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente]: #createset
@@ -91,6 +87,6 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 [Creazione di una macchina virtuale che esegue Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Panoramica di Rete virtuale]: ../articles/virtual-network/virtual-networks-overview.md
-[Articoli sulle Macchine virtuali nella gestione dei servizi]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
+[Articoli sulle macchine virtuali classiche]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

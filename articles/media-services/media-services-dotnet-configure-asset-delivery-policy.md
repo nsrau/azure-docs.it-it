@@ -124,7 +124,7 @@ Servizi multimediali di Azure consente inoltre di aggiungere la crittografia Wid
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
         // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
         // to append /? KID =< keyId > to the end of the url when creating the manifest.
-        // As a result Widevine license aquisition URL will have KID appended twice, 
+        // As a result Widevine license acquisition URL will have KID appended twice, 
         // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
@@ -361,4 +361,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->
