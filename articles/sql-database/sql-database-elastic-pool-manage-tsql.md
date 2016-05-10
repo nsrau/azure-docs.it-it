@@ -31,7 +31,7 @@ Usare i comandi [Create Database (database SQL di Azure)](https://msdn.microsoft
 
 
 ## Creare un nuovo database in un pool elastico
-Usare il comando CREATE DATABASE con l'opzione SERVICE\_OBJECTIVE.
+Usare il comando CREATE DATABASE con l'opzione SERVICE_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECT
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Spostare un database in un pool elastico 
-Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECTIVE come ELASTIC\_POOL. Come nome, impostare il nome del pool di destinazione.
+Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECTIVE come ELASTIC_POOL. Come nome, impostare il nome del pool di destinazione.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Spostare un database da un pool elastico
-Usare il comando ALTER DATABASE e impostare SERVICE\_OBJECTIVE su uno dei livelli di prestazioni, ovvero S0, S1 e così via.
+Usare il comando ALTER DATABASE e impostare SERVICE_OBJECTIVE su uno dei livelli di prestazioni, ovvero S0, S1 e così via.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.

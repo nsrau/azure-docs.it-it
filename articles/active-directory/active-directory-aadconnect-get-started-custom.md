@@ -57,9 +57,11 @@ Non configurare | Nessuna funzionalità verrà installata e configurata. Sceglie
 ## Connessione ad Azure AD
 Nella schermata Connessione ad Azure AD, immettere un account di amministratore globale e una password. Se è stato selezionato **Federazione tramite AD FS** nella pagina precedente, non accedere con un account in un dominio che si intende abilitare per la federazione. Si consiglia di usare un account nel dominio **onmicrosoft.com** predefinito, fornito con la directory di Azure AD.
 
-Questo account viene usato solo per creare un account di servizio in Azure AD e al termine della procedura guidata non viene più usato. ![Accesso utente](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+Questo account viene usato solo per creare un account di servizio in Azure AD e al termine della procedura guidata non viene più usato. 
+![Accesso utente](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-Se per l'account amministratore globale è abilitata l'autenticazione MFA, è necessario fornire nuovamente la password nella finestra popup di accesso e completare la richiesta di autenticazione MFA. La richiesta può consistere nel fornire un codice di verifica o in una telefonata. ![Accesso utente MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+Se per l'account amministratore globale è abilitata l'autenticazione MFA, è necessario fornire nuovamente la password nella finestra popup di accesso e completare la richiesta di autenticazione MFA. La richiesta può consistere nel fornire un codice di verifica o in una telefonata. 
+![Accesso utente MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 Per l'account amministratore globale può essere abilitato anche [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
@@ -73,9 +75,13 @@ Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richi
 ![Directory di connessione](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### Filtro unità organizzativa e dominio
-Per impostazione predefinita, vengono sincronizzati tutti i domini e le unità organizzative. Per escludere alcuni domini o unità organizzative dalla sincronizzazione con Azure AD, è possibile deselezionarli. ![Filtro unità organizzativa e dominio](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Questa pagina della procedura guidata configura i filtri basati sul dominio. Per altre informazioni, vedere [Filtri basati sul dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+Per impostazione predefinita, vengono sincronizzati tutti i domini e le unità organizzative. Per escludere alcuni domini o unità organizzative dalla sincronizzazione con Azure AD, è possibile deselezionarli.
+![Filtro unità organizzativa e dominio](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) 
+Questa pagina della procedura guidata configura i filtri basati sul dominio. Per altre informazioni, vedere [Filtri basati sul dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
 
-Alcuni domini potrebbero non essere raggiungibili a causa di restrizioni del firewall. Questi domini vengono deselezionati per impostazione predefinita e viene visualizzato un avviso. ![Domini non raggiungibili](./media/active-directory-aadconnect-get-started-custom/unreachable.png) Se viene visualizzato questo avviso, assicurarsi che i domini non siano effettivamente raggiungibili e che l'avviso sia previsto.
+Alcuni domini potrebbero non essere raggiungibili a causa di restrizioni del firewall. Questi domini vengono deselezionati per impostazione predefinita e viene visualizzato un avviso. 
+![Domini non raggiungibili](./media/active-directory-aadconnect-get-started-custom/unreachable.png) 
+Se viene visualizzato questo avviso, assicurarsi che i domini non siano effettivamente raggiungibili e che l'avviso sia previsto.
 
 ### Identificazione univoca degli utenti
 La corrispondenza tra la funzionalità delle foreste consente di definire la modalità di rappresentazione degli utenti delle foreste AD DS in Azure AD. Un utente può essere rappresentato solo una volta in tutte le foreste oppure disporre di una combinazione di account abilitati e disabilitati. In alcune foreste è possibile che l'utente sia rappresentato anche come un contatto.

@@ -186,7 +186,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	Nello script il file di script U-SQL viene archiviato in c:\\tutorials\\data-lake-analytics\\copyFile.usql. Aggiornare il percorso del file di conseguenza.
+	Nello script il file di script U-SQL viene archiviato in c:\tutorials\data-lake-analytics\copyFile.usql. Aggiornare il percorso del file di conseguenza.
  
 Dopo il completamento del processo, è possibile usare i cmdlet seguenti per visualizzare l'elenco di file e scaricare il file:
 	

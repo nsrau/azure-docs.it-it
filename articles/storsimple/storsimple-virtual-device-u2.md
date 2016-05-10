@@ -30,7 +30,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | Modello del dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacità massima** | 30 TB | 64 TB |
-| **Macchina virtuale di Azure** | Standard\_A3 (4 core, 7 GB di memoria) | Standard\_DS3 (4 core, 14 GB di memoria) |
+| **Macchina virtuale di Azure** | Standard_A3 (4 core, 7 GB di memoria) | Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** | Versioni con aggiornamenti precedenti a Update 2 o successivi | Versioni con aggiornamenti Update 2 o successivi |
 | **Aree di disponibilità** | Tutte le aree di Azure | Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
 | **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
@@ -144,7 +144,8 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
 
-Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
+Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
+[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Passaggio 3: (Facoltativo) Modificare le impostazioni di configurazione del dispositivo
 
