@@ -21,11 +21,11 @@ Esistono due agenti VM di Azure, rispettivamente per le macchine virtuali Window
 
 L'agente VM è abilitato nelle seguenti situazioni:
 
--   Quando si crea un'istanza di una macchina virtuale usando il metodo **Creazione rapida** nel portale di Azure classico o **Creazione personalizzata** nel portale di Azure classico, con la casella di controllo **Installa agente VM** selezionata, come illustrato nell'immagine seguente. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
+-   Quando si crea un'istanza di una macchina virtuale usando il metodo **Creazione rapida** o **Creazione personalizzata** nel portale di Azure classico, con la casella di controllo **Installa l'agente di macchine virtuali** selezionata, come illustrato nell'immagine seguente. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
 
     ![Casella di controllo dell'agente VM](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
 
--   Quando si crea un'istanza di una macchina virtuale mediante il cmdlet [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) o [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). È possibile creare una macchina virtuale senza l'agente VM installato aggiungendo il parametro **–DisableGuestAgent** al cmdlet [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+-   Quando si crea un'istanza di una macchina virtuale con il cmdlet [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) o [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). È possibile creare una macchina virtuale senza l'agente VM installato aggiungendo il parametro **–DisableGuestAgent** al cmdlet [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
 -   Quando si scarica e installa manualmente l'agente VM (versione per Windows o Linux) in un'istanza di macchina virtuale esistente e quindi si imposta il valore di **ProvisionGuestAgent** su **true** tramite PowerShell o una chiamata REST. Se questo valore non viene impostato dopo l'installazione manuale dell'agente VM, l'aggiunta dell'agente VM non viene rilevata correttamente. Il seguente codice di esempio illustra come eseguire questa operazione tramite PowerShell. In questo caso, gli argomenti `$svc` e `$name` sono già stati determinati.
 
@@ -35,7 +35,7 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 -   Quando si crea un'immagine di macchina virtuale con l'agente VM installato prima del caricamento in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione .msi dell'agente VM di Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e installare l'agente VM. Per una VM Linux, il componente verrà installato dall'archivio GitHub all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Guida per l'utente dell'agente VM Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
->[AZURE.NOTE]Nelle soluzioni PaaS l'agente VM è denominato **GuestAgent** ed è sempre disponibile in macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e quelle su macchine virtuali persistenti è data dal fatto che nel primo caso le estensioni vengono aggiunte prima al servizio cloud e dopo le distribuzioni all'interno di tale servizio.
+>[AZURE.NOTE]Nelle soluzioni PaaS l'agente di macchine virtuali è denominato **WindowsAzureGuestAgent** ed è sempre disponibile nelle macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e quelle su macchine virtuali persistenti è data dal fatto che nel primo caso le estensioni vengono aggiunte prima al servizio cloud e dopo le distribuzioni all'interno di tale servizio.
 
 >Usare il cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) per elencare tutte le estensioni VM del ruolo disponibili.
 
@@ -43,4 +43,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

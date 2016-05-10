@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
@@ -92,4 +92,4 @@ Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure classi
 
 Attualmente non è possibile verificare correttamente un dominio nel [portale di Azure classico](https://manage.windowsazure.com/). Microsoft sta lavorando per trovare una soluzione.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

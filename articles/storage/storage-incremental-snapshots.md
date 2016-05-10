@@ -62,7 +62,7 @@ La copia di snapshot incrementali consente di eseguire la copia da un account di
 
 A condizione che siano soddisfatte le condizioni seguenti:
 
-- Il BLOB è stato creato il 1° gennaio 2016 o in seguito.
+- Il BLOB è stato creato il 1ª gennaio 2016 o in seguito.
 - Il BLOB non è stato sovrascritto con [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) o [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) tra due snapshots.
 
 

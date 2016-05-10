@@ -544,7 +544,7 @@ L'output di Console viene visualizzato nel dashboard solo se il programma viene 
 Disabilitare la registrazione dei dashboard per scenari con velocità effettiva elevata. Per impostazione predefinita, l’SDK scrive i log nella memoria e questa attività potrebbe influire negativamente sulle prestazioni quando si elaborano numerosi messaggi. Per disabilitare la registrazione, impostare la stringa di connessione dashboard su null, come illustrato nell'esempio seguente.
 
 		JobHostConfiguration config = new JobHostConfiguration();       
-		config.DashboardConnectionString = “”;        
+		config.DashboardConnectionString = "";        
 		JobHost host = new JobHost(config);
 		host.RunAndBlock();
 
@@ -611,4 +611,4 @@ Anche in modo dinamico, è possibile disabilitare e abilitare le funzioni per co
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

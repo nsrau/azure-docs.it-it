@@ -100,7 +100,7 @@ In questa esercitazione si imparerà a:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Monitorare le pipeline](#monitor-pipelines). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure classico.
+6. [Monitorare le pipeline](#monitor-pipelines). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure.
 
 ## Caricare script e dati di esempio
 In questo passaggio si caricano tutti i dati di esempio (inclusi tutti i log e i dati di riferimento) e gli script Hive/Pig richiamati dai flussi di lavoro. Gli script eseguiti creano anche un database SQL di Azure chiamato **MarketingCampaigns**, tabelle, tipi definiti dall'utente e stored procedure.
@@ -121,7 +121,7 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 	
 	In alternativa, è possibile usare i file nella cartella C:\\ADFWalkthrough\\Scripts per caricare gli script pig/hive e i file di esempio nel contenitore adfwalkthrough nell'archiviazione BLOB e creare la tabella MarketingCampaignEffectiveness nel database SQL di Azure MarketingCamapaigns.
    
-2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il [Portale di Azure classico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
+2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il [portale di Azure](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
 4. In Azure PowerShell passare al percorso in cui si sono estratti gli esempi (ad esempio, **C:\\ADFWalkthrough**)
 5. Eseguire **uploadSampleDataAndScripts.ps1** 
 6. Una volta completata l'esecuzione dello script, verrà visualizzato quanto segue:
@@ -193,7 +193,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
  
 ## Creazione di servizi collegati
 
-> [AZURE.NOTE] Questo articolo usa il portale di Azure classico, in particolare l'Editor di Data factory per creare servizi collegati, tabelle, pipeline. Per eseguire questa esercitazione con Azure PowerShell, vedere l'esercitazione sull'[uso di Azure PowerShell][adftutorial-using-powershell].
+> [AZURE.NOTE] Questo articolo usa il portale di Azure, in particolare l'Editor di Data factory per creare servizi collegati, tabelle, pipeline. Per eseguire questa esercitazione con Azure PowerShell, vedere l'esercitazione sull'[uso di Azure PowerShell][adftutorial-using-powershell].
 
 In questo passaggio si creeranno i servizi collegati seguenti:
 
@@ -484,4 +484,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

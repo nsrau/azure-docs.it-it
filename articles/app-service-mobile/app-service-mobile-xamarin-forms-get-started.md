@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/04/2016"
-	ms.author="normesta"/>
+	ms.date="05/03/2016"
+	ms.author="glenga"/>
 
 #Creare un'app Xamarin.Forms
 
@@ -148,6 +148,13 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 > [AZURE.NOTE]
 Il codice che accede al back-end dell'app per dispositivi mobili è disponibile nel file TodoItemManager.cs C# del progetto di libreria di classi portabile della soluzione.
 
+##Passaggi successivi
+
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md): informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md): informazioni sull'aggiunta di notifiche push all'app.
+* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come utilizzare l'SDK del client gestito nell'app Xamarin. 
+
+
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
 [Create a new mobile app backend]: #create-new-service
@@ -168,4 +175,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

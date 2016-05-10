@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/25/2016"
 	ms.author="genemi"/>
 
 
@@ -253,4 +253,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

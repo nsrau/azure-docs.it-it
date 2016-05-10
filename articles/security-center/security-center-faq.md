@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -111,4 +111,4 @@ Le raccomandazioni relative all'elenco di controllo di accesso sono attualmente 
 ### Sono supportate le macchine virtuali Linux?
 Il Centro sicurezza di Azure offre il monitoraggio della baseline per le macchine virtuali Linux (solo per le versioni 12.04, 14.04, 14.10 e 15.04 di Ubuntu). In futuro, saranno disponibili ulteriori funzioni di monitoraggio dello stato di sicurezza e per la raccolta/analisi dei dati, nonché il supporto di altre distribuzioni Linux.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

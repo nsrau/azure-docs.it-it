@@ -77,7 +77,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **MTN** | Supportato | Supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney |
 | **NTT Communications** | Supportato | Supportato | Londra, Osaka, Tokyo |
-| **[Orange](http://www.orange-business.com/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supportato | Supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
 | **Softbank** | Supportato | Supportato | Osaka, Tokyo | 
@@ -157,4 +157,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

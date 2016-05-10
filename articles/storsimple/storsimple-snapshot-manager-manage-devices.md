@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -51,7 +51,7 @@ Se si fa clic sul nodo **Dispositivi**, quindi si fa clic con il pulsante destro
 - Eliminazione della configurazione di un dispositivo 
 - Modifica della password di un dispositivo
 
->[AZURE.NOTE]Tutte queste azioni sono disponibili anche nel riquadro **Azioni**.
+>[AZURE.NOTE] Tutte queste azioni sono disponibili anche nel riquadro **Azioni**.
  
 In questa esercitazione viene illustrato come utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi ed eseguire le attività seguenti:
 
@@ -65,7 +65,7 @@ In questa esercitazione viene illustrato come utilizzare Gestione snapshot StorS
 - Modifica della password scaduta di un dispositivo
 - Sostituzione di un dispositivo guasto
 
->[AZURE.NOTE]Per informazioni generali sull'utilizzo dell'interfaccia di Gestione snapshot StorSimple, andare a [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
+>[AZURE.NOTE] Per informazioni generali sull'utilizzo dell'interfaccia di Gestione snapshot StorSimple, andare a [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 
 
 ## Aggiunta o sostituzione di un dispositivo
@@ -222,9 +222,9 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 #### Per eseguire la connessione a un nuovo dispositivo dopo il failover
 
-1. Riconfigurare la connessione iSCSI al nuovo dispositivo. Per istruzioni, andare a "Passaggio 7: montaggio, inizializzazione e formattazione di un volume" in [Distribuzione del dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). 
+1. Riconfigurare la connessione iSCSI al nuovo dispositivo. Per istruzioni, andare a "Passaggio 7: montaggio, inizializzazione e formattazione di un volume" in [Distribuzione del dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md). 
 
->[AZURE.NOTE]Se il nuovo dispositivo StorSimple ha lo stesso indirizzo IP del precedente, potrebbe essere in grado di connettere la configurazione precedente.
+>[AZURE.NOTE] Se il nuovo dispositivo StorSimple ha lo stesso indirizzo IP del precedente, potrebbe essere in grado di connettere la configurazione precedente.
 
 2. Arrestare il servizio di gestione di Microsoft StorSimple:
 
@@ -263,4 +263,4 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 - Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Informazioni su come [utilizzare Gestione Snapshot StorSimple per visualizzare e gestire volumi](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

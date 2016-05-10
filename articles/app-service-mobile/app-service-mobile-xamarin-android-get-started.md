@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Creare un'app per Xamarin.Android
@@ -70,7 +70,9 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 
 ##Passaggi successivi
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-android-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-android-get-started-users.md): informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md): informazioni sull'aggiunta di notifiche push all'app.
+* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come utilizzare l'SDK del client gestito nell'app Xamarin. 
 
 
 <!-- Images. -->
@@ -84,4 +86,4 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

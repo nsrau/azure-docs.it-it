@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK
@@ -263,7 +263,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 
 	
 
-12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Tramite questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure classico. 
+12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Con questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -394,4 +394,4 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -16,6 +16,6 @@ Regole di avviso per ogni sottoscrizione|250|250
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<sup>2</sup>Se sono necessari più di 100 account di archiviazione, inviare una richiesta tramite il [supporto di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure prenderà il caso in esame. In caso di approvazione, sarà consentito avere un massimo di 250 account di archiviazione.
+<sup>2</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 100 account di archiviazione, inviare una richiesta tramite il [supporto di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

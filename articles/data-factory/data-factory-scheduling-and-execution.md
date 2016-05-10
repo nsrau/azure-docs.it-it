@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Pianificazione ed esecuzione con Data factory
@@ -268,9 +268,9 @@ CopyActivity1: Input: Dataset1 Output Dataset2
 
 CopyActivity2: Inputs: Dataset2 Output: Dataset4
 
-CopyActivity2 viene eseguita solo se l’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile.
+CopyActivity2 viene eseguita solo se l'esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile.
 
-Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input di CopyActivity2, in modo che l’attività non venga eseguita fino a quando CopyActivity1 non è stata completata. Ad esempio:
+Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input per CopyActivity2, in modo che l'attività non venga eseguita fino a quando CopyActivity1 non è stata completata. ad esempio:
 
 CopyActivity1: Input: Dataset1 Output Dataset2
 
@@ -621,6 +621,51 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 	} 
 
 
+## Pipeline monouso
+È possibile creare e pianificare una pipeline in modo da eseguirla periodicamente (ogni ora, ogni giorno e così via) tra le ore di inizio e di fine specificate nella definizione della pipeline. Vedere [Pianificazione delle attività](#scheduling-and-execution) per informazioni dettagliate. È anche possibile creare una pipeline che viene eseguita una sola volta. A tale scopo, impostare la proprietà **pipelineMode** nella definizione della pipeline su **onetime** come illustrato nell'esempio di JSON seguente. Il valore predefinito per questa proprietà è **scheduled**.
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Tenere presente quanto segue:
+ 
+- Non è necessario specificare le ore di **inizio** e **fine** per la pipeline. 
+- È necessario specificare la disponibilità dei set di dati di input e output (frequenza e l'intervallo) in questa fase anche se i valori non vengono usati da Data Factory.  
+- Le pipeline monouso non vengono visualizzate nella vista Diagramma. Si tratta di un comportamento previsto da progettazione. 
+- Non è possibile aggiornare le pipeline monouso. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra. 
+
+  
 
 
 
@@ -653,4 +698,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

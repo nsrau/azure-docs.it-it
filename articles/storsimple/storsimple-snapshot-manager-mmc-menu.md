@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
@@ -27,9 +27,7 @@ In Gestione snapshot StorSimple, le azioni seguenti verranno visualizzate elenca
 - Esporta elenco 
 - Guida 
 
-Queste azioni fanno parte di Microsoft Management Console (MMC) e non sono specifiche di Gestione snapshot StorSimple.
-
-In questa esercitazione vengono descritte tali azioni e viene illustrato come utilizzare ciascuna di esse in Gestione snapshot StorSimple.
+Queste azioni fanno parte di Microsoft Management Console (MMC) e non sono specifiche di Gestione snapshot StorSimple. In questa esercitazione vengono descritte tali azioni e viene illustrato come utilizzare ciascuna di esse in Gestione snapshot StorSimple.
 
 ## Visualizza
 
@@ -128,4 +126,4 @@ In questa esercitazione vengono descritte tali azioni e viene illustrato come ut
 - Ulteriori informazioni sull'[interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0427_2016-->

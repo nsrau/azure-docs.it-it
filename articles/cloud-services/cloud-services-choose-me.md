@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="04/15/2016" 
 	ms.author="adegeo"/>
 
 # Perché scegliere Servizi cloud
@@ -24,7 +24,7 @@ Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi mo
 <a name="tellmecs"></a>
 ## Informazioni sui servizi cloud
 
-Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, affidabili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
+Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
 ![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -57,4 +57,4 @@ L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre 
 ## Passaggi successivi
 [Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md) [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md) [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md) [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

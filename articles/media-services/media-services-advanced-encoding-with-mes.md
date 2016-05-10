@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="04/24/2016"    
 	ms.author="juliako"/>
 
 
@@ -31,17 +31,18 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 - [Inserire una traccia audio silenziosa quando l'input è privo di audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disabilitare il deinterlacciamento automatico](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Impostazioni predefinite solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Concatenare due o più file video](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
-##<a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
+##<a id="encoding_with_dotnet"></a>Codifica con Media Services .NET SDK
 
 Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare XML o JSON (ad esempio [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) in un file e utilizzare il codice seguente per caricare il file.
+- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare in un file XML o JSON, ad esempio [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json), e usare il codice seguente per caricare il file.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - Aggiungere un'attività di codifica al processo. 
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
@@ -235,18 +236,18 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		}
 
 
-##<a id="thumbnails"></a>Generazione di anteprime
+##<a id="thumbnails"></a>Generare anteprime
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile prendere una delle impostazioni predefinite MES documentate [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
 
->[AZURE.NOTE]L'impostazione **SceneChangeDetection** nell’impostazione predefinita seguente può essere impostata a true solo in caso di codifica in un video a velocità in bit singola. In caso di codifica in video a più velocità in bit e impostazione di **SceneChangeDetection** a true, il codificatore restituisce un errore.
+>[AZURE.NOTE]L'impostazione **SceneChangeDetection** nell'impostazione predefinita seguente può essere impostata su true solo in caso di codifica in un video a bitrate singolo. In caso di codifica in video a bitrate multiplo e impostazione di **SceneChangeDetection** su true, il codificatore restituisce un errore.
 
 
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
 Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-presets-with-dotnet.md#considerations).
 
-###<a id="json"></a>Impostazioni predefinite JSON
+###<a id="json"></a>Set di impostazioni JSON
 
 
 	{
@@ -348,7 +349,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-p
 	}
 
 
-###<a id="xml"></a>Impostazioni predefinite XML
+###<a id="xml"></a>Set di impostazioni XML
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -441,13 +442,13 @@ Si applicano le considerazioni seguenti:
 	- Impostazioni predefinite: Start: {Best}
 - Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
-##<a id="trim_video"></a>Taglio di un video (ritaglio)
+##<a id="trim_video"></a>Tagliare un video (ritaglio)
 
-Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere utilizzato per tagliare o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ridurre o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato nella parte superiore dello schema.
+Per tagliare i video è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
  
-###<a id="json"></a>Impostazioni predefinite JSON
+###<a id="json"></a>Set di impostazioni JSON
 	
 	{
 	  "Version": 1.0,
@@ -569,7 +570,7 @@ Per tagliare i video, è possibile eseguire un’impostazione predefinita MES do
 
 ###Set di impostazioni XML
 	
-Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito).
+Per tagliare i video è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -686,19 +687,19 @@ Per tagliare i video, è possibile eseguire un’impostazione predefinita MES do
 	  </Outputs>
 	</Preset>
 
-##<a id="overlay"></a>Creazione di una sovrimpressione
+##<a id="overlay"></a>Creare una sovrimpressione
 
 Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
 Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario**.
 
-Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** utilizza il file di impostazioni predefinite personalizzato passato alla funzione stessa (ad esempio l’impostazione predefinita seguente) per creare l'attività di codifica.
+Nell'esempio di .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** usa il file di impostazioni predefinite personalizzato passato alla funzione stessa, ad esempio l'impostazione predefinita seguente, per creare l'attività di codifica.
 
 >[AZURE.NOTE]Limitazioni correnti:
 >
 >L'impostazione di opacità della sovrimpressione non è supportata.
 >
->Il file video di origine e il file della sovrimpressione devono trovarsi nello stesso asset.
+>Il file video di origine e il file dell'immagine sovrapposta devono essere nello stesso asset e il file video deve essere impostato come file primario nell'asset.
 
 ###Set di impostazioni JSON
 	
@@ -747,7 +748,7 @@ Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromF
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -756,8 +757,8 @@ Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromF
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -776,6 +777,7 @@ Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromF
 	    }
 	  ]
 	}
+
 
 ###Set di impostazioni XML
 	
@@ -816,10 +818,10 @@ Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromF
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -840,13 +842,14 @@ Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromF
 	  </Outputs>
 	</Preset>
 
+
 ##<a id="silent_audio"></a>Inserire una traccia audio silenziosa quando l'input è privo di audio
 
 Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore.
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
 
-È possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+È possibile prendere un set di impostazioni MES documento [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
 
 ###Set di impostazioni JSON
 
@@ -897,7 +900,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 	</Sources>
 
 
-##<a id="audio_only"></a>Impostazioni predefinite solo audio
+##<a id="audio_only"></a>Set di impostazioni solo audio
 
 In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
@@ -947,6 +950,116 @@ In questa sezione vengono illustrate due impostazioni predefinite MES solo audio
 	  ]
 	}
 
+##<a id="concatenate"></a>Concatenare due o più file video
+
+Nell'esempio seguente viene illustrato come generare un set di impostazioni per concatenare due o più file video. Lo scenario più comune è l'aggiunta di un'intestazione o una sequenza finale al video principale. L'uso previsto sono i file video modificati insieme che condividono le stesse proprietà: risoluzione video, frequenza dei fotogrammi, conteggio tracce audio e così via. Prestare attenzione a non combinare video con frequenze dei fotogrammi diverse o con un numero diverso di tracce audio.
+
+###Problemi e considerazioni
+
+- I video di input devono contenere solo una traccia audio.
+- Tutti i video di input devono avere la stessa frequenza dei fotogrammi.
+- È necessario caricare i video in asset separati e impostare i video come file primario in ogni asset.
+- È necessario conoscere la durata dei video.
+- Il seguente esempio di set di impostazioni presuppone che tutti i video di input inizino con un timestamp pari a zero. È necessario modificare i valori StartTime se i video hanno un timestamp iniziale diverso, come avviene in genere con gli archivi in tempo reale.
+- Il set di impostazioni JSON fa riferimenti espliciti ai valori AssetID degli asset di input.
+- Il codice di esempio presuppone che il set di impostazioni JSON sia stato salvato in un file locale, ad esempio "C:\\supportFiles\\preset.json". Presuppone anche che siano stati creati due asset caricando due file video e che si conoscano i valori AssetID risultanti.
+- Il frammento di codice e il set di impostazioni JSON mostrano un esempio di concatenazione di due file video. È possibile estendere la concatenazione a più di due video nel modo seguente:
+
+	1. Chiamando ripetutamente task.InputAssets.Add() per aggiungere più video in ordine.
+	2. Effettuando le modifiche corrispondenti all'elemento "Sources" nel file JSON, aggiungendo altre voci nello stesso ordine. 
+
+
+###Codice .NET
+
+	
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input videos to be concatenated (in order).
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###Set di impostazioni JSON
+
+Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si vuole concatenare e l'intervallo di tempo appropriato per ogni video.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+	
+
 ##Percorsi di apprendimento di Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -959,4 +1072,4 @@ In questa sezione vengono illustrate due impostazioni predefinite MES solo audio
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Esercitazione sul database SQL: creare un database SQL | Microsoft Azure"
 	description="Informazioni su come configurare un server logico di database SQL, una regola firewall del server, un database SQL, usare dati di esempio, connettersi con strumenti client, configurare gli utenti e una regola firewall del database."
-	keywords="esercitazione sul database sql,creare un database sql"
+	keywords="esercitazione sul database sql, creare un database sql"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -50,7 +50,7 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Se si ha familiarità con Excel, vedere l'articolo che illustra come [connettersi al database SQL con Excel](sql-database-connect-excel.md).
 
-- Se si ha familiarità con la scrittura di codice, vedere [Connettersi al database SQL con C# ed eseguire query](sql-database-connect-query.md) e [Uso del database SQL da .NET (C#)](sql-database-develop-dotnet-simple.md). Vedere anche [Esempi di codice di avvio rapido per il database SQL](sql-database-develop-quick-start-client-code-samples.md) per Node.js, Python, Ruby, Java e PHP, gli esempi e le procedure per C++, oltre a quelli per C#.
+- Se si è pronti per iniziare la codifica, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
@@ -59,4 +59,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 [Panoramica del database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -190,10 +190,10 @@ Cache Redis di Azure può usare sia oggetti .NET che tipi di dati primitivi, ma 
 
 ## Eseguire la migrazione dello stato della sessione ASP.NET e della memorizzazione nella cache di output alla Cache Redis di Azure
 
-La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET che per la memorizzazione nella cache dell'output delle pagine. Per eseguire la migrazione dell'applicazione che usa le versioni del Servizio cache gestita di questi provider, rimuovere prima le sezioni esistenti dal file web.config e quindi configurare le versioni della Cache Redis di Azure dei provider. Per istruzioni sull'uso dei provider ASP.NET della Cache Redis di Azure, vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-asp.net-session-state-provider.md) e [Provider di cache di output ASP.NET per la Cache Redis di Azure](cache-asp.net-output-cache-provider.md).
+La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET che per la memorizzazione nella cache dell'output delle pagine. Per eseguire la migrazione dell'applicazione che usa le versioni del Servizio cache gestita di questi provider, rimuovere prima le sezioni esistenti dal file web.config e quindi configurare le versioni della Cache Redis di Azure dei provider. Per istruzioni sull'uso dei provider ASP.NET della Cache Redis di Azure, vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md) e [Provider di cache di output ASP.NET per la Cache Redis di Azure](cache-aspnet-output-cache-provider.md).
 
 ## Passaggi successivi
 
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

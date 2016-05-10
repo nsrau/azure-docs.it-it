@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="04/08/2016"
 	ms.author="danlep"/>
 
 # Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure
@@ -153,4 +153,4 @@ Se le sottoscrizioni associate all'account sono state autenticate solo con Activ
 
 * In caso di problemi durante l'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

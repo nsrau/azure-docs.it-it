@@ -301,7 +301,8 @@ Dati della richiesta del token di concessione delle credenziali client:
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | ID client dell'applicazione
-| resource | Identificatore codificato URL della risorsa per cui viene richiesto il token di accesso. In questo caso, l'identificatore dell'API Graph di Azure AD è **https://graph.windows.net/** | client\_secret or client\_assertion\_type + client\_assertion | Se l'applicazione usa la credenziale password, usare client\_secret. Se l'applicazione usa la credenziale certificato, usare client\_assertion.
+| resource | Identificatore codificato URL della risorsa per cui viene richiesto il token di accesso. In questo caso, l'identificatore dell'API Graph di Azure AD è **https://graph.windows.net/** 
+| client\_secret or client\_assertion\_type + client\_assertion | Se l'applicazione usa la credenziale password, usare client\_secret. Se l'applicazione usa la credenziale certificato, usare client\_assertion.
 
 Richiesta di esempio del token di concessione delle credenziali client:
 

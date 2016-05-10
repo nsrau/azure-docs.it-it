@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Come usare Cache Redis di Azure" 
+	pageTitle="Come usare Cache Redis di Azure | Microsoft Azure" 
 	description="Informazioni su come migliorare le prestazioni delle applicazioni Azure con Cache Redis di Azure" 
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="01/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
@@ -34,7 +34,7 @@ Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache][].
 
-Questa guida mostra come usare il client [StackExchange.Redis][] con il codice C#. Gli scenari presentati includono **creazione e configurazione di una cache**, **configurazione di client della cache** e **aggiunta e rimozione di oggetti dalla cache**. Per ulteriori informazioni sull’uso di Cache Redis di Azure, fare riferimento alla sezione [Passaggi successivi][].
+Questa guida mostra come usare il client [StackExchange.Redis][] con il codice C#. Gli scenari presentati includono **creazione e configurazione di una cache**, **configurazione di client della cache** e **aggiunta e rimozione di oggetti dalla cache**. Per ulteriori informazioni sull’uso di Cache Redis di Azure, fare riferimento alla sezione [Passaggi successivi][]. Per un'esercitazione dettagliata sulla creazione di un'app Web ASP.NET MVC con la cache Redis, vedere [Come creare un'app Web con la cache Redis](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 ## Introduzione all'uso di Cache Redis di Azure
@@ -57,13 +57,13 @@ Per creare una cache, accedere prima al [portale di Azure][] e fare clic su **Nu
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] Se non si ha un account Azure, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+>[AZURE.NOTE] Se non si ha un account Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in pochi minuti.
 
 Nel pannello **Nuova cache Redis** specificare la configurazione desiderata per la cache.
 
 ![Create cache][CacheCreate]
 
--	In **Nome DNS** immettere il nome di una cache da usare per l'endpoint della cache. Il nome della cache deve essere una stringa contenente da 1 a 63 caratteri che possono includere solo numeri, lettere e il carattere `-`. Il nome della cache non può iniziare o terminare con il carattere `-` e caratteri `-` consecutivi non sono validi.
+-	In **Nome DNS** immettere il nome di una cache da usare per l'endpoint della cache. Il nome della cache deve essere una stringa contenente da 1 a 63 caratteri che possono includere solo numeri, lettere e il carattere `-`. Il nome della cache non può iniziare o terminare con il carattere `-` e i caratteri `-` consecutivi non sono validi.
 -	Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per la cache. Se l'account dispone di una sola sottoscrizione, questa verrà selezionata automaticamente e l'elenco a discesa **Sottoscrizione** non verrà visualizzato.
 -	In **Gruppo di risorse** selezionare o creare un gruppo di risorse per la cache. Per altre informazioni, vedere [Uso di Gruppi di risorse per gestire le risorse di Azure][]. 
 -	Usare **Posizione** per specificare la posizione geografica in cui viene ospitata la cache. Per prestazioni ottimali, è consigliabile creare la cache nella stessa area dell'applicazione client della cache.
@@ -96,7 +96,7 @@ Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet S
 
 ![Manage NuGet packages][NuGetMenu]
 
-Digitare **StackExchange.Redis** o **StackExchange.Redis.StrongName** nella casella di testo di **ricerca online**, selezionare la versione desiderata nei risultati e fare clic su **Installa**.
+Digitare **StackExchange.Redis** o **StackExchange.Redis.StrongName** nella casella di testo di ricerca, selezionare la versione desiderata nei risultati e fare clic su **Installa**.
 
 >[AZURE.NOTE] Se si preferisce usare una versione con nome sicuro della libreria client **StackExchange.Redis**, scegliere **StackExchange.Redis.StrongName**; in caso contrario, scegliere **StackExchange.Redis**.
 
@@ -239,7 +239,7 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 	-	[Provider di cache di output ASP.NET della Cache Redis di Azure](cache-aspnet-output-cache-provider.md)
 -	[Abilitare la diagnostica della cache](cache-how-to-monitor.md#enable-cache-diagnostics) per poter [monitorare](cache-how-to-monitor.md) l'integrità della cache. È possibile visualizzare le metriche nel portale di Azure, nonché [scaricarle e analizzarle](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando gli strumenti preferiti.
 -	Vedere la [documentazione del client della cache StackExchange.Redis][].
-	-	È possibile accedere a Cache Redis di Azure da numerosi linguaggi di sviluppo e client Redis. Per ulteriori informazioni, vedere [http://redis.io/clients][] and [Sviluppo in altri linguaggi per Cache Redis di Azure][].
+	-	È possibile accedere a Cache Redis di Azure da numerosi linguaggi di sviluppo e client Redis. Per altre informazioni, vedere [http://redis.io/clients][].
 	-	È anche possibile usare Cache Redis di Azure con altri servizi come Redsmin. Per ulteriori informazioni, vedere l’articolo su [come recuperare una stringa di connessione di Redis di Azure e usarla con Redsmin][].
 -	Vedere la documentazione su [Redis][] e in particolare l'articolo sui [tipi di dati Redis][] e l'[introduzione di 15 minuti ai tipi di dati Redis][].
 
@@ -291,7 +291,7 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
    
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Sviluppo in altri linguaggi per Cache Redis di Azure]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [come recuperare una stringa di connessione di Redis di Azure e usarla con Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
@@ -334,6 +334,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [come funzionano le stringhe applicazione e le stringhe di connessione]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-[versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

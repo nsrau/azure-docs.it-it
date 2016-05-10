@@ -136,6 +136,6 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà neces
 -  Essere accessibile (tramite TCP e UDP sulla porta 53) dai client che gestisce e in grado di accedere a Internet.
 -  Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
-> [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.mp) a ogni macchina virtuale del server DNS.
+> [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) a ogni macchina virtuale del server DNS.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

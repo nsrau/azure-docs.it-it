@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)*
@@ -45,4 +45,4 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Usare strumenti familiari di gestione:** è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini forniti da Servizi di dominio Azure AD.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

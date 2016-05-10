@@ -3,7 +3,7 @@
    description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di CLI per le operazioni sui set di record e i record." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/04/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Come gestire i record DNS utilizzando CLI
 
@@ -50,7 +50,7 @@ DNS di Azure supporta i seguenti tipi di record: A, AAAA, CNAME, MX, NS, SOA, SR
 
 ### Record con caratteri jolly
 
-DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly). Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
+DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly). Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
 
 I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
@@ -245,4 +245,4 @@ Dopo aver creato la zona e i record DNS, è possibile [delegare il dominio a DNS
 
  
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

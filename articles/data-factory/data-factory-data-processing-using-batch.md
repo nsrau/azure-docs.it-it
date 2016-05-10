@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Orchestrazione di HPC e dati con Azure Batch e Data factory
 
@@ -901,13 +901,13 @@ Il debug è costituito da alcune tecniche di base:
 
 Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come **Microsoft Power BI**. Ecco alcuni collegamenti che illustrano Power BI e come è possibile usarlo in Azure:
 
--   [Esplorare un set di dati in Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/it-IT/documentation/powerbi-service-get-data/)
 
--   [Introduzione a Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/documentation/powerbi-desktop-getting-started/)
 
--   [Aggiornare i dati in Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Aggiornare i dati in Power BI](https://powerbi.microsoft.com/it-IT/documentation/powerbi-refresh-data/)
 
--   [Azure e Power BI - Panoramica di base](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/it-IT/documentation/powerbi-azure-and-power-bi/)
 
 ## Riferimenti
 
@@ -929,4 +929,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
     -   [Introduzione alla libreria di Azure Batch per .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

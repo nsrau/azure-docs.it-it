@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Pull di dati pubblici in Hub eventi di Azure | Microsoft Azure"
-   description="Panoramica dell'importazione di hub eventi da un esempio Web"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Pull di dati pubblici in Hub eventi di Azure | Microsoft Azure"
+    description="Panoramica dell'importazione di hub eventi da un esempio Web"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="spyrossak"
+    manager="timlt"
+    editor=""/>
 
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="spyros;sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/26/2016"
+    ms.author="spyros;sethm" />
 
 # Pull di dati pubblici in Hub eventi di Azure
 
@@ -47,4 +47,4 @@ Per distribuire la soluzione, clonare o scaricare l'applicazione [GenericWebToEH
 
 Vedere altri esempi relativi a Hub eventi nella [raccolta di esempi di Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e su [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

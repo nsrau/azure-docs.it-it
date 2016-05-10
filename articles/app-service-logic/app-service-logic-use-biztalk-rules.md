@@ -107,8 +107,8 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
 
    ![Alt text][4]
 
-2. Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario.
-3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
+2.Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario.
+3.Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
 Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ##Definizione Valore letterale
@@ -174,7 +174,7 @@ Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a crea
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
    1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 

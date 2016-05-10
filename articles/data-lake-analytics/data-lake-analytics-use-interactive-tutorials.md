@@ -3,7 +3,7 @@
    description="Guida introduttiva all'apprendimento di Data Lake Analytics e U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 
 # Usare le esercitazioni interattive di Azure Data Lake Analytics
@@ -88,4 +88,4 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

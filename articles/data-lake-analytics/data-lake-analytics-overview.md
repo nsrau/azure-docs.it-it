@@ -3,7 +3,7 @@
    description="Data Lake Analytics è un servizio di calcolo dei Big Data di Azure che consente di usare i dati per la gestione delle attività aziendali mediante le informazioni dettagliate ricavate dai dati archiviati nel cloud, indipendentemente dalla loro posizione o dimensione. Data Lake Analytics consente di eseguire queste operazioni nel modo più semplice, scalabile ed economico possibile." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Panoramica di Microsoft Azure Data Lake Analytics
 
@@ -77,4 +77,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/19/2016"
 	ms.author="jolevy"/>
 
 
@@ -45,4 +45,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 - [Il primo runbook](../automation/automation-first-runbook-graphical.md)
 - [Mappa di apprendimento di Automazione di Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

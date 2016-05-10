@@ -3,7 +3,7 @@
    description="Informazioni su come installare Strumenti di Data Lake per Visual Studio e come sviluppare e testare script U-SQL."
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/15/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
 
@@ -216,7 +216,7 @@ Mediante l’esperienza di esecuzione di U-SQL in locale in Visual Studio, è po
 - Eseguire il debug di Assembly C# in locale.
 - Creare, eliminare o visualizzare le tabelle locali, gli assembly, gli schemi e le tabelle in Esplora Server esattamente come è possibile fare per il servizio Analisi Azure Data Lake.
 
-Verrà visualizzato un account *locale* in Visual Studio e il programma di installazione creerà una cartella *DataRoot* in *C:\\LocalRunRoot*. Verrà utilizzata la cartella DataRoot:
+Verrà visualizzato un account *locale* in Visual Studio e il programma di installazione creerà una cartella *DataRoot* in *C:\LocalRunRoot*. Verrà utilizzata la cartella DataRoot:
 
 - Archiviazione dei metadati, comprese tabelle, database, TVF e così via.
 - Per un determinato script: se si fa riferimento a un percorso relativo nei percorsi di input/output, si cercherà il DataRoot (nonché il percorso dello script se è quello di input)
@@ -362,4 +362,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

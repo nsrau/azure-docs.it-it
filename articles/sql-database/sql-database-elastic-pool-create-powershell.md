@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Creare un pool di database elastici (PowerShell) | Microsoft Azure"
+    pageTitle="Creare un nuovo pool di database elastici con PowerShell | Microsoft Azure"
     description="Informazioni su come usare PowerShell per la scalabilità delle risorse del database SQL di Azure tramite la creazione di un pool di database elastici scalabile per la gestione di più database."
 	services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="03/27/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Creare un pool di database elastici con PowerShell
+# Creare un nuovo pool di database elastici con PowerShell
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-create-portal.md)
@@ -33,33 +33,26 @@ Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni 
 
 È necessario eseguire Azure PowerShell 1.0 o versione successiva. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-## Creare un pool
+## Creare un nuovo pool
 
-Il cmdlet [New AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crea un pool.
+Il cmdlet [New AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crea un nuovo pool. I valori per eDTU per pool, DTU min e max sono vincolati dal valore del livello di servizio (Basic, Standard o Premium). Vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## Creare un nuovo database elastico in un pool
 
-Per creare un nuovo database direttamente all'interno di un pool, usare il cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e impostare il parametro **ElasticPoolName**.
-
+Usare il cmdlet [New AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e impostare il parametro **ElasticPoolName** per il pool di destinazione. Per spostare un database esistente in un pool, vedere [Spostare un database in un pool elastico](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
+## Creare un pool e popolarlo con più database nuovi 
 
+La creazione di un numero elevato di database in un pool può richiedere tempo quando viene eseguita tramite il portale o i cmdlet di PowerShell che creano un database singolo alla volta. Per automatizzare la creazione in un nuovo pool, vedere [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-## Spostare un database autonomo in un pool
+## Esempio: Creare un pool con PowerShell 
 
-Per spostare un database esistente in un pool, usare il cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e impostare il parametro **ElasticPoolName**.
-
-	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
-
-
-
-## Creare un esempio di pool di PowerShell
-
-Questo script crea un nuovo server, quindi quando viene richiesto un nome utente e una password, immettere un account di accesso e una password amministratore per il nuovo server, non le credenziali di Azure.
+Questo script crea un nuovo gruppo di risorse di Azure e un nuovo server. Quando richiesto, specificare un nome utente dell'amministratore e una password per il nuovo server (non le credenziali di Azure).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -85,5 +78,6 @@ Questo script crea un nuovo server, quindi quando viene richiesto un nome utente
 
 - [Gestire il pool](sql-database-elastic-pool-manage-powershell.md)
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
+- [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -74,11 +74,17 @@ Per effettuare chiamate API autenticate, il chiamante include token di connessio
 
 Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, passare all'articolo successivo [Autenticazione dell'entità servizio per app per le API del servizio app di Azure](app-service-api-dotnet-service-principal-auth.md).
 
-Se si sta seguendo la serie introduttiva su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione](#azureauth).
+Se si sta seguendo la serie introduttiva su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione nel servizio app e Azure AD](#azureauth).
 
-Per seguire questa esercitazione anche se la prima e la seconda non sono state completate, controllare i prerequisiti elencati nella [prima esercitazione](app-service-api-dotnet-get-started.md), quindi usare il pulsante **Distribuisci in Azure** nel [file leggimi del repository di esempio To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web.
+Per seguire questa esercitazione anche se la prima e la seconda non sono state completate, attenersi alla procedura seguente:
 
-Al termine della distribuzione, viene visualizzato un collegamento HTTP all'app Web. Per eseguire l'applicazione e verificare che sia operativa, modificare tale URL in HTTPS.
+1. Verificare di avere tutti i prerequisiti indicati nella [prima esercitazione](app-service-api-dotnet-get-started.md). Oltre ai prerequisiti indicati, queste esercitazioni sull'autenticazione presuppongono che l'utente abbia già usato le app Web del servizio app e le app per le API in Visual Studio e il portale di Azure.
+
+2. Fare clic sul pulsante **Distribuisci in Azure** nel [file leggimi del repository di esempio To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web. Prendere nota del gruppo di risorse di Azure che viene creato, poiché questa informazione potrà essere usata in un secondo tempo per la ricerca dei nomi delle app Web e delle app per le API.
+ 
+3. Scaricare o clonare il [repository di esempio To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) per ottenere il codice da usare per lavorare in locale in Visual Studio.
+
+Questi passaggi portano allo stesso punto di partenza a cui si arriva seguendo le prime due esercitazioni, con una sola eccezione: Visual Studio non sa ancora a quale app Web o app per le API verrà distribuito ogni progetto. Quando si distribuisce un progetto, è necessario selezionare l'app Web o l'app per le API di Azure per poter eseguire la distribuzione. Per ottenere i nomi dell'app Web e dell'app per le API, aprire il portale di Azure e passare al pannello del gruppo di risorse per il gruppo creato facendo clic sul pulsante **Distribuisci in Azure**.
 
 ## <a id="azureauth"></a> Configurare l'autenticazione nel servizio app e in Azure AD
 
@@ -114,7 +120,7 @@ Se si verificano problemi mentre si seguono le istruzioni dell'esercitazione, ve
 
 	Non è necessario creare un tenant, perché ne esiste già uno per ogni account Azure.
 
-7. In **Modalità di gestione** fare clic su **Crea nuova app AD** se non è già selezionata e annotare il valore nella casella di testo **Crea app** per cercare questa applicazione AAD nel portale di Azure classico in un secondo momento.
+7. In **Modalità di gestione** fare clic su **Crea nuova app AD**, se non è già selezionata, e annotare il valore nella casella di testo **Crea app** per cercare questa applicazione AAD nel portale di Azure classico in un secondo momento.
 
 	![Impostazioni di Azure AD del portale di Azure](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
 
@@ -168,13 +174,13 @@ Quando è stata configurata l'autenticazione di Azure AD, il servizio app ha cre
 
 	![Scheda Configura di Azure AD](./media/app-service-api-dotnet-user-principal-auth/configure.png)
 
-17. Impostare **URL accesso** sull'URL dell'app Web AngularJS, senza barra finale.
+17. Impostare come **URL di accesso** l'URL dell'app Web AngularJS, senza barra finale.
 
 	Ad esempio: https://todolistangular.azurewebsites.net
 
 	![URL di accesso](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
-17. Impostare **URL di risposta** sull'URL dell'app Web, senza barra finale.
+17. Impostare come **URL di risposta** l'URL dell'app Web, senza barra finale.
 
 	Ad esempio: https://todolistsangular.azurewebsites.net
 
@@ -254,7 +260,7 @@ Apportare le modifiche seguenti ai file nel progetto ToDoListAngular.
 
 ### Distribuire il progetto ToDoListAngular in Azure
 
-8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListAngular e quindi scegliere **Pubblica**.
+8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListAngular e scegliere **Pubblica**.
 
 9. Fare clic su **Pubblica**.
 
@@ -274,7 +280,7 @@ Apportare le modifiche seguenti al progetto ToDoListAPI.
 
 		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
 
-	**Importante**: non rimuovere il commento nel codice nel metodo `ToDoListDataAPI`. Questa operazione verrà eseguita successivamente durante l'esercitazione di autenticazione dell'entità servizio.
+	**Importante**: non rimuovere il commento dal codice nel metodo `ToDoListDataAPI`. Questa operazione verrà eseguita successivamente durante l'esercitazione sull'autenticazione dell'entità servizio.
 
 ### Distribuire il progetto ToDoListAPI in Azure
 
@@ -304,7 +310,7 @@ Apportare le modifiche seguenti al progetto ToDoListAPI.
 
 11. Aggiungere alcune attività per verificare che l'applicazione funzioni.
 
-12. In un'altra finestra del browser passare all'URL dell'interfaccia utente di Swagger per l'app per le API ToDoListDataAPI e fare clic su **ToDoList > Get**. Immettere un asterisco come valore del parametro `owner` e quindi fare clic su **Prova**.
+12. In un'altra finestra del browser passare all'URL dell'interfaccia utente di Swagger per l'app per le API ToDoListDataAPI e fare clic su **ToDoList > Get**. Immettere un asterisco come valore del parametro `owner` e fare clic su **Prova**.
 
 	La risposta mostra che nella proprietà Owner le nuove attività hanno l'ID utente effettivo di Azure AD.
 
@@ -313,16 +319,16 @@ Apportare le modifiche seguenti al progetto ToDoListAPI.
 
 ## Compilazione dei progetti da zero
 
-I due progetti API Web sono stati creati usando il modello di progetto **App per le API di Azure** e sostituendo il controller Values predefinito con un controller ToDoList.
+I due progetti API Web sono stati creati usando il modello di progetto **App per le API di Azure** e sostituendo il controller predefinito Values con un controller ToDoList.
 
-Per informazioni su come creare un'applicazione a singola pagina AngularJS con un back-end API Web 2, vedere il [laboratorio pratico sulla compilazione di un'applicazione a singola pagina con l'API Web ASP.NET e Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Per informazioni su come aggiungere il codice di autenticazione di Azure AD, vedere le risorse seguenti:
+Per informazioni su come creare un'applicazione AngularJS a singola pagina con un back-end API Web 2, vedere il [laboratorio pratico sulla compilazione di un'applicazione a singola pagina con l'API Web ASP.NET e Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Per informazioni su come aggiungere il codice di autenticazione di Azure AD, vedere le risorse seguenti:
 
 * [Protezione di app AngularJS a singola pagina con Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
 * [Introduzione ad ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
 
 ## Risoluzione dei problemi
 
-[AZURE.INCLUDE [Risoluzione dei problemi](../../includes/app-service-api-auth-troubleshooting.md)]
+[AZURE.INCLUDE [risoluzione dei problemi](../../includes/app-service-api-auth-troubleshooting.md)]
 
 * Assicurarsi di non confondere ToDoListAPI (livello intermedio) e ToDoListDataAPI (livello dati). Ad esempio, verificare di aver aggiunto l'autenticazione all'app per le API di livello intermedio, non di livello dati. 
 * Verificare che il codice sorgente di AngularJS faccia riferimento all'URL dell'app per le API di livello intermedio (ToDoListAPI, non ToDoListDataAPI) e all'ID client di Azure AD corretto. 
@@ -331,4 +337,4 @@ Per informazioni su come creare un'applicazione a singola pagina AngularJS con u
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

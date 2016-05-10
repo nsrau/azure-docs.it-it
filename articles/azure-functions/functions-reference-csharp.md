@@ -180,17 +180,17 @@ Le app di funzione sono basate sul servizio app, quindi tutte le[opzioni di dist
 
 #### Per caricare il file project.json usando l'endpoint SCM (Kudu) dell'app di funzione
 
-1. Passare a *https://<function_app_name>.scm.azurewebsites.net*.
+1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Fare clic su **Debug Console > CMD**.
 
-3. Passare a *D:\\home\\site\\wwwroot<nome\_funzione>*.
+3. Accedere a *D:\\home\\site\\wwwroot<function\_name>*.
 
-4. Selezionare il file *project.json* e trascinarlo nella cartella (nella griglia di file).
+4. Trascinare il file *project.json* selezionato nella cartella (nella griglia di file).
 
 #### Per caricare il file project.json usando FTP
 
-1. Per la configurazione di FTP, seguire le istruzioni illustrate [qui](../app-service-web/web-sites-deploy.md#ftp).
+1. Per la configurazione dell'FTP, seguire le istruzioni riportate [qui](../app-service-web/web-sites-deploy.md#ftp).
 
 2. Quando si è connessi al sito dell'app di funzione, copiare il file *project.json* in */sito/wwwroot/<function_name>*.
 
@@ -246,9 +246,9 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 * `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una cartella nella cartella della funzione.
 
-* `#load "..\shared\mylogger.csx"` carica un file si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
+* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
  
-La direttiva `#load` funziona solo con i file con estensione *csx* (script C# ), ma non con i file con estensione *cs*.
+La direttiva `#load` funziona solo con i file con estensione *csx* (script C# ), non con i file con estensione *cs*.
 
 ## Passaggi successivi
 
@@ -258,4 +258,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

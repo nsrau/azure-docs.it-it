@@ -96,13 +96,13 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D18. Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati?** <br/> R18: No. Nell'insieme di credenziali di backup vengono archiviati i dati sottoposti a backup trasferiti fino al momento dell'annullamento. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Un backup incrementale offre un migliore utilizzo della larghezza di banda in modo che non sia necessario trasferire ripetutamente gli stessi dati.
 
-**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/> R19. Questo avviso viene generato quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'insieme di credenziali di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. Se viene visualizzato questo avviso, [riconfigurare i criteri di backup](backup-azure-backup-windows-server.md) e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
+**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/> R19. Questo avviso viene generato quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'insieme di credenziali di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. Se viene visualizzato questo avviso, [riconfigurare i criteri di backup](backup-azure-manage-windows-server.md) e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
 
 **D20. Quali regole del firewall devono essere configurate per Backup di Azure?** <br/> R20. Per proteggere facilmente i dati da locale ad Azure e da carico di lavoro ad Azure, è consigliabile consentire al firewall di comunicare con gli URL seguenti:
 
 - www.msftncsi.com
 - *.Microsoft.com
-- windowsazure.com
+- *.windowsazure.com
 - *.microsoftonline.com
 - *.windows.net
 
@@ -204,4 +204,4 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
   Una volta completata la creazione del backup nel nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

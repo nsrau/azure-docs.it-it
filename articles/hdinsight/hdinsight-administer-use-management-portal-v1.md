@@ -27,6 +27,7 @@ Il [portale di Azure classico](https://manage.windowsazure.com) permette di effe
 ## Altri strumenti per l'amministrazione di HDInsight
 Oltre al portale di Azure sono disponibili altri strumenti per amministrare HDInsight.
 
+
 - Per altre informazioni sull'amministrazione di HDInsight tramite Azure PowerShell, vedere [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 - Per altre informazioni sull'amministrazione di HDInsight tramite l’interfaccia della riga di comando di Azure, vedere [Amministrare HDInsight tramite l’interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md).
@@ -200,4 +201,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->
