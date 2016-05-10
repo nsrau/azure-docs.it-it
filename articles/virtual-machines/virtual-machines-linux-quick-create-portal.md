@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/12/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
@@ -66,7 +66,7 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 9. Usare SSH per accedere all'indirizzo IP pubblico con la chiave SSH pubblica.
 
 ```
-ahmetL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
 ## Passaggi successivi
@@ -79,4 +79,4 @@ A questo punto è stata creata rapidamente una VM Linux da usare per scopi di te
 
 Questi articoli illustrano come iniziare a compilare un'infrastruttura di Azure oltre a un numero qualsiasi di strumenti di orchestrazione, configurazione e distribuzione delle infrastrutture proprietarie e open source.
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

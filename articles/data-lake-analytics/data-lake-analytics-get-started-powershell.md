@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Esercitazione: Introduzione ad Azure Data Lake Analytics con Azure PowerShell
@@ -186,7 +186,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	Nello script il file di script U-SQL viene archiviato in c:\\tutorials\\data-lake-analytics\\copyFile.usql. Aggiornare il percorso del file di conseguenza.
+	Nello script il file di script U-SQL viene archiviato in c:\tutorials\data-lake-analytics\copyFile.usql. Aggiornare il percorso del file di conseguenza.
  
 Dopo il completamento del processo, è possibile usare i cmdlet seguenti per visualizzare l'elenco di file e scaricare il file:
 	
@@ -209,4 +209,4 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

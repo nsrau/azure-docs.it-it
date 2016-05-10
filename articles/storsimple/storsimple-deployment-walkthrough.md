@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="04/26/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
@@ -146,7 +146,7 @@ Prima di iniziare, verificare che:
 | | | |
 | **NTP** | È attiva la sincronizzazione dell'ora non appena il server NTP è di input. Controllare che la porta 123 sia aperta durante l'input`time.windows.com`o server di riferimento ora pubblico). | [Scaricare e utilizzare questo script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
+| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
 | | Il traffico è indirizzabile tramite proxy? | Eseguire la convalida di DNS, il controllo NTP o HTTP dopo la configurazione del proxy sul dispositivo. Questo fornirà un quadro preciso se il traffico viene bloccato nel proxy o altrove. |
 | | | |
 | **Registrazione** | Controllare che le porte TCP in uscita 443, 80, 9354 siano aperte. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Ulteriori informazioni per il cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -290,8 +290,8 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 
 ## Passaggi successivi
 
-- Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
+- Configurare un [dispositivo virtuale](storsimple-virtual-device-u2.md).
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

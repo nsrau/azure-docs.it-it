@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="shontnew"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -56,7 +56,7 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 - Informazioni sui [pool elastici](sql-database-elastic-pool.md).
 - Per iniziare, [creare il primo database](sql-database-get-started.md).
 - [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-- Compilare la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
+- Creare la prima applicazione in C#, Java, Node. js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 - Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio di database SQL di Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

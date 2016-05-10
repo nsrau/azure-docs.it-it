@@ -18,13 +18,7 @@
 
 # Introduzione alle app Web Node.js nel servizio app di Azure
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [schede](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Questa esercitazione illustra come creare una semplice applicazione [Node.js](http://nodejs.org) e distribuirla in un'[app Web](app-service-web-overview.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) da una riga di comando come cmd.exe o bash. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.js.
 
@@ -35,23 +29,23 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js](ht
 - Yoeman. Le istruzioni per l'installazione sono disponibili [qui](http://yeoman.io/).
 - Git. I file binari per l'installazione sono disponibili [qui](http://www.git-scm.com/downloads).
 - Interfaccia della riga di comando di Azure. Le istruzioni per l'installazione sono disponibili [qui](../xplat-cli-install.md).
-- Un account Microsoft Azure. Per ottenere un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Un account Microsoft Azure. Se non è disponibile un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Creare e distribuire una semplice app Web Node.js
 
-1. Aprire il terminale della riga di comando che si è scelto di usare e installare il [generatore di Express per Yoeman](https://github.com/petecoop/generator-express).
+1. Aprire il terminale della riga di comando che si è scelto di usare e installare il [generatore di Express per Yeoman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 
-2. Eseguire `CD` in una directory di lavoro e generare un'app Express come indicato di seguito:
+2. Eseguire `CD` per passare una directory di lavoro e generare un'app Express come indicato di seguito:
 
         yo express
         
     Scegliere le opzioni seguenti quando richiesto:
 
-    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;appname>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **Sì** `? Enter directory name` **&lt;nomeapp>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **Nessuno** `? Select a database to use:` **Nessuno** `? Select a build tool to use:` **Grunt**
 
-3. Eseguire `CD` nella directory radice della nuova app e avviarla per assicurarsi che venga eseguita nell'ambiente di sviluppo:
+3. Eseguire `CD` per passare alla directory radice della nuova app e avviarla per assicurarsi che venga eseguita nell'ambiente di sviluppo:
 
         npm start
 
@@ -87,7 +81,7 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js](ht
         git commit -m "<your commit message>"
         git push azure master
 
-    Il generatore di Express fornisce già un file con estensione gitignore, quindi il tentativo di caricare la directory node\_modules/ da parte di `git push` non occupa larghezza di banda.
+    Il generatore di Express fornisce già un file con estensione gitignore, quindi il tentativo di caricare la directory node\_modules/ da parte di `git push` non utilizza larghezza di banda.
 
 5. Infine, avviare l'app Azure attiva nel browser:
 
@@ -105,16 +99,16 @@ Per aggiornare l'app Web Node.js in esecuzione nel servizio app, è sufficiente 
 
 Il servizio app di Azure usa [iisnode](https://github.com/tjanczuk/iisnode/wiki) per eseguire le app Node.js. L'interfaccia della riga di comando di Azure e il motore Kudu (distribuzione Git) collaborano per semplificare l'esperienza di sviluppo e distribuzione di app Node.js dalla riga di comando.
 
-- `azure site create --git` riconosce il modello di Node.js comune di server.js o app.js e nella directory radice crea un file iisnode.yml, che può essere usato per personalizzare iisnode.
-- In corrispondenza di `git push azure master`, Kudu consente di automatizzare le attività di distribuzione seguenti:
+- `azure site create --git` riconosce il modello Node.js comune di server.js o app.js e nella directory radice crea un file iisnode.yml, che può essere usato per personalizzare iisnode.
+- In `git push azure master` Kudu automatizza le attività di distribuzione seguenti:
 
     - Se il file package.json si trova nella radice del repository, eseguire `npm install --production`.
-    - Generare un file Web.config per iisnode che punta al proprio nello script di avvio in package.json, ad esempio server.js o app.js.
+    - Generare un file Web.config per iisnode che punta allo script di avvio in package.json, ad esempio server.js o app.js.
     - Personalizzare Web.config per preparare l'app per il debug con Node-Inspector.
     
 ## Usare un framework di Node.js
 
-Le app sviluppate usando i framework di Node.js più diffusi, ad esempio [Sails.js](http://sailsjs.org/) o [MEAN.js](http://meanjs.org/), possono essere distribuite nel servizio app. I framework di Node.js più diffusi hanno caratteristiche non standard specifiche e le relative dipendenze dei pacchetti vengono aggiornate continuamente. Tuttavia, nel servizio app sono disponibili i log stdout e stderr che permettono di capire esattamente cosa sta facendo l'app e apportare le modifiche necessarie. Per altre informazioni, vedere [Ottenere i log stdout e stderr da iisnode](#iisnodelog).
+Se si usa un framework Node.js comune, ad esempio [Sails.js](http://sailsjs.org/) o [MEAN.js](http://meanjs.org/), per sviluppare app, queste potranno essere distribuite nel servizio app. I framework di Node.js più diffusi hanno caratteristiche non standard specifiche e le relative dipendenze dei pacchetti vengono aggiornate continuamente. Tuttavia, nel servizio app sono disponibili i log stdout e stderr che permettono di capire esattamente cosa sta facendo l'app e apportare le modifiche necessarie. Per altre informazioni, vedere [Ottenere i log stdout e stderr da iisnode](#iisnodelog).
 
 Le esercitazioni seguenti mostrano come usare un framework specifico nel servizio app:
 
@@ -132,8 +126,8 @@ In un normale flusso di lavoro è possibile fare in modo che il servizio app usi
 
 Il motore di distribuzione Kudu determina quale motore Node.js usare nell'ordine seguente:
 
-- Vedere prima di tutto in iisnode.yml se viene specificato `nodeProcessCommandLine`. Se viene specificato, è possibile usarlo.
-- Vedere poi in package.json se viene specificato `"node": "..."` nell'oggetto `engines`. Se viene specificato, è possibile usarlo.
+- Prima di tutto vedere in iisnode.yml se è specificato `nodeProcessCommandLine`. Se viene specificato, è possibile usarlo.
+- Vedere poi in package.json se è specificato `"node": "..."` nell'oggetto `engines`. Se viene specificato, è possibile usarlo.
 - Scegliere una versione predefinita di Node.js per impostazione predefinita.
 
 <a name="iisnodelog" />
@@ -209,4 +203,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 - [Centro per sviluppatori di Node. js](/develop/nodejs/)
 - [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

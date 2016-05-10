@@ -12,18 +12,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
-# Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Update 2)
+# Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
-> [AZURE.SELECTOR]
-- [Aggiornamento 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Aggiornamento 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Panoramica
-Il dispositivo virtuale StorSimple rappresenta una funzionalità aggiuntiva fornita con la soluzione Microsoft Azure StorSimple. Il dispositivo virtuale StorSimple viene eseguito in una macchina virtuale della rete virtuale di Microsoft Azure e può essere utilizzato per eseguire il backup e duplicare i dati dagli host.
+Il dispositivo virtuale StorSimple serie 8000 rappresenta una funzionalità aggiuntiva fornita con la soluzione Microsoft Azure StorSimple. Il dispositivo virtuale StorSimple viene eseguito in una macchina virtuale della rete virtuale di Microsoft Azure e può essere utilizzato per eseguire il backup e duplicare i dati dagli host. Questa esercitazione descrive come distribuire e gestire un dispositivo virtuale in Azure ed è applicabile a tutti i dispositivi virtuali che eseguono la versione del software Update 2 e precedenti.
 
 
 #### Confronto tra modelli di dispositivi virtuali
@@ -34,13 +30,15 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | Modello del dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacità massima** | 30 TB | 64 TB |
-| **Macchina virtuale di Azure** | Standard\_A3 (4 core, 7 GB di memoria) | Standard\_DS3 (4 core, 14 GB di memoria) |
+| **Macchina virtuale di Azure** | Standard_A3 (4 core, 7 GB di memoria) | Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** | Versioni con aggiornamenti precedenti a Update 2 o successivi | Versioni con aggiornamenti Update 2 o successivi |
 | **Aree di disponibilità** | Tutte le aree di Azure | Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
-| **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Indicazioni relative al carico di lavoro** | Recupero a livello di elemento per i file dai backup | Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori <br></br>Dispositivo secondario per il ripristino di emergenza |
  
 <sup>1</sup> *precedentemente noto come 1100*.
+
+<sup>2</sup> *Entrambi i modelli 8010 e 8020 usano l'archiviazione di Azure Standard per il livello cloud. La differenza è solo nel livello locale nel dispositivo*.
 
 #### Aree supportate per il modello 8020
 
@@ -278,8 +276,8 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ## Passaggi successivi
 
-- Informazioni su come [Usare il servizio StorSimple Manager per gestire un dispositivo virtuale](storsimple-manager-service-administration.md).
+- Informazioni su come [Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 - Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

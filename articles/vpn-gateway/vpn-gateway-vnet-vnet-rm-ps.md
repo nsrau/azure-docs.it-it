@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Configurare una connessione da VNet a VNet tramite Azure Resource Manager e PowerShell
@@ -95,7 +95,7 @@ Per quando riguarda la procedura di configurazione, la differenza principale per
 - [Reti virtuali incluse in diverse sottoscrizioni](#difsub)
 
 
-## <a name ="samesub"/>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
+## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
 
 Questa configurazione si applica alle reti virtuali che si trovano nella stessa sottoscrizione, come mostrato nella figura seguente:
 
@@ -107,7 +107,7 @@ Questa configurazione si applica alle reti virtuali che si trovano nella stessa 
 	
 - È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-### <a name ="Step1"/>Passaggio 1: Pianificare gli intervalli di indirizzi IP
+### <a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
 
 È importante definire gli intervalli che verranno utilizzati per impostare la configurazione di rete. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo.
@@ -152,7 +152,7 @@ Per questo esercizio, utilizzare i valori seguenti per le reti virtuali:
 
 
 
-### <a name ="Step2"/>Passaggio 2: Creare e configurare TestVNet1
+### <a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
 
 1. Dichiarare le variabili
 
@@ -312,7 +312,7 @@ Dopo aver configurato TestVNet1, ripetere la procedura per creare TestVNet4. Ese
 
 	Dopo alcuni minuti, la connessione dovrebbe stabilirsi.
 
-## <a name ="Verify"/>Come verificare una connessione tra reti virtuali
+## <a name="Verify"></a>Come verificare una connessione tra reti virtuali
 
 L'esempio seguente illustra come verificare la connessione. Assicurarsi di modificare i valori in base all'ambiente.
 
@@ -323,11 +323,11 @@ L'esempio seguente illustra come verificare la connessione. Assicurarsi di modif
 
 ### Per verificare la connessione tramite PowerShell
 
-È possibile verificare che la connessione abbia avuto esito positivo anche usando *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Si può usare l'esempio seguente, modificando i valori in modo che corrispondano ai propri. Quando richiesto, selezionare A per eseguirli tutti.
+È anche possibile verificare che la connessione sia riuscita usando *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Si può usare l'esempio seguente, modificando i valori in modo che corrispondano ai propri. Quando richiesto, selezionare A per eseguirli tutti.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
-Al termine, scorrere i cmdlet per visualizzare i valori. Nell'esempio di output di PowerShell riportato sotto, lo stato della connessione risulta *Connesso* ed è possibile vedere i byte in ingresso e in uscita.
+Al termine, scorrere i cmdlet per visualizzare i valori. Nell'esempio di output di PowerShell seguente lo stato della connessione risulta *Connesso* ed è possibile vedere i byte in ingresso e in uscita.
 
 
 
@@ -355,7 +355,7 @@ Al termine, scorrere i cmdlet per visualizzare i valori. Nell'esempio di output 
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
+## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
 
 La procedura di configurazione seguente aggiunge un'altra connessione tra reti virtuali per connettere TestVNet1 a TestVNet5, che si trova in una sottoscrizione diversa. La differenza consiste nel fatto che una parte dei passaggi di configurazione deve essere eseguita in una sessione di PowerShell separata nel contesto della seconda sottoscrizione, soprattutto quando le due sottoscrizioni appartengono a organizzazioni diverse. Nella figura seguente è mostrata la configurazione risultante al termine della procedura che segue:
 
@@ -530,4 +530,4 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

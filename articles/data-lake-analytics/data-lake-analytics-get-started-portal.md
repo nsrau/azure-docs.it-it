@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Esercitazione: Introduzione a Analisi di Azure Data Lake con il portale di Azure
@@ -155,4 +155,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

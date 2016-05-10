@@ -42,7 +42,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 3. Selezionare un **Piano tariffario** oppure usare il valore predefinito.
 
-4. Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview/#resource-groups).
+4. Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
 
 5. Selezionare la **Sottoscrizione** per questo profilo di rete CDN.
 
@@ -52,7 +52,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 ## Creare un nuovo endpoint della rete CDN
 
-**Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
+**Per creare nuovo endpoint della rete CDN**
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo della rete CDN. Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente. Se così non fosse, è possibile trovarlo cliccando su **Sfoglia**, quindi su **Profili di rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
 
@@ -80,9 +80,11 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 7. Nell’**Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
 
-8. Per **Protocollo** e **Porta origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine. I client continueranno a usare gli stessi protocolli e le stesse porte quando accedono a risorse nella rete CDN. È necessario selezionare almeno un protocollo (HTTP o HTTPS).
+8. Per **Protocollo** e **Porta origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS).
 	
-	> [AZURE.TIP] L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
+	> [AZURE.NOTE] **Porta dell'origine** interessa solo la porta che usa l'endpoint per recuperare informazioni dall'origine. L'endpoint stesso sarà disponibile solo ai client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.
+	>
+	>L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
 	> 
 	> - È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
 	> - È necessario usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
@@ -95,7 +97,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
     > [AZURE.IMPORTANT] L'endpoint non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. In genere è disponibile entro 90 minuti, ma in alcuni casi può richiedere più tempo.
 	>	 
-	> Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404.
+	> Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404. Se sono trascorse diverse ore dal momento che è stato creato l'endpoint e si ricevono ancora risposte 404, vedere l'articolo relativo alla [risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md).
 
 
 ##Vedere anche
@@ -103,6 +105,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 - [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](cdn-map-content-to-custom-domain.md)
 - [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
+- [Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md)
 
 [new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
@@ -110,4 +113,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
