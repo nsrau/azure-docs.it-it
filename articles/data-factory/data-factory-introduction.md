@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/09/2016" 
+	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
 # Introduzione al servizio Data factory di Azure
@@ -69,4 +69,4 @@ Ad esempio, si supponga che gli ambienti di calcolo, come un cluster Azure HDIns
 In futuro si prevede che Azure Data Factory sia disponibile in ogni area geografica supportata da Azure.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

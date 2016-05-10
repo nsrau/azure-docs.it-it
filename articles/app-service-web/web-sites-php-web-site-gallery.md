@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="02/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Creare un'app WordPress nel servizio app di Azure
+
+[AZURE.INCLUDE [schede](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Questa esercitazione illustra come distribuire un sito blog di WordPress da Azure Marketplace.
 
@@ -126,4 +128,4 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

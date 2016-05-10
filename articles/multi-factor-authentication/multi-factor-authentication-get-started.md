@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/07/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 #Scegliere la soluzione di sicurezza Multi-Factor più adatta
@@ -73,7 +73,7 @@ Bypass monouso | | ●
 Messaggi di saluto personalizzati per le telefonate | ● | ● 
 ID chiamante personalizzabile per le telefonate | ● | ● 
 IP attendibili | ● | ● 
-Memorizzazione di MFA per dispositivi attendibili (anteprima pubblica) | ● |  
+Memorizzazione di MFA per dispositivi attendibili | ● |  
 Accesso condizionale | ● | ● 
 Cache | | ● 
 
@@ -81,4 +81,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

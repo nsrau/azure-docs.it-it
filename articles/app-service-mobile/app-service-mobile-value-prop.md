@@ -3,7 +3,7 @@
 	description="Informazioni sui vantaggi che il servizio app può apportare alle app per dispositivi mobili aziendali."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili
 
@@ -102,4 +102,4 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere il [per
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
 [percorso di formazione]: https://azure.microsoft.com/it-IT/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="ggailey777"
+    manager="erikre"
     editor=""
     tags=""
     keywords="cordova,javascript,dispositivi mobili,client" />
@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="02/09/2016"
-    ms.author="adrianha"/>
+    ms.date="05/02/2016"
+    ms.author="glenga"/>
 
 #Creare un'app Apache Cordova
 
@@ -82,4 +82,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

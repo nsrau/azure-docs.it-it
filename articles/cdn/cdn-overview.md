@@ -48,7 +48,7 @@ L'uso della rete CDN per memorizzare nella cache dati di Azure offre diversi van
 
 Il livello della rete CDN Standard comprende le seguenti caratteristiche:
 
-- Facile di integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), App Web e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn)
+- Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn)
 - Supporto di HTTPS
 - Bilanciamento del carico.
 - Protezione DDOS
@@ -71,10 +71,10 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 
 ## Passaggi successivi
 
-Per iniziare con la rete CDN, vedere l'articolo sull'[uso della rete CDN di Azure](./cdn-create-new-endpoint.md).
+Per iniziare con la rete CDN, vedere [Uso della rete CDN di Azure](./cdn-create-new-endpoint.md).
 
 I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete CDN attraverso il [portale di Microsoft Azure](https://portal.azure.com).
 
-Per vedere come funziona la rete CDN, guardare il [video della sessione Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Per vedere come funziona la rete CDN, guardare il [video della sessione Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

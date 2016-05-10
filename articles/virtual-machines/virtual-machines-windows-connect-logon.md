@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/14/2016"
+	ms.date="04/28/2016"
 	ms.author="cynthn"/>
 
 # Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows Server 
@@ -32,7 +32,7 @@ Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connet
 
 4. Nel pannello della macchina virtuale fare clic su **Connetti**.
 
-	![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
+	![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/virtual-machines-windows-connect-logon/connect.png)
 
 ## Accesso alla macchina virtuale
 
@@ -43,4 +43,4 @@ Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connet
 
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

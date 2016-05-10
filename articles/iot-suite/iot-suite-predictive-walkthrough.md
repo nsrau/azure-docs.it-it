@@ -109,6 +109,8 @@ La simulazione viene eseguita sul set di dati completo per 148 cicli e si stabil
 
 Dopo aver eseguito la soluzione di manutenzione predittiva preconfigurata è consigliabile modificarla. Vedere le indicazioni in [Personalizzazione di soluzioni preconfigurate][lnk-customize].
 
+Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) fornisce altri dettagli sulla soluzione di manutenzione predittiva preconfigurata.
+
   
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -124,4 +126,4 @@ Dopo aver eseguito la soluzione di manutenzione predittiva preconfigurata è con
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

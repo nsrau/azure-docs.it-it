@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sess
 
 ## Numeri AS (Autonomous System)
 
-Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Il numero AS 65515 è riservato per l'uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
+Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Gli ASN da 65515 a 65520 sono riservati per uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
 
 Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 
@@ -134,8 +134,6 @@ Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il
 | **Europa** | | |
 | | Europa settentrionale | 12076:51003 |
 | | Europa occidentale | 12076:51002 |
-| | Regno Unito settentrionale | 12076:51022 |
-| | Regno Unito meridionale 2 | 12076:51023 |
 | **Asia Pacifico** | | |
 | | Asia orientale | 12076:51010 |
 | | Asia sudorientale | 12076:51011 |
@@ -175,7 +173,7 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 - Configurare la connessione ExpressRoute.
 
 	- [Creare un circuito ExpressRoute per il modello di distribuzione classica](expressroute-howto-circuit-classic.md) o [Creare e modificare un circuito ExpressRoute usando Azure Resource Manager](expressroute-howto-circuit-arm.md)
-	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione di Azure Resource Manager](expressroute-howto-routing-arm.md)
+	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

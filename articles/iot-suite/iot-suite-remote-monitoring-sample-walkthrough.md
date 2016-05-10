@@ -225,4 +225,12 @@ Tramite il portale della soluzione è possibile cercare i dispositivi con caratt
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Passaggi successivi
+
+I post del blog TechNet forniscono altri dettagli sulla soluzione preconfigurata di monitoraggio remoto:
+
+- [Approfondimento sul monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [Aggiunta di dispositivi veri e simulati per il monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+
+<!---HONumber=AcomDC_0504_2016-->
