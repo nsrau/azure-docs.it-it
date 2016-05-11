@@ -20,7 +20,7 @@
 
 # Avviso di ritiro della famiglia di sistemi operativi guest 1
 
-Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.
+Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1ª giugno 2013.
 
 **2 settembre 2014**. La famiglia di sistemi operativi guest 1.x di Azure, basata su Windows Server 2008, è stata ufficialmente ritirata. Qualsiasi tentativo di distribuire nuovi servizi o aggiornamenti di servizi esistenti mediante la famiglia 1 avrà esito negativo e restituirà un messaggio di errore simile al seguente: "La famiglia di sistemi operativi guest 1 è stata ritirata."
 
