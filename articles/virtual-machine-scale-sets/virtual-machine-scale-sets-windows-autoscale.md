@@ -472,7 +472,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
     Per questa esercitazione, i valori importanti sono i seguenti:
 
     - **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter. Con questa variabile, l'estensione Diagnostica raccoglie i dati del contatore **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali.
+	- **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali.
     - **timeGrain**: corrisponde alla granularità delle metriche che vengono raccolte. In questo modello il valore è impostato su 1 minuto.
     - **statistic**: determina il modo in cui vengono combinate le metriche per consentire l'azione di ridimensionamento automatico. I valori possibili sono: Average, Min, Max. In questo modello si vuole visualizzare il valore dell'utilizzo medio di CPU totale tra le macchine virtuali nel set di scalabilità.
     - **timeWindow**: si tratta dell'intervallo di tempo in cui dati dell' istanza vengono raccolti. Deve essere compreso tra 5 minuti e 12 ore.
