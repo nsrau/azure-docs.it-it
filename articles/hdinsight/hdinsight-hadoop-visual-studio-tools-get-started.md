@@ -275,4 +275,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->

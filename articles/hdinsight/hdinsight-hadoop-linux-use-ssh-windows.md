@@ -235,4 +235,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!------HONumber=AcomDC_0427_2016-->
