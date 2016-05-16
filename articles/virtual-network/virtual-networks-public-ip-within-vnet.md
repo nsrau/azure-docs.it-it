@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Spazio degli indirizzi IP pubblico in una rete virtuale (VNet)
 
-È ora possibile aggiungere uno spazio degli indirizzi IP pubblico alle proprie reti virtuali. In precedenza, alle reti virtuali era possibile aggiungere solo blocchi di indirizzi RFC 1918 (spazio privato). Quando si aggiunge un intervallo di indirizzi IP pubblici, tale intervallo verrà considerato come parte dello spazio degli indirizzi IP privato della rete virtuale raggiungibile solo all'interno della rete virtuale, delle reti virtuali interconnesse e dal percorso locale.
+Le reti virtuali possono contenere spazi di indirizzi IP (blocchi di indirizzi RFC 1918) sia pubblici che privati. Quando si aggiunge un intervallo di indirizzi IP pubblici, tale intervallo verrà considerato come parte dello spazio degli indirizzi IP privato della rete virtuale raggiungibile solo all'interno della rete virtuale, delle reti virtuali interconnesse e dal percorso locale.
 
-L'aggiunta di uno spazio degli indirizzi IP pubblico funziona concettualmente come illustrato di seguito:
+La figura seguente mostra una rete virtuale che include spazi degli indirizzi IP pubblici e privati.
 
 ![IP pubblico dal punto di vista concettuale](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
 ## Come è possibile aggiungere un intervallo di indirizzi IP pubblici?
 
-È possibile aggiungere un intervallo di indirizzi IP pubblici nello stesso modo in cui si aggiunge un intervallo di indirizzi IP privati, ovvero usando un file *netcfg* o eseguendo la configurazione nel portale. Un intervallo di indirizzi IP pubblici può essere aggiunto durante la creazione della rete virtuale o in un secondo momento. L'esempio seguente illustra uno spazio degli indirizzi IP sia pubblico che privato configurato nella stessa rete virtuale.
+È possibile aggiungere un intervallo di indirizzi IP pubblici nello stesso modo in cui si aggiunge un intervallo di indirizzi IP privati, usando un file *netcfg* o aggiungendo la configurazione nel [portale di Azure](http://portal.azure.com). Un intervallo di indirizzi IP pubblici può essere aggiunto durante la creazione della rete virtuale o in un secondo momento. L'esempio seguente illustra uno spazio degli indirizzi IP sia pubblico che privato configurato nella stessa rete virtuale.
 
 ![Indirizzo IP pubblico nel portale](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 
@@ -45,10 +45,6 @@ Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
 
 ## Passaggi successivi
 
-[Come gestire le proprietà della rete virtuale (VNet)](../virtual-networks-settings)
+[Gestire server DNS usati da una rete virtuale](../virtual-networks-manage-dns-in-vnet)
 
-[Come gestire i server DNS usati da una rete virtuale (VNet)](../virtual-networks-manage-dns-in-vnet)
-
-[Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

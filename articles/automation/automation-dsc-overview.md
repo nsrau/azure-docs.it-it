@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/02/2016"
+   ms.date="04/29/2016"
    ms.author="coreyp"/>
 
 # Panoramica della piattaforma DSC di Automazione di Azure #
@@ -98,8 +98,6 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 
 ##Problemi noti:##
 
-- Durante l'aggiornamento a WMF 5 RTM, se il computer è già registrato come nodo in Automation DSC per Azure, annullare la registrazione da Automation DSC per Azure e ripeterla dopo l'aggiornamento di WMF 5 RTM.
-
 - In questo momento la piattaforma DSC di Automazione di Azure non supporta configurazioni DSC parziali o composite. È tuttavia possibile importare e usare risorse DSC composite, esattamente come in PowerShell locale, consentendo il riutilizzo della configurazione.
 
 - Perché l'agente DSC di PowerShell per Windows possa comunicare con Automazione di Azure, deve essere installata la versione più recente di WMF 5. È necessario installare l’ultima versione dell'agente DSC di PowerShell per Windows per poter comunicare con Automazione di Azure.
@@ -114,9 +112,11 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 
 - Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. A questo punto, il protocollo di registrazione PowerShell DSC non può rinnovare automaticamente certificati quando è prossimo alla scadenza, pertanto è necessario registrare nuovamente i nodi dopo il periodo di un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade, e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". La registrazione viene eseguita nello stesso modo con cui il nodo è stato registrato inizialmente. Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l’ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.
 
-- Durante l'aggiornamento a WMF 5 RTM, se il computer è già registrato come nodo in Automation DSC per Azure, annullare la registrazione da Automation DSC per Azure e ripeterla dopo l'aggiornamento di WMF 5 RTM. Prima di ripetere la registrazione, eliminare il file $env:windir\\system32\\configuration\\DSCEngineCache.mof.
+- Durante l'aggiornamento a WMF 5 RTM, se il computer è già registrato come nodo in Automation DSC per Azure, annullare la registrazione da Automation DSC per Azure e ripeterla dopo l'aggiornamento di WMF 5 RTM. Prima di ripetere la registrazione, eliminare il file `$env:windir\system32\configuration\DSCEngineCache.mof`.
 
-- I cmdlet PowerShell DSC potrebbero non funzionare se WMF 5 RTM è installato su WMF 5 Production Preview. Per risolvere il problema, eseguire il seguente comando in una sessione di PowerShell con privilegi elevati (eseguirla come amministratore): `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+- I cmdlet PowerShell DSC potrebbero non funzionare se WMF 5 RTM è installato su WMF 5 Production Preview. Per risolvere il problema, eseguire il comando seguente in una sessione di PowerShell con privilegi elevati, come amministratore,: `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+
+- Se sono state già usate funzionalità di WMF 4 PowerShell DSC su un computer, l'estrazione delle informazioni di configurazione da Automation DSC per Azure per questa macchina può avere esito negativo restituendo l'eccezione Decrittografia non riuscita. Per risolvere questo problema, eliminare i file seguenti e quindi ripetere la registrazione del computer su Automation DSC per Azure: `$env:windir\system32\configuration\Current.mof`, `$env:windir\system32\configuration\DSCEngineCache.mof`, `$env:windir\system32\configuration\DSCStatusHistory.mof`
  
 
 ##Articoli correlati##
@@ -127,4 +127,4 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 - [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [La distribuzione continua nelle macchine virtuali IaaS tramite Azure Automation DSC e Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

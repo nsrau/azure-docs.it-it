@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
@@ -68,9 +68,9 @@ Importare il file bacpac in un nuovo database Premium.
 
 SSMS include un report **Panoramica analisi delle prestazioni per le transazioni** che è possibile eseguire su un database con un carico di lavoro attivo. Il report identifica le tabelle e le stored procedure candidate per la migrazione a OLTP in memoria.
 
-In SSMS per generare il report:
-- In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo del database. 
-- Fare clic su **Report** > **Report standard** > **Panoramica analisi delle prestazioni per le transazioni**.
+In SSMS, per generare il report:
+- In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo del database.
+- Fare clic su **Report** > **Report standard** > **Panoramica dell'analisi delle prestazioni transazioni**.
 
 Per altre informazioni, vedere [Determinare se una tabella o una stored procedure deve essere trasferita a OLTP in memoria](http://msdn.microsoft.com/library/dn205133.aspx).
 
@@ -85,7 +85,8 @@ Per semplificare il test, perfezionare il database di test come segue:
 
 1. Connettersi al database di test usando SSMS.
 
-2. Per evitare di dover usare l'opzione WITH (SNAPSHOT) nelle query, impostare l'opzione di database come illustrato nell'istruzione T-SQL seguente: ```
+2. Per evitare di dover usare l'opzione WITH (SNAPSHOT) nelle query, impostare l'opzione di database come illustrato nell'istruzione T-SQL seguente:
+```
 ALTER DATABASE CURRENT
 	SET
 		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
@@ -236,4 +237,4 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 
 - [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

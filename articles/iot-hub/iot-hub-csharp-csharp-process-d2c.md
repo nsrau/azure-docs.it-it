@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="04/29/2016"
      ms.author="dobett"/>
 
 # Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT
@@ -24,9 +24,9 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 
 Questa esercitazione è basata sul codice mostrato nell'esercitazione [Introduzione all'hub IoT] e illustra due modelli scalabili che è possibile usare per elaborare i messaggi da dispositivo a cloud:
 
-- L'archiviazione affidabile dei messaggi da dispositivo a cloud nell'[Archivio BLOB di Azure]. Questo scenario è molto comune quando si implementa l'analisi dei *percorsi non critici*, in cui i dati archiviati nei BLOB vengono usati come input per processi di analisi basata su strumenti come [Azure Data Factory] o lo stack [HDInsight (Hadoop)].
+- L'archiviazione affidabile dei messaggi da dispositivo a cloud nell'[Archivio BLOB di Azure]. Questo scenario è molto comune quando si analizzano *percorsi non critici*, in cui i dati di telemetria vengono archiviati nei BLOB per essere usati come input per processi di analisi basati su strumenti come [Azure Data Factory] o lo stack [HDInsight (Hadoop)].
 
-- L'elaborazione affidabile di messaggi da dispositivo a cloud *interattivi*. I messaggi da dispositivo a cloud sono detti interattivi quando sono trigger immediati per un set di azioni nel back-end dell'applicazione, contrariamente ai messaggi di *punti dati* che vengono inseriti in un motore di analisi. Ad esempio, un avviso proveniente da un dispositivo che deve attivare l'inserimento di un ticket in un sistema CRM è un messaggio da dispositivo a cloud interattivo, mentre i dati di telemetria come i campioni di temperatura rappresentano un messaggio di punti dati.
+- L'elaborazione affidabile di messaggi da dispositivo a cloud *interattivi*. I messaggi da dispositivo a cloud sono detti interattivi quando sono trigger immediati per un set di azioni nel back-end dell'applicazione, contrariamente ai messaggi di *punti dati* che vengono inseriti in un motore di analisi. Ad esempio, un allarme proveniente da un dispositivo che deve attivare l'inserimento di un ticket in un sistema CRM è un messaggio interattivo, mentre i dati di telemetria sulla temperatura di un dispositivo che devono essere archiviati per una successiva analisi sono un messaggio di punti dati.
 
 Dal momento che l'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs] per ricevere i messaggi da dispositivo a cloud, questa esercitazione usa un'istanza di [EventProcessorHost] che:
 
@@ -37,13 +37,13 @@ Il bus di servizio è un ottimo modo per assicurare un'elaborazione affidabile d
 
 > [AZURE.NOTE] Un'istanza **EventProcessorHost** è solo un modo per elaborare i messaggi interattivi. Altre opzioni includono [Azure Service Fabric][lnk-service-fabric] e [Analisi di flusso di Azure][lnk-stream-analytics].
 
-Al termine di questa esercitazione si eseguiranno tre applicazioni console Windows:
+Al termine di questa esercitazione verranno eseguite tre applicazioni console Windows:
 
-* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione all'hub IoT], che invia messaggi da dispositivo a cloud di punti dati ogni secondo e messaggi da dispositivo a cloud interattivi ogni 10 secondi. Questa applicazione usa il protocollo AMQPS per comunicare con l'hub IoT.
+* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione all'hub IoT], che invia messaggi di punti dati da dispositivo a cloud ogni secondo e messaggi interattivi da dispositivo a cloud ogni 10 secondi. Questa applicazione usa il protocollo AMQPS per comunicare con l'hub IoT.
 * **ProcessDeviceToCloudMessages**, che usa la classe [EventProcessorHost] per recuperare i messaggi dall'endpoint compatibile con Hub eventi e quindi archiviare in modo affidabile i messaggi di punti dati in un BLOB di Azure e per inoltrare i messaggi interattivi a una coda del bus di servizio.
 * **ProcessD2CInteractiveMessages**, che rimuove i messaggi interattivi dalla coda del bus di servizio.
 
-> [AZURE.NOTE] L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, come connettere dispositivi all'hub IoT di Azure.
+> [AZURE.NOTE] L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Fare riferimento al [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, su come connettere dispositivi a un hub IoT.
 
 Il contenuto di questa esercitazione è direttamente applicabile ad altri modi di usare i messaggi compatibili con Hub eventi, ad esempio i progetti [HDInsight (Hadoop)]. Per altre informazioni, vedere [Guida per gli sviluppatori dell'hub IoT di Azure - Dispositivo a cloud].
 
@@ -51,7 +51,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 
 È necessaria una conoscenza di base dell'[Archiviazione di Azure] e del [bus di servizio di Azure].
 
@@ -65,7 +65,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 A questo punto è possibile eseguire le applicazioni.
 
-1.	In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **Avvio** per i progetti **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
+1.	In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **inizio** per i progetti **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
 
 2.	Premere **F5** per avviare le tre applicazioni console. L'applicazione **ProcessD2CInteractiveMessages** deve elaborare tutti i messaggi interattivi inviati dall'applicazione **SimulatedDevice**.
 
@@ -75,9 +75,9 @@ A questo punto è possibile eseguire le applicazioni.
 
 ## Passaggi successivi
 
-In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud di punti dati e interattivi con la classe [EventProcessorHost].
+Questa esercitazione ha illustrato come elaborare in modo affidabile i messaggi di punti dati e interattivi da dispositivo a cloud con la classe [EventProcessorHost].
 
-L'esercitazione sul [caricamento di file da dispositivi] si basa su questa esercitazione e fa uso della logica di elaborazione dei messaggi analoghi. L'esercitazione descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
+L'esercitazione sul [caricamento di file da dispositivi] si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
 
 Altre informazioni sull'hub IoT:
 
@@ -121,4 +121,4 @@ Altre informazioni sull'hub IoT:
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

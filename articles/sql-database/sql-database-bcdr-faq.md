@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 # Domande frequenti sulla continuità aziendale
@@ -50,14 +50,8 @@ Per il ripristino da interruzione del servizio, usare [Get Recoverable Database]
 
 Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
-## 8\. Qual è la differenza tra replica geografica standard e replica geografica attiva?
-
-Per la replica geografica standard, il database secondario non è leggibile. È disponibile solo per il failover durante le interruzioni del servizio.
-
-Per la replica geografica attiva, tutti i database secondari (fino a un massimo di quattro) sono leggibili.
-
-## 9\. Cos'è il ritardo di replica quando si usa la replica geografica standard o quella attiva?
+## 8\. Informazioni sul ritardo di replica quando si usa la replica geografica attiva
 
 Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

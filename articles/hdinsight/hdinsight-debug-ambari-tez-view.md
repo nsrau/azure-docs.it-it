@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Usare le visualizzazioni di Ambari per il debug di processi Tez in HDInsight
@@ -141,4 +141,4 @@ Per informazioni tecniche più dettagliate su Tez, vedere la [pagina di Tez in H
 
 Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="04/28/2016"
    ms.author="v-sharos" />
 
 # Per gestire il catalogo di backup, è possibile usare il servizio StorSimple Manager.
@@ -23,7 +23,7 @@ La pagina **Catalogo di backup** del servizio StorSimple Manager visualizza tutt
 
 In questa esercitazione viene illustrato come elencare, selezionare ed eliminare un set di backup. Per scoprire come ripristinare il dispositivo dal backup, vedere [Ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md). Per scoprire come clonare un volume, vedere [Clonare un volume StorSimple](storsimple-clone-volume.md).
 
-![Catalogo di backup](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png)
+![Catalogo di backup](./media/storsimple-manage-backup-catalog/backupcatalog.png)
 
 La pagina **Catalogo di backup** fornisce una query per limitare la selezione del set di backup. È possibile filtrare i set di backup che vengono recuperati in base ai parametri seguenti:
 
@@ -117,4 +117,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 
@@ -101,4 +101,4 @@ Per concetti relativi alla distribuzione di contenuti su richiesta, vedere [Conc
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

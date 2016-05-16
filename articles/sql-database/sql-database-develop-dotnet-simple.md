@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Connettersi al database SQL tramite .NET (C#)"
+	pageTitle="Connettersi al database SQL tramite .NET (C#) | Microsoft Azure"
 	description="Usare il codice di esempio in questa guida introduttiva per creare con C# un'applicazione moderna, supportata da un database relazionale potente nel cloud con il database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="tobbox"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
-
 
 <tags
 	ms.service="sql-database"
@@ -14,19 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="04/20/2016"
 	ms.author="tobiast"/>
 
-
-# Uso del database SQL da .NET (C#)
-
+# Connettersi al database SQL tramite .NET (C#)
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
 ## Passaggio 1: Configurare l'ambiente di sviluppo
 
-.NET Framework deve essere preinstallato con Windows. Per Linux e Mac OS X è possibile scaricare .NET Framework dal [progetto Mono](http://www.mono-project.com/).
+[Configurare l'ambiente di sviluppo per lo sviluppo di ADO.NET](https://msdn.microsoft.com/library/mt718321.aspx)
 
 ## Passaggio 2: Creare un database SQL
 
@@ -36,106 +32,9 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Passaggio 4: Effettuare la connessione
+## Passaggio 4: Eseguire il codice di esempio
 
-Per la connessione al database SQL viene usata la [classe System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx).
+* [Modello di verifica della connessione a SQL tramite ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
+* [Connettersi in modo resiliente a SQL tramite ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-
-```
-using System.Data.SqlClient;
-
-class Sample
-{
-  static void Main()
-  {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	  {
-		  conn.Open();
-	  }
-  }
-}
-```
-
-## Passaggio 5: Eseguire una query
-
-Per il recupero di un set di risultati di una query nel database SQL è possibile usare le classi [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) e [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx). Si noti che System.Data.SqlClient supporta anche il recupero di dati in una classe [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) offline.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-	static void Main()
-	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		{
-			var cmd = conn.CreateCommand();
-			cmd.CommandText = @"
-					SELECT
-						c.CustomerID
-						,c.CompanyName
-						,COUNT(soh.SalesOrderID) AS OrderCount
-					FROM SalesLT.Customer AS c
-					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-					GROUP BY c.CustomerID, c.CompanyName
-					ORDER BY OrderCount DESC;";
-
-			conn.Open();
-
-			using(var reader = cmd.ExecuteReader())
-			{
-				while(reader.Read())
-				{
-					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-				}
-			}					
-		}
-	}
-}
-
-```  
-
-## Passaggio 6: Inserire una riga
-
-Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-    static void Main()
-    {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-        {
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = @"
-                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
-                OUTPUT INSERTED.ProductID
-                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
-
-            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
-            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
-            cmd.Parameters.AddWithValue("@Cost", 0);
-            cmd.Parameters.AddWithValue("@Price", 0);
-
-            conn.Open();
-
-            int insertedProductId = (int)cmd.ExecuteScalar();
-
-            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
-        }
-    }
-}
-```
-
-
-## Passaggi successivi
-
-Per imparare a usare logica di ripetizione gestendo i codici di errore temporanei per rendere più resiliente il codice vedere: [Codice di esempio: logica di ripetizione tentativi in C# per la connessione a Database SQL](sql-database-develop-csharp-retry-windows.md)
-
-Per ottenere altre informazioni sui possibili codici di errore, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

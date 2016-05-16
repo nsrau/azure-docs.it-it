@@ -51,7 +51,6 @@
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Questi comandi aggiungono librerie .NET e riferimenti ad esse nel progetto corrente di Visual Studio.
 
@@ -82,7 +81,7 @@
                 private const int NewClusterNumNodes = 1;
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
-                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
                 private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
@@ -371,4 +370,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 - [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

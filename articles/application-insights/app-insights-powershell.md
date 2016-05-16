@@ -181,7 +181,7 @@ Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un progra
 
 ## Definire avvisi delle metriche
 
-Esiste un [metodo PowerShell per l’impostazione degli avvisi](app-insights-alerts.md/#set-alerts-by-using-powershell).
+Esiste un [metodo PowerShell per l’impostazione degli avvisi](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## un esempio
@@ -321,4 +321,4 @@ Altri articoli di automazione:
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Creare annotazioni di rilascio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

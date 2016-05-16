@@ -1,18 +1,18 @@
-### Specifying TextFormat
+### Specifica di TextFormat
 
-If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
+Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
 
-| Property | Description | Required |
+| Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| columnDelimiter | The character used as a column separator in a file. Only one character is allowed at this time. This tag is optional. The default value is comma (,). | No |
-| rowDelimiter | The character used as a raw separator in file. Only one character is allowed at this time. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
-| escapeChar | The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No | 
-| quoteChar | The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No |
-| nullValue | The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.<br/><br/>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server. | No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+| columnDelimiter | Carattere usato come separatore di colonne in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
+| rowDelimiter | Carattere usato come separatore di righe in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
+| escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare al massimo un carattere.<br/><br/>Ad esempio, se la virgola (,) viene usata come delimitatore di colonna ma si vuole inserire una virgola nel testo, come in "Hello, world", è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nel sorgente.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No | 
+| quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No |
+| nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".<br/><br/>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server. | No |
+| encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
 
-#### TextFormat example
-The following sample shows some of the format properties for TextFormat.
+#### Esempio di TextFormat
+L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
 
 	"typeProperties":
 	{
@@ -23,41 +23,41 @@ The following sample shows some of the format properties for TextFormat.
 	        "type": "TextFormat",
 	        "columnDelimiter": ",",
 	        "rowDelimiter": ";",
-	        "quoteChar": "\"",
+	        "quoteChar": """,
 	        "NullValue": "NaN"
 	    }
 	},
 
-To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
+Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
 
 	"escapeChar": "$",
 
-### Specifying AvroFormat
-If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+### Specifica di AvroFormat
+Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 	"format":
 	{
 	    "type": "AvroFormat",
 	}
 
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-### Specifying JsonFormat
+### Impostazione di JsonFormat
 
-If the format is set to **JsonFormat**, you can specify the following **optional** properties in the **Format** section.
+Se il formato è impostato su **JsonFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
 
-| Property | Description | Required |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
-| filePattern | Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is: **setOfObjects**. See sections below for details about these patterns.| No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. | No | 
-| nestingSeparator | Character that is used to separate nesting levels. The **default** value is **. (dot)**. | No | 
+| filePattern | Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è: **setOfObjects**. Per i dettagli su questi motivi, vedere le sezioni successive.| No |
+| encodingName | Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore **predefinito** è: **UTF-8**. | No | 
+| nestingSeparator | Carattere utilizzato per separare i livelli di nidificazione. Il valore **predefinito** è **. (punto)**. | No | 
 
 
-#### setOfObjects file pattern
+#### Modello di file setOfObjects
 
-Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy will produce a single JSON file with each object per line (line-delimited).
+Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/concatenati. Quando si sceglie questa opzione in un set di dati di output, la copia produrrà un singolo file JSON con un oggetto per riga (delimitatoti di riga).
 
-**single object** 
+**singolo oggetto**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -68,7 +68,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 		"switch2": "Germany"
 	}
 
-**line-delimited JSON** 
+**JSON con delimitatori di riga**
 
 	{"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
 	{"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
@@ -76,7 +76,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
 
-**concatenated JSON**
+**JSON concatenati**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -104,9 +104,9 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	}
 
 
-#### arrayOfObjects file pattern. 
+#### Modello di file arrayOfObjects. 
 
-Each file contains an array of objects. 
+Ogni file contiene una matrice di oggetti.
 
 	[
 	    {
@@ -167,9 +167,9 @@ Each file contains an array of objects.
 	    }
 	]
 
-### JsonFormat example
+### Esempio JsonFormat
 
-If you have a JSON file with the following content:  
+Se si dispone di un file JSON con il contenuto seguente:
 
 	{
 		"Id": 1,
@@ -180,13 +180,13 @@ If you have a JSON file with the following content:
 		"Tags": ["Data Factory”, "Azure"]
 	}
 
-and you want to copy it into a an Azure SQL table in the following format: 
+e si desidera copiarlo in una tabella SQL di Azure nel formato seguente:
 
-Id	| Name.First | Name.Middle | Name.Last | Tags
+ID | Name.First | Name.Middle | Name.Last | Tag
 --- | ---------- | ----------- | --------- | ----
-1 | John | null | Doe | ["Data Factory”, "Azure"]
+1 | John | Null | Doe | ["Data Factory”, "Azure"]
 
-The input dataset with JsonFormat type is defined as follows: (partial definition with only the relevant parts)
+Il set di dati di input con il tipo JsonFormat è definito come segue: (definizione parziale che include solo le parti pertinenti)
 
 	"properties": {
 		"structure": [
@@ -209,14 +209,14 @@ The input dataset with JsonFormat type is defined as follows: (partial definitio
 		}
 	}
 
-If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
+Se la struttura non è definita, l’attività di copia rende flat la struttura per impostazione predefinita e copia ogni elemento.
 
-#### Supported JSON structure
-Note the following: 
+#### Struttura JSON supportata
+Tenere presente quanto segue:
 
-- Each object with a collection of name/value pairs will be mapped to one row of data in a tabular format. Objects can be nested and you can define how to flatten the structure in a dataset with the  nesting separator (.) by default. See the [JsonFormat example](#jsonformat-example) section above for an example.  
-- If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
-- If the JSON input has an array, the Copy Activity converts the entire array value into a string. You can choose to skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
-- If there are duplicate name at the same level, the Copy Activity will pick the last one.
-- Property names are case sensitive. Two properties with same name but different casing will be treated as two separate properties. 
+- Ogni oggetto con una raccolta di coppie nome/valore verrà mappato a una riga di dati in un formato tabulare. Gli oggetti possono essere nidificati ed è possibile impostare il modo predefinito di rendere flat la struttura di un set di dati con un separatore di annidamento (.). Per un esempio, vedere la sezione precedente [Esempio JsonFormat](#jsonformat-example).  
+- Se la struttura non è definita nel set di dati della data factory, l'attività di copia rileva lo schema dal primo oggetto e rende flat l'intero oggetto. 
+- Se l'input JSON presenta una matrice, l'attività di copia converte l’intero valore della matrice in una stringa. È possibile saltare il passaggio [mappando o filtrando le colonne](#column-mapping-with-translator-rules).
+- Se ci sono nomi duplicati allo stesso livello, l'attività di copia sceglierà quello più recente.
+- I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole verranno considerate come due proprietà diverse. 
 

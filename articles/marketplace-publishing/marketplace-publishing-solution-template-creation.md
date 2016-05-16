@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; v-divte" />
 
 # Guida alla creazione di un modello di soluzione per Azure Marketplace
@@ -58,13 +58,13 @@ Articoli correlati:
 
 - Estensioni di macchina virtuale: [Panoramica sull'agente VM e sulle estensioni VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [Estensioni VM e funzionalità di Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-- Gestione risorse di Azure: [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates/) e [semplici esempi di modelli ARM](https://github.com/rjmax/ArmExamples)
+- Gestione risorse di Azure: [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) e [semplici esempi di modelli ARM](https://github.com/rjmax/ArmExamples)
 
 - Limitazioni degli account di archiviazione: [Post di blog relativo al monitoraggio della limitazione degli account di archiviazione](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Archiviazione Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whit-ITing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

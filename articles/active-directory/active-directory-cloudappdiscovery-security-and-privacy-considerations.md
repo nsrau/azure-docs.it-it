@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 # Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
@@ -180,4 +180,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

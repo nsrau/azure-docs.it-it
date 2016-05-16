@@ -14,11 +14,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/03/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight dell'11/04/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+* HDInsight (Windows) 2.1.10.889.2191206 (HDP 1.3.12.0-01795 - non modificato)
+* HDInsight (Windows) 3.0.6.889.2191206 (HDP 2.0.13.0-2117 - non modificato)
+* HDInsight (Windows) 3.1.4.889.2191206 (HDP 2.1.15.0-2374 - non modificato)
+* HDInsight (Windows) 3.2.7.889.2191206 (HDP 2.2.9.1-10)
+* HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - non modificato)
+* HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
+* HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* SDK 1.5.8
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Problemi di aggiornamento metastore personalizzato per HDI 3.4 | La creazione del cluster non viene eseguita correttamente se si usa un metastore personalizzato già usato in una versione precedente di un altro cluster HDInsight. Ciò è dovuto a un errore nello script di aggiornamento, ora risolto| Creazione del cluster | Tutti | N/D
+| Ripristino a seguito dell'arresto anomalo del sistema Livy | Fornisce resilienza dello stato del processo per qualsiasi processo inviato tramite Livy | Affidabilità | Spark su Linux| N/D
+| Contenuto Jupyter a disponibilità elevata | Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebook | Spark su Linux| N/D
+| Rimozione di hiveContext nei notebook Jupyter | Usare l'oggetto `%%sql` anziché `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Notebook | Cluster Spark su Linux| N/D
+| Rimozione di versioni precedenti di Spark | La versione meno recente Spark 1.3.1 verrà rimossa dal servizio il 31/05 | Servizio | Cluster Spark su Linux | N/D
 
 ## Note sulla versione di HDInsight rilasciata il 29/03/2016
 
@@ -39,10 +63,10 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | È stata aggiunta la versione 3.4 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.4 di HDInsight (basata su HDP 2.4) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.4 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti i cluster Linux| N/D
-| HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per ulteriori informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servizio | Hadoop e Spark su Linux| N/D
-| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per ulteriori informazioni vedere [Panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
+| HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per altre informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servizio | Hadoop e Spark su Linux| N/D
+| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per altre informazioni vedere l'articolo che offre una [panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
 | Spark 1.6.0 | I cluster HDInsight 3.4 ora includono Spark 1.6.0| Servizio | Cluster Spark su Linux| N/D
-| Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per ulteriori informazioni, vedere [Kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servizio | Cluster Spark su Linux | N/D
+| Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servizio | Cluster Spark su Linux | N/D
 
 ## Note sulla versione di HDInsight rilasciata il 22/03/2016
 
@@ -174,7 +198,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versione HDP predefinita modificata in HDP 2.2 | La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. | Servizio | Tutti| N/D |
-|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode\*, workernode\* e zookeepernode\* a hn\*, wn\* e zk\*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servizio | Cluster HDInsight basati su Linux | N/D |
+|Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale | In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode*, workernode* e zookeepernode* a hn*, wn* e zk*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servizio | Cluster HDInsight basati su Linux | N/D |
 | Modifiche di configurazione | Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> | Servizio | Tutti | N/D |
 
 
@@ -1541,4 +1565,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

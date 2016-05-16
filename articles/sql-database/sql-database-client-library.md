@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="03/23/2016"
+   ms.date="05/03/2016"
    ms.author="sstein"/>
 
 # Creazione e gestione di database SQL con C&#x23;
@@ -335,7 +335,7 @@ Per creare un nuovo pool su un server:
 
 ## Spostare un database esistente in un pool di database elastici
 
-*Dopo aver creato un pool è anche possibile usare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo aver creato un pool è anche possibile usare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [Monitorare e gestire un pool di database elastici con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Per spostare un database esistente in un pool:
 
@@ -367,7 +367,7 @@ Per spostare un database esistente in un pool:
 
 ## Creare un nuovo database in un pool di database elastici
 
-*Dopo la creazione di un pool è anche possibile usare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo la creazione di un pool è anche possibile usare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [Monitorare e gestire un pool di database elastici con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Per creare un nuovo database direttamente in un pool:
 
@@ -784,9 +784,6 @@ Per eliminare un gruppo di risorse:
 
 [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
@@ -798,4 +795,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

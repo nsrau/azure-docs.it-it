@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # Risoluzione dei problemi della compressione dei file CDN
@@ -36,20 +36,22 @@ Le cause possono essere diverse, ad esempio:
 
 ## Passaggi per la risoluzione dei problemi
 
+> [AZURE.TIP] Come avviene con la distribuzione di nuovi endpoint, le modifiche alla configurazione della rete CDN richiedono tempo per propagarsi attraverso la rete. Nella maggior parte dei casi le modifiche vengono applicate entro 90 minuti. Se questa è la prima volta che si configura la compressione per l'endpoint della rete CDN, è consigliabile attendere 1-2 ore per assicurarsi che le impostazioni di compressione impostazioni si siano propagate ai POP.
+
 ### Verificare la richiesta
 
-Per prima cosa, eseguire una rapida verifica dell'integrità della richiesta. È possibile usare gli [strumenti per sviluppatori](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser per visualizzare le richieste in corso.
+Per prima cosa, eseguire una rapida verifica dell'integrità della richiesta. Per visualizzare le richieste in corso, è possibile usare gli [strumenti per sviluppatori](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser.
 
 - Verificare che la richiesta venga inviata all'URL dell'endpoint, `<endpointname>.azureedge.net`, non all'origine.
-- Verificare che la richiesta contenga un'intestazione **Accept-Encoding** e che il valore per tale intestazione contenga **gzip**, **defalte** o **bzip2**.
+- Verificare che la richiesta contenga un'intestazione **Accept-Encoding** e che il valore di tale intestazione contenga **gzip**, **deflate** o **bzip2**.
 
 ![Intestazioni di richiesta CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Verificare le impostazioni di compressione (profilo di rete CDN Standard)
 
-> [AZURE.NOTE] Eseguire questo passaggio solo se il profilo della rete CDN si trova nel piano tariffario **Standard**.
+> [AZURE.NOTE] Eseguire questo passaggio solo se il profilo della rete CDN è compreso nel piano tariffario **Standard**.
 
-Passare all'endpoint nel [Portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Configura**.
+Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Configura**.
 
 - Verificare se la compressione è abilitata.
 - Verificare che il tipo MIME per il contenuto da comprimere sia incluso nell'elenco dei formati compressi.
@@ -58,23 +60,22 @@ Passare all'endpoint nel [Portale di Azure](https://portal.azure.com) e fare cli
 
 ### Verificare le impostazioni di compressione (profilo di rete CDN Premium)
 
-> [AZURE.NOTE] Eseguire questo passaggio solo se il profilo della rete CDN si trova nel piano tariffario **Premium**.
+> [AZURE.NOTE] Eseguire questo passaggio solo se il profilo della rete CDN è compreso nel piano tariffario **Premium**.
 
-Passare all'endpoint nel [Portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Gestisci**. Verrà aperto il portale supplementare. Passare il puntatore sulla scheda **HTTP Grande**, quindi passare il puntatore sul riquadro a comparsa **Impostazioni della memorizzazione nella cache**. Fare clic su **Compressione**.
+Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Gestisci**. Verrà aperto il portale supplementare. Passare il puntatore sulla scheda **HTTP Grande**, quindi passare il puntatore sul riquadro a comparsa **Impostazioni della memorizzazione nella cache**. Fare clic su **Compressione**.
 
 - Verificare se la compressione è abilitata.
-- Verificare che l'elenco dei **tipi di file** contenga un elenco di tipi MIME delimitato da virgole.
+- Verificare che l'elenco dei **tipi di file** contenga un elenco di tipi MIME delimitato da virgole (senza spazi).
 - Verificare che il tipo MIME per il contenuto da comprimere sia incluso nell'elenco dei formati compressi.
 
 ![Impostazioni di compressione CDN premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### Verificare che il contenuto venga memorizzato nella cache
 
 Usando gli strumenti per sviluppatori del browser, controllare le intestazioni di risposta per verificare se il file è memorizzato nella cache nell'area in cui viene richiesto.
 
-- Controllare l'intestazione di risposta **Server**. L'intestazione deve essere in formato **Piattaforma (ID POP/Server)**, come illustrato nell'esempio seguente.
-- Controllare l'intestazione di risposta **X-Cache**. L'intestazione deve essere **HIT**.  
+- Controllare l'intestazione di risposta **Server**. L'intestazione deve avere il formato **Platform (POP/Server ID)**, come illustrato nell'esempio seguente.
+- Controllare l'intestazione di risposta **X-Cache**. L'intestazione deve corrispondere a **HIT**.  
 
 ![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -85,4 +86,4 @@ Per poter eseguire la compressione, la dimensione del file deve soddisfare i req
 - Maggiore di 128 byte.
 - Minore di 1 MB.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

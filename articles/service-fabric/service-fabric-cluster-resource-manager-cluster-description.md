@@ -214,10 +214,10 @@ Per semplificare la gestione della capacità complessiva del cluster, è stato a
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 Le chiamate di creazione che hanno come risultato nuovi servizi hanno esito negativo quando il cluster esaurisce la capacità in buffer, in modo da assicurare che il cluster conservi un overhead di riserva sufficiente affinché gli aggiornamenti e gli errori non abbiano come risultato il superamento effettivo della capacità dei nodi. Resource Manager espone molte di queste informazioni tramite PowerShell e le API di query, consentendo all'utente di visualizzare le impostazioni sulla capacità in buffer, sulla capacità totale e sull'utilizzo attuale per ogni metrica specifica. Ecco un esempio dell'output:
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

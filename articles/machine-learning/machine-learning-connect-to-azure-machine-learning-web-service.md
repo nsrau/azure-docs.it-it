@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="05/02/2016" 
 	ms.author="garye" />
 
 
@@ -24,10 +24,9 @@ L'esperienza dello sviluppatore di Azure Machine Learning è un'API del servizio
 
 Per informazioni su come creare e distribuire un servizio Web di Machine Learning tramite Machine Learning Studio:
 
-- [Distribuire un servizio Web di Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introduzione a Machine Learning Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
-- [Anteprima di Azure Machine Learning](https://studio.azureml.net/)
-- [Centro di documentazione Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+- Per un'esercitazione su come creare un esperimento in Machine Learning Studio, vedere l'articolo su come [creare il primo esperimento](machine-learning-create-experiment.md).
+- Per dettagli su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+- Per altre informazioni su Machine Learning in generale, accedere alla [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 ## Servizio Web Azure Machine Learning ##
 
@@ -43,7 +42,7 @@ Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire 
 ## Ottenere una chiave di autorizzazione Azure Machine Learning ##
 È possibile ottenere una chiave API del servizio Web da un servizio Web di Machine Learning. È possibile ottenerla da Machine Learning Studio o dal portale di Azure.
 ### Machine Learning Studio ###
-1. In Machine Learning Studio fare clic su **SERVIZI WEB** a sinistra.
+1. In Machine Learning Studio fare clic su **WEB SERVICES** a sinistra.
 2. Fare clic su un servizio Web. La "chiave API" si trova nella scheda **DASHBOARD**.
 
 ### Portale di Azure ###
@@ -62,7 +61,7 @@ Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire 
 Una pagina della Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Distribuire il servizio Web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Per visualizzare una pagina della Guida per l'API di Machine Learning** In Machine Learning Studio:
+**Per visualizzare una pagina della Guida per l'API di Machine Learning** in Machine Learning Studio:
 
 1. Scegliere **WEB SERVICES**.
 2. Scegliere un servizio Web.
@@ -75,7 +74,7 @@ Una pagina della Guida per l'API di Machine Learning viene creata quando si dist
 
 ### Esempio C# ###
 
-Per connettersi a un servizio Web di Machine Learning, usare **HttpClient** per passare ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio di Machine Learning con una chiave API.
+Per connettersi a un servizio Web di Machine Learning, usare **HttpClient** con ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio di Machine Learning con una chiave API.
 
 Per connettersi a un servizio Web di Machine Learning, è necessario installare il pacchetto NuGet **Microsoft.AspNet.WebApi.Client**.
 
@@ -94,7 +93,7 @@ Per connettersi a un servizio Web di Machine Learning, è necessario installare 
 
 ### Esempio Python ###
 
-Per connettersi a un servizio Web di Machine Learning, usare la libreria **urllib2** per passare ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio di Machine Learning con una chiave API.
+Per connettersi a un servizio Web di Machine Learning, usare la libreria **urllib2** con ScoreData. ScoreData contiene FeatureVector, un vettore n-dimensionale di funzioni numeriche che rappresentano ScoreData. Effettuare l'autenticazione al servizio di Machine Learning con una chiave API.
 
 
 **Per eseguire l'esempio di codice**
@@ -103,4 +102,4 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 2. Assegnare la chiave API con la chiave da un servizio Web. Vedere la sezione precedente **Ottenere una chiave di autorizzazione di Azure Machine Learning**.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

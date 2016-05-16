@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
@@ -55,4 +55,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

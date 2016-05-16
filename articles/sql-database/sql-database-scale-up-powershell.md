@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/29/2016"
+	ms.date="04/29/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,13 +27,13 @@
 
 I livelli di servizio e di prestazioni descrivono le funzionalità e le risorse disponibili per il database SQL e possono essere aggiornati quando le esigenze dell’applicazione cambiano. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
 
-La modifica del livello di servizio e/o livello di prestazioni di un database crea una replica del database originale al nuovo livello di prestazioni, quindi alterna le connessioni sulla replica. Durante questo processo i dati non sono persi, ma durante quel breve momento in cui avviene lo scambio sulla replica, le connessioni al database sono disabilitate e alcune transazioni in corso potrebbero subire il rollback. Questa finestra varia, ma in media è inferiore a 4 secondi e in più del 99% dei casi è inferiore a 30 secondi. Molto raramente, soprattutto se è presente un elevato numeri di transazioni in corso quando le connessioni sono disabilitate, questa finestra potrebbe essere più lunga.
+Si noti che la modifica del livello di servizio e/o livello di prestazioni di un database crea una replica del database originale al nuovo livello di prestazioni, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Questa finestra varia, ma in media è inferiore a 4 secondi e in più del 99% dei casi è inferiore a 30 secondi. Molto raramente, soprattutto se è presente un elevato numero di transazioni in-flight quando le connessioni sono disabilitate, questa finestra potrebbe essere più lunga.
 
-La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, un database di 250 GB in fase di modifica su, da o all'interno di un livello di servizio Standard, dovrebbe terminare entro 6 ore. Per un database delle stesse dimensioni in fase di modifica dei livelli di prestazioni all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
+La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, il passaggio di un database di 250 GB al livello di servizio Standard o dal livello di servizio Standard a un altro livello o nell'ambito dello stesso livello di servizio Standard viene completato entro 6 ore. Per un database delle stesse dimensioni in fase di modifica dei livelli di prestazioni all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
 
 
 - Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. 
-- Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-portal) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
+- Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-portal.md) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
 - Quando si effettua il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per arrestare il processo di replica tra il database primario e i database secondari attivi.
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](sql-database-business-continuity.md).
 - Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
@@ -128,4 +128,4 @@ Eseguire il cmdlet **Set-AzureRmSqlDatabase** e impostare **-RequestedServiceObj
 - [Documentazione relativa al database SQL](http://azure.microsoft.com/documentation/services/sql-database/)
 - [Cmdlet del database SQL di Azure.](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gestione del Bus di servizio con PowerShell | Microsoft Azure"
-	description="Gestire il bus di servizio con gli script PowerShell invece di .NET"
+	description="Gestire il bus di servizio con gli script PowerShell"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/02/2016"
 	ms.author="sethm"/>
 
 # Gestire il bus di servizio con PowerShell
@@ -156,6 +156,21 @@ Questa parte dello script crea altre quattro variabili locali che vengono usate 
 	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
 	```
 
+## Eseguire la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure
+
+La sequenza di comandi seguente sposta uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire questa operazione, lo spazio dei nomi deve essere già attivo e l'utente che esegue i comandi di PowerShell deve essere un amministratore nella sottoscrizione di origine e in quella di destinazione.
+
+```
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRP' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRP' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
+
 ## Passaggi successivi
 
 In questo articolo viene fornita una descrizione di base per il provisioning delle entità del bus di servizio tramite PowerShell. Tutte le operazioni che è possibile eseguire mediante le librerie client .NET, possono essere eseguite anche in uno script PowerShell.
@@ -165,7 +180,8 @@ Esempi più dettagliati sono disponibili sui post di blog seguenti:
 - [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Sono disponibili per il download anche alcuni script predefiniti: [Script di PowerShell per il bus di servizio](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+Sono disponibili per il download anche alcuni script predefiniti:
+- [Script PowerShell del bus di servizio](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
@@ -179,4 +195,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

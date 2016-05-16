@@ -3,7 +3,7 @@
 	description="Informazioni sull'uso della query del database elastico con database con partizionamento verticale."
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Introduzione alle query tra database (partizionamento verticale) 
+# Introduzione alle query tra database (partizionamento verticale) (anteprima)
 
 La query del database elastico (anteprima) per il database SQL di Azure consente di eseguire query T-SQL che si estendono a più database usando un unico punto di connessione. Questo argomento si applica ai [database con partizionamento verticale](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -39,7 +39,7 @@ Eseguire la query seguente sul database **Orders ** per creare la tabella **Orde
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Eseguire ora la query seguente sul database Customers per creare la tabella CustomerInformation e inserire i dati di esempio.
+Quindi eseguire la query seguente sul database **Customers** per creare la tabella **CustomerInformation** e inserire i dati di esempio.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Eseguire ora la query seguente sul database Customers per creare la tabella Cust
 
 ## Creare oggetti di database
 ### Chiave master e credenziali con ambito database
-
-
-Questi vengono utilizzati per la connessione per la gestione di gestore di mappe di partizioni e partizioni:
 
 1. Apri SQL Server Management Studio e SQL Server Data Tools in Visual Studio
 2. Connettersi al database Orders ed eseguire i comandi T-SQL seguenti:
@@ -109,4 +106,4 @@ Per informazioni sui prezzi, vedere [Database SQL - Prezzi](/pricing/details/sql
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Effettuare il provisioning di cluster Hadoop in HDInsight
 
 Informazioni su come pianificare il provisioning di cluster HDInsight.
 
-> [AZURE.WARNING] La procedura descritta in questo documento usa il portale di Azure classico e le versioni precedenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure. Non è consigliabile eseguire questa procedura. Usare invece il portale di Azure e le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure. Per una versione di questo documento basata sul portale di Azure e sulle versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure, vedere [Eseguire il provisioning dei cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure classico. Per la creazione di nuovi servizi, Microsoft non consiglia di usare il portale classico. Per una spiegazione dei vantaggi del portale di Azure, vedere [Portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Per una spiegazione dei vantaggi del portale di Azure, vedere il [portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+> Questo documento include anche informazioni sull'uso di Azure PowerShell e dell'interfaccia della riga di comando di Azure. I frammenti indicati, che si basano su comandi che usano Azure Service Management (ASM) compatibili con HDInsight, sono __deprecati__ e verranno rimossi dall'1 gennaio 2017.
+>
+>Per una versione di questo documento che usa il portale di Azure e i frammenti di .PowerShell e della dell'interfaccia della riga di comando di Azure con Azure Resource Manager (ARM), vedere [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
 
 **Prerequisiti:**
 
@@ -49,7 +51,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	È possibile eseguire il provisioning di cluster HDInsight in uno dei due sistemi operativi seguenti:
 	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight su Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare i cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
+	- **HDInsight su Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
 - **Versione HDInsight**
@@ -231,7 +233,7 @@ L'uso di script durante il provisioning consente di installare componenti aggiun
 
 	![Diagramma di una configurazione da punto a sito](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Strumenti per il provisioning
 
@@ -532,7 +534,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 **Per installare l'interfaccia della riga di comando di Azure tramite Windows Installer**
 
-1.	Passare a **http://azure.microsoft.com/downloads/**.
+1.	Passare a ****http://azure.microsoft.com/downloads/**.
 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
@@ -709,7 +711,6 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

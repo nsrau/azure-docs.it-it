@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -339,7 +339,7 @@ In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto s
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Si noti che la funzione è asincrona per i canali in memoria, ma sincrona se si sceglie di utilizzare il [canale persistente](app-insights-windows-desktop.md#persistence-channel).
+Si noti che la funzione è asincrona per i canali in memoria, ma sincrona se si sceglie di utilizzare il [canale persistente](app-insights-windows-services.md#persistence-channel).
 
 
 ## Utenti autenticati
@@ -567,16 +567,16 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 **Per i client Web di JavaScript**, [usare gli inizializzatori di telemetria JavaScript](#js-initializer).
 
-**Per aggiungere proprietà a tutti i dati di telemetria** inclusi i dati da moduli di raccolta standard, [creare un inizializzatore di telemetria](app-insights-api-filtering-sampling.md#add-properties).
+**Per aggiungere proprietà a tutti i dati di telemetria**, inclusi i dati da moduli di raccolta standard, [implementare `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Campionamento, filtri ed elaborazione dei dati di telemetria 
 
 È possibile scrivere il codice per elaborare i dati di telemetria prima che venga inviato da SDK. L'elaborazione include i dati inviati dai moduli telemetria standard come la raccolta delle richieste HTTP e la raccolta delle dipendenze.
 
-* [Aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) di telemetria - ad esempio, numeri di versione o valori calcolati da altre proprietà.
-* [Campionamento](app-insights-api-filtering-sampling.md#sampling) consente di ridurre il volume dei dati inviati dall'app al portale, senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati come eccezioni, richieste e visualizzazioni di pagina.
-* [Filtro](app-insights-api-filtering-sampling.md#filtering) riduce il volume. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+* [È possibile aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando ad esempio `ITelemetryInitializer`, se si vuole aggiungere numeri di versione o valori calcolati da altre proprietà. 
+* Con il [filtro](app-insights-api-filtering-sampling.md#filtering) è possibile modificare o rimuovere i dati di telemetria prima che vengano inviati dal SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tener conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+* Il [campionamento](app-insights-api-filtering-sampling.md#sampling) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale, senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati come eccezioni, richieste e visualizzazioni di pagina.
 
 [Altre informazioni](app-insights-api-filtering-sampling.md)
 
@@ -676,24 +676,14 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo specifico.
 * **Utente**: le informazioni dell'utente. 
 
-
-
 ## Limiti
 
-Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero, per ogni chiave di strumentazione).
 
-1. Una velocità massima al secondo che si applica separatamente a ogni chiave di strumentazione. Oltre il limite, verranno eliminati alcuni dati.
- * Fino a 500 punti dati al secondo per le chiamate TrackTrace e i dati di log acquisiti. (100 al secondo per il piano tariffario gratuito.)
- * Fino a 50 punti dati al secondo per le eccezioni, acquisiti dai moduli o dalle chiamate a TrackException. 
- * Fino a 500 punti dati al secondo per tutti gli altri dati, inclusi i dati di telemetria standard inviati dai moduli SDK e gli eventi personalizzati, le metriche e altri dati di telemetria inviati dal codice. (100 al secondo per il piano tariffario gratuito.)
-1. Volume totale mensile dei dati, a seconda del [piano tariffario](app-insights-pricing.md).
-1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. I nomi di metriche e di proprietà sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
-2.	Le proprietà possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca ma non per i filtri.
-3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
+[AZURE.INCLUDE [limiti di application-insights](../../includes/application-insights-limits.md)]
 
 *Come è possibile evitare di raggiungere il limite di velocità dei dati?*
 
-* Installare l’SDK più recente per utilizzare [campionamento](app-insights-sampling.md).
+* Usare il [campionamento](app-insights-sampling.md).
 
 *Per quanto tempo vengono conservati i dati?*
 
@@ -758,4 +748,4 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

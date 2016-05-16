@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
-# Aggiungere notifiche push all'app Apache Cordova.
+# Aggiungere notifiche push all'app Apache Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -61,55 +61,51 @@ Poiché verrà usata la piattaforma di Google Android, è necessario abilitare G
 
 Prima di poter distribuire l'applicazione al dispositivo Android, è necessario abilitare il debug USB. Sul telefono Android seguire questa procedura:
 
-1. Passare a **Settings** > **About phone**
-2. Toccare **Build number** fino ad abilitare la modalità di sviluppo
-3. Tornare a **Settings**
-4. Selezionare **Developer Options**
-5. Attivare **USB debugging**
-6. Collegare il telefono Android al computer di sviluppo con un cavo USB.
+1. Entrare in **Impostazioni** > **Info dispositivo** e selezionare **Numero build ** circa 7 volte finché non sarà abilitata la modalità sviluppatore.
+ 
+2. Tornare in **Impostazioni** > **Opzioni sviluppatore**, abilitare **Debug USB**, quindi connettere il telefono Android al PC di sviluppo tramite un cavo USB.
 
-Nei test di questa esercitazione è stato usato Google Nexus 5X che esegue la versione Android 6.0 (Marshmallow). Tuttavia, le tecniche sono comuni a qualsiasi versione moderna di Android.
+Per questo test è stato usato un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow). Tuttavia, le tecniche sono comuni a qualsiasi versione moderna di Android.
 
 ##<a name="add-push-to-app"></a>Aggiungere notifiche push all'app
 
-È necessario assicurarsi che il progetto dell'app Apache Cordova sia pronto per gestire le notifiche push.
+È necessario assicurarsi che il progetto dell'app Apache Cordova sia pronto per gestire le notifiche push. È necessario installare il plug-in di push di Cordova, più eventuali servizi push specifici per la piattaforma.
 
-### Installare il plug-in Apache Cordova Push
+### Installare il plug-in di push
 
-Le applicazioni Apache Cordova non gestiscono in modo nativo le funzionalità del dispositivo o della rete. Queste funzionalità sono fornite dai plug-in che vengono pubblicati in [npm](https://www.npmjs.com/) o in GitHub. Il plug-in `phonegap-plugin-push` viene usato per gestire le notifiche push di rete.
+Le applicazioni Apache Cordova non gestiscono in modo nativo le funzionalità del dispositivo o della rete. Queste funzionalità sono incluse nei plug-in che vengono pubblicati su [npm](https://www.npmjs.com/) o su GitHub. Il plug-in `phonegap-plugin-push` viene usato per gestire le notifiche push di rete.
 
 È possibile installare il plug-in di push in uno dei modi seguenti:
 
 **Dal prompt dei comandi:**
 
+Eseguire il comando seguente:
+
     cordova plugin add phonegap-plugin-push
 
 **Da Visual Studio:**
 
-1.  Aprire il file `config.xml` in Esplora soluzioni.
-2.  Fare clic su **Plug-in** > **Personalizzato**, selezionare **Git** come origine dell'installazione e immettere `https://github.com/phonegap/phonegap-plugin-push` come origine.
+1.  In Esplora soluzioni aprire il file `config.xml`, fare clic su **Plug-in** > **Personalizzato**, selezionare **Git** come origine dell'installazione e quindi immettere `https://github.com/phonegap/phonegap-plugin-push` come origine.
 
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
-4.  Fare clic sulla freccia accanto all'origine dell'installazione e quindi fare clic su **Aggiungi**
+2.  Fare clic sulla freccia accanto all'origine dell'installazione e quindi selezionare **Aggiungi**
 
 Il plug-in di push è stato installato.
 
-### Installare Android di Google Play Services
+### Installare servizi Google Play
 
-Il plug-in PhoneGap Push si basa su Google Play Services per le notifiche push. Per effettuare l'installazione:
+Il plug-in di push si basa su servizi Google Play Android per notifiche push.
 
-1.  Aprire **Visual Studio**
-2.  Fare clic su **Strumenti** > **Android** > **Android SDK Manager**
-3.  Nella cartella Extras selezionare la casella accanto a ogni SDK necessario e non installato. Sono necessari i pacchetti seguenti:
+1.  In **Visual Studio** fare clic su **Strumenti** > **Android** > **Android SDK Manager**, espandere la cartella **Funzionalità aggiuntive** e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.    
     * Android Support Library versione 23 o successiva
     * Android Support Repository versione 20 o successiva
     * Google Play Services versione 27 o successiva
     * Google Repository versione 22 o successiva
-4.  Fare clic su **Install Packages**.
-5.  Attendere il completamento dell'installazione.
+     
+2.  Fare clic su **Install Packages** (Installa pacchetti) e attendere il completamento dell'installazione.
 
-Le librerie richieste attualmente sono elencate nella [documentazione relativa all'installazione di phonegap-plugin-push].
+Le librerie attualmente necessarie sono elencate nella [documentazione relativa all'installazione di phonegap-plugin-push].
 
 ### Registrare il dispositivo per il push all'avvio
 
@@ -167,20 +163,20 @@ Le librerie richieste attualmente sono elencate nella [documentazione relativa a
 	        pushRegistration.on('error', handleError);
 	    }
 
-3. Nel codice riportato sopra, sostituire `Your_Project_ID` con l'ID progetto numerico dell'app da [Google Developer Console].
+3. Nel codice riportato sopra sostituire `Your_Project_ID` con l'ID progetto numerico dell'app da [Google Developer Console].
 
-## Eseguire il test dell'app sul servizio mobile pubblicato
+## Testare le notifiche push nell'app 
 
-È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB. Invece di **Emulatore Android di Google** selezionare **Dispositivo**. Visual Studio scaricherà l'applicazione nel dispositivo ed eseguirà l'applicazione. Si potrà quindi interagire con l'applicazione sul dispositivo.
+A questo punto è possibile testare le notifiche push. Eseguire l'applicazione e inserire elementi nella tabella TodoItem usando lo stesso dispositivo oppure un altro dispositivo, purché il back-end sia lo stesso. Testare l'app Cordova sulla piattaforma Android in uno dei modi seguenti:
 
-Migliorare l'esperienza di sviluppo. La condivisione dello schermo di applicazioni come [Mobizen] può facilitare lo sviluppo di un'applicazione Android proiettando lo schermo di Android in un Web browser sul PC.
+- **Su un dispositivo fisico:** collegare il dispositivo Android nel computer di sviluppo tramite un cavo USB. Invece di selezionare **Emulatore Android di Google**, scegliere **Dispositivo**. Visual Studio distribuirà l'applicazione nel dispositivo e la eseguirà. Sarà quindi possibile interagire con l'applicazione dal dispositivo. Migliorare l'esperienza di sviluppo. Le applicazioni di condivisione dello schermo come [Mobizen] possono facilitare lo sviluppo di un'applicazione Android proiettando lo schermo Android in un Web browser sul PC.
 
-È inoltre possibile testare l'app Android nell'emulatore Android. Ricordarsi di aggiungere un account Google nell'emulatore.
+- **Su un emulatore Android:** prima di ricevere le notifiche push, è necessario aggiungere un account Google nell'emulatore.
 
 ##<a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle notifiche push, vedere [Hub di notifica].
-* Se non è già stato fatto, continuare l'esercitazione con l'[aggiunta dell'autenticazione] all'app Apache Cordova.
+* Per informazioni sulle notifiche push, leggere la pagina [Hub di notifica di Azure].
+* Se non è già stato fatto, proseguire con l'esercitazione [aggiungendo l'autenticazione] all'app Apache Cordova.
 
 Informazioni su come usare gli SDK.
 
@@ -189,7 +185,7 @@ Informazioni su come usare gli SDK.
 * [Node.js Server SDK]
 
 <!-- URLs -->
-[aggiunta dell'autenticazione]: app-service-mobile-cordova-get-started-users.md
+[aggiungendo l'autenticazione]: app-service-mobile-cordova-get-started-users.md
 [avvio rapido di Apache Cordova]: app-service-mobile-cordova-get-started.md
 [avvio rapido di Apache Cordova ]: app-service-mobile-cordova-get-started.md
 [autenticazione]: app-service-mobile-cordova-get-started-users.md
@@ -200,9 +196,9 @@ Informazioni su come usare gli SDK.
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
-[Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
+[Hub di notifica di Azure]: ../notification-hubs/notification-hubs-overview.md
 [Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

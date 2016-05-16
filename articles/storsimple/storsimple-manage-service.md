@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="04/04/2016"
    ms.author="v-sharos" />
 
 # Distribuire il servizio StorSimple Manager
 
 ## Panoramica
 
-Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure classico in esecuzione in un browser. che consente di monitorare tutti i dispositivi connessi al servizio StorSimple Manager da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
+Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure classico in esecuzione in un browser. Questo consente di monitorare tutti i dispositivi connessi al servizio StorSimple Manager da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
 
 Nella pagina di destinazione di StorSimple Manager vengono elencate tutte le istanze di StorSimple Manager che è possibile usare per gestire i dispositivi di archiviazione StorSimple. Per ogni servizio, nella pagina di StorSimple Manager vengono visualizzate le informazioni seguenti:
 
@@ -50,7 +50,7 @@ Usare l'opzione **Creazione rapida** per creare un servizio StorSimple Manager s
 
 È inoltre possibile scegliere di generare un account di archiviazione predefinito al momento della creazione del servizio.
 
-Un singolo servizio può gestire più dispositivi, ma un dispositivo non può estendersi a più servizi. Una grande azienda può avere più istanze del servizio da usare con diverse sottoscrizioni, organizzazioni o anche percorsi di distribuzione.
+Un singolo servizio può gestire più dispositivi, ma un dispositivo non può estendersi a più servizi. Una grande azienda può avere più istanze del servizio da usare con diverse sottoscrizioni, organizzazioni o anche percorsi di distribuzione. Tenere presente che per gestire dispositivi StorSimple serie 8000 e StorSimple Virtual Array sono necessarie istanze separate del servizio StorSimple Manager.
 
 Per creare un servizio, attenersi alla procedura seguente.
 
@@ -60,7 +60,7 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Prima di eliminare un servizio, verificare che non sia usato da dispositivi connessi. Se il servizio è in uso, disattivare i dispositivi connessi. L'operazione di disattivazione interromperà la connessione tra il dispositivo e il servizio mantenendo i dati del dispositivo nel cloud.
 
-[AZURE.IMPORTANT]Dopo che un servizio è stato eliminato, l'operazione non può essere annullata. Sarà necessario ripristinare le impostazioni predefinite di ogni dispositivo che usa questo servizio prima che il dispositivo possa essere usato con un altro servizio. In questo scenario i dati locali sul dispositivo e la configurazione andranno persi.
+[AZURE.IMPORTANT] Dopo che un servizio è stato eliminato, l'operazione non può essere annullata. Sarà necessario ripristinare le impostazioni predefinite di ogni dispositivo che usa questo servizio prima che il dispositivo possa essere usato con un altro servizio. In questo scenario i dati locali sul dispositivo e la configurazione andranno persi.
 
 Per eliminare un servizio, attenersi alla procedura seguente.
 
@@ -115,4 +115,4 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0504_2016-->

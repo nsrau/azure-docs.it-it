@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -42,23 +42,21 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use** usare **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
-
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
     1. Per **Java project to debug** selezionare il progetto **MyHelloWorld**.
     1. Per **Configure debugging for** selezionare **Azure cloud (staging)**.
     1. Assicurarsi che l'opzione **Azure compute emulator** sia deselezionata.
-    1. Per **Host** immettere il nome DNS della distribuzione di gestione temporanea, senza il prefisso **http://**. Ad esempio (usare il GUID specifico invece del GUID mostrato qui): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Per **Host** immettere il nome DNS della distribuzione di gestione temporanea, senza il prefisso ****http://**. Ad esempio (usare il GUID specifico invece del GUID mostrato qui): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Azure Debug Configuration**.
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Se non è stato ancora impostato un punto di interruzione in index.jsp, impostarlo:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:  
-        ![][ic551537]
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Cloud (WorkerRole1)** e infine fare clic su **Debug**.
-1. Nel browser eseguire l'applicazione di gestione temporanea, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sostituendo il GUID dal nome DNS per *&lt;guid&gt;*. Se richiesto da una finestra di dialogo **Confirm Perspective Switch**, fare clic su **Yes**. La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
+1. Nel browser eseguire l'applicazione di gestione temporanea, ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sostituendo il GUID dal nome DNS per *&lt;guid&gt;*. Se richiesto da una finestra di dialogo **Confirm Perspective Switch**, fare clic su **Yes**. La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
 
 >[AZURE.NOTE] Se si tenta di avviare una connessione di debug remoto in una distribuzione in cui sono in esecuzione più istanze del ruolo, non sarà possibile controllare l'istanza a cui il debugger verrà connesso inizialmente, poiché il bilanciamento del carico di Azure sceglierà un'istanza in modo casuale. Dopo la connessione all'istanza, si continuerà a eseguire il debug della stessa istanza. Si noti anche che in caso di un periodo di inattività superiore a 4 minuti (ad esempio in caso di arresto in corrispondenza di un punto di interruzione per troppo tempo) è possibile che Azure chiuda la connessione.
 
@@ -87,7 +85,6 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use**, usare l'endpoint predefinito generato automaticamente dal toolkit, elencato come **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
-
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
@@ -97,13 +94,13 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Impostare un punto di interruzione in index.jsp:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
-        ![][ic551537]
-       È stato impostato un punto di interruzione se viene visualizzata l'icona corrispondente sulla barra blu a sinistra del codice Java.
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
+
+    Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
 1. Avviare l'applicazione nell'emulatore di calcolo facendo clic sul pulsante **Run in Azure Emulator** sulla barra degli strumenti di Azure.
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Emulator (WorkerRole1)** e infine fare clic su **Debug**.
-1. Quando l'emulatore di calcolo indica che l'applicazione è in esecuzione, nel browser eseguire **http://localhost:8080/MyHelloWorld**. Se richiesto da una finestra di dialogo **Confirm Perspective Switch**, fare clic su **Yes**. La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
+1. Quando l'emulatore di calcolo indica che l'applicazione è in esecuzione, nel browser eseguire ****http://localhost:8080/MyHelloWorld**. Se richiesto da una finestra di dialogo **Confirm Perspective Switch**, fare clic su **Yes**. La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
 
 Questa sezione ha illustrato come eseguire il debug nell'emulatore di calcolo. La sezione successiva illustra come eseguire il debug di un'applicazione distribuita in Azure.
 
@@ -136,6 +133,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

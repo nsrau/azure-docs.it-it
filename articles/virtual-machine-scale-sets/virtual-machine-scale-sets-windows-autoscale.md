@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali
@@ -39,17 +39,17 @@ Per altre informazioni sulle risorse di Gestione risorse, vedere [Provider di ca
 
 Il modello creato in questa esercitazione è simile a un modello disponibile nella raccolta modelli. Per altre informazioni, vedere [Distribuire un semplice set di scalabilità di macchine virtuali con macchine virtuali Windows e un jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Passaggio 1: installare Azure PowerShell
 
-## Passaggio 1: Creare un gruppo di risorse e un account di archiviazione
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-1. **Accedere a Microsoft Azure**. Aprire la finestra di Microsoft Azure PowerShell ed eseguire il cmdlet **Login-AzureRmAccount**.
+## Passaggio 2: Creare un gruppo di risorse e un account di archiviazione
 
-2. **Creare un gruppo di risorse**: tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstestrg1**. Vedere [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Creare un gruppo di risorse**: tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstestrg1**. Vedere [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Distribuire un account di archiviazione nel nuovo gruppo di risorse**: questa esercitazione usa diversi account di archiviazione per semplificare la creazione del set di scalabilità di macchine virtuali. Usare [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) per creare un account di archiviazione denominato **vmsstestsa**. Tenere aperta la finestra di Azure PowerShell per eseguire le procedure illustrate più avanti in questa esercitazione.
+2. **Distribuire un account di archiviazione nel nuovo gruppo di risorse**: questa esercitazione usa diversi account di archiviazione per semplificare la creazione del set di scalabilità di macchine virtuali. Usare [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) per creare un account di archiviazione denominato **vmsstestsa**. Tenere aperta la finestra di Azure PowerShell per eseguire le procedure illustrate più avanti in questa esercitazione.
 
-## Passaggio 2: Creare il modello
+## Passaggio 3: Creare il modello
 Un modello di Gestione risorse di Azure permette di distribuire e gestire le risorse di Azure insieme tramite una descrizione JSON delle risorse e dei parametri di distribuzione associati.
 
 1. In un editor a scelta creare il file C:\\VMSSTemplate.json e aggiungere la struttura JSON iniziale a supporto del modello.
@@ -472,7 +472,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
     Per questa esercitazione, i valori importanti sono i seguenti:
 
     - **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter. Con questa variabile, l'estensione Diagnostica raccoglie i dati del contatore **Processor(\_Total)\\% Processor Time**.
-	- **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali.
+- **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali.
     - **timeGrain**: corrisponde alla granularità delle metriche che vengono raccolte. In questo modello il valore è impostato su 1 minuto.
     - **statistic**: determina il modo in cui vengono combinate le metriche per consentire l'azione di ridimensionamento automatico. I valori possibili sono: Average, Min, Max. In questo modello si vuole visualizzare il valore dell'utilizzo medio di CPU totale tra le macchine virtuali nel set di scalabilità.
     - **timeWindow**: si tratta dell'intervallo di tempo in cui dati dell' istanza vengono raccolti. Deve essere compreso tra 5 minuti e 12 ore.
@@ -486,7 +486,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 
 12.	Salvare il file di modello.
 
-## Passaggio 3: Caricare il modello nell'account di archiviazione
+## Passaggio 4: Caricare il modello nell'account di archiviazione
 
 È possibile caricare il modello dalla finestra di Microsoft Azure PowerShell, purché si conosca il nome dell'account e la chiave primaria dell'account di archiviazione creato nel passaggio 1.
 
@@ -515,15 +515,15 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Passaggio 4: Distribuire il modello
+## Passaggio 5: Distribuire il modello
 
 Dopo aver creato il modello, è possibile avviare la distribuzione delle risorse. Per avviare il processo, usare questo comando:
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Dopo aver premuto INVIO, verrà richiesto di specificare i valori per le variabili assegnate. Specificare questi valori:
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@ Dopo aver premuto INVIO, verrà richiesto di specificare i valori per le variabi
 
 La distribuzione di tutte le risorse richiederà circa 15 minuti.
 
->[AZURE.NOTE]Per distribuire le risorse, è anche possibile usare il portale. A tale scopo, fare clic su questo collegamento: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] Per distribuire le risorse, è anche possibile usare il portale. A tale scopo, usare questo collegamento: "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Passaggio 5: Monitorare le risorse
+## Passaggio 6: Monitorare le risorse
 
 Per ottenere informazioni sui set di scalabilità di macchine virtuali, è possibile usare i metodi seguenti:
 
  - Portale di Azure: attualmente è possibile ottenere una quantità limitata di informazioni tramite il portale.
  - [Esplora risorse di Azure](https://resources.azure.com/): si tratta dello strumento migliore per esplorare lo stato del set di scalabilità. Seguire questo percorso per passare alla visualizzazione dell'istanza del set di scalabilità creato:
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell: per ottenere alcune informazioni, usare il comando seguente:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Connettersi alla macchina virtuale jumpbox esattamente come a qualsiasi altra macchina virtuale e quindi accedere in modalità remota alle macchine virtuali nel set di scalabilità per monitorare i singoli processi.
 
->[AZURE.NOTE]Nell'articolo [Set di scalabilità di macchine virtuali](https://msdn.microsoft.com/library/mt589023.aspx) è disponibile un'API REST completa per ottenere informazioni sui set di scalabilità
+>[AZURE.NOTE] Nell'articolo [Set di scalabilità di macchine virtuali](https://msdn.microsoft.com/library/mt589023.aspx) è disponibile un'API REST completa per ottenere informazioni sui set di scalabilità
 
-## Passaggio 6: Rimuovere le risorse
+## Passaggio 7: Rimuovere le risorse
 
 Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie. Non è necessario eliminare separatamente ogni risorsa da un gruppo di risorse. È possibile eliminare il gruppo di risorse, in modo che vengano eliminate automaticamente tutte le risorse di tale gruppo.
 
@@ -559,6 +563,11 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 Se si vuole mantenere il gruppo di risorse, è possibile eliminare solo il set di scalabilità.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Passaggi successivi
 
-<!---HONumber=AcomDC_0427_2016-->
+- Gestire il set di scalabilità appena creato usando le informazioni contenute in [Gestire macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-manage.md).
+- Altre informazioni sulla scalabilità verticale sono disponibili in [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+
+<!---HONumber=AcomDC_0504_2016-->

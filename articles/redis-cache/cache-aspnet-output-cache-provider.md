@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Provider di cache di output ASP.NET della Cache"
-   description="Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Provider di cache di output ASP.NET della Cache"
+	description="Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="erikre"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="01/13/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Provider di cache di output ASP.NET per la Cache Redis di Azure
 
@@ -25,11 +25,11 @@ Per usare il provider di cache Redis di output, configurare prima di tutto la ca
 
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet del provider di cache Redis di output, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 
-![Gestione di pacchetti NuGet con la Cache Redis di Azure](./media/cache-asp.net-output-cache-provider/IC729541.png)
+![Gestione di pacchetti NuGet con la Cache Redis di Azure](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
 
-Digitare **RedisOutputCacheProvider** nella casella di testo **Cerca online**, selezionarlo nei risultati e fare clic su **Installa**.
+Digitare **RedisOutputCacheProvider** nella casella di testo di ricerca, selezionarlo nei risultati e fare clic su **Installa**.
 
-![Provider di cache di output della Cache Redis di Azure](./media/cache-asp.net-output-cache-provider/IC751727.jpg)
+![Provider di cache di output della Cache Redis di Azure](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
 Il pacchetto NuGet del provider di cache Redis di output ha una dipendenza dal pacchetto StackExchange.Redis.StrongName. Se il pacchetto StackExchange.Redis.StrongName non è presente nel progetto, verrà installato. Si noti che, oltre al pacchetto StackExchange.Redis.StrongName con nome sicuro, è disponibile anche la versione StackExchange.Redis priva di nome sicuro. Se il progetto usa la versione StackExchange.Redis priva di nome sicuro, sarà necessario disinstallarla, prima o dopo l'installazione del pacchetto NuGet del provider di cache Redis di output. In caso contrario, nel progetto si verificheranno conflitti di nomi. Per altre informazioni su questi pacchetti, vedere [Configurare i client della cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
@@ -81,4 +81,4 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

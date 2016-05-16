@@ -104,12 +104,7 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 
 | Nomi di dominio | Porte | Descrizione |
 | ------ | --------- | ------------ |
-| *.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | 
-| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | 
-| *.core.windows.net | 443 | HTTPS | 
-| *.clouddatahub.net | 443 | HTTPS | 
-| graph.windows.net | 443 | HTTPS | 
-| login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | | *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
 
@@ -268,12 +263,12 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 			1. Impostare **Sicurezza integrata** su **true**.
 			2. Per il database specificare il **nome del server** e il **nome del database**. 
 			2. Rimuovere i valori nei campi **ID utente** e **Password**. 
-		3. Specificare il nome utente e la password per le proprietà **userName** e **password**.
+		3. Specificare il nome utente e la password per le proprietà **userName** e **password**.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
 
@@ -691,4 +686,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 5.	Il gateway decrittografa le credenziali tramite lo stesso certificato e quindi si connette all'archivio dati locale con il tipo di autenticazione appropriato.
 6.	Il gateway copia i dati dall'archivio dati locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Nota: per questo passaggio il gateway comunica direttamente con un servizio di archiviazione basato sul cloud, ad esempio BLOB di Azure, database SQL di Azure e così via, su un canale protetto (HTTPS).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
@@ -22,7 +22,7 @@
 - [Listener interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Listener esterno](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn accessibile esternamente su Internet. Ciò è possibile tramite l'associazione dell'indirizzo **IP virtuale pubblico** del servizio cloud con il listener.
+Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn accessibile esternamente su Internet. Ciò è possibile tramite l'associazione dell'indirizzo **IP virtuale pubblico (indirizzo VIP)** del servizio cloud con il listener.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
@@ -130,4 +130,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -96,6 +96,11 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 - Attacchi di forza bruta contro le macchine virtuali
 - Avvisi di sicurezza da soluzioni di sicurezza integrata dei partner, ad esempio antimalware o Web application firewall
 
+### Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?
+Microsoft Security Response Center (MSRC) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi. Se MSRC rileva che un'entità illegale o non autorizzata ha ottenuto l'accesso a dati del cliente o che l'uso di Azure da parte del cliente non è conforme ai criteri d'uso, un responsabile della sicurezza segnala il problema al cliente. In genere la notifica avviene con l'invio di un messaggio di posta elettronica al o ai contatti per la sicurezza specificati nel Centro sicurezza di Azure oppure al proprietario della sottoscrizione Azure se non è specificato nessun contatto per la sicurezza.
+
+Il Centro sicurezza PC è un servizio di Azure che esegue il monitoraggio continuo dell'ambiente Azure del cliente e applica metodi di analisi per rilevare un'ampia gamma di attività potenzialmente dannose. I rilevamenti vengono visualizzati come di avvisi di sicurezza nel dashboard del Centro sicurezza PC. In futuro, la notifica tramite posta elettronica degli avvisi di sicurezza verrà inviata anche al o ai contatti per la sicurezza.
+
 ### Come avviene la gestione delle autorizzazioni nel Centro sicurezza di Azure?
 Il Centro sicurezza di Azure supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
@@ -104,11 +109,11 @@ Quando un utente apre il Centro sicurezza di Azure, verranno visualizzati solo i
 Per modificare i criteri di sicurezza, è necessario essere proprietario o collaboratore della sottoscrizione.
 
 ### Quali tipi di macchine virtuali saranno supportati?
-Sono supportate le macchine virtuali create in base ai [modelli di distribuzione di Azure Resource Manager e classica](../azure-classic-rm.md), comprese quelle che fanno parte dei cluster di Azure Service Fabric.
+Sono supportate le macchine virtuali create in base ai [modelli di distribuzione classica e di Azure Resource Manager](../azure-classic-rm.md), comprese quelle che fanno parte dei cluster di Azure Service Fabric.
 
 Le raccomandazioni relative all'elenco di controllo di accesso sono attualmente valide per le macchine virtuali (versione classica). I gruppi di sicurezza di rete attualmente sono validi solo per le macchine virtuali di Azure Resource Manager.
 
 ### Sono supportate le macchine virtuali Linux?
 Il Centro sicurezza di Azure offre il monitoraggio della baseline per le macchine virtuali Linux (solo per le versioni 12.04, 14.04, 14.10 e 15.04 di Ubuntu). In futuro, saranno disponibili ulteriori funzioni di monitoraggio dello stato di sicurezza e per la raccolta/analisi dei dati, nonché il supporto di altre distribuzioni Linux.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

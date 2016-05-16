@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 
@@ -160,14 +160,14 @@ Si noti che si sta usando la funzione `bin` (detta anche `floor`). Se si usasse 
 
 Si noti che è possibile usare `name=` per impostare il nome di una colonna di risultati, nelle espressioni di aggregazione o nella clausola by.
 
-### Conteggio dei punti dati
+## Conteggio dei dati campionati
 
 `sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma, quando nell'operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti eventi `itemCount` per ogni punto dati visualizzato. Il riepilogo di itemCount offre quindi una stima valida del numero di eventi originale.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-È disponibile anche un'aggregazione `count()`, nel caso in cui si voglia effettivamente contare il numero di righe in un gruppo.
+È disponibile anche un'aggregazione `count()`, oltre a un'operazione di conteggio, se si desidera effettivamente contare il numero di righe in un gruppo.
 
 
 Esiste un intervallo di [funzioni di aggregazione](app-insights-analytics-aggregations.md).
@@ -423,4 +423,4 @@ Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le p
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

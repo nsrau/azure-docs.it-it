@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -68,11 +68,9 @@ Verrà visualizzato un messaggio che informa che la modifica della configurazion
 * Nella finestra di dialogo **New Certificate**, specificare e confermare la password da utilizzare per il file PFX.
 * Accettare il valore fornito per **Name (CN)**, oppure utilizzare un nome personalizzato.
 * Specificare il percorso e il nome del file con cui il nuovo certificato verrà salvato, nel formato con estensione cer. Per questo passaggio e il passaggio successivo, è possibile utilizzare la cartella **cert** del progetto di Azure, ma si può scegliere un altro percorso. Ai fini di questa esercitazione, si utilizzerà **c:\\mycert\\mycert.cer**. (Creare la cartella **c:\\mycert** prima di continuare o, se lo si desidera, utilizzare una cartella esistente.)
-* Specificare il percorso e il nome del file con cui il nuovo certificato e la sua chiave privata verranno salvati, nel formato con estensione pfx. Ai fini di questa esercitazione, si utilizzerà **c:\\mycert\\mycert.pfx**. La finestra di dialogo **New Certificate** dovrebbe essere simile a quanto segue (aggiornare i percorsi della cartella se non si utilizza **c:\\mycert**):
-    ![][ic712275]
+* Specificare il percorso e il nome del file con cui il nuovo certificato e la sua chiave privata verranno salvati, nel formato con estensione pfx. Ai fini di questa esercitazione, si utilizzerà **c:\\mycert\\mycert.pfx**. La finestra di dialogo **New Certificate** dovrebbe essere simile a quanto segue (aggiornare i percorsi della cartella se non si utilizza **c:\\mycert**): ![][ic712275]
 * Fare clic su **OK** per chiudere la finestra di dialogo **New Certificate**.
-* La finestra di dialogo **Remote Access** avrà un aspetto analogo al seguente: </p>
-    ![][ic719495]
+* La finestra di dialogo **Remote Access** avrà un aspetto analogo al seguente: </p>![][ic719495]
 * Fare clic su **OK** per chiudere la finestra di dialogo **Remote Access**.
 	
 Ricompilare l'applicazione, con la compilazione impostata per la distribuzione nel cloud.
@@ -83,8 +81,7 @@ Quando l'istanza del ruolo è pronta, è possibile accedere in remoto alla macch
 
 * Se si usa Eclipse in Windows e si seleziona l’opzione **Start remote desktop on deploy** durante la distribuzione in Azure, si visualizzerà una schermata di accesso di connessione Desktop remoto all'avvio della distribuzione. Quando viene chiesto di immettere il nome utente e la password, immettere i valori specificati per l'utente remoto per effettuare l’accesso.
 * È possibile accedere in remoto tramite il <a href="http://go.microsoft.com/fwlink/?LinkID=512959">portale di gestione di Azure</a>:
-    * All'interno della visualizzazione **Servizi cloud** del portale di gestione di Azure, fare clic sul servizio cloud, fare clic su **Istanze**, fare clic su un'istanza specifica e quindi fare clic sul pulsante **Connetti**. Il pulsante **Connetti** viene visualizzato come mostrato di seguito nella barra dei comandi: 
-    ![][ic659273]  
+    * All'interno della visualizzazione **Servizi cloud** del portale di gestione di Azure, fare clic sul servizio cloud, fare clic su **Istanze**, fare clic su un'istanza specifica e quindi fare clic sul pulsante **Connetti**. Il pulsante **Connetti** viene visualizzato come mostrato di seguito nella barra dei comandi: ![][ic659273]
     >[AZURE.NOTE] Se si utilizza un sistema operativo non Windows, è necessario utilizzare un client di Desktop remoto compatibile con il sistema operativo e seguire la procedura per configurare il client con le impostazioni nel file RDP scaricato.
     * Dopo aver fatto clic sul pulsante **Connetti**, verrà richiesto di aprire un file RDP. Aprire il file e seguire le istruzioni. (È possibile inoltre salvare questo file nel computer locale e quindi eseguire il file facendovi doppio clic per accedere in modalità remota alla macchina virtuale senza la necessità di aprire prima il portale di gestione.)
     * Quando viene chiesto di immettere il nome utente e la password, immettere i valori specificati per l'utente remoto per effettuare l’accesso.
@@ -114,4 +111,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

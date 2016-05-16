@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Aggiungere l'autenticazione in Android con app per dispositivi mobili| Servizio app di Azure"
+	pageTitle="Aggiungere l'autenticazione ad Android con App per dispositivi mobili | Servizio app di Azure"
 	description="Informazioni su come usare app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	authors="RickSaling"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="glenga"/>
+	ms.date="05/03/2016"
+	ms.author="ricksal"/>
 
 # Aggiungere l'autenticazione all'app Android
 
@@ -68,4 +68,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 <!-- URLs. -->
 [creazione di un'app per dispositivi mobili]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

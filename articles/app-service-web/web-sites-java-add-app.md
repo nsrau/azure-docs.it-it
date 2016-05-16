@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
@@ -40,4 +40,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

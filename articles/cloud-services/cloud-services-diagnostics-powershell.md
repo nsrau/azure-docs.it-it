@@ -3,7 +3,7 @@
 	description="Informazioni su come abilitare la diagnostica per i servizi cloud tramite PowerShell"
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="sbtron"
+	authors="Thraka"
 	manager=""
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="saurabh"/>
+	ms.author="adegeo"/>
 
 
 # Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell
@@ -127,4 +127,4 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 - Lo [Schema di configurazione della diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) illustra le varie opzioni di configurazione xml per l'estensione della diagnostica.
 - Per informazioni su come abilitare l'estensione della diagnostica per le macchine virtuali, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

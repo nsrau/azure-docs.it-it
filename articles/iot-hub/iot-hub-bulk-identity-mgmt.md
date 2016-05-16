@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Gestione in blocco delle identità dei dispositivi dell'hub IoT
@@ -77,7 +77,7 @@ Il metodo **ExportDevicesAsync** richiede due parametri:
 
 *  Oggetto *booleano* che indica se si vogliono escludere le chiavi di autenticazione dai dati di esportazione. Se **false**, le chiavi di autenticazione sono incluse nell'output di esportazione; in caso contrario, le chiavi vengono esportate come **null**.
 
-Il frammento di codice C# seguente mostra come avviare un processo di esportazione e quindi eseguire il polling per il completamento:
+I frammenti di codice C# seguenti illustrano come inizializzare un processo di esportazione che include chiavi di autenticazione di dispositivi nei dati di esportazione e quindi eseguire il polling del completamento:
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
@@ -131,15 +131,15 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## Importare dispositivi
 
-Il metodo **ImportDevicesAsync** nella classe **RegistryManager** consente di eseguire operazioni di importazione e sincronizzazione in blocco nel registro dei dispositivi di un hub IoT. In modo analogo al metodo **ExportDevicesAsync**, il metodo **ImportDevicesAsync** usa il framework di processi.
+Il metodo **ImportDevicesAsync** nella classe **RegistryManager** consente di eseguire operazioni di importazione e sincronizzazione in blocco nel registro dei dispositivi di un hub IoT. In modo analogo al metodo **ExportDevicesAsync**, il metodo **ImportDevicesAsync** usa il framework **Job**.
 
-È necessario usare il metodo **ImportDevicesAsync** con attenzione, perché oltre al provisioning di nuovi dispositivi nel registro delle identità dei dispositivi, può anche aggiornare ed eliminare i dispositivi esistenti.
+Prestare attenzione quando si usa il metodo **ImportDevicesAsync** in quanto, oltre a eseguire il provisioning dei dispositivi nuovi nel registro delle identità dei dispositivi, può anche aggiornare ed eliminare dispositivi esistenti.
 
 > [AZURE.WARNING]  Un'operazione di importazione non può essere annullata. È sempre consigliabile eseguire il backup dei dati esistenti usando il metodo **ExportDevicesAsync** in un altro contenitore BLOB, prima di apportare modifiche in blocco al registro delle identità dei dispositivi.
 
-Il metodo **ImportDevicesAsync** richiede due parametri:
+Il metodo **ImportDevicesAsync** usa due parametri:
 
-*  Una *stringa* che contiene un URI di un contenitore BLOB di [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/) come *input* del processo. Questo URI deve contenere un token di firma di accesso condiviso che concede l'accesso in lettura al contenitore. Questo contenitore deve includere un BLOB con il nome **devices.txt** che contiene i dati serializzati del dispositivo da importare nel registro delle identità dei dispositivi. I dati di importazione devono contenere informazioni sul dispositivo nello stesso formato JSON creato dal processo **ExportImportDevice**. Il token di firma di accesso condiviso deve includere queste autorizzazioni:
+*  Una *stringa* che contiene un URI di un contenitore BLOB di [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/) come *input* del processo. Questo URI deve contenere un token di firma di accesso condiviso che concede l'accesso in lettura al contenitore. Questo contenitore deve includere un BLOB con il nome **devices.txt** che contiene i dati serializzati del dispositivo da importare nel registro delle identità dei dispositivi. I dati di importazione devono contenere informazioni sul dispositivo nello stesso formato JSON usato dal processo **ExportImportDevice** quando viene creato il BLOB **devices.txt**. Il token di firma di accesso condiviso deve includere queste autorizzazioni:
 
     ```
     SharedAccessBlobPermissions.Read
@@ -169,17 +169,17 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 -   Assegnazione in blocco di nuove chiavi di autenticazione del dispositivo
 -   Rigenerazione automatica in blocco di chiavi di autenticazione del dispositivo
 
-È possibile eseguire una combinazione qualsiasi delle operazioni precedenti in un'unica chiamata **ImportDevicesAsync**. Ad esempio, è possibile registrare nuovi dispositivi ed eliminare o aggiornare contemporaneamente quelli esistenti. Usata insieme al metodo **ExportDevicesAsync**, è possibile eseguire la migrazione completa di tutti i dispositivi da un hub IoT all'altro.
+È possibile eseguire una combinazione qualsiasi delle operazioni precedenti in un'unica chiamata **ImportDevicesAsync**. Ad esempio, è possibile registrare nuovi dispositivi ed eliminare o aggiornare contemporaneamente quelli esistenti. Insieme con il metodo **ExportDevicesAsync**, è possibile eseguire la migrazione completa di tutti i dispositivi da un hub IoT all'altro.
 
 È possibile controllare il processo di importazione per dispositivo con la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
 | importMode | Descrizione |
 | -------- | ----------- |
-| **createOrUpdate** | Se non esiste un dispositivo con l'**ID** specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input forniti senza tener conto del valore **ETag**. |
+| **createOrUpdate** | Se non esiste un dispositivo con l'**ID** specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag**. |
 | **create** | Se non esiste un dispositivo con l'**ID** specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. |
-| **update** | Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti senza tener conto del valore **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
-| **updateIfMatchETag** | Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti solo se viene rilevata una corrispondenza con **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag**, viene scritto un errore nel file di log. |
-| **createOrUpdateIfMatchETag** | Se non esiste un dispositivo con l'**ID** specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input forniti solo se viene rilevata una corrispondenza con **ETag**. <br/>In caso di mancata corrispondenza con **ETag**, viene scritto un errore nel file di log. |
+| **update** | Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
+| **updateIfMatchETag** | Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag**, viene scritto un errore nel file di log. |
+| **createOrUpdateIfMatchETag** | Se non esiste un dispositivo con l'**ID** specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag**. <br/>In caso di mancata corrispondenza con **ETag**, viene scritto un errore nel file di log. |
 | **delete** | Se esiste già un dispositivo con l'**ID** specificato, viene eliminato senza tener conto del valore **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
 | **deleteIfMatchETag** | Se esiste già un dispositivo con l'**ID** specificato, viene eliminato solo se viene rilevata una corrispondenza con **ETag**. Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
 
@@ -338,4 +338,4 @@ In questo articolo si è appreso come eseguire operazioni in blocco sul registro
 - [Metriche di utilizzo dell'hub IoT](iot-hub-metrics.md)
 - [Monitoraggio delle operazioni dell'hub IoT](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

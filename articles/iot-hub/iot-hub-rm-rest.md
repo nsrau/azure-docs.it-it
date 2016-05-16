@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Esercitazione: Creare un hub IoT tramite un programma C# e l'API REST
@@ -61,7 +61,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
     using Newtonsoft.Json;
     ```
     
-7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che verrà utilizzato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. **Nome IoT Hub** è il nome dell'hub IoT che verrà creato, ad esempio **MyIoTHub**, che deve essere globalmente univoco. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
+7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che verrà utilizzato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. Il **nome dell'hub IoT** è il nome dell'hub IoT che verrà creato, ad esempio **MyIoTHub**, che deve essere globalmente univoco, quindi deve includere il nome o le iniziali dell'utente. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -70,7 +70,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
     static string password = "{Your application Password}";
     
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
+    static string iotHubName = "{IoT Hub name including your initials}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
@@ -183,4 +183,4 @@ Dopo aver distribuito un hub IoT mediante l'API REST, può essere opportuno otte
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Ripristinare un volume StorSimple da un set di backup (aggiornamento 2)
@@ -23,7 +23,7 @@
 
 Nella pagina **Catalogo di backup** vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
- ![Pagina catalogo di backup](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Pagina catalogo di backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 In questa esercitazione viene illustrato come utilizzare la pagina **Catalogo di backup** per ripristinare il dispositivo da un set di backup.
 
@@ -73,7 +73,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 1. Nella pagina del servizio StorSimple Manager, fare clic sulla scheda **Catalogo di backup**.
 
-    ![Catalogo di backup](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Catalogo di backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Procedura di selezione di un set di backup:
   1. Selezionare un dispositivo appropriato.
@@ -115,4 +115,4 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 
 - Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

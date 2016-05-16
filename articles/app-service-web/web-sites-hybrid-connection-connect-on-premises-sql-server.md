@@ -54,7 +54,7 @@ Porta|Motivo
 80|**Obbligatorio** per la porta HTTP per la convalida del certificato e, facoltativamente, per la connettività dati.
 443|**Facoltativo** per la connettività dei dati. Se la connettività in uscita alla porta 443 non è disponibile, viene usata la porta TCP 80.
 5671 e 9352|**Consigliato** ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.
-- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale.
+- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale.
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -298,7 +298,7 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 
 [Panoramica delle connessioni ibride](/services/biztalk-services/)
 
-[Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-dashboard-monitor-scale-tabs/)
+[Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -363,4 +363,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

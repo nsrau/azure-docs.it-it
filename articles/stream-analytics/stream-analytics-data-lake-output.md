@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/18/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"
 />
 
@@ -92,4 +92,4 @@ Per risolvere questo problema, arrestare il processo in esecuzione e passare all
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

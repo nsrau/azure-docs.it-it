@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Configurare la replica geografica per il database SQL di Azure con PowerShell | Microsoft Azure" 
+    pageTitle="Configurare la replica geografica attiva per il database SQL di Azure con PowerShell | Microsoft Azure" 
     description="Replica geografica per il database SQL di Azure con PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/23/2016"
+    ms.date="04/27/2016"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il database SQL di Azure
@@ -21,26 +21,24 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Portale di Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 Questo articolo illustra come configurare la replica geografica per il database SQL con PowerShell.
 
-La replica geografica consente di creare un massimo di 4 database di replica (secondari) in località, o aree geografiche, di data center diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
+Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-powershell.md).
 
-La replica geografica è disponibile solo per i database Standard e Premium.
+>[AZURE.NOTE] La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
 
-I database Standard possono avere un solo database secondario non accessibile in lettura e devono usare l'area consigliata. I database Premium possono avere un massimo di quattro database secondari accessibili in lettura in una qualsiasi della aree disponibili.
+È possibile configurare fino a 4 database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
 
 Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare all'articolo.
 - Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
 - Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-
-
 
 
 ## Configurare le credenziali e selezionare la sottoscrizione
@@ -60,7 +58,6 @@ Per selezionare la sottoscrizione, è necessario il relativo ID. Questo può ess
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 Dopo aver eseguito correttamente il cmdlet **Select-AzureRmSubscription**, si ritornerà al prompt dei comandi di PowerShell.
-
 
 
 ## Aggiungere un database secondario
@@ -136,56 +133,6 @@ Il codice seguente rimuove il collegamento di replica del database denominato "m
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
-
-
-## Avviare un failover pianificato
-
-Usare il cmdlet **Set-AzureRmSqlDatabaseSecondary** con il parametro **-Failover** per alzare di livello un database secondario a nuovo database primario, abbassando di livello il database primario esistente a database secondario. Questa funzionalità è progettata per il failover pianificato, ad esempio durante le esercitazioni sul ripristino di emergenza, e richiede che il database primario sia disponibile.
-
-Il comando esegue il flusso di lavoro seguente:
-
-1. Passa temporaneamente alla modalità di replica sincrona, in modo che tutte le transazioni in sospeso siano scaricate nel server secondario.
-
-2. Scambia i ruoli dei due database nella relazione di replica geografica.
-
-Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
-
-
-> [AZURE.NOTE] Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato, ovvero un failover non pianificato, e accettare la perdita dei dati.
-
-
-
-Il risultato di questo cmdlet verrà restituito quando il processo di scambio da database secondario a primario sarà completato.
-
-Il comando seguente cambia in primario i ruoli del database denominato "mydb” nel server "srv2” del gruppo di risorse "rg2”. Il database primario originale a cui è stato connesso "db2” diventerà secondario dopo la sincronizzazione completa dei due database.
-
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary -Failover
-
-
-
-## Avviare un failover non pianificato dal database primario al database secondario
-
-
-È possibile usare il cmdlet **Set-AzureRmSqlDatabaseSecondary** con i parametri **–Failover** e **-AllowDataLoss** per alzare di livello un database secondario a nuovo database primario in maniera non pianificata, forzando l'abbassamento di livello del database primario esistente a database secondario in un momento in cui il database primario non è più disponibile.
-
-Questa funzionalità è progettata per il ripristino di emergenza quando il ripristino della disponibilità del database è critica ed è accettabile una perdita di dati. Quando si richiama il failover forzato, il database secondario specificato diventa immediatamente il database primario e inizia ad accettare le transazioni di scrittura. Non appena il database primario originale può riconnettersi a questo nuovo database primario dopo l'operazione di failover forzato, viene eseguito un backup incrementale nel database primario originale e il database primario precedente viene convertito in un database secondario per il nuovo database primario. In seguito si tratterà semplicemente di una replica del nuovo database.
-
-Poiché tuttavia il ripristino temporizzato non è supportato nei database secondari, se l'utente vuole recuperare i dati di cui è stato eseguito il commit nel database primario precedente e che non sono stati replicati nel nuovo database primario, dovrà rivolgersi al supporto tecnico per il ripristino di un database al backup del log noto.
-
-> [AZURE.NOTE] Se il comando viene eseguito quando i database primario e secondario sono online, il database primario precedente diventerà il nuovo database secondario, ma non verrà eseguita alcuna sincronizzazione dei dati con la conseguente possibile perdita di dati.
-
-
-Se il database primario ha più database secondari, il comando riuscirà in parte. Il database secondario su cui è stato eseguito il comando diventerà il database primario. Il database primario precedente rimarrà tuttavia primario, ovvero i due database primari rimarranno in uno stato non coerente e connessi da un collegamento di replica sospeso. L'utente dovrà ripristinare manualmente questa configurazione usando un'API di "rimozione del database secondario" in uno di questi database primari.
-
-
-Il comando seguente cambia i ruoli del database denominato "mydb” in primario quando il database primario non è disponibile. Il database primario originale a cui è stato connesso "mydb” diventerà secondario dopo essere ritornato online. A questo punto la sincronizzazione potrebbe causare una perdita di dati.
-
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
-
-
-
 ## Monitorare la configurazione di replica geografica e l'integrità
 
 Le attività di monitoraggio includono il controllo della configurazione della replica geografica e dell'integrità della replica dei dati.
@@ -198,11 +145,11 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-
-   
+  
 
 ## Passaggi successivi
 
+- [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-powershell.md)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
 
@@ -210,9 +157,12 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 
 ## Risorse aggiuntive
 
+- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
 - [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

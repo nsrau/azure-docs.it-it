@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga 
@@ -58,7 +58,7 @@ Dopo la connessione a un database di partizionamento tramite le API di routing d
 
 ### Entity Framework
 
-Per le applicazioni che usano Entity Framework, l'approccio più semplice consiste nell'impostare SESSION\_CONTEXT all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati con DbContext di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Prima di restituire la connessione negoziata tramite il routing dipendente dai dati, creare ed eseguire semplicemente un SqlCommand che imposti "TenantId" in SESSION\_CONTEXT sull'oggetto shardingKey specificato per la connessione. In questo modo, è sufficiente scrivere una sola volta il codice per impostare SESSION\_CONTEXT.
+Per le applicazioni che usano Entity Framework, l'approccio più semplice consiste nell'impostare SESSION\_CONTEXT all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati con DbContext di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Prima di restituire la connessione negoziata tramite il routing dipendente dai dati, creare ed eseguire semplicemente un SqlCommand che imposti "TenantId" in SESSION\_CONTEXT sull'oggetto shardingKey specificato per la connessione. In questo modo, è sufficiente scrivere una sola volta il codice per impostare SESSION\_CONTEXT.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

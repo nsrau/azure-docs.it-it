@@ -265,7 +265,7 @@ fileName | Specificare il nome del file in **folderPath** se si vuole che la tab
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*.log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Nota**: fileFilter è applicabile per un set di dati di input FileShare | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
-| format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. Se si usa JsonFormat, vedere [Impostazione di JsonFormat](#specifying-jsonformat). | No 
+| format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà **type** in format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per i dettagli vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat) e [Specifica di JsonFormat](#specifying-jsonformat). | No 
 
 
 > [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
@@ -301,52 +301,7 @@ Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile 
 
 Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
 
-### Specifica di TextFormat
-
-Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
-
-| Proprietà | Descrizione | Obbligatorio |
-| -------- | ----------- | -------- |
-| columnDelimiter | Carattere usato come separatore di colonne in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
-| rowDelimiter | Carattere usato come separatore di righe in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
-| escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. È necessario specificare al massimo un carattere per questa proprietà.<br/><br/>Ad esempio, se la virgola (,) viene usata come delimitatore di colonna ma si vuole inserire una virgola nel testo, come in "Hello, world", è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No | 
-| quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No |
-| nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".<br/><br/>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server. | No |
-| encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
-
-#### Esempio di TextFormat
-L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
-
-	"typeProperties":
-	{
-	    "folderPath": "mycontainer/myfolder",
-	    "fileName": "myblobname"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": """,
-	        "NullValue": "NaN"
-	    }
-	},
-
-Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
-
-	"escapeChar": "$",
-
-### Specifica di AvroFormat
-Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
-
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
-
-Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
-
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]  
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Proprietà del tipo di attività di copia HDFS
@@ -355,7 +310,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-In caso di attività di copia con origine di tipo **FileSystemSource**, sono disponibili le proprietà seguenti nella sezione typeProperties:
+In caso di attività di copia con origine di tipo **FileSystemSource**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
 **FileSystemSource** supporta le proprietà seguenti:
 
@@ -368,6 +323,6 @@ In caso di attività di copia con origine di tipo **FileSystemSource**, sono dis
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Ottimizzazione delle prestazioni  
-Per informazioni sui principali fattori che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

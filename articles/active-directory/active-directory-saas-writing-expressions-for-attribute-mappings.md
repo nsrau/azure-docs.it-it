@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -315,4 +315,4 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 
@@ -57,9 +57,7 @@ Eseguire questo passaggio per tutti gli account di cui si vuole eseguire la migr
 
 Dopo avere aggiunto tutti gli account alla nuova app, disinstallare l'app precedente dal telefono.
 
-Per rimuovere singoli account dall'app precedente, toccare l'account. Verrà visualizzata l'opzione per l'eliminazione.
 
-![Rimozione di un account](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## Come aggiungere un account utilizzando lo scanner di codice a barre
 
@@ -164,4 +162,10 @@ In questo modo, ogni volta che viene richiesto di verificare i propri dettagli d
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+## Come eliminare un account
+
+Per eliminare account singoli dall'app Azure Authenticator è sufficiente selezionare l'account. Verrà visualizzata l'opzione per l'eliminazione.
+
+![Rimozione di un account](./media/multi-factor-authentication-azure-authenticator/remove.png)
+
+<!---HONumber=AcomDC_0504_2016-->

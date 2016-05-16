@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="05/03/2016"
    ms.author="larryfr"/>
 
 # Eseguire query Hive usando Query Console
@@ -128,4 +128,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

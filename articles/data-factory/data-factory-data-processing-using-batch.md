@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # Orchestrazione di HPC e dati con Azure Batch e Data factory
 
-In passato l'High Performance Computing (HPC) era confinato in data center locali, in cui un supercomputer elaborava i dati ma era limitato dal numero di computer fisici disponibili. Il servizio Azure Batch rivoluziona questo concetto fornendo l'HPC come servizio e permette di configurare tutti i computer necessari. Azure Batch gestisce anche la pianificazione e il coordinamento del lavoro e permette di concentrarsi sugli algoritmi da eseguire. Data Factory di Azure completa l'azione di Azure Batch semplificando l'orchestrazione dello spostamento dei dati. Con Data factory è possibile specificare movimenti regolari dei dati per operazioni ETL, elaborare i dati e spostare i risultati in una risorsa di archiviazione permanente. Ad esempio, Data factory sposta i dati raccolti dai sensori in un percorso temporaneo in cui Azure Batch elabora i dati e produce un nuovo set di risultati, sotto il controllo di Data factory. Data factory sposta quindi i risultati di un repository finale. La combinazione di questi due servizi permette di usare in modo efficiente l'HPC per elaborare grandi quantità di dati a intervalli regolari.
+Questa è una soluzione di esempio che consente di spostare ed elaborare automaticamente set di dati di grandi dimensioni. La soluzione, end-to-end e comprensiva di architettura e codice, è basata su due servizi di Azure. Azure Batch offre HPC come servizio per configurare tutti i computer necessari e per pianificare e coordinare il lavoro. Azure Data Factory, integrato con Batch, semplifica l'orchestrazione dello spostamento dei dati. È possibile specificare spostamenti regolari dei dati per operazioni ETL, elaborare i dati e spostare i risultati in una risorsa di archiviazione permanente.
 
-Qui viene fornito un esempio di soluzione end-to-end che consente di spostare ed elabora automaticamente set di dati di grandi dimensioni. L'architettura è adatta a molti scenari, ad esempio la modellazione dei rischi per le organizzazioni di servizi finanziari, l'elaborazione e il rendering di immagini e l'analisi genomica. Un diagramma e una procedura di base offrono una panoramica della soluzione per architetti e decision maker IT. Gli sviluppatori possono usare il codice come punto di partenza per un'implementazione personalizzata. Questo articolo include l'intera soluzione.
+L'architettura è adatta a molti scenari, ad esempio la modellazione dei rischi per le organizzazioni di servizi finanziari, l'elaborazione e il rendering di immagini e l'analisi genomica.
 
 Prima di eseguire la soluzione di esempio, vedere la documentazione di [Azure Batch](../batch/batch-api-basics.md) e [Data factory](data-factory-introduction.md) se non si ha familiarità con questi servizi.
 
@@ -51,7 +51,7 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 **Tempo**: se si ha familiarità con Azure Data factory e Batch e sono stati completati i prerequisiti, si stima che il completamento di questa soluzione richieda 1-2 ore.
 
-### Prerequisiti
+## Prerequisiti
 
 1.  **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 6.  **Microsoft Visual Studio 2012 o versione successiva**, per creare l'attività Batch personalizzata da usare nella soluzione Data factory.
 
-### Passaggi generali per creare la soluzione
+## Passaggi generali per creare la soluzione
 
 1.  Creare un'attività personalizzata da usare nella soluzione Data factory. L'attività personalizzata contiene la logica di elaborazione dei dati.
 
@@ -761,11 +761,11 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 	-   **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di \<spazio dei nomi\>.\<nomeclasse\> nel codice.
+	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di <spazio dei nomi>.<nomeclasse> nel codice.
 
 	-   **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato lo stesso account di archiviazione di Azure.
 
-	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: \<contenitoreperlozip\>/\<nomedellozip.zip\>.
+	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: <contenitoreperlozip>/<nomedellozip.zip>.
 
 	-   L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
 
@@ -893,9 +893,18 @@ Il debug è costituito da alcune tecniche di base:
 
 3.  Creare un pool con un **numero massimo di attività per ogni VM** più alto o più basso. Aggiornare il servizio collegato Azure Batch nella soluzione Data Factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione del **numero massimo di attività per ogni VM**, vedere Passaggio 4: Creare ed eseguire la pipeline.
 
-4.  Creare un pool di Azure Batch con la funzionalità **Scalabilità automatica**. Il ridimensionamento automatico dei nodi di calcolo in un pool di Azure Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. Vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../batch/batch-automatic-scaling.md).
+4.  Creare un pool di Azure Batch con la funzionalità **Scalabilità automatica**. Il ridimensionamento automatico dei nodi di calcolo in un pool di Azure Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. Ad esempio, è possibile creare un pool di Azure Batch con 0 VM dedicate e una formula di scalabilità basata sul numero di attività in sospeso:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    Nella soluzione di esempio il metodo **Execute** richiama il metodo **Calculate** che elabora una sezione di dati di input per generare una sezione di dati di output. È possibile scrivere un metodo personalizzato per elaborare i dati di input e sostituire la chiamata al metodo Calculate nel metodo Execute con una chiamata al metodo personalizzato.
+	Per i dettagli, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../batch/batch-automatic-scaling.md).
+
+	Il servizio Azure Batch può richiedere 15-30 minuti per preparare la VM prima di eseguire l'attività personalizzata all'interno della VM stessa.
+	 
+5. Nella soluzione di esempio il metodo **Execute** richiama il metodo **Calculate** che elabora una sezione di dati di input per generare una sezione di dati di output. È possibile scrivere un metodo personalizzato per elaborare i dati di input e sostituire la chiamata al metodo Calculate nel metodo Execute con una chiamata al metodo personalizzato.
+
+ 
+
 
 ## Passaggi successivi: Utilizzare i dati
 
@@ -929,4 +938,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
     -   [Introduzione alla libreria di Azure Batch per .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

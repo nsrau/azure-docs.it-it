@@ -13,14 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="02/04/2016"
+ ms.date="04/29/2016"
  ms.author="danlep"/>
 
-# Opzioni per creare e gestire un cluster HPC (High Performance Computing) Linux in Azure con Microsoft HPC Pack
+# Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Se si desidera eseguire i carichi di lavoro HPC di Windows con HPC Pack, vedere [Opzioni per la creazione e la gestione di un cluster Windows HPC in Azure con Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzione di carichi di lavoro di Linux. Esistono anche opzioni per l'esecuzione di [carichi di lavoro di Windows HPC con HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -52,12 +52,11 @@ Se si desidera eseguire i carichi di lavoro HPC di Windows con HPC Pack, vedere 
 
 * [Esercitazione: Eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-
+* [Esercitazione: Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
 ### Gestione dei cluster
 
 * [Inviare processi a un cluster HPC Pack in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
-
 
 
 ## Creare cluster RDMA per carichi di lavoro MPI
@@ -66,4 +65,4 @@ Se si desidera eseguire i carichi di lavoro HPC di Windows con HPC Pack, vedere 
 
 * [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,19 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2015"
+	ms.date="04/22/2016"
 	ms.author="mikeray" />
 
 # Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)
 
 > [AZURE.SELECTOR]
-- [Portale - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portale - Classica](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - Classico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Portale](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
 Questa esercitazione end-to-end illustra come implementare i gruppo di disponibilità tramite SQL Server AlwaysOn in esecuzione in una macchina virtuale di Azure.
@@ -222,7 +221,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -549,4 +548,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

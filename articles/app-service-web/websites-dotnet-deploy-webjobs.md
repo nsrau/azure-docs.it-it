@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="na" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Distribuzione di processi Web usando Visual Studio
@@ -39,16 +39,12 @@ A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguent
 È possibile distribuire un progetto come processo Web indipendente o collegarlo a un progetto Web in modo tale che venga distribuito automaticamente ogni volta che viene distribuito il progetto Web. Per collegare i progetti, Visual Studio include il nome del progetto abilitato per i processi Web in un file [webjobs-list.json](#webjobslist) nel progetto Web.
 
 ![Diagramma che mostra il collegamento del progetto processo Web al progetto Web](./media/websites-dotnet-deploy-webjobs/link.png)
- 
-
 
 ## Prerequisiti
 
-Le funzionalità di distribuzione dei processi Web sono disponibili in Visual Studio 2013 quando si installa Azure SDK versione 2.4 o versioni successive:
+Le funzionalità di distribuzione di Processi Web sono disponibili in Visual Studio 2015 quando si installa Azure SDK per .NET:
 
-* [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
-
-Le funzionalità di distribuzione dei processi Web sono incluse anche in [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) e aggiornamenti successivi.
+* [Azure SDK per .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
 ## <a id="convert"></a>Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
 
@@ -100,7 +96,7 @@ Per creare un nuovo progetto abilitato per i processi Web, è possibile usare il
 
 	Creare un progetto configurato in modo da essere distribuito automaticamente come processo Web quando viene distribuito un progetto Web nella stessa soluzione. Usare questa opzione quando si vuole eseguire il processo Web nella stessa app Web in cui viene eseguita l'applicazione Web correlata.
 
-> [AZURE.NOTE]Il modello new-project di Processi Web installa automaticamente pacchetti NuGet e include il codice in *Program.cs* per [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se non si vuole usare WebJobs SDK o se si vuole usare un processo Web pianificato anziché continuo, rimuovere o modificare l'istruzione `host.RunAndBlock` in *Program.cs*.
+> [AZURE.NOTE] Il modello new-project di Processi Web installa automaticamente pacchetti NuGet e in *Program.cs* include codice per [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se non si vuole usare WebJobs SDK o se si vuole usare un processo Web pianificato anziché continuo, rimuovere o modificare l'istruzione `host.RunAndBlock` in *Program.cs*.
 
 ### <a id="createnolink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web indipendente
   
@@ -188,13 +184,8 @@ Per distribuire un progetto processi Web indipendente, fare clic con il pulsante
 	
 Per un processo Web indipendente viene visualizzata la stessa procedura guidata **Pubblica sito Web** usata per i progetti Web ma con meno impostazioni disponibili da modificare.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
 ## <a id="nextsteps"></a>Passaggi successivi
 
-Questo articolo ha descritto come distribuire processi Web tramite Visual Studio. Per altre informazioni su come distribuire i processi Web di Azure da Visual Studio e con un processo di recapito continuo, vedere [Processi Web di Azure - Risorse consigliate - Distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Questo articolo ha descritto come distribuire processi Web tramite Visual Studio. Per altre informazioni su come distribuire Processi Web di Azure, vedere [Risorse di documentazione di Processi Web di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

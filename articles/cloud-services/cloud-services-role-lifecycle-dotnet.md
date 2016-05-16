@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="05/02/2016" 
 ms.author="adegeo"/>
 
 # Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
@@ -35,7 +35,7 @@ Quando si estende**RoleEntryPoint**è necessario tenere presente i seguenti comp
 
 Se il ruolo non viene avviato o passa in modo ciclico tra gli stati di arresto, di inizializzazione e di occupato, il codice potrebbe generare un'eccezione non gestita all'interno di uno degli eventi del ciclo di vita ogni volta che il ruolo viene riavviato. In questo caso, utilizzare l’evento[UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) per determinare la causa dell'eccezione e gestirla nel modo appropriato. Il ruolo potrebbe anche essere restituito dal metodo[Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) che causa il riavvio del ruolo. Per ulteriori informazioni sugli stati di distribuzione, vedere[problemi comuni che causano il riciclo dei ruoli](https://msdn.microsoft.com/library/azure/gg465402.aspx).
 
-> [AZURE.NOTE]Se si utilizzano [gli strumenti di Azure per Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) per sviluppare l'applicazione, i modelli di progetto del ruolo estendono automaticamente la classe**RoleEntryPoint**, nei file WebRole.cs e WorkerRole.cs.
+> [AZURE.NOTE] Se si utilizzano [gli strumenti di Azure per Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) per sviluppare l'applicazione, i modelli di progetto del ruolo estendono automaticamente la classe**RoleEntryPoint**, nei file WebRole.cs e WorkerRole.cs.
 
 ## Metodo OnStart
 
@@ -63,7 +63,7 @@ public override bool OnStart()
 
 Il metodo**OnStop**viene chiamato quando un'istanza del ruolo viene portata offline da Azure e prima della chiusura del processo. È possibile eseguire l'override di questo metodo per chiamare il codice necessario affinché l'istanza del ruolo effettui un arresto normale.
 
-> [AZURE.IMPORTANT]Il codice in esecuzione nel metodo**OnStop**presenta un tempo di completamento limitato quando viene chiamato per motivi diversi da un arresto avviato dall'utente. Trascorso tale tempo, il processo viene terminato, pertanto è necessario assicurarsi che il codice del metodo**OnStop**possa essere eseguito rapidamente o tolleri il mancato completamento. Il metodo**OnStop** viene chiamato dopo che l’evento**Stopping**viene generato.
+> [AZURE.IMPORTANT] Il codice in esecuzione nel metodo**OnStop**presenta un tempo di completamento limitato quando viene chiamato per motivi diversi da un arresto avviato dall'utente. Trascorso tale tempo, il processo viene terminato ed è quindi necessario assicurarsi che il codice del metodo **OnStop** possa essere eseguito rapidamente o tolleri il mancato completamento. Il metodo**OnStop** viene chiamato dopo che l’evento**Stopping**viene generato.
 
 
 ## Metodo Run
@@ -80,4 +80,4 @@ L’esecuzione dell'override del metodo**Run**non è obbligatoria, l'implementaz
 ## Passaggi successivi
 Informazioni su come[creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0504_2016-->

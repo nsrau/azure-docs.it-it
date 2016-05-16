@@ -3,7 +3,7 @@
 	description="Leggere le informazioni su come eseguire la migrazione di un database utente locale a SQL Server in una macchina virtuale di Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="sabotta"
 	manager="jhubbard"
 	editor=""
 	tags="azure-service-management" />
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="jroth"/>
+	ms.date="05/02/2016"
+	ms.author="carlasab"/>
 
 
 # Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Modello Gestione risorse.
 
 
 Esistono diversi metodi per eseguire la migrazione di un database utente di SQL Server locale a SQL Server in una macchina virtuale di Azure. Questo articolo illustra brevemente i vari metodi, consiglia il metodo migliore per i diversi scenari e offre un'[esercitazione](#azure-vm-deployment-wizard-tutorial) come guida per l'uso della procedura guidata per la **distribuzione di un database SQL Server a una macchina virtuale di Microsoft Azure**.
+
+Il metodo che usa la procedura guidata di **distribuzione di un database SQL Server in una VM di Microsoft Azure** descritta nell'[esercitazione](#azure-vm-deployment-wizard-tutorial) è destinato solo al modello di distribuzione classica.
 
 ## Quali sono i metodi di migrazione principali?
 
@@ -34,8 +36,8 @@ I metodi di migrazione principali sono:
 - Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL
 - Conversione della macchina fisica locale a disco rigido virtuale Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione come nuova macchina virtuale tramite il disco rigido virtuale caricato
 - Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows
-- Se si ha una distribuzione locale di AlwaysOn, usare la [procedura guidata per l'aggiunta della replica di Azure](virtual-machines-windows-classic-sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, riferendo gli utenti all'istanza del database di Azure
-- Uso della [replica transazionale](https://msdn.microsoft.com/library/ms151176.aspx) di SQL Server per configurare l'istanza del server SQL di Azure come server di sottoscrizione e quindi disabilitare la replica, puntando gli utenti all'istanza del database di Azure
+- Se si ha una distribuzione locale di AlwaysOn, uso dell'[aggiunta guidata di una replica di Azure](virtual-machines-windows-classic-sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, indirizzando gli utenti all'istanza del database di Azure
+- Uso della [replica transazionale](https://msdn.microsoft.com/library/ms151176.aspx) di SQL Server per configurare l'istanza del server SQL di Azure come server di sottoscrizione e quindi disabilitare la replica, indirizzando gli utenti all'istanza del database di Azure
 
 
 
@@ -60,11 +62,13 @@ Nella tabella seguente sono elencati tutti i principali metodi di migrazione e v
 | [Esecuzione di un backup nell’URL e ripristino nella macchina virtuale di Azure dall'URL](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 o versione successiva | SQL Server 2012 SP1 CU2 o versione successiva | > 1 TB (per SQL Server 2016, < 12,8 TB) | In genere l'uso del [backup nell'URL](https://msdn.microsoft.com/library/dn435916.aspx) è equivalente all'uso della procedura guidata in termini di prestazioni ma non in termini di semplicità |
 | [Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 o versione successiva | SQL Server 2014 o versione successiva | [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Usare questo metodo quando si prevede di [archiviare i file tramite il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/dn385720.aspx) e di collegarli a SQL Server in esecuzione su una macchina virtuale di Azure, in particolare con database di grandi dimensioni. |
 | [Conversione della macchina locale a dischi rigidi virtuali Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione di una nuova macchina virtuale tramite il disco rigido virtuale caricato](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 o versione successiva | SQL Server 2005 o versione successiva | [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Da usare per la [connessione della propria licenza di SQL Server](../data-management-azure-sql-database-and-sql-server-iaas/), per la migrazione di un database che verrà eseguito su una versione precedente di SQL Server o per la migrazione combinata dei database di sistema e utente come parte della migrazione di database dipendenti da altri database utente e/o database di sistema. |
-| [Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows](#ship-hard-drive) | SQL Server 2005 o versione successiva | SQL Server 2005 o versione successiva | [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Usare il [servizio di importazione/esportazione di Windows](../storage-import-export-service/) quando il metodo della copia manuale è troppo lento, ad esempio con database di grandi dimensioni |
+| [Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows](#ship-hard-drive) | SQL Server 2005 o versione successiva | SQL Server 2005 o versione successiva | [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Usare il [servizio di importazione/esportazione di Windows](../storage/storage-import-export-service.md) quando il metodo della copia manuale è troppo lento, ad esempio con database di grandi dimensioni |
 
 ## Esercitazione relativa alla procedura guidata per la distribuzione della macchina virtuale di Azure
 
 Usare la procedura guidata per la **distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure** in Microsoft SQL Server Management Studio per eseguire la migrazione di un database utente di SQL Server 2005, SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 o SQL Server 2016 locale (fino a 1 TB) a SQL Server 2014 o SQL Server 2016 in una macchina virtuale di Azure. Utilizzare questa procedura guidata per eseguire la migrazione di un database utente a una macchina virtuale di Azure esistente o a una macchina virtuale di Azure con SQL Server creata dalla procedura guidata durante il processo di migrazione. Quando si esegue la migrazione di un database a una versione successiva di SQL Server, il database viene aggiornato automaticamente durante il processo.
+
+Il metodo è destinato solo al modello di distribuzione classica.
 
 ### Ottenimento dell’ultima versione della procedura guidata per la distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure
 
@@ -74,7 +78,7 @@ Usare la versione più recente di Microsoft SQL Server Management Studio per SQL
 
 Se viene eseguita la migrazione a una macchina virtuale di Azure esistente, è necessario attenersi ai passaggi di configurazione seguenti:
 
-- Configurare la macchina virtuale di Azure e l'istanza di SQL Server per abilitare la connettività da un altro computer seguendo i passaggi della sezione sulla connessione all'istanza della macchina virtuale di SQL Server da SSMS su un altro computer in [Provisioning di una macchina virtuale di SQL Server in Azure](../virtual-machines-provision-sql-server/#SSMS). Se si esegue la migrazione tramite la procedura guidata, sono supportate solo le immagini di SQL Server 2014 e SQL Server 2016 nella raccolta.
+- Configurare la macchina virtuale di Azure e l'istanza di SQL Server per abilitare la connettività da un altro computer seguendo i passaggi per [connettersi all'istanza della VM di SQL Server da SSMS in un altro computer](virtual-machines-windows-sql-connect.md). Se si esegue la migrazione tramite la procedura guidata, sono supportate solo le immagini di SQL Server 2014 e SQL Server 2016 nella raccolta.
 - Configurare un endpoint aperto per il servizio adattatore cloud di SQL Server sul gateway di Microsoft Azure con porta privata 11435. Questa porta viene creata come parte del provisioning di SQL Server 2014 o SQL Server 2016 su una macchina virtuale di Microsoft Azure. L’adattatore cloud crea inoltre una regola di Windows Firewall per consentire le connessioni TCP in entrata alla porta 11435 predefinita. Questo endpoint consente alla procedura guidata di utilizzare il servizio adattatore cloud per copiare i file di backup dall'istanza locale alla macchina virtuale di Azure. Per ulteriori informazioni, vedere [Adattatore cloud per SQL Server](https://msdn.microsoft.com/library/dn169301.aspx).
 
 	![Creazione dell’endpoint adattatore cloud](./media/virtual-machines-windows-migrate-sql/cloud-adapter-endpoint.png)
@@ -133,7 +137,7 @@ Se viene eseguita la migrazione a una macchina virtuale di Azure esistente, è n
 	![Risultati](./media/virtual-machines-windows-migrate-sql/results.png)
 
 13. Al termine della procedura guidata, eseguire la connessione alla macchina virtuale e verificare che la migrazione del database sia stata effettuata.
-14. Se è stata creata una nuova macchina virtuale, configurare la macchina virtuale di Azure e l'istanza di SQL Server seguendo i passaggi della sezione sulla connessione all'istanza della macchina virtuale di SQL Server da SSMS su un altro computer in [Provisioning di una macchina virtuale di SQL Server in Azure](../virtual-machines-provision-sql-server/#SSMS).
+14. Se è stata creata una nuova macchina virtuale, configurare la macchina virtuale di Azure e l'istanza di SQL Server seguendo i passaggi per [connettersi all'istanza della VM di SQL Server da SSMS in un altro computer](virtual-machines-windows-sql-connect.md).
 
 ## Backup sul file, copia sulla macchina virtuale e ripristino
 
@@ -146,14 +150,14 @@ Utilizzare questo metodo quando non è possibile usare la procedura guidata per 
 
 ## Backup nell’URL e ripristino
 
-Usare il metodo di [backup nell'URL](https://msdn.microsoft.com/library/dn435916.aspx) quando non è possibile usare la procedura guidata per la distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure perché il file di backup è superiore a 1 TB e si esegue la migrazione da e a SQL Server 2016. Per i database inferiori a 1 TB o che eseguono una versione di SQL Server precedente a SQL Server 2016, è consigliabile utilizzare la procedura guidata. Con SQL Server 2016, i set di backup con striping sono supportati, sono consigliati per le prestazioni e necessari per superare i limiti di dimensione per BLOB. Per i database di dimensioni molto grandi è consigliabile usare il [servizio di importazione/esportazione di Windows](../storage-import-export-service/).
+Usare il metodo di [backup nell'URL](https://msdn.microsoft.com/library/dn435916.aspx) quando non è possibile usare la procedura guidata per la distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure perché il file di backup è superiore a 1 TB e si esegue la migrazione da e a SQL Server 2016. Per i database inferiori a 1 TB o che eseguono una versione di SQL Server precedente a SQL Server 2016, è consigliabile utilizzare la procedura guidata. Con SQL Server 2016, i set di backup con striping sono supportati, sono consigliati per le prestazioni e necessari per superare i limiti di dimensione per BLOB. Per i database di dimensioni molto grandi è consigliabile usare il [servizio di importazione/esportazione di Windows](../storage/storage-import-export-service.md).
 
 ## Scollegamento, copia nell’URL e collegamento dall’URL
 
 Usare questo metodo quando si prevede di [archiviare i file tramite il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/dn385720.aspx) e di collegarli a SQL Server in esecuzione su una macchina virtuale di Azure, in particolare con database di grandi dimensioni. Per eseguire la migrazione di un database utente tramite il metodo manuale, attenersi ai passaggi generali seguenti:
 
 1.	Scollegare i file del database dall'istanza del database locale.
-2.	Copiare i file del database scollegati nell'archivio BLOB di Azure usando l'[utilità della riga di comando AZCopy](../storage-use-azcopy/).
+2.	Copiare i file del database scollegati nell'archivio BLOB di Azure usando l'[utilità della riga di comando AZCopy](../storage/storage-use-azcopy.md).
 3.	Collegare i file del database dall'URL di Azure all'istanza di SQL Server nella macchina virtuale di Azure.
 
 ## Conversione alla macchina virtuale, caricamento nell’URL e distribuzione come nuova macchina virtuale
@@ -164,14 +168,14 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 2.	Caricare i file dei dischi rigidi virtuali su Archiviazione di Azure usando il [cmdlet Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3.	Distribuire una nuova macchina virtuale utilizzando il disco rigido virtuale caricato.
 
-> [AZURE.NOTE] Per eseguire la migrazione di un'intera applicazione, è consigliabile usare [Azure Site Recovery](../services/site-recovery/).
+> [AZURE.NOTE] Per eseguire la migrazione di un'intera applicazione, è consigliabile usare [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
 ## Spedizione del disco rigido
 
-Usare il [metodo del servizio di importazione/esportazione di Windows](../storage-import-export-service/) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
+Usare il [metodo del servizio di importazione/esportazione di Windows](../storage/storage-import-export-service.md) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
 
 ## Passaggi successivi
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

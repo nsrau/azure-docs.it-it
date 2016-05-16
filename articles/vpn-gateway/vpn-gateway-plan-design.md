@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Pianificazione e progettazione per il gateway VPN
 
-Le operazioni di pianificazione e progettazione di connessioni cross-premise e da rete virtuale a rete virtuale possono essere molto semplici o piuttosto complicate, a seconda delle esigenze di rete.
+Le operazioni di pianificazione e progettazione di connessioni cross-premise e da rete virtuale a rete virtuale possono essere molto semplici o piuttosto complicate, a seconda delle esigenze relative alla rete. Questo articolo illustrerà in dettaglio alcune considerazioni di base sulla progettazione e sulla pianificazione.
 
 ## Pianificazione
 
@@ -164,4 +164,4 @@ Questa tabella elenca il modello di distribuzione per cui è disponibile il tunn
 
 Per altre informazioni che aiutano a semplificare la progettazione, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) e [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). Per altre informazioni sulle topologie di connessione, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm" />
 
 # Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
@@ -310,4 +310,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

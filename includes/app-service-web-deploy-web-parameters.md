@@ -20,30 +20,33 @@ Il nome del piano di servizio app da usare per l'hosting dell'app Web.
       "type":"string"
     }
 
-### siteLocation
-
-Il percorso da usare per la creazione dell'app Web e il piano di hosting. Deve essere uno dei percorsi di Azure che supportano le app Web.
-
-    "siteLocation":{
-      "type":"string"
-    }
-
 ### sku
 
 Il piano tariffario del piano di hosting.
 
-    "sku":{
-      "type":"string",
-      "allowedValues":[
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
+    "sku": {
+      "type": "string",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
       ],
-      "defaultValue":"Free"
+      "defaultValue": "S1",
+      "metadata": {
+        "description": "The pricing tier for the hosting plan."
+      }
     }
 
-Il modello definisce i valori consentiti per il parametro (Gratuito, Condiviso, Basic o Standard) e assegna un valore predefinito (Gratuito) nel caso in cui non viene specificato alcun valore.
+Il modello definisce i valori consentiti per questo parametro e assegna un valore predefinito (S1) se non viene specificato alcun valore.
 
 ### workerSize
 
@@ -61,4 +64,3 @@ Le dimensioni delle istanze del piano di hosting (piccole, medie o grandi dimens
     
 Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non viene specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
 
-<!---HONumber=Oct15_HO3-->

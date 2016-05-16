@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Gestire un pool di database elastici (C#) | Microsoft Azure"
+    pageTitle="Monitorare e gestire un pool di database elastici con C# | Microsoft Azure"
     description="Usare tecniche di sviluppo di database in C# per gestire un pool di database elastici per database SQL di Microsoft Azure."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/11/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Gestire e dimensionare un pool di database elastici con C&#x23;
+# Monitorare e gestire un pool di database elastici con C&#x23; 
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
@@ -29,17 +29,54 @@ Informazioni su come gestire un [pool di database elastici](sql-database-elastic
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
+I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
-Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), quindi è necessario installarla. È possibile installarla con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
+Negli esempi viene utilizzata la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) Installare la libreria eseguendo il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
-## Aggiornare un pool
+## Spostare un database in un pool elastico
 
+È possibile spostare un database autonomo all'interno o all'esterno di un pool.
 
-    // Retrieve existing pool properties
+    // Retrieve current database properties.
+
+    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = currentDatabase.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+            Collation = currentDatabase.Properties.Collation,
+        }
+    };
+
+    // Update the database.
+    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
+
+## Elencare i database in un pool elastico
+
+Per recuperare tutti i database in un pool, chiamare il metodo [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases).
+
+    //List databases in the elastic pool
+    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
+    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
+    foreach (Database db in dbListInPool)
+    {
+        Console.WriteLine("  Database {0}", db.Name);
+    }
+
+## Modificare le impostazioni delle prestazioni di un pool
+
+Recuperare le proprietà dei pool esistenti. Modificare i valori ed eseguire il metodo CreateOrUpdate.
+
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 
     // Configure create or update parameters with existing property values, override those to be changed.
@@ -59,74 +96,10 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
     newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 
-
-## Spostare un database esistente in un pool
-
-
-    // Update database service objective to add the database to a pool
-
-    // Retrieve current database properties
-    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentDatabase.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-            Collation = currentDatabase.Properties.Collation,
-        }
-    };
-
-    // Update the database
-    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-
-
-
-
-## Creare un nuovo database in un pool
-
-
-    // Create a new database in the pool
-
-    // Create a database: configure create or update parameters and properties explicitly
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
-## Elencare tutti i database in un pool
-
-Nell'esempio seguente vengono elencati tutti i database in un pool:
-
-    //List databases in the elastic pool
-    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
-    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
-    foreach (Database db in dbListInPool)
-    {
-        Console.WriteLine("  Database {0}", db.Name);
-    }
-
 ## Latenza delle operazioni dei pool elastici
 
-- La modifica delle eDTU garantite per database (databaseDtuMin) o il numero massimo di eDTU per database (databaseDtuMax) in genere viene completata in 5 minuti o meno.
-- La modifica del limite di eDTU/ risorse di archiviazione (storageMB) del pool dipende dalla quantità totale di spazio utilizzato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del limite di eDTU / risorse di archiviazione è di 3 ore o meno.
+- La modifica del numero minimo di eDTU per database o del numero massimo di eDTU per database in genere viene completata entro 5 minuti.
+- La modifica del numero di eDTU per pool dipende dallo spazio totale usato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del numero di eDTU del pool per ogni pool è di 3 ore o meno.
 
 
 ## Esempio di gestione di un pool C&#x23;
@@ -451,13 +424,12 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
     }
     }
 
-
-
 ## Risorse aggiuntive
-
 
 - [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md)
+- [Creare un nuovo pool di database elastici con C#](sql-database-elastic-pool-create-csharp.md)
+- [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
+- Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

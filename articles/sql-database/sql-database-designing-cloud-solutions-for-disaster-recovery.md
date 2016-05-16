@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Soluzioni di ripristino di emergenza cloud - Replica geografica del database SQL | Microsoft Azure"
+   pageTitle="Soluzioni di ripristino di emergenza cloud - Replica geografica attiva del database SQL | Microsoft Azure"
    description="Informazioni su come progettare soluzioni di ripristino di emergenza cloud per la pianificazione della continuità aziendale usando la replica geografica per il backup di dati delle app con il database SQL di Azure."
    keywords="ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale"
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,14 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/23/2016"
+   ms.date="04/25/2016"
    ms.author="sashan"/>
 
-# Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica nel database SQL
+# Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica attiva nel database SQL
 
-Informazioni su come usare la replica geografica nel database SQL per progettare applicazioni per includere una soluzione di ripristino di emergenza cloud. Per la pianificazione della continuità aziendale, è necessario prendere in considerazione la topologia di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Questo articolo esamina i modelli di applicazione comuni e illustra i vantaggi e gli svantaggi di ogni opzione.
 
-## Modello di progettazione 1: Distribuzione attiva/passiva per il ripristino di emergenza cloud con un database con percorso condiviso
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli.
+
+
+
+Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per progettare applicazioni di database resilienti a guasti a livello di area e interruzioni irreversibili. Per la pianificazione della continuità aziendale, è necessario prendere in considerazione la topologia di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Questo articolo esamina i modelli di applicazione comuni e illustra i vantaggi e gli svantaggi di ogni opzione.
+
+## Modello di progettazione 1: distribuzione attiva/passiva per il ripristino di emergenza cloud mediante un database con percorso condiviso
 
 Questa opzione è particolarmente indicata per le applicazioni con le caratteristiche seguenti:
 
@@ -33,9 +38,9 @@ In questo caso la topologia di distribuzione dell'applicazione viene ottimizzata
 
 > [AZURE.NOTE] [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) viene usato in questo articolo solo a scopi illustrativi. È possibile usare qualsiasi soluzione di bilanciamento del carico che supporta il metodo di routing di failover.
 
-Oltre alle istanze dell'applicazione principale, è consigliabile distribuire una piccola [applicazione ruolo di lavoro](cloud-services-choose-me.md#tellmecs) che monitora il database primario inviando regolarmente comandi di sola lettura T-SQL. È possibile usarla per attivare automaticamente il failover, per generare un avviso nella console di amministrazione dell'applicazione o per entrambi gli scopi. Per assicurarsi che il monitoraggio non venga compromesso da interruzioni che colpiscono l'intera area, è consigliabile distribuire le istanze dell'applicazione di monitoraggio in ogni area e connetterle al database nell'altra area, ma solo l'istanza nell'area secondaria deve essere attiva.
+Oltre alle istanze dell'applicazione principale, è consigliabile distribuire una piccola [applicazione ruolo di lavoro](cloud-services-choose-me.md#tellmecs) che garantisca il monitoraggio del database primario inviando regolarmente comandi T-SQL di sola lettura. È possibile usarla per attivare automaticamente il failover, per generare un avviso nella console di amministrazione dell'applicazione o per entrambi gli scopi. Per assicurarsi che il monitoraggio non venga compromesso da interruzioni che colpiscono l'intera area, è consigliabile distribuire le istanze dell'applicazione di monitoraggio in ogni area e connetterle al database nell'altra area, ma solo l'istanza nell'area secondaria deve essere attiva.
 
-> [AZURE.NOTE] Se si usa la [replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741339.aspx), è possibile mantenere attive entrambe le applicazioni di monitoraggio e analizzare il database sia primario che secondario. Quest'ultimo può essere usato per rilevare un errore nell'area secondaria e avvisare quando l'applicazione non è protetta.
+> [AZURE.NOTE] Entrambe le applicazioni di monitoraggio devono essere attive e operare sia sul database primario che su quello secondario. Quest'ultimo può essere usato per rilevare un errore nell'area secondaria e avvisare quando l'applicazione non è protetta.
 
 Il diagramma seguente mostra questa configurazione prima di un'interruzione.
 
@@ -44,9 +49,9 @@ Il diagramma seguente mostra questa configurazione prima di un'interruzione.
 Dopo un'interruzione nell'area primaria l'applicazione di monitoraggio rileva che il database primario non è accessibile e registra un avviso. A seconda del contratto di servizio dell'applicazione, è possibile decidere quanti probe di monitoraggio consecutivi devono avere esito negativo prima di dichiarare un'interruzione del database. Per ottenere il failover coordinato dell'endpoint dell'applicazione e del database, è necessario che l'applicazione di monitoraggio esegua i passaggi seguenti:
 
 1. [Aggiornare lo stato dell'endpoint primario](https://msdn.microsoft.com/library/hh758250.aspx) per attivare il failover dell'endpoint.
-2. Chiamare il database secondario per [avviare il failover del database](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Chiamare il database secondario per [avviare il failover del database](sql-database-geo-replication-portal.md).
 
-Dopo il failover, l'applicazione elaborerà le richieste degli utenti nell'area secondaria, ma rimarrà nello stesso percorso del database perché il database primario ora si trova nell'area secondaria, come è illustrato dal diagramma seguente. In tutti i diagrammi le linee continue indicano le connessioni attive, le linee con punti indicano le connessioni sospese e i segnali di stop indicano i trigger di azioni.
+Dopo il failover l'applicazione elabora le richieste degli utenti nell'area secondaria, ma continua a condividere il percorso con il database perché il database primario ora si trova nell'area secondaria, come è illustrato dal diagramma seguente. In tutti i diagrammi le linee continue indicano le connessioni attive, le linee con punti indicano le connessioni sospese e i segnali di stop indicano i trigger di azioni.
 
 
 ![Replica geografica: failover al database secondario. Backup dei dati delle app.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
@@ -63,7 +68,7 @@ Una volta ridotta l'entità dell'interruzione, il database secondario verrà aut
 I **vantaggi** chiave di questo modello di progettazione sono:
 
 + La stringa di connessione SQL viene impostata durante la distribuzione dell'applicazione in ogni area e non viene modificata dopo il failover.
-+ Le prestazioni dell'applicazione non vengono rallentate dal failover perché l'applicazione e il database sono sempre nello stesso percorso.
++ Le prestazioni dell'applicazione non vengono rallentate dal failover, perché l'applicazione e il database condividono sempre lo stesso percorso.
 
 Il **compromesso** principale è che l'istanza dell'applicazione ridondante nell'area secondaria viene usata solo per il ripristino di emergenza.
 
@@ -79,14 +84,14 @@ Se l'applicazione presenta queste caratteristiche, il bilanciamento del carico d
 
 È consigliabile distribuire un'applicazione di monitoraggio simile a quella del modello n. 1, che però, a differenza di quanto accade nel modello n. 1, non sarà responsabile dell'attivazione del failover dell'endpoint.
 
-> [AZURE.NOTE] Anche se questo modello usa più di un database secondario, per il failover ne verrà usato solo uno per i motivi evidenziati in precedenza. Poiché questo modello richiede l'accesso in sola lettura al database secondario, è necessaria la [replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] Anche se questo modello usa più di un database secondario, per il failover ne verrà usato solo uno per i motivi evidenziati in precedenza. Poiché questo modello richiede l'accesso in sola lettura al database secondario, è necessaria la replica geografica attiva.
 
 Gestione traffico dovrebbe essere configurato per il routing delle prestazioni per poter indirizzare le connessioni utente all'istanza dell'applicazione più vicina alla posizione geografica dell'utente. Il diagramma seguente illustra questa configurazione prima di un'interruzione. ![Nessuna interruzione: routing delle prestazioni all'applicazione più vicina. Replica geografica](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Se viene rilevata l'interruzione di un database nell'area primaria, avviare il failover del database primario in una delle aree secondarie per modificare la posizione del database primario. Gestione traffico escluderà automaticamente l'endpoint offline dalla tabella di routing, ma continuerà a instradare il traffico dell'utente finale alle rimanenti istanze online. Poiché il database primario ora si trova in un'area diversa, tutte le istanze online devono modificare la stringa di connessione SQL in lettura/scrittura per connettersi al nuovo database primario. È importante apportare questa modifica prima di avviare il failover del database. Le stringhe di connessione SQL di sola lettura dovrebbero restare invariate perché puntano sempre al database nella stessa area. I passaggi del failover sono:
 
 1. Modificare le stringhe di connessione SQL in lettura/scrittura in modo che puntino al nuovo database primario.
-2. Chiamare il database secondario designato per [avviare il failover del database](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Chiamare il database secondario designato per [avviare il failover del database](sql-database-geo-replication-portal.md).
 
 Il diagramma seguente illustra la nuova configurazione dopo il failover. ![Configurazione dopo il failover. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -108,7 +113,7 @@ Questa opzione è particolarmente indicata per le applicazioni con le caratteris
 + Se anche una perdita dei dati fosse un rischio elevato per l'attività, il failover del database può essere usato solo come ultima soluzione se l'interruzione è definitiva.
 + L'applicazione può funzionare in "modalità sola lettura" per un determinato periodo di tempo.
 
-In questo modello l'applicazione passa alla modalità di sola lettura quando viene connessa al database secondario. La logica dell'applicazione nell'area primaria si trova nello stesso percorso del database primario e funziona in modalità lettura/scrittura, la logica dell'applicazione nell'area secondaria si trova nello stesso percorso del database secondario ed è pronta a funzionare in modalità di sola lettura. Gestione traffico dovrebbe essere configurato per l'uso del [routing del failover](../traffic-manager/traffic-manager-configure-failover-routing-method.md) con il [monitoraggio dell'endpoint](../traffic-manager/traffic-manager-monitoring.md) abilitato per entrambe le istanze dell'applicazione.
+In questo modello l'applicazione passa alla modalità di sola lettura quando viene connessa al database secondario. La logica dell'applicazione nell'area primaria si trova nello stesso percorso del database primario e funziona in modalità lettura/scrittura, la logica dell'applicazione nell'area secondaria si trova nello stesso percorso del database secondario ed è pronta a funzionare in modalità in sola lettura. Gestione traffico dovrebbe essere configurato per l'uso del [routing del failover](../traffic-manager/traffic-manager-configure-failover-routing-method.md) con il [monitoraggio dell'endpoint](../traffic-manager/traffic-manager-monitoring.md) abilitato per entrambe le istanze dell'applicazione.
 
 Il diagramma seguente illustra questa configurazione prima di un'interruzione. ![Distribuzione attiva-passiva prima del failover. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
@@ -118,7 +123,7 @@ Quando Gestione traffico rileva un errore di connettività nell'area primaria, p
 
 Una volta ridotta l'entità dell'interruzione nell'area primaria, Gestione traffico rileverà il ripristino della connettività nell'area primaria e ripasserà il traffico utente all'istanza dell'applicazione nell'area primaria. Tale istanza dell'applicazione viene riavviata e funziona in modalità lettura/scrittura usando il database primario.
 
-> [AZURE.NOTE] Poiché questo modello richiede l'accesso in sola lettura al database secondario, è necessaria la [replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] Poiché questo modello richiede l'accesso in sola lettura al database secondario, è necessaria la replica geografica attiva.
 
 In caso di interruzione nell'area secondaria, Gestione traffico contrassegnerà l'endpont dell'applicazione nell'area primaria come danneggiato e il canale di replica verrà sospeso. Tuttavia non avrà effetto sulle prestazioni dell'applicazione durante l'interruzione. Una volta ridotta l'entità dell'interruzione, il database secondario verrà immediatamente sincronizzato con quello primario. Durante la sincronizzazione, le prestazioni di quello primario potrebbero essere leggermente rallentate a seconda della quantità di dati da sincronizzare.
 
@@ -148,4 +153,14 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 | Distribuzione attiva/attiva per il bilanciamento del carico dell'applicazione | Accesso in lettura/scrittura < 5 sec | Tempo di rilevamento errore + chiamata API di failover + modifica della stringa di connessione SQL + test di verifica dell'applicazione
 | Distribuzione attiva/passiva per la conservazione dei dati | Accesso di sola lettura < 5 sec Accesso di lettura/scrittura = zero | Accesso di sola lettura = tempo di rilevamento errore di connettività + test di verifica dell'applicazione <br>Accesso di lettura/scrittura = tempo di riduzione dell'entità dell'interruzione
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Risorse aggiuntive
+
+
+- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0504_2016-->

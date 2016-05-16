@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando #
@@ -31,7 +31,6 @@ Usare questa esercitazione per imparare a eseguire facilmente le attività inizi
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 
 ## Prerequisiti
-
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](../../../pricing/free-trial).
@@ -106,6 +105,12 @@ Quando si usa Gestione risorse di Azure, tutte le risorse correlate vengono crea
 
 Il primo parametro è il nome del gruppo di risorse e il secondo è la posizione. Per la posizione usare il comando `azure location list` per identificare come si specifica una posizione alternativa a quella di questo esempio. Se servono altre informazioni, digitare: `azure help location`
 
+## Registrare il provider di risorse dell'insieme di credenziali delle chiavi
+Verificare che il provider di risorse dell'insieme di credenziali delle chiavi sia registrato nella sottoscrizione:
+
+`azure provider register Microsoft.KeyVault`
+
+Quest'operazione deve essere eseguita una volta sola per ogni sottoscrizione.
 
 
 ## Creare un insieme di credenziali delle chiavi
@@ -134,13 +139,13 @@ Tuttavia, se si ha una chiave esistente in un file con estensione PEM salvato co
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente e usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.
+A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente e usare ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.
 
 Per aggiungere un segreto all'insieme di credenziali, ovvero una password denominata SQLPassword con il valore Pa$$w0rd per l'insieme di credenziali delle chiavi, digitare quanto segue:
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-È ora possibile fare riferimento a questa password aggiunta nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** per ottenere questa versione specifica.
+È ora possibile fare riferimento a questa password aggiunta nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e usare ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** per ottenere questa versione specifica.
 
 Ora si può visualizzare la chiave o il segreto appena creato:
 
@@ -186,6 +191,8 @@ Per autorizzare l'accesso da parte dell'applicazione alla chiave o al segreto ne
 Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applicazione che si desidera autorizzare ha un ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e si vuole autorizzare l'applicazione a decrittografare e firmare con le chiavi dell'insieme di credenziali, eseguire quanto segue:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
+
+>[AZURE.NOTE] Se si eseguono prompt dei comandi di Windows, sostituire le virgolette singole con virgolette doppie e aggiungere il carattere di escape prima delle virgolette doppie interne. Ad esempio: "["decrittografare","firmare"]".
 
 Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segreti nell'insieme di credenziali, eseguire le seguenti operazioni:
 
@@ -256,4 +263,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Come connettere reti virtuali classiche a reti virtuali di Gestione risorse di Azure in Azure"
    description="Informazioni su come creare una connessione VPN tra reti virtuali classiche e reti virtuali nuove"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Connessione di reti virtuali classiche a nuove reti virtuali
 
@@ -44,7 +44,7 @@ Per creare il gateway VPN per la rete virtuale classica, seguire le istruzioni r
 4. Nell'elenco a discesa **CIDR (CONTEGGIO INDIRIZZI)**, selezionare il numero di bit utilizzati per la porzione di rete del blocco CIDR usato dalla rete virtuale di Gestione risorse di Azure a cui si desidera effettuare la connessione.
 5. In **INDIRIZZO IP DISPOSITIVI VPN (FACOLTATIVO)**, digitare qualsiasi indirizzo IP pubblico valido. Questo indirizzo IP verrà modificato in un secondo momento. Quindi fare clic sul pulsante con il segno di spunta in basso a destra della schermata. Nella figura seguente vengono illustrate le impostazioni di esempio per questa pagina.
 
-	![Impostazioni Rete locale](..\virtual-network\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
+	![Impostazioni Rete locale](.\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
 
 5. Nella pagina **Reti**, fare clic su**RETI VIRTUALI**, fare clic su una rete virtuale classica, quindi fare clic su **CONFIGURA**.
 6. In **Connettività da sito a sito**, abilita la casella di controllo **Connetti alla rete locale**.
@@ -71,7 +71,7 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 4. Recuperare la subnet utilizzata per il gateway utilizzando il comando riportato di seguito.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
+			-VirtualNetwork (Get-AzureRMVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
 	>[AZURE.IMPORTANT] La subnet del gateway deve esistere già e deve essere denominata GatewaySubnet.
 
@@ -118,4 +118,4 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 - Leggere ulteriori informazioni su [NRP (Network Resource Provider) per Gestione risorse di Azure](resource-groups-networking.md).
 - Creare una [soluzione end-to-end che connette una rete virtuale classica a una rete virtuale di Gestione risorse di Azure utilizzando una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

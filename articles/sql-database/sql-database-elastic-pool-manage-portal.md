@@ -1,59 +1,110 @@
 <properties
-	pageTitle="Monitorare, gestire e dimensionare un pool di database elastici"
+	pageTitle="Monitorare e gestire un pool di database elastici con il portale di Azure | Microsoft Azure"
 	description="Informazioni su come usare il portale di Azure e l'intelligenza integrata del database SQL per gestire, monitorare e dimensionare in modo adeguato un pool scalabile di database elastici per ottimizzare le prestazioni del database e gestire i costi."
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ninarn"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/01/2016"
-	ms.author="sidneyh"
+	ms.date="05/02/2016"
+	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Monitorare, gestire e dimensionare un pool di database elastici con il portale di Azure
+# Monitorare e gestire un pool di database elastici con il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-Questo articolo descrive come usare il portale di Azure per monitorare, gestire e dimensionare in modo adeguato un pool di database elastici e i database nel pool. Un database SQL è dotato di un'intelligenza integrata che analizza i dati di telemetria cronologici relativi all'uso e suggerisce in modo proattivo un pool per i database nel momento più conveniente. È inoltre possibile aggiungere e rimuovere database prima di eseguire il commit delle modifiche e controllare l'impatto sulle prestazioni del pool e sull'archiviazione.
+È possibile utilizzare il portale di Azure per monitorare, gestire e configurare un pool di database elastici e i database nel pool. Il database SQL è dotato di intelligenza integrata che consente di analizzare la cronologia dell'utilizzo di tutti i database, a prescindere dalla relativa presenza o meno nei pool, consigliando un pool per i database se più conveniente.
 
-Per eseguire i passaggi descritti in questo articolo è necessario un pool e i database. Vedere [creare un pool](sql-database-elastic-pool-create-portal.md) se si hanno già dei database, in caso contrario, l'[esercitazione sul database SQL](sql-database-get-started).
+Il portale consente di modificare le impostazioni del pool e del database, visualizzare in anteprima le modifiche, quindi eseguire il commit di tutte le modifiche contemporaneamente. È possibile visualizzare in anteprima le modifiche, ad esempio l'aggiunta e la rimozione di database. Verrà visualizzato anche il possibile impatto sulle prestazioni e sui prezzi.
 
-**Per scegliere un pool da usare:**
+Per eseguire i passaggi descritti in questo articolo è necessario disporre di un pool e di alcuni database. Se si dispone di database esistenti, vedere l'articolo sulla [creazione di un pool](sql-database-elastic-pool-create-portal.md). Se non si dispone di un database, vedere l'[Esercitazione sul database SQL](sql-database-get-started.md).
 
-- Nel [portale di Azure](https://portal.azure.com) selezionare **Sfoglia**, quindi **Pool elastici SQL**, poi fare clic sul pool che si desidera usare tra quelli indicati nell'elenco.
+## Selezionare un pool con cui lavorare
 
-##Monitorare l'utilizzo delle risorse di un pool
-Dopo aver selezionato un pool, in **Monitoraggio pool elastico** vengono visualizzati un grafico e riquadri animati contenenti informazioni importanti per l'uso del pool.
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia**
+2. Fare clic su **Pool elastici SQL**
+3. Dall'elenco, fare clic sul pool con cui si desidera lavorare.
+
+## Spostare un database in un pool elastico
+
+È possibile aggiungere o rimuovere i database da un pool esistente. I database possono trovarsi in altri pool. Tuttavia, è possibile aggiungere solo i database che sono nello stesso server logico.
+
+1. Nel pannello del pool, in **Database elastici** fare clic su **Configura pool**.
+
+    ![Fare clic su Configura pool][1]
+
+2. Nel pannello **Configura pool**, fare clic su **Aggiungi al pool**.
+
+	![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+
+	
+3. Nel pannello **Aggiungi database**, selezionare uno o più database da aggiungere al pool. Quindi fare clic su **Seleziona**.
+
+	![Selezionare i database da aggiungere](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+
+    Il pannello **Configura pool** visualizzerà il database appena aggiunto, con lo stato impostato su **In sospeso**.
+
+    ![Aggiunte di pool in sospeso](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
+
+3. Nel pannello"Configura pool", fare clic su **Salva**.
+
+    ![Fare clic su Salva.](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+
+## Spostare un database da un pool elastico
+
+1. Nel pannello **Configura pool**, selezionare uno o più database da rimuovere.
+
+    ![elenchi di database](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
+
+2. Fare clic su **Rimuovi dal pool**.
+
+    ![elenchi di database](./media/sql-database-elastic-pool-manage-portal/remove-from-pool.png)
+
+	I database selezionati vengono visualizzati nell'interfaccia utente come "database selezionati per la rimozione".
+
+
+## Monitorare l'utilizzo delle risorse di un pool
+
+
+1. Selezionare un pool con cui lavorare.
+2. In **Monitoraggio pool elastico** vengono visualizzati un grafico e i riquadri animati contenenti informazioni importanti per l'uso del pool.
 
 ![Monitorare un pool elastico](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
 
-**Per modificare l'intervallo di date, il tipo di grafico (barra o riga) o le risorse visualizzate:**
+**Per modificare il grafico e la visualizzazione:**
 
-- Fare clic su **Modifica**, selezionare le impostazioni desiderate, quindi fare clic su **Salva** per aggiornare il grafico.
+- Fare clic su **Modifica**.
 
-**Per modificare i riquadri animati:**
+	![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-resource-utlization.png)
 
-- Fare clic su **Aggiungi riquadri**, quindi selezionare i riquadri desiderati dalla raccolta che viene visualizzata a sinistra.
+- Nel pannello **Modifica grafico**, selezionare un nuovo intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per impostare un intervallo di tempo diverso. Selezionare il tipo di grafico (a barre o a linee), quindi selezionare le risorse da monitorare.
 
-##Aggiungere un avviso a una risorsa di pool
+	![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+
+- Fare quindi clic su **OK**.
+
+
+## Aggiungere un avviso a una risorsa di pool
+
 È possibile aggiungere regole a risorse che inviano messaggi di posta elettronica a persone oppure stringhe di avviso a endpoint di URL quando la risorsa raggiunge la soglia di utilizzo impostata.
 
 **Per aggiungere un avviso a una risorsa qualsiasi:**
 
-1. Fare clic sul grafico **Utilizzo delle risorse** per aprire il pannello **Metrica**, selezionare **Aggiungi avviso** e inserire le informazioni nel pannello **Aggiungi una regola di avviso** (**la risorsa** viene automaticamente impostata come il pool da usare).
+1. Fare clic sul grafico **Utilizzo delle risorse** per aprire il pannello **Metrica**, selezionare **Aggiungi avviso** e inserire le informazioni nel pannello **Aggiungi una regola di avviso**. La **risorsa** verrà automaticamente impostata come il pool da usare.
 2. Digitare **Nome** e **Descrizione** che serviranno a identificare l'avviso per l'utente e i destinatari.
 3. Scegliere una **Metrica** in base alla quale creare un avviso dall'elenco.
 
@@ -62,66 +113,35 @@ Dopo aver selezionato un pool, in **Monitoraggio pool elastico** vengono visuali
 4. Scegliere una **Condizione** (maggiore di, minore di e così via) e una **Soglia**.
 5. Fare clic su **OK**.
 
-##Modificare le eDTU in base al pool e le eDTU database
-Quando viene visualizzato l'utilizzo delle risorse di un pool, si potrebbe scoprire che per il pool è necessaria un'impostazione eDTU diversa, oppure che per i singoli database nel pool sono necessarie impostazioni eDTU diverse. È possibile modificare la configurazione del pool in qualsiasi momento per ottenere il miglior compromesso tra prestazioni e costi. Per altre informazioni, vedere [Considerazioni su prezzi e prestazioni](sql-database-elastic-pool-guidance.md).
+## Modificare le impostazioni delle prestazioni di un pool
 
-**Per modificare la eDTU per il pool e la eDTU in base al database:**
+Nel monitorare l'utilizzo delle risorse di un pool, è possibile scoprire che il pool necessita di più eDTU o che i singoli database nel pool necessitano di impostazioni eDTU diverse. È possibile modificare la configurazione del pool in qualsiasi momento per ottenere il miglior compromesso tra prestazioni e costi. Vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md) per sapere di più.
 
-1. Fare clic su **Configura pool** per aprire il pannello **Configura prestazioni**.
+**Per modificare il numero di eDTU per pool e per database:**
 
-    In **Impostazioni pool di database elastico** viene visualizzato un grafico contenente la tendenza recente della eDTU e la percentuale della capacità di archiviazione usata per il pool.
+1. Aprire il pannello **Configura pool**.
+
+    In **Impostazioni pool di database elastico**, modificare con i dispositivi di scorrimento le impostazioni del pool.
 
     ![Utilizzo delle risorse del pool elastico](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-2. Fare clic su una **eDTU pool** diversa per visualizzare il costo mensile stimato della modifica che si desidera apportare e per aggiornare il grafico in modo che indichi i valori di uso previsti con la nuova eDTU massima selezionata.
+2. Alla modifica dell'impostazione, viene visualizzato il relativo costo mensile stimato.
 
     ![Aggiornamento di un pool e nuovi costi mensili](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
-3. In **Impostazione database elastico** un grafico a barre mostra l'uso della eDTU di ogni database nel pool.
+## Anteprima delle azioni del database
 
-4. Fare clic su **Max eDTU** per impostare il numero massimo e su **Min eDTU** per impostare il numero minimo di eDTU per i database nel pool.
+È possibile visualizzare in anteprima l'aggiunta e la rimozione dei database prima di confermare l'azione nel pannello **Configura pool**:
 
-    ![Aggiornamento del numero massimo e minimo di eDTU per il database elastico](./media/sql-database-elastic-pool-manage-portal/change-db-edtuminmax.png)
+![anteprima aggiunta e rimozione database](./media/sql-database-elastic-pool-manage-portal/pools-tab.png).
 
-##Aggiungere e rimuovere database
 
-Dopo aver creato un pool, è possibile aggiungere database al pool o rimuoverli. È possibile aggiungere database solo nello stesso server SQL.
-
-**Per aggiungere database:**
-
-1. Nel pannello per il pool fare clic sul collegamento che mostra il numero di database nel pool, in **Database elastici**.
-
-    ![elenchi di database](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. Nel pannello **Database elastici** fare clic su **Aggiungi database**, selezionare i database desiderati, quindi fare clic sul pulsante **Seleziona**.
-
-    A questo punto il pannello **Database elastici** elenca il database aggiunto, con il valore di **Media DTU** e l'uso dell'archiviazione in **Dimensioni (GB)**, con stato **In sospeso**. I valori dell'uso del pool ora mostrano quelli che saranno i **Nuovi** valori se si salvano le modifiche.
-
-    ![pool consigliato](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
-
-3. Fare clic su **Salva**, quindi su **OK** quando il portale indica che la richiesta è stata inviata. Il numero di database nel pool viene visualizzato nel pannello per il pool al termine dell'operazione.
-
-**Per rimuovere database:**
-
-1. Nel pannello per il pool fare clic sul collegamento che mostra il numero di database nel pool, in **Database elastici**.
-
-    ![elenchi di database](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. Nel pannello **Database elastici** selezionare i database che si desidera rimuovere dall'elenco dei database nel pool, quindi fare clic su **Rimuovi database**.
-
-    I valori dell'uso del pool ora mostrano quelli che saranno i **Nuovi** valori se si salvano le modifiche.
-
-3. Fare clic su **Salva**, quindi su **OK** quando il portale indica che la richiesta è stata inviata. Il numero di database nel pool viene visualizzato nel pannello per il pool al termine dell'operazione.
-
-## Creare un nuovo database in un pool
-
-Nel pannello per il database fare clic su **Crea database**. Il database SQL è già configurato per il pool e il server corretti quindi selezionare altre impostazioni e fare clic su **OK** per creare un nuovo database nel pool.
-
-   ![creare database elastici](./media/sql-database-elastic-pool-portal/create-database.png)
-
-##Creare e gestire processi elastici
+## Creare e gestire processi elastici
 
 I processi elastici consentono l'esecuzione di script Transact-SQL su qualsiasi numero di database nel pool. Prima di usare i processi, installare i componenti dei processi elastici e fornire le credenziali. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+
+Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
+
 
 ## Risorse aggiuntive
 
@@ -131,4 +151,8 @@ I processi elastici consentono l'esecuzione di script Transact-SQL su qualsiasi 
 - [Creare un pool di database elastici con C#](sql-database-elastic-pool-create-csharp.md)
 - [Considerazioni di prezzo e prestazioni per un pool di database flessibile](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-pool-manage-portal/configure-pool.png
+
+<!---HONumber=AcomDC_0504_2016-->

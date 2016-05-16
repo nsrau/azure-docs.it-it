@@ -15,13 +15,13 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/22/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
 # Uso di cloud-init per personalizzare una VM Linux durante la creazione
 
-In questo articolo si creeranno script cloud-init per impostare il nome host, aggiornare i pacchetti installati e gestire gli account utente. Si avvieranno quindi gli script cloud-init durante la creazione della VM Linux usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+Questo articolo illustra come creare script cloud-init per impostare il nome host, aggiornare i pacchetti installati e gestire gli account utente. Gli script cloud-init verranno quindi usati durante la creazione della VM dall'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## Prerequisiti
 
@@ -45,16 +45,23 @@ NOTA: se un'estensione [Script personalizzato](virtual-machines-linux-extensions
 
 ## Comandi rapidi
 
+Creare uno script cloud-init per nome host
+
 ```bash
-# Create a hostname cloud-init script
 #cloud-config
 hostname: exampleServerName
+```
 
-# Create an update Linux on first boot cloud-init script for Debian Family
+Creare uno script cloud-init di aggiornamento di Linux al primo avvio per la famiglia Debian
+
+```bash
 #cloud-config
 apt_upgrade: true
+```
 
-# Create an add a user cloud-init script
+Creare uno script cloud-init di aggiunta di un utente
+
+```bash
 #cloud-config
 users:
   - name: exampleUser
@@ -62,21 +69,19 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
-
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 ## Procedura dettagliata
 
 ### Aggiunta di uno script cloud-init per la creazione della VM con l'interfaccia della riga di comando di Azure
 
-Per avviare uno script di cloud-init durante la creazione di una VM in Azure, specificare il file cloud-init tramite l'opzione `--custom-data` dell'interfaccia della riga di comando di Azure.
+Per avviare uno script cloud-init durante la creazione di una VM in Azure, specificare il file cloud-init tramite l'opzione `--custom-data` dell'interfaccia della riga di comando di Azure.
 
 NOTA: anche se questo articolo illustra l'uso dell'opzione `--custom-data` per i file cloud-init, questa opzione consente anche di passare codice o file arbitrari. Se la VM Linux sa già quali operazioni eseguire con questi file, tali operazioni vengono eseguite automaticamente.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -101,7 +106,7 @@ hostname: exampleServerName
 Durante l'avvio iniziale della VM questo script cloud-init imposta il nome host su `exampleServerName`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -115,9 +120,9 @@ bill@slackware$ azure vm create \
 Accedere e verificare il nome host della nuova VM.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ hostname
-bill@ubuntu$ exampleServerName
+ssh exampleVM
+hostname
+exampleServerName
 ```
 
 ### Creazione di uno script cloud-init per aggiornare Linux
@@ -134,7 +139,7 @@ apt_upgrade: true
 Dopo l'avvio della nuova VM Linux, vengono aggiornati immediatamente tutti i pacchetti installati tramite `apt-get`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -148,8 +153,8 @@ bill@slackware$ azure vm create \
 Accedere e verificare che tutti i pacchetti siano aggiornati.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ sudo apt-get upgrade
+ssh exampleVM
+sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -161,7 +166,7 @@ The following packages have been kept back:
 
 ### Creazione di uno script cloud-init per aggiungere un utente a Linux
 
-Una delle prime attività in qualsiasi nuova VM Linux è l'aggiunta di un utente distinto per evitare di usare `root`. Ciò è molto utile per motivi di sicurezza e favorisce l'usabilità, se si aggiunge la propria chiave pubblica SSH al file `~/.ssh/authorized_keys` di tale utente per consentire l'accesso SSH sicuro e senza password.
+Una delle prime attività eseguite in qualsiasi nuova VM Linux è l'aggiunta di un utente distinto da `root`, per evitare di usare quest'ultimo. Ciò è molto utile per motivi di sicurezza e favorisce l'usabilità, se si aggiunge la propria chiave pubblica SSH al file `~/.ssh/authorized_keys` di tale utente per consentire l'accesso SSH sicuro e senza password.
 
 #### Script cloud-init `cloud_config_add_users.txt` di esempio per la famiglia Debian
 
@@ -173,14 +178,13 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 Dopo l'avvio della VM Linux il nuovo utente viene creato e aggiunto al gruppo sudo.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -194,7 +198,12 @@ bill@slackware$ azure vm create \
 Accedere e verificare l'utente appena creato.
 
 ```bash
-bill@slackware$ cat /etc/group
+cat /etc/group
+```
+
+Output
+
+```bash
 root:x:0:
 <snip />
 sudo:x:27:exampleUser
@@ -202,4 +211,4 @@ sudo:x:27:exampleUser
 exampleUser:x:1000:
 ```
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

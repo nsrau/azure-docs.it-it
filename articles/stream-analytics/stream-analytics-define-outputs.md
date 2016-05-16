@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/15/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
@@ -316,4 +316,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
