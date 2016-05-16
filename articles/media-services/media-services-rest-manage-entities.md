@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Gestione di entità di Servizi multimediali con l'API REST
@@ -35,7 +35,7 @@ Servizi multimediali di Microsoft Azure è un servizio REST basato su OData vers
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
->Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect_programmatically.md).
+>Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
 
 
 ##Aggiunta di entità
@@ -117,7 +117,7 @@ L'esempio seguente restituisce tutti gli oggetti JobTemplates con nome "SampleTe
 
 ##Enumerazione di grandi raccolte di entità
 
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. Usare **skip** e **top** per enumerare la raccolta di entità di grandi dimensioni.
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. Usare gli elementi **skip** e **top** per enumerare raccolte di entità di grandi dimensioni.
 
 L'esempio seguente illustra come usare **skip** e **top** per ignorare i primi 2000 processi e ottenere i 1000 processi successivi.
 
@@ -175,4 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

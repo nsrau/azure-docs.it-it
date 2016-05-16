@@ -40,7 +40,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di Azure](preview-portal).
+1. Visitare il [portale di anteprima di Azure][portale di anteprima].
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
@@ -51,8 +51,6 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 ## Creazione dell'applicazione
 
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET.
-
-Nell'esempio che segue viene usata l'autenticazione utente interattiva. Per usare l'autenticazione non interattiva, vedere [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Aprire Visual Studio 2012 o 2013.
@@ -207,6 +205,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

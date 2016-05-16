@@ -49,9 +49,9 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 	Questo valore viene usato anche come nome dell'account di archiviazione nel portale o quando si accede a questo account a livello di codice.
 
-5.  Selezionare un **Piano tariffario** oppure usare il valore predefinito. Per altre informazioni sui piani tariffari, vedere [Prezzi di Archiviazione di Azure](../../pricing/details/storage).
+5.  Selezionare un **Piano tariffario** oppure usare il valore predefinito. Per altre informazioni sui piani tariffari, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-6.  Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview/#resource-groups).
+6.  Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
 
 7. Selezionare la **Sottoscrizione** con cui verrà usato l'account di archiviazione.
 
@@ -104,7 +104,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
     ![Pannello Aggiungi endpoint][cdn-add-endpoint]
 
-3. Immettere un **Nome** per questo endpoint della rete CDN. Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<EndpointName>.azureedge.net`.
+3. Immettere un **Nome** per questo endpoint della rete CDN. Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`.
 
 4. Nell'elenco a discesa**Tipo di origine**, selezionare *Archiviazione*.
 
@@ -135,7 +135,7 @@ http://<*EndpointName*>.azureedge.net/<*myPublicContainer*>/<*BlobName*>
 
 Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione di contenuti (rete CDN) di Azure, è possibile eseguire una delle operazioni seguenti:
 
--   È possibile rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage-manage-access-to-resources/).
+-   È possibile rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/storage-manage-access-to-resources.md).
 -   È possibile disabilitare o eliminare l'endpoint della rete CDN usando il portale di gestione.
 -   È possibile modificare il servizio ospitato, in modo che non risponda più a richieste per l'oggetto.
 
@@ -154,4 +154,4 @@ Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,26 +12,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/27/2016"
    ms.author="joaoma" />
 
 # Visualizzazione e modifica di nomi host
 
-Per consentire alle istanze di ruolo di essere collegate al nome host, è necessario impostare il valore per il nome host nel file di configurazione del servizio per ogni ruolo. A tale scopo, aggiungere il nome host desiderato all’attributo **vmName**dell’elemento**ruolo**. Il valore dell’attributo**vmName** viene utilizzato come base per il nome host di ogni istanza del ruolo. Ad esempio, se**vmName**è*webrole*e sono presenti tre istanze di tale ruolo, i nomi host delle istanze saranno*webrole0**webrole1*e*webrole2*. Non è necessario specificare un nome host per le macchine virtuali nel file di configurazione poiché il nome host per una macchina virtuale viene formulato in base al nome della macchina virtuale. Per ulteriori informazioni sulla configurazione di un servizio di Microsoft Azure, vedere[Schema di configurazione del servizio di Azure (file .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+Per consentire alle istanze di ruolo di essere collegate al nome host, è necessario impostare il valore per il nome host nel file di configurazione del servizio per ogni ruolo. A tale scopo, aggiungere il nome host desiderato all’attributo **vmName**dell’elemento**ruolo**. Il valore dell’attributo**vmName** viene utilizzato come base per il nome host di ogni istanza del ruolo. Ad esempio, se**vmName**è*webrole*e sono presenti tre istanze di tale ruolo, i nomi host delle istanze saranno*webrole0**webrole1*e*webrole2*. Non è necessario specificare un nome host per le macchine virtuali nel file di configurazione, poiché il nome host per una macchina virtuale viene formulato in base al nome della macchina virtuale stessa. Per altre informazioni sulla configurazione di un servizio di Microsoft Azure, vedere[Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## Visualizzazione dei nomi host
 
-È possibile visualizzare i nomi host delle macchine virtuali e istanze del ruolo in un servizio cloud mediante vari strumenti: Portale di Azure, file di configurazione del servizio, Desktop remoto, e[API REST di gestione dei servizi Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+È possibile visualizzare i nomi host delle macchine virtuali e le istanze del ruolo in un servizio cloud usando uno degli strumenti indicati di seguito.
 
 ### Portale di Azure
 
-È possibile utilizzare il portale di Azure per visualizzare i nomi host per le macchine virtuali nella pagina dashboard per la macchina virtuale. Tenere presente che il dashboard mostra un valore per**nome**e**nome Host**. Anche se inizialmente sono uguali, la modifica del nome host non modificherà il nome della macchina virtuale o istanza del ruolo.
+È possibile usare il [portale di Azure](http://portal.azure.com) per visualizzare i nomi host per le macchine virtuali nel pannello di panoramica di ogni macchina virtuale. Tenere presente che il pannello mostra un valore per **Nome** e **Nome host**. Anche se inizialmente sono uguali, la modifica del nome host non modificherà il nome della macchina virtuale o istanza del ruolo.
 
-Le istanze del ruolo possono trovarsi anche nel portale di Azure, ma quando si elencano le istanze in un servizio cloud, non viene visualizzato il nome host. Verrà visualizzato un nome per ogni istanza, ma tale nome non rappresenta il nome host.
+Le istanze del ruolo possono essere visualizzate anche nel portale di Azure, ma quando si elencano le istanze in un servizio cloud, il nome host non viene visualizzato. Verrà visualizzato un nome per ogni istanza, ma tale nome non rappresenta il nome host.
 
 ### File di configurazione del servizio
 
-È possibile scaricare il file di configurazione del servizio per un servizio distribuito dalla pagina **Configura**del servizio nel portale di Azure. È quindi possibile cercare il**vmName**dell’attributo per l’elemento**nome ruolo**per visualizzare il nome host. Tenere presente che questo nome host viene utilizzato come base per il nome host di ogni istanza del ruolo. Ad esempio, se**vmName**è*webrole*e sono presenti tre istanze di tale ruolo, i nomi host delle istanze saranno*webrole0**webrole1*e*webrole2*.
+È possibile scaricare il file di configurazione del servizio per un servizio distribuito dal pannello **Configura**del servizio nel portale di Azure. È quindi possibile cercare il**vmName**dell’attributo per l’elemento**nome ruolo**per visualizzare il nome host. Tenere presente che questo nome host viene utilizzato come base per il nome host di ogni istanza del ruolo. Ad esempio, se**vmName**è*webrole*e sono presenti tre istanze di tale ruolo, i nomi host delle istanze saranno*webrole0**webrole1*e*webrole2*.
 
 ### Desktop remoto
 
@@ -67,8 +67,8 @@ Si può modificare il nome host per una macchina virtuale o istanza del ruolo ca
 
 [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Schema di configurazione di Rete virtuale di Azure)](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Specificare le impostazioni DNS tramite i file di configurazione di rete](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

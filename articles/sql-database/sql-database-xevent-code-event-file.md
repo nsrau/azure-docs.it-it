@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="" 
 	tags=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="04/28/2016" 
 	ms.author="genemi"/>
 
 
@@ -586,7 +586,7 @@ L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
-- [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md/)
+- [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Denominazione e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Lavorare con il contenitore radice](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

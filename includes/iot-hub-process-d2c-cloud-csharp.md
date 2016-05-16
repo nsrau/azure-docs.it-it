@@ -85,7 +85,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
         blobClient = storageAccount.CreateCloudBlobClient();
         blobContainer = blobClient.GetContainerReference("d2ctutorial");
         blobContainer.CreateIfNotExists();
-        queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString, "d2ctutorial");
+        queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString);
       }
 
       Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
@@ -255,7 +255,7 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
     Console.WriteLine("Process D2C Interactive Messages app\n");
 
     string connectionString = "{service bus listen connection string}";
-    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString, "d2ctutorial");
+    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString);
 
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
@@ -314,4 +314,3 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0413_2016-->

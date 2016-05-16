@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/07/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Creare un hub IoT tramite PowerShell
@@ -112,10 +112,10 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
 
 2. Salvare il file di modello nel computer locale. Questo esempio presuppone che il file venga salvato in una cartella denominata **c:\\templates**.
 
-3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. Il questo esempio, il nome dell'hub IoT è **myiothub**, che deve essere globalmente univoco.
+3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. In questo esempio, il nome dell'hub IoT è **abcmyiothub** (notare che questo nome deve essere globalmente univoco, quindi deve includere il nome o le iniziali):
 
     ```
-    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
+    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 
 4. L'output visualizza le chiavi per l'hub IoT che è stato creato.
@@ -139,4 +139,4 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

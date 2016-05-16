@@ -251,6 +251,8 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 ## Set di dati con ambito
 È possibile creare set di dati con ambito limitato a una pipeline tramite la proprietà **datasets**. Questi set di dati possono essere usati dalle attività all'interno di questa pipeline, ma non da quelle in altre pipeline. L'esempio seguente definisce una pipeline con due set di dati, InputDataset-rdc and OutputDataset-rdc, da usare all'interno della pipeline.
 
+> [AZURE.IMPORTANT] I set di dati con ambito sono supportati solo con pipeline monouso (valore di **pipelineMode** impostato su **OneTime**). Per i dettagli vedere [Pipeline monouso](data-factory-scheduling-and-execution.md#onetime-pipeline).
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {
@@ -340,4 +342,4 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 	    }
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

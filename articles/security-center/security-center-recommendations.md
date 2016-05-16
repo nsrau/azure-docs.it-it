@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
@@ -82,26 +82,27 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 |Abilitare Transparent Data Encryption sui database SQL|Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure).|
 |Distribuire l'agente di macchine virtuali|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali.|
 | [Applicare Crittografia dischi](security-center-apply-disk-encryption.md) |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.|
+|Specificare dettagli del contatto per la sicurezza | Suggerisce di specificare le informazioni di contatto per la sicurezza per ogni sottoscrizione. Le informazioni di contatto sono un indirizzo di posta elettronica e un numero di telefono. Le informazioni vengono usate per contattare l'utente se il team di sicurezza rileva risorse compromesse. |
 
 È possibile filtrare ed eventualmente ignorare le raccomandazioni.
 
-1. Nel pannello **Raccomandazioni** fare clic su **Filtro**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
+1. Nel pannello **Raccomandazioni** fare clic su **Filtro**. Viene visualizzato il pannello **Filtro** dove è possibile selezionare i valori relativi a gravità e stato da visualizzare.
 
     ![][3]
 
-2. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Uno consiste nel fare clic con il pulsante destro del mouse su un elemento e quindi scegliere **Ignora**. L'altro nel passare il puntatore del mouse su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e scegliendo **Ignorata**.
+2. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Uno consiste nel fare clic con il pulsante destro del mouse su un elemento e quindi scegliere **Ignora**. L'altro consiste nel passare il puntatore su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e scegliendo **Ignorato**.
 
     ![][4]
 
 ### Applicare le raccomandazioni
-Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime. Prendendo come esempio la raccomandazione per **abilitare un antimalware**, viene illustrata di seguito la procedura da seguire per applicarla.
+Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime. Prendendo come esempio la raccomandazione **Enable Antimalware** (Abilita antimalware), di seguito viene illustrata la procedura da seguire per applicare una raccomandazione.
 
 1. Nel pannello **Raccomandazioni** selezionare **Abilitare antimalware**. ![][5]
 
 2. Nel pannello **Installa antimalware** selezionare una delle macchine virtuali senza antimalware abilitato incluse nell'elenco e fare clic su **Installa antimalware**.
 3. Viene visualizzato il pannello **Nuova risorsa**, che consente di selezionare la soluzione antimalware da usare. Selezionare **Microsoft Antimalware**.
 4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Create**.
-5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e selezionare **OK**. ![][6]
+5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e quindi selezionare **OK**. ![][6]
 
 [Microsoft Antimalware](../azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
 
@@ -109,11 +110,12 @@ Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima
 ## Passaggi successivi
 Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni sulla configurazione dei criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e la conformità di Azure
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -122,4 +124,4 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

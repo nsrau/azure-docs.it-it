@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Specifica di una versione di Node.js in un'applicazione Azure
@@ -102,4 +102,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 [utilizzare i moduli]: nodejs-use-node-modules-azure-apps.md
 [creare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

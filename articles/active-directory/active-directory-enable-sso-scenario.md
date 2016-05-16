@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/16/2016"
+      ms.date="05/03/2016"
       ms.author="markvi"/>
 
 # Gestione di applicazioni con Azure Active Directory
@@ -24,7 +24,7 @@ Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale 
 
 2. Per garantire la sicurezza e la governance, l'organizzazione deve controllare chi può accedere alle applicazioni e chi vi accede effettivamente
 
-Nel mondo delle applicazioni cloud, per controllare "*CHI può fare COSA*" è necessario usare sistemi di gestione delle identità.
+Nel mondo delle applicazioni cloud è possibile usare le identità per controllare CHI può fare COSA.
 
 Detto con la terminologia IT:
 
@@ -135,4 +135,4 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

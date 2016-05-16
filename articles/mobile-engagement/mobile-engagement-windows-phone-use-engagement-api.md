@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in Windows Phone Silverlight
 
-Questo documento è complementare all'articolo [Come integrare Mobile Engagement in un'app per Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
+Questo documento è complementare all'articolo [Come integrare Mobile Engagement in un'app per Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
 Se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `PhoneApplicationPage` ereditino dalla classe `EngagementPage`.
 
@@ -386,4 +386,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
 			EngagementAgent.Instance.Init();
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

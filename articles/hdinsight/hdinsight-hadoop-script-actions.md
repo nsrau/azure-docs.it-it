@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Sviluppare script di Azione script per HDInsight
@@ -31,6 +31,8 @@ L'azione script può essere usata per installare software aggiuntivi in esecuzio
 ## Script di esempio
 
 Per la creazione di cluster HDInsight in un sistema operativo Windows, l'azione script è uno script di Azure PowerShell. Di seguito è riportato uno script di esempio per configurare i file di configurazione del sito:
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -92,7 +94,7 @@ Nome | Script
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md).
 - **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare Giraph nei cluster HDInsight Hadoop](hdinsight-hadoop-giraph-install.md).
 
-È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante Azione script][hdinsight-cluster-customize].
+È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize].
 
 > [AZURE.NOTE] Gli script di esempio funzionano solo con il cluster HDInsight versione 3.1 o successiva. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](../hdinsight-component-versioning/).
 
@@ -172,7 +174,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 
 	HDInsight ha un'architettura attivo/passivo per la disponibilità elevata, in cui un nodo head è in modalità attiva (dove sono in esecuzione i servizi HDInsight) e l'altro è in modalità standby (dove non sono in esecuzione i servizi HDInsight). I nodi passano dalla modalità attiva a quella passiva e viceversa quando i servizi HDInsight vengono interrotti. Se un'azione script viene usata per installare i servizi in entrambi i nodi head per la disponibilità elevata, tenere presente che il meccanismo di failover di HDInsight non sarà in grado di eseguire automaticamente il failover di questi servizi installati dall'utente. Quindi, se è richiesta la disponibilità elevata per i servizi installati dall'utente nei nodi head di HDInsight, questi servizi devono avere un proprio meccanismo di failover se sono in modalità attivo/passivo oppure essere in modalità attivo/attivo.
 
-	Un comando di Azione script di HDInsight viene eseguito in entrambi i nodi head quando il ruolo del nodo head viene specificato come valore nel parametro *ClusterRoleCollection* (documentato di seguito nella sezione [Come eseguire un'azione script](#runScriptAction)). Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere presente, inoltre, che quando viene ricreata l'immagine sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. Si noti che è possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
+	Un comando di azione script di HDInsight viene eseguito in entrambi i nodi head quando il ruolo del nodo head viene specificato come valore nel parametro *ClusterRoleCollection* (documentato di seguito nella sezione [Come eseguire un'azione script](#runScriptAction)). Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere presente, inoltre, che quando viene ricreata l'immagine sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. Si noti che è possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
 
 
 - Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
@@ -252,7 +254,7 @@ Un modo semplice per testare uno script personalizzato prima di usarlo nel coman
 
 Questa sezione descrive la procedura per usare HDInsight Emulator localmente per i test, che è simile alla procedura che prevede l'uso di una VM.
 
-**Installare HDInsight Emulator**: per eseguire localmente Azione script, è necessario che sia installato HDInsight Emulator. Per istruzioni su come installarlo, vedere [Introduzione a HDInsight Emulator](../hdinsight-get-started-emulator/).
+**Installare HDInsight Emulator**: per eseguire localmente l'azione script, è necessario che sia installato HDInsight Emulator. Per istruzioni su come installarlo, vedere [Introduzione a HDInsight Emulator](../hdinsight-get-started-emulator/).
 
 **Impostare i criteri di esecuzione per Azure PowerShell**: aprire Azure PowerShell ed eseguire come amministratore il seguente comando per impostare i criteri di esecuzione su *LocalMachine* e su *Unrestricted*.
 
@@ -336,7 +338,7 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 
 ## Vedere anche
 
-- [Personalizzare cluster HDInsight mediante Azione script][hdinsight-cluster-customize]
+- [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize]
 - [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 - [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts]
 - [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
@@ -351,4 +353,4 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="04/27/2016"
    ms.author="larryfr"/>
 
 #Usare Hive con Hadoop in HDInsight con Beeline
@@ -68,14 +68,16 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
 2. Al prompt di `beeline>` usare il comando seguente per connettersi al servizio HiveServer2: Sostituire __HOSTNAME__ con il nome host restituito per il nodo head precedentemente:
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    In questo modo si indica a Beeline di connettersi alla porta __10001__ sull'oggetto __HOSTNAME__ specificato e che __HTTP__ è il metodo di trasporto. L'account __admin__ viene usato per autenticare la connessione.
 
     Quando richiesto, immettere la password di amministratore (admin) per il cluster HDInsight. Una volta stabilita la connessione, il prompt cambierà nel modo seguente:
     
         jdbc:hive2://HOSTNAME:10001/>
 
-3. I comandi di Beeline iniziano di solito con un carattere `!`, ad esempio `!help` visualizza la Guida. Tuttavia `!` può spesso essere omesso. Ad esempio, anche `help` funzionerà.
+3. I comandi di Beeline iniziano di solito con un carattere `!`, ad esempio `!help` visualizza la Guida. È tuttavia possibile omettere `!`. Ad esempio, anche `help` funzionerà.
 
-    Se si visualizza la Guida, si noterà `!sql`, che viene usato per eseguire le istruzioni HiveQL. HiveQL è comunque usato così diffusamente che si può omettere il precedente `!sql`. Le due istruzioni seguenti hanno esattamente gli stessi risultati. Visualizzano le tabella disponibili attualmente tramite Hive:
+    Se si visualizza la Guida, si noterà `!sql`, che viene usato per eseguire le istruzioni HiveQL. HiveQL è comunque così diffuso da poter omettere il precedente `!sql`. Le due istruzioni seguenti hanno esattamente gli stessi risultati. Visualizzano le tabella disponibili attualmente tramite Hive:
     
         !sql show tables;
         show tables;
@@ -243,4 +245,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

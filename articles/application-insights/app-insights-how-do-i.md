@@ -79,12 +79,12 @@ Alcune informazioni da considerare:
 
 ### Impostare automaticamente gli avvisi
 
-[Usare PowerShell per creare nuovi avvisi](app-insights-alerts/#set-alerts-by-using-powershell)
+[Usare PowerShell per creare nuovi avvisi](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Usare PowerShell per gestire Application Insights
 
 * [Creare nuove risorse](app-insights-powershell-script-create-resource.md)
-* [Creare nuovi avvisi](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Creare nuovi avvisi](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Versioni e indicatori delle applicazioni
 
@@ -241,4 +241,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

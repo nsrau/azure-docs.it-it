@@ -13,19 +13,11 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
-
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
 
 In questa esercitazione viene illustrato come creare un'app Web PHP-MySQL e come distribuirla in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Git. Si useranno [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), e [Git][install-git] installato nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
 
@@ -33,7 +25,7 @@ Si acquisiranno le nozioni seguenti:
 
 * Creare un'app Web e un database MySQL mediante il [portale di Azure](https://portal.azure.com). Poiché PHP è abilitato nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
 * Pubblicare e ripubblicare l'applicazione in Azure tramite Git.
-* Come abilitare l'estensione Composer automatizzarne le attività in ogni `git push`.
+* Come abilitare l'estensione Compositore e automatizzarne le attività per ogni `git push`.
 
 Seguendo questa esercitazione, verrà creata una semplice app Web di registrazione in PHP, che verrà ospitata nelle app Web. Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -268,23 +260,21 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 <a name="composer">
 ## Abilitare l'automazione Composer con l'estensione Composer
 
-Per impostazione predefinita, il processo di distribuzione git nel servizio app non esegue operazioni relative a composer.json, se questo è presente nel progetto PHP. È possibile abilitare l'elaborazione di composer.json durante l'operazione di `git push` abilitando l'estensione Composer.
+Per impostazione predefinita, il processo di distribuzione git nel servizio app non esegue operazioni relative a composer.json, se questo è presente nel progetto PHP. È possibile abilitare l'elaborazione di composer.json durante l'operazione di `git push` abilitando l'estensione Compositore.
 
-1. In pannello dell'app Web PHP nel [portale di Azure](https://portal.azure.com) fare clic su **Strumenti** > **Estensioni**.
+1. Nel pannello dell'app Web PHP nel [portale di Azure](https://portal.azure.com) fare clic su **Strumenti** > **Estensioni**.
 
     ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
 
-2. Fare clic su **Aggiungi**, quindi fare clic su **Composer**.
+2. Fare clic su **Aggiungi**, quindi su **Compositore**.
 
     ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
     
 3. Fare clic su **OK** per accettare le note legali. Fare di nuovo clic su **OK** per aggiungere l'estensione.
 
-    Nel pannello **Estensioni installate** verrà visualizzata l'estensione Composer. 
+    Nel pannello **Estensioni installate** è ora visualizzata l'estensione Compositore. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
-    
-4. A questo punto, eseguire `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
+4. Eseguire ora `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
 
     ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
 
@@ -327,4 +317,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

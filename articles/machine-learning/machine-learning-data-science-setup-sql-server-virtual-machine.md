@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
@@ -81,6 +81,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
     -   Running (Provisioning)
     -   Running
 
+
 ##<a name="RemoteDesktop"></a>Aprire la macchina virtuale tramite Desktop remoto e completare la configurazione
 
 1.  Al termine del provisioning, fare clic sul nome della macchina virtuale per passare alla pagina DASHBOARD. Nella parte inferiore della pagina fare clic su **Connect**.
@@ -93,11 +94,12 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
 
 Dopo avere eseguito la connessione alla macchina virtuale con Desktop remoto Windows, la macchina virtuale funziona come qualsiasi altro computer. Eseguire normalmente la connessione all'istanza predefinita di SQL Server con SQL Server Management Studio (in esecuzione nella macchina virtuale).
 
+
 ##<a name="InstallIPython"></a>Installare IPython Notebook e altri strumenti di supporto
 
 Per configurare la nuova macchina virtuale di SQL Server in modo che funzioni da server di IPython Notebook e per installare ulteriori strumenti di supporto, come AzCopy, Esplora archivi Azure, i pacchetti Python per l'analisi scientifica dei dati e altro, all'utente viene fornita una personalizzazione particolare. Per effettuare l'installazione:
 
-- Fare clic con il pulsante destro del mouse sull'icona di avvio di Windows e selezionare **Prompt dei comandi (amministratore)**
+- Fare clic con il pulsante destro del mouse sull'icona di **avvio di Windows** e selezionare **Prompt dei comandi (amministratore)**
 - Copiare i seguenti comandi e incollarli nel prompt dei comandi.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -154,7 +156,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
 	Per cambiare la modalità di autenticazione tramite SQL Server management Studio:
 
-3.  In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul nome dell'istanza di SQL Server (nome della macchina virtuale) e quindi scegliere **Proprietà**.
+3.  In **Esplora oggetti di SQL Server Management Studio** fare clic con il pulsante destro del mouse sul nome dell'istanza di SQL Server, ovvero sul nome della macchina virtuale, e quindi scegliere **Proprietà**.
 
     ![Proprietà del server][7]
 
@@ -162,19 +164,20 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo di SQL Server Management Studio fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
-6.  In Esplora oggetti fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
+6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
     ![Riavvio][9]
 
-7.  Nella finestra di dialogo di SQL Server Management Studio fare clic su **Sì** per accettare il riavvio di SQL Server.
+7.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **Sì** per confermare il riavvio di SQL Server.
 
 ##<a name="Logins"></a>Creare gli account di accesso di SQL Server
 
 Per connettersi al motore di database da un altro computer, configurare almeno un account di accesso con autenticazione di SQL Server.
 
-> [AZURE.TIP] È possibile creare nuovi account di accesso di SQL Server a livello di programmazione oppure tramite SQL Server Management Studio. Per creare un nuovo utente sysadmin con l'autenticazione di SQL a livello di programmazione, avviare una **Nuova query** ed eseguire lo script seguente. Sostituire <new user name> con il nome utente e la password selezionati. Regolare i criteri relativi alla password secondo necessità (il codice di esempio consente di disattivare il controllo dei criteri e la scadenza della password). Per ulteriori informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).
+È possibile creare nuovi account di accesso di SQL Server a livello di programmazione oppure tramite SQL Server Management Studio. Per creare un nuovo utente amministratore di sistema con l'autenticazione di SQL a livello di programmazione, avviare una **Nuova query** ed eseguire lo script seguente. Sostituire <new user name> e <new password> con il *nome utente* e la *password* di preferenza.
+
 
     USE master
     go
@@ -185,9 +188,12 @@ Per connettersi al motore di database da un altro computer, configurare almeno u
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
+
+Regolare i criteri relativi alla password secondo necessità (il codice di esempio consente di disattivare il controllo dei criteri e la scadenza della password). Per ulteriori informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).
+
 Per creare nuovi account di accesso di SQL Server tramite SQL Server Management Studio:
 
-1.  In Esplora oggetti di SQL Server Management Studio espandere la cartella dell'istanza del server in cui si desidera creare il nuovo account di accesso.
+1.  In **Esplora oggetti di SQL Server Management Studio** espandere la cartella dell'istanza del server in cui si vuole creare il nuovo account di accesso.
 
 2.  Fare clic con il pulsante destro del mouse sulla cartella **Sicurezza** scegliere **Nuovo** e quindi **Account di accesso...**.
 
@@ -221,7 +227,9 @@ Per creare nuovi account di accesso di SQL Server tramite SQL Server Management 
 
 ##<a name="DNS"></a>Determinare il nome DNS della macchina virtuale
 
-Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale. (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
+Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale.
+
+(Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
 
 1.  Nel portale di Azure classico (o dal passaggio precedente) selezionare **MACCHINE VIRTUALI**.
 
@@ -243,7 +251,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 ##<a name="amlconnect"></a>Connettersi al motore di database da Azure Machine Learning
 
-Nelle fasi successive di Advanced Analytics Process and Technology verrà utilizzato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, usare il modulo Lettore in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). In questo argomento vengono descritti dettagliatamente i collegamenti della guida di Advanced Analytics Process and Technology. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
+Nelle fasi successive di Cortana Analytics Process verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, usare il modulo **Lettore** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). Questo argomento è descritto in modo più dettagliato tramite i collegamenti della guida di Cortana Analytics Process. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
 2.	Nel riquadro **Proprietà** del [modulo Lettore](https://msdn.microsoft.com/library/azure/dn905997.aspx) selezionare **Database SQL di Azure** dall'elenco a discesa **Origine dati**.
 
@@ -298,4 +306,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

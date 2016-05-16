@@ -3,7 +3,7 @@
 	description="Come usare la classe ShardMapManager nelle app .NET per il routing basato sui dati, una funzionalità dei database elastici per il Database SQL di Azure" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 #Routing dipendente dei dati
 
 Il **routing dipendente dai dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Questo costituisce un criterio fondamentale quando si usano database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, il routing viene effettuato con la **[classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** nelle applicazioni ADO.NET.
 
-Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) che apre connessioni ai database corretti, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. La chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
+Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) che, quando necessario, apre le connessioni ai database corretti in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale, che costituisce la destinazione della richiesta dell'applicazione. La chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
 
 Per altre informazioni, vedere la pagina relativa [all'aumento del numero di istanze di SQL Server con il routing dipendente dai dati](https://technet.microsoft.com/library/cc966448.aspx).
 
@@ -100,7 +100,7 @@ int newPersonId = 4321;
 
 <span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() => </span> 
 <span style="background-color:  #FFFF00">    { </span>
-        // Connettersi alla partizione per un ID cliente. 
+        // Connect to the shard for a customer ID. 
         usando (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
         { 
@@ -133,4 +133,4 @@ Per disconnettere o riconnettere una partizione, vedere [Uso della classe Recove
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

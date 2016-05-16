@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Eccezioni di messaggistica del bus di servizio | Microsoft Azure"
-   description="Elenco delle eccezioni di messaggistica del bus di servizio e relative azioni consigliate."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Eccezioni di messaggistica del bus di servizio | Microsoft Azure"
+    description="Elenco delle eccezioni di messaggistica del bus di servizio e relative azioni consigliate."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/25/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/02/2016"
+    ms.author="sethm" />
 
 # Eccezioni di messaggistica del bus di servizio
 
@@ -21,7 +21,7 @@ Questo articolo elenca alcune delle eccezioni generate dall'API di messaggistica
 
 ## Categorie di eccezioni
 
-Le API di messaggistica generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla:
+Le API di messaggistica generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla. Si noti che il significato e le cause di un'eccezione possono variare a seconda del tipo di entità di messaggistica (inoltri, code/argomenti, Hub eventi):
 
 1.  Errore nella codifica dell'utente ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Azione generale: provare a correggere il codice prima di continuare.
 
@@ -58,8 +58,75 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | È stata inoltrata una richiesta per un'operazione di runtime su un'entità disattivata. | Attivare l'entità. | Se nel frattempo l'entità è stata attivata, può essere utile ripetere l'operazione. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | Il bus di servizio restituisce questa eccezione se si invia un messaggio a un argomento in cui è abilitato il filtro preliminare e nessuno dei filtri corrisponde. | Assicurarsi che almeno un filtro corrisponda. | Ripetere l'operazione non serve. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Un payload del messaggio supera il limite di 256 KB. Il limite di 256 KB è la dimensione totale del messaggio, che può includere proprietà di sistema ed eventuali overhead .NET. | Ridurre le dimensioni del payload del messaggio e quindi ripetere l'operazione. | Ripetere l'operazione non serve. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure è stato tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale), poiché è possibile che sia già stato eseguito il commit della transazione. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure è stato tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale), poiché è possibile che sia già stato eseguito il commit della transazione. | - |
+
+## QuotaExceededException
+
+[QuotaExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx) indica che è stata superata la quota di un'entità specifica.
+
+### Code e argomenti
+
+Per le code e gli argomenti, tale quota è spesso rappresentata dalle dimensioni della coda. La proprietà del messaggio di errore conterrà altri dettagli, come nell'esempio seguente:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException
+Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
+	Size of entity in bytes:1073742326, Max entity size in bytes:
+1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
+```
+
+Il messaggio indica che l'argomento ha superato il limite di dimensioni, in questo caso 1 GB (limite di dimensioni predefinito).
+
+#### Cause comuni
+
+Per questo errore, esistono due cause comuni: la coda dei messaggi non recapitabili e l'interruzione da parte dei destinatari dei messaggi.
+
+1. **Coda dei messaggi non recapitabili**: un lettore non riesce a completare i messaggi e questi vengono restituiti alla coda o all'argomento alla scadenza del blocco. Questa situazione può verificarsi se il lettore rileva un'eccezione che impedisce la chiamata a [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Dopo che un messaggio è stato letto 10 volte, si sposta alla coda dei messaggi non recapitabili per impostazione predefinita. Questo comportamento è controllato dalla proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e ha un valore predefinito di 10. Man mano che i messaggi si accumulano nella coda dei messaggi non recapitabili, occupano spazio.
+
+	Per risolvere il problema, leggere e completare i messaggi nella coda dei messaggi non recapitabili, come si farebbe per qualsiasi altra coda. La classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) contiene anche un metodo [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) per la formattazione del percorso della coda dei messaggi non recapitabili.
+
+2. **Interruzione da parte del destinatario**: un destinatario ha interrotto la ricezione di messaggi da una coda o da una sottoscrizione. Per identificare questo problema, è necessario osservare la proprietà [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx), che mostra la suddivisione completa dei messaggi. Se il valore della proprietà [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) è elevato o in crescita, i messaggi non vengono più letti alla stessa velocità in cui vengono scritti.
+
+### Hub eventi
+
+Hub eventi ha un limite di 20 gruppi di utenti per Hub eventi. Quando si tenta di creare più gruppi, si riceve un'eccezione di tipo [QuotaExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx).
+
+### Inoltro
+
+Per l'inoltro del bus di servizio, questa eccezione esegue il wrapping di [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), indicante che il numero massimo di listener per questo endpoint è stato superato. Questo numero è indicato nel valore **MaximumListenersPerEndpoint** del messaggio di eccezione.
+
+## TimeoutException 
+
+Un'eccezione di tipo [TimeoutException] [] indica che un'operazione avviata dall'utente richiede più tempo rispetto al timeout dell'operazione.
+
+### Code e argomenti
+
+Per le code e gli argomenti, il timeout è specificato nella proprietà [MessagingFactorySettings.OperationTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx), come parte della stringa di connessione, o tramite [ServiceBusConnectionStringBuilder](https://msdn.microsoft.com/library/azure/microsoft.servicebus.servicebusconnectionstringbuilder.aspx). Il messaggio di errore stesso può variare, ma contiene sempre il valore di timeout specificato per l'operazione corrente.
+
+### Hub eventi
+
+Per Hub eventi, il timeout è specificato come parte della stringa di connessione o tramite [ServiceBusConnectionStringBuilder](https://msdn.microsoft.com/library/azure/microsoft.servicebus.servicebusconnectionstringbuilder.aspx). Il messaggio di errore stesso può variare, ma contiene sempre il valore di timeout specificato per l'operazione corrente.
+
+### Inoltro
+
+Per l'inoltro del bus di servizio, è possibile ricevere eccezioni di timeout alla prima apertura di una connessione di inoltro del mittente. Questa eccezione può essere dovuta a due cause comuni:
+
+1. Il valore [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) è troppo piccolo (anche di una frazione di secondo).
+2. Uno o più listener di inoltro locali non sono reattivi (o incontrano problemi di regole firewall che non consentono ai listener di accettare nuove connessioni client) e il valore [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) è minore di circa 20 secondi.
+
+Ad esempio:
+
+```
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+```
+
+### Cause comuni
+
+Per questo errore, esistono due cause comuni: una configurazione errata o un errore temporaneo del servizio.
+
+1. **Configurazione errata**: il valore di timeout dell'operazione è troppo piccolo per la condizione operativa. Il valore predefinito per il timeout dell'operazione dell'SDK client è 60 secondi. Verificare se il codice contiene un valore troppo piccolo. Si noti che la condizione relativa all'utilizzo della rete e della CPU può influire sul tempo necessario per il completamento di una determinata operazione, pertanto il timeout dell'operazione non deve essere impostato su un valore troppo piccolo.
+
+2. **Errore temporaneo del servizio**: a volte il servizio del bus di servizio può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## Passaggi successivi
 
@@ -71,4 +138,4 @@ Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/service
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

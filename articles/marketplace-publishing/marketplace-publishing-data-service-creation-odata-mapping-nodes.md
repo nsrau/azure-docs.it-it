@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; avikova" />
 
 # Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
@@ -272,4 +272,4 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 - Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
 - Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

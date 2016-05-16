@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha;ricksal"/>
 
 # Come usare la libreria client JavaScript per le app per dispositivi mobili di Azure
 
@@ -113,4 +113,4 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

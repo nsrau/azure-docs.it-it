@@ -3,8 +3,8 @@
 	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app di Windows tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/02/2016"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app Windows
@@ -32,7 +32,7 @@ Questa esercitazione è basata sulla guida introduttiva di App per dispositivi m
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Dopo aver impostato uno dei progetti di app di Windows come progetto di avvio, premere F5 per eseguire l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
+A questo punto, è possibile verificare che l'accesso anonimo al back-end è stato disabilitato. Dopo aver impostato uno dei progetti di app di Windows come progetto di avvio, premere F5 per eseguire l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -61,4 +61,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

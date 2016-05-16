@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="jgao"/>
 
 #Eseguire esempi di Hadoop MapReduce in HDInsight basato su Windows
@@ -45,9 +45,11 @@ Molte persone preferiscono oggi Hive e Pig rispetto a MapReduce. Per altre infor
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Per informazioni sui vari metodi disponibili per la creazione dei cluster, vedere [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
-- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Workstation con Azure PowerShell**.
 
-## <a name="hdinsight-sample-wordcount"></a>Conteggio delle parole - Java 
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+## <a name="hdinsight-sample-wordcount"></a>Conteggio delle parole: Java 
 
 Per inviare un progetto MapReduce, è necessario prima creare una definizione del processo MapReduce. Nella definizione del processo, specificare il file con estensione JAR del programma MapReduce e il relativo percorso, ovvero * ***wasb:///example/jars/hadoop-mapreduce-examples.jar**, nonché il nome della classe e gli argomenti. Il programma MapReduce per il conteggio delle parole accetta due argomenti: il file di origine che verrà usato per contare le parole e il percorso di output.
 
@@ -113,21 +115,21 @@ Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare 
 
 3. Impostare le prime 3 variabili, ed eseguire lo script.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Conteggio delle parole - Streaming in C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Conteggio delle parole: flusso in C#
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java.
 
 > [AZURE.NOTE] La procedura descritta in questa esercitazione è valida solo per i cluster HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppo di programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
 
-Nell'esempio, sia il mapper che il reducer sono file eseguibili che leggono l'input da [stdin][stdin-stdout-stderr] (riga per riga) e inviano l'output a [stdout][stdin-stdout-stderr]. Il programma consente di contare tutte le parole del testo.
+Nell'esempio il mapper e il reducer sono file eseguibili che leggono l'input da [stdin][stdin-stdout-stderr] (riga per riga) e inviano l'output a [stdout][stdin-stdout-stderr]. Il programma consente di contare tutte le parole del testo.
 
-Quando si specifica un file eseguibile per **mapper**, ogni attività del mapper avvia il file eseguibile come processo distinto all'avvio del mapper. Durante l'esecuzione dell'attività del mapper, l'input viene convertito in righe che vengono quindi inviate al flusso [stdin][stdin-stdout-stderr] del processo.
+Quando si specifica un file eseguibile per **mapper**, ogni attività del mapper avvia il file eseguibile come processo distinto all'avvio del mapper. Durante l'esecuzione dell'attività del mapper, gli input vengono convertiti in righe che vengono quindi inviate al flusso [stdin][stdin-stdout-stderr] del processo.
 
 Nel frattempo il mapper raccoglie gli output basati su riga dal flusso stdout del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del mapper. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore. Se la riga non contiene caratteri di tabulazione, come chiave viene considerata l'intera riga e il valore è Null.
 
-Quando si specifica un file eseguibile per **reducer**, ogni attività del reducer avvia il file eseguibile come processo distinto all'avvio del reducer. Durante l'esecuzione dell'attività del reducer, le coppie di input chiave-valore vengono convertite in righe, che vengono quindi inviate al flusso [stdin][stdin-stdout-stderr] del processo.
+Quando si specifica un file eseguibile per **reducer**, ogni attività del reducer avvia il file eseguibile come processo distinto all'avvio del reducer. Durante l'esecuzione dell'attività del reducer, le coppie chiave-valore di input vengono convertite in righe che vengono quindi inviate al flusso [stdin][stdin-stdout-stderr] del processo.
 
-Nel frattempo, il reducer raccoglie gli output basati su riga dal flusso [stdout][stdin-stdout-stderr] del processo. e converte ogni riga in una coppia chiave-valore che viene raccolta come output del reducer. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore.
+Nel frattempo il reducer raccoglie gli output basati su riga dal flusso [stdout][stdin-stdout-stderr] del processo e converte ogni riga in una coppia chiave-valore che viene raccolta come output del reducer. Per impostazione predefinita, il prefisso di una riga fino al primo carattere di tabulazione costituisce la chiave, mentre la parte restante (escluso il carattere di tabulazione) costituisce il valore.
 
 Per altre informazioni sull'interfaccia Hadoop Streaming, vedere [Hadoop Streaming][hadoop-streaming].
 
@@ -981,7 +983,7 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
@@ -996,5 +998,6 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

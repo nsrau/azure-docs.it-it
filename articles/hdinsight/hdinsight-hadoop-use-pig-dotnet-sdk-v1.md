@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/04/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -24,9 +24,11 @@ Questo documento fornisce un esempio d'uso di .NET SDK per Hadoop per inviare i 
 
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C# per inviare un processo Pig a un cluster HDInsight.
 
-[AZURE.INCLUDE [azure-preview-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure classico. Per la creazione di nuovi servizi, Microsoft non consiglia di usare il portale classico. Per una spiegazione dei vantaggi del portale di Azure, vedere [Portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Questo documento contiene anche informazioni sull'uso di HDInsight .NET SDK. I frammenti indicati, che si basano su comandi che usano Azure Service Management (ASM) compatibili con HDInsight, sono __deprecati__ e verranno rimossi dall'1 gennaio 2017.
+>
+>Per una versione di questo documento che usa il portale di Azure e i frammenti di HDInsight .NET SDK con Azure Resource Manager (ARM), vedere [Eseguire processi Pig con .NET SDK per Hadoop in HDInsight ](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -160,4 +162,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

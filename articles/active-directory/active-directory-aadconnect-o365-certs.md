@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/03/2016"
 	ms.author="billmath"/>
 
 
@@ -44,7 +44,7 @@ Se si utilizza AD FS 2.0 o versioni successive, Office 365 e Azure AD aggiorner�
 
 Si noti che se si utilizza AD FS 2.0, sarà necessario eseguire prima Add-Pssnapin Microsoft.Adfs.Powershell.
 
-Nell'output restituito, verificare la seguente impostazione:
+Nell'output restituito verificare l'impostazione seguente:
 	
 	AutoCertificateRollover :True
 
@@ -58,7 +58,7 @@ dove `(your_FS_name) ` viene sostituito con il nome host del servizio federativo
 Esempio: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Se si decide di aggiornare manualmente il certificato
-Ogni volta che si aggiornano manualmente i certificati per AD FS, è necessario aggiornare il dominio di Office 365 tramite il comando di PowerShell Update-MsolFederatedDomain, come illustrato nei passaggi in Aggiornamento manuale delle proprietà di attendibilità federazione di Office 365 nella sezione [qui](#if-your-metadata-is-not-publicly-accessible)
+Ogni volta che si aggiornano manualmente i certificati per AD FS, è necessario aggiornare il dominio Office 365 tramite il comando di PowerShell Update-MsolFederatedDomain, come illustrato nei passaggi in Aggiornamento manuale delle proprietà di trust federativo di Office 365 nella sezione [qui](#if-your-metadata-is-not-publicly-accessible)
 
 ## Se la proprietà AutoCertificateRollover è impostata su False
 
@@ -99,6 +99,6 @@ Si noti che se si utilizza AD FS 2.0, sarà necessario eseguire prima Add-Pssnap
 4.	Se si eseguono questi comandi in un computer che non è il server federativo primario di ADFS, eseguire Set-MSOLAdfscontext -Computer <AD FS primary server>, dove <AD FS primary server> è il nome FQDN interno del server ADFS primario. Questo cmdlet crea un contesto che consente la connessione ad AD FS.
 5.	Eseguire Update-MSOLFederatedDomain –DomainName <domain>. Questo cmdlet aggiorna le impostazioni di AD FS nel servizio cloud e configura la relazione di trust tra i due.
 
->[AZURE.NOTE] Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per ulteriori informazioni, vedere Supporto per più domini di primo livello. Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con l'aggiornamento cumulativo [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy potrebbero non essere aggiornati con il nuovo certificato, con una conseguente interruzione.
+>[AZURE.NOTE] Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per altre informazioni, vedere[Supporto di più domini per la federazione con Azure AD](active-directory-aadconnect-multiple-domains.md). Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con l'aggiornamento cumulativo [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy potrebbero non essere aggiornati con il nuovo certificato, con una conseguente interruzione.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

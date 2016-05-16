@@ -35,8 +35,6 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. In questa sezione, si creerà un'applicazione console c# per esportare la hivesampletable alla tabella di Database SQL creata in precedenza in questa esercitazione.
 
-Nell'esempio che segue viene usata l'autenticazione utente interattiva. Per usare l'autenticazione non interattiva, vedere [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 
 **Per inviare un processo Sqoop**
 
@@ -170,4 +168,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 - [Analizzare i dati sui ritardi dei voli usando HDInsight](hdinsight-analyze-flight-delay-data.md): usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
 - [Caricare i dati in HDInsight](hdinsight-upload-data.md): per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

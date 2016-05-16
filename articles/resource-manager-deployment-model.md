@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
@@ -131,29 +131,23 @@ Per altre informazioni sull'uso dei tag in Gestione risorse, vedere [Uso dei tag
 
 ## Operazioni supportate per i modelli di distribuzione
 
-Le risorse create con il modello di distribuzione classica non supportano le operazioni di Gestione risorse. In alcuni casi, un comando di Gestione risorse può recuperare informazioni su una risorsa creata da una distribuzione classica o può eseguire attività amministrative, quali lo spostamento di una risorsa classica a un altro gruppo di risorse, ma questi casi non dovrebbero dare l'impressione che il tipo supporti operazioni di Gestione risorse. Si supponga, ad esempio, che si disponga di un gruppo di risorse contenente le macchine virtuali che sono stati creati con Gestione risorse e con il modello classico. Se si esegue il seguente comando PowerShell:
+Le risorse create con il modello di distribuzione classica non supportano le operazioni di Gestione risorse. In alcuni casi, un comando di Gestione risorse può recuperare informazioni su una risorsa creata da una distribuzione classica o può eseguire attività amministrative, quali lo spostamento di una risorsa classica a un altro gruppo di risorse, ma questi casi non dovrebbero dare l'impressione che il tipo supporti operazioni di Gestione risorse. Ad esempio, si supponga di avere un gruppo di risorse che contiene una macchina virtuale creata con distribuzione classica. Se si esegue il seguente comando PowerShell:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-Restituisce tutte le macchine virtuali:
+Verrà restituita la macchina virtuale:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-Tuttavia, se si esegue il comando **Get-AzureRmVM**:
+Tuttavia, il cmdlet **Get-AzureRmVM** restituisce solo le macchine virtuali distribuite tramite Resource Manager. Il comando seguente non restituisce la macchina virtuale creata tramite distribuzione classica.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-Si ottengono solo le macchine virtuali create con Resource Manager.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 In generale, non è possibile aspettarsi che le risorse create da una distribuzione classica funzionino con i comandi di Gestione risorse.
 
@@ -176,7 +170,7 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 ## Passaggi successivi
 
 - Per la procedura dettagliata di creazione del modello che definisce una macchina virtuale, un account di archiviazione e una rete virtuale, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
-- Per informazioni sulla struttura di modelli di Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+- Per sapere di più sulla struttura di modelli di Resource Manager, vedere l'articolo sulla [creazione dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

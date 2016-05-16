@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
+   ms.date="05/03/2016"
    ms.author="jimpark;"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
@@ -69,6 +69,6 @@ Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di
 Per ulteriori informazioni sul Backup di Azure vedere
 
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
-- [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins)
+- [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -64,7 +64,7 @@ Le richieste di funzionalità e altri commenti possono essere inviati nel [forum
 
 ## D: come si inizia a usare il Catalogo dati di Azure?
 
-Il modo migliore per iniziare consiste nel seguire le istruzioni dell’[introduzione al catalogo dati](../data-catalog-get-started/). In questo articolo è riportata una panoramica end-to-end delle funzionalità nel servizio.
+Il modo migliore per iniziare consiste nel seguire le istruzioni dell’[introduzione al catalogo dati](data-catalog-get-started.md). In questo articolo è riportata una panoramica end-to-end delle funzionalità nel servizio.
 
 ## D: come si registrano i dati?
 
@@ -140,4 +140,4 @@ R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, �
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

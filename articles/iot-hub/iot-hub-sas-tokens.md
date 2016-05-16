@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="03/02/2016"
+ ms.date="04/29/2016"
  ms.author="elioda"/>
 
 # Uso dei token di sicurezza hub IoT
@@ -128,7 +128,7 @@ Poiché i criteri di accesso condiviso possono potenzialmente autorizzare la con
 Ad esempio, un servizio token che usa i criteri di accesso condiviso già esistente denominato **device** creerebbe un token con i parametri seguenti:
 
 * URI risorsa: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* Chiave di firma: una delle chiavi dell'elemento plocy `device`,
+* chiave di firma: una delle chiavi del criterio `device`,
 * Nome criterio: `device`,
 * Qualsiasi ora di scadenza.
 
@@ -181,4 +181,4 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

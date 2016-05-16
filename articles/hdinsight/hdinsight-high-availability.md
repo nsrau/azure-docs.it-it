@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/27/2016"
 	ms.author="jgao"/>
 
 
-#Disponibilità e affidabilità dei cluster Hadoop in HDInsight
+#Disponibilità e affidabilità di cluster Hadoop basati su Windows in HDInsight
 
+
+>[AZURE.NOTE] I passaggi descritti in questo documento sono specifici per cluster HDInsight basati su Windows. Se si usa un cluster basato su Linux, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md) per informazioni specifiche su Linux.
 
 HDInsight consente ai clienti di distribuire svariati tipi di cluster, per diversi carichi di lavoro di analisi di dati. I tipi di cluster attualmente disponibili sono i cluster Hadoop per i carichi di lavoro di query e di analisi, i cluster HBase per i carichi di lavoro NoSQL e i cluster Storm per i carichi di lavoro di elaborazione eventi in tempo reale. In un determinato tipo di cluster, esistono ruoli diversi per ogni nodo. ad esempio:
 
@@ -50,7 +52,7 @@ Sono stati aggiunti i nodi [ZooKeeper](http://zookeeper.apache.org/) (ZK), usati
 
 
 ## Controllare lo stato del servizio dei nodi head attivi
-Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni, vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available ** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
+Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni, vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -82,7 +84,7 @@ La creazione e il provisioning di un cluster con Azure PowerShell sono documenta
 				-DefaultStorageContainerName $containerName  `
 				-ClusterSizeInNodes $clusterNodes
 
-Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster con l'SDK sono documentati in [Uso di HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
+Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster con l'SDK sono documentati in [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
 
     # Create a new HDInsight cluster with the HDInsight SDK
 	# Configured with an ExtraLarge head-node VM
@@ -104,6 +106,6 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
 - [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
-- [Uso di HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
+- [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

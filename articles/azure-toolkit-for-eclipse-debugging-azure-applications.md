@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -42,7 +42,6 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use** usare **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
-
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
@@ -87,7 +86,6 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use**, usare l'endpoint predefinito generato automaticamente dal toolkit, elencato come **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
-
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
@@ -99,7 +97,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
     1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
         ![][ic551537]
-       È stato impostato un punto di interruzione se viene visualizzata l'icona corrispondente sulla barra blu a sinistra del codice Java.
+    Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
 1. Avviare l'applicazione nell'emulatore di calcolo facendo clic sul pulsante **Run in Azure Emulator** sulla barra degli strumenti di Azure.
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Emulator (WorkerRole1)** e infine fare clic su **Debug**.
@@ -136,6 +134,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

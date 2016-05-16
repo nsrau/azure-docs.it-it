@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Risorse di documentazione di Processi Web di Azure
@@ -22,7 +22,7 @@
 
 In questo argomento vengono forniti i collegamenti a risorse della documentazione relative all'uso di Processi Web di Azure e di Azure WebJobs SDK. Processi Web di Azure costituisce una soluzione semplice per eseguire script o programmi come processi in background nel contesto di un'[app Web del servizio app, un'app per le API o un'app per dispositivi mobili](../app-service/app-service-value-prop-what-is.md). È infatti possibile caricare ed eseguire un file eseguibile in formato cmd, bat, exe (.NET), ps1, sh, php, py, js e jar, che verrà eseguito come processo Web in base a una pianificazione (cron) o senza interruzioni.
 
-Lo scopo di [WebJobs SDK](websites-webjobs-resources.md) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. È progettato per l'estensibilità e ha a disposizione un [repository open source di estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+Lo scopo di [WebJobs SDK](websites-webjobs-resources.md) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. È progettato per l'estensibilità e ha a disposizione un [repository open source di estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funzioni di Azure](../azure-functions/functions-overview.md) (attualmente in anteprima) si basa su una versione di WebJobs SDK che usa script C#, Node.js e in altri linguaggi.
 
 Grazie agli strumenti integrati in Visual Studio, è inoltre semplice creare, distribuire e gestire processi Web. È possibile creare processi Web da modelli, nonché pubblicarli e gestirli (eseguirli/arrestarli/monitorarli/eseguirne il debug).
 
@@ -82,11 +82,11 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * [Come ottenere informazioni sull'autore del BLOB](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting di codice interattivo nel cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Aggiunta di traccia a Azure WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
+* [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md)
 * Video
 	* [Strumenti di Processi Web e debug remoto](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-##<a name="scale"></a>Scalabilità di Processi Web
+##<a name="scale"></a>Ridimensionamento di Processi Web
 
 * [Ridimensionamento dell'applicazione Web con Siti Web di Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Progettazione di app Web pronte per l'uso in ambito aziendale su vasta scala](https://channel9.msdn.com/Events/Build/2014/3-626). Tratta il ridimensionamento di siti Web di Web con Processi Web e include informazioni anche su WebJobs SDK.
@@ -109,11 +109,13 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 ##<a name="additionalsdk"></a>Risorse aggiuntive su WebJobs SDK
 
 * [Note sulla versione di WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
-* [Repository open source per estensioni WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions), con [guida dettagliata del modello di estendibilità](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [Codice sorgente WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk)
+* [Codice sorgente per estensioni WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions), con una [guida dettagliata al modello di estendibilità](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
+* [Codice sorgente di script WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-script/) (usato per [Funzioni di Azure](../azure-functions/functions-overview.md))
 * [Processo Web per caricare file FREB nell'archiviazione di Azure con WebJobs SDK](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Hosting di processi Web di Azure all'esterno di Azure, usufruendo dei vantaggi della registrazione offerti da un processo Web ospitato di Azure](http://bypassion.dk/?p=510)
 * [Creazione di uno strumento di importazione dati con Processi Web di Azure](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
+* [Panoramica di Funzioni di Azure](../azure-functions/functions-overview.md)
 * Video
 	* [Serie di video su Processi Web su Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
@@ -133,10 +135,11 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 
 * [StackOverflow per Processi Web](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow per WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
+* [StackOverflow per Funzioni di Azure](http://stackoverflow.com/questions/tagged/azure-functions)
 * [Forum su Azure e ASP.NET](http://forums.asp.net/1247.aspx)
 * [Forum sulle app Web del servizio app di Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Sito di Azure Web App utente vocale](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Usare l'hashtag #AzureWebJobs.
 * [Segnalare un bug o un problema di Processi Web](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -18,7 +18,7 @@
 
 # Ripristinare un'app nel Servizio app di Azure
 
-In questo articolo viene illustrato come ripristinare un'app del servizio app in precedenza sottoposta a un backup tramite la funzionalità di backup del [servizio app](app-service-value-prop-what-is). Per altre informazioni, vedere [Backup del servizio app](web-sites-backup.md).
+In questo articolo viene illustrato come ripristinare un'app del servizio app in precedenza sottoposta a un backup tramite la funzionalità di backup del [servizio app](../app-service/app-service-value-prop-what-is.md). Per altre informazioni, vedere [Backup del servizio app](web-sites-backup.md).
 
 La funzionalità di ripristino del servizio app consente di ripristinare su richiesta uno stato precedente dell'app con i relativi database collegati (Database SQL o MySQL) oppure di creare una nuova app basata su uno dei backup dell'applicazione originale. Creare una nuova app eseguita in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
@@ -106,4 +106,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

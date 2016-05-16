@@ -3,7 +3,7 @@
    description="Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure
 
@@ -110,4 +110,4 @@ Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avu
 - [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

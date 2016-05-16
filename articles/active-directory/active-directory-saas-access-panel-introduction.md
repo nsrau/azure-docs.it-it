@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -46,9 +46,9 @@ Il pannello di accesso consente agli utenti di modificare alcune delle impostazi
 ## Apertura del pannello di accesso
 
 
-Per usare il pannello di accesso, è necessario specificare il seguente URL in un Web browser: <br> ****http://myapps.microsoft.com**
+Per usare il pannello di accesso, è necessario specificare il seguente URL in un Web browser: <br> **http://myapps.microsoft.com**
 
-Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> ****http://myapps.microsoft.com/contosobuild.com**
+Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> **http://myapps.microsoft.com/contosobuild.com**
 
 In questo caso, è possibile usare qualsiasi nome di dominio attivo o verificato che sia stato configurato nella scheda Domini della directory nel portale di gestione di Azure, come illustrato nella schermata seguente.
 
@@ -130,7 +130,7 @@ Gli amministratori di Azure che hanno eseguito l'accesso al portale di gestione 
 
 1. Scegliere "**Disconnetti**" dal menu utente nell'angolo superiore destro del portale di Azure o del portale di accesso. In questo modo verrà effettuata la disconnessione da Azure AD.
 
-2. Passare al pannello di accesso all'indirizzo ****http://myapps.microsoft.com**.
+2. Passare al pannello di accesso all'indirizzo **http://myapps.microsoft.com**.
 
 3. Nella pagina di accesso immettere il nome utente e la password dell'account nella directory da testare.
  
@@ -185,4 +185,4 @@ Quando si configura Single Sign-On per un'applicazione, il portale di gestione d
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Analisi dei log per i gruppi di sicurezza di rete
@@ -30,7 +30,7 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 ##Abilitazione della registrazione
 La registrazione di controllo viene abilitata automaticamente in qualsiasi momento per ogni risorsa di Gestione risorse. È necessario abilitare la registrazione eventi e contatori per iniziare a raccogliere i dati disponibili in tali log. Per abilitare la registrazione, seguire questa procedura.
 
-1.  Accedere al [portale di anteprima di Azure](https://portal.azure.com). Se non ne esiste già uno, è possibile [creare un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-ps.md) prima di continuare.
+1.  Accedere al [portale di Azure](https://portal.azure.com). Se non ne esiste già uno, è possibile [creare un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-ps.md) prima di continuare.
 
 2.  Nel portale di anteprima fare clic su **Sfoglia>** >> **Gruppi di sicurezza di rete**.
 
@@ -114,4 +114,4 @@ Questi log vengono generati solo se sono stati abilitati per ogni gruppo di sicu
 - Post di blog sulla [visualizzazione dei log di controllo di Azure con Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Post di blog su [visualizzazione e analisi dei log di controllo di Azure in Power BI e altri strumenti](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

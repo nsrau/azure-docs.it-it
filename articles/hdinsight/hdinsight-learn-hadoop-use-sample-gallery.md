@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
 
-La raccolta di introduzione HDInsight fornisce un modo semplice e rapido per imparare a usare Hadoop eseguendo applicazioni di esempio in HDInsight. Alcuni degli esempi sono forniti con dati di esempio. Per i rimanenti esempi è possibile fornire i propri dati. Attualmente sono disponibili i sei esempi seguenti (altri verranno pubblicati a breve):
+La raccolta introduttiva è disponibile solo per cluster HDInsight basati su Windows. Questa raccolta offre un modo semplice e rapido per imparare a usare Hadoop eseguendo applicazioni di esempio in HDInsight. Alcuni degli esempi sono forniti con dati di esempio. Per i rimanenti esempi è possibile fornire i propri dati. Attualmente sono disponibili i sei esempi seguenti (altri verranno pubblicati a breve):
 
 - Soluzioni con i propri dati di Azure
 	- Analisi dei log del sito Web di Microsoft Azure
@@ -60,8 +60,8 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

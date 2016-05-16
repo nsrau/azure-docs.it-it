@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -13,26 +13,25 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="02/23/2016"
+    ms.date="04/27/2016"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il Database SQL di Azure con il Portale di Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Portale di Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 In questo articolo viene illustrato come configurare una replica geografica per il database SQL con il [portale di Azure](http://portal.azure.com).
 
-La replica geografica consente di creare un massimo di 4 database di replica (secondari) in località, o aree geografiche, di data center diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
+Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-portal.md).
 
-La replica geografica è disponibile solo per i database Standard e Premium.
+>[AZURE.NOTE] La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
 
-I database Standard possono avere un solo database secondario non accessibile in lettura e devono usare l'area consigliata. I database Premium possono avere un massimo di quattro database secondari accessibili in lettura in una qualsiasi della aree disponibili.
-
+È possibile configurare fino a 4 database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
 
 Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
@@ -47,7 +46,7 @@ La procedura seguente crea un nuovo database secondario in una relazione di repl
 
 Per aggiungere un database secondario è necessario essere il proprietario o un comproprietario della sottoscrizione.
 
-Il database secondario avrà lo stesso nome del database primario e avrà, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere leggibile (solo livello Premium) o non leggibile e può essere un database singolo o un database elastico. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md). Dopo che il database secondario viene creato e viene effettuato il seeding, i dati verranno replicati dal database primario al nuovo database secondario.
+Il database secondario avrà lo stesso nome del database primario e avrà, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md). Dopo che il database secondario viene creato e viene effettuato il seeding, i dati verranno replicati dal database primario al nuovo database secondario.
 
 > [AZURE.NOTE] Se il database partner esiste già (ad esempio, come risultato del termine di una relazione di replica geografica precedente), il comando avrà esito negativo.
 
@@ -58,13 +57,13 @@ Il database secondario avrà lo stesso nome del database primario e avrà, per i
 
 1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database per cui si desidera installare la replica geografica.
 2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
-3. Selezionare l'area per creare il database secondario. I database Premium possono utilizzare qualsiasi area per un database secondario, quelli Standard devono utilizzare l'area consigliata:
+3. Selezionare l'area per creare il database secondario.
 
 
     ![Aggiunta del secondario][1]
 
 
-4. Configurare il **tipo secondario** (**Leggibile**, o **Non leggibile**), solo i database Premium possono avere database secondari leggibili, mentre i database secondari Standard possono essere impostati solo su **Non leggibile**.
+4. Configurare il **tipo secondario** (**Leggibile** o **Non leggibile**).
 5. Selezionare o configurare il server per il database secondario.
 
     ![Creare il database secondario][3]
@@ -104,39 +103,24 @@ L'operazione interrompe in modo permanente la replica al database secondario e m
 
 
 
-## Avviare un failover
-
-Il database secondario può diventare il database primario.
-
-1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
-2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
-3. Nell’elenco **DATABASE SECONDARI**, selezionare il database che si desidera utilizzare come nuovo database primario.
-4. Fare clic su **Failover**.
-
-    ![failover][10]
-
-Il comando esegue il flusso di lavoro seguente:
-
-1. Passa temporaneamente alla modalità di replica sincrona, In questo modo tutte le transazioni in attesa saranno scaricate nel database secondario. 
-
-2. Invertire i ruoli primari e secondari dei due database nella relazione di replica geografica.
-
-Per il failover pianificato, questa sequenza garantisce che non si verifichi alcuna perdita di dati. Esiste un breve periodo durante il quale entrambi i database saranno disponibili (nell'ordine da 0 a 25 secondi) durate l’inversione dei ruoli. Il completamento dell’intera operazione dovrebbe richiedere meno di un minuto in circostanze normali.
-
    
 
 ## Passaggi successivi
 
+- [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-portal.md)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
 
 ## Risorse aggiuntive
 
+- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
 - [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
 
 <!--Image references-->
@@ -151,4 +135,4 @@ Per il failover pianificato, questa sequenza garantisce che non si verifichi alc
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

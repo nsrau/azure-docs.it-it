@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
@@ -115,7 +115,7 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Aprire un browser e passare a ****http://127.0.0.1**.
+2.  Aprire un browser e passare a **http://127.0.0.1**.
 
 3.  Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO. In questo modo sarà possibile inviare messaggi con un nome alternativo specifico. Per testare la funzionalità multiutente, aprire altre finestre del browser usando lo stesso URL e immettere nomi alternativi diversi.
 
@@ -170,4 +170,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node. js
   
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

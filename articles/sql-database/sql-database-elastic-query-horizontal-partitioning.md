@@ -23,7 +23,7 @@ I database partizionati distribuiscono righe su un livello di dati a scalabilit�
 
 Per l'avvio rapido, vedere [Creazione di report tra database cloud con scalabilità orizzontale ](sql-database-elastic-query-getting-started.md).
 
-Per i database non partizionati, vedere [Query tra database cloud partizionati verticalmente](sql-database-elastic-query-vertical-partitioning.md).
+Per i database non partizionati, vedere [Eseguire query in database cloud con schemi diversi](sql-database-elastic-query-vertical-partitioning.md).
 
  
 ## Prerequisiti
@@ -173,7 +173,7 @@ La query seguente esegue un join a tre vie tra magazzini, ordini e righe di ordi
  
 ## Stored procedure per l'esecuzione remota di T-SQL: sp\_execute\_remote
 
-La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata **sp\_execute\_remote** e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri:
+La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri:
 
 * Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
 * Query (nvarchar): la query T-SQL da eseguire in ogni partizione. 
@@ -208,4 +208,4 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

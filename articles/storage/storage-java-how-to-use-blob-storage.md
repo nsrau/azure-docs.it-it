@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Come usare l'archiviazione BLOB da Java
@@ -268,4 +268,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

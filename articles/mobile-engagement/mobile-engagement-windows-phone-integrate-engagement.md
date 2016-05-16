@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
@@ -207,7 +207,7 @@ Se non si può o non si vuole eseguire l'overload delle classi `PhoneApplication
 
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, usare gli altri metodi disponibili nella classe `EngagementAgent`. L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagement.
 
-Per altre informazioni, vedere [Come usare l'API di Engagement in Windows Phone Silverlight](../mobile-engagement-windows-phone-use-engagement-api/).
+Per altre informazioni, vedere [Come usare l'API di Engagement in Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
 ##Configurazione avanzata
 
@@ -247,4 +247,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > [AZURE.WARNING] La soglia di burst non può essere configurata per un periodo inferiore a un secondo. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà ripristinato automaticamente il valore predefinito, ovvero zero secondi. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

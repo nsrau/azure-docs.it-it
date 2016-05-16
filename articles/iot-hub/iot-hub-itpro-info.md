@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Configurazione e gestione dell'accesso all'hub IoT
@@ -30,6 +30,7 @@ I dispositivi possono comunicare con l'hub IoT in Azure tramite una varietà di 
 | AMQP | 5671 |
 | AMQP su WebSockets | 443 |
 | MQTT | 8883 |
+| LWM2M (gestione dei dispositivi) | 5684 |
 
 Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indirizzo IP per la durata di tale hub. Tuttavia, per mantenere la qualità del servizio, se Microsoft sposta l'hub IoT su un'unità di scala diversa, verrà assegnato ad esso un nuovo indirizzo IP.
 
@@ -51,4 +52,4 @@ Questo articolo contiene informazioni specifiche per i professionisti dell’IT 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

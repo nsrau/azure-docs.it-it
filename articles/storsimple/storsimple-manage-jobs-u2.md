@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple (aggiornamento 2)
@@ -21,9 +21,9 @@
 
 ## Panoramica
 
-La pagina**processi**fornisce un unico portale centralizzato per la visualizzazione e la gestione di processi avviati sui dispositivi connessi al servizio StorSimple Manager. È possibile visualizzare i processi pianificati, in esecuzione, completati e non riusciti per più dispositivi. I risultati vengono presentati in un formato tabulare.
+La pagina**processi**fornisce un unico portale centralizzato per la visualizzazione e la gestione di processi avviati sui dispositivi connessi al servizio StorSimple Manager. È possibile visualizzare i processi pianificati, in esecuzione, completati, annullati e non riusciti per più dispositivi. I risultati vengono presentati in un formato tabulare.
 
-![Pagina dei processi](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Pagina dei processi](./media/storsimple-manage-jobs-u2/jobs.png)
 
 È possibile trovare rapidamente i processi desiderati filtrando i campi, ad esempio:
 
@@ -73,7 +73,7 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 
 Eseguire la procedura seguente per annullare un processo in esecuzione.
 
->[AZURE.NOTE]Alcuni processi, ad esempio la modifica di un volume per cambiare il tipo di volume o espandere un volume, non possono essere annullati.
+>[AZURE.NOTE] Alcuni processi, ad esempio la modifica di un volume per cambiare il tipo di volume o espandere un volume, non possono essere annullati.
 
 ### Per annullare un processo
 
@@ -93,4 +93,4 @@ Questo processo ora viene annullato.
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

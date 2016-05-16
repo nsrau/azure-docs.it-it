@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
@@ -31,4 +31,4 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 **Download PDF:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

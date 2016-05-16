@@ -34,7 +34,7 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     È possibile fare clic sul nome di un'immagine di macchina virtuale per visualizzare informazioni sull'immagine nel lato destro della pagina.
 
-        >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+    >[AZURE.NOTE] Non è possibile aggiungere immagini di macchine virtuali agli elenchi **Immagini pubbliche** o **Immagini MSDN** perché sono di sola lettura. Tutte le macchine virtuali create vengono aggiunte all'elenco **Immagini private**.
 
     Gli abbonati MSDN con una sottoscrizione di livello Visual Studio possono creare una macchina virtuale di Azure predefinita contenente Visual Studio, oltre a diverse altre immagini. Per altre informazioni, vedere [Creare una macchina virtuale in Visual Studio mediante le immagini, l'immagine della raccolta di Visual Studio 2013 per gli abbonati MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e le [sottoscrizioni di MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
@@ -42,7 +42,7 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     Il nuovo nome e la password verranno usati per accedere alla macchina con il desktop remoto, quindi è consigliabile prenderne nota. Dopo aver creato una macchina virtuale di Azure in Visual Studio, è possibile modificarne le dimensioni e le altre impostazioni nel [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+    >[AZURE.NOTE] Se si scelgono dimensioni maggiori per la macchina virtuale potrebbero essere applicati costi aggiuntivi. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 1. Le macchine virtuali create in Visual Studio richiedono un servizio cloud. Nella pagina **Impostazioni del servizio cloud** selezionare un servizio cloud per la macchina virtuale oppure fare clic su **<Crea nuovo…>** nell'elenco a discesa se non si ha già un servizio cloud oppure si vuole usarne uno nuovo. È anche necessario un account di archiviazione, quindi sceglierne uno (o crearne uno nuovo) nell'elenco a discesa **Account di archiviazione**. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](./storage/storage-introduction/).
 
@@ -158,4 +158,3 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0413_2016-->

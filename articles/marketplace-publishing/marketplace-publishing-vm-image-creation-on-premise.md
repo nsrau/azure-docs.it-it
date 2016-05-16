@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace
@@ -43,7 +43,6 @@ Individuare l'URL BLOB dal nuovo [portale di Microsoft Azure](https://ms.portal.
 
 ### Scaricare il VHD
 Quando si conosce l'URL BLOB, è possibile scaricare il VHD utilizzando il [portale di Azure](http://manage.windowsazure.com/) o PowerShell.
-
 > [AZURE.NOTE] Al momento della creazione della guida, la funzionalità per scaricare un VHD non è ancora presente nel nuovo portale di Microsoft Azure.
 
 **Scaricare il VHD del sistema operativo tramite il [portale di Azure](http://manage.windowsazure.com/) corrente**
@@ -116,7 +115,7 @@ Sarà quindi possibile creare un contenitore in tale account di archiviazione us
 
 > [AZURE.NOTE] Tali comandi presuppongono che il contesto dell’account di archiviazione corrente sia già stato impostato in PowerShell. Per ulteriori dettagli sulla configurazione di PowerShell fare riferimento a [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md).
 ### Creare un account di archiviazione con lo strumento da riga di comando per Mac e Linux
-Dallo [strumento da riga di comando per Linux](../virtual-machines/command-line-tools/) creare un account di archiviazione come segue.
+Dallo [strumento da riga di comando per Linux](../virtual-machines/virtual-machines-linux-cli-manage.md) creare un account di archiviazione come segue.
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -139,4 +138,4 @@ Con lo [strumento da riga di comando per Linux](../virtual-machines/command-line
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

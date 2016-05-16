@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/15/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 #  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
@@ -168,8 +168,7 @@ Per altre informazioni sulla configurazione di un output di Power BI e per usare
 
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
-Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
 
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
@@ -234,4 +233,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

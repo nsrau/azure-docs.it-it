@@ -184,7 +184,7 @@ Nella settimana del 18 settembre 2015 sono state aggiunte a **Catalogo dati di A
 Nella settimana dell'11 settembre 2015 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight-use-hive/).
+- Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight/hdinsight-use-hive.md).
 - Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
 
 
@@ -216,4 +216,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -57,7 +57,7 @@ In una configurazione a istanza singola le macchine virtuali vengono aggiornate 
 
 Questo evento di manutenzione pianificata influirà sulla disponibilità dell'applicazione per questo tipo di configurazione di macchina virtuale. Azure offre un servizio di notifica avanzato di una settimana per la manutenzione pianificata delle macchine virtuali nella configurazione a istanza singola.
 
-### Notifica tramite posta elettronica
+## Notifica tramite posta elettronica
 
 Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di una settimana). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell’amministratore e del co-amministratore dell’account forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
 
@@ -95,4 +95,3 @@ Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0330_2016-->
