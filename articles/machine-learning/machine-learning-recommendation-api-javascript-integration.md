@@ -133,7 +133,8 @@ In alternativa, con dati facoltativi:
 
 
 ####3\.2.3. Evento Add Shopping Cart
-Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti. Parametri:
+Questo evento deve essere usato quando l'utente aggiunge un elemento al carrello acquisti.
+Parametri:
 * event (stringa, obbligatorio) - "addshopcart"
 * item (stringa, obbligatorio) - identificatore univoco dell'elemento
 * itemName (stringa, facoltativo) - nome dell'elemento
@@ -165,7 +166,8 @@ Questo evento deve essere usato quando l'utente ha acquistato gli elementi nel c
 
 Parametri:
 * event (stringa) - "purchase"
-* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> Formato elementi acquistati:
+* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br>
+Formato elementi acquistati:
 	* item (stringa) - identificatore univoco dell'elemento.
 	* count (numero intero o stringa) - numero di elementi che sono stati acquistati.
 	* price (float o stringa) - campo facoltativo - prezzo dell'elemento.
@@ -184,7 +186,11 @@ Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 
 Parametri:
 * event (stringa) - "userlogin"
-* user (stringa) - identificazione univoca dell'utente. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" }); </script>
+* user (stringa) - identificazione univoca dell'utente.
+		<script> 
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" });
+		</script>
 
 ##4\. Utilizzare le raccomandazioni tramite JavaScript
 Il codice che utilizza la raccomandazione viene attivato da alcuni eventi JavaScript nella pagina Web del client. Le risposta alla raccomandazione include gli ID degli elementi raccomandati con i relativi nomi e valutazioni. È preferibile utilizzare questa opzione solo per la visualizzazione di un elenco degli elementi consigliati. Le attività di gestione più complesse, ad esempio l'aggiunta dei metadati dell'elemento, devono essere eseguite sull'integrazione lato server.

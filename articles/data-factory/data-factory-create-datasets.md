@@ -164,7 +164,7 @@ Sezioni giornaliere che iniziano alle 6.00 invece che alla mezzanotte predefinit
 		"offset": "06:00:00"
 	}
 
-**frequency** è impostata su **Month** e **interval** è impostata su **1**, ovvero una volta al mese. Se si vuole che la sezione venga prodotta il 9° giorno di ogni mese alle 06.00, impostare offset su "09.06:00:00". Tenere presente che questo valore è espresso in base all'ora UTC.
+**frequency** è impostata su **Month** e **interval** è impostata su **1**, ovvero una volta al mese. Se si vuole che la sezione venga prodotta il 9ª giorno di ogni mese alle 06.00, impostare offset su "09.06:00:00". Tenere presente che questo valore è espresso in base all'ora UTC.
 
 Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa ogni anno l'1 o il 2 marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), a seconda che l'anno sia bisestile o meno.
 

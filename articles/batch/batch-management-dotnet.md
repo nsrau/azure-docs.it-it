@@ -52,7 +52,7 @@ AccountResource account = getResponse.Resource;
 await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE] Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore ** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per altre informazioni, vedere la sezione [Azure Active Directory](#azure-active-directory) successiva e l'esempio di codice [AccountManagement][acct_mgmt_sample].
+> [AZURE.NOTE] Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per altre informazioni, vedere la sezione [Azure Active Directory](#azure-active-directory) successiva e l'esempio di codice [AccountManagement][acct_mgmt_sample].
 
 ## Recuperare e rigenerare chiavi di account
 

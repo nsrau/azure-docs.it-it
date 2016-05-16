@@ -52,7 +52,7 @@ Sono stati aggiunti i nodi [ZooKeeper](http://zookeeper.apache.org/) (ZK), usati
 
 
 ## Controllare lo stato del servizio dei nodi head attivi
-Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni, vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available ** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
+Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni, vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 

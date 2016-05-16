@@ -234,7 +234,7 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 
 In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. Message Analyzer è in grado di funzionare sia sul livello HTTP che sul livello TCP.
 
-## <a name="end-to-end-tracing">Traccia end-to-end</a>
+## <a name="end-to-end-tracing"></a>Traccia end-to-end
 
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
 

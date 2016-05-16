@@ -39,7 +39,7 @@ Per connettersi e registrarsi al servizio OMS, Microsoft Monitoring Agent deve a
 
 2. Aprire **Microsoft Monitoring Agent**.
 
-3. Fare clic sulla scheda ** Impostazioni proxy**.![Scheda Impostazioni proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+3. Fare clic sulla scheda **Impostazioni proxy**.![Scheda Impostazioni proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Selezionare **Usa server proxy** e digitare l'URL e il numero di porta, se necessario, in modo analogo all'esempio illustrato. Se il server proxy richiede l'autenticazione, digitare il nome utente e la password per accedere al server proxy.
 
@@ -131,7 +131,7 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 2. Espandere **Operational Insights**, quindi selezionare **Operational Insights Connection**. ![Connessione di Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. Nella visualizzazione OMS Connection (Connessione OMS), fare clic su **Configure Proxy Server** (Configura server proxy). ![Connessione di Operations Manager OMS - Configurare il server proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. In Operational Insights Settings Wizard: Proxy Server selezionare **Use a proxy server to access the Operational Insights Web Service**, quindi digitare l'URL con il numero di porta, ad esempio ****http://myproxy:80**. ![Indirizzo proxy di Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. In Operational Insights Settings Wizard: Proxy Server selezionare **Use a proxy server to access the Operational Insights Web Service**, quindi digitare l'URL con il numero di porta, ad esempio **http://myproxy:80**. ![Indirizzo proxy di Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Per specificare le credenziali se è necessaria l'autenticazione per il server proxy

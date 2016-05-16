@@ -120,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **Identificatore** digitare l'URL usato dagli utenti per accedere all'applicazione CA PPM usando il modello seguente: **https://ca.ondemand.saml.20.post.\<nome società>**.
 	
-	b. Nella casella di testo **URL di risposta** digitare ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
+	b. Nella casella di testo **URL di risposta** digitare **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
 
 	c. Fare clic su **Avanti**.
  

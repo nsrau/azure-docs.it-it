@@ -27,7 +27,7 @@ Per altre informazioni sulla funzionalità di query del database elastico, veder
 
 Per iniziare, è necessario creare due database, **Customers** e **Orders**, in server logici uguali o diversi.
 
-Eseguire la query seguente sul database **Orders ** per creare la tabella **OrderInformation** e inserire i dati di esempio.
+Eseguire la query seguente sul database **Orders** per creare la tabella **OrderInformation** e inserire i dati di esempio.
 
 	CREATE TABLE [dbo].[OrderInformation]( 
 		[OrderID] [int] NOT NULL, 

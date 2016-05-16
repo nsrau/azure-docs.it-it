@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 * Java Developer Kit (JDK) versione 1.7 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 
 ## Per creare un'applicazione Hello World
@@ -37,12 +37,14 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 Creare innanzitutto un progetto Java.
 
 1. Avviare Eclipse e nel menu fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** non è elencato tra i progetti disponibili dopo aver fatto clic su **File**, **New**, fare clic su **File**, **New**, **Project**, espandere **Web**, fare clic su **Dynamic Web Project** e quindi su **Next**.
-1. Ai fini di questa esercitazione, denominare il progetto **MyHelloWorld**. L'aspetto della schermata sarà simile al seguente: ![][02]
+1. Ai fini di questa esercitazione, denominare il progetto **MyHelloWorld**. L'aspetto della schermata sarà simile al seguente:
+   ![][02]
 1. Fare clic su **Finish**.
 1. Nella visualizzazione Project Explorer di Eclipse espandere **MyHelloWorld**. Fare clic con il pulsante destro del mouse su **WebContent**, scegliere **New** e quindi fare clic su **JSP File**.
 1. Nella finestra di dialogo **New JSP File** assegnare al file il nome **index.jsp**. Mantenere il nome **MyHelloWorld/WebContent** per la cartella padre.
 1. Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** selezionare **New JSP File (html)** e quindi fare clic su **Finish**.
-1. Quando in Eclipse viene aperto il file index.jsp, aggiungere il testo in modo da visualizzare **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato dovrebbe avere un aspetto simile all'esempio seguente: `<body><b><% out.println("Hello World!"); %></b></body>` 
+1. Quando in Eclipse viene aperto il file index.jsp, aggiungere il testo in modo da visualizzare **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato dovrebbe avere un aspetto simile all'esempio seguente:
+   `<body><b><% out.println("Hello World!"); %></b></body>` 
 1. Salvare index.jsp.
 
 ## Per distribuire l'applicazione in un contenitore di app Web di Azure
@@ -176,7 +178,8 @@ Quando compare la visualizzazione **Azure Explorer**, per arrestare l'app Web se
 1. Espandere il nodo **Azure**.
 2. Espandere il nodo **Web Apps** (App Web). 
 3. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
-5. Quando viene visualizzato il menu di scelta rapida, fare clic su **Stop** (Arresta). ![][13]
+5. Quando viene visualizzato il menu di scelta rapida, fare clic su **Stop** (Arresta).
+    ![][13]
 
 ## Passaggi successivi
 

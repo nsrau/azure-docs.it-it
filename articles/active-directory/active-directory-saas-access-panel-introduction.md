@@ -46,9 +46,9 @@ Il pannello di accesso consente agli utenti di modificare alcune delle impostazi
 ## Apertura del pannello di accesso
 
 
-Per usare il pannello di accesso, è necessario specificare il seguente URL in un Web browser: <br> ****http://myapps.microsoft.com**
+Per usare il pannello di accesso, è necessario specificare il seguente URL in un Web browser: <br> **http://myapps.microsoft.com**
 
-Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> ****http://myapps.microsoft.com/contosobuild.com**
+Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> **http://myapps.microsoft.com/contosobuild.com**
 
 In questo caso, è possibile usare qualsiasi nome di dominio attivo o verificato che sia stato configurato nella scheda Domini della directory nel portale di gestione di Azure, come illustrato nella schermata seguente.
 
@@ -130,7 +130,7 @@ Gli amministratori di Azure che hanno eseguito l'accesso al portale di gestione 
 
 1. Scegliere "**Disconnetti**" dal menu utente nell'angolo superiore destro del portale di Azure o del portale di accesso. In questo modo verrà effettuata la disconnessione da Azure AD.
 
-2. Passare al pannello di accesso all'indirizzo ****http://myapps.microsoft.com**.
+2. Passare al pannello di accesso all'indirizzo **http://myapps.microsoft.com**.
 
 3. Nella pagina di accesso immettere il nome utente e la password dell'account nella directory da testare.
  

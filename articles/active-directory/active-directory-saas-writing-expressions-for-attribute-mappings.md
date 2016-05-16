@@ -103,7 +103,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obbligatorio | String | Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| ****source1 … sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori di stringa da unire. |
+| **source1 … sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori di stringa da unire. |
 
 
 

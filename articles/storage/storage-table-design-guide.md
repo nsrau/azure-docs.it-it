@@ -206,13 +206,18 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 La sezione precedente [Panoramica del servizio tabelle di Azure](#overview) descrive alcune funzionalità chiave del servizio tabelle di Azure, che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
--	Una ***Query di tipo punto*** è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per trovare in modo molto efficiente una singola entità specificando entrambi i valori **PartitionKey** e **RowKey**. Ad esempio, $filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
--	La seconda miglior ricerca è la ***query di intervallo*** che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio, $filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
--	La terza miglior ricerca è l'***analisi della partizione*** che usa **PartitionKey** e applica il filtro a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: $filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
--	Una ***scansione di tabella*** non include **PartitionKey** ed è molto inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey** o meno. Ad esempio: $filter = LastName eq 'Jones'  
+-	Una ***Query di tipo punto*** è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per trovare in modo molto efficiente una singola entità specificando entrambi i valori **PartitionKey** e **RowKey**. Ad esempio,
+$filter=(PartitionKey eq 'Sales') e (RowKey eq '2')  
+-	La seconda miglior ricerca è la ***query di intervallo*** che usa **PartitionKey** e applica il filtro a un intervallo di valori **RowKey** per restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori **RowKey** identificano un subset delle entità in quella partizione. Ad esempio,
+$filter=PartitionKey eq 'Sales' e RowKey ge 'S' e RowKey lt 'T'  
+-	La terza miglior ricerca è l'***analisi della partizione*** che usa **PartitionKey** e applica il filtro a un'altra proprietà non chiave e che potrebbe restituire più di un'entità. Il valore **PartitionKey** identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio:
+$filter=PartitionKey eq 'Sales' e LastName eq 'Smith'  
+-	Una ***scansione di tabella*** non include **PartitionKey** ed è molto inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella, una alla volta. Una scansione di tabella viene eseguita indipendentemente dal fatto che il filtro usi **RowKey** o meno. Ad esempio:
+$filter = LastName eq 'Jones'  
 -	Le query che restituiscono più entità le ordinano in base a **PartitionKey** e **RowKey**. Per non dover riordinare le entità nel client, scegliere un valore **RowKey** che definisca l'ordinamento più comune.  
 
-Si noti che, se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio: $filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')
+Si noti che, se si usa "**or**" per specificare un filtro basato su valori **RowKey**, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Pertanto, è consigliabile evitare query che utilizzano filtri ad esempio:
+$filter = PartitionKey eq "Sales" e (RowKey '121' o RowKey eq '322')
 
 Per esempi di codice lato client che usano la libreria client di archiviazione per eseguire query efficienti, vedere:
 

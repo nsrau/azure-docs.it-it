@@ -26,7 +26,7 @@ Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai te
 
 Si possono scegliere le aree di interesse più importanti per l'organizzazione e tenere traccia dello stato di avanzamento verso la realizzazione di un ambiente integro ed esente da rischi.
 
-Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard **AD Assessment ** per l'infrastruttura nell'ambiente verranno visualizzate le informazioni di riepilogo per l'area di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard **AD Assessment**, in cui sarà possibile intraprendere le azioni consigliate per l'infrastruttura dei server di Active Directory.
+Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard **AD Assessment** per l'infrastruttura nell'ambiente verranno visualizzate le informazioni di riepilogo per l'area di interesse. Le sezioni seguenti descrivono come usare le informazioni visualizzate nel dashboard **AD Assessment**, in cui sarà possibile intraprendere le azioni consigliate per l'infrastruttura dei server di Active Directory.
 
 ![immagine del riquadro SQL Assessment](./media/log-analytics-ad-assessment/ad-tile.png)
 
