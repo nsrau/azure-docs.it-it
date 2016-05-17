@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Introduzione a Azure Mobile Engagement per app Android
@@ -132,11 +132,14 @@ Accedere a **MainActivity.java** e aggiungere quanto segue per sostituire la cla
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] Se la classe base non è *Activity*, vedere [Reporting avanzato in Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) per informazioni su come ereditare da classi diverse.
+
+
 È consigliabile impostare come commento (escludere) la riga seguente per questo semplice scenario di esempio:
 
     // setSupportActionBar(toolbar);
 
-Se si vuole mantenerla, vedere lo scenario "Segnalazione di base" in [Come integrare Engagement in Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+Se si vuole mantenerla, vedere [Reporting avanzato in Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connettere l'app con monitoraggio in tempo reale
 
@@ -162,6 +165,10 @@ Mobile Engagement consente di interagire con gli utenti e COINVOLGERLI tramite n
 
 [AZURE.INCLUDE [Inviare notifiche dal portale](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## Altre risorse
+
+Per ottenere informazioni dettagliate sull'integrazione dell'SDK, vedere [Android SDK](mobile-engagement-android-sdk-overview.md).
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -175,4 +182,4 @@ Mobile Engagement consente di interagire con gli utenti e COINVOLGERLI tramite n
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

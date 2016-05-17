@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/10/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Archivio Azure Data Lake con Java
@@ -35,7 +35,17 @@ Informazioni su come usare Azure Data Lake Store Java SDK per creare un account 
 * IntelliJ o un altro ambiente di sviluppo Java adatto. Questo prerequisito è facoltativo ma consigliato. Le istruzioni riportate di seguito usano IntelliJ.
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-* Creare un'applicazione Azure Active Directory (AAD) e recuperarne l'**ID client**, l'**URI di risposta** e la **chiave**. Per altre informazioni sulle applicazioni AAD e istruzioni su come ottenere un ID client, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
+* **Creare un'applicazione di Azure Active Directory**. Esistono due modalità di autenticazione con Azure Active Directory: **interattiva** e **non interattiva**. I prerequisiti sono diversi a seconda della modalità di autenticazione.
+	* **Per l'autenticazione interattiva**: in Azure Active Directory è necessario creare un'**applicazione client nativa**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
+		- Ottenere l'**ID client** e l'**URI di reindirizzamento** per l'applicazione
+		- Impostare autorizzazioni delegate
+
+	* **Per l'autenticazione non interattiva** (usata in questo articolo): in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
+		- Ottenere l'**ID client**, il **segreto client** e l'**URI di reindirizzamento** per l'applicazione
+		- Impostare autorizzazioni delegate
+		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. 
+
+	Per istruzioni su come recuperare questi valori, impostare le autorizzazioni e assegnare i ruoli, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 
 ## Come si esegue l'autenticazione tramite Azure Active Directory?
 
@@ -45,13 +55,13 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
 ## Creare un'applicazione Java
 
-1. Aprire IntelliJ e creare un nuovo progetto Java usando il modello **Command Line App**.
+1. Aprire IntelliJ e creare un nuovo progetto Java usando il modello **Command Line App**. Completare la procedura guidata per creare il progetto.
 
 2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**. Scegliere **Maven** e fare clic su **OK**.
 
 3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **</version>** e il tag **</project>**:
 
-    NOTA: questo passaggio è temporaneo e non sarà più necessario quando Azure Data Lake Store SDK sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
+    >[AZURE.NOTE] Questo passaggio è temporaneo e non sarà più necessario quando Azure Data Lake Store SDK sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
 
         <repositories>
         	<repository>
@@ -88,9 +98,9 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
     	</dependencies>
 
 
-4. Passare a **File**, **Settings**, **Build**, **Execution**, **Deployment**. Selezionare **Build Tools**, **Maven** e quindi **Importing**. Selezionare **Import Maven projects automatically**.
+4. Passare a **File**, quindi **Settings**, **Build, Execution, and Deployment**. Espandere **Build Tools**, **Maven**, quindi espandere **Importing**. Selezionare la casella di controllo **Import Maven projects automatically**. Fare clic su **Apply** e quindi su **OK**.
 
-5. Aprire **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlsAccountName** e **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
+5. Dal riquadro sinistro passare a **src**, **main**, **java**, **<nome pacchetto>**, quindi aprire il file **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
 
     Il codice crea un account di Archivio Data Lake, crea cartelle nell'archivio, concatena i file, scarica un file e infine elimina l'account.
 
@@ -293,4 +303,4 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

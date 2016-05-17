@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="05/04/2016"
    ms.author="charleywen"/>
 
 # Configurare connessioni coesistenti da sito a sito ed ExpressRoute per il modello di distribuzione di Azure Resource Manager
@@ -115,7 +115,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
 		New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
 
-6. Creare quindi il gateway VPN da sito a sito. Per altre informazioni sulla configurazione di gateway VPN, vedere l'articolo relativo alla [configurazione di una connessione tra reti virtuali](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). Il valore di GatewaySKU deve essere *Standard* o *HighPerformance*. Il valore di VpnType deve *RouteBased*.
+6. <a name="vpngw"></a>Creare quindi il gateway VPN da sito a sito. Per altre informazioni sulla configurazione del gateway VPN, vedere [Configurare una connessione da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). Il valore di GatewaySKU deve essere *Standard* o *HighPerformance*. Il valore di VpnType deve essere *RouteBased*.
 
 		$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 		$gwIP = New-AzureRmPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
@@ -137,9 +137,11 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
 
 ## <a name="add"></a>Per configurare connessioni coesistenti per una rete virtuale esistente
 
-Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRoute o VPN da sito a sito, per abilitare entrambe le connessioni in modo da connettersi alla rete virtuale esistente, è necessario eliminare prima di tutto il gateway esistente. Ciò significa che le sedi locali perderanno la connessione alla rete virtuale tramite il gateway mentre si lavora a questa configurazione.
+Se esiste già una rete virtuale, controllare le dimensioni della subnet del gateway. Se la subnet del gateway è pari a/29 o /28, è necessario eliminare prima di tutto il gateway di rete virtuale e aumentare le dimensioni della subnet del gateway. I passaggi descritti in questa sezione illustrano come eseguire questa operazione.
 
-**Prima di iniziare la configurazione:** verificare che nella rete virtuale siano rimasti indirizzi IP sufficienti per aumentare le dimensioni della subnet del gateway. Si noti che sarà necessario eliminare il gateway e ricrearlo anche se si dispone di indirizzi IP sufficienti. Questo avviene perché il gateway deve essere ricreato per supportare le connessioni coesistenti.
+Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa tramite ExpressRoute, è possibile ignorare i passaggi seguenti e andare al ["Passaggio 6: Creare un gateway VPN da sito a sito"](#vpngw) nella sezione precedente.
+
+>[AZURE.NOTE] Quando si elimina il gateway esistente, gli ambienti locali perderanno la connessione alla rete virtuale mentre si lavora a questa configurazione.
 
 1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
 
@@ -149,19 +151,20 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 
 3. Eliminare la subnet del gateway.
 		
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
 		Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 
 4. Aggiungere una subnet del gateway di /27 o superiore.
+	>[AZURE.NOTE] Se non sono rimasti indirizzi IP sufficienti nella rete virtuale per aumentare le dimensioni della subnet del gateway, è necessario aggiungere altro spazio di indirizzi IP.
 
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
 		Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
 
 	Salvare la configurazione di rete virtuale.
 
 		$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-5. A questo punto, si avrà una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile procedere con il [passaggio 4: Creare un gateway ExpressRoute](#gw), nel set di passaggi precedente.
+5. A questo punto, si avrà una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile procedere con il [Passaggio 4: Creare un gateway ExpressRoute](#gw), disponibile nel set di passaggi precedente.
 
 ## Per aggiungere una configurazione da punto a sito al gateway VPN
 Per aggiungere una configurazione da punto a sito al gateway VPN in una configurazione di coesistenza, è possibile seguire questa procedura.
@@ -185,10 +188,10 @@ Per aggiungere una configurazione da punto a sito al gateway VPN in una configur
 		$p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData)
 		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
 
-Per altre informazioni sulle VPN da punto a sito, vedere l'articolo relativo alla [configurazione di una connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
+Per altre informazioni sulle VPN da punto a sito, vedere [Configurare una connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## Passaggi successivi
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

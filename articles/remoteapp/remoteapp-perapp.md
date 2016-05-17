@@ -102,4 +102,4 @@ Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità in antep
 ## Se non è stato possibile provare la funzionalità in anteprima
 Se non si è ancora autorizzati a provare l'anteprima, usare questo [sondaggio](http://www.instant.ly/s/AY83p) per richiedere l'accesso.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

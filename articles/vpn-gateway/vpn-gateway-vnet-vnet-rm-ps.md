@@ -528,6 +528,7 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 ## Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e l'articolo che illustra [come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

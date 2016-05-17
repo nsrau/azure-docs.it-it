@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connettersi a SQL Data Warehouse con Visual Studio
@@ -53,7 +53,7 @@ Per risultati ottimali, usare Visual Studio 2015 con l'[aggiornamento più recen
 
     ![Aggiungi SQL Server][3]
 
-1. Compilare i campi nella finestra Connetti al server.
+4. Compilare i campi nella finestra Connetti al server.
 
     ![Connetti al server][4]
 
@@ -63,10 +63,11 @@ Per risultati ottimali, usare Visual Studio 2015 con l'[aggiornamento più recen
     - **Nome database**. Immettere il nome del database per il database di SQL DW.
     - Fare clic su **Connect**.
 
-1. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere AdventureWorksDW per visualizzare le tabelle nel database di esempio.
+5. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere AdventureWorksDW per visualizzare le tabelle nel database di esempio.
 
     ![Esplorare AdventureWorksDW][5]
 
+> [AZURE.NOTE] È importante specificare il database SQL Data Warehouse nel campo **Nome database** al momento della connessione, al passaggio 4, perché l'albero degli oggetti possa funzionare correttamente. Se questa opzione viene lasciata vuota, la connessione al database predefinito, **master**, può non riuscire se alcuni dei database nel server logico sono sospesi. Questa limitazione verrà presto risolta. Nel frattempo, la connessione al database SQL Data Warehouse garantisce il corretto funzionamento dell'albero di Esplora oggetti, come illustrato in precedenza.
 
 ## Passaggio 3: Eseguire una query di esempio
 
@@ -88,7 +89,7 @@ Ora che è stata stabilita una connessione al database, si procederà alla scrit
 
     ![Esegui query][7]
 
-1. Osservare i risultati della query. In questo esempio la tabella FactInternetSales include 60398 righe.
+5. Osservare i risultati della query. In questo esempio la tabella FactInternetSales include 60398 righe.
 
     ![Risultati query][8]
 
@@ -110,4 +111,4 @@ Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creazione di Canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure classico" 
+	pageTitle="Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con il portale di Azure classico" 
 	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure classico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/03/2016" 
+ 	ms.date="05/05/2016" 
 	ms.author="juliako"/>
 
 
-#Creazione di canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit utilizzando il portale di Azure classico
+#Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con il portale di Azure classico
 
 > [AZURE.SELECTOR]
 - [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
->[AZURE.NOTE]Per informazioni più concettuali sui canali abilitati per la codifica live, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Scenario comune di streaming live
 
@@ -109,7 +109,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 2.	Selezionare la pagina CANALI.
 3.	Selezionare Aggiungi+ per aggiungere un nuovo canale.
 
-Scegliere i tipi di codifica **Standard**. Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Scegliere i tipi di codifica **Standard**. Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard0][standard0]
 
@@ -119,7 +119,7 @@ Per il tipo di codifica **Standard**, le opzioni valide per il protocollo di ins
 - RTMP a velocità in bit singola
 - RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
 
-Per una descrizione dettagliata di ogni protocollo, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Per una descrizione dettagliata di ogni protocollo, vedere informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard1][standard1]
 
@@ -127,7 +127,7 @@ Non è possibile modificare il protocollo di input durante l'esecuzione del cana
 
 Nella pagina **Configurazione annunci pubblicitari** è possibile specificare l'origine per i segnali dei marcatori di annunci. Quando si usa il portale, è possibile selezionare solo API, che indica che il codificatore live all'interno del canale deve restare in attesa di un'API Ad Marker asincrona. Quando si usa il portale, è possibile selezionare solo API.
 
-Per altre informazioni, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard2][standard2]
 
@@ -148,7 +148,7 @@ Una volta creato il canale, è possibile selezionare la scheda **CODIFICATORE** 
 
 ![standard5][standard5]
 
-Per altre informazioni, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Ottenere gli URL di inserimento
@@ -276,4 +276,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

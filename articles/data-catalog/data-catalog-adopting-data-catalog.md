@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Adozione di Catalogo dati di Azure | Microsoft Azure"
-   description="Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Adozione di Catalogo dati di Azure | Microsoft Azure"
+	description="Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="04/06/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="05/09/2016"
+	ms.author="spelluru"/>
 
 # Adozione di Catalogo dati di Azure
 Questo articolo illustra come iniziare ad adottare **Catalogo dati di Azure** nell'organizzazione. Per adottare **Catalogo dati di Azure**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
@@ -172,4 +172,4 @@ Questo articolo ha illustrato come iniziare a usare **Catalogo dati di Azure** n
 -	[Annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Crowdsourcing di metadati](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

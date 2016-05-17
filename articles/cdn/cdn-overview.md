@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
 
-La rete per la distribuzione di contenuti (rete CDN) di Azure memorizza nella cache il contenuto statico e i BLOB di Azure usati dai siti Web in località strategiche per offrire la massima velocità effettiva per la distribuzione del contenuto agli utenti. La rete CDN offre agli sviluppatori una soluzione globale per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici ubicati in tutto il mondo. Per un elenco aggiornato delle località dei nodi della rete CDN, vedere [Località POP della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-pop-locations.md).
+La rete per la distribuzione di contenuti (rete CDN) di Azure memorizza nella cache il contenuto Web statico in località strategiche per offrire la massima velocità effettiva per la distribuzione del contenuto agli utenti. La rete CDN offre agli sviluppatori una soluzione globale per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici ubicati in tutto il mondo. Per un elenco aggiornato delle posizioni dei nodi della rete CDN, vedere [Località POP della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-pop-locations.md).
 
-L'uso della rete CDN per memorizzare nella cache dati di Azure offre diversi vantaggi, inclusi i seguenti:
+L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre diversi vantaggi, inclusi i seguenti:
 
 - Una migliore esperienza utente e migliori prestazioni per gli utenti finali, specialmente quando usano applicazioni in cui sono necessari più round trip per caricare il contenuto.
 - Grande scalabilità per gestire al meglio un carico elevato immediato, ad esempio all'inizio di un evento per il lancio di un prodotto.
@@ -44,30 +44,27 @@ L'uso della rete CDN per memorizzare nella cache dati di Azure offre diversi van
 6. Se il valore TTL per il file non è ancora scaduto, il server perimetrale restituisce il file dalla cache, offrendo quindi un'esperienza utente più veloce ed efficiente.
 
 
-## Funzionalità standard
+## Funzionalità della rete CDN di Azure
 
-Il livello della rete CDN Standard comprende le seguenti caratteristiche:
+Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Standard da Akamai**, **Rete CDN di Azure Standard da Verizon** e **Rete CDN di Azure Premium da Verizon**. La tabella seguente include l'elenco delle funzionalità disponibili con ogni prodotto.
 
-- Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn)
-- Supporto di HTTPS
-- Bilanciamento del carico.
-- Protezione DDOS
-- [Memorizzazione nella cache della stringa di query](cdn-query-string.md)
-- [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md)
-- [Filtro di paese](cdn-restrict-access-by-country.md)
-- [Analisi del core](cdn-analyze-usage-patterns.md)
-- [Eliminazione veloce](cdn-purge-endpoint.md)
-- [Precaricamento Asset](cdn-preload-endpoint.md)
-- [Gestione tramite l'API REST](https://msdn.microsoft.com/library/mt634456.aspx)
+| | Standard Akamai | Standard Verizon | Premium Verizon |
+|-------|-----------------|------------------|-----------------|
+| Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Supporto di HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Bilanciamento del carico. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protezione DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Memorizzazione nella cache della stringa di query](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Filtro di paese](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [Eliminazione veloce](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Precaricamento Asset](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [Analisi del core](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [Gestione tramite l'API REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Report HTTP avanzati](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Statistiche in tempo reale](cdn-real-time-stats.md) | | | **&#x2713;** |
 
-
-## Funzionalità Premium
-
-Il livello Premium della rete CDN comprende tutte le funzionalità del livello Standard oltre alle funzionalità aggiuntive seguenti:
-
-- [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md)
-- [Report HTTP avanzati](cdn-advanced-http-reports.md)
-- [Statistiche in tempo reale](cdn-real-time-stats.md)
 
 ## Passaggi successivi
 
@@ -77,4 +74,6 @@ I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete C
 
 Per vedere come funziona la rete CDN, guardare il [video della sessione Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0504_2016-->
+Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
+
+<!---HONumber=AcomDC_0511_2016-->

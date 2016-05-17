@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'archiviazione tabelle di Azure con .NET | Microsoft Azure"
-	description="Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero l'archivio dati NoSQL di Microsoft. Introduzione a semplici operazioni dell'archiviazione tabelle, incluse le operazioni di creazione ed eliminazione di una tabella, nonché di inserimento, aggiornamento, eliminazione dei dati e di esecuzione delle query."
+	description="Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

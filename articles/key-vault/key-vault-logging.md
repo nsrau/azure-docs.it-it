@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 # Registrazione dell'insieme di credenziali delle chiavi di Azure #
-L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](../../../../pricing/details/key-vault/).
+L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introduzione  
 Dopo aver creato una o più credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. A questo scopo è possibile abilitare la registrazione per l'insieme di credenziali delle chiavi, che salva le informazioni in un account di archiviazione di Azure specificato. Per tale account di archiviazione viene creato automaticamente un contenitore denominato **insights-log-auditevent**, che può essere usato per raccogliere i log relativi a più insiemi di credenziali delle chiavi.
@@ -30,7 +30,7 @@ Dopo aver creato una o più credenziali delle chiavi, può essere utile monitora
 Usare questa esercitazione per un'introduzione all'uso della registrazione dell'insieme di credenziali delle chiavi di Azure, per creare l'account di archiviazione, abilitare la registrazione e interpretare le informazioni di registrazione raccolte.
 
 
->[AZURE.NOTE]Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
+>[AZURE.NOTE]  Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
 >
 >Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece queste istruzioni per Azure PowerShell.
 
@@ -73,7 +73,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]Se si sceglie di usare un account di archiviazione esistente, questo dovrà usare la stessa sottoscrizione dell'insieme di credenziali delle chiavi e il modello di distribuzione di Gestione risorse, invece del modello di distribuzione classica.
+>[AZURE.NOTE]  Se si sceglie di usare un account di archiviazione esistente, questo dovrà usare la stessa sottoscrizione dell'insieme di credenziali delle chiavi e il modello di distribuzione di Gestione risorse, invece del modello di distribuzione classica.
 
 ## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log ##
 
@@ -105,8 +105,8 @@ Informazioni registrate:
 - Vengono registrate tutte le richieste API REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide.
 - Operazioni sull'insieme di credenziali delle chiavi stesso, ad esempio creazione, eliminazione e impostazione di criteri di accesso all'insieme di credenziali delle chiavi, nonché aggiornamento degli attributi dell'insieme di credenziali delle chiavi, quali i tag.
 - Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, ad esempio creazione, modifica o eliminazione di chiavi o segreti. Operazioni quali accesso, verifica, crittografia, decrittografia, esecuzione e annullamento del wrapping delle chiavi, recupero di segreti, nonché elenco di chiavi e segreti e delle relative versioni.
+- Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
 
-Le richieste non autenticate non vengono registrate.
 
 ## <a id="access"></a>Accedere ai log ##
 
@@ -271,4 +271,4 @@ Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell�
 Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

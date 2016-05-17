@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # Creare la prima funzione di Azure
@@ -29,7 +29,7 @@ Questo argomento mostra come usare l'avvio rapido di Funzioni di Azure nel porta
 
 Il video seguente mostra come eseguire i passaggi di base di questa esercitazione.
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Creare una funzione dall'avvio rapido
 
@@ -64,4 +64,4 @@ L'avvio rapido mostra un'esecuzione molto semplice di una funzione di base attiv
 
 [AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

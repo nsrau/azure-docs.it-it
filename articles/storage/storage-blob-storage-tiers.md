@@ -1,46 +1,48 @@
 <properties
-	pageTitle="Archivio BLOB di Azure: livelli Frequente e Non frequente | Microsoft Azure"
-	description="Panoramica dei livelli di archiviazione BLOB di Azure per un'archiviazione a costi contenuti dei dati degli oggetti basata sui modelli di accesso."
-	services="storage"
-	documentationCenter=""
-	authors="sribhat-msft"
-	manager="vamshik"
-	editor="tysonn"/>
+    pageTitle="Archiviazione ad accesso sporadico di Azure per i BLOB | Microsoft Azure"
+    description="I livelli di archiviazione per l'archivio BLOB offrono un'archiviazione economicamente conveniente per dati oggetto in base ai modelli di accesso. L'archiviazione ad accesso sporadico di Azure è ottimizzata per i dati a cui si accede con minore frequenza."
+    services="storage"
+    documentationCenter=""
+    authors="sribhat-msft"
+    manager=""
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/24/2016"
-	ms.author="sribhat"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="05/09/2016"
+    ms.author="sribhat"/>
 
 
-# Archivio BLOB di Azure: livelli Frequente e Non frequente
+# Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico
 
 ## Panoramica
 
-L'archivio BLOB è una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud. Grazie all'elevata scalabilità e capacità di archiviazione, l'archivio BLOB memorizza facilmente e a costi contenuti petabyte di dati e miliardi di oggetti per ogni cliente. Per altri dettagli, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md).
+L'Archiviazione di Azure offre due livelli di archiviazione per l'archivio BLOB (archivio di oggetti), per consentire di archiviare i dati nel modo economicamente più conveniente in base alla modalità d'uso. Il **livello di archiviazione ad accesso frequente** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente. Il **livello di archiviazione ad accesso sporadico** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di raramente e di lunga durata. I dati nel livello di archiviazione ad accesso sporadico possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati ad accesso frequente. Per i dati ad accesso sporadico, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più elevati sono compromessi accettabili in cambio di costi di archiviazione molto più bassi.
 
-I dati archiviati nel cloud stanno attualmente crescendo a un ritmo esponenziale. Per questo un aspetto importante della gestione dei costi dovuti alle esigenze di espansione dell'archivio è la suddivisione in livelli dei dati in base ad attributi come la frequenza di accesso, il periodo di conservazione e così via. In base al feedback dei clienti e ai modelli di utilizzo, si è osservato che i dati archiviati nel cloud possono essere piuttosto diversi dal punto di vista della generazione, dell'elaborazione e dell'accesso nel corso del tempo. Ad alcuni dati si accede attivamente e vengono modificati durante tutto il loro ciclo di vita, ad altri invece si accede molto spesso all'inizio del loro ciclo di vita, ma sempre meno man mano che diventano obsoleti, altri infine sono inattivi nel cloud fin dall'inizio e, una volta archiviati, vi si accede raramente o addirittura mai. In generale, i **dati attivi** vengono classificati come dati a cui si accede molto spesso e che devono essere a disponibilità e durabilità elevate. I **dati poco attivi** invece sono dati a cui si accede raramente e hanno una durata elevata. I dati poco attivi possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati attivi. Per i dati poco attivi, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più elevati sono compromessi accettabili in cambio di costi di archiviazione molto più bassi.
+La quantità di dati archiviati nel cloud è attualmente in crescita esponenziale. Per gestire i costi per le esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato. I dati archiviati nel cloud possono essere piuttosto diversi dal punto di vista della generazione, dell'elaborazione e dell'accesso nel corso del tempo. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso molto frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione.
 
-Tutti questi scenari di accesso ai dati descritti sopra usufruiscono di un livello differenziato di archiviazione ottimizzato per un particolare modello di accesso. L'archivio BLOB di Azure ora risponde a questa esigenza di livelli di archiviazione differenziati per i dati con modelli di accesso e modelli di determinazione prezzi diversi.
+Tutti questi scenari di accesso ai dati descritti sopra usufruiscono di un livello differenziato di archiviazione ottimizzato per un particolare modello di accesso. L'introduzione dei livelli di archiviazione ad accesso frequente e sporadico consente all'archivio BLOB di Azure di soddisfare l'esigenza di livelli di archiviazione differenziati con modelli di determinazione dei prezzi diversi.
 
 ## Account di archiviazione BLOB
 
-Gli **account di archiviazione BLOB** sono account di archiviazione specializzati per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Con gli account di archiviazione BLOB, ora è possibile scegliere tra i livelli di accesso Non frequente e Frequente per archiviare i dati poco attivi a cui si accede meno spesso a un costo di archiviazione inferiore e per archiviare i dati attivi a cui si accede più spesso a un costo di accesso inferiore. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico esistenti e condividono tutte le incredibili funzionalità di durabilità, disponibilità, scalabilità e prestazioni già in uso, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta.
+Gli **account di archiviazione BLOB** sono account di archiviazione specializzati per l'archiviazione dei dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Con gli account di archiviazione BLOB, ora è possibile scegliere tra i livelli di archiviazione ad accesso frequente e sporadico per archiviare i dati ad accesso sporadico a cui si accede meno spesso a un costo di archiviazione inferiore e per archiviare i dati ad accesso frequente a cui si accede più spesso a un costo di accesso inferiore. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico esistenti e condividono tutte le straordinarie funzionalità di durabilità, disponibilità, scalabilità e prestazioni già usate, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta.
 
-Gli account di archiviazione BLOB espongono l'attributo **Livello di accesso**, che consente di specificare il livello di accesso come **Frequente** o **Non frequente** a seconda dei dati archiviati nell'account. Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento.
+> [AZURE.NOTE] Gli account di archiviazione BLOB supportano solo i BLOB in blocchi e i BLOB di aggiunta, non i BLOB di pagine.
 
-> [AZURE.NOTE] La modifica del livello di accesso può comportare costi aggiuntivi. Per altri dettagli, vedere più avanti la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
+Gli account di archiviazione BLOB espongono l'attributo **Livello di accesso**, che consente di specificare il livello di accesso come **Frequente** o **Sporadico** a seconda dei dati archiviati nell'account. Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento.
 
-Gli scenari di utilizzo di esempio per il livello di accesso frequente includono:
+> [AZURE.NOTE] La modifica del livello di accesso può comportare costi aggiuntivi. Per altri dettagli, vedere la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
+
+Gli scenari di utilizzo di esempio per il livello di archiviazione ad accesso frequente includono:
 
 - Dati di uso attivo e o di cui è previsto l'accesso (lettura o scrittura) di frequente.
-- Dati di gestione temporanea per l'elaborazione e l'eventuale migrazione al livello non frequente.
+- Dati di gestione temporanea per l'elaborazione e l'eventuale migrazione al livello di archiviazione ad accesso sporadico.
 
-Gli scenari di utilizzo di esempio per il livello di accesso non frequente includono:
+Ecco alcuni scenari di utilizzo per il livello di archiviazione ad accesso sporadico:
 
 - Set di dati di backup, archiviazione e ripristino di emergenza.
 - Contenuto multimediale meno recente ormai visualizzato non spesso, ma che deve essere immediatamente disponibile quando vi si accede.
@@ -54,7 +56,7 @@ Per le applicazioni che richiedono solo l'archivio BLOB in blocchi o di aggiunta
 
 - È necessario usare tabelle, code o file e si vuole archiviare i BLOB nello stesso account di archiviazione. Si noti che l'unico vantaggio tecnico derivante dall'archiviarli nello stesso account è quello di avere le stesse chiavi condivise.
 - È ancora necessario usare il modello di distribuzione classica. Gli account di archiviazione BLOB sono disponibili solo con il modello di distribuzione Azure Resource Manager.
-- È necessario usare BLOB di pagine. A meno che non vi siano esigenze specifiche per usare i BLOB di pagine, è consigliabile usare i BLOB in blocchi.
+- È necessario usare BLOB di pagine. Gli account di archiviazione BLOB non supportano i BLOB di pagine. A meno che non vi siano esigenze specifiche per usare i BLOB di pagine, è consigliabile usare i BLOB in blocchi.
 - Si usa una versione dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4.x e non è possibile aggiornare l'applicazione.
 
 > [AZURE.NOTE] Gli account di archiviazione BLOB sono attualmente supportati nella maggior parte delle aree di Azure, a cui se ne aggiungeranno altre in futuro. L'elenco aggiornato delle aree disponibili è riportato nella pagina [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services).
@@ -67,40 +69,40 @@ La tabella seguente evidenzia il confronto tra i due livelli di accesso:
 <col width="250"> <col width="250"> <col width="250">
 <tbody>
 <tr>
-	<td><strong><center></center></strong></td>
-	<td><strong><center>Livello di accesso frequente</center></strong></td>
-	<td><strong><center>Livello di accesso non frequente</center></strong>&lt;/td
+    <td><strong><center></center></strong></td>
+    <td><strong><center>Livello di archiviazione ad accesso frequente</center></strong></td>
+    <td><strong><center>Livello di archiviazione ad accesso sporadico</center></strong>&lt;/td
 </tr>
 <tr>
     <td><strong><center>Disponibilità</center></strong></td>
-	<td><center>99,9%</center></td>
-	<td><center>99%</center></td>
+    <td><center>99,9%</center></td>
+    <td><center>99%</center></td>
 </tr>
 <tr>
     <td><strong><center>Disponibilità<br>(letture RA-GRS)</center></strong></td>
-	<td><center>99,99%</center></td>
-	<td><center>99,9%</center></td>
+    <td><center>99,99%</center></td>
+    <td><center>99,9%</center></td>
 </tr>
 <tr>
     <td><strong><center>Addebiti per utilizzo</center></strong></td>
-	<td><center>Costi di archiviazione più elevati<br>Costi di accesso e transazione più bassi</center></td>
-	<td><center>Costi di archiviazione più bassi<br>Costi di accesso e transazione più elevati</center></td>
+    <td><center>Costi di archiviazione più elevati<br>Costi di accesso e transazione più bassi</center></td>
+    <td><center>Costi di archiviazione più bassi<br>Costi di accesso e transazione più elevati</center></td>
 </tr>
 <tr>
-	<td><strong><center>Dimensioni minime oggetti<center></strong></td>
-	<td colspan="2"><center>N/D</center></td>
+    <td><strong><center>Dimensioni minime oggetti<center></strong></td>
+    <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-	<td><strong><center>Durata archiviazione minima<center></strong></td>
-	<td colspan="2"><center>N/D</center></td>
+    <td><strong><center>Durata archiviazione minima<center></strong></td>
+    <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-	<td><strong><center>Latenza<br>(tempo per il primo byte)<center></strong></td>
-	<td colspan="2"><center>millisecondi</center></td>
+    <td><strong><center>Latenza<br>(tempo per il primo byte)<center></strong></td>
+    <td colspan="2"><center>millisecondi</center></td>
 </tr>
 <tr>
-	<td><strong><center>Prestazioni e scalabilità<center></strong></td>
-	<td colspan="2"><center>Uguali a quelle degli account di archiviazione di uso generico</center></td>
+    <td><strong><center>Obiettivi di scalabilità e prestazioni<center></strong></td>
+    <td colspan="2"><center>Uguali a quelli degli account di archiviazione di uso generico</center></td>
 </tr>
 </tbody>
 </table>
@@ -111,14 +113,14 @@ La tabella seguente evidenzia il confronto tra i due livelli di accesso:
 
 Gli account di archiviazione BLOB usano un nuovo modello di determinazione prezzi per l'archivio BLOB basato sul livello di accesso. Quando si usa un account di archiviazione BLOB, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-- **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo dell'archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte è più basso per il livello di accesso non frequente che per il livello di accesso frequente.
-- **Costi di accesso ai dati**: per i dati nel livello di accesso non frequente, verrà addebitato un importo per l'accesso ai dati per gigabyte per le operazioni di lettura e scrittura.
-- **Costi di transazione**: è previsto un addebito per ogni transazione per entrambi i livelli. Il costo per transazione per il livello di accesso non frequente è tuttavia più elevato che per il livello di accesso frequente.
+- **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo dell'archiviazione dei dati varia a seconda del livello di accesso. Il costo per gigabyte è più basso per il livello di archiviazione ad accesso sporadico che per il livello di archiviazione ad accesso frequente.
+- **Costi di accesso ai dati**: per i dati nel livello di archiviazione ad accesso sporadico, verrà addebitato un importo per l'accesso ai dati per gigabyte per le operazioni di lettura e scrittura.
+- **Costi di transazione**: è previsto un addebito per ogni transazione per entrambi i livelli. Il costo per transazione per il livello di archiviazione ad accesso sporadico è tuttavia più elevato che per il livello di archiviazione ad accesso frequente.
 - **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e RA-GRS. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
 - **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
-- **Modifica del livello di accesso**: la modifica del livello di accesso da non frequente a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di accesso da frequente a non frequente sarà gratuito.
+- **Modifica del livello di accesso**: la modifica del livello di accesso da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di accesso da frequente a non frequente sarà gratuito.
 
-> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di accesso da non frequente a frequente non verrà effettuato fino al 30 giugno 2016. A partire dal 1ª luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di accesso da non frequente a frequente non verrà effettuato fino al 30 giugno 2016. A partire dal 1° luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Avvio rapido
 
@@ -141,7 +143,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 5. Selezionare **Archiviazione BLOB** come tipo di account di archiviazione.
 
-6. Selezionare il livello di accesso: **Frequente** o **Non frequente**. Il livello predefinito è **Frequente**.
+6. Selezionare il livello di accesso: **Frequente** o **Sporadico**. Il livello predefinito è **Frequente**.
 
 7. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
@@ -155,19 +157,21 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 #### Modificare il livello di accesso in un account di archiviazione BLOB usando il portale di Azure
 
-1.	Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione.
 
-2.	Fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
+2. Fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
-3.	Specificare il livello di accesso preferito: **Frequente** o **Non frequente**.
+3. Specificare il livello di accesso preferito: **Frequente** o **Sporadico**.
+
+    > [AZURE.NOTE] La modifica del livello di accesso può comportare costi aggiuntivi. Per altri dettagli, vedere la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
 
 ## Migrazione agli account di archiviazione BLOB
 
-Questa sezione descrive come eseguire una transizione senza problemi agli account di archiviazione BLOB. Un account di archiviazione BLOB serve per archiviare solo i BLOB. Gli account di archiviazione di uso generico esistenti, che consentono di archiviare anche tabelle, code e file, non possono essere convertiti in account di archiviazione BLOB. Ciò significa che, per usare le funzionalità offerte dall'account di archiviazione BLOB, sarà necessario creare nuovi account di archiviazione BLOB con il livello di accesso appropriato ed eseguire la migrazione dei dati esistenti nei nuovi account creati.
+Questa sezione descrive come eseguire una transizione senza problemi agli account di archiviazione BLOB. Un account di archiviazione BLOB serve per archiviare solo BLOB in blocchi e BLOB di aggiunta. Gli account di archiviazione di uso generico esistenti, che consentono di archiviare tabelle, code, file e dischi oltre ai BLOB, non possono essere convertiti in account di archiviazione BLOB. Per usare i livelli di archiviazione, sarà necessario creare nuovi account di archiviazione BLOB ed eseguire la migrazione dei dati esistenti negli account appena creati.
 
 ### Pianificazione della migrazione di dati esistenti
 
-Se si intende spostare i dati in un account di archiviazione BLOB, sarà preferibile sfruttare i vantaggi del livello di accesso non frequente per risparmiare sui costi di archiviazione per i dati usati meno di frequente. Il primo passaggio per pianificare la migrazione dei dati in un account di archiviazione BLOB al livello di accesso non frequente consiste nel valutare il modello di utilizzo esistente per determinare se si trarrà vantaggio dalla migrazione a un account di archiviazione BLOB. In genere, è consigliabile conoscere:
+Se si intende spostare i dati in un account di archiviazione BLOB, sarà preferibile sfruttare i vantaggi del livello di archiviazione ad accesso sporadico per risparmiare sui costi di archiviazione per i dati usati meno di frequente. Il primo passaggio per pianificare la migrazione dei dati in un account di archiviazione BLOB al livello di archiviazione ad accesso sporadico consiste nel valutare il modello di utilizzo esistente per determinare se si trarrà vantaggio dalla migrazione a un account di archiviazione BLOB. In genere, è consigliabile conoscere:
 
 - Il modello di utilizzo dell'archiviazione: quanti dati vengono archiviati e come cambia questo valore ogni mese?
 - I modelli di accesso alle risorse di archiviazione: quanti dati vengono letti e scritti nell'account (inclusi i nuovi dati)? Quante e quali transazioni vengono usate per l'accesso ai dati?
@@ -176,11 +180,11 @@ Per monitorare gli account di archiviazione esistenti e per raccogliere questi d
 
 ### Migrazione di dati esistenti
 
-È possibile usare i metodi seguenti per eseguire la migrazione dei dati esistenti agli account di archiviazione BLOB da una soluzione di archiviazione locale, da un provider di archiviazione cloud di terze parti o dagli account di archiviazione di uso generico esistenti in Azure:
+È possibile usare i metodi seguenti per eseguire la migrazione dei dati esistenti agli account di archiviazione BLOB da dispositivi di archiviazione locali, da provider di archiviazione cloud di terze parti o dagli account di archiviazione di uso generico esistenti in Azure:
 
 #### AzCopy
 
-AzCopy è un'utilità da riga di comando Windows progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È possibile usare AzCopy per copiare i dati nell'account di archiviazione BLOB dagli archiviazione BLOB di uso generico esistenti o per caricare i dati dal sistema di archiviazione locale all'account di archiviazione BLOB.
+AzCopy è un'utilità da riga di comando Windows progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È possibile usare AzCopy per copiare i dati nell'account di archiviazione BLOB dagli account di archiviazione di uso generico esistenti o per caricare i dati da dispositivi di archiviazione locali all'account di archiviazione BLOB.
 
 Per altre dettagli, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -196,38 +200,70 @@ Per altri dettagli, vedere la pagina relativa alla [libreria di spostamento dei 
 
 Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure](storage-dotnet-how-to-use-blobs.md).
 
+> [AZURE.NOTE] I BLOB crittografati mediante la crittografia lato client archiviano i metadati correlati alla crittografia archiviati con il BLOB. È assolutamente essenziale che qualsiasi meccanismo di copia assicuri che i metadati dei BLOB e, in particolare modo, i metadati correlati alla crittografia vengano conservati. Se si copiano i BLOB senza metadati, il contenuto dei BLOB non sarà più recuperabile. Per informazioni dettagliate sui metadati correlati alla crittografia, vedere [Crittografia lato client di Archiviazione di Azure](storage-client-side-encryption.md).
+
 ## Domande frequenti
 
-1.	**Gli account di archiviazione esistenti sono ancora disponibili?**
+1. **Gli account di archiviazione esistenti sono ancora disponibili?**
 
     Sì, gli account di archiviazione esistenti sono ancora disponibili e non hanno subito variazioni di prezzo o di funzionalità. Non possono scegliere un livello di accesso e in futuro non avranno funzionalità di suddivisione in livelli.
 
-2.	**Perché e quando iniziare a usare gli account di archiviazione BLOB?**
+2. **Perché e quando iniziare a usare gli account di archiviazione BLOB?**
 
     Gli account di archiviazione BLOB sono specializzati per l'archiviazione dei BLOB e consentono di introdurre nuove funzionalità incentrate sui BLOB. È consigliabile usare gli account di archiviazione BLOB per archiviare i BLOB perché in futuro verranno introdotte funzionalità, ad esempio l'archiviazione gerarchica e la suddivisione in livelli, basate su questo tipo di account. La scelta del momento per eseguire la migrazione dipende tuttavia dai requisiti aziendali dell'utente.
 
-3.	**Si può convertire un account di archiviazione esistente in un account di archiviazione BLOB?**
+3. **Si può convertire un account di archiviazione esistente in un account di archiviazione BLOB?**
 
     No. L'account di archiviazione BLOB è un tipo diverso di account di archiviazione e sarà necessario crearne uno nuovo ed eseguire la migrazione dei dati come illustrato sopra.
 
-4.	**Si possono archiviare oggetti in entrambi i livelli di accesso nello stesso account?**
+4. **Si possono archiviare oggetti in entrambi i livelli di accesso nello stesso account?**
 
-    Attualmente non è possibile. L'attributo del livello di accesso viene impostato a livello di account e si applica a tutti gli oggetti in tale account.
+    L'attributo del livello di accesso viene impostato a livello di account e si applica a tutti gli oggetti in tale account. Non è possibile impostare il livello di accesso a livello di oggetto.
 
-5.	**Si può modificare il livello di accesso nell'account di archiviazione BLOB?**
+5. **Si può modificare il livello di accesso nell'account di archiviazione BLOB?**
 
     Sì. Sarà possibile modificare il livello di accesso nell'account di archiviazione. La modifica del livello di accesso a livello di account si applicherà a tutti gli oggetti archiviati nell'account. La modifica del livello di accesso da frequente a non frequente non comporta alcun addebito, mentre la modifica da non frequente a frequente comporta un costo per GB per la lettura di tutti i dati nell'account.
 
-6.	**Ogni quanto si può modificare il livello di accesso nell'account di archiviazione BLOB?**
+6. **Ogni quanto si può modificare il livello di accesso nell'account di archiviazione BLOB?**
 
     Anche se non esistono limiti alla frequenza con cui è possibile modificare il livello di accesso, tenere presente che la modifica del livello di accesso da non frequente a frequente comporta addebiti elevati. Non è consigliabile modificare frequentemente il livello di accesso.
 
-7.	**Sarà necessario modificare le applicazioni esistenti per usare gli account di archiviazione BLOB?**
+7. **I BLOB nel livello di archiviazione ad accesso sporadico si comporteranno in modo diverso rispetto a quelli del livello di archiviazione ad accesso frequente?**
 
-    Gli account di archiviazione BLOB sono conformi al 100% all'API degli account di archiviazione di uso generico purché si usi la versione più recente (2014-02-14) dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx). Se si usa una versione meno recente del protocollo, sarà necessario aggiornare l'applicazione per poter usare la nuova versione e lavorare quindi facilmente con entrambi i tipi di account di archiviazione. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal tipo di account di archiviazione usato.
+    I BLOB nel livello di archiviazione ad accesso frequente hanno la stessa latenza dei BLOB negli account di archiviazione di uso generico. I BLOB nel livello di archiviazione ad accesso sporadico hanno una latenza simile, in millisecondi, a quella dei BLOB negli account di archiviazione di uso generico.
 
-8.	**L'esperienza utente sarà diversa?**
+    I BLOB nel livello di archiviazione ad accesso sporadico avranno una Contratto di servizio leggermente inferiore rispetto a quello dei BLOB nel livello di archiviazione ad accesso frequente. Per informazioni dettagliate, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage).
 
-    Un account di archiviazione BLOB archivia solo BLOB, ma per il resto è molto simile a un account di archiviazione di uso generico ed eredita tutte le funzionalità chiave di Archiviazione di Azure, incluse durabilità e disponibilità elevate, scalabilità, prestazioni e sicurezza. Fatta eccezione per le funzionalità e le restrizioni specifiche degli account di archiviazione BLOB e per i livelli di accesso illustrati sopra, tutto il resto rimane invariato.
+8. **È possibile archiviare i BLOB di pagine e i dischi delle macchine virtuali negli account di archiviazione BLOB?**
 
-<!---HONumber=AcomDC_0427_2016-->
+    Gli account di archiviazione BLOB supportano solo i BLOB in blocchi e i BLOB di aggiunta, non i BLOB di pagine. Il backup dei dischi delle macchine virtuali di Azure viene eseguito dai BLOB di pagine. Non sarà quindi possibile usare gli account di archiviazione BLOB per archiviare i dischi delle macchine virtuali. È tuttavia possibile archiviare i backup dei dischi delle macchine virtuali come BLOB in blocchi in un account di archiviazione BLOB.
+
+9. **Sarà necessario modificare le applicazioni esistenti per usare gli account di archiviazione BLOB?**
+
+    Gli account di archiviazione BLOB offrono una coerenza API al 100% con gli account di archiviazione di uso generico per i BLOB in blocchi e i BLOB di aggiunta. Se l'applicazione usa BLOB in blocchi o i BLOB di aggiunta e si usa la versione 2014-02-14 dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) o versione successiva, l'applicazione dovrebbe funzionare correttamente. Se si usa una versione meno recente del protocollo, sarà necessario aggiornare l'applicazione per poter usare la nuova versione e lavorare quindi facilmente con entrambi i tipi di account di archiviazione. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal tipo di account di archiviazione usato.
+
+10. **L'esperienza utente sarà diversa?**
+
+    Gli account di archiviazione BLOB sono molto simili agli account di archiviazione di uso generico per l'archiviazione di BLOB in blocchi o i BLOB di aggiunta e supportano tutte le funzionalità essenziali di Archiviazione di Azure, incluse durabilità e disponibilità elevate, scalabilità, prestazioni e sicurezza. Fatta eccezione per le funzionalità e le restrizioni specifiche degli account di archiviazione BLOB e per i livelli di accesso illustrati sopra, tutto il resto rimane invariato.
+
+## Passaggi successivi
+
+### Valutare gli account di archiviazione BLOB
+
+[Verificare la disponibilità degli account di archiviazione BLOB in base all'area](https://azure.microsoft.com/regions/#services)
+
+[Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](storage-enable-and-view-metrics.md)
+
+[Verificare i prezzi di Archiviazione di Azure per i BLOB in base all'area](https://azure.microsoft.com/pricing/details/storage/)
+
+[Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)
+
+### Iniziare a usare gli account di archiviazione BLOB
+
+[Introduzione all'archivio BLOB di Azure](storage-dotnet-how-to-use-blobs.md)
+
+[Spostamento dei dati da e verso Archiviazione di Azure](storage-moving-data.md)
+
+[Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
+
+<!---HONumber=AcomDC_0511_2016-->

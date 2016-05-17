@@ -148,17 +148,17 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 Quando si usa Live Streaming sono generalmente necessari i seguenti componenti:
 
 - Una fotocamera da usare per trasmettere un evento.
-- Un codificatore video attivo in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati a un servizio di streaming live. 
-  
-	Più codificatori attivi (facoltativi). In caso di eventi live critici per i quali sono richiesti livelli molto elevati di disponibilità e qualità di esperienza, è consigliabile usare codificatori ridondanti di tipo attivo-attivo in modo da conseguire un failover efficiente senza perdita di dati.
-- Un servizio di streaming live che consenta di effettuare le seguenti operazioni: 
-	- inserire contenuti live usando vari protocolli di streaming live (ad esempio RTMP o Smooth Streaming), 
-	- codificare il flusso in flusso a velocità in bit adattiva,
-	- visualizzare in anteprima il flusso live,
-	- archiviare il contenuto inserito in modo che possa essere riprodotto in streaming in un secondo tempo (video on demand)
-	- usare protocolli di streaming comuni (ad esempio, MPEG DASH, Smooth, HLS, HDS) per trasmettere i contenuti direttamente ai clienti o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per una successiva ridistribuzione. 
-	
-		
+- Un codificatore video attivo in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati a un servizio di streaming live.
+
+Più codificatori attivi (facoltativi). In caso di eventi live critici per i quali sono richiesti livelli molto elevati di disponibilità e qualità di esperienza, è consigliabile usare codificatori ridondanti di tipo attivo-attivo in modo da conseguire un failover efficiente senza perdita di dati.
+- Un servizio di streaming live che consenta di effettuare le seguenti operazioni:
+- inserire contenuti live usando vari protocolli di streaming live (ad esempio RTMP o Smooth Streaming),
+- codificare il flusso in flusso a velocità in bit adattiva,
+- visualizzare in anteprima il flusso live,
+- archiviare il contenuto inserito in modo che possa essere riprodotto in streaming in un secondo tempo (video on demand)
+- usare protocolli di streaming comuni (ad esempio, MPEG DASH, Smooth, HLS, HDS) per trasmettere i contenuti direttamente ai clienti o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per una successiva ridistribuzione.
+
+
 **Servizi multimediali di Microsoft Azure** (AMS) offre la possibilità di inserire, visualizzare in anteprima, archiviare e fornire il contenuto in streaming live.
 
 Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per garantire la qualità e le condizioni di rete, usare codificatori live per codificare il flusso video a più velocità in bit (velocità in bit adattiva). Per garantire la trasmissione a diversi tipi di dispositivi, usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. Servizi multimediali supporta operazioni di trasmissione nelle seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
@@ -170,7 +170,7 @@ Un **Canale** rappresenta una pipeline per l'elaborazione di contenuto in stream
 
 - Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
-	La codifica di un flusso live con Servizi multimediali è in **anteprima**.
+La codifica di un flusso live con Servizi multimediali è in **anteprima**.
 - Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Il codificatore live può inoltre inviare un flusso a velocità in bit singola a un canale non abilitato per la codifica live, ma questa operazione è sconsigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 
@@ -191,7 +191,7 @@ Il seguente diagramma mostra i componenti principali della piattaforma AMS inter
 
 ![Flusso di lavoro live][live-overview2]
 
-Per altre informazioni, vedere [Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
+Per altre informazioni, vedere [Uso di canali che ricevono il flusso live a più bitrate da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Utilizzo di contenuto
 
@@ -227,7 +227,7 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 - Per la protezione del contenuto, è garantita l'evasione delle richieste di chiavi per almeno il 99,9% del tempo.
 - Per l'indicizzatore, è garantito che verranno soddisfatte le richieste di attività dell'indicizzatore elaborate con un'unità riservata di codifica per il 99,9% del tempo.
 
-	Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
+Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -236,4 +236,4 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

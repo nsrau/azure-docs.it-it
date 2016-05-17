@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/14/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 
@@ -157,4 +157,4 @@ Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure]
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

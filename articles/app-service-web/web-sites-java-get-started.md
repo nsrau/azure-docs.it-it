@@ -167,9 +167,12 @@ A questo punto è disponibile un server applicazioni Java in esecuzione nell'app
 
 Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la pagina [Java Developer Center](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-- IMG List -->
+
+<!---HONumber=AcomDC_0511_2016-->

@@ -64,7 +64,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 |**China Telecom Global** | Supportato | Non supportato | Hong Kong |
 |**Cologix** | Supportato | Presto disponibile | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Dublino, Londra |
-| **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
+| **Comcast** | Supportato | Supportato | Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supportato | Supportato | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** | Supportato | Supportato | Amsterdam |
@@ -157,4 +157,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

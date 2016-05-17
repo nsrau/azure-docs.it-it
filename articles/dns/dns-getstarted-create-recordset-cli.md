@@ -13,112 +13,57 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-
-# Creare record DNS utilizzando CLI
+# Creare set di record e record DNS con l'interfaccia della riga di comando
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 
-Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
+Questo articolo illustra la creazione di record e set di record con l'interfaccia della riga di comando. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A questo scopo, occorre comprendere prima di tutto i record e i set di record DNS.
 
-## Informazioni sui set di record e sui record
-Ogni record DNS ha un nome e un tipo.
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-Un nome _completo_ include il nome della zona, mentre un nome _relativo_ non lo include. Ad esempio, il nome del record relativo "www" nella zona "contoso.com" genera il nome di record completo "www.contoso.com".
+## Creare un nuovo set di record e un record
 
->[AZURE.NOTE] Nel servizio DNS di Azure, i record vengono specificati usando nomi relativi.
+Questa sezione mostra come creare record e un set di record. In questo esempio si creerà un set di record con il nome relativo *www* nella zona DNS *contoso.com*. Il nome completo dei record sarà *www.contoso.com*. Il tipo di record è *A* e il valore TTL è 60 secondi. Con il completamento di questo passaggio è stato creato un set di record vuoto.
 
-I record possono essere di tipi diversi in base ai dati in essi contenuti. Il tipo più comune è un record "A", che associa un nome a un indirizzo IPv4. Un altro tipo è un record "MX", che associa un nome a un server di posta elettronica.
+Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
 
-DNS di Azure supporta tutti i tipi di record DNS comuni: A, AAAA, CNAME, MX, NS, SOA, SRV e TXT. Si noti che i [record SPF devono essere creati mediante il tipo di record TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
+### 1\. Creare un set di record
 
-In alcuni casi, è necessario creare più record DNS con un determinato nome e tipo. Si supponga, ad esempio, che il sito Web www.contoso.com sia ospitato in due diversi indirizzi IP. Questa operazione richiede due diversi record A, uno per ogni indirizzo IP:
-
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
-
-Questo è un esempio di un set di record. Un set di record è la raccolta di record DNS con lo stesso nome e tipo in una zona. La maggior parte dei set di record contiene un singolo record, ma non sono rari esempi come quello precedente, in cui un set di record contiene più di un record (i set di record di tipo SOA e CNAME sono un'eccezione: gli standard DNS non consentono più record con lo stesso nome per questi tipi).
-
-La durata Time-to-Live o TTL specifica per quanto tempo ogni record viene memorizzato nella cache da parte dei client prima che venga eseguita nuovamente la query. Nell'esempio precedente, il valore TTL è 3600 secondi o 1 ora. Il valore TTL viene specificato per il set di record, non per ogni record, quindi lo stesso valore viene usato per tutti i record all'interno di tale set di record.
-
->[AZURE.NOTE] DNS di Azure gestisce i record DNS usando il set di record.
-
-
-
-## Creare set di record e record 
-
-Nell'esempio seguente verrà illustrato come creare un set di record e i record. Verrà usato il tipo di record "A" DNS; per altri tipi di record, vedere [Come gestire i record DNS](dns-operations-recordsets-cli.md)
-
-
-### Passaggio 1
-
-Creare set di record:
-
-	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+Per creare un set di record, usare `azure network dns record-set create`. Specificare il gruppo di risorse, il nome della zona, il nome relativo del set di record, il tipo di record e la durata (TTL). Se il parametro --ttl non è definito, viene impostato il valore predefinito 4 (in secondi). Con il completamento di questo passaggio si avrà un set di record vuoto "www".
+	
+*Utilizzo: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-Il set di record ha il nome relativo "www" nella zona DNS "contoso.com" in modo che il nome completo dei record sarà "www.contoso.com". Il tipo di record è "A" e il valore TTL è 60 secondi.
+### 2\. Aggiungere record
 
->[AZURE.NOTE] Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
+Per poter usare il set di record *www* appena creato, è necessario aggiungervi record. I record vengono aggiunti al set di record utilizzando il `azure network dns record-set add-record`.
 
-Il set di record è vuoto ed è necessario aggiungere record per poter usare il set di record "www" appena creato.<BR>
+I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Ad esempio, quando si usa un set di record di tipo *A*, si possono specificare record solo con il parametro `-a <IPv4 address>`.
 
-### Passaggio 2
+È possibile aggiungere record IPv4 *A* al set di record *www* con il comando seguente:
 
-Aggiungere record IPv4 A al set di record "www" con il comando seguente:
-
-	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+*Utilizzo: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
-	
 
-Le modifiche sono state completate. È possibile recuperare il set di record dal servizio DNS di Azure usando "azure network dns-record-set show":
+## Altri esempi di tipi di record
 
+Gli esempi seguenti illustrano come creare un set di record per ogni tipo di record, ognuno contenente un singolo record.
 
-	azure network dns record-set show myresourcegroup "contoso.com" www A
-	
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "www"
-	data:    Id                              : /subscriptions/########################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
-	data:    Location                        : global
-	data:    TTL                             : 300
-	data:    A records:
-	data:        IPv4 address                : 134.170.185.46
-	data:
-	info:    network dns record-set show command OK
-
-
-È anche possibile usare nslookup o altri strumenti DNS per eseguire una query sul nuovo set di record.
-
->[AZURE.NOTE] Come durante la creazione della zona, se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita l'indirizzo del server dei nomi per la propria zona.
-
-
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
-
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
-
-	Name:    www.contoso.com
-	Addresses:  134.170.185.46
-    	        
-
-
+[AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
 ## Passaggi successivi
-[Come gestire le zone DNS](dns-operations-dnszones-cli.md)
 
-[Come gestire i record DNS](dns-operations-recordsets-cli.md)<BR>
+Per gestire i set di record e i record, vedere [Come creare e gestire record e set di record DNS con il portale di Azure](dns-operations-recordsets-portal.md).
 
-[Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
- 
+Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

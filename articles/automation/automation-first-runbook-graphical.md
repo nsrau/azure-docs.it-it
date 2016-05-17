@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="runbook, modello di runbook, automazione runbook, runbook di Azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook grafico
@@ -60,7 +60,7 @@ Il controllo Libreria sul lato sinistro dell'editor consente di selezionare le a
 
 Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzione, occorre testarlo per verificare che funzioni correttamente. Quando si testa un runbook, è necessario eseguire la versione **Bozza** e visualizzarne l'output in modo interattivo.
 
-1.	Fare clic su **Riquadro di test** per aprire il pannello Test. <br> ![Riquadro Test](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
+1.	Fare clic su **Riquadro di test** per aprire il pannello Test.<br> ![Riquadro Test](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
 2.	Fare clic su **Avvia** per avviare il test. Questa deve essere l'unica opzione abilitata.
 3.	Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro. Lo stato del processo verrà avviato come *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
 4.	Al termine del processo del runbook, viene visualizzato l'output. In questo caso, dovrebbe essere visualizzato *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
@@ -209,4 +209,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 -	Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
 -	Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/14/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 
@@ -131,15 +131,17 @@ Nel [portale di Azure classico](https://manage.windowsazure.com) passare a **Ges
 3. Per copiare una chiave di accesso alle risorse di archiviazione, selezionare il testo della chiave. Fare quindi clic con il pulsante destro del mouse e scegliere **Copy**.
 
 ### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
-È consigliabile modificare le chiavi di accesso all'account di archiviazione periodicamente per garantire la sicurezza delle connessioni alle risorse di archiviazione. Vengono assegnate due chiavi di accesso in modo da mantenere le connessioni all'account di archiviazione mediante una chiave di accesso mentre si rigenera l'altra.
+Si consiglia di modificare periodicamente le chiavi di accesso all'account di archiviazione per mantenere le connessioni dell'archiviazione sicure. Vengono assegnate due chiavi di accesso in modo da mantenere le connessioni all'account di archiviazione mediante una chiave di accesso mentre si rigenera l'altra.
 
-> [AZURE.WARNING] La rigenerazione delle chiavi di accesso influisce sulle macchine virtuali, sui servizi multimediali e sulle applicazioni che dipendono dall'account di archiviazione. È necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account di archiviazione per l'uso della nuova chiave.
+> [AZURE.WARNING] La rigenerazione delle chiavi di accesso può influire sui servizi in Azure e sulle applicazioni che dipendono dall'account di archiviazione. È necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account di archiviazione per l'uso della nuova chiave.
 
-**Macchine virtuali** - Se l'account di archiviazione contiene macchine virtuali in esecuzione, sarà necessario ridistribuire tutte le macchine virtuali dopo aver rigenerato le chiavi di accesso. Per evitare la ridistribuzione, arrestare le macchine virtuali prima di rigenerare le chiavi di accesso.
+**Servizi multimediali**: se si dispone di servizi multimediali dipendenti dall'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il proprio servizio multimediale dopo la rigenerazione delle chiavi.
 
-**Servizi multimediali**: se sono presenti servizi multimediali che dipendono dall'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il servizio multimediale dopo aver rigenerato le chiavi.
+**Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, le connessioni andranno perse se si rigenerano le chiavi, a meno che non venga eseguito il rollover delle chiavi.
 
-**Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, se si rigenerano le chiavi le connessioni andranno perse, a meno che non venga eseguito il rollover delle chiavi. Di seguito è riportato il processo:
+**Strumenti di esplorazione di archiviazione**: se si usano [strumenti di esplorazione di archiviazione](storage-explorers.md), sarà probabilmente necessario aggiornare la chiave di archiviazione usata da tali applicazioni.
+
+Di seguito è riportato il processo per la rotazione delle chiavi di accesso alle risorse di archiviazione:
 
 1. Aggiornare le stringhe di connessione nel codice dell'applicazione in modo che facciano riferimento alla chiave di accesso secondaria dell'account di archiviazione.
 
@@ -173,4 +175,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

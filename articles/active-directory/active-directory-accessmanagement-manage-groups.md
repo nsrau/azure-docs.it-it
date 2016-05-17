@@ -1,7 +1,7 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -22,7 +22,7 @@
 
 Una delle principali funzionalità di Azure Active Directory (Azure AD) è la possibilità di gestire l'accesso alle risorse. Queste risorse possono essere oggetti nella directory o risorse che sono esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure, i siti di SharePoint o risorse locali. Il proprietario di una risorsa può anche assegnare a un gruppo di Azure AD l'accesso a una risorsa, concedendo così ai membri di tale gruppo l'accesso alla risorsa. Il proprietario del gruppo gestisce quindi l'appartenenza al gruppo. Di fatto, il proprietario della risorsa delega al proprietario del gruppo l'autorizzazione ad assegnare gli utenti alla risorsa.
 
-## Come creare un gruppo di sicurezza?
+## Come si crea un gruppo?
 
 **Per creare un gruppo**
 
@@ -102,4 +102,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

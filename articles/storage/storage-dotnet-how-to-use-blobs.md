@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'archivio BLOB di Azure con .NET | Microsoft Azure"
-	description="Archiviare i dati dei file nel cloud con l'archivio BLOB (archivio di oggetti) di Azure. Introduzione a semplici operazioni dell'archivio BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
+	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -380,7 +380,7 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 
 ### Guide concettuali
 
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md)
 - [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -395,4 +395,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

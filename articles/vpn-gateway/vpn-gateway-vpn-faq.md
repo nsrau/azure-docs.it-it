@@ -250,6 +250,12 @@ Per il traffico tra diverse reti virtuali di Azure, in Azure viene addebitato un
 
 Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](../expressroute/expressroute-howto-coexist-classic.md).
 
+## BGP
+
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+
+
+
 ## Connettività cross-premise e macchine virtuali
 
 ### Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
@@ -273,4 +279,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->
