@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/10/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: procedura dettagliata
@@ -27,49 +27,49 @@ In questa procedura dettagliata viene descritto come utilizzare Azure AD B2B Col
 
 Dopo aver inviato gli inviti agli utenti dell’azienda partner, è possibile configurarli in Azure AD per garantire l'accesso alle app e l'appartenenza ai gruppi tramite il portale di Azure. Si inizia aggiungendo Alice.
 
-## Si aggiunge Alice alla directory di Contoso
-1. Creare un file .cvs con le intestazioni come illustrato, compilando solo le voci che indicano l’**Email**, il **DisplayName**, e **InviteContactUsUrl** di Alice. **DisplayName** è il nome che verrà visualizzato nell'invito, nonché il nome che verrà visualizzato nella directory di Azure AD di Contoso. **InviteContactUsUrl** è un modo che ha Alice di contattare Contoso. Nell'esempio seguente viene specificato il profilo di LinkedIn di Contoso. È importante che le etichette nella prima riga del file CSV siano nello stesso ordine e digitate esattamente come mostrato. Vedere di seguito la sezione formato CSV. ![File CSV di esempio per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
+## Aggiunta di Alice alla directory Contoso
+1. Creare un file .cvs con le intestazioni come illustrato, compilando solo le voci che indicano l’**Email**, il **DisplayName**, e **InviteContactUsUrl** di Alice. **DisplayName** è il nome che viene visualizzato nell'invito, nonché il nome che viene visualizzato nella directory di Azure AD Contoso. **InviteContactUsUrl** è un modo che ha Alice di contattare Contoso. Nell'esempio seguente InviteContactUsUrl specifica il profilo LinkedIn di Contoso. È importante scrivere le etichette nella prima riga del file CSV esattamente come specificato nella [guida di riferimento sul formato di file CSV](active-directory-b2b-references-csv-file-format.md). ![File CSV di esempio per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
-2. Nel portale di Azure, aggiungere un utente alla directory di Contoso (Active Directory > Contoso > Utenti > Aggiungi utente). Nell’elenco a discesa "Tipo di utente", selezionare "Utenti nelle aziende partner". Caricare il file con estensione .csv. Assicurarsi che il file con estensione .csv venga chiuso prima di caricarlo. ![Carica file CSV per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
+2. Nel portale di Azure, aggiungere un utente alla directory di Contoso (Active Directory > Contoso > Utenti > Aggiungi utente). Nell’elenco a discesa "Tipo di utente", selezionare "Utenti nelle aziende partner". Caricare il file con estensione .csv. Verificare che il file con estensione csv venga chiuso prima di caricarlo. ![Carica file CSV per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
-3. Alice viene ora rappresentata come un utente esterno nella directory di Azure AD di Contoso. ![Alice è nell’elenco di Azure AD](./media/active-directory-b2b-detailed-walkthrough/AliceInAD.png)
+3. Alice viene ora rappresentata come un utente esterno nella directory di Azure AD Contoso. ![Alice è nell’elenco di Azure AD](./media/active-directory-b2b-detailed-walkthrough/AliceInAD.png)
 
-4. Dal punto di vista di Alice, quest’ultima riceverà il seguente messaggio di posta elettronica. ![Email di invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
+4. Alice riceve il messaggio di posta elettronica seguente. ![Email di invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice fa clic sul link e le viene richiesto di accettare l'invito e di accedere usando le credenziali di lavoro. Se Alice non è presente nella directory di Azure AD, dovrà effettuare l'iscrizione. ![Iscrizione su invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Alice fa clic sul link e le viene richiesto di accettare l'invito e di accedere utilizzando le credenziali di lavoro. Se Alice non è presente nella directory di Azure AD, deve effettuare l'iscrizione. ![Iscrizione su invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice viene reindirizzata al pannello di accesso dell’App, che resta vuoto fino a quando all'utente viene concesso l'accesso alle app. ![Pannello di accesso per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
-Questa è la forma più semplice di collaborazione B2B. In qualità di utente nella directory di Microsoft Azure di Contoso, ad Alice può essere concesso l'accesso alle applicazioni e ai gruppi tramite il portale di Azure. Ora aggiungiamo Bob, che deve accedere alle applicazioni Moodle e Salesforce.
+Questa procedura consente la forma più semplice di collaborazione B2B. In qualità di utente nella directory di Azure AD Contoso, ad Alice può essere concesso l'accesso alle applicazioni e ai gruppi con il portale di Azure. Ora aggiungiamo Bob, che deve accedere alle applicazioni Moodle e Salesforce.
 
-## Aggiungere Bob alla directory di Contoso e concedergli l'accesso alle app
+## Aggiunta di Bob alla directory Contoso e concessione dell'accesso alle app
 1. Utilizzare Windows PowerShell con il modulo di Azure AD installato per trovare le ID dell’applicazione di Moodle e Salesforce. Gli ID possono essere recuperati tramite il cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` Verrà visualizzato un elenco di tutte le applicazioni disponibili in Contoso e nei relativi AppPrincialIds. ![Recuperare le ID per Bob](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)
 
-2. Creare file con estensione .csv, compilare con l’email, il DisplayName, l’**InviteAppID**, l’**InviteAppResources**, e l’InviteContactUsUrl di Bob. **InviteAppResources** è popolato con AppPrincipalIds di Moodle e Salesforce da PowerShell, separati da uno spazio. Questo viene evidenziato dalle ID cerchiate di verde e di blu che corrispondono alla schermata precedente di PowerShell. **InviteAppId** è popolato dallo stesso AppPrincipalId di Moodle per personalizzare il messaggio di posta elettronica e accedere alle pagine. ![File CSV di esempio per Bob](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
+2. Creare un file con estensione csv contenente Email e DisplayName, **InviteAppID**, **InviteAppResources** e InviteContactUsUrl di Bob. Popolare **InviteAppResources** con AppPrincipalId di Moodle e Salesforce da PowerShell, separati da uno spazio. Popolare **InviteAppId** con lo stesso AppPrincipalId di Moodle per personalizzare il messaggio di posta elettronica e le pagine di accesso con un logo Moodle. ![File CSV di esempio per Bob](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
 
-3. Caricare il file con estensione .csv tramite il portale di Azure esattamente come è stato fatto per Alice. Bob viene ora un utente esterno nella directory di Azure AD di Contoso.
+3. Caricare il file con estensione .csv tramite il portale di Azure esattamente come è stato fatto per Alice. Bob è ora un utente esterno nella directory di Azure AD Contoso.
 
-4. Bob riceverà il seguente messaggio di posta elettronica. ![Email di invito per Bob](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
+4. Bob riceve il messaggio di posta elettronica seguente. ![Email di invito per Bob](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
 
 5. Bob fa clic sul collegamento e gli viene richiesto di accettare l'invito. Dopo aver effettuato l’accesso, viene indirizzato al pannello di accesso e può già utilizzare Moodle e Salesforce. ![Pannello di accesso per Bob](./media/active-directory-b2b-detailed-walkthrough/BobAccessPanel.png)
 
-Si aggiungerà poi Carol, che deve accedere alle applicazioni e ha anche bisogno dell’appartenenza ai gruppi nella directory di Contoso.
+Si aggiungerà poi Carol, che deve accedere alle applicazioni e ha anche bisogno dell'appartenenza ai gruppi nella directory Contoso.
 
-## Aggiungere Carol alla directory di Contoso, garantirle l'accesso alle applicazioni e assegnarle l'appartenenza al gruppo
+## Aggiunta di Carol alla directory Contoso, concessione dell'accesso alle app e assegnazione dell'appartenenza ai gruppi
 
 1. Utilizzare Windows PowerShell con il modulo di Azure AD installato per trovare le ID dell’applicazione e le ID del gruppo all’interno di Contoso.
  - Recuperare AppPrincipalId mediante il cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`, così come è avvenuto con Bob.
- - Recuperare ObjectId per gruppi utilizzando il cmdlet `Get-MsolGroup | fl DisplayName, ObjectId` per visualizzare un elenco di tutti i gruppi in Contoso e i relativi ObjectIds. Le ID del gruppo possono essere recuperate anche come ID oggetto, nella scheda delle proprietà del gruppo nel portale di Azure. ![Recuperare le ID e i gruppi per Carol](./media/active-directory-b2b-detailed-walkthrough/CarolPowerShell.png)
+ - Recuperare ObjectId per i gruppi usando il cmdlet `Get-MsolGroup | fl DisplayName, ObjectId` per poter visualizzare un elenco di tutti i gruppi in Contoso e i relativi ObjectId. Le ID del gruppo possono essere recuperate anche come ID oggetto, nella scheda delle proprietà del gruppo nel portale di Azure. ![Recuperare le ID e i gruppi per Carol](./media/active-directory-b2b-detailed-walkthrough/CarolPowerShell.png)
 
 2. Creare file con estensione .csv, compilare con l’email, il DisplayName, l’InviteAppID, l’InviteAppResources, l’**InviteGroupResources**e l’InviteContactUsUrl di Carol. **InviteGroupResources** è popolato da ObjectID dei gruppi MyGroup1 ed Externals, separati da uno spazio. ![File CSV di esempio per Carol](./media/active-directory-b2b-detailed-walkthrough/CarolCSV.png)
 
 3. Caricare il file con estensione .csv tramite il portale di Azure.
 
-4. Carol è un utente nella directory di Contoso ed è anche un membro dei gruppi MyGroup1 e Externals, come illustrato nel portale di Azure. ![Carol è nell’elenco di un gruppo in Azure AD](./media/active-directory-b2b-detailed-walkthrough/CarolGroup.png)
+4. Carol è un utente nella directory Contoso ed è anche un membro dei gruppi MyGroup1 e Externals, come si può osservare nel portale di Azure. ![Carol è nell’elenco di un gruppo in Azure AD](./media/active-directory-b2b-detailed-walkthrough/CarolGroup.png)
 
-5. Carol riceverà un messaggio di posta elettronica contenente un collegamento per accettare l'invito. Dopo aver effettuato l’accesso, verrà reindirizzata al pannello di accesso App per accedere a Moodle e Salesforce.
+5. Carol riceve un messaggio di posta elettronica contenente un collegamento per accettare l'invito. Dopo avere effettuato l'accesso, viene reindirizzata al pannello di accesso app per accedere a Moodle e Salesforce.
 
-Questo è tutto ciò che bisogna fare per aggiungere utenti da aziende partner in AD B2B Azure Collaboration. Questa procedura dettagliata illustrata l'aggiunta di Alice, Bob e Carol in tre file .cvs distinti, ma possono in realtà essere aggiunti insieme in un unico file .cvs per motivi di praticità. ![File CSV di esempio per Alice, Bob e Carol](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
+Questo è tutto ciò che bisogna fare per aggiungere utenti da aziende partner in AD B2B Azure Collaboration. Questa procedura dettagliata ha illustrato come aggiungere gli utenti Alice, Bob e Carol alla directory Contoso usando tre file CSV distinti. Per semplificare questo processo, è possibile concentrare i file CSV separati in un unico file. ![File CSV di esempio per Alice, Bob e Carol](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
 
 ## Articoli correlati
 Vedere gli altri articoli su Azure AD B2B Collaboration.
@@ -82,4 +82,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

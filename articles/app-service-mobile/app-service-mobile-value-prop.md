@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="adrianha"/>
+	ms.author="krisagh"/>
 
 # <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili
 
@@ -100,6 +100,6 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere il [per
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
-[percorso di formazione]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[percorso di formazione]: https://azure.microsoft.com/it-IT/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

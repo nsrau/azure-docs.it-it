@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="nome entità servizio, setspn, autenticazione di Azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte"/>
 
 # Autenticare runbook con account RunAs di Azure
@@ -25,7 +25,7 @@ Con un'entità servizio è possibile:
 * Automatizzare l'uso di runbook globali configurati negli avvisi di Azure.
 
 
->[AZURE.NOTE] La [funzionalità di integrazione degli avvisi](../azure-portal/insights-receive-alert-notifications.md) di Azure con i runbook globali di automazione richiede un account di automazione configurato con un'entità servizio. È possibile selezionare un account di automazione in cui è già definito un utente dell'entità servizio o scegliere di crearne uno nuovo.
+>[AZURE.NOTE] La [funzionalità di integrazione degli avvisi](../azure-portal/insights-receive-alert-notifications.md) di Azure con i runbook globali di Automazione richiede un account di Automazione configurato con un'entità servizio. È possibile selezionare un account di automazione in cui è già definito un utente dell'entità servizio o scegliere di crearne uno nuovo.
 
 
 
@@ -39,21 +39,21 @@ La procedura descritta in questa sezione permette di creare un nuovo account di 
 1. Accedere al portale di Azure come amministratore del servizio per la sottoscrizione di Azure da gestire.
 2. Selezionare **Account di automazione**.
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br>![Aggiungi account di Automazione](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
-4. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di automazione.
+4. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di Automazione.
 5. Se si hanno più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
 6. Assicurarsi che sia selezionato il valore **Sì** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
 
     ![Aggiungi account di Automazione, avviso](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] Se si sceglie di non creare l'account RunAs selezionando **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**. Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente all'interno del servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione. Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
+    >[AZURE.NOTE] Se si sceglie di non creare l'account RunAs selezionando **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**. Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente nel servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione. Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
 
     ![Aggiungi account di Automazione, avviso](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
     >[AZURE.NOTE] Se dopo aver selezionato il pulsante **Crea** si riceve un messaggio di errore di autorizzazione negata, l'account non è un membro del ruolo Amministratori della sottoscrizione.
 
-7. Mentre Azure crea l'account di automazione, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+7. Mentre Azure crea l'account di Automazione, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
-Al termine, l'account di automazione viene creato con un asset del certificato denominato **AzureRunAsCertificate** che ha una durata di un anno e un asset della connessione denominato **AzureRunAsConnection**.
+Al termine, l'account di Automazione viene creato con un asset del certificato denominato **AzureRunAsCertificate** che ha una durata di un anno e un asset della connessione denominato **AzureRunAsConnection**.
 
 ## Aggiornare un account di automazione tramite PowerShell
 La procedura seguente aggiorna un account di automazione esistente e crea l'entità servizio tramite PowerShell. Questa procedura è necessaria se è stato creato un account ma si è scelto di non creare l'account RunAs.
@@ -71,8 +71,8 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 Lo script di PowerShell configura quanto segue:
 
 * Un'applicazione Azure AD che verrà autenticata con il certificato autofirmato. Verrà creato un account dell'entità servizio per questa applicazione in Azure AD e a questo account verrà assegnato il ruolo Collaboratore nella sottoscrizione corrente, che può essere cambiato in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere l'articolo [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).  
-* Un asset del certificato di Automazione nell'account di automazione specificato denominato **AzureRunAsCertificate**, che contiene il certificato usato nell'entità servizio.
-* Un asset della connessione di Automazione nell'account di automazione specificato denominato **AzureRunAsConnection**, che contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.  
+* Un asset del certificato di Automazione nell'account di Automazione specificato denominato **AzureRunAsCertificate**, che contiene il certificato usato nell'entità servizio.
+* Un asset della connessione di Automazione nell'account di Automazione specificato denominato **AzureRunAsConnection**, che contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.  
 
 
 ### Eseguire lo script di PowerShell
@@ -200,4 +200,4 @@ Il codice qui usato per verificare se il nuovo account è configurato correttame
 - Per altre informazioni sulle entità servizio, vedere [Oggetti applicazione e oggetti entità servizio](../active-directory/active-directory-application-objects.md).
 - Per altre informazioni sul [controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md), vedere il relativo articolo.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

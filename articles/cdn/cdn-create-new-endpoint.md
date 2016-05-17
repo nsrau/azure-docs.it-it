@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="04/26/2016" 
+	 ms.date="05/11/2016" 
 	 ms.author="casoper"/>
 
 # Uso della rete CDN di Azure  
@@ -27,28 +27,9 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 > [AZURE.NOTE] Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
 >
-> I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si desidera usare una combinazione di funzionalità della rete CDN Standard e Premium, è necessario disporre di più profili della rete CDN.
+> I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si vuole usare una combinazione di piani tariffari della rete CDN di Azure, è necessario avere più profili CDN.
 
-
-**Per creare un nuovo profilo di rete CDN**
-
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** in alto a sinistra. Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
-
-    Viene visualizzato il pannello del nuovo profilo di rete CDN.
-
-    ![Nuovo profilo di rete CDN][new-cdn-profile]
-
-2. Inserire un nome per il profilo di rete CDN.
-
-3. Selezionare un **Piano tariffario** oppure usare il valore predefinito.
-
-4. Selezionare o creare un **gruppo di risorse**. Per altre informazioni sui Gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
-
-5. Selezionare la **Sottoscrizione** per questo profilo di rete CDN.
-
-6. Selezionare un **Percorso**. Questo è il percorso di Azure in cui verranno archiviate le informazioni relative al profilo di rete CDN. Non incide sulle posizioni dell’endpoint di rete CDN. Non è necessario che sia lo stesso percorso dell'account di archiviazione.
-
-7. Per creare il nuovo profilo, fare clic sul pulsante **Crea**.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Creare un nuovo endpoint della rete CDN
 
@@ -84,7 +65,9 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 	
 	> [AZURE.NOTE] **Porta dell'origine** interessa solo la porta che usa l'endpoint per recuperare informazioni dall'origine. L'endpoint stesso sarà disponibile solo ai client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.
 	>
-	>L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
+	> Gli endpoint del servizio **Rete CDN di Azure da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco di porte di origine non consentite, vedere l'articolo relativo ai [dettagli sul comportamento della rete CDN di Azure di Akamai](cdn-akamai-behavior-details.md).
+	>
+	> L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
 	> 
 	> - È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
 	> - È necessario usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
@@ -95,9 +78,9 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
     ![Endpoint della rete CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] L'endpoint non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. In genere è disponibile entro 90 minuti, ma in alcuni casi può richiedere più tempo.
+    > [AZURE.IMPORTANT] L'endpoint non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. Per i profili del servizio <b>Rete CDN di Azure da Akamai</b> la propagazione in genere viene completata entro un minuto. Per i profili del servizio <b>Rete CDN di Azure da Verizon</b> la propagazione in genere viene completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.
 	>	 
-	> Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404. Se sono trascorse diverse ore dal momento che è stato creato l'endpoint e si ricevono ancora risposte 404, vedere l'articolo relativo alla [risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md).
+	> Gli utenti che provano a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai POP riceveranno codici di risposta HTTP 404. Se sono trascorse diverse ore da quando è stato creato l'endpoint e si ricevono ancora risposte 404, vedere l'articolo relativo alla [risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md).
 
 
 ##Vedere anche
@@ -107,10 +90,9 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404](cdn-troubleshoot-endpoint.md)
 
-[new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

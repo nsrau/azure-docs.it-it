@@ -27,7 +27,7 @@
 Questa esercitazione illustra come caricare dati in SQL Data Warehouse mediante AzCopy e PolyBase. Al termine, si sarà in grado di:
 
 - Usare AzCopy per copiare dati nell'archivio BLOB di Azure
-- Creare oggetti di database per definire i dati esterni
+- Creare oggetti di database per definire i dati
 - Eseguire una query T-SQL per caricare i dati
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
@@ -253,7 +253,7 @@ Per altre informazioni, vedere [Statistiche][].
 Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
+
 
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
@@ -287,4 +287,4 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

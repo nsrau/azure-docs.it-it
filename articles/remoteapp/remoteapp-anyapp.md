@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
@@ -80,7 +80,7 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 1. Iniziare con la pubblicazione dell'interfaccia della riga di comando (cmd.exe). Nella scheda **Pubblicazione** selezionare **cmd** e quindi fare clic su **Pubblica > Pubblica i programmi usando il percorso**.
 2. Immettere il nome dell'app e il percorso. Per questa esercitazione, usare "Esplora file" come nome e "%SYSTEMDRIVE%\\windows\\explorer.exe" come percorso.
 ![Pubblicare il file cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. È necessario creare un [account di archiviazione](../storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo (può essere presente un solo archivio "accessstorage").
+3. È necessario creare un [account di archiviazione](../storage/storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo. (Per citare in modo scorretto Highlander, può esistere un solo "accessstorage.")
 ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo.
 ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
@@ -103,7 +103,7 @@ Di seguito sono elencati i passaggi che dovrà eseguire l'utente. Innanzitutto c
 
 		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
 
-	Se si imposta il parametro **/persistent** su Sì, l'unità mappata verrà mantenuta tra le sessioni.
+	Se si imposta il parametro **/persistent** su sì, l'unità mappata verrà mantenuta tra le sessioni.
 1. Avviare l'app Esplora file da RemoteApp. Copiare i file di Access che si desidera usare nell'app condivisa nella condivisione file.
 ![Inserimento dei file di Access in una condivisione di Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Infine aprire Access e quindi il database appena condiviso. I dati saranno visualizzati in Access in esecuzione nel cloud.
@@ -117,5 +117,6 @@ A questo punto è possibile usare Access su qualsiasi dispositivo, basta avere i
 Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che usa Office 365](remoteapp-tutorial-o365anywhere.md). In alternativa è possibile creare una [raccolta ibrida](remoteapp-create-hybrid-deployment.md) in grado di accedere alla rete locale.
 
 <!--Image references-->
+ 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/28/2016" 
+	ms.topic="hero-article" 
+	ms.date="05/05/2016" 
 	ms.author="sdanie"/>
 
 # Come creare un'app Web con la cache Redis
@@ -24,7 +24,7 @@ Si apprenderà come:
 
 -	Come creare un'applicazione Web ASP.NET MVC 5 in Visual Studio.
 -	Come accedere ai dati da un database usando Entity Framework.
--	Come ottimizzare complessivamente i dati e ridurre il carico del database mediante l'archiviazione e il recupero dei dati con la cache Redis di Azure.
+-	Come ottimizzare la velocità effettiva dei dati e ridurre il carico del database archiviando e recuperando i dati con la cache Redis di Azure.
 -	Come usare un set ordinato Redis per recuperare i primi 5 team.
 -	Come effettuare il provisioning delle risorse di Azure per l'applicazione usando un modello Azure Resource Manager.
 -	Come pubblicare l'applicazione in Azure usando Visual Studio.
@@ -229,9 +229,9 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
 ### Configurare le visualizzazioni
 
-1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, quindi la cartella **Condiviso** e infine fare doppio clic su **_Layout.cshtml**.
+1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, quindi la cartella **Condiviso** e infine fare doppio clic su **\_Layout.cshtml**.
 
-    ![_Layout.cshtml][cache-layout-cshtml]
+    ![\_Layout.cshtml][cache-layout-cshtml]
 
 2. Cambiare i contenuti dell'elemento `title` e sostituire `My ASP.NET Application` con `Contoso Team Stats`, come illustrato nell'esempio seguente.
 
@@ -838,4 +838,4 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

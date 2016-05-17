@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
-	description="Create a new lab in DevTest Labs for virtual machines"
+<properties
+	pageTitle="Creare un lab in DevTest Labs | Microsoft Azure"
+	description="Creare un nuovo lab in DevTest Labs per macchine virtuali"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Creare un lab di sviluppo/test di Azure
@@ -27,7 +27,7 @@ Per creare un lab sono necessari gli elementi seguenti:
 
 ## Creare un lab
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Fare clic su **Esplora**.
 
@@ -41,7 +41,7 @@ Per creare un lab sono necessari gli elementi seguenti:
 
     1. Immettere un valore in **Nome lab** per il nuovo lab.
     1. Selezionare la **Sottoscrizione** da associare al lab.
-    1. Selezionare un **Percorso** in cui archiviare il lab.
+    1. Selezionare un **Percorso ** in cui archiviare il lab.
     1. Fare clic su **Crea**.
 
     ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
@@ -50,7 +50,7 @@ Per creare un lab sono necessari gli elementi seguenti:
 
 Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
-- [Proteggere l'accesso a un lab DevTest](devtest-lab-add-devtest-user.md).
+- [Proteggere l'accesso a un lab](devtest-lab-add-devtest-user.md).
 
 - [Definire i criteri del lab](devtest-lab-set-lab-policy.md).
 
@@ -58,6 +58,6 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
 - [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
 
-- [Aggiungere una VM con elementi a un lab DevTest di Azure](devtest-lab-add-vm-with-artifacts.md).
+- [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

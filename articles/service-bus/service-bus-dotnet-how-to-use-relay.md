@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Neg
 
 ## Informazioni sul servizio Inoltro del bus di servizio
 
-Il [servizio *Inoltro* del bus di servizio](service-bus-relay-overview.md) consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. A tale scopo, consente di esporre in modo sicuro nel cloud pubblico i servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
+Il [servizio *Inoltro* del bus di servizio](service-bus-relay-overview.md) consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. A tale scopo, consente di esporre in modo sicuro nel cloud servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale sul cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
 ![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -35,7 +35,7 @@ Questo articolo illustra come usare il servizio Inoltro del bus di servizio per 
 
 ## Creare uno spazio dei nomi del servizio
 
-Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è necessario creare prima di tutto uno spazio dei nomi. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
 Per creare uno spazio dei nomi del servizio:
 
@@ -75,9 +75,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una connessione 
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
-
-Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva.
@@ -265,8 +263,8 @@ Le definizioni dell'endpoint vengono spostate nel file App.config. L'esempio seg
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del bus di servizio, usare i collegamenti seguenti per ottenere altre informazioni.
 
+- [Panoramica della messaggistica inoltrata del bus di servizio](service-bus-relay-overview.md)
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 - Scaricare esempi del bus di servizio da [esempi di Azure][] o vedere la [panoramica degli esempi del bus di servizio][].
 
   [portale di Azure classico]: http://manage.windowsazure.com
@@ -274,4 +272,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [panoramica degli esempi del bus di servizio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

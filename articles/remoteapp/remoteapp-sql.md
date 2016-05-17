@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure con Azure RemoteApp
@@ -50,4 +50,4 @@ Se si è rallentati dall'uso di un'applicazione client ospitata in Azure RemoteA
 - L'app client ospitata in Azure RemoteApp è in condizione di stress. Selezionare un altro piano di fatturazione, ad esempio la fatturazione Premium, per migliorare le prestazioni. Un altro espediente consiste nel monitorare le risorse utilizzate dall'applicazione: durante una sessione attiva eseguire una sequenza di tasti CTRL+ALT+FINE per avviare la schermata della firma di accesso condiviso, selezionare Gestione attività e osservare l'utilizzo delle risorse per l'app.
 - SQL Server è in condizioni di stress o non è ottimizzato. Seguire le indicazioni relative a SQL per la risoluzione dei problemi. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

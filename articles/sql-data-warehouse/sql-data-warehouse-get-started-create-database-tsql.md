@@ -31,7 +31,7 @@ Questo articolo mostra come creare un database di SQL Data Warehouse con Transac
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-- Un server SQL logico versione 12. Per creare SQL Data Warehouse, sarà necessario un sistema SQL Server V12. Se non è presente un sistema SQL Server V12 logico, vedere **Configurare e creare un server** nell'articolo [Come creare un database di SQL Data Warehouse dal portale di Azure][].
+- Un server SQL logico versione 12. Per creare SQL Data Warehouse, sarà necessario un sistema SQL Server V12. Se non è presente un sistema SQL Server V12 logico, vedere la sezione **Configurare e creare un server** nell'articolo relativo alla [creazione di un database SQL Data Warehouse dal portale di Azure][].
 - Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio][].
 
 
@@ -61,7 +61,7 @@ Il parametro MAXSIZE può essere compreso tra 250 GB e 60 TB. L'obiettivo di ser
 Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
 
 <!--Article references-->
-[Come creare un database di SQL Data Warehouse dal portale di Azure]: sql-data-warehouse-get-started-provision.md
+[creazione di un database SQL Data Warehouse dal portale di Azure]: sql-data-warehouse-get-started-provision.md
 [Connessione a SQL Data Warehouse con Visual Studio]: sql-data-warehouse-get-started-connect.md
 [migrazione]: sql-data-warehouse-overview-migrate.md
 [sviluppo]: sql-data-warehouse-overview-develop.md
@@ -76,4 +76,4 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Download di Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

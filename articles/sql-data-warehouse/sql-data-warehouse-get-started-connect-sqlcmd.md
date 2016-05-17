@@ -83,4 +83,4 @@ Ora che è possibile connettersi ed eseguire query, provare a [connettersi con P
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

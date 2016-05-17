@@ -3,8 +3,8 @@
    description="Esercitazione end-to-end sugli scenari e le funzionalità di Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Introduzione ad Azure Data Catalog
 
@@ -184,9 +184,11 @@ In questo esercizio si usa il portale di **Azure Data Catalog** per annotare gli
 
 In questo esercizio sono state aggiunte informazioni descrittive agli asset di dati registrati in modo che gli utenti del catalogo possano individuare l'origine dati usando termini comprensibili.
 
+> [AZURE.NOTE] L'edizione Standard di Data Catalog include un glossario aziendale che consente agli amministratori del catalogo di definire una tassonomia aziendale centrale. Gli utenti del catalogo possono quindi annotare gli asset di dati con i termini di glossario. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md)
+
 ## Esercizio 5: crowdsourcing di metadati
 
-In questo esercizio si collabora con un altro utente per aggiungere i metadati agli asset di dati nel catalogo. L'approccio di crowdsourcing alle annotazioni di **Azure Data Catalog** consente agli utenti di aggiungere tag, descrizioni e altri metadati, in modo che qualsiasi utente con una prospettiva su un asset di dati e sul suo utilizzo possa acquisire tale prospettiva e renderla disponibile agli altri utenti.
+In questo esercizio si collabora con un altro utente per aggiungere i metadati agli asset di dati nel catalogo. L'approccio di crowdsourcing alle annotazioni di **Azure Data Catalog** consente agli utenti di aggiungere tag, descrizioni e altri metadati, in modo che qualsiasi utente con una prospettiva su un asset di dati e sul suo uso possa acquisire tale prospettiva e renderla disponibile agli altri utenti.
 
 > [AZURE.NOTE] Se un altro utente non è disponibile per questa esercitazione, non è un problema. Qualsiasi utente che accede al catalogo dati può aggiungere la propria prospettiva quando sceglie di eseguire questa operazione. Questo approccio crowdsourcing per i metadati consente di incrementare nel tempo il contenuto del catalogo e la quantità di metadati del catalogo.
 
@@ -196,7 +198,7 @@ Chiedere a un collega di ripetere l’esercizio precedente [Annotazione delle or
 
 ![](media/data-catalog-get-started/data-catalog-crowdsource.png)
 
-In questo esercizio sono state analizzate le funzionalità di **Azure Data Catalog** per i metadati di crowdsourcing, in cui qualsiasi utente del catalogo può annotare gli asset di dati individuati.
+In questo esercizio sono state analizzate le funzionalità di **Azure Data Catalog** per i metadati di crowdsourcing, in cui qualsiasi utente del catalogo può annotare gli asset di dati trovati.
 
 ## Esercizio 6: Connessione alle origini dati
 
@@ -219,7 +221,7 @@ In questo esercizio si userà il portale di **Azure Data Catalog** per la connes
 
     ![](media/data-catalog-get-started/data-catalog-connect2.png)
 
-In questo esercizio ci si connetterà alle origini dati individuate tramite **Azure Data Catalog**. Il portale del **Catalogo dati di Azure** consente agli utenti di connettersi direttamente tramite le applicazioni client integrate nel menu **Apri in** e consente agli utenti di connettersi mediante qualsiasi applicazione scelta usando le informazioni sul percorso di connessione incluse nei metadati dell'asset.
+In questo esercizio ci si connetterà alle origini dati trovate usando **Azure Data Catalog**. Il portale del **Catalogo dati di Azure** consente agli utenti di connettersi direttamente tramite le applicazioni client integrate nel menu **Apri in** e consente agli utenti di connettersi mediante qualsiasi applicazione scelta usando le informazioni sul percorso di connessione incluse nei metadati dell'asset.
 
 ## Esercizio 7: rimozione dei metadati dell'origine dati
 
@@ -240,7 +242,7 @@ In questo esercizio sono stati rimossi asset di dati registrati dal catalogo.
 
 ## Esercizio 8: gestione delle origini dati registrate
 
-In questo esercizio si useranno le funzionalità di gestione di **Azure Data Catalog** per assumere la proprietà degli asset di dati e per controllare quali asset possono individuare gli utenti e come possono gestirli.
+In questo esercizio si useranno le funzionalità di gestione di **Azure Data Catalog** per assumere la proprietà degli asset di dati e per controllare quali asset possono trovare gli utenti e come possono gestirli.
 
 > [AZURE.NOTE] Le funzionalità di gestione descritte in questo esercizio sono disponibili solo nell'**Edizione Standard di Azure Data Catalog** e non nell'**Edizione gratuita**. Nel **Catalogo dati di Azure** è possibile assumere la proprietà di asset di dati, aggiungere co-proprietari ad asset di dati e impostare la visibilità degli asset di dati.
 
@@ -260,4 +262,4 @@ In questo esercizio sono state analizzate le funzionalità di gestione di **Azur
 
 In questa esercitazione sono state analizzate le funzionalità di base di **Azure Data Catalog**, compresa la registrazione, l'annotazione, l'individuazione e la gestione di origini dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
