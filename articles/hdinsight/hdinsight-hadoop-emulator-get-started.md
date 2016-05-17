@@ -41,7 +41,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Azure PowerShell**
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="install"></a>Installare HDInsight Emulator
@@ -492,7 +494,7 @@ Di seguito viene riportato un esempio per l'invio di un processo Hadoop:
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Quando si chiama Get-Credential, verrà visualizzato un prompt. È necessario usare **hadoop** come nome utente. Per la password è possibile usare qualsiasi stringa. Il nome del cluster è sempre ****http://localhost:50111**.
+Quando si chiama Get-Credential, verrà visualizzato un prompt. È necessario usare **hadoop** come nome utente. Per la password è possibile usare qualsiasi stringa. Il nome del cluster è sempre **http://localhost:50111**.
 
 Per altre informazioni sull'invio di processi Hadoop, vedere [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md). Per altre informazioni sui cmdlet di Azure PowerShell per HDInsight, vedere [Documentazione di riferimento relativa ai cmdlet di HDInsight][hdinsight-powershell-reference].
 
@@ -506,7 +508,6 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 
 - [Introduzione all'uso di Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Sviluppare programmi MapReduce Java per HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Sviluppare programmi MapReduce di streaming Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Forum MSDN relativo a HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -524,7 +525,6 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -534,4 +534,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

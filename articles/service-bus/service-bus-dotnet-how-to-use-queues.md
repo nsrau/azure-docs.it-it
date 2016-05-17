@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/09/2016"
     ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -28,9 +28,7 @@ Questo articolo illustra come usare le code del bus di servizio. Negli esempi, s
 
 ## Aggiungere il pacchetto NuGet del bus di servizio
 
-Il [pacchetto **NuGet** del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
-
-Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
@@ -48,9 +46,9 @@ Per archiviare endpoint e credenziali, nel bus di servizio viene usata una strin
 
 In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo [CloudConfigurationManager.GetSetting][GetSetting], come illustrato più avanti in questo articolo.
 
-### Configurare la stringa di connessione per l'uso con Servizi cloud
+### Configurare la stringa di connessione
 
-Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (.csdef), come illustrato di seguito.
+Il meccanismo di configurazione dei servizi consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (.csdef), come illustrato di seguito.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -256,4 +254,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

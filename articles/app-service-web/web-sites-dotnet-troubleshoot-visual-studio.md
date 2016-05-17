@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/28/2016" 
 	ms.author="tdykstra"/>
 
 # Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 
 ## Panoramica
 
-Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di sottoporre a debug un'app Web in esecuzione nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), attivando la [modalità debug](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
+Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di sottoporre a debug un'app Web nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) tramite la [modalità debug](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,17 +41,17 @@ Per questa esercitazione si presuppone che siano stati configurati l'ambiente di
 
 Gli esempi di codice illustrati nell'esercitazione sono relativi ad applicazioni Web MVC scritte in C#, ma le procedure di risoluzione dei problemi sono identiche per le applicazioni di Visual Basic e Web Form.
 
-Per il debug remoto è necessario Visual Studio 2013 o Visual Studio 2012 con Update 4. Per il debug remoto e le funzionalità di **Esplora server** per i processi Web è necessario [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) o versione successiva. Le altre funzionalità illustrate nell'esercitazione sono compatibili anche con Visual Studio 2013 Express per il Web e Visual Studio 2012 Express per il Web.
+Per l'esercitazione si presuppone che si stia usando Visual Studio 2015 o Visual Studio 2013. Se si usa Visual Studio 2013, le funzionalità di Processi Web richiedono [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) o versione successiva.
 
 La funzionalità dei log in streaming può essere utilizzata solo per le applicazioni destinate a .NET Framework 4 o versione successiva.
 
 ## <a name="sitemanagement"></a>Gestione e configurazione di app Web
 
-Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazioni di configurazione di app Web disponibili nel [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). In questa sezione verranno esaminate le opzioni disponibili.
+Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazioni di configurazione di app Web disponibili nel [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). In questa sezione verranno esaminate le opzioni disponibili tramite **Esplora server**. Per visualizzare le funzionalità di integrazione di Azure più recenti, provare anche **Cloud Explorer**. È possibile aprire entrambe le finestre dal menu **Visualizza**.
 
 1. Se non è già stato effettuato l'accesso ad Azure in Visual Studio, fare clic sul pulsante **Connetti ad Azure** in **Esplora server**.
 
-	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Gestisci sottoscrizioni di Azure** fare clic sulla scheda **Certificati** e quindi su **Importa**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
+	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci e filtra sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Manage Azure Subscriptions** fare clic sulla scheda **Certificates**, quindi fare clic su **Import**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
 
 	> [AZURE.NOTE]
 	Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
@@ -72,7 +72,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
    
 	Per informazioni sulle finestre di stringhe di connessione e le impostazioni dell'applicazione in questa finestra, vedere l'argomento relativo a [impostazioni dell'applicazione e stringhe di connessione di App Web di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Se si desidera eseguire un'attività di gestione app Web che non può essere completata in questa finestra, fare clic su **Apri in portale di gestione** per aprire una finestra del browser nel portale di Azure classico. Per altre informazioni, vedere [Come configurare app Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Se si vuole eseguire un'attività di gestione di app Web che non può essere completata in questa finestra, fare clic su **Apri in portale di gestione** per aprire una finestra del browser nel portale di Azure.
 
 ## <a name="remoteview"></a>Accedere ai file dell'app Web in Esplora server
 
@@ -149,31 +149,13 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 4. Al termine della distribuzione, quando il browser si apre all'URL Azure dell'app Web, chiudere il browser.
 
-5. Per Visual Studio 2013: in **Esplora server** fare clic con il pulsante destro del mouse sull'app Web, quindi fare clic su **Collega debugger**.
+5. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web, quindi fare clic su **Collega debugger**.
 
 	![Collegamento del debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	Il browser si aprirà automaticamente nella home page con Azure in esecuzione. Può essere necessario attendere circa 20 secondi durante la configurazione del server per il debug. Questo ritardo si verifica alla prima esecuzione in modalità debug in un'app Web. Le volte successive, se si inizia di nuovo il debug entro 48 ore, non si verificherà alcun ritardo.
 
-6. Per Visual Studio 2012 con aggiornamento 4 o successivo:<a id="vs2012"></a>
-
-	* Nel portale di Azure classico passare a **Impostazioni > Impostazioni applicazione** per l'app Web, quindi scorrere in basso fino alla sezione **Debug**.
-
-	* Impostare **Debug remoto** su **On** e impostare **Versione remota di Visual Studio** su **2012**.
-
-	* Nel menu **Debug** di Visual Studio fare clic su **Connetti a processo**.
-
-	* Nella casella **Qualificatore**, immettere l'URL dell'app Web, senza il prefisso `http://`.
-
-	* Selezionare **Mostra i processi di tutti gli utenti**.
-
-	* Quando vengono richieste le credenziali, immettere il nome e la password dell'utente che dispone delle autorizzazioni per distribuire contenuti nell'app Web. Per ottenere queste credenziali, passare alla scheda Dashboard relativa all'app Web nel portale classico e fare clic su **Scaricare il profilo di pubblicazione**. Aprire il file in un editor di testo. Il nome utente e la password si troveranno dopo le prime occorrenze di **userName=** e **userPWD=**.
-
-	* Quando i processi compariranno nella tabella **Processi disponibili**, selezionare **w3wp.exe** e quindi fare clic su **Connetti**.
-
-	* Aprire un browser all'URL dell'app Web.
-
-	Può essere necessario attendere circa 20 secondi durante la configurazione del server per il debug. Questo ritardo si verifica alla prima esecuzione in modalità debug in un'app Web. Le volte successive, se si inizia di nuovo il debug entro 48 ore, non si verificherà alcun ritardo.
+	**Nota:** in caso di problemi di avvio del debugger, provare a eseguire questa operazione con **Cloud Explorer** anziché con **Esplora server**.
 
 6. Scegliere **About** dal menu.
 
@@ -195,7 +177,11 @@ In questa sezione viene illustrato come eseguire il debug remoto utilizzando il 
 
 ## <a name="remotedebugwj"></a> Debug remoto di processi Web
 
-In questa sezione viene illustrato come eseguire il debug remoto con il progetto e l'app Web creati in [Introduzione a Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md). Le funzionalità illustrate in questa sezione sono disponibili solo in Visual Studio 2013 con Update 4 o successivo. Il debug remoto funziona solo con processi Web continui. Processi Web pianificata e su richiesta non supporta il debug.
+In questa sezione viene illustrato come eseguire il debug remoto con il progetto e l'app Web creati in [Introduzione a Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+
+Le funzionalità illustrate in questa sezione sono disponibili solo in Visual Studio 2013 con Update 4 o successivo.
+
+Il debug remoto funziona solo con processi Web continui. Processi Web pianificata e su richiesta non supporta il debug.
 
 1. Aprire il progetto Web creato in [Introduzione a Azure WebJobs SDK][GetStartedWJ].
 
@@ -299,49 +285,36 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
 ### Aggiungere istruzioni di traccia all'applicazione
 
-1. Aprire il file *Controllers\\HomeController.cs* e sostituirne il contenuto con il codice seguente in modo da aggiungere le istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
+1. Aprire *Controllers\\HomeController.cs* e sostituire i metodi `Index`, `About` e `Contact` con il codice riportato di seguito per aggiungere istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
 
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Configuration;
-		using System.Web.Mvc;
-		namespace MyExample.Controllers
+		public ActionResult Index()
 		{
-		    public class HomeController : Controller
-		    {
-		        public ActionResult Index()
-		        {
-		            Trace.WriteLine("Entering Index method");
-		            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-		            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Index method");
-		            return View();
-		        }
-		
-		        public ActionResult About()
-		        {
-		            Trace.WriteLine("Entering About method");
-		            ViewBag.Message = "Your app description page.";
-		            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-		            Trace.WriteLine("Leaving About method");
-		            return View();
-		        }
-		
-		        public ActionResult Contact()
-		        {
-		            Trace.WriteLine("Entering Contact method");
-		            ViewBag.Message = "Your contact page.";
-		            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Contact method");
-		            return View();
-		        }
-		    }
+		    Trace.WriteLine("Entering Index method");
+		    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+		    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Index method");
+		    return View();
 		}
 		
+		public ActionResult About()
+		{
+		    Trace.WriteLine("Entering About method");
+		    ViewBag.Message = "Your app description page.";
+		    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+		    Trace.WriteLine("Leaving About method");
+		    return View();
+		}
+		
+		public ActionResult Contact()
+		{
+		    Trace.WriteLine("Entering Contact method");
+		    ViewBag.Message = "Your contact page.";
+		    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Contact method");
+		    return View();
+		}		
+
+2. Aggiungere un'istruzione `using System.Diagnostics;` nella parte iniziale del file.
 				
 ### Visualizzare l'output di traccia in locale
 
@@ -476,9 +449,9 @@ I log del server Web registrano tutta l'attività HTTP che si verifica nell'app 
 	![Log del server Web nella finestra Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-Per impostazione predefinita, quando vengono abilitati per la prima volta tramite Visual Studio, i log vengono scritti nel file system. In alternativa, è possibile utilizzare il portale classico per specificare che devono essere scritti in un contenitore di BLOB in un account di archiviazione. Per ulteriori informazioni, vedere la sezione relativa alla **diagnostica del sito** in [Come configurare i siti Web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+Per impostazione predefinita, quando vengono abilitati per la prima volta tramite Visual Studio, i log vengono scritti nel file system. In alternativa, è possibile usare il portale di Azure per specificare che i log del server Web devono essere scritti in un contenitore BLOB in un account di archiviazione.
 
-Se si utilizza il portale classico per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
+Se si usa il portale per abilitare la registrazione del server Web in un account di archiviazione di Azure e quindi si disabilita la registrazione in Visual Studio, quando si riabilita la registrazione in Visual Studio le impostazioni dell'account di archiviazione verranno ripristinate.
 
 ## <a name="detailederrorlogs"></a>Visualizzare i log dei messaggi di errore dettagliati
 
@@ -639,7 +612,7 @@ Nelle app Web di Azure viene utilizzata la stessa funzionalità di traccia delle
 
 2. In Visual Studio, nella scheda **Configurazione** della finestra **App Web di Azure** fare clic su **Apri nel portale di gestione**.
 
-3. Nel pannello del portale di Azure (https://portal.azure.com) per l'app Web, fare clic su **Impostazioni > Credenziali distribuzione**, quindi immettere un nuovo nome utente e una password.
+3. Nel pannello **Impostazioni** del [portale di Azure](https://portal.azure.com) per l'app Web fare clic su **Credenziali per la distribuzione** e quindi immettere un nuovo nome utente e una nuova password.
 
 	![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -751,15 +724,8 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
 
 Il sito Web Microsoft TechNet include la sezione [Utilizzo della traccia delle richieste non riuscite](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing), che potrebbe risultare utile per informazioni su come usare questi log. Tuttavia, questa documentazione è incentrata principalmente sulla configurazione della traccia delle richieste non riuscite in IIS, che non è possibile eseguire in App Web di Azure.
 
-### Debug di Servizi cloud
-
-Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'app Web, vedere [Debug di servizi cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
-
-## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

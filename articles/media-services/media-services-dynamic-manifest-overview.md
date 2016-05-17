@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Filtri e manifesti dinamici
@@ -87,7 +87,7 @@ URL Smooth Streaming con filtro
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-Per altre informazioni su come distribuire i contenuti e gli URL di streaming di compilazione, vedere [Informazioni generali sulla distribuzione di contenuti](media-services-deliver-content-overview/).
+Per altre informazioni su come distribuire i contenuti e gli URL di streaming di compilazione, vedere [Informazioni generali sulla distribuzione di contenuti](media-services-deliver-content-overview.md).
 
 
 >[AZURE.NOTE]Tenere presente che i manifesti dinamici non modificano l'asset e il relativo manifesto predefinito. È possibile decidere di richiedere un flusso con o senza filtri.
@@ -236,4 +236,4 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

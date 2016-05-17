@@ -14,118 +14,122 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Creare una nuova API Office 365 Outlook in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/connectors-create-api-office365-outlook.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+> [AZURE.IMPORTANT] Questo argomento è archiviato e verrà presto rimosso. Vieni a scoprire le novità di [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Per sapere di più su PowerApps e iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> - Per sapere di più sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Aggiungere l'API Office 365 Outlook all'ambiente del servizio app dell'organizzazione (tenant). 
+<!--Archived
+Add the Office 365 Outlook API to your organization's (tenant) app service environment. 
 
-## Creare l'API nel portale di Azure
+## Create the API in the Azure portal
 
-1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Selezionare **Sfoglia** nella barra delle applicazioni:  
+2. Select **Browse** in the task bar:  
 ![][14]
 
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*:  
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
 
-4. In **Servizi PowerApps** selezionare **Gestione API**:    
-![Sfogliare le API registrate][1]
+4. **PowerApps Services**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API:  
+5. In **Manage APIs**, select **Add** to add the new API:  
 ![Add API][2]
 
-6. Immettere un **nome** descrittivo per l'API.  
+6. Enter a descriptive **name** for your API.  
 	
-7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Office 365 Outlook**:  
-![selezionare l'API di Office 365 Outlook][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Office 365 Outlook**:  
+![select Office 365 Outlook api][3]
 
-8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**:  
-![configurare le impostazioni dell’API di Office 365 Outlook][4]
+8. Select **Settings - Configure required settings**:  
+![configure Office 365 Outlook API settings][4]
 
-9. Immettere il valore *Chiave app* e *Segreto app* dell’applicazione di Office 365 Azure Active Directory (ADD). Se non è disponibile, vedere la sezione "Registrare un'app di ADD per l'utilizzo con PowerApps" in questo argomento per creare i valori chiave e segreto necessari.
+9. Enter the *App Key* and *App Secret* value of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the key and secret values you need. 
  
-	> [AZURE.IMPORTANT] Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Selezionare **OK** per completare i passaggi.
+10. Select **OK** to complete the steps.
 
-Al termine, verrà aggiunta una nuova API di Office 365 Outlook all'ambiente del servizio app.
-
-
-## Facoltativo: registrare un'app di ADD per l'utilizzo con API di PowerApps Office 365
-
-Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizzare i passaggi seguenti per creare l'applicazione e ottenere i valori necessari. 
-
-1. Aprire il [portale di Azure][5].
-
-2. Selezionare **Sfoglia** e quindi selezionare **Active Directory**.  
-
-	>[AZURE.NOTE] Questo consente di aprire Active Directory nel portale di Azure classico.  
-
-3. Selezionare il nome tenant dell'organizzazione:  
-![Avviare Azure Active Directory][6]
-
-4. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**:  
-![Applicazioni tenant ADD][7]
-
-5. In **Aggiungi applicazione**:  
-
-	1. Immettere un **Nome** per l'applicazione.  
-	3. Lasciare il tipo di applicazione come **Web**.  
-	3. Selezionare **Avanti**.  
-
-	![Aggiungere l'applicazione ADD - info app][8]
-
-6. In **Proprietà app**:  
-
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su _https://login.windows.net_.  
-	2. Immettere un valore valido di **URI ID APP** per l'app.  
-	3. Selezionare **OK**.  
-
-	![Aggiungere l'applicazione ADD - proprietà app][9]
-
-7. Al termine, si verrà reindirizzati alla nuova app ADD. Selezionare **Configura**:  
-![App ADD Contoso][10]
-
-8. Impostare l’**URL di risposta** nella sezione _OAuth 2_ sull'URL di reindirizzamento ricevuto quando è stata aggiunta la nuova API di Office 365 Outlook nel portale di Azure (in questo argomento). Quindi selezionare **Aggiungi applicazione**:  
-![Configurare l'applicazione ADD Contoso][11]
-
-9. Nella finestra **Autorizzazioni per altre applicazioni** selezionare **Office 365 Exchange Online** e selezionare **OK**:  
-![Delegato app Contoso][12]
-
-10. Nella pagina di configurazione, notare che _Office 365 Exchange Online_ viene aggiunto all’elenco _Autorizzazioni per altre applicazioni_.
-
-11. Selezionare **Autorizzazioni delegate** per _Office 365 Exchange Online_ e quindi selezionare le autorizzazioni seguenti:  
-
-	- Lettura e scrittura dei contatti dell'utente
-	- Lettura dei contatti dell'utente
-	- Lettura e scrittura dei calendari dell'utente
-	- Lettura dei calendari dell’utente
-	- Invio di messaggi di posta elettronica come utente
-	- Lettura e scrittura della posta dell'utente
-	- Lettura della posta utente
-
-	![Autorizzazioni delegate app Contoso][13]
-
-Viene creata una nuova applicazione Azure Active Directory È possibile utilizzare questa app nella configurazione dell'API di Office 365 Outlook nel portale di Azure. 
-
-Per informazioni utili sulle applicazioni AAD, vedere [Come vengono aggiunte le applicazioni in Azure AD e perché](../active-directory/active-directory-how-applications-are-added.md).
-
-## Vedere le API REST
-
-Informazioni di riferimento sull'[API REST Office 365 Outlook](../connectors/create-api-office365-outlook.md).
+When finished, a new Office 365 Outlook API is added to your app service environment.
 
 
-## Riepilogo e passaggi successivi
-In questo argomento, è stata aggiunta l'API di Office 365 Outlook alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app: 
+## Optional: Register an AAD app for use with PowerApps Office 365 API
 
-[Aggiungere una connessione e fornire agli utenti l'accesso](powerapps-manage-api-connection-user-access.md)
+If you don't have an existing AAD app with the key and secret values, then use the following steps to create the application, and get the values you need. 
+
+1. Open the [Azure Portal][5].
+
+2. Select **Browse** and then select **Active Directory**.  
+
+	>[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][6]
+
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][7]
+
+5. In **Add application**:  
+
+	1. Enter a **Name** for your application.  
+	3. Leave the application type as **Web**.  
+	3. Select **Next**.  
+
+	![Add AAD application - app info][8]
+
+6. In **App Properties**:  
+
+	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
+
+	![Add AAD application - app properties][9]
+
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][10]
+
+8. Set the **Reply URL** under the _OAuth 2_ section to the redirect URL you received when you added the new Office 365 Outlook API in the Azure Portal (in this topic). Then, select **Add application**:  
+![Configure Contoso AAD app][11]
+
+9. In the **Permissions to other applications** window, select **Office 365 Exchange Online**, and select **OK**:  
+![Contoso app delegate][12]
+
+10. Back in the configure page, note that _Office 365 Exchange Online_ is added to the _Permission to other applications_ list.
+
+11. Select **Delegated Permissions** for _Office 365 Exchange Online_, and select the following permissions:  
+
+	- Read and write user contacts
+	- Read user contacts
+	- Read and write user calendars
+	- Read user calendars
+	- Send mail as a user
+	- Read and write user mail
+	- Read user mail
+
+	![Contoso app delegate permissions][13]
+
+A new Azure Active Directory app is created. You can use this app in your Office 365 Outlook API configuration in the Azure portal. 
+
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
+
+## See the REST APIs
+
+[Office 365 Outlook REST API](../connectors/connectors-create-api-office365-outlook.md) reference.
+
+
+## Summary and next steps
+In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-outlook/browse-to-registered-apis.PNG
@@ -144,4 +148,4 @@ In questo argomento, è stata aggiunta l'API di Office 365 Outlook alla PowersAp
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

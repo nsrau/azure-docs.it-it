@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight del database SQL di Azure
@@ -46,10 +46,10 @@ Query Performance Insight è facile da usare:
 
 - Esaminare l'elenco delle query principali a livello di utilizzo delle risorse. 
 - Selezionare una singola query per visualizzarne i dettagli.
-- Fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati o per mostrare un periodo di tempo diverso.
-- Aprire [Index Advisor](sql-database-index-advisor.md) e verificare se sono disponibili indicazioni.
-
-
+- Aprire [Performance Advisor](sql-database-index-advisor.md) e verificare se sono disponibili indicazioni.
+- Eseguire lo zoom avanti per informazioni dettagliate.
+- 
+    ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] Per consentire al database SQL di fornire approfondimenti sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
 
@@ -59,13 +59,13 @@ Query Performance Insight è facile da usare:
 
 Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
-1. Passare a un database SQL e fare clic su **Query Performance Insight**. 
+1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Prestazioni** > **Query**. 
 
     ![Query Performance Insight][1]
 
     Verrà aperta la visualizzazione relativa alle query principali e verrà mostrato l'elenco delle query principali a livello di utilizzo di CPU.
 
-1. Per informazioni dettagliate, fare clic sul grafico.<br>La prima riga mostra la percentuale di utilizzo di DTU complessiva per il database, mentre le barre mostrano la percentuale di CPU utilizzata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ciascuna barra rappresenta un giorno).
+1. Per informazioni dettagliate, fare clic nei vari punti del grafico.<br>La prima riga visualizza la percentuale di uso di DTU complessiva per il database, mentre le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta 1 giorno).
 
     ![query principali][2]
 
@@ -151,18 +151,16 @@ Cancellare l'archivio query. Tenere presente che in questo modo verranno elimina
 
 ## Riepilogo
 
-Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi. Fare clic su **Informazioni dettagliate prestazioni query** nel database per visualizzare le query principali a livello di utilizzo delle risorse (CPU).
+Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi. Fare clic su **Informazioni dettagliate prestazioni query** per un database per visualizzare le query che usano la maggior quantità di risorse (CPU).
 
 
 
 
 ## Passaggi successivi
 
-I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Monitorare le query e continuare a perfezionarle per ottimizzare le prestazioni.
+Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL, vedere [Performance Advisor](sql-database-index-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
 
-Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL, vedere [Index Advisor](sql-database-index-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
-
-![Index Advisor](./media/sql-database-query-performance/ia.png)
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 
 <!--Image references-->
@@ -170,4 +168,4 @@ Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL,
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

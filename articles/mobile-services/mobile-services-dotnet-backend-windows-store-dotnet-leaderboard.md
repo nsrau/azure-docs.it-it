@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="glenga"/>
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
@@ -765,4 +765,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [Aggiungere notifiche push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

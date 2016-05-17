@@ -1,6 +1,6 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+<properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. Accedere al [portale di Azure classico](http://manage.windowsazure.com). Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).  
 
 2. Fare clic su **Nuovo** nella barra dei comandi nella parte inferiore della finestra.
 
@@ -21,7 +21,7 @@
 6. Nella pagina di **configurazione della macchina virtuale** successiva:
 
 	- Usare l'impostazione predefinita **Crea un nuovo servizio cloud**.
-	- Nella casella **Nome DNS**, digitare un nome DNS univoco da usare come parte dell'indirizzo, ad esempio "testlinuxvm".
+	- Nella casella **Nome DNS** digitare un nome DNS univoco da usare come parte dell'indirizzo, ad esempio "testlinuxvm".
 	- Nella casella **Regione/Gruppo di affinità/Rete virtuale** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 	- In **Endpoint** mantenere l'endpoint SSH. A questo punto, è possibile aggiungere altri endpoint oppure aggiungerli, modificarli o eliminarli dopo aver creato la macchina virtuale.
 
@@ -65,4 +65,3 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in un'app di Windows universale
 
-Questo documento è complementare all'articolo [Come integrare Engagement in un'app di Windows universale](../mobile-engagement-windows-store-integrate-engagement/) e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
+Questo documento è complementare all'articolo [Come integrare Engagement in un'app di Windows universale](mobile-engagement-windows-store-integrate-engagement.md) e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
 Tenere presente che, se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `Page` ereditino dalla classe `EngagementPage`.
 
@@ -30,7 +30,7 @@ Anche se il modulo dell'agente non è stato inizializzato, ogni chiamata all'API
 
 ##Concetti relativi a Mobile Engagement
 
-Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Concetti relativi ad Azure Mobile Engagement](../mobile-engagement-concepts/) per la piattaforma Windows universale.
+Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Concetti relativi ad Azure Mobile Engagement](mobile-engagement-concepts.md) per la piattaforma Windows universale.
 
 ### `Session` e `Activity`
 
@@ -368,4 +368,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

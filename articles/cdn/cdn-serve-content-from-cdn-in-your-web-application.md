@@ -3,8 +3,8 @@
 	description="Un'esercitazione che illustra come usare il contenuto da una rete CDN per migliorare le prestazioni dell'applicazione Web." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web #
 
@@ -277,4 +277,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure Ã
 - [Uso della rete CDN di Azure](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

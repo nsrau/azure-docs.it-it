@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="elfisher"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/09/2016"
+   ms.date="04/27/2016"
    ms.author="elfish"/>
 
 # Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL
@@ -64,8 +64,7 @@ La tabella seguente illustra le differenze tra le funzionalità per la continuit
 | --- |--- | --- | ---
 | Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 14 giorni | Qualsiasi punto di ripristino entro 35 giorni
 | Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
-| Replica geografica standard | Non inclusa | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec
-| Replica geografica attiva | Non inclusa | Non inclusa | ERT < 30 sec, RPO < 5 sec
+| Replica geografica attiva | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec
 
 Queste funzionalità consentono di gestire gli scenari elencati in precedenza. Per indicazioni sulla scelta di una funzionalità specifica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md).
 
@@ -80,12 +79,8 @@ La funzionalità di ripristino temporizzato è stata progettata per riportare il
 
 Anche la funzionalità di ripristino geografico è disponibile con i database Basic, Standard e Premium. È l'opzione di ripristino predefinita quando anche il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Analogamente alla funzionalità di ripristino temporizzato, quella di ripristino geografico si basa sui backup di database in Archiviazione di Azure con ridondanza geografica. Esegue il ripristino della copia di backup con replica geografica ed è quindi resiliente alle interruzioni dell'archiviazione nell'area primaria. Per informazioni dettagliate su come usare la funzionalità di ripristino geografico, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md).
 
-###Replica geografica standard
-
-La funzionalità di replica geografica standard è disponibile per i database Standard e Premium. È stata progettata per le applicazioni che possono usare la capacità del livello di servizio Standard ma che hanno requisiti di ripristino più elevati rispetto a quelli supportati dalla funzionalità di ripristino geografico. In caso di errore del database primario, è possibile avviare il failover a un database secondario non leggibile archiviato nell'area abbinata di ripristino di emergenza. Per informazioni dettagliate su come configurare la funzionalità di replica geografica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md). Per informazioni dettagliate su come eseguire il failover al database secondario, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md).
-
 ###Replica geografica attiva
 
-La funzionalità di replica geografica attiva è disponibile per i database Premium. È stata progettata per le applicazioni con un utilizzo notevole della scrittura e con requisiti di ripristino particolarmente elevati. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover a qualsiasi database secondario allo stesso modo della funzionalità di replica geografica standard. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate su come configurare la funzionalità di replica geografica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md). Per informazioni dettagliate su come eseguire il failover al database secondario, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
+La replica geografica attiva è disponibile per tutti i livelli di database. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md) per informazioni su come [configurare la replica geografica](sql-database-geo-replication-portal.md) e il [failover sul database secondario](sql-database-geo-replication-failover-portal.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

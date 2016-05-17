@@ -14,63 +14,77 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Registrare un'API ospitata all'interno dell'ambiente del servizio app
-PowerApps supporta la registrazione delle API esistenti ospitate in un punto qualsiasi nel cloud o locali, funzionalità molto potente. In alcuni scenari, è possibile sviluppare o creare alcune nuove API. Ad esempio, è possibile:
 
-- Implementare alcune nuove funzionalità che l'organizzazione può utilizzare.
-- Basarsi sulle funzionalità o sui dati esistenti per fornire una migliore esperienza agli utenti che creano le proprie app.
+> [AZURE.IMPORTANT] Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> - Per altre informazioni sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> - Per altre informazioni sulle API personalizzate in PowerApps, accedere alla [descrizione delle API personalizzate](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
 
-Quando si ospitano le API nell'ambiente del servizio app, sfruttare tutte le funzionalità esistenti dell’[ambiente del servizio app](../app-service-web/app-service-app-service-environment-intro.md) e ottenere anche una migliore esperienza di integrazione.
+<!--Archived
+PowerApps supports registering existing APIs hosted anywhere in the cloud or on-premises, which is really powerful. In some scenarios, you may want to develop or create some new APIs. For example, you may want to:
 
-Per usare queste API nelle app, è necessario "registrare" le API nel portale di Azure usando un'API gestita o le API esistenti nell'ambiente del servizio app oppure creando un'API con Swagger.
+- Implement some new functionality for your organization to use.
+- Build on top of existing functionality or data to provide a better experience for users building their apps.
+
+When you host your APIs in your app service environment, you leverage all the existing capabilities of the [app service environment](../app-service-web/app-service-app-service-environment-intro.md), and also get a better integration experience.
+
+To use these APIs in your apps, you must "register" the APIs in the Azure portal using a managed API, existing APIs in your app service environment, or creating an API using Swagger. 
 
 > [AZURE.SELECTOR]
-- [API gestite](../articles/power-apps/powerapps-register-from-available-apis.md)
-- [API nell'ambiente del servizio app](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
-- [API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-In questo argomento si esaminerà la seconda opzione, ovvero la **registrazione di un'app Web, un'app per le API e un'app per dispositivi mobili ospitate nell'ambiente del servizio app**.
+In this topic, we focus on the second option - **registering a web app, API app, and mobile app hosted in your app service environment**.
 
-#### Prerequisiti per iniziare
+#### Prerequisites to get started
 
-- Iscrizione a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-- Creare un [ambiente di servizio app](powerapps-get-started-azure-portal.md).
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
 
 
-## Sviluppare e distribuire un'API in un ambiente del servizio app
+## Develop and deploy an API in you app service environment
 
-Lo sviluppo di un'API nell'ambiente del servizio app è semplice. Si sceglie il linguaggio di programmazione preferito per creare un'API Web e quindi si utilizza [Swagger 2.0](http://swagger.io) per descrivere la definizione dell'API. Di seguito sono riportati alcuni esempi:
+Developing an API in the app service environment is straightforward. You choose your favorite programming language to build a web API, and then use [Swagger 2.0](http://swagger.io) to describe the API definition. Some examples include:  
 
-- [Compilare e distribuire un'app .NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-get-started.md)
-- [Compilare e distribuire un'app per le API Java nel servizio app di Azure](../app-service-api/app-service-api-java-api-app.md)
-- [Compilare e distribuire un'app per le API Node.js in Servizio app di Azure](../app-service-api/app-service-api-nodejs-api-app.md)
+- [Build and deploy a .NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Build and deploy a Java API app in Azure App Service](../app-service-api/app-service-api-java-api-app.md)
+- [Build and deploy a Node.js API app in Azure App Service](../app-service-api/app-service-api-nodejs-api-app.md)
 
-Sono inoltre disponibili opzioni per distribuire l'API Web in un ambiente del servizio app, tra cui la distribuzione da Visual Studio e la distribuzione continua mediante un sistema di controllo del codice sorgente. [Distribuire un'app Web nel servizio app di Azure](../app-service-web/web-sites-deploy.md) rappresenta una buona risorsa.
+You also have options to deploy your web API into an app service environment, including deploying from Visual Studio, and deploying continuously using a source control system.  [Deploy a web app in Azure App Service](../app-service-web/web-sites-deploy.md) is a good resource. 
 
-## Registrare l'API personalizzata nell'ambiente del servizio app
+## Register your custom API in the app service environment
 
-Dopo aver distribuito l'API nell'ambiente del servizio app, utilizzare la procedura seguente per registrare:
+After the API is deployed to your app service environment, use the following steps to register:
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**: ![][11]
-2. In Gestisci API, selezionare **Aggiungi**: ![][12]  
-3. In **Aggiungi API**, immettere le proprietà dell'API:  
+1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
+![][11]
+2. In Manage APIs, select **Add**:  
+![][12]  
+3. In **Add API**, enter the API properties:  
 
-	- In **Nome**, immettere un nome per l'API. Tenere presente che il nome immesso viene compreso nell'URL di runtime dell'API. Il nome deve essere significativo e univoco all'interno dell'organizzazione.	
-	- In **Origine** selezionare **Importa le API ospitate nell'ambiente del servizio App**: ![][13]
-4. In **API ospitata nell'ambiente del servizio app** selezionare l'API che si desidera importare. Questo elenco mostra tutte le app Web, le app per le API e le app per dispositivi mobili nell'ambiente del servizio app la cui proprietà **apiDefinition.url** è configurata. Per importare l'API, viene utilizzata la definizione API Swagger 2.0 esposta tramite questa proprietà. Assicurarsi che questo URL sia pubblicamente accessibile quando si registra l'API: ![][14]
-5. Selezionare **AGGIUNGI** per completare questi passaggi.
+	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.	
+	- In **Source**, select **Import from APIs hosted in App Service Environment**:  
+	![][13]
+4. In **API hosted in App Service Environment**, select the API you want to import. This list shows every web app, API app, and mobile app in your app service environment  that has its **apiDefinition.url** property configured. To import the API, it uses the Swagger 2.0 API definition exposed using this property. Make sure this URL is publicly accessible when you register the API:  
+![][14]
+5. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
-## Riepilogo e passaggi successivi
-In questo articolo è stato possibile esaminare come registrare API ospitate nell'ambiente del servizio app. Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correlati seguenti:
+## Summary and next steps
+In this topic, you've seen how to register an APIs hosted in your app service environment. Here are some related topics and resources for learning more about PowerApps: 
 
-- [Configurare le proprietà dell'API](powerapps-configure-apis.md)
-- [Consentire agli utenti di accedere alle API](powerapps-manage-api-connection-user-access.md)
-- [Iniziare a creare le app in PowerApps](https://powerapps.microsoft.com/tutorials/)
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+-->
+
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -78,4 +92,4 @@ In questo articolo è stato possibile esaminare come registrare API ospitate nel
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

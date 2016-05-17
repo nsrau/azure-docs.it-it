@@ -1,6 +1,6 @@
 Questa guida illustra come usare [ClearDB] per creare un database MySQL da [Azure Store] e come creare un database MySQL come risorsa collegata quando si crea un [sito Web di Azure][waws]. [ClearDB] è un fornitore a tolleranza di errore di database come servizio, che consente di eseguire e gestire database MySQL in data center di Azure e di connettersi a tali database da qualsiasi applicazione.
 
-> [AZURE.NOTE]Quando si crea un database MySQL come parte del processo di creazione del sito Web, è possibile creare solo un database gratuito. La creazione di un database MySQL da Azure Store consente di creare un database gratuito oppure di scegliere tra le opzioni a pagamento disponibili.
+> [AZURE.NOTE] Quando si crea un database MySQL come parte del processo di creazione del sito Web, è possibile creare solo un database gratuito. La creazione di un database MySQL da Azure Store consente di creare un database gratuito oppure di scegliere tra le opzioni a pagamento disponibili.
 
 ## Procedura: Creare un database MySQL da Azure Store
 
@@ -65,12 +65,11 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 
 	![Stringa di connessione visualizzata](./media/create-mysql-db/shown-conn-string.png)
 
-> [AZURE.NOTE]Le stringhe di connessione sono accessibili all'applicazione del sito Web tramite il nome della stringa di connessione. Nelle applicazioni .NET le stringhe di connessione sono disponibili nell'oggetto **connectionStrings**. In altri linguaggi di programmazione le stringhe di connessione sono accessibili tramite le variabili di ambiente. Per altre informazioni, vedere [Come configurare i siti Web][configure].
+> [AZURE.NOTE] Le stringhe di connessione sono accessibili all'applicazione del sito Web tramite il nome della stringa di connessione. Nelle applicazioni .NET le stringhe di connessione sono disponibili nell'oggetto **connectionStrings**. In altri linguaggi di programmazione le stringhe di connessione sono accessibili tramite le variabili di ambiente. Per altre informazioni, vedere [Come configurare i siti Web][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
 [Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../article/app-service-web/web-sites-configure.md
+[configure]: ../articles/app-service-web/web-sites-configure.md
 
-<!---HONumber=Oct15_HO3-->

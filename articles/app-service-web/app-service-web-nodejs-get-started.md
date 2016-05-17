@@ -26,7 +26,7 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js](ht
 ## Prerequisiti
 
 - Node.js. I file binari per l'installazione sono disponibili [qui](https://nodejs.org/).
-- Yoeman. Le istruzioni per l'installazione sono disponibili [qui](http://yeoman.io/).
+- Yeoman. Le istruzioni per l'installazione sono disponibili [qui](http://yeoman.io/).
 - Git. I file binari per l'installazione sono disponibili [qui](http://www.git-scm.com/downloads).
 - Interfaccia della riga di comando di Azure. Le istruzioni per l'installazione sono disponibili [qui](../xplat-cli-install.md).
 - Un account Microsoft Azure. Se non è disponibile un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -203,4 +203,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 - [Centro per sviluppatori di Node. js](/develop/nodejs/)
 - [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

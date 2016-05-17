@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # Introduzione al servizio Web app per dispositivi mobili del server MFA:
@@ -24,12 +24,12 @@ Per utilizzare l'app Azure Multi-Factor Authentication, è necessario quanto seg
 
 - Vedere Requisiti hardware e software per conoscere i requisiti hardware e software
 - È necessario usare la versione 6.0 o successiva del server Azure Multi-Factor Authentication
-- Il servizio Web App per dispositivi mobili deve essere installato in un server Web con connessione Internet che esegue Microsoft® Internet Information Services (IIS) 6.x o IIS 7.x. Per altre informazioni su IIS, vedere [IIS.NET](http://www.iis.net/).
-- Quando si utilizza IIS 6.x, controllare che ASP.NET v2.0.50727 sia installato, registrato e impostato su Consentito
-- I servizi ruolo richiesti quando si utilizza IIS 7.x includono ASP.NET e Compatibilità metabase IIS 6
+- Il servizio Web app per dispositivi mobili deve essere installato in un server Web con connessione Internet che esegue Microsoft® Internet Information Services (IIS) 7.x o versione successiva. Per altre informazioni su IIS, vedere [IIS.NET](http://www.iis.net/).
+- Assicurarsi che ASP.NET v4.0.30319 sia installato, registrato e impostato su Consentito
+- I servizi ruolo obbligatori includono ASP.NET e Compatibilità metabase IIS 6
 - Il servizio Web app per dispositivi mobili deve essere accessibile tramite un URL pubblico
 - Il servizio Web app per dispositivi mobili deve essere protetto con un certificato SSL.
-- L'SDK del servizio Web Azure Multi-Factor Authentication deve essere installato in IIS 6.x o IIS 7.x sul server Azure Multi-Factor Authentication
+- L'SDK del servizio Web Azure Multi-Factor Authentication deve essere installato in IIS 7.x o versione successiva sul server Azure Multi-Factor Authentication
 - Il servizio Web Azure Multi-Factor Authentication deve essere protetto con un certificato SSL.
 - Il servizio Web app per dispositivi mobili deve essere in grado di connettersi all'SDK servizio Web Azure Multi-Factor Authentication tramite SSL
 - Il servizio Web app per dispositivi mobili deve essere in grado di eseguire l'autenticazione all'SDK servizio Web Azure Multi-Factor Authentication utilizzando le credenziali di un account di servizio membro di un gruppo di sicurezza denominato "Amministratori PhoneFactor". Questo account e gruppo del servizio esistono in Active Directory se il server Azure Multi-Factor Authentication è in esecuzione su un server appartenente a un dominio. Questo account e gruppo del servizio esistono in locale sul server Azure Multi-Factor Authentication se non è aggiunto a un dominio.
@@ -90,4 +90,4 @@ Il servizio Web app per dispositivi mobili è ora installato. È necessario conf
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

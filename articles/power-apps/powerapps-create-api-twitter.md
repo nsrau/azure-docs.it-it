@@ -14,76 +14,85 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Creare una nuova API Twitter in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/connectors-create-api-twitter.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+> [AZURE.IMPORTANT] Questo argomento è archiviato e verrà presto rimosso. Vieni a scoprire le novità di [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Per sapere di più su PowerApps e iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> - Per sapere di più sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Aggiungere l'API Twitter all'ambiente del servizio app dell'organizzazione (tenant).
+<!--Archived
+Add the Twitter API to your organization's (tenant) app service environment. 
 
-## Creare l'API nel portale di Azure
+## Create the API in the Azure portal
 
-1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società. 
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription. 
 
-2. Selezionare **Sfoglia** nella barra delle applicazioni: ![][14]
+2. Select **Browse** in the task bar:  
+![][14]  
 
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*: ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. In **PowerApps** selezionare **Gestione API**: ![Sfogliare le API registrate][1]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][1]
 
-5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API: ![Add API][2]
+5. In **Manage APIs**, select **Add** to add the new API:    
+![Add API][2]
 
-6. Immettere un **nome** descrittivo per l'API.
+6. Enter a descriptive **name** for your API.  
 	
-7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Twitter**: ![selezionare l'API di Twitter][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Twitter**:  
+![select Twitter api][3]
 
-8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**: ![configurare le impostazioni dell’API di Twitter][4]
+8. Select **Settings - Configure required settings**:    
+![configure Twitter API settings][4]
 
-9. Immettere *Chiave utente* e *Segreto utente* dell'applicazione Twitter. Se non è disponibile, vedere la sezione "Registrare un'app di Twitter per l'utilizzo con PowerApps" in questo argomento per creare i valori chiave e segreto necessari.
+9. Enter the *Consumer Key* and *Consumer Secret* of your Twitter application. If you don't have one, see the "Register a Twitter app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Selezionare **OK** per completare i passaggi.
+10. Select **OK** to complete the steps.
 
-Al termine, verrà aggiunta una nuova API di Twitter all'ambiente del servizio app.
+When finished, a new Twitter API is added to your app service environment.
 
 
-## Facoltativo: Registrare un'app per Twitter per l'utilizzo con PowerApps
+## Optional: Register a Twitter app for use with PowerApps
 
-Se non si dispone di un'app Twitter esistente con i valori chiave e segreto, utilizzare i passaggi seguenti per creare l'applicazione e ottenere i valori necessari.
+If you don't have an existing Twitter app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. Passare a [https://apps.twitter.com/](https://apps.twitter.com) e accedere con l'account twitter.
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com) and sign in with your twitter account.
 
-2. Fare clic su **Crea nuova app**: ![Pagina app di Twitter][6]
+2. Select **Create New App**:    
+![Twitter apps page][6]
 
-3. In **Creare un'applicazione**:
+3. In **Create an application**:  
    
-	1. Immettere un valore per **Name**.  
-	2. Immettere un valore per **Description**.  
-	3. Immettere un valore per **Website**.  
-	4. Impostare **Callback url** sull'URL di reindirizzamento ricevuto quando è stata aggiunta la nuova API Twitter nel portale di Azure (in questo argomento).  
-	5. Accettare il contratto per gli sviluppatori e selezionare **Create your Twitter application**.  
+	1. Enter a value for **Name**.  
+	2. Enter a value for **Description**.  
+	3. Enter a value for **Website**.  
+	4. Set the **Callback url** to the redirect URL you received when you added the new Twitter API in the Azure Portal (in this topic).  
+	5. Agree to the developer agreement and select **Create your Twitter application**.  
 
-	![Creare app di Twitter][7]
+	![Twitter app create][7]
 
-4. Al completamento della creazione dell’app, si verrà reindirizzati alla pagina dell'app.
+4. On successful app creation, you are redirected to the app page.
 
-Viene creata una nuova applicazione Twitter. È possibile utilizzare questa app nella configurazione dell'API di Twitter nel portale di Azure.
+A new Twitter app is created. You can use this app in your Twitter API configuration in the Azure portal. 
 
-## Vedere le API REST
+## See the REST APIs
 
-Informazioni di riferimento sull'[API REST Twitter](../connectors/connectors-create-api-twitter.md).
+[Twitter REST API](../connectors/connectors-create-api-twitter.md) reference.
 
 
-## Riepilogo e passaggi successivi
-In questo argomento, è stata aggiunta l'API di Twitter alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
+## Summary and next steps
+In this topic, you added the Twitter API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Aggiungere una connessione e fornire agli utenti l'accesso](powerapps-manage-api-connection-user-access.md)
-
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 <!--References-->
 
@@ -96,4 +105,4 @@ In questo argomento, è stata aggiunta l'API di Twitter alla PowersApps Enterpri
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

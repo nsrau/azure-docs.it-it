@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/06/2016"
     ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -28,13 +28,11 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
-Quando si crea un'applicazione che usa il bus di servizio, è necessario aggiungere un riferimento all'assembly del bus di servizio e includere gli spazi dei nomi corrispondenti.
+Quando si crea un'applicazione che usa il bus di servizio, è necessario aggiungere un riferimento all'assembly del bus di servizio e includere gli spazi dei nomi corrispondenti. Il modo più semplice per eseguire questa operazione consiste nello scaricare il pacchetto NuGet appropriato.
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express.
-
-Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze necessarie di tale servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva.
@@ -47,14 +45,14 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
 
 Per archiviare endpoint e credenziali, nel bus di servizio viene usata una stringa di connessione. È possibile inserire la stringa di connessione in un file di configurazione, anziché impostarla come hardcoded:
 
-- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file .csdef e .cscfg).
+- Quando si usano i servizi di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file con estensione csdef e cscfg).
 - Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file Web.config.
 
 In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo `CloudConfigurationManager.GetSetting`, come illustrato più avanti in questa guida.
 
-### Configurare la stringa di connessione per l'uso con Servizi cloud
+### Configurare la stringa di connessione
 
-Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito.
+Il meccanismo di configurazione dei servizi consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -98,7 +96,7 @@ Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile usare il s
 </configuration>
 ```
 
-Usare i valori della chiave e il nome della firma di accesso condiviso recuperati dal [portale di Azure classico][] come descritto nella sezione precedente.
+Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal [portale di Azure classico][] come descritto nella sezione precedente.
 
 ## Creare un argomento
 
@@ -107,10 +105,10 @@ Per eseguire operazioni di gestione per gli argomenti e le sottoscrizioni del bu
 L'esempio seguente crea un oggetto `NamespaceManager` usando la classe `CloudConfigurationManager` di Azure con una stringa di connessione composta dall'indirizzo di base di uno spazio dei nomi del bus di servizio e dalle credenziali di firma di accesso condiviso appropriate con le autorizzazioni per gestirlo. Il formato della stringa di connessione è il seguente.
 
 ```
-Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
-Usare il seguente esempio, per le impostazioni di configurazione della sezione precedente.
+Usare l'esempio seguente, per le impostazioni di configurazione della sezione precedente.
 
 ```
 // Create the topic if it does not exist already.
@@ -126,7 +124,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Per il metodo [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) sono disponibili overload che consentono di ottimizzare le proprietà dell'argomento, ad esempio impostare il valore predefinito della durata TTL da applicare ai messaggi inviati all'argomento. Per applicare queste impostazioni, viene utilizzata la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L'esempio seguente mostra come creare un argomento denominato **TestTopic** con una dimensione massima pari a 5 GB e una durata TTL predefinita per i messaggi pari a 1 minuto.
+Per il metodo [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) sono disponibili overload che consentono di configurare le proprietà dell'argomento, ad esempio impostare il valore predefinito della durata TTL da applicare ai messaggi inviati all'argomento. Per applicare queste impostazioni, viene utilizzata la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L'esempio seguente mostra come creare un argomento denominato **TestTopic** con una dimensione massima pari a 5 GB e una durata TTL predefinita per i messaggi pari a 1 minuto.
 
 ```
 // Configure Topic Settings.
@@ -151,7 +149,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ## Creare una sottoscrizione
 
-È anche possibile creare sottoscrizioni dell'argomento usando la classe [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
+È anche possibile usare la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) per creare sottoscrizioni di argomenti. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -313,8 +311,9 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sottoscrizioni del bus di servizio, usare i collegamenti seguenti per altre informazioni.
 
 -   [Code, argomenti e sottoscrizioni][].
+-   [Esempio di filtri argomento][]
 -   Riferimento sulle API per [SqlFilter][]
--   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
+-   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio, vedere l'[Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
 -   Esempi relativi al bus di servizio: è possibile scaricarli dagli [esempi di Azure][] oppure vedere la [panoramica](service-bus-samples.md).
 
   [portale di Azure classico]: http://manage.windowsazure.com
@@ -322,9 +321,10 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+  [Esempio di filtri argomento]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: service-bus-brokered-tutorial-dotnet.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

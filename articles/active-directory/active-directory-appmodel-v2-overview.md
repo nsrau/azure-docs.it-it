@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/02/2016"
+	ms.date="04/26/2016"
 	ms.author="dastrock"/>
 
 # Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -22,18 +22,22 @@ In passato, gli sviluppatori di app che intendevano supportare sia gli account M
 
 Le applicazioni con l'endpoint v2.0 possono inoltre usare le API REST da [Microsoft Graph](https://graph.microsoft.io) e [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account.
 
-## Introduzione
-Scegliere la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework. In alternativa, è possibile usare la documentazione relativa al protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione.
-<!-- TODO: Finalize this table  -->
+<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
 
+## Introduzione
+[AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
+
+Scegliere la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework. In alternativa, è possibile usare la documentazione relativa al protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione.
+
+<!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 ## Novità
 Le informazioni di carattere generale fornite di seguito saranno utili per individuare le operazioni che possono essere eseguite o meno con l'endpoint v2.0.
 
-- Se l'app è stata creata durante il periodo di anteprima dell'endpoint 2015 v2.0, assicurarsi di [leggere le informazioni sulle modifiche più significative apportate al protocollo](active-directory-v2-preview-oidc-changes.md) di recente.
+- Se l'app è stata creata durante il periodo di anteprima dell'endpoint 2015 v2.0, verificare di [aver letto le informazioni sulle modifiche più significative apportate al protocollo](active-directory-v2-preview-oidc-changes.md) di recente.
 - Informazioni sui [tipi di app che si possono creare con l'endpoint v2.0](active-directory-v2-flows.md).
-- Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere l'articolo che illustra gli [aggiornamenti ai protocolli e le differenze nell'endpoint v2.0](active-directory-v2-compare.md).
+- Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere gli [aggiornamenti ai protocolli e le differenze nell'endpoint v2.0](active-directory-v2-compare.md).
 - Informazioni su [limitazioni, restrizioni e vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
 
 ## riferimento
@@ -57,4 +61,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
   - [Libreria client OAuth2 per Android](https://github.com/wuman/android-oauth-client)
   - [Client OpenID Connect per Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

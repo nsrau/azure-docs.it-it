@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/11/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
@@ -29,7 +29,9 @@ Informazioni su come usare il portale di Azure per creare un cluster HDInsight (
 
 * **Per i cluster Storm (Windows e Linux)**, Archivio Data Lake può essere usato per scrivere dati da una topologia Storm. È anche possibile usare Archivio Data Lake per archiviare dati di riferimento che possono essere letti da una topologia Storm. Per altre informazioni, vedere [Usare Archivio Data Lake in una topologia Storm](#use-data-lake-store-in-a-storm-topology).
 
-* **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva. L'opzione per creare cluster HBase con accesso ad Archivio Data Lake è disponibile solo se si usa HDI versioni 3.1 e 3.2 per Windows o HDI versione 3.2 per Linux. Per altre informazioni, vedere [Usare Archivio Data Lake con cluster HBase](#use-data-lake-store-with-hbase-clusters).
+* **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva. Per altre informazioni, vedere [Usare Archivio Data Lake con cluster HBase](#use-data-lake-store-with-hbase-clusters).
+
+> [AZURE.NOTE] L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versione 3.2, sia per Windows che per Linux.
 
 
 ## Prerequisiti
@@ -75,11 +77,11 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 
 	* **Scegliere un'entità servizio esistente**.
 
-		* Nel pannello **Identità AAD del cluster** fare clic su **Usa esistente**, su **Entità servizio** e quindi nel pannello **Selezionare l'entità servizio di Active Directory** cercare un'entità servizio esistente. Fare clic sul nome di un'entità servizio e quindi fare clic su **Seleziona**.
+		* Nel pannello **Identità AAD del cluster** fare clic su **Usa esistente**, su **Entità servizio** e quindi nel pannello **selezione entità servizio** cercare un'entità servizio esistente. Fare clic sul nome di un'entità servizio e quindi fare clic su **Seleziona**.
 
 			![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Aggiungere entità servizio a cluster HDInsight")
 
-		* Nel pannello **Identità AAD del cluster** caricare il certificato con estensione pfx associato all'entità servizio selezionata e quindi fornire la password del certificato.
+		* Nel pannello **Identità AAD del cluster** caricare il certificato con estensione pfx associato all'entità servizio selezionata e quindi specificare la password del certificato.
 
 		* Fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake**. Il riquadro mostra gli account Archivio Data Lake associati alla sottoscrizione. Tuttavia, è possibile impostare le autorizzazioni solo per l'account creato. Selezionare le autorizzazioni di LETTURA/SCRITTURA/ESECUZIONE per l'account che si vuole associare al cluster HDInsight e quindi fare clic su **Salva autorizzazioni**.
 
@@ -103,9 +105,9 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 	![Avviare il dashboard del cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Avviare il dashboard del cluster")
 
-	Per passare direttamente ad Ambari, passare a https://CLUSTERNAME.azurehdinsight.net in un browser Web, dove **CLUSTERNAME** è il nome del cluster HDInsight.
+	È anche possibile passare direttamente ad Ambari passando a https://CLUSTERNAME.azurehdinsight.net in un Web browser, dove **CLUSTERNAME** è il nome del cluster HDInsight.
 
-2. Aprire la visualizzazione Hive. Selezionare il set di quadrati nel menu della pagina, accanto al collegamento **Admin** e al pulsante a destra della pagina, per elencare le viste disponibili. Selezionare **Hive view**.
+2. Aprire la visualizzazione Hive. Selezionare il set di quadratini nel menu della pagina, accanto al collegamento **Admin** e al pulsante a destra della pagina, per elencare le viste disponibili. Selezionare **Hive view** (Visualizzazione Hive).
 
 	![Selezione delle visualizzazioni di Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -113,19 +115,19 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 	![Immagine della pagina della visualizzazione Hive, contenente una sezione di Query Editor](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
 
-4. Nella sezione **Query Editor** della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
+4. Nella sezione **Query Editor** (Editor di query) della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Fare clic sul pulsante **Execute** nella parte inferiore della sezione **Query Editor** per avviare la query. Sotto **Query Editor** verrà visualizzata una sezione **Query Process Results** che conterrà le informazioni sul processo.
+5. Fare clic sul pulsante **Execute** (Esegui) nella parte inferiore della sezione **Query Editor** (Editor di query) per avviare la query. Sotto **Query Editor** (Editor di query) verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo.
 
-6. Una volta completata la query, la sezione **Query Process Results** visualizzerà i risultati dell'operazione. La scheda **Results** conterrà le informazioni seguenti:
+6. Al termine dell'elaborazione della query, la sezione **Query Process Results** (Risultati elaborazione query) visualizzerà i risultati dell'operazione. La scheda **Results** conterrà le informazioni seguenti:
 
 7. Per verificare che la tabella sia stata creata correttamente, eseguire la query seguente.
 
 		SHOW TABLES;
 
-	La scheda **Results** dovrebbe visualizzare quanto segue:
+	La scheda **Results** (Risultati) dovrebbe visualizzare quanto segue:
 
 		hivesampletable
 		vehicles
@@ -162,7 +164,7 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 		SHOW TABLES;
 
-	Facendo clic su **Visualizza dettagli** corrispondente alla query, dovrebbe essere visualizzato quanto segue:
+	Facendo clic su **Visualizza dettagli** in corrispondenza della query, dovrebbe essere visualizzato quanto segue:
 
 		hivesampletable
 		vehicles
@@ -182,7 +184,7 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 
 In questa sezione viene usato SSH nel cluster e vengono eseguiti i comandi HDFS. Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Dopo avere stabilito la connessione, usare il comando del file system HDFS seguente per elencare i file nell'Archivio Data Lake.
 
@@ -230,15 +232,15 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 
 Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefinito nonché come spazio di archiviazione aggiuntivo. A tale scopo, procedere come segue:
 
-1.  Nel pannello **Origine dati** per la **posizione dei dati HBase** selezionare **Archivio Data Lake** .
+1.  Nel pannello **Origine dati** per **Percorso dati HBase** selezionare **Archivio Data Lake**.
 2.  Selezionare il nome dell'Archivio Data Lake che si desidera usare o crearne uno nuovo.
-3.  Infine, specificare la **cartella radice HBase** all'interno di Archivio Data Lake. Se l'account di Archivio Data Lake non dispone di una cartella radice, crearne una nuova.
+3.  Infine, specificare **Cartella radice HBase** all'interno di Archivio Data Lake. Se l'account di Archivio Data Lake non dispone di una cartella radice, crearne una nuova.
 
 	![HBase con Archivio Data Lake](./media/data-lake-store-hdinsight-hadoop-use-portal/hbase-data-lake-store.png "Creare un gruppo di risorse di Azure")
 
 ### Considerazioni sull'uso di Archivio Data Lake come archivio predefinito per i cluster HBase
 
-* È possibile usare lo stesso account di Archivio Data Lake per più cluster HBase. Tuttavia, la **cartella radice HBase** specificata per il cluster (passaggio 4 nella schermata riportata sopra) deve essere univoca. **Non** usare la stessa cartella radice in due diversi cluster HBase.
+* È possibile usare lo stesso account di Archivio Data Lake per più cluster HBase. Il valore specificato in **Cartella radice HBase** per il cluster (passaggio 4 nella schermata riportata sopra) deve tuttavia essere univoco. **Non** usare la stessa cartella radice in due diversi cluster HBase.
 * Anche se si utilizza l'account di Archivio Data Lake come archivio predefinito, i file di log del cluster HBase rimangono archiviati nei BLOB di archiviazione di Azure (WASB) associati al cluster. Questo è evidenziato nella casella blu nella schermata riportata sopra.
 
 
@@ -250,4 +252,4 @@ Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefi
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

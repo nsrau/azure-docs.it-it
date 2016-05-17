@@ -219,9 +219,9 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 
 - Archiviazione di Azure (inclusi BLOB di Azure e Tabella di Azure): [Obiettivi di scalabilità per Archiviazione di Azure](../storage/storage-scalability-targets.md) ed [Elenco di controllo relativo a prestazioni e scalabilità di Archiviazione di Azure](../storage//storage-performance-checklist.md)
 - Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-service-tiers.md#monitoring-performance) e controllare la percentuale DTU (Database Transaction Unit).
-- Azure SQL Data Warehouse: la capacità viene misurata in unità Data Warehouse (DWU). Vedere [Scalabilità e prestazioni elastiche con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
+- Azure SQL Data Warehouse: la capacità viene misurata in unità Data Warehouse (DWU). Vedere [Scalabilità e prestazioni elastiche con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md).
 - Azure DocumentDB: [Livello di prestazioni in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

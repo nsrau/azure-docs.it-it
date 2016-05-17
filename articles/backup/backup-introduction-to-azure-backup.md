@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Informazioni su Backup di Azure
@@ -100,13 +100,6 @@ Al termine del processo di backup, il percorso di gestione temporanea viene elim
 
 Il processo tipo consiste nel ripristino di un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Premium. Tuttavia, può risultare più economico ripristinare un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Standard. Si può usare questo tipo di ripristino se è necessario un subset di file dalla macchina virtuale.
 
-Di seguito sono riportati i passaggi per ripristinare un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Premium:
-
-1. [Ripristinare il punto di ripristino della macchina virtuale in Archiviazione Standard](backup-azure-restore-vms.md).
-2. [Copiare i dischi in Archiviazione Premium](../storage/storage-use-azcopy.md).
-3. [Creare la macchina virtuale IaaS di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-
-
 ## Funzionalità
 Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funzionalità di backup in ogni componente.
 
@@ -149,7 +142,7 @@ Tutto il traffico di backup dai server all'insieme di credenziali di Backup vien
 
 >[AZURE.WARNING] La chiave usata per crittografare i dati di backup è unicamente a disposizione del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
 
-Per il backup delle VM di Azure, è necessario configurare la crittografia *nella* macchina virtuale. Usare BitLocker nelle macchine virtuali di Windows e **dm-crypt** nelle macchine virtuali di Linux. Backup di Azure non esegue automaticamente la crittografia dei dati di backup provenienti da questo percorso.
+Per il backup delle VM di Azure, è necessario configurare la crittografia *nella* macchina virtuale. Usare BitLocker nelle macchine virtuali Windows e **dm-crypt** nelle macchine virtuali Linux. Backup di Azure non esegue automaticamente la crittografia dei dati di backup provenienti da questo percorso.
 
 ### Carichi di lavoro supportati
 
@@ -235,4 +228,4 @@ Tali esercitazioni illustrano solo il percorso più diretto per il backup dei da
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

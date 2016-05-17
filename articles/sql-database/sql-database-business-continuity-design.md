@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 #Progettazione per la continuità aziendale
@@ -45,11 +45,6 @@ La funzionalità di replica geografica crea un database di replica (secondario) 
 2. La frequenza di modifica dei dati è alta (ad esempio, è espressa in termini di transazioni al minuto o al secondo). Un valore RPO di 1 ora associato alla protezione predefinita avrà come risultato una perdita di dati inaccettabile.
 3. Il costo legato all'uso della replica geografica è notevolmente inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
-> [AZURE.NOTE] Se l'applicazione usa database di livello Basic, la replica geografica non è supportata.
-
-##Confronto tra replica geografica standard e replica geografica attiva
-
-I database di livello Standard non consentono di usare la replica geografica attiva. Pertanto, se l'applicazione usa database Standard e soddisfa i criteri sopra descritti, dovrebbe abilitare la replica geografica standard. Al contrario, per i database Premium è possibile scegliere una delle due opzioni. La replica geografica standard è stata progettata come soluzione di ripristino di emergenza più semplice e meno costosa, particolarmente adatta ad applicazioni che la usano solo per proteggersi da eventi imprevisti, ad esempio le interruzioni del servizio. Con la replica geografica standard, è possibile usare solo l'area abbinata per il ripristino di emergenza e si ha la possibilità di creare solo un database secondario per ciascuno di quelli primari. Un database secondario aggiuntivo potrebbe essere necessario per lo scenario di aggiornamento dell'applicazione. Pertanto, se questo scenario ha un ruolo cruciale per l'applicazione, è consigliabile abilitare la replica geografica attiva. Per altre informazioni, vedere [Aggiornare l'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
 > [AZURE.NOTE] La replica geografica attiva supporta inoltre l'accesso in sola lettura al database secondario e fornisce quindi capacità aggiuntiva per i carichi di lavoro di sola lettura.
 
@@ -69,19 +64,19 @@ I database di livello Standard non consentono di usare la replica geografica att
 6. Selezionare il tipo secondario (*Leggibile* o *Non leggibile*).
 7. Fare clic su **Crea** per completare la configurazione.
 
-> [AZURE.NOTE] L'area abbinata di ripristino di emergenza nel pannello della replica geografica verrà contrassegnata come *consigliata*. Se si usa un database di livello Premium, è possibile scegliere un'area diversa. Se si usa un database Standard, non è possibile cambiare l'area. Con il database Premium, si ha la possibilità di selezionare il tipo di database secondario (*Leggibile* o *Non leggibile*). Il database Standard consente solo la selezione di un database secondario *Non leggibile*.
+> [AZURE.NOTE] L'area abbinata di ripristino di emergenza nel pannello Replica geografica verrà contrassegnata come *consigliata*, ma è possibile scegliere un'altra area.
 
 
 ###PowerShell
 
 Usare il cmdlet PowerShell [New AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) per creare la configurazione della replica geografica. Questo comando è sincrono e restituisce quando i database primario e secondario sono sincronizzati.
 
-Per configurare la replica geografica con un database secondario non leggibile per un database Premium o Standard:
+Per configurare la replica geografica con un database secondario non leggibile:
 		
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
-Per creare la replica geografica con un database secondario leggibile per un database Premium:
+Per configurare la replica geografica con un database secondario leggibile:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -98,4 +93,4 @@ Questa API è asincrona. Dopo la restituzione, usare l’API [Get Replication Li
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

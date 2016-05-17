@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/13/2016"
 	ms.author="tdykstra"/>
 
@@ -263,4 +263,4 @@ Quando l'app per le API ASP.NET è in esecuzione nel servizio app di Azure, è p
 
 In questa esercitazione si è visto come creare un'API Web semplice e distribuirla in un'app per le API nel servizio app di Azure. Per un'introduzione alle funzionalità del servizio app che semplificano lo sviluppo e l'utilizzo delle API Web, vedere la serie di esercitazioni a partire da [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

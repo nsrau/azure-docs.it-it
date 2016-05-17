@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit mediante .NET SDK." 
+	pageTitle="Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET" 
 	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit mediante .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="03/08/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
-#Creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit mediante .NET SDK.
+#Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 
 > [AZURE.SELECTOR]
 - [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -25,13 +25,13 @@
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Panoramica
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
-Per informazioni più concettuali sui canali abilitati per la codifica live, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Scenario comune di streaming live
@@ -530,4 +530,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
 Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

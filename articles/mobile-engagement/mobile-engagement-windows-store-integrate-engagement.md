@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 # Integrazione di Engagement SDK per app universali di Windows
@@ -238,7 +238,7 @@ Se non si può o non si vuole eseguire l'overload delle classi `Page`, in altern
 
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, usare gli altri metodi disponibili nella classe `EngagementAgent`. L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagement.
 
-Per altre informazioni, vedere [Come usare l'API di Engagement in un'app di Windows universale](../mobile-engagement-windows-store-use-engagement-api/).
+Per altre informazioni, vedere [Come usare l'API di Engagement in un'app di Windows universale](mobile-engagement-windows-store-use-engagement-api.md).
 
 ##Configurazione avanzata
 
@@ -283,4 +283,4 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

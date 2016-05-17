@@ -3,8 +3,8 @@
     description="Annuncia la funzionalità di query elastica"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
-    authors="sidneyh"/>
+    manager="jhubbard"
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,25 +12,45 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="04/27/2016"
     ms.author="torsteng" />
 
 # Panoramica delle query su database elastico del database SQL di Azure (anteprima)
 
-La funzionalità di query su database elastico, disponibile in anteprima, consente di eseguire una query Transact-SQL su più database del database SQL di Azure (SQLDB). Consente di eseguire query tra database per accedere a tabelle remote e di connettere strumenti Microsoft e di terze parti (Excel, PowerBI, Tableau e così via) a query tra livelli di dati con più database. Utilizzando questa funzionalità, è possibile scalare query ai livelli di dati di grandi dimensioni nel Database SQL e visualizzare i risultati nei report di business intelligence (BI). Per iniziare la creazione di un'applicazione di query su database elastico, vedere [Iniziare a usare le query su database elastico](sql-database-elastic-query-getting-started.md).
+La funzionalità di query su database elastico, disponibile in anteprima, consente di eseguire una query Transact-SQL su più database del database SQL di Azure (SQLDB). Consente di eseguire query tra database per accedere a tabelle remote e di connettere strumenti Microsoft e di terze parti (Excel, PowerBI, Tableau e così via) a query tra livelli di dati con più database. Utilizzando questa funzionalità, è possibile scalare query ai livelli di dati di grandi dimensioni nel Database SQL e visualizzare i risultati nei report di business intelligence (BI).
 
-## Novità delle query su database elastico
+## Documentazione
 
-* È ora possibile definire completamente in T-SQL gli scenari di query tra database con singoli database remoti. Ciò consente l'esecuzione di query di sola lettura sui database remoti e permette ai clienti locali di SQL Server di eseguire la migrazione delle applicazioni usando nomi in tre e quattro parti o un server collegato nel database SQL.
-* La query elastica è ora supportata nel livello di prestazioni Standard, oltre che nel livello di prestazioni Premium. Per informazioni sulle limitazioni delle prestazioni per i livelli di prestazioni inferiori, vedere la sezione relativa alle limitazioni dell'anteprima.
-* Le query elastiche possono ora eseguire il push dei parametri SQL nei database remoti per l'esecuzione.
-* Le chiamate di stored procedure o di funzioni remote che usano sp\_execute\_fanout possono ora usare parametri analoghi a [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
-* Le prestazioni per il recupero di set di risultati di grandi dimensioni dal database remoto sono state migliorate.
-* Le tabelle esterne con una query elastica possono ora fare riferimento a tabelle remote con nome di schema o tabella diverso.
+* [Introduzione alle query tra database](sql-database-elastic-query-getting-started-vertical.md)
+* [Creare report in database cloud con scalabilità orizzontale](sql-database-elastic-query-getting-started.md)
+* [Eseguire query tra database cloud partizionati (partizione orizzontale)](sql-database-elastic-query-horizontal-partitioning.md)
+* [Eseguire query in database cloud con schemi diversi (partizione verticale)](sql-database-elastic-query-vertical-partitioning.md)
+* [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)
+
+
+## Vantaggi dell'uso di query elastiche
+
+**Database SQL di Azure**
+
+Eseguire query su database SQL di Azure completamente in T-SQL. Ciò consente l'esecuzione di query di sola lettura sui database remoti e permette ai clienti locali di SQL Server di eseguire la migrazione delle applicazioni usando nomi in tre e quattro parti o un server collegato nel database SQL.
+
+**Disponibili nel livello standard** Le query elastiche sono ora supportate nel livello di prestazioni Standard, oltre che nel livello di prestazioni Premium. Per informazioni sulle limitazioni delle prestazioni per i livelli di prestazioni inferiori, vedere la sezione relativa alle limitazioni della versione di anteprima.
+
+**Push nei database remoti**
+
+Le query elastiche possono ora eseguire il push dei parametri SQL nei database remoti per l'esecuzione.
+
+**Esecuzione di stored procedure**
+
+Eseguire chiamate di stored procedure remote o funzioni remote mediante [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714).
+
+**Flessibilità**
+
+Le tabelle esterne con una query elastica possono ora fare riferimento a tabelle remote con nome di schema o tabella diverso.
 
 ## Scenari di query del database elastico
 
-L'obiettivo consiste nel semplificare gli scenari di query in cui più database forniscono righe in un singolo risultato complessivo. La query può essere composta direttamente dall'utente o dall'applicazione oppure indirettamente tramite gli strumenti connessi al database. Ciò è particolarmente utile quando si creano report, si usano strumenti commerciali di Business Intelligence o di integrazione dei dati o si usa qualsiasi applicazione che non può essere modificata. La query elastica consente di eseguire query in diversi database usando l'esperienza di connettività nota di SQL Server in strumenti quali Excel, PowerBI, Tableau o Cognos. Una query elastica semplifica l'accesso a un'intera raccolta di database tramite query emesse da SQL Server Management Studio o Visual Studio e semplifica le query tra database da Entity Framework o altri ambienti ORM. La Figura 1 mostra uno scenario in cui un'applicazione cloud esistente, che usa la [libreria client dei database elastici](sql-database-elastic-database-client-library.md), si basa su un livello di dati con scalabilità orizzontale e una query elastica viene usata per la creazione di report tra database.
+L'obiettivo consiste nel semplificare gli scenari di query in cui più database forniscono righe in un singolo risultato complessivo. La query può essere composta direttamente dall'utente o dall'applicazione oppure indirettamente tramite gli strumenti connessi al database. Ciò è particolarmente utile quando si creano report, si usano strumenti commerciali di Business Intelligence o di integrazione dei dati o si usa qualsiasi applicazione che non può essere modificata. La query elastica consente di eseguire query in diversi database usando l'esperienza di connettività nota di SQL Server in strumenti quali Excel, PowerBI, Tableau o Cognos. Una query elastica semplifica l'accesso a un'intera raccolta di database tramite query emesse da SQL Server Management Studio o Visual Studio e semplifica le query tra database da Entity Framework o altri ambienti ORM. La Figura 1 visualizza uno scenario in cui un'applicazione cloud esistente che usa la [libreria client dei database elastici](sql-database-elastic-database-client-library.md) si basa su un livello di dati con scalabilità orizzontale e viene usata una query elastica per la creazione di report tra database.
 
 **Figura 1** Query su database elastico usata su un livello di dati con scalabilità orizzontale
 
@@ -66,9 +86,7 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 ### Topologia 2: Partizionamento orizzontale - Partizionamento orizzontale
 
-Per iniziare a scrivere codice [Introduzione alle query su database elastico per il partizionamento orizzontale](sql-database-elastic-query-getting-started.md)
-
-L'uso delle query elastiche per eseguire attività di reporting su un livello dati con partizionamento orizzontale richiede una [mappa partizioni dei database elastici](sql-database-elastic-scale-shard-map-management.md) per rappresentare i database del livello dati. In genere in questo scenario viene usata solo una mappa partizioni e un database dedicato con capacità di query elastiche viene usato come punto di ingresso per le query di reporting. L'accesso alla mappa partizioni è necessario solo per questo database dedicato. La Figura 2 illustra questa topologia e la relativa configurazione con query su database elastico e la mappa partizioni. Si noti che solo il database elastico sottoposto a query deve essere un database SQL di Azure versione 12. I database del livello dati possono essere database SQL di Azure di qualsiasi versione o edizione. Per altre informazioni sulla libreria client dei database elastici e sulla creazione di mappe partizioni, vedere [Gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
+L'uso delle query elastiche per eseguire attività di reporting su un livello dati con partizionamento orizzontale richiede una [mappa partizioni dei database elastici](sql-database-elastic-scale-shard-map-management.md) per rappresentare i database del livello dati. In genere in questo scenario viene usata solo una mappa partizioni e un database dedicato con capacità di query elastiche viene usato come punto di ingresso per le query di reporting. L'accesso alla mappa partizioni è necessario solo per questo database dedicato. La Figura 4 illustra questa topologia e la relativa configurazione, con il database sottoposto a query elastiche e la mappa partizioni. I database del livello dati possono essere database SQL di Azure di qualsiasi versione o edizione. Per altre informazioni sulla libreria client dei database elastici e sulla creazione di mappe partizioni, vedere [Gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 **Figura 4** Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale
 
@@ -76,6 +94,7 @@ L'uso delle query elastiche per eseguire attività di reporting su un livello da
 
 > [AZURE.NOTE] Il database elastico sottoposto a query dedicato deve essere un database SQL versione 12. Non esistono restrizioni su partizioni stesse.
 
+Per iniziare a scrivere codice, vedere [Guida introduttiva alle query elastiche per il partizionamento orizzontale](sql-database-elastic-query-getting-started.md).
 
 ## Implementazione delle query su database elastico
 
@@ -83,7 +102,7 @@ I passaggi per l'implementazione delle query elastiche per gli scenari di partiz
 
 ### Partizionamento verticale - Query tra database
 
-I passaggi seguenti configurano le query su database elastici per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in un database SQL remoto:
+I passaggi seguenti configurano le query su database elastici per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in database SQLDB remoti con lo stesso schema:
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
@@ -150,4 +169,4 @@ Per altre informazioni sugli scenari di partizionamento orizzontale, vedere:
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

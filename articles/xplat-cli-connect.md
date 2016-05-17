@@ -31,7 +31,7 @@ Per connettersi alla propria sottoscrizione dall'interfaccia della riga di coman
 
 Per informazioni sulle diverse identità dell'account e le sottoscrizioni di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## Usare azure login per autenticarsi interattivamente mediante il portale Web
+## Usare azure login per autenticarsi interattivamente
 
 Utilizzare il comando `azure login` -- senza alcun argomento -- per autenticare in modo interattivo con:
 
@@ -54,7 +54,7 @@ Copiare il codice offerto in precedenza all'utente e aprire un browser per http:
 	+
 	info:    login command OK
 
-## Usare azure login con il nome utente e la password di un account dell'organizzazione
+## Usare azure login con un nome utente e una password
 
 
 Quando si vuole usare un account aziendale o dell'istituto di istruzione che non richiede l'autenticazione a più fattori, usare il comando `azure login` con il parametro username o con entrambi i parametri username e password per autenticarsi. L'esempio seguente fornisce il nome utente di un account dell'organizzazione:
@@ -76,7 +76,7 @@ Se è la prima volta che si accede con queste credenziali, verrà chiesto di spe
 
 Se è stata creata un'entità servizio per un'applicazione Active Directory e l'entità servizio possiede autorizzazioni per la sottoscrizione, è possibile usare il comando `azure login` per autenticare l'entità servizio. A seconda dello scenario, le credenziali dell'entità servizio possono essere fornite come parametri espliciti del comando `azure login` oppure mediante uno script dell'interfaccia della riga di comando o il codice dell'applicazione. È anche possibile usare un certificato per autenticare l'entità servizio in modo non interattivo per gli scenari di automazione. Per dettagli ed esempi, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 
-## Usare il metodo del file di impostazioni di pubblicazione
+## Usare un file di impostazioni di pubblicazione
 
 Se è necessario usare soltanto la modalità Gestione servizi di Azure dell'interfaccia della riga di comando, è possibile connettersi con un file di impostazioni di pubblicazione.
 
@@ -122,13 +122,13 @@ Una volta che si è connessi alla sottoscrizione di Azure, è possibile iniziare
 
 L'interfaccia della riga di comando di Azure offre due modalità di comando per lavorare con le risorse di Azure ciascuna delle quali presenta un set di comandi diverso:
 
-* **Modalità Azure Resource Manager**: per lavorare con le risorse di Azure nel modello di distribuzione di Gestione risorse. Per impostare questa modalità, eseguire `azure config mode arm`.
+* **Modalità Resource Manager**: per lavorare con le risorse di Azure nel modello di distribuzione di Resource Manager. Per impostare questa modalità, eseguire `azure config mode arm`.
 
-* **Modalità Gestione servizi di Azure**: per lavorare con le risorse di Azure nel modello di distribuzione classico. Per impostare questa modalità, eseguire `azure config mode asm`.
+* **Modalità Gestione dei servizi**: per lavorare con le risorse di Azure nel modello di distribuzione classica. Per impostare questa modalità, eseguire `azure config mode asm`.
 
 Subito dopo l'installazione, l'interfaccia della riga di comando è in modalità Gestione servizi.
 
->[AZURE.NOTE]La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
+>[AZURE.NOTE]La modalità Resource Manager e la modalità Gestione dei servizi si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
 ## Archiviazione delle impostazioni dell'interfaccia della riga di comando
 
@@ -153,4 +153,4 @@ Se le sottoscrizioni associate all'account sono state autenticate solo con Activ
 
 * In caso di problemi durante l'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

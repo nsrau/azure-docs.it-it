@@ -67,7 +67,7 @@ L'elenco seguente illustra i requisiti relativi al DNS e alla connettività per 
 ## Creazione di un gruppo di sicurezza di rete ##
 Per i dettagli sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups] seguenti. Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
 
-**Nota:** i gruppi di sicurezza di rete possono essere configurati solo tramite i cmdlet di Powershell descritti di seguito. I gruppi di sicurezza di rete non possono essere configurati graficamente usando il nuovo [portale di Azure](portal.azure.com), poiché il portale consente la configurazione grafica solo di gruppi di sicurezza di rete associati a reti virtuali "v2". Tuttavia, attualmente gli ambienti del servizio app funzionano solo in reti virtuali "v1" classiche. Di conseguenza è possibile utilizzare solo i cmdlet di Powershell per configurare i gruppi di sicurezza di rete associati alle reti virtuali "v1".
+**Nota:** i gruppi di sicurezza di rete possono essere configurati solo tramite i cmdlet di Powershell descritti di seguito. I gruppi di sicurezza di rete non possono essere configurati graficamente usando il nuovo [portale di Azure](https://portal.azure.com), poiché il portale consente la configurazione grafica solo di gruppi di sicurezza di rete associati a reti virtuali "v2". Tuttavia, attualmente gli ambienti del servizio app funzionano solo in reti virtuali "v1" classiche. Di conseguenza è possibile utilizzare solo i cmdlet di Powershell per configurare i gruppi di sicurezza di rete associati alle reti virtuali "v1".
 
 I gruppi di sicurezza di rete vengono innanzitutto creati come un'entità autonoma associata a una sottoscrizione. Poiché i gruppi di sicurezza di rete vengono creati in un'area di Azure, assicurarsi di creare il gruppo di sicurezza di rete nella stessa area dell'ambiente del servizio app.
 
@@ -149,4 +149,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

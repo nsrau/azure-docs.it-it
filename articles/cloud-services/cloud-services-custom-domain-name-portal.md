@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="05/02/2016"
 	ms.author="adegeo"/>
 
 # Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-custom-domain-name-portal.md)
-- [Azure classic portal](cloud-services-custom-domain-name.md)
+- [Portale di Azure](cloud-services-custom-domain-name-portal.md)
+- [Portale di Azure classico](cloud-services-custom-domain-name.md)
 
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
 
@@ -49,7 +49,7 @@ Un record CNAME consente di eseguire il mapping di un dominio *specifico*, ad es
 
 ### Record A
 
-Un record *A* consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio ***.contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio ***.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
+Un record *A* consente di eseguire il mapping di un dominio, ad esempio **contoso.com** o **www.contoso.com**, *o di un dominio con caratteri jolly*, ad esempio **\*.contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Quindi il principale vantaggio di un record A rispetto a un record CNAME consiste nel fatto che un'unica voce con un carattere jolly, ad esempio **\*.contoso.com**, gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
 
 > [AZURE.NOTE]
 > Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP del servizio cloud. L'indirizzo IP usato dal servizio cloud viene allocato la prima volta che si effettua una distribuzione in uno slot vuoto di produzione o di gestione temporanea. Se si elimina la distribuzione per lo slot, l'indirizzo IP viene rilasciato da Azure e le distribuzioni future in quello slot potrebbero ricevere un nuovo indirizzo IP.
@@ -69,7 +69,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
             
         **OR**
   
-    * Installare e configurare [Azure Powershell](../install-configure-powershell.md), quindi eseguire il comando seguente:
+    * Installare e configurare [Azure Powershell](../powershell-install-configure.md), quindi eseguire il comando seguente:
 
         ```powershell
         Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -109,7 +109,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
         **OR**
 
-    * Installare e configurare [Azure Powershell](../install-configure-powershell.md), quindi eseguire il comando seguente:
+    * Installare e configurare [Azure Powershell](../powershell-install-configure.md), quindi eseguire il comando seguente:
 
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -121,7 +121,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
 2.  Trovare la sezione in cui è possibile selezionare o immettere i record A. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate.
 
-3. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+3. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Selezionare ad esempio **www** se si desidera creare un alias per **www.customdomain.com**. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_*\_\_'. In questo modo verranno inclusi tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
 
     Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo '**@**' negli strumenti DNS del registrar.
 
@@ -134,7 +134,7 @@ Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a
 | @ | 137\.135.70.239 |
 
 
-In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__' come sottodominio.
+In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_*\_\_' come sottodominio.
 
 >[AZURE.WARNING]
 > Gli indirizzi IP in Azure sono dinamici per impostazione predefinita. È possibile utilizzare un [indirizzo IP riservato](../virtual-network/virtual-networks-reserved-public-ip.md) per garantire che l'indirizzo IP non venga modificato.
@@ -157,4 +157,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

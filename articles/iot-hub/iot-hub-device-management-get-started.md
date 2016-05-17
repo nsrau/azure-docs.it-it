@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Introduzione a Gestione dei dispositivi dell'hub IoT di Azure (anteprima)
+# Introduzione a Gestione dei dispositivi dell'hub IoT di Azure con C# (anteprima)
+
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introduzione
 Per iniziare a usare Gestione dei dispositivi dell'hub IoT di Azure, è necessario creare un hub IoT di Azure, effettuare il provisioning di dispositivi nell'hub IoT e avviare più dispositivi simulati. Questa esercitazione descrive tali operazioni.
@@ -51,7 +53,9 @@ Per seguire la procedura qui descritta è necessario che siano installati gli el
   -   Selezionare un **piano tariffario e un livello di scalabilità**. Per questa esercitazione non è necessario un livello specifico.
   -   **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni, vedere [Uso di Gruppi di risorse per gestire le risorse di Azure].
   -   Selezionare la casella **Abilita Gestione dei dispositivi**.
-  -   In **Percorso** selezionare il percorso per ospitare l'hub IoT. Gestione dei dispositivi dell'hub IoT è disponibile unicamente negli Stati Uniti orientali, in Europa settentrionale e in Asia orientale.
+  -   In **Località** selezionare la località in cui ospitare l'hub IoT. Durante l'anteprima pubblica Gestione dei dispositivi dell'hub IoT è disponibile solo negli Stati Uniti orientali, in Europa settentrionale e in Asia orientale. In futuro sarà disponibile in tutte le aree.
+
+    > [AZURE.NOTE]  Se non è selezionata la casella per **Abilita Gestione dei dispositivi** gli esempi non funzioneranno.
 
 4.  Dopo aver scelto le opzioni di configurazione dell'hub IoT, fare clic su **Crea**. La creazione dell'hub IoT da parte di Azure può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella **Schermata iniziale** o nel pannello **Notifiche**.
 
@@ -79,19 +83,19 @@ Per compilare gli esempi ed effettuare il provisioning dei dispositivi nell'hub 
 
 2.  Clonare il repository GitHub. **Assicurarsi di eseguire la clonazione in una directory senza spazi.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
 3.  Dalla cartella radice in cui è stato clonato il repository **azure-iot-sdks** passare alla cartella **\\azure-iot-sdks\\csharp\\service\\samples** e avviare l'esecuzione, sostituendo il valore del segnaposto con la stringa di connessione della sezione precedente:
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 Lo script esegue queste operazioni:
 
-1.  Esegue **cmake** per creare una soluzione di Visual Studio 2015 per il dispositivo simulato. Il file di progetto è **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Si noti che i file di origine sono nella cartella **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Esegue **cmake** per creare una soluzione di Visual Studio 2015 per il dispositivo simulato. Il file di progetto è **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Si noti che i file di origine sono nella cartella ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila il progetto di dispositivo simulato **iotdm\_simple\_sample.vcxproj**.
 
@@ -103,7 +107,7 @@ Lo script esegue queste operazioni:
 
 Ora che i dispositivi sono stati aggiunti al registro dei dispositivi, è possibile avviare i dispositivi simulati gestiti. Viene avviato un dispositivo simulato per ogni identità del dispositivo di cui viene effettuato il provisioning nell'hub IoT di Azure.
 
-Tramite il prompt dei comandi per gli sviluppatori, nella cartella **\\azure-iot-sdks\\csharp\\service\\samples\\bin** eseguire:
+Al prompt dei comandi per gli sviluppatori nella cartella **\\azure-iot-sdks\\csharp\\service\\samples\\bin** eseguire:
 
   ```
   simulate.bat
@@ -111,9 +115,9 @@ Tramite il prompt dei comandi per gli sviluppatori, nella cartella **\\azure-iot
 
 Questo script esegue un'istanza di **iotdm\_simple\_sample.exe** per ogni dispositivo elencato nel file **devicecreds.txt**. L'esecuzione del dispositivo simulato continua fino a quando non viene chiusa la finestra di comando.
 
-L'applicazione di esempio **iotdm\_simple\_sample** viene compilata con la libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C, che permette di creare dispositivi IoT che possono essere gestiti dall'hub IoT di Azure. I produttori di dispositivi possono usare questa libreria per creare report sulle proprietà dei dispositivi e implementare le azioni di esecuzione richieste dai processi dei dispositivi. La libreria è un componente fornito insieme agli SDK open source per hub IoT di Azure.
+L'applicazione di esempio **iotdm\_simple\_sample** viene compilata con la libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C, che consente di creare dispositivi IoT che possono essere gestiti dall'hub IoT di Azure. I produttori di dispositivi possono usare questa libreria per creare report sulle proprietà dei dispositivi e implementare le azioni di esecuzione richieste dai processi dei dispositivi. La libreria è un componente fornito insieme agli SDK open source per hub IoT di Azure.
 
-Quando si esegue **simulate.bat**, viene visualizzato un flusso di dati nella finestra di output. L'output mostra il traffico in ingresso e in uscita nonché istruzioni **printf** nelle funzioni di callback specifiche dell'applicazione. In questo modo è possibile visualizzare il traffico in ingresso e in uscita nonché la gestione dei pacchetti decodificati da parte dell'applicazione di esempio. Quando il dispositivo si connette all'hub IoT, il servizio viene avviato automaticamente per osservare le risorse nel dispositivo. La libreria client di Gestione dei dispositivi dell'hub IoT richiama quindi i callback del dispositivo per recuperare i valori più recenti da quest'ultimo.
+Quando si esegue **simulate.bat**, viene visualizzato un flusso di dati nella finestra di output. L'output mostra il traffico in ingresso e in uscita, nonché istruzioni **printf** nelle funzioni di callback specifiche dell'applicazione. In questo modo è possibile visualizzare il traffico in ingresso e in uscita nonché la gestione dei pacchetti decodificati da parte dell'applicazione di esempio. Quando il dispositivo si connette all'hub IoT, il servizio viene avviato automaticamente per osservare le risorse nel dispositivo. La libreria client di Gestione dei dispositivi dell'hub IoT richiama quindi i callback del dispositivo per recuperare i valori più recenti da quest'ultimo.
 
 Di seguito è riportato l'output dell'applicazione di esempio **iotdm\_simple\_sample**. Nella parte superiore viene visualizzato il messaggio **REGISTERED**, che mostra il dispositivo con ID **Device11-7ce4a850** che si connette all'hub IoT.
 
@@ -148,4 +152,4 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

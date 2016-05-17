@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando #
@@ -31,7 +31,6 @@ Usare questa esercitazione per imparare a eseguire facilmente le attività inizi
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 
 ## Prerequisiti
-
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](../../../pricing/free-trial).
@@ -106,6 +105,12 @@ Quando si usa Gestione risorse di Azure, tutte le risorse correlate vengono crea
 
 Il primo parametro è il nome del gruppo di risorse e il secondo è la posizione. Per la posizione usare il comando `azure location list` per identificare come si specifica una posizione alternativa a quella di questo esempio. Se servono altre informazioni, digitare: `azure help location`
 
+## Registrare il provider di risorse dell'insieme di credenziali delle chiavi
+Verificare che il provider di risorse dell'insieme di credenziali delle chiavi sia registrato nella sottoscrizione:
+
+`azure provider register Microsoft.KeyVault`
+
+Quest'operazione deve essere eseguita una volta sola per ogni sottoscrizione.
 
 
 ## Creare un insieme di credenziali delle chiavi
@@ -187,6 +192,8 @@ Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applic
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
+>[AZURE.NOTE] Se si eseguono prompt dei comandi di Windows, sostituire le virgolette singole con virgolette doppie e aggiungere il carattere di escape prima delle virgolette doppie interne. Ad esempio: "["decrittografare","firmare"]".
+
 Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segreti nell'insieme di credenziali, eseguire le seguenti operazioni:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
@@ -256,4 +263,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

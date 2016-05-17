@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="spelluru"/>
 
-# Spostare i dati da un'origine tabella Web usando Azure Data Factory
+# Spostare i dati da un'origine tabella Web con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per copiare dati da una tabella in una pagina Web a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web ad altri archivi dati, non da altri archivi dati a una tabella Web.
@@ -63,7 +63,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 	  }
 	}
 
-**Set di dati di input WebTable**: impostando **external** su **true** e specificando i criteri **externalData** (facoltativi) si comunica al servizio Data Factory che la tabella è esterna e non è prodotta da alcuna attività al suo interno.
+**Set di dati di input WebTable**: impostando **external** su **true** e specificando i criteri **externalData** (facoltativi) si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da alcuna attività al suo interno.
 
 > [AZURE.NOTE] Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page).
 
@@ -114,7 +114,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **WebSource** e il tipo di **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **WebSource** e il tipo **sink** è impostato su **BlobSink**.
 
 Per l'elenco delle proprietà supportate da WebSource, vedere le [proprietà del tipo WebSource](#websource-copy-activity-type-properties).
 	
@@ -173,7 +173,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | Url | URL dell'origine Web | Sì |
 | userName | Nome utente dell'autenticazione di base | Sì (per l'autenticazione di base)
 | password | Password dell'autenticazione di base | Sì (per l'autenticazione di base)
-| authenticationType | Anonymous, Basic o WebApi. | Sì |
+| authenticationType | Anonima, di base o WebApi. | Sì |
 | apiKey | Chiave API per l'autenticazione di WebAPI. | Sì (per l'autenticazione di WebAPI).|   
 
 ### Uso dell'autenticazione anonima
@@ -248,7 +248,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-In caso di attività di copia quando l'origine è di tipo **WebSource**, in questo momento non sono supportate altre proprietà.
+Per attività di copia con origine di tipo **WebSource** non sono attualmente supportate altre proprietà.
 
 ## Ottenere l'indice di una tabella in una pagina HTML
 
@@ -261,7 +261,7 @@ In caso di attività di copia quando l'origine è di tipo **WebSource**, in ques
 	![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
 	URL usato nell'esempio: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare il diritto **URL**, **autenticazione** e fare clic su **Connetti**. 
+4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, **autenticazione** e fare clic su **Connetti**. 
 
 	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5.  Fare clic su un elemento **tabella** nella visualizzazione struttura ad albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.  
@@ -272,15 +272,18 @@ In caso di attività di copia quando l'origine è di tipo **WebSource**, in ques
 
 	![Pulsante Editor avanzato](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 
-6. Nella finestra di dialogo Editor avanzato il numero accanto a "Origine" è l'indice.
+6. Nella finestra di dialogo Editor avanzato il numero accanto a "Source" è l'indice.
 
 	![Editor avanzato - Indice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
 
-Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379). Per informazioni dettagliate, vedere [Connettersi a una pagina Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). I passaggi sono simili se si usa [Microsoft Power BI per Desktop](https://powerbi.microsoft.com/desktop/).
+Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379). Per informazioni dettagliate, vedere [Connettersi a una pagina Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+## Ottimizzazione delle prestazioni  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+
+<!---HONumber=AcomDC_0504_2016-->

@@ -21,7 +21,7 @@
 
 È stato configurato il servizio Azure RemoteApp, sono stati creati i modelli e si è ora pronti per pubblicare le app per gli utenti. Ma c'è ancora un aspetto da prendere in considerazione: le licenze. Come funzionano le licenze per RemoteApp e per le app condivise tramite RemoteApp?
 
-RemoteApp non richiede licenze Windows o licenze CAL per Desktop remoto. La parte RemoteApp è compresa nella sottoscrizione (verificare i dettagli dei [piani dei prezzi](../../../pricing/details/remoteapp/)).
+RemoteApp non richiede licenze Windows o licenze CAL per Desktop remoto. La parte RemoteApp è compresa nella sottoscrizione (verificare i dettagli dei [piani dei prezzi](https://azure.microsoft.com/pricing/details/remoteapp)).
 
 Se si utilizza una delle immagini incluse nella sottoscrizione, è possibile condividere le app installate al suo interno senza la necessità di una licenza separata. Ad esempio, se si utilizza l'immagine modello di Windows Server 2012 R2 per creare la raccolta, è possibile condividere System Center Endpoint Protection con gli utenti. Le uniche eccezioni a questa regola sono Office 365 ProPlus, che richiede una sottoscrizione separata, e Office 2013, che non possono essere condivisi in una raccolta di produzione.
 
@@ -35,4 +35,4 @@ Riassumendo, è possibile pubblicare qualsiasi app di cui si detiene il diritto 
 
 Si noti che non è possibile usare una licenza CAL o un contratto multilicenza in una raccolta nel cloud. È *possibile* usare un contratto multilicenza per attivare applicazioni nella raccolta ibrida (ad eccezione di Office). È sufficiente installarle nell'immagine modello dai supporti forniti per contratti multilicenza. Seguire le indicazioni del fornitore dell'applicazione per installare le licenze in un ambiente Desktop remoto.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

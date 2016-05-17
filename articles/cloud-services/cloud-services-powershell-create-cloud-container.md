@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Come usare un prompt dei comandi di Azure PowerShell per creare un contenitore del servizio cloud vuoto | Microsoft Azure"
-   description="Questo articolo illustra come creare un contenitore del servizio cloud ed eseguire le operazioni di gestione correlate al servizio cloud usando uno script di PowerShell"
+   pageTitle="Creare un contenitore del servizio cloud con PowerShell | Microsoft Azure"
+   description="Questo articolo illustra come creare un contenitore del servizio cloud con PowerShell. Il contenitore ospita il ruolo Web e il ruolo di lavoro."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Usare un prompt dei comandi di Azure PowerShell per creare un contenitore del servizio cloud vuoto
@@ -32,11 +32,13 @@ Questo articolo illustra come creare velocemente un contenitore di Servizi cloud
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-5. Eseguire questo esempio per richiamare il cmdlet: ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+5. Per richiamare il cmdlet, seguire questo esempio:
+```
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
-Per altre informazioni sulla creazione del servizio cloud di Azure, eseguire: ```
+Per altre informazioni sulla creazione del servizio cloud di Azure, eseguire:
+```
 Get-help New-AzureService
 ```
 
@@ -46,4 +48,4 @@ Get-help New-AzureService
 
  * Per pubblicare il progetto servizio cloud in Azure, vedere l'esempio di codice **PublishCloudService.ps1** riportato nell'articolo [Recapito continuo per il servizio cloud in Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

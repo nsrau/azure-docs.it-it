@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Per gestire il volume, è possibile usare il servizio StorSimple Manager.
@@ -42,6 +42,8 @@ Un volume è costituito da una serie di attributi:
 - **Stato**: online oppure offline. Se un volume è offiline, non è visibile agli iniziatori (server) a cui è consentito l'accesso per utilizzare il volume.
 
 - **Capacità**: specifica le dimensioni del volume percepite dall'iniziatore (server). La capacità specifica la quantità totale di dati che può essere archiviata dall’iniziatore (server). Viene eseguito il thin provisioning del volumi e i dati vengono deduplicati. Ciò implica che il dispositivo non prealloca la capacità di archiviazione fisica internamente o nel cloud in base alle capacità del volume configurato. La capacità del volume viene allocata e utilizzata su richiesta.
+
+- **Tipo**: può essere a livelli o di archiviazione (un sottotipo del tipo a livelli)
 
 - **Accesso**: specifica gli iniziatori (server) a cui è consentito l'accesso a questo volume. Agli iniziatori che non sono membri del record di controllo di accesso (ACR) associato al volume non verrà visualizzato il volume.
 
@@ -73,7 +75,7 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u1.md#step-6-creat
 
   1. Digitare un **Nome** per il volume.
   2. Specificare la **Capacità fornita** per il volume in GB o TB. La capacità deve essere compresa tra 1 GB e 64 TB per un dispositivo fisico. La capacità massima che è possibile fornire per un volume su un dispositivo virtuale StorSimple è di 30 TB.
-  3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. Per tutti gli altri casi, selezionare semplicemente **Volume a livelli**. (I volumi a livelli erano in precedenza denominati volumi principali.)
+  3. Selezionare un valore di **Tipo di utilizzo** per il volume. Se si usa il volume a livelli per i dati di archiviazione, selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** si modifica la dimensione del blocco di deduplicazione per il volume in 512 KB. Se non si seleziona questa opzione, il volume a livelli corrispondente utilizzerà una dimensione del blocco di 64 KB. Una dimensione maggiore del blocco di deduplicazione consente al dispositivo di accelerare il trasferimento dei dati di archiviazione di grandi dimensioni nel cloud. In precedenza i volumi a livelli erano chiamati volumi principali.
   5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)per passare alla pagina **Impostazioni aggiuntive**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
@@ -105,7 +107,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 4. Nella procedura guidata Aggiungi volume, in **Impostazioni di base**, procedere come segue:
 
-  - Modificare il **Nome** e il **Tipo di applicazione**.
+  - Modificare **Nome** e **Tipo** se si vuole modificare un volume a livelli in un volume di archiviazione selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** per modificare la dimensione del blocco di deduplicazione per il volume in 512 KB.
   - Aumentare la **Capacità fornita**. La **Capacità fornita** può essere solo aumentata. Non è possibile ridurre un volume dopo averlo creato.
 
     > [AZURE.NOTE] Non è possibile modificare un contenitore di volumi dopo che è stato assegnato a un volume.
@@ -198,4 +200,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

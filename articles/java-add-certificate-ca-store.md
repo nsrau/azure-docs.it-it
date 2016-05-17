@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Aggiunta di un certificato all'archivio certificati CA Java
@@ -56,4 +56,4 @@ Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo 
 
 Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usare la rete CDN di Azure nel servizio app di Azure" 
 	description="Esercitazione che descrive come distribuire nel servizio app di Azure un'app Web che rende disponibile contenuto da un endpoint della rete CDN di Azure integrato" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -141,7 +141,7 @@ L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla
 
 ## Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure ##
 
-Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config* dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il linguaggio XML seguente configura la scadenza della cache entro tre giorni.
+Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il linguaggio XML seguente configura la scadenza della cache entro tre giorni.
 
     <system.webServer>
       <staticContent>
@@ -519,9 +519,9 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
 	
-	``` 
+	```
 	... 
-	 <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 	<script>(function() { 
 		var loadFallback, 
 			len = document.styleSheets.length; 
@@ -534,7 +534,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 			   var value = window.getComputedStyle(meta).getPropertyValue('width'); 
 			   document.head.removeChild(meta); 
 			   if (value !== '1px') { 
-			   document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
+			   document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
 			   } 
 			} 
 		} 
@@ -552,11 +552,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Per verificare il funzionamento dello script di fallback, tornare indietro al pannello endpoint della rete CDN e fare clic su **Arresta**.
 
@@ -566,13 +566,12 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 ## Altre informazioni 
 - [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](../cdn/cdn-overview.md)
-- [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Uso della rete CDN di Azure](../cdn/cdn-create-new-endpoint.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso della rete CDN di Azure](../cdn/cdn-create-new-endpoint.md)
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

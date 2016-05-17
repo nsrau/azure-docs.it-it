@@ -125,7 +125,7 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 
 ##Vedere anche##
 
-+ [Sito Web delle connessioni ibride](../../services/biztalk-services/)
++ [Sito Web delle connessioni ibride](https://azure.microsoft.com/services/biztalk-services/)
 + [Panoramica delle connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md)
 + [Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Come modificare un modello di dati in un servizio mobile back-end .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
@@ -137,4 +137,4 @@ Dopo aver verificato la connessione al database, è necessario aggiungere un'imp
 [portale di Azure classico]: http://manage.windowsazure.com
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

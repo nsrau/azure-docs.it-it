@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 # Distribuire un servizio Web di Azure Machine Learning
@@ -76,7 +76,7 @@ Per verificare il servizio Web, fare clic sul collegamento **Test** nella scheda
 
 ![Testare il servizio Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Nella scheda **CONFIGURAZIONE** è possibile modificare il nome visualizzato per il servizio e assegnarvi una descrizione. Il nome e la descrizione vengono visualizzati nel portale di Azure classico, in cui vengono gestiti i servizi Web. È anche possibile inserire una descrizione dei dati di input e output e dei parametri del servizio Web immettendo una stringa per ciascuna colonna in **SCHEMA INPUT**, **SCHEMA OUTPUT** e **PARAMETRO DEL SERVIZIO WEB**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web. È anche possibile abilitare la registrazione per diagnosticare eventuali problemi rilevati durante l'uso del servizio Web.
+Nella scheda **CONFIGURAZIONE** è possibile modificare il nome visualizzato per il servizio e assegnarvi una descrizione. Il nome e la descrizione vengono visualizzati nel [portale di Azure classico](http://manage.windowsazure.com/), in cui vengono gestiti i servizi Web. È anche possibile inserire una descrizione dei dati di input e output e dei parametri del servizio Web immettendo una stringa per ciascuna colonna in **SCHEMA INPUT**, **SCHEMA OUTPUT** e **PARAMETRO DEL SERVIZIO WEB**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web. È anche possibile abilitare la registrazione per diagnosticare eventuali problemi rilevati durante l'uso del servizio Web.
 
 Per altre informazioni, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](machine-learning-web-services-logging.md).
 
@@ -94,7 +94,7 @@ Per altre informazioni su come accedere a un servizio Web di Machine Learning, v
 
 ## Gestire il servizio Web nel portale di Azure classico
 
-Nel portale di Azure classico è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **SERVIZI WEB**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della distribuzione.
+Nel [portale di Azure classico](http://manage.windowsazure.com/) è possibile gestire i servizi Web facendo clic sul servizio **Machine Learning**, aprendo l'area di lavoro Machine Learning e quindi aprendo il servizio Web dalla scheda **WEB SERVICES**. Da questa pagina è possibile monitorare il servizio Web, aggiornarlo ed eliminarlo. È anche possibile aggiungere un secondo endpoint per il servizio Web oltre all'endpoint predefinito creato al momento della distribuzione.
 
 Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
@@ -112,4 +112,4 @@ Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato 
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

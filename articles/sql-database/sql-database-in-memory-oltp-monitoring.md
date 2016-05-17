@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
@@ -35,12 +35,12 @@ Si noti che la tabella e le righe di variabili tabella, oltre agli indici, vengo
 È possibile monitorare l'uso dell'archiviazione in memoria come percentuale del [limite di archiviazione per il livello di prestazioni](sql-database-service-tiers.md#service-tiers-for-single-databases) nel [portale](https://portal.azure.com/) di Azure:
 
 - Nel pannello Database individuare la casella Utilizzo risorse e fare clic su Modifica.
-- Selezionare quindi la metrica relativa alla percentuale di archiviazione in memoria OLTP.
+- Quindi selezionare la metrica `In-Memory OLTP Storage percentage`.
 - Per aggiungere un avviso, selezionare la casella Utilizzo risorse per aprire il pannello Metrica, quindi fare clic su Aggiungi avviso.
 
 In alternativa, usare la query seguente per visualizzare l'utilizzo delle risorse di archiviazione in memoria:
 
-    select xtp_storage_percent from sys.dm_db_resource_stats
+    SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
 ## Correggere le situazioni di memoria insufficiente - Errore 41823
@@ -58,4 +58,4 @@ Per risolvere l'errore:
 ## Passaggi successivi
 Altre informazioni sul [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

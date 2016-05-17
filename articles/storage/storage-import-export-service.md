@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="renash"/>
 
 
@@ -54,9 +54,9 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
   > [AZURE.NOTE] Gli account di archiviazione che usano il modello di Azure Resource Manager (ARM) non sono ancora supportati.
 
 2.	**Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. Sono supportati dischi rigidi fino a 8 TB. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA esterna II/III.
-3.	**Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
+3.	**Crittografia BitLocker: **tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
 4.	**Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine.
-5.	**Numero di processi:** un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
+5.	**Numero di processi: **un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
 6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 7.  **Sistema operativo supportato:** per preparare il disco rigido con lo strumento di importazione/esportazione di Azure, è possibile usare uno dei sistemi operativi a 64 bit seguenti: Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Tutti questi sistemi operativi supportano la funzionalità Crittografia unità BitLocker.  
 
@@ -239,13 +239,13 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
 
-- Per le aree geografiche in Asia è supportato solo [DHL](http://www.dhl.com/). Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
+- Solo [DHL](http://www.dhl.com/) è supportato per Asia Pacifico orientale, Asia Pacifico sudorientale, Australia orientale, Australia sud-orientale e Giappone occidentale. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] È necessario fornire il numero di spedizione per il servizio Importazione/Esportazione di Azure o il processo non potrà essere elaborato.
 
 **Esistono costi associati alla spedizione di ritorno?**
 
-- Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/) (per Stati Uniti ed Europa) o [DHL](http://www.dhl.com/) (Asia), se non lo si ha già.
+- Microsoft usa il numero di account del vettore fornito al momento della creazione del processo per spedire le unità all'indirizzo di restituzione dal data center. Assicurarsi di fornire un numero di account di un vettore supportato per l'area geografica del data center. È possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/) (per Stati Uniti ed Europa) o [DHL](http://www.dhl.com/) (Asia e Australia), se non è già disponibile.
 
 - La tariffa della spedizione di ritorno viene addebitata sull'account del vettore e dipende dal vettore stesso.
 
@@ -254,12 +254,17 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 - Il servizio di importazione/esportazione supporta l'importazione e l'esportazione dei dati dagli account di archiviazione nelle seguenti aree geografiche:
 	- Stati Uniti orientali
 	- Stati Uniti occidentali
+	- Stati Uniti orientali 2
+	- Stati Uniti centrali
 	- Stati Uniti centro-settentrionali
 	- Stati Uniti centro-meridionali
 	- Europa settentrionale
 	- Europa occidentale
 	- Asia orientale
 	- Asia sudorientale
+	- Australia orientale
+	- Australia sudorientale
+	- Giappone occidentale
 
 - Viene fornito un indirizzo di spedizione nell'area geografica dell'account di archiviazione. Ad esempio, se il cliente vive negli Stati Uniti e l'account di archiviazione si trova nel data center Europa occidentale, viene fornito un indirizzo di spedizione europeo per l'invio delle unità.
 
@@ -288,4 +293,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

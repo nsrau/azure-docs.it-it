@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestire gli indici columnstore in Azure SQL Data Warehouse
@@ -240,9 +240,7 @@ Per altri dettagli sulla ricompilazione di partizioni tramite `CTAS`, vedere le 
 
 ## Passaggi successivi
 
-Per altri consigli dettagliati sulla gestione degli indici, vedere l'articolo sulla [gestione degli indici][].
-
-Per altri suggerimenti relativi alla gestione, vedere la panoramica della [gestione][].
+Per altri suggerimenti relativi alla gestione, andare alla panoramica sulla [gestione][].
 
 <!--Image references-->
 
@@ -251,7 +249,6 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica della [gesti
 [partizioni delle tabelle]: sql-data-warehouse-develop-table-partitions.md
 [concorrenza]: sql-data-warehouse-develop-concurrency.md
 [gestione]: sql-data-warehouse-manage-monitor.md
-[gestione degli indici]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
@@ -259,4 +256,4 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica della [gesti
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

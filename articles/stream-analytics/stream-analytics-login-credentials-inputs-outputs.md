@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 #Ruotare le credenziali di accesso per input e output nei processi di analisi di flusso
@@ -121,7 +121,11 @@ Per altri input/output, andare alla Parte 2.
 4.	Andare alla Parte 5.  
 
 ##Parte 5: rimozione del set di credenziali precedente
-Questa parte è applicabile ai seguenti input/output: * Archiviazione BLOB * Hub eventi * Database SQL * Archiviazione tabelle
+Questa parte è applicabile ai seguenti input/output:
+* Archiviazione BLOB
+* Hub eventi
+* Database SQL
+* Archiviazione tabelle
 
 ###Archiviazione BLOB/Archiviazione tabelle
 Ripetere la Parte 1 per la chiave di accesso usata in precedenza dal processo per rinnovare la chiave di accesso ora inutilizzata.
@@ -194,4 +198,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

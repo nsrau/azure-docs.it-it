@@ -5,14 +5,15 @@
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
-   editor="tysonn" />
+   editor="tysonn"
+   keywords="utente di Azure Active Directory, Azure Service Management, account utente Azure AD" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte" />
 
 # Autenticare i runbook con Azure Service Management e Azure Resource Manager
@@ -22,7 +23,7 @@ Questo articolo descrive le procedure da eseguire per configurare un account ute
 ## Creare un nuovo utente di Azure Active Directory
 
 1. Accedere al portale di Azure classico come amministratore del servizio per la sottoscrizione di Azure da gestire.
-2. Selezionare **Active Directory** e quindi selezionare il nome della directory dell'organizzazione.
+2. Selezionare **Active Directory** e quindi il nome della directory dell'organizzazione.
 3. Selezionare la scheda **Utenti** e quindi nell'area di comando selezionare **Aggiungi utente**.
 4. Nella pagina **Informazioni sull'utente** in **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
 5. Immettere un nome utente.  
@@ -62,16 +63,16 @@ In questa sezione verranno eseguite le procedure seguenti per creare un nuovo ac
 2. Selezionare **Account di automazione**.
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br>![Aggiungi account di Automazione](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di Automazione.
-5. Se sono presenti più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
+5. Se si hanno più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
 3. Selezionare il valore **No** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
 
-    >[AZURE.NOTE] Se si sceglie di non creare l'account RunAs selezionando **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**. Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente all'interno del servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione. Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
+    >[AZURE.NOTE] Se si sceglie di non creare l'account RunAs selezionando **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**. Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente nel servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione. Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
 
     ![Aggiungi account di Automazione, avviso](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
-4. Mentre Azure crea l'account di Automazione, è possibile monitorare lo stato di avanzamento in **Notifiche** dal menu.
+4. Mentre Azure crea l'account di Automazione, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
-Al termine della creazione delle credenziali, sarà necessario creare un asset credenziali per associare l'account di Automazione all'account utente Active Directory creato in precedenza. Per ora, si è solo creato l'account di Automazione, ma questo non è associato ad alcuna identità di autenticazione. Eseguire la procedura illustrata nell'articolo [Asset credenziali in Automazione di Azure](../automation/automation-credentials.md#creating-a-new-credential) e specificare il valore per il **nome utente** nel formato **dominio\\utente**.
+Al termine della creazione delle credenziali, sarà necessario creare un asset credenziali per associare l'account di Automazione all'account utente Active Directory creato in precedenza. Per ora, si è solo creato l'account di Automazione, ma questo non è associato ad alcuna identità di autenticazione. Seguire la procedura illustrata nell'articolo [Asset credenziali in Automazione di Azure](../automation/automation-credentials.md#creating-a-new-credential) e specificare il valore per il **nome utente** nel formato **dominio\\utente**.
 
 ## Usare le credenziali in un Runbook
 
@@ -86,4 +87,4 @@ Al termine della creazione delle credenziali, sarà necessario creare un asset c
 ## Passaggi successivi
 * Esaminare i vari tipi di runbook e le procedure per creare runbook personalizzati nell'articolo [Tipi di runbook di Automazione di Azure](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

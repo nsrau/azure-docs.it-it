@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
 	ms.author="glenga"/>
 
 #Creare un'app Xamarin.Forms
@@ -63,7 +63,7 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 
 ##Scaricare ed eseguire la soluzione Xamarin.Forms
 
-Sono disponibili un paio di opzioni. È possibile scaricare la soluzione in un computer Mac e aprirla in Xamarin Studio oppure è possibile scaricarla in un computer Windows e aprirla in Visual Studio usando un Mac collegato alla rete per creare l'app per iOS. Per istruzioni, vedere sempre [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+Sono disponibili un paio di opzioni. È possibile scaricare la soluzione in un computer Mac e aprirla in Xamarin Studio oppure è possibile scaricarla in un computer Windows e aprirla in Visual Studio usando un Mac collegato alla rete per creare l'app per iOS. Se sono necessarie istruzioni più dettagliate sugli scenari di configurazione di Xamarin, vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Procedura:
 
@@ -77,6 +77,7 @@ Procedura:
 	![][9]
 
 	![][8]
+
 
 ##(Facoltativo) Eseguire il progetto iOS
 
@@ -93,13 +94,15 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
 3. Nella finestra di dialogo **Gestione configurazione** selezionare le caselle di controllo **Compila** e **Distribuisci** del progetto iOS.
 4. Premere **F5** per compilare il progetto e avviare l'app nell'emulatore iPhone.
 
-Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_ e fare clic sul pulsante **+**.
+	>[AZURE.NOTE] In caso di problemi di compilazione, eseguire Gestione pacchetti NuGet ed effettuare l'aggiornamento alla versione più recente dei pacchetti per il supporto Xamarin. A volte i progetti di Avvio rapido possono accumulare ritardo nell'aggiornamento alla versione più recente.
+
+Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_ e quindi fare clic sul pulsante **+**.
 
 ![][10]
 
 Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end dell'app per dispositivi mobili e i dati vengono visualizzati nell'elenco.
 
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 Il codice che accede al back-end dell'app per dispositivi mobili è disponibile nel file TodoItemManager.cs C# del progetto di libreria di classi portabile della soluzione.
 
 ##(Facoltativo) Eseguire il progetto Android
@@ -112,10 +115,13 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 2. Nel menu **Esegui** scegliere **Avvia debug** per compilare il progetto e avviare l'app nell'emulatore Android.
 
 ####In Visual Studio
-1. Fare clic con il pulsante destro del mouse sul progetto Android, quindi scegliere **Imposta come progetto di avvio**.
+1. Fare clic con il pulsante destro del mouse sul progetto Android (Droid), quindi scegliere **Imposta come progetto di avvio**.
 4. Scegliere **Gestione configurazione** dal menu **Compila**.
 5. Nella finestra di dialogo **Gestione configurazione** selezionare le caselle di controllo **Compila** e **Distribuisci** del progetto Android.
 6. Premere **F5** per compilare il progetto e avviare l'app nell'emulatore Android.
+
+	>[AZURE.NOTE] In caso di problemi di compilazione, eseguire Gestione pacchetti NuGet ed effettuare l'aggiornamento alla versione più recente dei pacchetti per il supporto Xamarin. A volte i progetti di Avvio rapido possono accumulare ritardo nell'aggiornamento alla versione più recente.
+
 
 Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_ e quindi fare clic sul pulsante **+**.
 
@@ -139,6 +145,9 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 5. Nella finestra di dialogo **Gestione configurazione** selezionare le caselle di controllo **Compila** e **Distribuisci** del progetto Windows scelto.
 6. Premere **F5** per compilare il progetto e avviare l'app nell'emulatore Windows.
 
+	>[AZURE.NOTE] In caso di problemi di compilazione, eseguire Gestione pacchetti NuGet ed effettuare l'aggiornamento alla versione più recente dei pacchetti per il supporto Xamarin. A volte i progetti di Avvio rapido possono accumulare ritardo nell'aggiornamento alla versione più recente.
+
+
 Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_ e quindi fare clic sul pulsante **+**.
 
 Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
@@ -152,7 +161,7 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 
 * [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md): informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 * [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md): informazioni sull'aggiunta di notifiche push all'app.
-* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come utilizzare l'SDK del client gestito nell'app Xamarin. 
+* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come usare l'SDK del client gestito nell'app Xamarin. 
 
 
 <!-- Anchors. -->
@@ -175,4 +184,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

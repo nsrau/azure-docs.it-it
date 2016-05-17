@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/03/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Informazioni sui report sui proventi di Azure Marketplace
@@ -22,9 +22,13 @@
 
 Durante la transizione a Dev Center, alcuni dei report sui proventi possono essere disponibili in Dev Center all'indirizzo https://dev.windows.com/it-IT, altri invece sono ancora nel portale di pubblicazione all'indirizzo https://publish.windowsazure.com.
 
-La creazione di report sui proventi ora sarà disponibile in **Dev Center** per le offerte del marketplace associate ai proventi moderni, inclusi VM, offerte B+C, servizi dati e per gli sviluppatori offerti in EA
+La creazione di report sui proventi ora sarà disponibile in **Dev Center** per le offerte del marketplace associate ai proventi più recenti, inclusi:
+- VM
+- offerte B+C
+- dati e servizi di sviluppo offerti in contratti Enterprise
 
-La creazione di report sui proventi sarà ancora nel **portale di pubblicazione** per i servizi dati e per gli sviluppatori nell'accesso Web diretto (che usa ancora il sistema di proventi legacy).
+I report sui proventi saranno ancora nel **portale di pubblicazione** per:
+- dati e servizi di sviluppo offerti nell'ambito di Web Direct (che usa ancora il sistema di proventi legacy).
 
 I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono calcolati dopo eventuali rimborsi.
 
@@ -35,7 +39,7 @@ I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono cal
 
     ![LandingPageDashboardHighlight][1]
 
-3. Fare clic su **Riepilogo proventi**.
+3. Fare clic su **Payout Summary** (Riepilogo proventi).
 
     ![DashboardPayoutSummary][2]
 
@@ -45,13 +49,13 @@ I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono cal
 Il rapporto dei proventi per ogni trimestre registra tutte le transazioni che si sono verificate in tale trimestre.
 
 - L'importo riservato indica i pagamenti che vengono accumulati al di fuori del ciclo dei prossimi pagamenti (questo importo verrà spostato al prossimo pagamento nel mese seguente). Questo importo in genere sarà pari a $ 0 (a meno che un cliente non paghi con largo anticipo).
-- Fare clic sul collegamento Prossimo pagamento o Pagamento più recente in **Visualizza dettagli** per visualizzare una nota su questi proventi.
-- Fare clic su **Distinta di pagamento** per visualizzare i dettagli relativi ai guadagni per app/prodotto.
-- Fare clic sul collegamento **Visualizza** per visualizzare le singole distinte.
+- Fare clic sul collegamento **View details** (Visualizza dettagli) in Upcoming payment (Prossimo pagamento) o Most recent payment (Pagamento più recente) per visualizzare una nota su questi proventi.
+- Fare clic su **Payment Statements** (Distinta di pagamento) per visualizzare i dettagli relativi ai guadagni per app/prodotto.
+- Fare clic sul collegamento **View** (Visualizza) per visualizzare le singole distinte.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- Usare il filtro **Suddivisione guadagni** nella parte inferiore di una distinta per visualizzare più app/prodotti, se disponibili.
+- Usare il filtro **Proceeds Breakdown** (Suddivisione guadagni) nella parte inferiore di una distinta per visualizzare più app/prodotti, se disponibili.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
@@ -112,4 +116,4 @@ Per altre query di supporto, registrare un problema in <https://portal.azure.com
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

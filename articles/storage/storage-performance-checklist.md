@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
@@ -149,7 +149,7 @@ In genere un browser non consente JavaScript in una pagina ospitata da un sito W
 Entrambe le tecnologie possono aiutare a evitare carichi o colli di bottiglia non necessari nell'applicazione Web.
 
 ####Risorse utili
-Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Per altre informazioni sulla condivisione risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -393,7 +393,7 @@ Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure]
 ###<a name=subheading44"></a>UpdateMessage
 È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Con l'operazione **UpdateMessage**, l'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.
 
-Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenuto di un messaggio in coda](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
+Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenuto di un messaggio in coda](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Architettura dell'applicazione
 Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:
@@ -404,4 +404,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 ##Conclusioni
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

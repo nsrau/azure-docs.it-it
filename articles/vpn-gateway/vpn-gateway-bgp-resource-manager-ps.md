@@ -278,7 +278,7 @@ In questo esempio entrambi i gateway sono nella stessa sottoscrizione. È possib
 Eseguire l'accesso e connettersi a Sottoscrizione 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. Creare entrambe le connessioni
 
@@ -300,4 +300,4 @@ Se sono state completate tutte e tre le parti di questo esercizio, risulterà st
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

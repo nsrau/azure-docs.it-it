@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="05/10/2016"
 	ms.author="mandia"/>
 
 
@@ -35,7 +35,7 @@ Vantaggi della funzionalità Connessioni ibride:
 - Le applicazioni che usano la funzionalità Connessioni ibride accedono solo alla risorsa locale specifica pubblicata tramite la connessione ibrida.
 - È possibile connettere qualsiasi risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati.
 
-	> [AZURE.NOTE] I servizi basati su TCP che usano porte dinamiche, ad esempio la modalità FTP passiva o la modalità passiva estesa, non sono attualmente supportati.
+	> [AZURE.NOTE] I servizi basati su TCP che usano porte dinamiche, ad esempio la modalità FTP passiva o la modalità passiva estesa, non sono attualmente supportati. Anche LDAP non è supportato. LDAP usa una porta TCP statica, ma può anche usare UDP. Di conseguenza, non è supportato.
 
 - È possibile usare la funzionalità con tutti i framework supportati da App Web (.NET, PHP, Java, Python, Node.js) e App per dispositivi mobili (Node.js, .NET).
 - App Web e app per dispositivi mobili possono accedere alle risorse locali come se l'app Web o l'app per dispositivi mobili si trovasse nella rete locale. Ad esempio, è possibile usare la stessa stringa di connessione sia per la rete locale che in Azure.
@@ -47,7 +47,7 @@ La funzionalità Connessioni ibride offre inoltre agli amministratori dell'organ
 - Log eventi e di controllo sulla rete aziendale offrono visibilità sulle risorse a cui accedono le connessioni ibride.
 
 
-## Configurazioni supportate
+## Scenari di esempio
 
 La funzionalità Connessioni ibride supporta le combinazioni di framework e applicazioni seguenti:
 
@@ -103,4 +103,4 @@ Porta | Perché sono necessari
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

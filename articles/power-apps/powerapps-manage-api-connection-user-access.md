@@ -14,76 +14,88 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Aggiungere una nuova API, una connessione e fornire l'accesso agli utenti
 
-Le API esistono all'interno di un [ambiente del servizio app](powerapps-get-started-azure-portal.md). È possibile creare API dalle API disponibili per PowerApps, da app per le API ospitate nell'ambiente del servizio app o da Swagger 2.0. Esistono molte API precompilate disponibili che possono essere aggiunte facilmente a PowerApps. Inoltre è possibile caricare la propria API in formato JSON o Swagger 2.0.
+> [AZURE.IMPORTANT] Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> - Per altre informazioni sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Questo argomento:
+<!--Archived
+APIs exist within an [app service environment](powerapps-get-started-azure-portal.md). APIs can be created from the available APIs for PowerApps, from API apps hosted in your app service environment, or from Swagger 2.0. There are many pre-built APIs available that can easily be added to your PowerApps. You can also upload your own API in JSON format or Swagger 2.0. 
 
-- Elenca i passaggi per aggiungere un'API a PowerApps e fornire agli utenti all'interno della società le autorizzazioni per utilizzare l'API, ad esempio modificandone le proprietà.
-- Elenca i passaggi per aggiungere una connessione all'API e fornire agli utenti all'interno della società le autorizzazioni per utilizzare la connessione.
+This topic:
 
-
-#### Prerequisiti per iniziare
-
-- Abilitare [PowerApps nella sottoscrizione di Azure](powerapps-get-started-azure-portal.md).
-- Creare un [ambiente di servizio app](powerapps-get-started-azure-portal.md).
-- Creare un'API utilizzando uno dei metodi seguenti:  
-	- Creare un'[API gestita da Microsoft o gestita dal reparto IT](powerapps-register-from-available-apis.md).
-	- Creare un'API ospitata all'interno dell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md).
-	- Creazione mediante una [definizione API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
+- Lists the steps to add an API to PowerApps, and give users within your company permissions to use the API, including changing its properties.
+- Lists the steps to add a connection to your API, and give users within your company permissions to use the connection.
 
 
-## Fornire agli utenti l’accesso all’API
-Ora che l'API è stata creata e aggiunta all'ambiente del servizio app, è necessario concedere le autorizzazioni per utilizzarla agli utenti all'interno della società.
+#### Prerequisites to get started
 
-1. In PowerApps selezionare **Gestione API** e selezionare l'API. Ad esempio, se è stata creata un’API *MS Power BI*, selezionarla per aprire il pannello. Selezionare **Accesso degli utenti all’API**: ![][1]  
+- Enable [PowerApps in your Azure subscription](powerapps-get-started-azure-portal.md).
+- Create an [App Service environment](powerapps-get-started-azure-portal.md).
+- Create an API using any of the following methods:  
+	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-2. Selezionare **Aggiungi** per aggiungere gli utenti e selezionare i diritti. Al termine, selezionare **Aggiungi** per salvare le modifiche. Il conteggio degli utenti o gruppi aumenta nella finestra **Accesso degli utenti all’API**.
+
+## Give users access to the API
+Now that the API is created and added to your app service environment, it's time to give users within your company the permissions to use it. 
+
+1. In PowerApps, select **Manage APIs**, and select your API. For example, if you created a *MS Power BI* API, select it to open its blade. Select **API user access**:  
+![][1]  
+
+2. Select **Add** to add users, and select the rights. When done, select **Add** to save your changes. The Users or Groups count increases in the **API user access** window.
 
 
-## Aggiungere una nuova connessione all'API
-Il passaggio successivo consiste nel creare la "connessione" all'API, che è molto simile a una stringa di connessione. In questo modo l'API può connettersi al sistema "back-end". Per l'anteprima pubblica di PowerApps Enterprise, è possibile aggiungere e configurare solo la connessione a SQL Server. Altre verranno aggiunte.
+## Add a new connection to your API
+The next step is to create the "connection" to your API, which is kind of like a connection string. This allows the API to successfully connect to your "backend" system. For PowerApps Enterprise public preview, only SQL Server's connection can be added and configured. More are being added. 
 
-- [Creare una connessione a SQL Server](powerapps-create-api-sqlserver.md)
+- [Create SQL Server's connection](powerapps-create-api-sqlserver.md)
 
-## Concedere agli utenti l'accesso al runtime per la connessione
-Ora fornire agli utenti all'interno della società l'autorizzazione a utilizzare la connessione.
+## Give users runtime access to the connection
+Now give users within your company permissions to use the connection.
 
-1. Aprire l'API, selezionare **Connessioni**, quindi selezionare la connessione specifica. Verrà aperto un nuovo pannello che elenca il nome della connessione nella parte superiore. 
-2. In questo nuovo pannello selezionare **Accesso degli utenti alla connessione**. Nell'esempio seguente, è selezionata la connessione **Tunnel ibrida**. Viene visualizzato il nuovo pannello in cui è possibile specificare l’**Accesso degli utenti alla connessione**: ![][2]
+1. Open your API, select **Connections**, and then select your specific connection. This opens a new blade that lists your connection name at the top. 
+2. In this new blade, select **Connection user access**.  In the following example, the **Hybrid Tunnel** connection is selected. The new blade opens and this is where you select **Connection user access**:  
+![][2]
   
-3. In **Accesso degli utenti alla connessione** selezionare **Aggiungi**, e quindi selezionare l'autorizzazione da assegnare: ![][3]
+3. In **Connection user access**, select **Add**, and then select the permission you want to give:  
+![][3]
   
-4. Aggiungere l'utente o il gruppo. Selezionare **Aggiungi** per salvare le modifiche.
+4. Add your user or group. Select **Add** to save your changes.
 
-Ora che gli utenti dispongono delle autorizzazioni per l’API e la relativa connessione, possono aggiungere queste API alle proprie create in PowerApps. In particolare:
+Now that users have permissions to the API and its connection, your users can add these APIs to their apps created in PowerApps. Specifically: 
 
-- Gli utenti possono visualizzare l’API elencata in **Connessioni disponibili** in PowerApps.
-- Gli utenti possono visualizzare la connessione in **connessioni** in PowerApps.
-
-
-## Eliminare un’API
-È inoltre possibile eliminare un'API aggiunta in precedenza. In PowerApps, selezionare **Gestione API**, selezionare l'API e selezionare **Elimina**: ![][4]
+- Users can see the API listed under **Available Connections** in PowerApps.
+- Users can see the connection under **My Connections** in PowerApps.
 
 
-## Riepilogo e passaggi successivi
-In questo argomento:
+## Delete an API
+You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**:  
+![][4]
 
-- È stata aggiunta un'API e sono stati assegnati agli utenti all'interno della società i diritti per utilizzarla. È inoltre possibile utilizzare questi passaggi per gestire l'accesso al runtime in qualsiasi momento. Ad esempio, se l'utente A lascia la società, è possibile utilizzare il portale di Azure per rimuovere facilmente le autorizzazioni dell'utente. Stesso scenario, se un utente B entra a far parte della società.
-- È stata aggiunta una connessione (simile a una stringa di connessione). Questo passaggio consente all’API ospitata in Azure di connettersi al sistema, ad esempio un Server SQL locale. È stata fornita agli utenti all'interno della società l'autorizzazione a utilizzare la connessione. 
-- Si è lavorato con diversi pannelli, a seconda dell'attività. Per aggiungere una connessione, aprire l'API e utilizzare il relativo pannello. Per concedere l'accesso agli utenti, aprire l'API o la connessione, a seconda di ciò a cui si sta fornendo l’accesso. 
-- È inoltre possibile eliminare una delle API create all'interno dell'ambiente del servizio app.
 
-Successivamente, è possibile [gestire e monitorare PowerApps](powerapps-manage-monitor-usage.md).
+## Summary and next steps
+In this topic, you:
+
+- Added an API and gave users within your company the rights to use it. You can also use these steps to manage the runtime access at any time. For example, if userA leaves your company, you can use the Azure portal to easily remove this user's permissions. Same scenario if a UserB joins your company.
+- Added a connection (which is similar to a connection string). This step lets the API hosted in Azure to connect to your system, like an on-premises SQL Server. You also gave users within your company permissions to use the connection. 
+- You worked with different blades, depending on the task. To add a connection, you open the API and use its blade. To grant user access, you open the API or the connection, depending on what you're giving access. 
+- You can also delete any of the APIs you create within your app service environment.
+
+Next, you can [manage and monitor your PowerApps](powerapps-manage-monitor-usage.md).
+-->
+
 
 [1]: ./media/powerapps-manage-api-connection-user-access/apiuseraccess.png
 [2]: ./media/powerapps-manage-api-connection-user-access/connectionuseraccess.png
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

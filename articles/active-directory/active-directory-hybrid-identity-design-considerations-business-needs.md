@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="05/02/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti per la soluzione ibrida di gestione delle identità
@@ -44,7 +44,10 @@ Ora che ci si è fatti un'idea sui requisiti aziendali, è necessario valutare l
 - Al momento l'azienda usa servizi di sincronizzazione locali?
 - L'azienda usa provider di identità di terze parti (IdP)?
 
-È anche necessario valutare quali sono i servizi cloud usati dall'azienda. È molto importante effettuare una valutazione per acquisire informazioni sull'integrazione corrente con modelli SaaS, IaaS o PaaS nell'ambiente in uso. Per questa valutazione, rispondere alle domande seguenti: - L'azienda fa uso di integrazioni con provider di servizi cloud? - Se sì, quali sono i servizi usati? - Questa integrazione è attualmente in produzione o si tratta di un'integrazione pilota?
+È anche necessario valutare quali sono i servizi cloud usati dall'azienda. È molto importante effettuare una valutazione per acquisire informazioni sull'integrazione corrente con modelli SaaS, IaaS o PaaS nell'ambiente in uso. Rispondere alle domande seguenti in fase di valutazione:
+- L'azienda usa un qualsiasi tipo d'integrazione con un provider di servizi cloud?
+- In caso affermativo, quali sono i servizi in uso?
+- Questa integrazione è già presente nell'ambiente di produzione o si tratta di un progetto pilota?
 
 
 >[AZURE.NOTE]
@@ -89,7 +92,8 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 - Qual è la modalità di accesso tipica all'ambiente locale?
 - In che modo gli utenti accederanno al cloud?
 
->[Nota] Prendere nota di ogni risposta e acquisire le informazioni sulle motivazioni alla base della risposta. La sezione [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) illustra le opzioni disponibili, oltre ai vantaggi e agli svantaggi di ogni opzione. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
+>[AZURE.NOTE]
+Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. La sezione [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) illustra le opzioni disponibili, oltre ai vantaggi e agli svantaggi di ogni opzione. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
 
 ## Passaggi successivi
 [Determinare i requisiti di sincronizzazione della directory](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -97,4 +101,4 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

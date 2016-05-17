@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Proteggere un database in SQL Data Warehouse
@@ -24,7 +24,9 @@ Questo articolo illustra i concetti di base relativi alla protezione del proprio
 
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Per consentire all'applicazione o all'indirizzo IP pubblico del computer client di connettersi a un nuovo database, è innanzitutto necessario creare una regola firewall di livello server tramite il portale di Azure classico, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per altre informazioni, vedere [Firewall di database SQL di Azure][].
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client è necessario creare una regola firewall di livello server tramite il portale di Azure classico, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per accedere ad Azure SQL Data Warehouse dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433. Per altre informazioni, vedere [Firewall di database SQL di Azure][].
+
+Le connessioni a SQL Data Warehouse possono essere crittografate mediante l'impostazione della modalità di crittografia nella stringa di connessione. La sintassi per l'attivazione della crittografia per la connessione varia a seconda del protocollo. Per semplificare l'impostazione della stringa di connessione, passare al database nel portale di Azure. In *Informazioni di base*, fare clic su *Mostra stringhe di connessione del database*.
 
 
 ## Autenticazione
@@ -43,7 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Quindi, connettersi al database del SQL Data Warhouse con l'account di accesso amministratore del server e creare un utente di database basato su account di accesso al server appena creato.
+Quindi connettersi al database SQL Data Warehouse con l'account di accesso amministratore del server e creare un utente di database basato sull'account di accesso al server appena creato.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -91,14 +93,13 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 Il controllo e il monitoraggio di eventi del database consentono di mantenere la conformità alle normative e di identificare attività sospette. La funzionalità di controllo di SQL Data Warehouse consente di registrare gli eventi nel database in un log di controllo nell'account di archiviazione Azure. La funzionalità di controllo di SQL Data Warehouse si integra inoltre con Microsoft Power BI per facilitare l'esecuzione di analisi e report drill-down. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL][].
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
-
+Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con protocolli diversi, vedere [Connettersi a SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-
+[Connettersi a SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
+[Introduzione al controllo del database SQL]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Firewall di database SQL di Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,10 +108,9 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [autorizzazioni]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Introduzione al controllo del database SQL]: sql-database-auditing-get-started.md
 [portale di Azure classico]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -95,7 +95,7 @@ Quando l'istanza del ruolo è pronta, è possibile accedere in remoto alla macch
 
 [Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
-[Installare il Toolkit di Azure per Eclipse.][]
+[Installare il Toolkit di Azure per Eclipse][]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
@@ -114,4 +114,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->
