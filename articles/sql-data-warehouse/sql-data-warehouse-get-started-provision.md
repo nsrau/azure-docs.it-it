@@ -32,7 +32,7 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
+2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
     ![Creazione](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
