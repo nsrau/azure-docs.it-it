@@ -738,7 +738,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 ### Modello della parte finale del log  
 
-recupera le *e*ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.
+recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.
 
 #### Contesto e problema  
 
