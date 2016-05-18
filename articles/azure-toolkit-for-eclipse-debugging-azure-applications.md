@@ -97,7 +97,8 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
     1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
         ![][ic551537]
-    Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
+
+	    Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
 1. Avviare l'applicazione nell'emulatore di calcolo facendo clic sul pulsante **Run in Azure Emulator** sulla barra degli strumenti di Azure.
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Emulator (WorkerRole1)** e infine fare clic su **Debug**.
