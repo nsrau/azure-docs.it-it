@@ -276,4 +276,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
