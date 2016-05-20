@@ -626,4 +626,4 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->

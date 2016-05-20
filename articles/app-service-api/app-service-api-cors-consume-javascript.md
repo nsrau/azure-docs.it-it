@@ -281,4 +281,4 @@ Per altre informazioni sulle funzionalità di Visual Studio che semplificano la 
 
 In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->

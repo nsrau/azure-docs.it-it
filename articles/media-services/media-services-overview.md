@@ -236,4 +236,4 @@ Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https:
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
