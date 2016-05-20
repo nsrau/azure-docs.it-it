@@ -292,7 +292,7 @@ Esempi:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] I caratteri jolly attualmente non possono essere usati tra virgolette. Il messaggio `"*This text*"` considererà (*) usato come carattere letterale (*).
+>[AZURE.NOTE] I caratteri jolly attualmente non possono essere usati tra virgolette. Il messaggio `"*This text*"` considererà (\*) usato come carattere letterale (\*).
 
 ## Comandi:
 
