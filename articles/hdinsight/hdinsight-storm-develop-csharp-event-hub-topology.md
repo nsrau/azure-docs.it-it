@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="05/10/2016"
    ms.author="larryfr"/>
 
 # Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)
 
 L'hub eventi di Azure consente di elaborare grandi quantità di dati da siti Web, app e dispositivi. Lo spout dell'hub eventi semplifica l'uso di Apache Storm in HDInsight per l'analisi di questi dati in tempo reale. È anche possibile scrivere dati nell'hub eventi da Storm usando il relativo bolt.
 
-In questa esercitazione si apprenderà a usare HDInsight Tools per Visual Studio, oltre allo spout e al bolt dell'hub eventi, per creare due topologie C#/Java ibride:
+Questa esercitazione spiega come usare i modelli di Visual Studio installati con Strumenti HDInsight per Visual Studio per creare due topologie che funzionano con gli hub eventi di Azure.
 
 * **EventHubWriter**: genera dati casualmente e li scrive nell'hub eventi.
 
 * **EventHubReader**: legge dati dall'hub eventi e li archivia nell'archivio tabelle di Azure.
 
-[AZURE.NOTE] I passaggi descritti in questo documento funzionano solo con un cluster HDInsight basati su Windows. Per una versione Java di questo progetto, che funzionerà con un cluster basato su Windows o Linux, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> [AZURE.NOTE] I passaggi descritti in questo documento funzionano solo con un cluster HDInsight basati su Windows. Per una versione Java di questo progetto, che funzionerà con un cluster basato su Windows o Linux, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Prerequisiti
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà a usare HDInsight Tools per Visual Studio
 
 ## Progetto completato
 
-È possibile scaricare la versione completa del progetto creato in questa esercitazione all'indirizzo GitHub: [eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid). Sarà tuttavia necessario fornire le impostazioni di configurazione seguendo la procedura riportata in questa esercitazione.
+È possibile scaricare la versione completa del progetto creato in questa esercitazione all'indirizzo GitHub: [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Sarà tuttavia necessario fornire le impostazioni di configurazione seguendo la procedura riportata in questa esercitazione.
 
 > [AZURE.NOTE] Quando si usa il progetto completato, è necessario eseguire **Gestione pacchetti NuGet** per ripristinare i pacchetti richiesti da questa soluzione.
 
@@ -52,25 +52,25 @@ Lo spout e il bolt vengono distribuiti come un singolo file di archivio Java (co
 
 ### Scaricare il file con estensione jar
 
-La versione più recente del file **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** è disponibile nella cartella **lib** del progetto <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a>. Per scaricare il file, usare uno dei metodi seguenti.
+La versione più recente del file **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** è disponibile nella cartella **lib** del progetto [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples). Per scaricare il file, usare uno dei metodi seguenti.
 
-> [AZURE.NOTE] Per lo spout e il bolt è stata inviata la richiesta di inclusione nel progetto Apache Storm. Per altre informazioni, vedere l'articolo relativo a <a href="https://github.com/apache/storm/pull/336/files">STORM-583: check-in iniziale per hub eventi storm</a> in GitHub.
+> [AZURE.NOTE] Per lo spout e il bolt è stata inviata la richiesta di inclusione nel progetto Apache Storm. Per altre informazioni, vedere l'articolo relativo a [STORM-583: archiviazione iniziale per hub eventi basati su Storm](https://github.com/apache/storm/pull/336/files) in GitHub.
 
-* **Scaricare un file con estensione zip**: nella pagina <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> selezionare **Download ZIP** nel riquadro destro e scaricare un file con estensione zip contenente il progetto.
+* **Scaricare un file ZIP**: nella pagina [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples) selezionare **Download ZIP** nel riquadro destro e scaricare un file con estensione zip contenente il progetto.
 
 	![pulsante download zip](./media/hdinsight-storm-develop-csharp-event-hub-topology/download.png)
 
 	Dopo aver completato il download, è possibile estrarre l'archivio. Il file sarà disponibile nella directory **lib**.
 
-* **Clonare il progetto**: se <a href="http://git-scm.com/" target="_blank">Git</a> è installato, usare il comando seguente per clonare il repository in locale, quindi trovare il file nella directory **lib**.
+* **Clonare il progetto**: se [Git](http://git-scm.com/) è installato, usare il comando seguente per clonare il repository in locale, quindi trovare il file nella directory **lib**.
 
 		git clone https://github.com/hdinsight/hdinsight-storm-examples
 
-## Configurare l'hub eventi
+## Configurare gli hub eventi
 
 L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub eventi, seguire questa procedura.
 
-1. Nel [Portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO** > __SERVIZI APP__ > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE PERSONALIZZATA**.
 
 2. Nella schermata **Aggiungi hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e creare un nuovo spazio dei nomi o selezionarne uno esistente. Fare clic sulla **freccia** per continuare.
 
@@ -78,19 +78,16 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 
 	> [AZURE.NOTE] È consigliabile selezionare lo stesso **Percorso** di Storm nel server HDInsight per ridurre la latenza e i costi.
 
-2. Nella schermata **Configura hub eventi** immettere i valori per **Conteggio partizioni** e **Conservazione messaggi**. Per questo esempio usare un numero di partizioni pari a 10 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
-
-	![procedura guidata - pagina 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
+2. Nella schermata **Configura hub eventi** immettere i valori per **Conteggio partizioni** e **Conservazione messaggi**. Per questo esempio usare un numero di partizioni pari a 8 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
 
 3. Dopo aver creato l'hub eventi, selezionare lo spazio dei nomi, selezionare **Hub eventi**, quindi selezionare l'hub eventi creato in precedenza.
 
 4. Selezionare **Configura** e quindi creare due nuovi criteri di accesso usando le informazioni seguenti.
 
-	<table>
-	<tr><th>Name</th><th>Autorizzazioni</th></tr>
-	<tr><td>Writer</td><td>Invio</td></tr>
-	<tr><td>Reader</td><td>Attesa</td></tr>
-	</table>
+	| Name | Autorizzazioni |
+    | ----- | ----- |
+	| Writer | Invio |
+	| Reader | Attesa |
 
 	Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare (writer) e rimanere in ascolto (reader) in questo hub eventi.
 
@@ -110,15 +107,21 @@ L'archivio tabelle verrà usato per memorizzare i valori letti dall'hub eventi, 
 
 	> [AZURE.NOTE] È consigliabile selezionare lo stesso **Percorso** dell'hub eventi e di Storm nel server HDInsight per ridurre la latenza e i costi.
 
-3. Dopo avere effettuato il provisioning del nuovo account di archiviazione, selezionare l'account e quindi usare il collegamento **Gestisci chiavi di accesso** nella parte inferiore della pagina per recuperare il **Nome account di archiviazione** e la **Chiave di accesso primaria**. Salvare queste informazioni perché verranno usate in seguito.
+3. Dopo aver creato il nuovo account di archiviazione, selezionare l'account e quindi usare il collegamento **Gestisci chiavi di accesso** nella parte inferiore della pagina per recuperare i valori di **Nome account di archiviazione** e **Chiave di accesso primaria**. Salvare queste informazioni perché verranno usate in seguito.
 
 	![chiavi di accesso](./media/hdinsight-storm-develop-csharp-event-hub-topology/managekeys.png)
+
+4. Aprire Visual Studio. Scegliere __Cloud Explorer__ dal menu __Visualizza__. In __Cloud Explorer__ espandere __Account di archiviazione__ e quindi l'account di archiviazione creato in precedenza.
+
+    ![Cloud Explorer](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
+
+5. Fare clic con il pulsante destro del mouse su __Tabelle__ per l'account di archiviazione e quindi scegliere __Crea tabella__. Quando richiesto, immettere **events** come nome della tabella. Salvare il nome perché sarà necessario nei passaggi successivi.
 
 ## Creare EventHubWriter
 
 In questa sezione si creerà una topologia che scrive dati nell'hub eventi usando il relativo bolt.
 
-1. Se la versione più recente di HDInsight Tools per Visual Studio non è ancora installata, vedere <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introduzione all'uso di HDInsight Tools per Visual Studio</a>.
+1. Se la versione più recente di HDInsight Tools per Visual Studio non è ancora installata, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Aprire Visual Studio, selezionare **File** > **Nuovo** e quindi fare clic su **Progetto**.
 
@@ -142,14 +145,13 @@ In questa sezione si creerà una topologia che scrive dati nell'hub eventi usand
 
 3. Immettere le impostazioni seguenti. Usare le informazioni per l'hub eventi create in precedenza nella colonna **Valore**.
 
-	<table>
-	<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
-	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Applicazione</td></tr>
-	</table>
+	| Nome | Tipo | Scope |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | stringa | Applicazione |
+	| EventHubPolicyKey | stringa | Applicazione |
+	| EventHubNamespace | stringa | Applicazione |
+	| EventHubName | stringa | Applicazione |
+	| EventHubPartitionCount | int | Applicazione |
 
 4. Salvare e chiudere la pagina **Proprietà**.
 
@@ -157,7 +159,7 @@ In questa sezione si creerà una topologia che scrive dati nell'hub eventi usand
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Bolt.cs** e scegliere **Elimina**. Poiché si usa il bolt dell'hub eventi Java, questo file non è necessario.
 
-2. Aprire il file **Program.cs** e aggiungere il codice seguente immediatamente dopo la riga `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter");`.
+2. Aprire il file **Program.cs** e aggiungere il codice seguente immediatamente dopo la riga `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter" + DateTime.Now.ToString("yyyyMMddHHmmss"));`.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		List<string> javaDeserializerInfo =
@@ -230,7 +232,7 @@ In questa sezione si creerà una topologia che scrive dati nell'hub eventi usand
 
 A questo punto, la procedura per **Program.cs** è completata. La topologia è stata definita, ma è ora necessario modificare **Spout.cs** in modo da generare dati che l'hub eventi sia in grado di usare.
 
-> [AZURE.NOTE] Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia a un cluster di produzione, è necessario aggiungere quanto riportato di seguito per modificare il numero di processi di lavoro:
+> [AZURE.NOTE] Per impostazione predefinita questa topologia crea un solo processo di lavoro, sufficiente per scopi di esempio. Se si adatta la topologia per un cluster di produzione, è necessario aggiungere quanto riportato di seguito per modificare il numero di ruoli di lavoro:
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -263,7 +265,7 @@ Il bolt dell'hub eventi prevede una singola stringa che verrà indirizzata all'h
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
         this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer());
 
-	La definizione dei dati creati dallo spout verrà modificata per l'uso dei dati **stringa** e del serializzatore **CustomizedInteropJSONSerializer** dichiarato in precedenza nella topologia (in program.cs).
+	La definizione dei dati creati dallo spout verrà modificata per l'uso dei dati **stringa** e del serializzatore **CustomizedInteropJSONSerializer** dichiarato in precedenza nella topologia, nel file program.cs.
 
 2. Sostituire il metodo **NextTuple** con quanto riportato di seguito:
 
@@ -293,20 +295,23 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **EventHubReader** e quindi scegliere **Proprietà**.
 
+2. Scegliere **Strumenti**, **Gestione pacchetti NuGet** e quindi **Console di Gestione pacchetti**. Quando viene visualizzata la console, usare il comando seguente per installare i pacchetti di archiviazione di Azure.
+
+        NuGet install WindowsAzure.Storage
+
 2. Nelle proprietà del progetto selezionare **Impostazioni** e quindi **Il progetto non contiene un file di impostazioni predefinito. Fare clic qui per crearne uno.**
 
 3. Immettere le impostazioni seguenti. Usare le informazioni relative all'hub eventi e all'account di archiviazione create in precedenza nella colonna **Valore**.
 
-	<table>
-	<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(Stringa di connessione)</th><th style="text-align:left">Applicazione</th></tr>
-	<tr><th style="text-align:left">TableName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-	</table>
+	| Nome | Tipo | Scope |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | stringa | Applicazione |
+	| EventHubPolicyKey | stringa | Applicazione |
+	| EventHubNamespace | stringa | Applicazione |
+	| EventHubName | stringa | Applicazione |
+	| EventHubPartitionCount | int | Applicazione |
+	| StorageConnection | (Stringa di connessione) | Applicazione |
+	| TableName | stringa | Applicazione |
 
 	Per **TableName** immettere il nome della tabella da usare per archiviare gli eventi.
 
@@ -320,7 +325,7 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Spout.cs** e selezionare **Delete**. Poiché si usa lo spout dell'hub eventi Java, questo file non è necessario.
 
-2. Aprire il file **Program.cs** e aggiungere il codice seguente immediatamente dopo la riga `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");`:
+2. Aprire il file **Program.cs** e aggiungere il codice seguente immediatamente dopo la riga `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader" + DateTime.Now.ToString("yyyyMMddHHmmss"));`:
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
@@ -396,9 +401,9 @@ A questo punto, la procedura per **Program.cs** è completata. La topologia è s
 
 Quando si scrivono dati nell'archivio tabelle, è necessario creare una classe che descriva tali dati.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **EventHubReader**, selezionare **Aggiungi** e quindi **Nuova classe**. Denominare la nuova classe **Devices.cs**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **EventHubReader**, scegliere **Aggiungi** e quindi **Classe**. Assegnare il nome **Device.cs** alla nuova classe.
 
-2. Aprire **Devices.cs** e sostituire il codice predefinito con quanto riportato di seguito.
+2. Aprire **Device.cs** e sostituire il codice predefinito con il seguente:
 
 		using System;
 		using System.Collections.Generic;
@@ -462,7 +467,7 @@ Quando si scrivono dati nell'archivio tabelle, è necessario creare una classe c
         table = tableClient.GetTableReference(Properties.Settings.Default.TableName);
         table.CreateIfNotExists();
 
-	Verrà stabilita la connessione alla tabella **events** usando la stringa di connessione configurata in precedenza. Se non esiste, verrà creata.
+	Verrà effettuata la connessione alla tabella di archiviazione di Azure creata in precedenza con la stringa di connessione archiviata in `TableName`.
 
 2. Trovare il metodo **Execute** e sostituirlo con quanto riportato di seguito:
 
@@ -490,7 +495,7 @@ Quando si scrivono dati nell'archivio tabelle, è necessario creare una classe c
 
     > [AZURE.IMPORTANT] Il componente EventHubSpout attente un ACK per ogni tupla da componenti downstream come questo bolt. Se non vengono ricevuti ACK, EventHubSpout presupporrà che l'elaborazione per la tupla ha avuto esito negativo.
 
-A questo punto si dispone di una topologia completa che leggerà i dati dall'hub eventi e li archivierà nell'archivio tabelle in una tabella denominata **events**.
+A questo punto si ha una topologia completa che leggerà i dati dall'hub eventi e li inserirà nell'archivio tabelle della tabella creata in precedenza.
 
 ## Distribuire le topologie
 
@@ -565,4 +570,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Esempi per sviluppatori del Catalogo dati | Microsoft Azure"
-   description="Questo articolo fornisce una panoramica degli esempi per sviluppatori disponibili per l'API REST di Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	pageTitle="Esempi per sviluppatori del Catalogo dati | Microsoft Azure"
+	description="Questo articolo fornisce una panoramica degli esempi per sviluppatori disponibili per l'API REST di Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager=""
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/30/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/30/2016"
+	ms.author="spelluru"/>
 
 
 # Esempi per sviluppatori del Catalogo dati
@@ -34,4 +34,4 @@ Di seguito vi sono gli esempi presenti in GitHub:
 
   Un esempio che illustra come usare l'API REST del catalogo dati per recuperare asset da Catalogo dati di Azure e serializzarli in un file. Mostra anche come prelevare un set di asset serializzato come JSON ed eseguirne il push nel catalogo. Supporta l'esportazione di un subset del catalogo usando una query di ricerca.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

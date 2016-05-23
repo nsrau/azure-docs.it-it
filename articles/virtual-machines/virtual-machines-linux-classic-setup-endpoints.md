@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Come configurare gli endpoint in una macchina virtuale classica in Azure
@@ -23,13 +23,15 @@ Tutte le macchine virtuali Linux create in Azure con il modello di distribuzione
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
-Quando si crea una macchina virtuale Linux nel portale di Azure classico, gli endpoint comuni, ad esempio per Secure Shell (SSH), sono in genere creati automaticamente. È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
+Quando si crea una macchina virtuale Linux nel portale di Azure classico, viene in genere creato automaticamente un endpoint per Secure Shell (SSH). È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Passaggi successivi
 
-* È anche possibile creare un endpoint di VM utilizzando l'interfaccia della riga di comando di Azure in [Modalità di gestione dei servizi](../virtual-machines-command-line-tools.md). Eseguire il comando **azure vm endpoint create**.
+* È anche possibile creare un endpoint di VM con l'[interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md). Eseguire il comando **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0413_2016-->
+* Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare l'interfaccia della riga di comando di Azure in modalità Resource Manager per [creare gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-cli.md) per controllare il traffico verso la VM.
+
+<!---HONumber=AcomDC_0511_2016-->

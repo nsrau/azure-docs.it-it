@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Utilizzare il dashboard del dispositivo StorSimple Manager | Microsoft Azure"
    description="Descrive il dashboard del dispositivo del servizio StorSimple Manager e come utilizzarlo per visualizzare le metriche di archiviazione, gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="05/09/2016"
    ms.author="alkohli" />
 
 # Utilizzare il dashboard del dispositivo StorSimple Manager
@@ -27,11 +27,11 @@ La scheda dashboard contiene le informazioni seguenti:
 
 - **Area del grafico**– è possibile visualizzare le metriche di archiviazione rilevanti nell'area del grafico nella parte superiore del dashboard. In questo grafico, è possibile visualizzare le metriche per l'archiviazione primaria totale (la quantità di dati scritti dall'host per il dispositivo) e l'archiviazione cloud totale utilizzata dal dispositivo in un periodo di tempo.
 
-     In questo contesto,*archiviazione primaria*si riferisce alla quantità totale dei dati scritti dall'host. Può includere sia i dati archiviati localmente e dati a più livelli nel cloud. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione.. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
- 
+     In questo contesto *archiviazione primaria* si riferisce alla quantità totale di dati scritti dall'host e il concetto può essere suddiviso in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale sia quelli archiviati a livelli nel cloud, *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale.   L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione.. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
+
 	 È possibile configurare il grafico come segue:
 
-	 - Per visualizzare la quantità di spazio di archiviazione cloud utilizzato nel corso del tempo, selezionare l’opzione **ARCHIVIAZIONE CLOUD UTILIZZATA**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare l’opzione**ARCHIVIAZIONE PRIMARIA UTILIZZATA**. Nella figura, entrambe le opzioni sono selezionate. Pertanto, il grafico mostra la quantità di archiviazione per l’archiviazione cloud e per l’archiviazione primaria. 
+	 - Per visualizzare la quantità di spazio di archiviazione cloud utilizzato nel corso del tempo, selezionare l’opzione **ARCHIVIAZIONE CLOUD UTILIZZATA**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare le opzioni relative ad **archiviazione primaria a livelli usata** e **archiviazione primaria aggiunta in locale usata**. Nella figura, entrambe le opzioni sono selezionate. Pertanto, il grafico mostra la quantità di archiviazione per l’archiviazione cloud e per l’archiviazione primaria. Si noti che l'archiviazione primaria usata prima di installare l'aggiornamento 2 è indicata dalla linea relativa ad **archiviazione primaria a livelli usata**.
 	 - Utilizzare il menu a discesa nell'angolo in alto a destra del grafico per specificare una scala temporale di 1 settimana, 1 mese, 3 mesi o 1 anno. Si noti che il grafico di primo livello viene aggiornato solo una volta al giorno e pertanto rifletterà i totali del giorno precedente.
 
      Per ulteriori informazioni, vedere [Utilizzo del servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
@@ -100,4 +100,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 - Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

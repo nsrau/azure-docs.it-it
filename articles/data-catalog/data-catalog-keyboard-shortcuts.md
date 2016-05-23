@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Catalogo dati di Azure | Microsoft Azure"
-   description="Questo articolo illustra le scelte rapide da tastiera per Catalogo dati di Azure."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Catalogo dati di Azure | Microsoft Azure"
+	description="Questo articolo illustra le scelte rapide da tastiera per Catalogo dati di Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Scelte rapide da tastiera per Catalogo dati di Azure
 
@@ -92,4 +92,4 @@
 |Attiva/Disattiva il menu **Apri In** | ALT + O
 |Esplorare il contenitore, se l'asset è un contenitore | ALT+L
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

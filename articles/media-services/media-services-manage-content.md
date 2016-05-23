@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -61,7 +61,7 @@ Se il valore delle dimensioni del file non viene aggiornato al termine del proce
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-index-content.md)
-- [Portal](media-services-manage-content.md#index)
+- [Portale](media-services-manage-content.md#index)
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. L'indicizzazione del contenuto può essere eseguita dal portale di Azure classico con la procedura riportata di seguito. Tuttavia, per avere più controllo sui file e sulle modalità del processo di indicizzazione, è possibile usare l'SDK di Servizi multimediali per .NET o le API REST. Per altre informazioni, vedere [Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
 
@@ -79,7 +79,7 @@ I seguenti passaggi mostrano come usare il portale di Azure classico per indiciz
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [Portal](media-services-manage-content.md#encode)
+- [Portale](media-services-manage-content.md#encode)
 
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. Servizi multimediali fornisce un codificatore multimediale che consente di specificare la modalità di codifica dei contenuti (ad esempio, i codec da usare, il formato di file, la risoluzione e la velocità in bit).
 
@@ -100,7 +100,9 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 
 1.  Selezionare il file da codificare.
 
-  Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO. 4. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**. 5. Scegliere una delle **configurazioni di codifica**.
+  Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
+4. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**.
+5. Scegliere una delle **configurazioni di codifica**.
 
 ![Process2][process2]
 
@@ -142,7 +144,7 @@ Vedere anche:
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portale](media-services-manage-content.md#publish)
 
 ###Panoramica
 
@@ -220,4 +222,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale. Per una panoramica più dettagliata dell'uso dei canali e dei componenti correlati, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
+Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un canale riceve un flusso live a più velocità in bit da un codificatore live locale. Per una panoramica più dettagliata dell'uso dei canali e dei componenti correlati, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
 In questa esercitazione il portale di Azure classico viene usato per eseguire le attività seguenti:
 
@@ -88,7 +88,7 @@ Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da for
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori locali per l'invio di un flusso live a più velocità in bit a un canale](media-services-manage-channels-overview.md).
+Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori locali per l'invio di un flusso live a più velocità in bit a un canale](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Configurare un codificatore live e inserire il flusso live
 
@@ -212,4 +212,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

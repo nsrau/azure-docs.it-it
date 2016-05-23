@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/29/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Note sulla versione di Azure SDK per .NET 2.9
 
@@ -44,7 +43,7 @@ Questi aggiornamenti includono quanto segue:
 
 	Lo strumento viene aggiornato frequentemente, fare clic [qui](http://aka.ms/datalaketool) per ottenere gli aggiornamenti.
 
-- **Esplora server** ora consente di visualizzare tutte le entità di metadati U-SQL e di crearne alcune. Per altre informazioni, vedere [questo]() blog.
+- **Esplora server** ora consente di visualizzare tutte le entità di metadati U-SQL e di crearne alcune. Per altre informazioni, vedere [questo](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 
 ##Strumenti HDInsight 
@@ -60,4 +59,4 @@ Questa versione aggiunge il supporto [Insieme di credenziali delle chiavi](../re
 
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

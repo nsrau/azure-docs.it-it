@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc" />
 
 # Configurare un gateway VPN per il modello di distribuzione classica
@@ -162,12 +162,10 @@ Prima di modificare il tipo di VPN del gateway, verificare che il dispositivo VP
 
 ## Passaggi successivi
 
-Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulle connessioni cross-premise protette delle reti virtuali](vpn-gateway-cross-premises-options.md).
-
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo relativo alla [configurazione di una connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

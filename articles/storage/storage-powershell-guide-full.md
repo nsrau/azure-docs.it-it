@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
@@ -665,13 +665,17 @@ Per usare Archiviazione di Azure con AzureChinaCloud, è necessario creare un co
 
 Per utilizzare l'archiviazione di Azure con [il governo degli Stati Uniti](https://azure.microsoft.com/features/gov/), è necessario definire un nuovo ambiente e creare un nuovo contesto di archiviazione con questo ambiente:
 
-1. Chiamare il cmdlet [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) per creare un nuovo ambiente Azure per il data center privato.
+1.	Eseguire il cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) per visualizzare gli ambienti Azure disponibili:
 
-    	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
+    `Get-AzureEnvironment`
 
-2. Eseguire il cmdlet [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) per creare un nuovo contesto di archiviazione per questo nuovo ambiente, come illustrato di seguito.
+2.	Aggiungere un account Azure per enti pubblici a Windows PowerShell:
 
-	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
+    `Add-AzureAccount –Environment AzureUSGovernment`
+
+3.	Creare un contesto di archiviazione per un account AzureUSGovernment:
+
+    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 Per altre informazioni, vedere:
 
@@ -730,4 +734,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="visual-studio-online"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio 
@@ -53,7 +53,7 @@ Per connettersi ad Azure AD nei seguenti tipi di progetto, è possibile usare la
 
     ![Configurare Azure AD nella procedura guidata](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Fare clic sul pulsante **Finish**. La finestra di dialogo consente di aggiungere il codice di configurazione necessario e i riferimenti per abilitare il progetto per l'autenticazione di Azure AD. È possibile visualizzare il dominio di Active Directory nel portale di Azure.
+1. Fare clic sul pulsante **Finish**. La finestra di dialogo consente di aggiungere il codice di configurazione necessario e i riferimenti per abilitare il progetto per l'autenticazione di Azure AD. È possibile visualizzare il dominio di Active Directory nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Esaminare la pagina introduttiva visualizzata nel browser per ottenere informazioni sui passaggi successivi e la pagina relativa ai risultati per verificare il modo in cui è stato modificato il progetto. Per controllare che tutte le operazioni siano state eseguite correttamente, aprire uno dei file di configurazione modificati, quindi verificare che le impostazioni indicate nella pagina dei risultati siano presenti. Ad esempio, il Web. config principale in un progetto ASP.NET MVC avrà queste impostazioni aggiunte:
 
@@ -79,4 +79,4 @@ Porre domande e ottenere assistenza.
 
  - [Post di blog: Introduzione a Microsoft Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

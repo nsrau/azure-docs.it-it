@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Come usare SSH con Linux e Mac in Azure
@@ -38,7 +38,7 @@ Di seguito sono descritti gli scenari di distribuzione e i tipi di file da usare
 
 ## Creazione di chiavi per l'utilizzo con SSH
 
-Azure richiede il formato dei file di chiave **ssh rsa** di 2.048 bit o i file .pem equivalenti, a seconda dello scenario. Se si dispone già di tali file, passare il file di chiave pubblica quando si crea una macchina virtuale di Azure.
+Se sono già disponibili chiavi SSH, passare il file della chiave pubblica quando si crea una VM di Azure.
 
 Se è necessario creare i file:
 
@@ -47,17 +47,14 @@ Se è necessario creare i file:
 	- Per Mac, assicurarsi di visitare il [Sito web del prodotto di protezione Apple](https://support.apple.com/HT201222) e, se necessario, scegliere gli aggiornamenti appropriati.
 	- Per distribuzioni di Linux basate su Debian, come Ubuntu, Debian, Mint e così via:
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- Per distribuzioni di Linux basate su RPM, come CentOS e Oracle Linux:
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- Per SLES e OpenSUSE
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. Utilizzare **ssh-keygen** per creare dei file di chiave pubblici e privati RSA a 2048 bit, e a meno che non si disponga di una posizione specifica o di nomi specifici per i file, accettare la posizione predefinita e il nome di `~/.ssh/id_rsa`. Il comando basic è:
@@ -72,9 +69,7 @@ Se è necessario creare i file:
 
 	Se si desidera creare un file .pem da un file di chiave privato diverso, modificare l’argomento `-key`.
 
-> [AZURE.NOTE] Se si prevede di gestire i servizi distribuiti con il modello di distribuzione classica, è inoltre possibile creare un file in formato **.cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per creare tali file su Linux o Mac, digitare: <br /> openssl.exe x. 509-outform der-in mycert-out mycert. cer
-
-Per convertire il file .pem in un file di certificato codificato DER X509.
+> [AZURE.NOTE] Se si prevede di gestire i servizi distribuiti con il modello di distribuzione classica, è inoltre possibile creare un file in formato **.cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per convertire il file PEM in un file di certificato X509 con codifica DER in Linux o Mac, digitare: <br /> openssl x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Utilizzare chiavi SSH di cui si dispone già
 
@@ -86,7 +81,7 @@ Dopo aver creato i file necessari, esistono molti modi per creare una macchina v
 
 ### Esempio: Creazione di una macchina virtuale con il file id\_rsa.pub
 
-L'utilizzo più comune è quando si crea in modo imperativo una macchina virtuale -- o si carica un modello per creare una macchina virtuale. L’esempio di codice seguente illustra come creare una macchina virtuale di Linux nuova e sicura in Azure passando il nome del file pubblico (in questo caso, il file predefinito `~/.ssh/id_rsa.pub`) al comando `azure vm create`. (Gli altri argomenti sono stati creati in precedenza).
+L'utilizzo più comune è quando si crea in modo imperativo una macchina virtuale -- o si carica un modello per creare una macchina virtuale. L’esempio di codice seguente illustra come creare una macchina virtuale di Linux nuova e sicura in Azure passando il nome del file pubblico (in questo caso, il file predefinito `~/.ssh/id_rsa.pub`) al comando `azure vm create`. Gli altri argomenti, ad esempio account di archiviazione e di gruppo di risorse, sono stati creati precedentemente. Questo esempio usa il metodo di distribuzione Resource Manager, quindi assicurarsi che l'interfaccia della riga di comando di Azure sia impostata di conseguenza con `azure config mode arm`:
 
 	azure vm create \
 	--nic-name testnic \
@@ -94,7 +89,7 @@ L'utilizzo più comune è quando si crea in modo imperativo una macchina virtual
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -133,23 +128,23 @@ Nell'esempio seguente viene illustrato come utilizzare il formato **ssh-rsa** co
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### Esempio: Creazione di una macchina virtuale con un file .pem
 
-È possibile utilizzare quindi il file .pem nel portale classico o con la modalità di distribuzione classica e `azure vm create`, come nell'esempio seguente:
+È possibile usare quindi il file PEM nel portale classico o con la modalità di distribuzione classica, (`azure config mode asm`) e `azure vm create`, come nell'esempio seguente:
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-it-IT-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-it-IT-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-it-IT-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-it-IT-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -263,30 +258,32 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## Nel caso di problemi di connessione
 
@@ -296,4 +293,4 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
  
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

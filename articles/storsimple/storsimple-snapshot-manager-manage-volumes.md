@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager e volumi | Microsoft Azure"
-   description="Illustra come usare lo snap-in MMC Gestione snapshot StorSimple per visualizzare e gestire i volumi e per configurare i backup."
+   description="Illustra come usare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire i volumi e per configurare i backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 
 ## Panoramica
 
-È possibile usare il nodo **Volumes** di StorSimple Snapshot Manager (nel riquadro **ambito**) per selezionare i volumi e visualizzare le relative informazioni. I volumi vengono presentati come unità che corrispondono ai volumi montati dall'host. Il nodo **Volumes** indica i volumi locali e i tipi di volume supportati da Azure StorSimple, compresi i volumi individuati tramite l'uso di iSCSI e di un dispositivo.
+È possibile usare il nodo **Volumi** di StorSimple Snapshot Manager (nel riquadro **Ambito**) per selezionare i volumi e visualizzare le relative informazioni. I volumi vengono presentati come unità che corrispondono ai volumi montati dall'host. Il nodo **Volumi** indica i volumi locali e i tipi di volume supportati da StorSimple, compresi i volumi individuati tramite l'uso di iSCSI e di un dispositivo.
 
 Per altre informazioni sui volumi supportati, passare al [supporto per più tipi di volume](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Elenco volumi nel riquadro dei Risultati](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-Il nodo **Volumi** consente inoltre di ripetere l'analisi o eliminare i volumi dopo l'individuazione da parte di Gestione snapshot StorSimple.
+Il nodo **Volumi** consente inoltre di ripetere l'analisi o eliminare i volumi dopo l'individuazione da parte di StorSimple Snapshot Manager.
 
 Questo tutorial spiega come montare, inizializzare e formattare volumi e quindi usare StorSimple Snapshot Manager per:
 
@@ -35,11 +35,11 @@ Questo tutorial spiega come montare, inizializzare e formattare volumi e quindi 
 - Configurare un volume di base e una copia di backup
 - Configurare un volume con mirroring dinamico e una copia di backup
 
->[AZURE.NOTE]Tutte le azioni del nodo **Volumi** sono disponibili anche nel riquadro **Azioni**.
+>[AZURE.NOTE] Tutte le azioni del nodo **Volumi** sono disponibili anche nel riquadro **Azioni**.
  
 ## Montare i volumi
 
-Utilizzare la seguente procedura per montare, inizializzare e formattare volumi su StorSimple di Azure. Questa procedura utilizza Gestione disco, un'utilità di sistema per la gestione dei dischi rigidi e dei volumi o delle partizioni in essi contenute. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
+Usare la procedura seguente per montare, inizializzare e formattare volumi StorSimple. Questa procedura usa Gestione disco, un'utilità di sistema per la gestione dei dischi rigidi e dei volumi o delle partizioni corrispondenti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
 
 #### Montare volumi
 
@@ -53,15 +53,15 @@ Utilizzare la seguente procedura per montare, inizializzare e formattare volumi 
 
     - Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**.
 
-    - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer ** e quindi selezionare **Gestione disco**.
+    - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer** e quindi selezionare **Gestione disco**.
 
-    >[AZURE.NOTE]È necessario utilizzare i privilegi di amministratore per eseguire Gestione disco.
+    >[AZURE.NOTE] È necessario utilizzare i privilegi di amministratore per eseguire Gestione disco.
  
 4. Portare i volumi online:
 
    1. In Gestione disco, fare doppio clic su un volume contrassegnato**Offline**.
 
-   2. Fare clic su**Riattiva disco specificato**. Il disco deve essere contrassegnato come**Online**dopo la riattivazione.
+   2. Scegliere **Riattiva disco specificato**. Il disco deve essere contrassegnato come**Online**dopo la riattivazione.
 
 5. Inizializzare il/i volume/i
 
@@ -69,7 +69,7 @@ Utilizzare la seguente procedura per montare, inizializzare e formattare volumi 
 
    2. Nel menu, selezionare**Inizializza Disco**.
 
-   3. Nella finestra di dialogo**Inizializza disco**, selezionare i dischi che si desidera inizializzare e quindi fare clic su**OK**.
+   3. Nella finestra di dialogo **Inizializza disco** selezionare i dischi che si desidera inizializzare e quindi fare clic su**OK**.
 
 6. Formattare volumi semplici:
 
@@ -110,7 +110,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
 
 Utilizzare la procedura seguente per eliminare un volume da StorSimple Snapshot Manager.
 
->[AZURE.NOTE]Non è possibile eliminare un volume se fa parte di un gruppo di volumi. (L'opzione di eliminazione non è disponibile per i volumi che sono membri di un gruppo di volumi). È necessario eliminare l'intero gruppo di volumi per eliminare il volume.
+>[AZURE.NOTE] Non è possibile eliminare un volume se fa parte di un gruppo di volumi. (L'opzione di eliminazione non è disponibile per i volumi che sono membri di un gruppo di volumi). È necessario eliminare l'intero gruppo di volumi per eliminare il volume.
 
 
 #### Per eliminare un volume
@@ -127,7 +127,7 @@ Utilizzare la procedura seguente per eliminare un volume da StorSimple Snapshot 
 
 5. Viene visualizzata la finestra di dialogo **Elimina volume**. Digitare **Conferma** nella casella di testo e quindi fare clic su **OK**.
 
-6. Come impostazione predefinita, StorSimple Snapshot Manager esegue il backup di un volume prima di eliminarlo. Questa precauzione consente di proteggere dalla perdita di dati se l'eliminazione è accidentale. Gestione snapshot StorSimple visualizza un messaggio di stato di **Snapshot automatico** durante l'esecuzione del backup del volume.
+6. Come impostazione predefinita, StorSimple Snapshot Manager esegue il backup di un volume prima di eliminarlo. Questa precauzione consente di proteggere dalla perdita di dati se l'eliminazione è accidentale. StorSimple Snapshot Manager, consente di visualizzare uno**Snapshot automatico**messaggio di stato durante l'esecuzione del backup del volume.
 
     ![Messaggio di snapshot automatico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
 
@@ -139,7 +139,7 @@ Per ripetere l'analisi dei volumi connessi a StorSimple Snapshot Manager, seguir
 
 1. Per avviare StorSimple Snapshot Manager, fare clic sull'icona del desktop.
 
-2. Nel riquadro **Ambito** fare clic con il pulsante destro del mouse su **Volumi** e quindi scegliere **Ripeti analisi dei volumi**.
+2. Nel**riquadro**Ambito, clicca col tasto destro su**Volumi**quindi fare clic su**Ripeti analisi dei volumi**.
 
     ![Ripetere la scansione dei volumi](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
  
@@ -153,9 +153,9 @@ Utilizzare la procedura seguente per configurare il backup di un volume di base 
 
 Prima di iniziare:
 
-- Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+- Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-- Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
+- Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### Per configurare il backup di un volume di base
 
@@ -163,7 +163,7 @@ Prima di iniziare:
 
 2. Montare, inizializzare e formattare il volume come descritto in [Montare i volumi](#mount-volumes).
 
-3. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di gestione StorSimple Snapshot Manager.
+3. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di StorSimple Snapshot Manager.
 
 4. Nel riquadro **Ambito** fare clic con il pulsante destro del mouse sul nodo **Volumi** e quindi scegliere **Ripeti analisi dei volumi**. Al termine dell'analisi, nel riquadro **Risultati** dovrebbe apparire un elenco di volumi.
 
@@ -189,15 +189,15 @@ Per configurare il backup di un volume con mirroring dinamico, seguire questa pr
 
 - Passaggio 1: Usare Gestione disco per creare un volume con mirroring dinamico. 
 
-- Passaggio 2: Usare Gestione snapshot StorSimple per configurare il backup.
+- Passaggio 2: Usare StorSimple Snapshot Manager per configurare il backup.
 
 ### Prerequisiti
 
 Prima di iniziare:
 
-- Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+- Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-- Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
+- Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 - Configurare due volumi sul dispositivo StorSimple. Negli esempi i volumi disponibili sono **Disco 1** e **Disco 2**.
 
@@ -213,21 +213,21 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
 
    - Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**.
 
-   - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer ** e quindi selezionare **Gestione disco**.
+   - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer** e quindi selezionare **Gestione disco**.
 
 2. Assicurarsi che siano disponibili due volumi nel dispositivo StorSimple. Nell'esempio i volumi disponibili sono**Disco 1** e **Disco 2**. 
 
-3. Nella finestra Gestione disco, nella colonna di destra del riquadro inferiore, fare clic con il pulsante destro del mouse sul **Disco 1** e scegliere **Nuovo volume con mirroring**.
+3. Nella finestra Gestione disco, nella colonna di destra del riquadro inferiore, fare clic con il pulsante destro del mouse sul **disco 1** e scegliere **uovo volume con mirroring**.
 
     ![Nuovo Volume con mirroring](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
 
-4. Nella pagina **Nuovo volume con mirroring** della procedura guidata fare clic su **Avanti**.
+4. Nella pagina **uovo volume con mirroring** della procedura guidata fare clic su **Avanti**.
 
 5. Nella pagina **Seleziona dischi** selezionare **Disco 2** nel riquadro **Selezionati**, fare clic su **Aggiungi** e quindi su **Avanti**.
 
-6. Nella pagina **Assegna lettera o percorso unità** accettare le impostazioni predefinite e quindi fare clic su **Avanti**.
+6. Nella pagina**Assegna lettera di unità o percorso**, accettare le impostazioni predefinite e quindi fare clic su**Avanti**.
 
-7. Nella pagina **Formatta volume**, nella casella **Dimensioni unità di allocazione**, selezionare**64 KB**. Selezionare la casella di controllo **Esegui formattazione veloce** e quindi fare clic su **Avanti**.
+7. Nella pagina**Formatta Volume**nella casella**dimensioni unità di allocazione**selezionare**64 KB**. Selezionare la casella di controllo **Esegui formattazione veloce** e quindi fare clic su **Avanti**.
 
 8. Nella pagina **Completamento della Creazione guidata nuovo volume con mirroring** esaminare le impostazioni e quindi fare clic su **Fine**.
 
@@ -245,11 +245,11 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 #### Per configurare il backup di un volume con mirroring dinamico
 
-1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di gestione StorSimple Snapshot Manager. 
+1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di StorSimple Snapshot Manager. 
 
-2. Nel**riquadro**ambito, cliccare col destro il nodo**volumi**e selezionare**Ripeti analisi dei volumi**. Al termine dell'analisi, nel riquadro **Risultati** dovrebbe apparire un elenco di volumi. Il volume con mirroring dinamico viene elencato come un singolo volume.
+2. Nel**riquadro**ambito, cliccare col destro il nodo**volumi**e selezionare**Ripeti analisi dei volumi**. Al termine dell'analisi, nel riquadro **Risultati** dovrebbe venire visualizzato un elenco di volumi. Il volume con mirroring dinamico viene elencato come un singolo volume.
 
-3. Nel**riquadro**risultati, cliccare col tasto destro del mouse sul volume con mirroring dinamico e quindi fare clic su**Crea gruppo di volumi**.
+3. Nel riquadro **Risultati**, cliccare col tasto destro del mouse sul volume con mirroring dinamico e quindi fare clic su **Crea gruppo di volumi**.
 
 4. Nella finestra di dialogo **Crea gruppo di volumi**digitare un nome per il gruppo di volumi, assegnare il volume con mirroring dinamico al gruppo e quindi fare clic su**OK**.
 
@@ -265,10 +265,10 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 ## Passaggi successivi
 
-- Informazioni su come [usare Gestione Snapshot StorSimple per amministrare la soluzione StorSimple](storsimple-snapshot-manager-admin.md).
-- Informazioni su come [usare Gestione snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md).
+- Informazioni su come [usare StorSimple Snapshot Managerper amministrare la soluzione StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

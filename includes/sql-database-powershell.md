@@ -1,17 +1,17 @@
 
-## Start your PowerShell session
+## Avviare la sessione di PowerShell
 
-First you need to have [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 or later) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
-
-
->[AZURE.NOTE] Many new features of SQL Database are only supported using the [Azure Resource Manager (ARM) deployment model](../articles/resource-group-overview.md) so examples use ARM based [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but using the ARM based cmdlets are recommended. 
+Prima di tutto è necessario che [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 o versione successiva) sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
 
-Run the [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+>[AZURE.NOTE] Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager (ARM)](../articles/resource-group-overview.md), quindi gli esempi usano ARM basato sui [cmdlet PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx). I [cmdlet del database SQL di Azure (classico)](https://msdn.microsoft.com/library/azure/dn546723.aspx) del modello di distribuzione classica esistente sono supportati per compatibilità con le versioni precedenti, ma è consigliabile l'uso dei cmdlet basati su ARM.
+
+
+Eseguire il cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) per visualizzare una schermata di accesso in cui immettere le credenziali. Usare le stesse credenziali usate per l'accesso al portale di Azure.
 
 	Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
+Se si hanno più sottoscrizioni usare il cmdlet [**Set AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) per selezionare la sottoscrizione da usare nella sessione di PowerShell. Per visualizzare quale sottoscrizione è usata nella sessione corrente di PowerShell, eseguire [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). Per visualizzare tutte le sottoscrizioni, digitare [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Installare un controller di dominio di replica in Azure | Microsoft Azure"
+	pageTitle="Installare un controller di dominio Active Directory di replica in Azure | Microsoft Azure"
 	description="Esercitazione che illustra come installare un controller di dominio da una foresta Active Directory locale in una macchina virtuale di Azure."
 	services="virtual-network"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/10/2016"
 	ms.author="curtand"/>
 
 
@@ -33,7 +33,7 @@ In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite
 
 I server dell'applicazione e i controller di dominio vengono distribuiti all'interno di servizi cloud separati per distribuire l'elaborazione del calcolo e all'interno dei [set di disponibilità](../virtual-machines/virtual-machines-windows-manage-availability.md) per una migliore tolleranza di errore. I controller di dominio eseguono la replica reciproca e con controller di dominio locali usando la replica di Active Directory. Non sono necessari strumenti di sincronizzazione.
 
-![][1]
+![Diagramma di un controller di dominio Active Directory di replica in una rete virtuale di Azure][1]
 
 ## Creare un sito di Active Directory per la rete virtuale di Azure
 
@@ -45,7 +45,7 @@ I server dell'applicazione e i controller di dominio vengono distribuiti all'int
 
 ## Creare una rete virtuale di Azure
 
-1. Nel portale di Azure classico, fare clic su **Nuovo** > **Servizi di rete** > **Rete virtuale**e > **Creazione personalizzata** e usare i seguenti valori per completare la procedura guidata.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo** > **Servizi di rete** > **Rete virtuale** > **Creazione personalizzata** e usare i valori seguenti per completare la procedura guidata.
 
     Pagina della procedura guidata | Valori da specificare
 	------------- | -------------
@@ -58,12 +58,11 @@ I server dell'applicazione e i controller di dominio vengono distribuiti all'int
 3. Creare la connessione VPN da sito a sito tra la nuova rete virtuale e un dispositivo VPN locale. Vedere [Configurare un gateway per la rete virtuale](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) per informazioni.
 
 
-
 ## Creare macchine virtuali di Azure per i ruoli del controller di dominio
 
 Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo di controller di dominio in base alle esigenze. È consigliabile distribuire almeno due controller di dominio virtuali per fornire ridondanza e tolleranza di errore. Se la rete virtuale di Azure include almeno due controller di dominio configurati in modo analogo (vale a dire se sono entrambi cataloghi globali, eseguono server DNS, non contengono alcun ruolo FSMO e così via), posizionare le macchine virtuali che eseguono tali controller di dominio in un gruppo di disponibilità per una tolleranza di errore migliorata. Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
-1. Nel portale di Azure classico, fare clic su **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**. Usare i valori nella seguente tabella per completare la procedura guidata. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**. Usare i valori nella seguente tabella per completare la procedura guidata. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
 
     Pagina della procedura guidata | Valori da specificare
 	------------- | -------------
@@ -85,14 +84,13 @@ Accedere a una macchina virtuale e verificare che sia disponibile la connettivit
 
 ## Riconfigurare il server DNS per la rete virtuale
 
-1. Nel portale di Azure classico, fare clic sul nome della rete virtuale, quindi fare clic sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](virtual-networks-manage-dns-in-vnet.md) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic sul nome della rete virtuale e quindi sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](../virtual-network/virtual-networks-manage-dns-in-vnet.md) in modo da usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di un server DNS locale.
 
 2. Per garantire che tutte le macchine virtuali dei controller di dominio di replica sulla rete virtuale siano configurati per usare i server DNS sulla rete virtuale, fare clic su **Macchine virtuali**, fare clic sulla colonna di stato per ciascuna macchina virtuale, quindi fare clic su **Riavvia**. Attendere fino a quando la macchina virtuale mostra lo stato **In esecuzione** prima di provare a effettuare l'accesso.
 
 ## Creare macchine virtuali per server applicazioni
 
 1. Ripetere i seguenti passaggi per creare macchine virtuali che vengano eseguite come server applicazioni. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
-
 
 	Pagina della procedura guidata | Valori da specificare
 	------------- | -------------
@@ -119,6 +117,6 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 -  [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841)
 
 <!--Image references-->
-[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+[1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

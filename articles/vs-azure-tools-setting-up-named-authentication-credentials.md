@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurazione delle credenziali per l'autenticazione denominate
@@ -33,7 +33,7 @@ Visual Studio usa l'ID sottoscrizione e i dati del certificato come credenziali.
 
 È possibile modificare le informazioni di sottoscrizione dalla finestra di dialogo **Nuova/Modifica sottoscrizione**, come illustrato più avanti in questo argomento.
 
-Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), quindi caricare manualmente il certificato nel portale di gestione.
+Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e quindi caricare manualmente il certificato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] Le credenziali richieste da Visual Studio per gestire i servizi cloud non sono le stesse necessarie per autenticare una richiesta per i servizi di archiviazione di Azure.
 
@@ -53,15 +53,15 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
 1. Fare clic su **Copia il percorso completo**. Il percorso del certificato (file con estensione cer) viene copiato negli Appunti.
 
-    >[AZURE.IMPORTANT] Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel portale di gestione.
+    >[AZURE.IMPORTANT] Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Per caricare il certificato al Portale di gestione di Azure:
+1. Per caricare il certificato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885):
 
     1. Scegliere il collegamento Portale di Azure.
 
-         Il [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) si apre.
+         Verrà visualizzato il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    1. Accedere al Portale di gestione di Azure utilizzando l'account Microsoft, e poi premere il tasto **Servizi Cloud**.
+    1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) e quindi fare clic su **Servizi cloud**.
 
     1. Scegliere il servizio cloud desiderato.
 
@@ -71,4 +71,4 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     1. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

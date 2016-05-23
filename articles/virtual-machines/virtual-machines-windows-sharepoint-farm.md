@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Creare farm di SharePoint Server
@@ -53,17 +53,18 @@ Per creare la farm di SharePoint a disponibilità elevata (nove server):
 
 > [AZURE.NOTE] Non è possibile creare la **SharePoint 2013 non-HA Farm** o **SharePoint 2013 HA Farm** con una versione di valutazione gratuita di Azure.
 
+Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
+
 ## Gestire le farm di SharePoint
 
 È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per ulteriori informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
+> [AZURE.NOTE] Con l'[immagine versione di valutazione di SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/) è possibile creare una macchina virtuale che esegue SharePoint Server 2016.
 
 ## Passaggi successivi
 
-- Distribuire una [farm Intranet SharePoint 2013](virtual-machines-windows-sp-intranet-overview.md) come carico di lavoro di produzione nei servizi di infrastruttura di Azure.
-- Scoprire altre configurazioni [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
+- Altre configurazioni di [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi dell'infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

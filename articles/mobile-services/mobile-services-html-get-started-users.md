@@ -103,11 +103,13 @@ A questo punto, si aggiornerà l'app in modo da consentire l'autenticazione prim
 
     In questo modo viene creato un set di funzioni per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: *microsoftaccount*, *facebook*, *twitter*, *google* o *aad*.
 
-	>[AZURE.IMPORTANT]In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti: <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]In un'app PhoneGap è inoltre necessario aggiungere al progetto i plug-in seguenti:
+	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Tornare al browser in cui è in esecuzione l'app e aggiornare la pagina.
 
-	   Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
+	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
 	>[AZURE.NOTE]Se si usa Internet Explorer, dopo l'accesso è possibile che venga visualizzato un errore che indica che <code>non è possibile accedere all'oggetto opener della finestra, in quanto potrebbe trovarsi in un'area di Internet Explorer diversa</code>. Questo errore si verifica perché la finestra popup viene eseguita in un'area di sicurezza (Internet) diversa da localhost (Intranet). Questo errore interessa le app solo durante lo sviluppo tramite localhost. Per risolvere il problema, in **Opzioni Internet** aprire la scheda **Sicurezza**, fare clic su **Intranet locale**, quindi su **Siti** e disabilitare **Rileva automaticamente rete Intranet**. Ricordare di tornare a modificare questa opzione al termine del test.
 
@@ -135,4 +137,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Riferimento per i concetti e le procedure di Servizi mobili con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -4,7 +4,7 @@
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
-	manager=""
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -127,4 +127,4 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 - Lo [Schema di configurazione della diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) illustra le varie opzioni di configurazione xml per l'estensione della diagnostica.
 - Per informazioni su come abilitare l'estensione della diagnostica per le macchine virtuali, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

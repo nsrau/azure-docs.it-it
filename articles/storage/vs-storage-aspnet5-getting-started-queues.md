@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione di coda di Azure e ai relativi servizi di Visual Studio (ASP.NET 5)
@@ -96,7 +96,9 @@ Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
 
 ##Leggere e rimuovere un messaggio in una coda
 
-Il codice può rimuovere un messaggio da una coda in due passaggi. 1. Chiamare **GetMessageAsync** per ottenere il messaggio successivo in una coda. Un messaggio restituito da **GetMessageAsync** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. 2. Per completare la rimozione del messaggio dalla coda, chiamare **DeleteMessageAsync**.
+Il codice può rimuovere un messaggio da una coda in due passaggi.
+1. Chiamare **GetMessageAsync** per ottenere il messaggio successivo in una coda. Un messaggio restituito da **GetMessageAsync** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi.
+2.	Per completare la rimozione del messaggio dalla coda, chiamare **DeleteMessageAsync**.
 
 Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama **DeleteMessageAsync** immediatamente dopo l'elaborazione del messaggio.
 
@@ -164,4 +166,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

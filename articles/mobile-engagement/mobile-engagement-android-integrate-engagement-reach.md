@@ -37,27 +37,27 @@ Modificare il file `AndroidManifest.xml`:
 
 -   Aggiungere la sezione seguente tra i tag `<application>` e `</application>`:
 
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
 			  <intent-filter>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="android.intent.category.DEFAULT" />
 			    <data android:mimeType="text/plain" />
 			  </intent-filter>
 			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
 			  <intent-filter>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="android.intent.category.DEFAULT" />
 			    <data android:mimeType="text/html" />
 			  </intent-filter>
 			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
 			  <intent-filter>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
 			  <intent-filter>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
 			    <category android:name="android.intent.category.DEFAULT"/>
@@ -644,4 +644,4 @@ Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

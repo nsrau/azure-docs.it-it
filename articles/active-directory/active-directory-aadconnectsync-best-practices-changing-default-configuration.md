@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="05/10/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
@@ -109,4 +109,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

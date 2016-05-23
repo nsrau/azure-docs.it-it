@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Assegnare utenti a un dominio personalizzato
@@ -38,7 +38,7 @@ Per modificare il dominio di un account utente esistente:
 
 5.  Modificare il dominio dell'utente e quindi selezionare **Salva**.
 
-Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o [API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o l'[API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 ## Selezionare un dominio personalizzato durante la creazione di un nuovo utente
 
@@ -56,10 +56,10 @@ Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https
 
 ## Passaggi successivi
 
-- [Uso di nomi di dominio personalizzati per semplificare l'esperienza di accesso degli utenti](active-directory-add-domain.md)
-- [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
-- [Aggiungere e verificare un nome di dominio personalizzato in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Cosa fare se si modifica il registrar DNS per il nome di dominio personalizzato](active-directory-add-domain-change-registrar.md)
-- [Eliminare un dominio personalizzato in Azure Active Directory](active-directory-add-domain-delete-domain.md)
+-   [Uso di nomi di dominio personalizzati per semplificare l'esperienza di accesso degli utenti](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
+
+-   [Informazioni sui concetti relativi alla gestione dei domini in Azure AD](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

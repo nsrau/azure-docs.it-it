@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
@@ -51,7 +51,7 @@ Per impostazione predefinita, Diagnostica di Azure effettua sempre il sink dei r
 
 In questo esempio, l'URL dell'Hub eventi è impostato sullo spazio dei nomi completo dell'Hub eventi (spazio dei nomi ServiceBus + "/" + nome Hub eventi).
 
-L'URL dell'Hub eventi viene visualizzato nel [portale di Azure classico](https://manage.windowsazure.com) sul dashboard di Hub eventi.
+L'URL dell'hub eventi viene visualizzato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard Hub eventi.
 
 Il nome del **Sink** può essere impostato su qualsiasi stringa valida, purché lo stesso valore venga usato in modo coerente in tutto il file di configurazione.
 
@@ -295,4 +295,4 @@ Il file *ServiceConfiguration.Cloud.cscfg* complementare per questo esempio si p
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

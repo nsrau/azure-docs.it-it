@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,20 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
 
 ## Panoramica
-Quando si ha un processo automatico o un'applicazione che deve accedere alle risorse o modificarle, è possibile usare il portale classico per creare un'applicazione Active Directory. Quando si crea un'applicazione di Active Directory tramite il portale classico, vengono create sia l'applicazione sia un'entità servizio. È possibile eseguire l'applicazione nella propria identità o con l'identità dell'utente connesso dell'applicazione. Questi due metodi di autenticazione delle applicazioni vengono definiti come interattivo (l'utente esegue l'accesso) e non interattivo (l'app fornisce le proprie credenziali). In modalità non interattiva è necessario assegnare l'entità servizio a un ruolo con autorizzazioni corrette.
+Quando si ha un processo automatico o un'applicazione che deve accedere alle risorse o modificarle, è possibile usare il portale classico per creare un'applicazione Active Directory. È possibile eseguire l'applicazione nella propria identità o con l'identità dell'utente connesso dell'applicazione. Questi due metodi di autenticazione delle applicazioni vengono definiti come interattivo (l'utente esegue l'accesso) e non interattivo (l'app fornisce le proprie credenziali). In modalità non interattiva è necessario assegnare un ruolo con l'autorizzazione corretta all'identità per l'applicazione. Se l'app viene eseguita automaticamente, ad esempio un processo back-end, è necessario usare l'autenticazione non interattiva.
 
-Questo argomento spiega come creare una nuova applicazione e un'entità servizio usando il portale classico. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory. Questa funzionalità verrà aggiunta al portale di Azure in una versione successiva. È possibile usare il portale per assegnare l'applicazione a un ruolo. È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di PowerShell o dell'interfaccia della riga di comando con l'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
+Questo argomento spiega come creare una nuova applicazione usando il portale classico. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory. È possibile usare il portale per assegnare l'applicazione a un ruolo.
+
+È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di PowerShell o dell'interfaccia della riga di comando con l'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 
 ## Concetti
 1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altri dettagli, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
-2. Entità servizio: istanza di un'applicazione in una directory.
-3. Applicazione AD: record di directory in AAD che identifica un'applicazione in AAD. 
+2. Applicazione AD: record di directory in Active Directory che identifica un'applicazione. 
+3. Entità servizio: istanza dell'applicazione a cui è possibile applicare ruoli di controllo di accesso.
 
 Per una spiegazione più dettagliata delle applicazioni e delle entità servizio, vedere [Oggetti applicazione e Oggetti entità servizio](active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
@@ -40,10 +42,14 @@ Per le applicazioni interattive e non interattiva, è necessario creare e config
 2. Selezionare **Active Directory** dal riquadro di sinistra.
 
      ![selezionare Active Directory][1]
-
-3. Selezionare la directory da usare per la creazione della nuova applicazione.
+     
+3. Selezionare la directory da usare per la creazione della nuova applicazione. Per le risorse nella sottoscrizione, è possibile assegnare l'accesso solo alle entità servizio nella stessa directory della sottoscrizione. In genere, si preferisce creare l'applicazione nella directory in cui si trova la sottoscrizione.
 
      ![scegliere la directory][2]
+     
+    Se è necessario trovare la directory per la sottoscrizione, selezionare **Impostazioni** e cercare il nome della directory.
+   
+     ![Trovare la directory predefinita](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. Per visualizzare le applicazioni nella directory, fare clic su **Applicazioni**.
 
@@ -61,11 +67,11 @@ Per le applicazioni interattive e non interattiva, è necessario creare e config
 
      ![nuova applicazione][10]
 
-6. Immettere il nome dell'applicazione e selezionare il tipo di applicazione da usare. Selezionare il tipo di applicazione da creare. Per questa esercitazione, si sceglierà di creare un'**APPLICAZIONE WEB APPLICATION E/O API WEB** e fare clic sul pulsante Avanti.
+6. Immettere il nome dell'applicazione e selezionare il tipo di applicazione da usare. Selezionare il tipo di applicazione da creare. Per questa esercitazione, creare un'**APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante Avanti.
 
      ![assegnare un nome all'applicazione][9]
 
-7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione. L'univocità o l'esistenza dell'endpoint non viene convalidata. Se è stata selezionata **Applicazione client nativa** per il tipo di applicazione, si dovrà fornire un valore per **URI di reindirizzamento**. Fare clic su **Completa** per creare l'applicazione AAD.
+7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione. L'univocità o l'esistenza dell'endpoint non viene convalidata. Se si era selezionato **Applicazione client nativa** per il tipo di applicazione, si dovrà fornire un valore per **URI di reindirizzamento**. Fare clic su **Completa** per creare l'applicazione AAD.
 
      ![proprietà dell'applicazione][4]
 
@@ -83,7 +89,7 @@ In alcuni casi, è necessario passare l'id tenant con la richiesta di autenticaz
 
 Gli endpoint non sono disponibili per le applicazioni client native. È invece possibile recuperare l'ID tenant usando PowerShell:
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 Oppure l'interfaccia della riga di comando di Azure:
 
@@ -124,7 +130,7 @@ Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessa
 
       ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Aggiungere l'autorizzazione delegata **Accedi a gestione del servizio Azure (anteprima)** all'API di gestione del servizio.
+3. Aggiungere l'autorizzazione delegata **Accedi a gestione del servizio Azure (anteprima)** all'API Gestione dei servizi.
 
        ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -218,7 +224,7 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
 
 - Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).  
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Per altre informazioni sull'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure con applicazioni ed entità servizio di Active Directory, incluso l'uso di un certificato per l'autenticazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md).
+- Per altre informazioni sull'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure con applicazioni ed entità servizio di Active Directory, incluso l'uso di un certificato per l'autenticazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 - Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 
 
@@ -237,4 +243,4 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -51,7 +51,7 @@ Ogni cluster di Service Fabric ha un nome. Quando viene creato un cluster di Fab
 Per impostazione predefinita il nome del cluster viene generato automaticamente in modo univoco aggiungendo un suffisso casuale al prefisso "cluster". Questo metodo semplifica l'uso del modello nell'ambito di un sistema ad **integrazione continua**. Se si vuole usare un nome specifico per il cluster con un particolare significato, impostare il valore della variabile `clusterName` nel file di modello di Gestione risorse (`ServiceFabricCluster.json`) sul nome scelto. Si tratta della prima variabile definita nel file.
 
 ## Facoltativo: aggiungere le porte pubbliche dell'applicazione
-Prima di distribuire il cluster, è possibile anche modificare le porte pubbliche delle applicazioni. Per impostazione predefinita, il modello apre solo due porte TCP pubbliche: 80 e 8081. Se per le applicazioni sono necessarie più porte, modificare la definizione del servizio di bilanciamento del carico di Azure nel modello. La definizione viene archiviata nel file del modello principale (`SecureFabricCluster.json`). Aprire il file e cercare `loadBalancedAppPort`. Si noterà che ogni porta è associata a tre elementi:
+Prima di distribuire il cluster, è possibile anche modificare le porte pubbliche delle applicazioni. Per impostazione predefinita, il modello apre solo due porte TCP pubbliche: 80 e 8081. Se per le applicazioni sono necessarie più porte, modificare la definizione del servizio di bilanciamento del carico di Azure nel modello. La definizione viene archiviata nel file del modello principale (`ServiceFabricCluster.json`). Aprire il file e cercare `loadBalancedAppPort`. Si noterà che ogni porta è associata a tre elementi:
 
 1. Una variabile del modello che definisce il valore della porta TCP per la porta:
 
@@ -126,4 +126,4 @@ Se sono presenti errori, passare al [portale di Azure](https://portal.azure.com/
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

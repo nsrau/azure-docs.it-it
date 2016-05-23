@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="04/22/2016"
    ms.author="alkohli" />
 
 # Sostituire lo chassis sul dispositivo StorSimple
 
 ## Panoramica
 
-Questa esercitazione illustra come rimuovere e sostituire uno chassis in un dispositivo StorSimple serie 8000. Il modello 8100 di StorSimple è un dispositivo a chassis singolo (uno chassis), mentre il modello 8600 è un dispositivo a chassis doppio (due chassis). Per un modello 8600, esistono potenzialmente due chassis che possono avere esito negativo nel dispositivo: lo chassis per lo chassis principale o lo chassis per lo chassis EBOD.
+Questa esercitazione illustra come rimuovere e sostituire uno chassis in un dispositivo StorSimple serie 8000. Il modello 8100 di StorSimple è un dispositivo a chassis singolo (uno chassis), mentre il modello 8600 è un dispositivo a chassis doppio (due chassis). Per un modello 8600, esistono potenzialmente due chassis che potrebbero avere esito negativo nel dispositivo: lo chassis per lo chassis principale o lo chassis per lo chassis EBOD.
 
-In entrambi i casi, lo chassis sostitutivo che viene fornito da Microsoft sarà vuoto. Non verranno inclusi PCM, moduli controller, unità disco a stato solido (SSD), unità disco rigido (HDD) o moduli EBOD.
+In entrambi i casi, lo chassis sostitutivo che viene fornito da Microsoft è vuoto. Non verranno inclusi PCM, moduli controller, unità disco a stato solido (SSD), unità disco rigido (HDD) o moduli EBOD.
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire lo chassis, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di rimuovere e sostituire lo chassis, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Rimuovere lo chassis
 
@@ -45,7 +45,7 @@ Eseguire i passaggi seguenti per rimuovere lo chassis sul dispositivo StorSimple
 
 ## Installare lo chassis
 
-Eseguire i passaggi seguenti per installare lo chassis in un dispositivo Microsoft Azure StorSimple.
+Eseguire i passaggi seguenti per installare lo chassis sul dispositivo StorSimple.
 
 #### Per installare uno chassis
 
@@ -55,7 +55,7 @@ Eseguire i passaggi seguenti per installare lo chassis in un dispositivo Microso
 
 3. Installare le unità nelle stesse posizioni e slot in cui erano precedentemente installati.
 
-    >[AZURE.NOTE]È consigliabile installare prima le unità SSD negli slot e quindi installare i dischi rigidi.
+    >[AZURE.NOTE] È consigliabile installare prima le unità SSD negli slot e quindi installare i dischi rigidi.
 
 2. Con il dispositivo montato nel rack e i componenti installati, connettere il dispositivo alle appropriate prese di corrente e accendere il dispositivo. Per ulteriori informazioni, vedere[Cablare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device)o[Cablare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
@@ -63,4 +63,4 @@ Eseguire i passaggi seguenti per installare lo chassis in un dispositivo Microso
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

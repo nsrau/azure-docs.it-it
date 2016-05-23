@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Gestire i controller del dispositivo StorSimple | Microsoft Azure"
    description="Informazioni su come interrompere, riavviare, arrestare o reimpostare i controller del dispositivo StorSimple."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Gestire i controller del dispositivo StorSimple
@@ -24,7 +24,7 @@ In questa esercitazione vengono descritte le diverse operazioni che è possibile
 In questa esercitazione sono incluse le istruzioni dettagliate per gestire i controller del dispositivo tramite:
 
 - La sezione **Controller** della pagina **Manutenzione** del servizio StorSimple Manager
-- Windows PowerShell per StorSimple. 
+- Windows PowerShell per StorSimple.
 
 Si consiglia di gestire i controller dei dispositivi tramite il servizio StorSimple Manager. Se un'azione può essere eseguita solo utilizzando Windows PowerShell per StorSimple, nell'esercitazione si esegue una nota.
 
@@ -41,7 +41,7 @@ Il riavvio o l'arresto del controller non è richiesto come parte del funzioname
 
 Il riavvio di un dispositivo non è un'operazione problematica per gli iniziatori connessi, supponendo che il controller passivo sia disponibile. Se un controller passivo non è disponibile o è spento, il riavvio del controller attivo potrebbe comportare l'interruzione del servizio e tempi di inattività.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 > - **Un controller in esecuzione non deve mai essere fisicamente rimosso poiché potrebbe causare una perdita di ridondanza e un maggior rischio di tempi di inattività.**
 
@@ -66,23 +66,17 @@ Per gestire i controller del dispositivo dal portale di Azure classico, effettua
 	>[AZURE.NOTE] Se non è possibile visualizzare **Gestisci controller**, è necessario installare gli aggiornamenti. Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).
 
 1. Nella finestra di dialogo **Modifica impostazioni controller**, effettuare le seguenti operazioni:
-
-
-	- Dall'elenco a discesa **Seleziona controller**, selezionare il controller che si desidera gestire. Le opzioni sono Controller 0 e Controller 1. Questi controller vengono identificati anche come attivo o passivo.
+    1. Dall'elenco a discesa **Seleziona controller**, selezionare il controller che si desidera gestire. Le opzioni sono Controller 0 e Controller 1. Questi controller vengono identificati anche come attivo o passivo.
 
 		>[AZURE.NOTE] Un controller non può essere gestito se non è disponibile o è spento e quindi non verrà visualizzato nell'elenco a discesa.
-	
 
+    2. Dall'elenco a discesa **Seleziona azione** scegliere **Riavvia controller** o **Arresta controller**.
 
-	- Dall'elenco a discesa **Seleziona azione** scegliere **Riavvia controller** o **Arresta controller**.
-	
 		![Riavviare il controller passivo del dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766020.png)
- 
-
-	- Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-device-controller/IC740895.png).
+    3. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-device-controller/IC740895.png).
 
 Il controller verrà riavviato o arrestato. Nella tabella seguente sono riepilogati i dettagli di ciò che accade in base alle selezioni effettuate nella finestra di dialogo **Modifica impostazioni controller**.
-													
+
 
 |Nr. selezione|Se si sceglie di...|Viene eseguita questa operazione.|
 |---|---|---|
@@ -101,16 +95,12 @@ Eseguire la procedura seguente per arrestare o riavviare un unico controller nel
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 
 1. Nel messaggio dell'intestazione, prendere nota del controller a cui si è connessi (controller 0 o 1) e se è il controller attivo o passivo (standby).
-	
-
-	- Per arrestare un singolo controller, al prompt dei comandi, digitare:
+    - Per arrestare un singolo controller, al prompt dei comandi, digitare:
 
 		`Stop-HcsController`
 
 		Il controller a cui si è connessi viene così arrestato. Se si arresta il controller attivo, verrà eseguito il failover sul controller passivo prima dell'arresto.
-
-
-	- Per riavviare un controller, al prompt dei comandi, digitare:
+    - Per riavviare un controller, al prompt dei comandi, digitare:
 
 		`Restart-HcsController`
 
@@ -150,7 +140,7 @@ In questa sezione viene illustrato come arrestare un dispositivo StorSimple in e
 
 ## Ripristinare le impostazioni predefinite di fabbrica del dispositivo
 
-Questa procedura include i passaggi dettagliati necessari per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSimple di Microsoft Azure utilizzando Windows PowerShell per StorSimple.
+Questa procedura descrive come ripristinare le impostazioni predefinite del dispositivo Microsoft Azure StorSimple usando Windows PowerShell per StorSimple. La reimpostazione di un dispositivo comporta la rimozione di tutti i dati e le impostazioni dall'intero cluster per impostazione predefinita.
 
 Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSimple di Microsoft Azure, procedere come segue:
 
@@ -160,19 +150,19 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
 
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 
-1. Al prompt dei comandi, digitare il seguente comando:
+1. Al prompt dei comandi digitare il comando seguente per ripristinare l'intero cluster, rimuovendo tutti i dati, i metadati e le impostazioni del controller:
 
 	`Reset-HcsFactoryDefault`
 
-	Il sistema verrà riavviato più volte. Verrà ricevuta una notifica al termine del processo di ripristino. A seconda del modello di sistema, per completare questo processo possono essere necessari 45-60 minuti per un dispositivo 8100 e 60-90 minuti per un dispositivo 8600.
+    Per ripristinare invece un singolo controller, usare il cmdlet [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) con il parametro `-scope`.
 
-	> [AZURE.TIP] 
-	
-	> - Utilizzare il comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` per ignorare il controllo della versione del firmware se il cmdlet del ripristino delle impostazioni predefinite (come sopra) segnala un errore di mancata corrispondenza del firmware indicante che il ripristino delle impostazioni predefinite non può continuare a causa di una mancata corrispondenza tra le versioni del firmware. È necessario ignorare la verifica del firmware (usando l'opzione `–SkipFirmwareCheck`) quando si esegue il ripristino delle impostazioni di fabbrica di un dispositivo che in precedenza è stato aggiornato tramite Microsoft Update o un meccanismo di aggiornamento rapido.
-	
+    Il sistema verrà riavviato più volte. Verrà ricevuta una notifica al termine del processo di ripristino. A seconda del modello di sistema, per completare questo processo possono essere necessari 45-60 minuti per un dispositivo 8100 e 60-90 minuti per un dispositivo 8600.
+
+	> [AZURE.TIP]
+
+	> - Se si usa l'aggiornamento 1.2 o una versione precedente, usare il parametro `–SkipFirmwareVersionCheck` per ignorare il controllo della versione del firmware, altrimenti verrà visualizzato un errore di mancata corrispondenza del firmware che indica che il ripristino delle impostazioni predefinite non può continuare a causa di una mancata corrispondenza tra le versioni del firmware.
+
 	> - La procedura di ripristino delle impostazioni predefinite potrebbe non riuscire per i dispositivi StorSimple con l'aggiornamento 1 o 1.1 nel portale di Azure Government e hanno completato una sostituzione singola o doppia di un controller con controller sostitutivi dotati di software precedente all'aggiornamento 1. Ciò accade quando per l'immagine di ripristino delle impostazioni predefinite viene verificata nel controller la presenza di un file SHA1 che non è presente per il software precedente all'aggiornamento 1. Se il ripristino delle impostazioni predefinite non riesce, contattare il Supporto tecnico Microsoft per assistenza nei passaggi successivi. Questo problema non si presenta con i controller sostitutivi dotati in fabbrica dell'aggiornamento 1 o di software successivo.
-
-	> - Per altre informazioni su come usare questo cmdlet, vedere la [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Domande e risposte sulla gestione dei controller del dispositivo
@@ -223,4 +213,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 - Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

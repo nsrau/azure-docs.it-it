@@ -69,7 +69,7 @@ In questa sezione, si eseguiranno i passaggi per creare un’entità servizio pe
 
 3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio verrà concessa all'entità servizio l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per il parametro **ServicePrincipalName**, fornire il valore **ApplicationId** o **IdentifierUris** usato quando è stata creata l'applicazione. Per ulteriori informazioni sul controllo di accesso basato sul ruolo, vedere [Controllo di accesso in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
-        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 È stata creata un'applicazione di Active Directory e un'entità servizio per tale applicazione. È stata assegnata l'entità servizio a un ruolo. A questo punto, è necessario accedere come entità servizio per eseguire operazioni come tale. Questo argomento illustra tre opzioni:
 
@@ -523,4 +523,4 @@ Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia dell
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

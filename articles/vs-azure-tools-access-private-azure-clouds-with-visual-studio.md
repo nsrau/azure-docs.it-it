@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Accesso ai cloud privati di Azure con Visual Studio
@@ -23,7 +23,7 @@ Per impostazione predefinita, Visual Studio supporta gli endpoint REST del cloud
 
 ## Per accedere a un cloud privato di Azure in Visual Studio
 
-1. Nel portale di gestione del cloud privato scaricare il file delle impostazioni di pubblicazione o contattare l'amministratore per ottenere un file delle impostazioni di pubblicazione. Nella versione pubblica di Azure, il collegamento da cui scaricare questo file è [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/) (l'estensione di tale file deve essere publishsettings).
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) per il cloud privato scaricare il file di impostazioni di pubblicazione o contattare l'amministratore per ottenere un file di impostazioni di pubblicazione. Nella versione pubblica di Azure, il collegamento da cui scaricare questo file è [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/) (l'estensione di tale file deve essere publishsettings).
 
 1. In **Esplora server** in Visual Studio scegliere il nodo**Azure** e nel menu di scelta rapida scegliere il comando **Gestisci sottoscrizioni**.
 
@@ -43,4 +43,4 @@ Per impostazione predefinita, Visual Studio supporta gli endpoint REST del cloud
 
 [Procedura: Scaricare e importare le impostazioni di pubblicazione e le informazioni sulla sottoscrizione](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

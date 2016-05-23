@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="sedusch"/>
 
 # Uso di SAP su macchine virtuali Windows in Azure
@@ -35,4 +35,4 @@ Ultimo aggiornamento: agosto 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

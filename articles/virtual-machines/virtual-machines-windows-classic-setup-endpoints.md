@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Come configurare gli endpoint in una macchina virtuale classica in Azure
@@ -36,6 +36,6 @@ Quando si crea una macchina virtuale Windows nel portale di Azure classico, gli 
 
 * Per usare un cmdlet di Azure PowerShell per gestire un ACL in un endpoint, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* Se una macchina virtuale è stata creata nel modello di distribuzione di Resource Manager, è inoltre possibile utilizzare Azure PowerShell per [creare un servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare Azure PowerShell per [creare gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-ps.md) per controllare il traffico verso la VM.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

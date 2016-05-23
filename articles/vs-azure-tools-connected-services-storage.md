@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
@@ -79,7 +79,7 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
  - Per i progetti ASP.NET, vedere [Informazioni sull'evento – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - Per i progetti ASP.NET 5, vedere [Informazioni sull'evento – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - Per i progetti del servizio cloud (ruoli Web e ruoli di lavoro), vedere [Informazioni sull'evento – Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - Per i progetti di tipo processo Web, vedere [Risultati - Progetti di tipo processo Web](vs-storage-webjobs-what-happened/).
+ - Per i progetti di tipo processo Web, vedere [Risultati - Progetti di tipo processo Web](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Passaggi successivi
 
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
