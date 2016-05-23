@@ -82,8 +82,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurare le impostazioni dell'app")
 
-    1.  Nella casella di testo **URL di accesso** digitare ****http://azure.benefitsolver.com**.
-2.  Nella casella di testo **URL di risposta** digitare ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  Nella casella di testo **URL di accesso** digitare **http://azure.benefitsolver.com**.
+	2.  Nella casella di testo **URL di risposta** digitare **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Fare clic su **Avanti**.
 

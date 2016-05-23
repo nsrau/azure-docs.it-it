@@ -157,7 +157,21 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 
 | **Actions** ||
 | ------- | ------ |
-| **/read | Leggere risorse di tutti i tipi | | Microsoft.DevTestLab/labs/createEnvironment/action | Creare un ambiente lab | | Microsoft.DevTestLab/labs/formulas/delete | Eliminare formule | | Microsoft.DevTestLab/labs/formulas/write | Aggiungere o modificare formule | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Valutare i criteri lab | | Microsoft.Compute/virtualMachines/start/action | Avviare macchine virtuali | | Microsoft.Compute/virtualMachines/restart/action | Riavviare macchine virtuali | | Microsoft.Compute/virtualMachines/deallocate/action | Deallocare macchine virtuali | | Microsoft.Storage/storageAccounts/listKeys/action | Elencare le chiavi dell'account di archiviazione | | Microsoft.Network/virtualNetworks/subnets/join/action | Aggiungere una rete virtuale | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Aggiungere un pool di indirizzi back-end del servizio di bilanciamento del carico | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Aggiungere una regola NAT in ingresso del servizio di bilanciamento del carico | | Microsoft.Network/publicIPAddresses/join/action | Aggiungere un indirizzo IP pubblico | | Microsoft.Network/networkInterfaces/join/action | Aggiungere una macchina virtuale a un'interfaccia di rete | | Microsoft.Network/networkInterfaces/write | Scrivere interfacce di rete |
+| */read | Leggere risorse di tutti i tipi |
+| Microsoft.DevTestLab/labs/createEnvironment/action | Creare un ambiente lab |
+| Microsoft.DevTestLab/labs/formulas/delete | Eliminare formule |
+| Microsoft.DevTestLab/labs/formulas/write | Aggiungere o modificare formule |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Valutare i criteri lab |
+| Microsoft.Compute/virtualMachines/start/action | Avviare macchine virtuali |
+| Microsoft.Compute/virtualMachines/restart/action | Riavviare macchine virtuali |
+| Microsoft.Compute/virtualMachines/deallocate/action | Deallocare macchine virtuali |
+| Microsoft.Storage/storageAccounts/listKeys/action | Elencare le chiavi dell'account di archiviazione |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Aggiungere una rete virtuale |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Aggiungere un pool di indirizzi back-end del servizio di bilanciamento del carico |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Aggiungere una regola NAT in ingresso del servizio di bilanciamento del carico |
+| Microsoft.Network/publicIPAddresses/join/action | Aggiungere un indirizzo IP pubblico |
+| Microsoft.Network/networkInterfaces/join/action | Aggiungere una macchina virtuale a un'interfaccia di rete |
+| Microsoft.Network/networkInterfaces/write | Scrivere interfacce di rete |
 
 ### Collaboratore account Document DB
 È in grado di gestire account Document DB
@@ -377,7 +391,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Autorizzazione Lettura |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. |
+| Microsoft.Authorization/* | Autorizzazione Lettura |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche

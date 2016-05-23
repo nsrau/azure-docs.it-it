@@ -93,7 +93,7 @@ Questa sezione descrive come permettere agli utenti di eseguire l'autenticazione
 
 Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli utenti assegnati a Facebook at Work. La sincronizzazione automatica consente a Facebook at Work di ottenere i dati necessari per autorizzare gli utenti all'accesso, prima che questi tentino di eseguire l'accesso per la prima volta. Esegue anche il deprovisioning degli utenti da Facebook at Work una volta che l'accesso viene revocato in Azure AD.
 
-Per impostare il provisioning automatico, fare clic su **Configura provisioning account ** nella finestra del portale di Azure classico.
+Per impostare il provisioning automatico, fare clic su **Configura provisioning account** nella finestra del portale di Azure classico.
 
 Per altre informazioni su come configurare il provisioning automatico, vedere [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 

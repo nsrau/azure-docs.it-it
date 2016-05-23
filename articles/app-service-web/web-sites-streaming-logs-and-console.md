@@ -66,7 +66,7 @@ Fare clic su **SAVE** nella parte superiore del blade per visualizzare i log.
 ## Console ##
 Il portale di Azure fornisce accesso all'ambiente delle app Web mediante console. È possibile esplorare il file system dell'app Web ed eseguire script Powershell/cmd. Quando si eseguono i comandi della console, si opera con le stesse autorizzazioni impostate per il codice dell'app Web in esecuzione. Non si sarà in grado di accedere a directory protette né di eseguire script che richiedono autorizzazioni elevate.
 
-![][ConsoleScreenshot] Per accedere alla console, passare a un'app Web come descritto nella sezione precedente. Fare clic su **(1) Strumenti**>**(2) Console ** e la console **(3)** verrà aperta.
+![][ConsoleScreenshot] Per accedere alla console, passare a un'app Web come descritto nella sezione precedente. Fare clic su **(1) Strumenti**> **(2) Console** e la console **(3)** verrà aperta.
 
 Per acquisire familiarità con la console, provare ad eseguire semplici comandi come i seguenti:
 

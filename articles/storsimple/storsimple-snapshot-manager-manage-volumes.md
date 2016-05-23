@@ -53,7 +53,7 @@ Usare la procedura seguente per montare, inizializzare e formattare volumi StorS
 
     - Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**.
 
-    - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer ** e quindi selezionare **Gestione disco**.
+    - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer** e quindi selezionare **Gestione disco**.
 
     >[AZURE.NOTE] È necessario utilizzare i privilegi di amministratore per eseguire Gestione disco.
  
@@ -213,7 +213,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
 
    - Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**.
 
-   - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer ** e quindi selezionare **Gestione disco**.
+   - Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer** e quindi selezionare **Gestione disco**.
 
 2. Assicurarsi che siano disponibili due volumi nel dispositivo StorSimple. Nell'esempio i volumi disponibili sono**Disco 1** e **Disco 2**. 
 

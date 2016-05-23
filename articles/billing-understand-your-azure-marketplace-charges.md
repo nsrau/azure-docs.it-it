@@ -29,11 +29,11 @@ Per visualizzare o scaricare la fattura:
 1. Accedere al portale degli account di Azure usando l'ID organizzazione.
 2. Fare clic su **Marketplace**. Viene visualizzato un elenco completo di tutti gli ordini del Marketplace inseriti dall'account Azure. Si noterà che gli ordini sono raggruppati per nome e ID delle sottoscrizioni di Azure padre.
 
-    ![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+    	![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
 3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti sul Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
-    ![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+    	![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine:
 - Prezzo
@@ -59,11 +59,11 @@ Per modificare il metodo di pagamento, seguire questa procedura:
 
 1. Fare clic su **Modifica modalità di pagamento**.
 
-    ![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+    	![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Paga con** consente di selezionare la carta di credito. L'opzione **Aggiungi nuovo metodo di pagamento** consente di aggiungere una nuova carta di credito.
 
-    ![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    	![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gestione degli ordini
 Nella pagina della panoramica di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
