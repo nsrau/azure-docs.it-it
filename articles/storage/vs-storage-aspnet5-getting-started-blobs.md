@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET 5)
@@ -155,4 +155,4 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

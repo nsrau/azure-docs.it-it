@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurazione della sicurezza per la replica geografica attiva"
+	pageTitle="Come gestire la sicurezza dopo il ripristino di emergenza"
 	description="Questo argomento descrive le considerazioni relative alla sicurezza per la gestione di scenari di replica geografica attiva per il database SQL."
 	services="sql-database"
 	documentationCenter="na"
@@ -14,36 +14,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/10/2016"
 	ms.author="carlrab" />
 
-# Configurazione della sicurezza per la replica geografica
+# Come gestire la sicurezza dopo il ripristino di emergenza
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli di servizio.
 
-## Panoramica dei requisiti di autenticazione per la replica geografica attiva
-Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Per altre informazioni sull'uso della replica geografica, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
+## Panoramica dei requisiti di autenticazione per il ripristino di emergenza
 
-## Uso della replica geografica attiva con utenti indipendenti
-Con la [versione 12 del database SQL](sql-database-v12-whats-new.md), quest'ultimo ora supporta gli utenti indipendenti. A differenza degli utenti tradizionali per i quali deve essere eseguito il mapping agli account di accesso nel database master, un utente indipendente viene gestito completamente dal database stesso. Questo approccio presenta due vantaggi. Nello scenario della replica geografica, gli utenti possono continuare a connettersi al database secondario senza alcuna configurazione aggiuntiva, perché il database gestisce gli utenti. Dal punto di vista dell'accesso, questa configurazione offre anche vantaggi a livello di scalabilità e prestazioni. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
+Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il ripristino geografico. Per altre informazioni sulle opzioni di ripristino, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
 
-Quando si dispone di più database che usano lo stesso account di accesso, la gestione delle credenziali usate dagli utenti indipendenti in più database può annullare il vantaggio rappresentato dagli utenti indipendenti. Ad esempio, quando la password viene modificata, sarà necessario applicare separatamente la modifica per l'utente indipendente in ogni database, anziché cambiare la password dell'account una sola volta a livello del server. Per tale motivo l'uso degli utenti indipendenti non è consigliato se si hanno molti database che usano lo stesso nome utente e la stessa password.
+## Ripristino di emergenza con gli utenti indipendenti
 
-## Uso di utenti e account di accesso con la replica geografica attiva
-Se si usano account di accesso e utenti tradizionali invece di utenti indipendenti, è necessario eseguire passaggi aggiuntivi per garantire che gli stessi account di accesso esistano anche nel server del database secondario. Le sezioni seguenti illustrano i passaggi da eseguire, oltre a considerazioni aggiuntive.
+Con la [versione 12 del database SQL](sql-database-v12-whats-new.md), quest'ultimo ora supporta gli utenti indipendenti. A differenza degli utenti tradizionali per i quali deve essere eseguito il mapping agli account di accesso nel database master, un utente indipendente viene gestito completamente dal database stesso. Questo approccio presenta due vantaggi. Nello scenario di ripristino di emergenza, gli utenti possono continuare a connettersi al nuovo database primario o al database ripristinato con il ripristino geografico senza alcuna configurazione aggiuntiva, perché il database gestisce gli utenti. Dal punto di vista dell'accesso, questa configurazione offre anche vantaggi a livello di scalabilità e prestazioni. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
-### Impostare l'accesso utente a un database secondario
-Per poter usare il database secondario come database secondario di sola lettura o come database primario disponibile dopo un failover, il database deve avere la configurazione di sicurezza appropriata.
+Il compromesso principale è rappresentato dal fatto che il processo di ripristino di emergenza su vasta scala è più complesso da gestire. Quando si dispone di più database che usano lo stesso account di accesso, la gestione delle credenziali usate dagli utenti indipendenti in più database può annullare il vantaggio rappresentato dagli utenti indipendenti. Ad esempio, i criteri di rotazione delle password richiedono l'applicazione coerente delle modifiche in più database anziché la modifica singola della password per l'accesso nel database master. Per questo motivo l'uso degli utenti indipendenti non è consigliato in presenza di molti database che usano lo stesso nome utente e la stessa password.
 
-L'amministratore del server o gli utenti con autorizzazioni appropriate possono completare i passaggi di configurazione descritti in questo argomento. Le autorizzazioni specifiche per ogni passaggio sono descritte più avanti in questo argomento.
+## Come configurare gli account di accesso e gli utenti
 
-La preparazione dell'accesso utente a un database secondario online di replica geografica attiva può essere eseguita in qualsiasi momento e prevede i tre passaggi descritti di seguito:
+Se si usano account di accesso e utenti tradizionali, invece di utenti indipendenti, è necessario eseguire altri passaggi per assicurare che nel server di database secondario siano presenti gli stessi account di accesso. Le sezioni seguenti illustrano i passaggi da eseguire, oltre a considerazioni aggiuntive.
 
-1. Determinare gli account di accesso che possono accedere al database primario.
-2. Trovare il SID di questi account di accesso nel server di origine.
-3. Creare gli account di accesso nel server di destinazione con il SID corrispondente del server di origine.
+### Impostare l'accesso utente a un database secondario o ripristinato
 
->[AZURE.NOTE] Se gli account di accesso nel server di destinazione non sono mappati correttamente agli utenti nel database secondario, l'accesso a quest'ultimo come database di sola lettura o l'accesso al nuovo database primario dopo il failover sarà consentito solo all'amministratore del server.
+Per fare in modo che il database secondario sia utilizzabile come database secondario di sola lettura e per garantire l'accesso appropriato al nuovo database primario o al database ripristinato con il ripristino geografico, è necessario che nel database master del server di destinazione sia presente la configurazione di sicurezza appropriata prima del ripristino.
+
+Le autorizzazioni specifiche per ogni passaggio sono descritte più avanti in questo argomento.
+
+La preparazione dell'accesso utente a un database secondario di replica geografica deve essere eseguita durante la configurazione della replica geografica. La preparazione dell'accesso utente ai database ripristinati con il ripristino geografico deve essere eseguita in qualsiasi momento quando il server originale è online, ad esempio nel contesto dell'analisi del ripristino di emergenza.
+
+>[AZURE.NOTE] Se si esegue il failover o il ripristino geografico in un server che non presenta account di accesso configurati adeguatamente, l'accesso sarà limitato all'account di amministratore del server.
+
+La configurazione degli account di accesso nel server di destinazione prevede i tre passaggi seguenti:
+
 
 #### 1\. Determinare gli account di accesso che possono accedere al database primario:
 Il primo passaggio della procedura consiste nel determinare quali account di accesso devono essere duplicati nel server di destinazione. A questo scopo, è necessario usare una coppia di istruzioni SELECT, una nel database master logico nel server di origine e una nel database primario stesso.
@@ -85,8 +88,9 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 >DISABLE non modifica la password, pertanto è sempre possibile abilitare l'accesso, se necessario.
 
 ## Passaggi successivi
-Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
 
+- Per altre informazioni sulla gestione dell'accesso al database e degli account di accesso, vedere [Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md).
+- Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Risorse aggiuntive
 
@@ -96,4 +100,4 @@ Per altre informazioni sulla replica geografica attiva, vedere [Replica geografi
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
 # Come gestire i servizi cloud
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portale di Azure](cloud-services-how-to-manage-portal.md)
+- [Portale di Azure classico](cloud-services-how-to-manage.md)
+
 
 Nell'area **Servizi cloud** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
@@ -42,15 +43,13 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 
 4. **Facoltativamente** aggiornare l'etichetta di distribuzione e l'account di archiviazione.
 
-5. Se l'aggiornamento cambia il numero o le dimensioni dei ruoli, selezionare la casella di controllo **Consenti aggiornamento se cambiano le dimensioni o il numero dei ruoli** per consentire all'aggiornamento di proseguire.
-
-	>[AZURE.WARNING] Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
-
-6. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Eseguire l'aggiornamento anche se uno o più ruoli contengono una sola istanza** per consentire l'esecuzione dell'aggiornamento.
+5. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Distribuisci anche se uno o più ruoli contengono una singola istanza** per consentire l'esecuzione dell'aggiornamento.
 
 	Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
 
-8. Fare clic su **OK** per iniziare l'aggiornamento del servizio.
+6. Selezionare **Avvia distribuzione** per applicare l'aggiornamento al termine del caricamento del pacchetto.
+
+7. Fare clic su **OK** per iniziare l'aggiornamento del servizio.
 
 
 
@@ -114,4 +113,4 @@ Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di m
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

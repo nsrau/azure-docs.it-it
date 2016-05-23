@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Requisiti di sistema StorSimple | Microsoft Azure" 
-   description="Descrive i requisiti relativi a software, rete e alta disponibilità e le procedure consigliate per una soluzione Microsoft Azure StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carmonm" 
+<properties
+   pageTitle="Requisiti di sistema StorSimple | Microsoft Azure"
+   description="Descrive i requisiti relativi a software, rete e alta disponibilità e le procedure consigliate per una soluzione Microsoft Azure StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="03/23/2016"
+   ms.workload="TBD"
+   ms.date="05/10/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -29,14 +29,14 @@ I requisiti di sistema includono:
 - **Requisiti di disponibilità elevata per StorSimple**: descrive i requisiti di disponibilità elevata e le procedure consigliate per il dispositivo StorSimple e il computer host. 
 
 
-## Requisiti software per i client di archiviazione 
+## Requisiti software per i client di archiviazione
 
 Di seguito sono indicati i requisiti software per i client di archiviazione che accedono al dispositivo StorSimple.
 
 | Sistemi operativi supportati | Versione richiesta | Requisiti aggiuntivi/note |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008 R2 SP1, 2012, 2012 R2 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Le funzionalità ODX e di thin provisioning di Windows Server 2012 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple può creare volumi con thin provisioning e con provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione, eseguire il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1, 5.5 e 6.0 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
+| VMWare ESX | 5\.5 e 6.0 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple.
 | Linux RHEL/CentOS | 5 e 6 | Supporto per client Linux iSCSI con iniziatore Open-iSCSI versioni 5 e 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX attualmente non è supportato con StorSimple.
@@ -49,13 +49,13 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 | --------------------------- | ---------------- | ------------- |
 | Gestione snapshot StorSimple | Windows Server 2008R2 SP1, 2012, 2012R2 | L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> Gestione snapshot StorSimple è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare Gestione snapshot StorSimple.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare Gestione snapshot StorSimple.</li></ul> |
 | Adattatore StorSimple per SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>L'adattatore StorSimple per SharePoint è supportato solo in SharePoint 2010 e SharePoint 2013.</li><li>Per RBS è necessario SQL Server Enterprise Edition, versione 2008 R2 o 2012.</li></ul>|
- 
+
 ## Requisiti di rete per il dispositivo StorSimple
 
 Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud e di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* *ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
 | Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
-|------------------------|-----------|------------|----------|-------| 
+|------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>| In uscita | WAN | No |<ul><li>La porta in uscita viene usata per accedere a Internet e recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li></ul> |
 |TCP 443 (HTTPS)<sup>3</sup>| In uscita | WAN | Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li></ul>|
 |UDP 53 (DNS) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
@@ -73,7 +73,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 > [AZURE.IMPORTANT] Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
 
-### Modelli URL per le regole del firewall 
+### Modelli URL per le regole del firewall
 
 Gli amministratori di rete possono spesso configurare regole del firewall avanzate in base ai modelli URL in modo da filtrare il traffico in entrata e in uscita. Il dispositivo StorSimple e il servizio StorSimple Manager dipendono da altre applicazioni Microsoft, come ad esempio il bus di servizio di Azure, il controllo di accesso di Azure Active Directory, gli account di archiviazione e i server di Microsoft Update. I modelli URL associati a queste applicazioni possono essere usati per configurare le regole del firewall. È importante comprendere che i modelli di URL associati alle suddette applicazioni possono variare. Questo a sua volta richiederà, da parte dell'amministratore di rete, il monitoraggio e l'aggiornamento delle regole del firewall per StorSimple a seconda delle esigenze.
 
@@ -121,22 +121,17 @@ Sono comprese le versioni software come 1, 1.1 e 1.2. L'ordine in base alle metr
 L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metriche di routing sono cambiate. Il comportamento può essere spiegato come segue.
 
 - È stato assegnato un set di valori predefiniti alle interfacce di rete. 	
-		
+
 - Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati qui sono puramente esemplificativi.
 
-		
+
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
-	 
+
 	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
 	Questo può essere spiegato dall'esempio seguente.
@@ -144,23 +139,23 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 	Si consideri un dispositivo StorSimple con due interfacce di rete abilitate per il cloud, Data 0 e Data 5. Le interfacce da Data 1 a Data 4 sono disabilitate per il cloud ma dispongono di un gateway configurato. L'ordine in cui verrà instradato il traffico per questo dispositivo sarà:
 
 	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
-	
+
 	*in cui i numeri tra parentesi indicano le rispettive metriche di routing.*
-	
+
 	Se Data 0 restituisce un errore, il traffico cloud verrà instradato tramite Data 5. Poiché un gateway è configurato su tutte le altre reti, se sia Data 0 che Data 5 restituiscono un errore il traffico cloud verrà instradato tramite Data 1.
- 
+
 
 - Se un'interfaccia di rete abilitata per il cloud restituisce un errore, vengono eseguiti 3 tentativi con un ritardo di 30 secondi per connettersi all'interfaccia. Se tutti i tentativi hanno esito negativo, il traffico viene instradato alla successiva interfaccia abilitata per il cloud disponibile, come determinato dalla tabella di routing. Se tutte le interfacce di rete abilitate per il cloud restituiscono un errore, il dispositivo eseguirà il failover a un altro controller (in questo caso non verrà eseguito nessun riavvio).
-	
+
 - Se si verifica un errore VIP per un'interfaccia di rete abilitata per iSCSI, verranno eseguiti 3 tentativi con un ritardo di 2 secondi. Questo comportamento è analogo alle versioni precedenti. Se tutte le interfacce di rete iSCSI restituiscono un errore, si verificherà un failover del controller (accompagnato da un riavvio).
 
 
 - Viene anche generato un avviso sul dispositivo StorSimple quando si verifica un errore VIP. Per altre informazioni, vedere l'articolo [Avviso riferimento rapido](storsimple-manage-alerts.md).
-	
+
 - Per quanto riguarda i tentativi, iSCSI avrà la precedenza sul cloud.
 
 	Si consideri l'esempio seguente: un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
-		
+
 	Se Data 1 restituisce un errore, poiché è l'ultima interfaccia di rete iSCSI si verificherà un failover del controller a Data 1 sull'altro controller.
 
 
@@ -276,8 +271,8 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 
 - [Ulteriori informazioni sui Limiti di StorSimple](storsimple-limits.md).
 - [Informazioni su come distribuire la soluzione StorSimple](storsimple-deployment-walkthrough-u2.md).
- 
+
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

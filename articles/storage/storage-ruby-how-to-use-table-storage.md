@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come usare l'archiviazione tabelle di Azure da Ruby | Microsoft Azure"
-	description="Informazioni su come usare l'archiviazione tabelle di Azure. Gli esempi di codice sono scritti usando l'API Ruby."
+	description="Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/10/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -164,4 +164,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

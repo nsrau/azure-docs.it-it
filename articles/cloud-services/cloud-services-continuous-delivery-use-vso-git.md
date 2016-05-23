@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services e Git
@@ -23,8 +23,7 @@
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services:
-è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services: è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Team Services, seguire questa procedura.
 
@@ -60,7 +59,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 ## 3: Collegare il progetto ad Azure
 
-1. Ora si dispone di un repository Git in Visual Studio Team Services contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure classico](http://manage.windowsazure.com) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**.
+1. Ora si dispone di un repository Git in Visual Studio Team Services contenente codice sorgente ed è possibile connettere il repository ad Azure. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona + in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**.
 
 	![][9]
 
@@ -102,7 +101,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][38]
 
-6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Team Services. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza** effettua anche il pull delle ultime modifiche dal repository.
+6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Team Services. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza ** effettua anche il pull delle ultime modifiche dal repository.
 
 	![][39]
 
@@ -153,7 +152,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][29]
 
-1. Nel [portale di Azure classico](http://manage.windowsazure.com) è possibile visualizzare la distribuzione associata nella scheda **Distribuzioni** quando si seleziona l'ambiente di gestione temporanea.
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) è possibile visualizzare la distribuzione associata nella scheda **Distribuzioni** quando si seleziona l'ambiente di gestione temporanea.
 
 	![][30]
 
@@ -183,7 +182,7 @@ Quando si è pronti, è possibile alzare di livello l'ambiente di gestione tempo
 
 ![][35]
 
-## 6: Distribuire da una divisione operativa
+## 7: Eseguire la distribuzione da un ramo di lavoro.
 
 Quando si usa Git, in genere si apportano modifiche in un branch di lavoro che vengono integrate nel branch master quando lo sviluppo è terminato. Durante la fase di sviluppo di un progetto, è consigliabile compilare e distribuire il branch di lavoro in Azure.
 
@@ -273,4 +272,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

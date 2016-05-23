@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo per Servizi cloud in Azure
@@ -44,7 +44,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
 1.  Se Visual Studio è installato nel server di compilazione, individuare e fare clic su **Prompt dei comandi di Visual Studio** nella cartella **Strumenti di Visual Studio** in Windows.
 
-    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\\Microsoft.NET\\Framework\\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
+    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\\Microsoft.NET\\Framework\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,9 +56,9 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Per questa opzione è possibile usare la sintassi abbreviata /t:Publish. Quando è installato Azure SDK, l'opzione /t:Publish in MSBuild non va confusa con i comandi di pubblicazione disponibili in Visual Studio. L'opzione /t:Publish compila unicamente pacchetti di Azure ma non li distribuisce come accade con i comandi di pubblicazione di Visual Studio.
 
-    Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene utilizzata la directory corrente. Per ulteriori informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti per la riga di comando di MSBuild][1].
+    Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene usata la directory corrente. Per altre informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](1).
 
-4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
+4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -105,7 +105,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 In questa sezione viene descritto come creare uno script di Windows PowerShell che pubblicherà l'output del pacchetto dell'app per cloud in Azure usando parametri facoltativi. Questo script può essere chiamato dopo il passaggio di compilazione nell'automazione della compilazione personalizzata. È possibile chiamare lo script anche da attività del flusso di lavoro del modello di processo in Visual Studio TFS Team Build.
 
-1.  Installare i [cmdlet di Azure PowerShell][] \(0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
+1.  Installare i [cmdlet di Azure PowerShell][] (0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
 
 2.  Avviare Azure PowerShell usando il menu o la pagina Start. Con l'avvio in questa modalità, verranno caricati i cmdlet di Azure PowerShell.
 
@@ -123,17 +123,17 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
     Vengono visualizzate le informazioni relative alla sottoscrizione. Verificarne la correttezza.
 
-4.  Salvare il modello di script fornito alla fine di questo articolo nella cartella degli script, ad esempio c:\\script\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Salvare il modello di script fornito alla fine di questo articolo nella cartella degli script, ad esempio c:\\script\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Rivedere la sezione dello script relativa ai parametri. Aggiungere o modificare i valori predefiniti. Questi valori possono sempre essere sostituiti mediante il passaggio di parametri espliciti.
 
 6.  Assicurarsi che siano presenti account validi per i servizi cloud e di archiviazione creati nella sottoscrizione a cui lo script sia in grado di fare riferimento. L'account di archiviazione (archiviazione BLOB) verrà usato per caricare e archiviare temporaneamente il pacchetto di distribuzione e il file di configurazione durante la creazione della distribuzione.
 
-    -   Per creare un nuovo servizio cloud, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome del servizio cloud verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco.
+    -   Per creare un nuovo servizio cloud è possibile chiamare questo script o usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Il nome del servizio cloud verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Per creare un nuovo account di archiviazione, è possibile chiamare questo script o usare il portale di gestione di Azure. Il nome dell'account di archiviazione verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. È possibile provare a usare lo stesso nome come del servizio cloud.
+    -   Per creare un nuovo account di archiviazione è possibile chiamare questo script o usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Il nome dell'account di archiviazione verrà usato come prefisso di un nome di dominio completo e deve pertanto essere univoco. È possibile provare a usare lo stesso nome come del servizio cloud.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
@@ -145,7 +145,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-    Questo è in genere seguito da verifica tramite esecuzione di test e da uno scambio di indirizzi VIP. Tale scambio può essere eseguito tramite il portale di gestione di Azure o usando il cmdlet Move-Deployment.
+    Questo è in genere seguito da verifica tramite esecuzione di test e da uno scambio di indirizzi VIP. Tale scambio può essere eseguito con il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) o il cmdlet Move-Deployment.
 
     **Scenario di esempio 2**: distribuzione continua di un servizio di test dedicato nell'ambiente di produzione
 
@@ -169,7 +169,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    In alternativa, è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione tramite il portale di gestione di Azure. Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    In alternativa è possibile esportare il file PFX di certificato con la chiave privata e caricare i certificati per ogni servizio cloud di destinazione con il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per altre informazioni, leggere l'articolo seguente: [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Aggiorna distribuzione ed Elimina distribuzione -> Nuova distribuzione**
 
@@ -333,7 +333,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename' *Qui usare il nome del servizio cloud appropriato*
+    4.  ServiceName = 'mycloudservicename' * Qui usare il nome del servizio cloud appropriato*
 
     5.  Environment = 'Staging'
 
@@ -573,4 +573,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

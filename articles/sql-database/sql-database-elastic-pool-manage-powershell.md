@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # Monitorare e gestire un pool di database elastici con PowerShell 
@@ -31,6 +31,7 @@ Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni 
 I valori per i pool sono disponibili nei [limiti di archiviazione e di eDTU](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Prerequisiti
+
 * Azure PowerShell 1.0 o versioni successive. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 * I pool di database elastici sono disponibili unicamente nei server database SQL V12. Se si usa un server di database SQL V11, [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
@@ -101,6 +102,26 @@ Per questa API, le metriche recuperate vengono espresse come percentuale del num
 Per recuperare le metriche:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## Raccogliere e monitorare i dati sull'utilizzo delle risorse in più pool in una sottoscrizione
+
+In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici. I cmdlet di PowerShell per database SQL e le query T-SQL, invece, possono essere combinati per raccogliere dati sull'utilizzo delle risorse da più pool e i relativi database per il monitoraggio e l'analisi dell'utilizzo delle risorse. Nel repository di esempi relativi a SQL Server su GitHub è disponibile un'[implementazione di esempio](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) di un set di script di PowerShell di questo tipo, insieme alla documentazione sulle operazioni che esegue e su come usarla.
+
+Per usare questa implementazione di esempio, seguire questa procedura.
+
+
+1. Scaricare gli [script e la documentazione](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+2. Modificare gli script per l'ambiente. Specificare uno o più server in cui sono ospitati i pool elastici.
+3. Specificare un database di telemetria in cui archiviare le metriche raccolte. 
+4. Personalizzare lo script per specificare la durata dell'esecuzione degli script.
+
+A livello generale, gli script eseguono le operazioni seguenti:
+
+*	Enumera tutti i server in una determinata sottoscrizione di Azure (o in determinato elenco di server).
+*	Esegue un processo in background per ogni server. Il processo viene eseguito in un ciclo a intervalli regolari e raccoglie i dati di telemetria per tutti i pool nel server. Carica quindi i dati raccolti nel database di telemetria specificato.
+*	Enumera un elenco di database in ogni pool per raccogliere i dati sull'utilizzo delle risorse di database. Carica quindi i dati raccolti nel database di telemetria.
+
+È possibile analizzare le metriche raccolte nel database di telemetria per monitorare l'integrità dei pool elastici e i database che contengono. Lo script installa anche una funzione con valori di tabella predefinita nel database di telemetria per aggregare le metriche per un determinato intervallo di tempo. Ad esempio, i risultati della funzione con valori di tabella possono essere usati per visualizzare i "primi N pool elastici con l'utilizzo eDTU massimo in un dato intervallo di tempo". Facoltativamente, è possibile usare strumenti di analisi come Excel o Power BI per eseguire una query e analizzare i dati raccolti.
 
 ## Esempio: recuperare le metriche di consumo di risorse per un pool e i relativi database
 
@@ -190,4 +211,4 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 - Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -38,11 +38,11 @@ L'esempio precedente illustra un accesso standard che richiede al client di cont
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
 	        SharedPreferences prefs = getSharedPreferences(SHAREDPREFFILE, Context.MODE_PRIVATE);
-    	    String userId = prefs.getString(USERIDPREF, "undefined"); 
-	        if (userId == "undefined")
+    	    String userId = prefs.getString(USERIDPREF, null); 
+	        if (userId == null)
 	            return false;
-    	    String token = prefs.getString(TOKENPREF, "undefined"); 
-    	    if (token == "undefined")
+    	    String token = prefs.getString(TOKENPREF, null); 
+    	    if (token == null)
     	        return false;
         	    
     	    MobileServiceUser user = new MobileServiceUser(userId);
@@ -87,4 +87,5 @@ L'esempio precedente illustra un accesso standard che richiede al client di cont
 
 6. Creare l'app e testare l'autenticazione con un account valido. Eseguirla almeno due volte. Durante la prima esecuzione, si riceverà un prompt di accesso per creare la cache dei token. Successivamente, a ogni esecuzione verrà effettuato un tentativo di caricare la cache dei token per l'autenticazione e non sarà più richiesto di eseguire l'accesso.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+

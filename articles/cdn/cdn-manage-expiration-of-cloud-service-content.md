@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016"
+ ms.date="05/11/2016"
  ms.author="casoper"/>
 
 # Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -50,4 +50,4 @@ Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il c
 
 [Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

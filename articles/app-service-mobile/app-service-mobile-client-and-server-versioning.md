@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
@@ -79,8 +79,7 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 
 | Piattaforma server | Versione | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
-| Node.js          | (presto disponibile)                        | **Nessuna intestazione di versione** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****Nessuna intestazione di versione ** | | Node.js | (presto disponibile) | **Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->
 
@@ -113,7 +112,7 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 | Piattaforma server | SDK | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps Versione 1.0-beta1 (o successive)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Comportamento dei back-end di app per dispositivi mobili
 
@@ -138,4 +137,4 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

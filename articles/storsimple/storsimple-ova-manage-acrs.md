@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/03/2016"
    ms.author="alkohli" />
 
 # Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple 
@@ -43,7 +43,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI di un host d
 
 Si utilizza la pagina **Configurazione** del servizio StorSimple Manager per aggiungere record di controllo di accesso. In genere, un record di controllo di accesso verrà associato a un volume.
 
-Per informazioni su come associare un record di controllo di accesso a un volume, vedere l'articolo relativo all'[uso del servizio StorSimple Manager per gestire i volumi su un array virtuale StorSimple](storsimple-ova-manage-volumes).
+Per informazioni sull'associazione di un record di controllo di accesso con un volume, vedere [Aggiungere un volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 
@@ -114,4 +114,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 - Altre informazioni sull'[aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

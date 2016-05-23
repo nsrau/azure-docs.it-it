@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/09/2016" 
 	ms.author="robinsh"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
@@ -208,8 +208,8 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 
 1. Scaricare [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) dall'Area download Microsoft ed eseguire il programma di installazione.
 2. Avviare Message Analyzer.
-3. Nella pagina **Avvia** passare a **Download**, quindi impostare il filtro relativo ad **Archiviazione di Azure**. Verranno visualizzate le risorse per Archiviazione di Azure, come mostrato nell'immagine seguente.
-4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono: 
+3. Dal menu **Strumenti** selezionare **Gestione asset**. Nella finestra di dialogo **Gestione asset** selezionare **Download** quindi filtrare in base ad **Archiviazione di Azure**. Verranno visualizzate le risorse per Archiviazione di Azure, come mostrato nell'immagine seguente.
+4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono:
 	- **Regole dei colori di Archiviazione di Azure:** le regole dei colori di Archiviazione di Azure consentono di definire filtri speciali che usano il colore, il testo e il tipo di carattere per evidenziare i messaggi contenenti specifiche informazioni in una traccia.
 	- **Grafici di Archiviazione di Azure:** i grafici di Archiviazione di Azure sono grafici predefiniti in cui vengono riportati i dati di log del server. Si noti che, per utilizzare grafici di Archiviazione di Azure in questa fase, è possibile unicamente caricare il log del server nella griglia di analisi.
 	- **Parser di Archiviazione di Azure:** i parser di Archiviazione di Azure analizzano i log HTTP, client e server di Archiviazione di Azure per visualizzarli nella griglia di analisi.
@@ -217,7 +217,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 	- **Layout di Archiviazione di Azure:** i layout di visualizzazione di Archiviazione di Azure sono layout di colonna e raggruppamenti predefiniti nella griglia di analisi.
 4. Riavviare Message Analyzer dopo aver installato le risorse.
 
-![Pagina iniziale di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
+![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Installare tutte le risorse di Archiviazione di Azure per questa esercitazione.
 
@@ -349,18 +349,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
 | Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
-| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | 
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | 
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
-| 404 (all) | *StatusCode == 404 | All | 
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | 
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | 
-| 409 (all) | *StatusCode == 409 | All | 
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | 
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | 
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | 
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Passaggi successivi
@@ -375,4 +364,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

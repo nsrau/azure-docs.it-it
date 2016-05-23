@@ -50,7 +50,8 @@
 6. Eseguire il comando seguente nella console per installare i pacchetti:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 
     Questi comandi aggiungono librerie .NET e riferimenti ad esse nel progetto corrente di Visual Studio.
 
@@ -64,7 +65,7 @@
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
-        using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure.Management.ResourceManager;
 
         namespace CreateHDInsightCluster
         {
@@ -103,7 +104,8 @@
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
                     
-                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+                    var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
                     var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
@@ -158,8 +160,7 @@
                 }
             }
         }
-
-		
+	
 10. Sostituire i valori dei membri di classe.
 
 7. Premere **F5** per eseguire l'applicazione. Verrà aperta una finestra della console in cui è visualizzato lo stato dell'applicazione. Verrà richiesto di immettere le credenziali dell'account Azure. Possono essere necessari alcuni minuti per creare un cluster HDInsight, in genere circa 15.
@@ -370,4 +371,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 - [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

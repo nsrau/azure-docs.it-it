@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Compilazione da riga di comando per Azure
@@ -60,6 +60,6 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 ## Distribuzione
 
-Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
+Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

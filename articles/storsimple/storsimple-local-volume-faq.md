@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/07/2016"
+   ms.date="04/25/2016"
    ms.author="manuaery" />
 
 # Volumi aggiunti in locale di StorSimple: domande frequenti
@@ -183,7 +183,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **D.** È possibile clonare un volume aggiunto in locale?
 
-**R.** Sì, ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-clone-volume-u2).
+**R.** Sì, ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-clone-volume-u2.md).
 
 ## Domande sul failover di un volume aggiunto in locale
 
@@ -195,7 +195,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 - A livelli se il dispositivo di destinazione esegue l'aggiornamento 1.x della serie 8000 di StorSimple.
 - A livelli se il dispositivo di destinazione è l'appliance cloud (aggiornamento 2 o aggiornamento 1.x della versione software).
 
-Sono disponibili altre informazioni sul [failover e il ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions).
+Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
 
 **D.** I volumi aggiunti in locale vengono ripristinati immediatamente durante il ripristino di emergenza?
 
@@ -211,6 +211,6 @@ Sono disponibili altre informazioni sul [failover e il ripristino di emergenza d
 
 **D.** È possibile effettuare il failover di un contenitore di volumi con volumi aggiunti in locale nell'appliance cloud?
 
-**R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni sul [failover e il ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions).
+**R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

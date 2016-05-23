@@ -175,8 +175,9 @@ L'esempio seguente dimostra come installare Spark nel cluster HDInsight basato s
 1. Creare un'applicazione console C# in Visual Studio.
 2. Eseguire il comando seguente dalla console di Gestione pacchetti NuGet.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre 
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Nel file Program.cs usare le istruzioni using seguenti:
 
@@ -189,7 +190,7 @@ L'esempio seguente dimostra come installare Spark nel cluster HDInsight basato s
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 
 3. Sostituire il codice nella classe con il seguente:
 
@@ -216,13 +217,13 @@ L'esempio seguente dimostra come installare Spark nel cluster HDInsight basato s
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
             
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+            var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()
@@ -322,4 +323,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

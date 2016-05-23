@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	 ms.author="casoper"/>
 
 # Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)
@@ -81,4 +81,4 @@ Dopo aver registrato il dominio personalizzato seguendo una delle procedure desc
 
 [Come abilitare la rete per la distribuzione di contenuti (rete CDN) per Azure](./cdn-create-new-endpoint.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

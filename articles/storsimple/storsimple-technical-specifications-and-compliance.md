@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/07/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
@@ -62,19 +62,19 @@ Nella tabella seguente vengono elencati i dati sul consumo energetico tipico (i 
 Il dispositivo StorSimple supporta fino a 12 unità disco SAS (Serial Attached SCSI) del fattore forma 3,5 pollici. Le unità effettive possono essere una combinazione di unità SSD (Solid State Drive) o unità disco rigido (HDD), a seconda della configurazione del prodotto. I 12 slot di unità disco si trovano in una configurazione 3 per 4 nella parte anteriore dello chassis. Lo chassis EBOD dispone di spazio di archiviazione aggiuntivo per altre 12 unità disco. Si tratta sempre di HDD.
 
 ## Specifiche di archiviazione
-I dispositivi StorSimple usano una combinazione di unità disco rigido e unità SSD per i modelli 8100 e 8600. La capacità totale utilizzabile per i modelli 8100 e 8600 è di circa 15 TB e 40 TB, rispettivamente. La tabella seguente illustra i dettagli dell'unità SSD, dell'unità disco rigido e della capacità del cloud nel contesto della capacità della soluzione StorSimple.
+I dispositivi StorSimple usano una combinazione di unità disco rigido e unità SSD per i modelli 8100 e 8600. La capacità totale utilizzabile per i modelli 8100 e 8600 è di circa 15 TB e 38 TB, rispettivamente. La tabella seguente illustra i dettagli dell'unità SSD, dell'unità disco rigido e della capacità del cloud nel contesto della capacità della soluzione StorSimple.
 
 | Modello del dispositivo / Capacità | 8100 | 8600 |
 |------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
 | Numero di unità disco rigido | 8 | 19 |
 | Numero di unità SSD | 4 | 5 |
-| Capacità della singola unità disco rigido | 4 TB | 4 TB |
-| Capacità della singola unità SSD | 400 GB | 800 GB |
-| Capacità di riserva | 4 TB | 4 TB |
-| Capacità utilizzabile dell'unità disco rigido | 14 TB | 36 TB |
-| Capacità utilizzabile dell'unità SSD | 800 GB | 2 TB |
-| Capacità utilizzabile totale* | ~ 15 TB | ~ 40 TB |
-| Capacità massima della soluzione (incluso il cloud) | 200 TB | 500 TB |
+| Capacità della singola unità disco rigido | 4 TB | 4 TB |
+| Capacità della singola unità SSD | 400 GB | 800 GB |
+| Capacità di riserva | 4 TB | 4 TB |
+| Capacità utilizzabile dell'unità disco rigido | 14 TB | 36 TB |
+| Capacità utilizzabile dell'unità SSD | 800 GB | 2 TB |
+| Capacità utilizzabile totale* | ~ 15 TB | ~ 38 TB |
+| Capacità massima della soluzione (incluso il cloud) | 200 TB | 500 TB |
 
 
 <sup>* </sup>*La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer.*
@@ -191,4 +191,4 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all'[elenco 
 
 È ora possibile iniziare la distribuzione di un dispositivo StorSimple nel data center. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

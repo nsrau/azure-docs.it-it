@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="danielsollondon"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar"    
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="05/04/2016"
 	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
@@ -51,7 +51,7 @@ Per utilizzare Archiviazione Premium occorre usare macchine virtuali (VM) serie 
 
 ### Servizi cloud
 
-È possibile utilizzare le macchine virtuali DS* con Archiviazione Premium solo quando vengono create in un nuovo servizio cloud. Se si utilizza SQL Server AlwaysOn in Azure, il listener AlwaysOn farà riferimento all'indirizzo IP del servizio di bilanciamento del carico interno o esterno di Azure associato a un servizio cloud. In questo articolo viene illustrato come eseguire la migrazione mantenendo la disponibilità in questo scenario.
+È possibile utilizzare le macchine virtuali DS* con Archiviazione Premium solo quando vengono create in un nuovo servizio cloud. Se si usa SQL Server AlwaysOn in Azure, il listener AlwaysOn farà riferimento all'indirizzo IP del servizio di bilanciamento del carico interno o esterno di Azure associato a un servizio cloud. In questo articolo viene illustrato come eseguire la migrazione mantenendo la disponibilità in questo scenario.
 
 > [AZURE.NOTE] Una macchina virtuale serie DS* deve essere la prima macchina virtuale distribuita nel nuovo servizio cloud.
 
@@ -350,7 +350,7 @@ Si compila la macchina virtuale da un'immagine e si collegano due dischi rigidi 
 
 > [AZURE.NOTE] Per le distribuzioni esistenti, vedere prima la sezione [Prerequisiti](#prerequisites-for-premium-storage) di questo argomento.
 
-Esistono diverse considerazioni per le distribuzioni di SQL Server che non utilizzano i gruppi di disponibilità AlwaysOn e quelli che li utilizzano. Se non si utilizza AlwaysOn e si dispone di un SQL Server autonomo esistente, è possibile eseguire l’aggiornamento ad Archiviazione Premium tramite un nuovo account di archiviazione e servizio cloud. Valutare le opzioni seguenti:
+Esistono diverse considerazioni per le distribuzioni di SQL Server che non usano i gruppi di disponibilità AlwaysOn e quelli che li usano. Se non si usa AlwaysOn ed è disponibile un SQL Server autonomo esistente, si può eseguire l'aggiornamento ad Archiviazione Premium con un nuovo servizio cloud e un account di archiviazione. Valutare le opzioni seguenti:
 
 - **Creare una nuova macchina virtuale di SQL Server**. È possibile creare una nuova macchina virtuale di SQL Server che utilizza un account di Archiviazione Premium, come documentato in Nuove distribuzioni. Eseguire quindi il backup e ripristino della configurazione di SQL Server e dei database utente. L'applicazione dovrà essere aggiornata per fare riferimento al nuovo SQL Server se si accede internamente o esternamente. È necessario copiare tutti gli oggetti esterni al db, come se si eseguisse una migrazione di SQL Server SxS (Side by Side). Sono inclusi oggetti come account di accesso, certificati e server collegati.
 - **Eseguire la migrazione di una macchina virtuale di Server SQL esistente**. Sarà necessario disconnettere la macchina virtuale di SQL Server e trasferirla in un nuovo servizio cloud, operazione che implica la copia di tutti i relativi dischi rigidi virtuali collegati all'account di Archiviazione Premium. Quando la macchina virtuale torna online, l'applicazione farà riferimento al nome host del server come prima. Tenere presente che le dimensioni del disco esistente influiranno sulle prestazioni. Ad esempio, un disco di 400 GB viene arrotondato per eccesso a un P20. Se si sa che tali prestazioni del disco non sono necessarie, è possibile ricreare la macchina virtuale come macchina virtuale serie DS e collegare dischi rigidi di archiviazione virtuale di Archiviazione Premium con le prestazioni/dimensioni desiderate. È quindi possibile scollegare e ricollegare i file di database SQL.
@@ -363,13 +363,13 @@ Se si accede esternamente a SQL Server, verrà modificato il VIP del servizio cl
 
 > [AZURE.NOTE] Per le distribuzioni esistenti, vedere prima la sezione [Prerequisiti](#prerequisites-for-premium-storage) di questo argomento.
 
-In questa sezione verrà esaminato innanzitutto in che modo AlwaysOn interagisce con una rete di Azure. Verranno quindi descritte le migrazioni in due scenari: migrazioni in cui viene considerato tollerabile un certo tempo di inattività e migrazioni in cui è necessario che i tempi di inattività siano minimi.
+In questa sezione si osserverà prima di tutto in che modo AlwaysOn interagisce con una rete di Azure. Verranno quindi descritte le migrazioni in due scenari: migrazioni in cui viene considerato tollerabile un certo tempo di inattività e migrazioni in cui è necessario che i tempi di inattività siano minimi.
 
-I gruppi di disponibilità di SQL Server AlwaysOn locale utilizzano un lstener locale che registra un nome DNS virtuale con un indirizzo IP condiviso tra uno o più server SQL. Quando si connettono i client vengono indirizzati attraverso l’IP del listener a SQL Server primario. Si tratta del server a cui appartiene la risorsa IP AlwaysOn in quel momento.
+I gruppi di disponibilità di SQL Server AlwaysOn locali usano un listener locale che registra un nome DNS virtuale con un indirizzo IP condiviso tra uno o più server SQL. Quando si connettono i client vengono indirizzati attraverso l’IP del listener a SQL Server primario. Si tratta del server a cui appartiene la risorsa IP AlwaysOn in quel momento.
 
-![DeploymentsUseAlwaysOn][6]
+![DeploymentsUseAlways On][6]
 
-In Microsoft Azure è consentito un solo indirizzo IP assegnato a una scheda di rete nella macchina virtuale, pertanto per conseguire lo stesso livello di astrazione possibile in locale, Azure utilizza l'indirizzo IP assegnato ai servizi di bilanciamento del carico interno ed esterno (ILB/ELB). La risorsa IP condivisa tra i server viene impostata sullo stesso IP del servizio ILB/ELB, che viene pubblicato nel DNS, e il traffico del client viene passato attraverso il servizio ILB/ELB alla replica di SQL Server primario. Il servizio ILB/ELB sa che SQL Server è primario poiché utilizza i probe per verificare la presenza della risorsa IP AlwaysOn. Nell'esempio precedente, verifica ogni nodo che dispone di un endpoint a cui fa riferimento il servizio ELB/ILB. Quello che risponde è il Server SQL primario.
+In Microsoft Azure è consentito un solo indirizzo IP assegnato a una scheda di rete nella macchina virtuale, pertanto per conseguire lo stesso livello di astrazione possibile in locale, Azure utilizza l'indirizzo IP assegnato ai servizi di bilanciamento del carico interno ed esterno (ILB/ELB). La risorsa IP condivisa tra i server viene impostata sullo stesso IP del servizio ILB/ELB, che viene pubblicato nel DNS, e il traffico del client viene passato attraverso il servizio ILB/ELB alla replica di SQL Server primario. Il servizio ILB/ELB riconosce l'istanza di SQL Server primaria, perché usa i probe per verificare la presenza della risorsa IP AlwaysOn. Nell'esempio precedente, verifica ogni nodo che dispone di un endpoint a cui fa riferimento il servizio ELB/ILB. Quello che risponde è il Server SQL primario.
 
 > [AZURE.NOTE] Il servizio ILB e il servizio ELB vengono assegnati a un servizio cloud di Azure specifico, pertanto qualsiasi migrazione cloud in Azure comporterà probabilmente la modifica dell'IP del servizio di bilanciamento del carico.
 
@@ -377,12 +377,12 @@ In Microsoft Azure è consentito un solo indirizzo IP assegnato a una scheda di 
 
 Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di AlwaysOn che consentono periodi di inattività:
 
-1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
-1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
+1. **Aggiungere più repliche secondarie a un cluster AlwaysOn esistente**
+1. **Eseguire la migrazione a un nuovo cluster AlwaysOn**
 
-#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1\. Aggiungere più repliche secondarie a un cluster AlwaysOn esistente
 
-Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
+Una strategia consiste nell'aggiungere più repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
 ##### Punti dei tempi di inattività:
 
@@ -391,9 +391,9 @@ Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo d
 
 Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per una velocità effettiva I/O superiore, questi saranno portati offline durante una convalida completa del cluster. Il test di convalida è necessario quando si aggiungono nodi al cluster. Il tempo necessario per eseguire il test può variare, pertanto verificarlo nell'ambiente di test rappresentativo per ottenere una stima approssimativa della durata.
 
-È necessario prevedere tempo per eseguire failover manuale e caos test sui nodi appena aggiunti per assicurarsi che la disponibilità elevata AlwaysOn funzioni come previsto.
+È necessario prevedere tempo per eseguire il failover manuale e test CHAOS sui nodi appena aggiunti per assicurarsi che la disponibilità elevata AlwaysOn funzioni come previsto.
 
-![DeploymentsUseAlwaysOn2][7]
+![DeploymentUseAlways On2][7]
 
 > [AZURE.NOTE] È necessario arrestare tutte le istanze di SQL Server in cui vengono utilizzati i pool di archiviazione prima che venga eseguita la convalida.
 ##### Passaggi di livello elevato
@@ -409,8 +409,8 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Aggiungere nuovi nodi al cluster ed eseguire la convalida completa.
 1. Quando la convalida ha esito positivo, avviare tutti i servizi di SQL Server.
 1. Eseguire il backup dei log delle transazioni e ripristinare i database utente.
-1. Aggiungere nuovi nodi nel gruppo di disponibilità AlwaysOn e impostare replica come **sincrona**.
-1. Aggiungere la risorsa indirizzo IP del nuovo ILB/ELB del servizio cloud tramite PowerShell per AlwaysOn in base sull'esempio multisito riportato in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Nel clustering di Windows, impostare i **Proprietari possibili** della risorsa **Indirizzo IP** sui nuovi nodi. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+1. Aggiungere nuovi nodi nel gruppo di disponibilità AlwaysOn e impostare la replica come **sincrona**.
+1. Aggiungere la risorsa indirizzo IP del nuovo ILB/ELB del servizio cloud tramite PowerShell per AlwaysOn in base all'esempio multisito riportato nell'[Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Nel clustering di Windows, impostare i **Proprietari possibili** della risorsa **Indirizzo IP** sui nuovi nodi. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Failover su uno dei nuovi nodi.
 1. Impostare i nuovi nodi come Partner di failover automatico e testare i failover.
 1. Rimuovere i nodi originali dal gruppo di disponibilità.
@@ -427,16 +427,16 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2\. Eseguire la migrazione a un nuovo cluster AlwaysOn
 
-Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
+Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client in modo che lo usino.
 
 ##### Punti dei tempi di inattività
 
-Quando si trasferiscono utenti e applicazioni al nuovo listener AlwaysOn si verifica un tempo di inattività. Il tempo di inattività dipende da:
+Quando si trasferiscono utenti e applicazioni al nuovo listener AlwaysOn, si verifica un tempo di inattività. Il tempo di inattività dipende da:
 
 - Il tempo necessario per ripristinare i backup dei log delle transazioni finali nei database in nuovi server.
-- Il tempo impiegato per aggiornare le applicazioni client per utilizzare il nuovo listener AlwaysOn.
+- Il tempo impiegato per aggiornare le applicazioni client in modo che usino il nuovo listener AlwaysOn.
 
 ##### Vantaggi
 
@@ -447,11 +447,11 @@ Quando si trasferiscono utenti e applicazioni al nuovo listener AlwaysOn si veri
 
 ##### Svantaggi:
 
-- È necessario modificare il nome DNS del listener, se si desidera che entrambi i cluster AlwaysOn siano in esecuzione contemporaneamente. Ciò comporta un sovraccarico di amministrazione durante la migrazione perché le stringhe dell’applicazione client devono riflettere il nuovo nome del listener.
+- È necessario modificare il nome DNS del listener, se si vuole che entrambi i cluster AlwaysOn vengano eseguiti contemporaneamente. Ciò comporta un sovraccarico di amministrazione durante la migrazione perché le stringhe dell’applicazione client devono riflettere il nuovo nome del listener.
 - È necessario implementare un meccanismo di sincronizzazione tra i due ambienti per mantenerli quanto più vicini è possibile al fine di ridurre al minimo i requisiti di sincronizzazione finale prima della migrazione.
 - Esiste un costo aggiunto durante la migrazione mentre il nuovo ambiente è in esecuzione.
 
-### Migrazione delle distribuzioni AlwaysOn per tempo di inattività minimo
+### Migrazione delle distribuzioni AlwaysOn per un tempo di inattività minimo
 
 Sono disponibili due strategie per la migrazione delle distribuzioni di AlwaysOn per un tempo di inattività minimo:
 
@@ -466,9 +466,9 @@ Una strategia per il tempo di inattività minimo consiste nel rimuovere una repl
 
 - Quando si aggiorna il nodo finale con l'endpoint di bilanciamento del carico, si verifica un tempo di inattività.
 - La riconnessione del client potrebbe essere rimandata a seconda della configurazione client/DNS.
-- Un ulteriore tempo di inattività si verifica se si sceglie di portare offline il gruppo di cluster AlwaysOn per sostituire gli indirizzi IP. È possibile evitare questa situazione utilizzando una dipendenza OR e possibili proprietari per la risorsa indirizzo IP aggiunto. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+- Un tempo di inattività aggiuntivo si verifica se si sceglie di portare offline il gruppo di cluster AlwaysOn per sostituire gli indirizzi IP. È possibile evitare questa situazione utilizzando una dipendenza OR e possibili proprietari per la risorsa indirizzo IP aggiunto. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE] Quando si desidera che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un Endpoint di Azure con un riferimento al set con bilanciamento del carico. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuno verificare questa durata.
+> [AZURE.NOTE] Quando si vuole che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un endpoint di Azure con un riferimento al set con carico bilanciato. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuno verificare questa durata.
 
 ##### Vantaggi
 
@@ -506,9 +506,9 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
 
 #### 2\. Usare una o più repliche secondarie esistenti: multisito
 
-Se si dispone di nodi in più centri dati Azure o se si dispone di un ambiente ibrido, è possibile utilizzare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
+Se sono disponibili nodi in più data center di Azure o se è disponibile un ambiente ibrido, si può usare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
 
-L'approccio consiste nel modificare la sincronizzazione di AlwaysOn in sincrono per il centro dati di Azure locale o secondario e quindi eseguire il failover a tale SQL Server. Copiare quindi i dischi rigidi virtuali in un account di Archiviazione Premium e ridistribuire la macchina in un nuovo servizio cloud. Aggiornare il listener ed eseguire il failback.
+L'approccio consiste nel cambiare in sincrona la sincronizzazione di AlwaysOn per il data center di Azure locale o secondario e quindi eseguire il failover in tale SQL Server. Copiare quindi i dischi rigidi virtuali in un account di Archiviazione Premium e ridistribuire la macchina in un nuovo servizio cloud. Aggiornare il listener ed eseguire il failback.
 
 ##### Punti dei tempi di inattività
 
@@ -543,15 +543,15 @@ Questo scenario presuppone di aver documentato l'installazione e che si sappia c
 - Creare un account di Archiviazione Premium e copiare i dischi rigidi virtuali dall'account di Archiviazione Standard.
 - Creare un nuovo servizio cloud e la macchina virtuale SQL2 con relativi dischi di archiviazione Premium collegati.
 - Configurare ILB/ELB e aggiungere gli endpoint.
-- Aggiornare il listener di AlwaysOn con nuovo indirizzo IP ILB/ELB e testare i failover.
+- Aggiornare il listener di AlwaysOn con nuovo il indirizzo IP ILB/ELB e testare il failover.
 - Controllare la configurazione DNS.
 - Modificare l'AFP in SQL2, quindi eseguire la migrazione di SQL1 ed eseguire i passaggi da 2 a 5.
 - Testare i failover.
 - Riportare l'AFP a SQL1 e SQL2
 
-## Appendice: Migrazione di un cluster di AlwaysOn multisito ad Archiviazione Premium
+## Appendice: Migrazione di un cluster AlwaysOn multisito all'Archiviazione Premium
 
-La parte restante di questo argomento fornisce un esempio dettagliato della conversione di un cluster di AlwaysOn multisito ad Archiviazione Premium. Il listener, inoltre, viene passato dall’uso di un servizio di bilanciamento del carico esterno (ELB) all’uso di un servizio di bilanciamento del carico interno (ILB).
+La parte restante di questo argomento fornisce un esempio dettagliato della conversione di un cluster AlwaysOn multisito all'Archiviazione Premium. Il listener, inoltre, viene passato dall’uso di un servizio di bilanciamento del carico esterno (ELB) all’uso di un servizio di bilanciamento del carico interno (ILB).
 
 ### Environment
 
@@ -609,9 +609,9 @@ In questo esempio sarà illustrato lo spostamento da un ELB a un ILB. ELB era di
     New-AzureService $destcloudsvc -Location $location
 
 #### Passaggio 2: Aumentare il numero di errori consentiti nelle risorse <Optional>
-In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono previsti limiti per il numero di errori che possono verificarsi in un intervallo di tempo durante il quale il servizio cluster tenta di riavviare il gruppo di risorse. Si consiglia di aumentare questo numero durante l’esecuzione di questa procedura poiché se non si esegue il failover manuale e non si attivano i failover arrestando le macchine si potrebbe raggiungere il limite.
+In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono previsti limiti al numero di errori che possono verificarsi in un intervallo di tempo durante il quale il servizio cluster prova a riavviare il gruppo di risorse. Si consiglia di aumentare questo numero durante l’esecuzione di questa procedura poiché se non si esegue il failover manuale e non si attivano i failover arrestando le macchine si potrebbe raggiungere il limite.
 
-Sarebbe prudente raddoppiare la capacità consentita di errore. A tal fine in Gestione Cluster di Failover, passare alle proprietà del gruppo di risorse AlwaysOn:
+Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, in Gestione cluster di failover passare alle proprietà del gruppo di risorse AlwaysOn:
 
 ![Appendix3][13]
 
@@ -623,16 +623,16 @@ Se si dispone di un solo indirizzo IP per il gruppo cluster e questo viene allin
 
 #### Passaggio 4: Eseguire la configurazione di DNS
 
-L’implementazione di una transizione senza intoppi dipende dalla modalità di utilizzo e aggiornamento del DNS. Quando viene installato AlwaysOn, viene creato un gruppo di risorse cluster di Windows. Se si apre Gestione cluster di failover, si noterà la presenza di almeno tre risorse; le due a cui il documento fa riferimento sono:
+L’implementazione di una transizione senza intoppi dipende dalla modalità di utilizzo e aggiornamento del DNS. Quando viene installato AlwaysOn, crea un gruppo di risorse cluster di Windows. Se si apre Gestione cluster di failover, si noterà la presenza di almeno tre risorse. Le due a cui fa riferimento il documento sono:
 
-- Nome di rete virtuale (VNN): questo è il nome DNS a cui si connette il client quando si desidera connettersi a SQL Server tramite AlwaysOn.
+- Nome di rete virtuale (VNN): questo è il nome DNS a cui si connette il client quando si sceglie di stabilire la connessione a SQL Server tramite AlwaysOn.
 - Risorsa indirizzo IP: questo è l'indirizzo IP associato al nome di rete virtuale; possono essere più di uno e in una configurazione multisito sarà presente un indirizzo IP per sito/subnet.
 
-Quando ci si connette a SQL Sevrer, il driver del client di SQL Server recupererà i record DNS associati al listener e tenterà di connettersi a ogni indirizzo IP associato a AlwaysOn. Di seguito vengono illustrati alcuni fattori che possono influire su questa situazione.
+Quando ci si connette a SQL Sevrer, il driver del client SQL Server recupera i record DNS associati al listener e prova a connettersi a ogni indirizzo IP associato a AlwaysOn. Di seguito sono illustrati alcuni fattori che possono influenzare questa situazione.
 
-Il numero di record DNS simultanei associati al nome del listener dipende non solo il numero di indirizzi IP associati, ma la dall’impostazione 'RegisterAllIpProviders' in Clustering di failover per la risorsa nome di rete virtuale di AlwaysON.
+Il numero di record DNS simultanei associati al nome del listener dipende non solo dal numero di indirizzi IP associati, ma anche dall'impostazione 'RegisterAllIpProviders' in Clustering di failover per la risorsa nome di rete virtuale di AlwaysOn.
 
-Quando si distribuisce AlwaysOn in Azure, sono disponibili diversi passaggi per creare il listener e gli indirizzi IP; è necessario configurare manualmente 'RegisterAllIpProviders' su 1, diversamente dalla distribuzione di AlwaysOn locale dove è già impostato su 1.
+Quando si distribuisce AlwaysOn in Azure, sono disponibili diversi passaggi per creare il listener e gli indirizzi IP. È necessario configurare manualmente su 1 l'impostazione 'RegisterAllIpProviders', diversamente dalla distribuzione di AlwaysOn locale, dove è già impostata su 1.
 
 Se 'RegisterAllIpProviders' è 0, verrà visualizzato solo un record DNS nel DNS associato il listener:
 
@@ -651,11 +651,11 @@ Il codice riportato di seguito esegue dump delle impostazioni del nome di rete v
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-In un passaggio successivo di migrazione è necessario aggiornare il listener AlwaysOn con un indirizzo IP aggiornato che farà riferimento a un servizio di bilanciamento del carico. Ciò comporterà la rimozione e l’aggiunta di una risorsa indirizzo IP. Dopo l’aggiornamento IP, è necessario assicurarsi che il nuovo indirizzo IP sia stato aggiornato nella zona DNS e che i client aggiornino la relativa cache DNS locale.
+In un passaggio di migrazione successivo si dovrà aggiornare il listener AlwaysOn con un indirizzo IP aggiornato che farà riferimento a un servizio di bilanciamento del carico. Ciò comporterà la rimozione e l'aggiunta di una risorsa indirizzo IP. Dopo l’aggiornamento IP, è necessario assicurarsi che il nuovo indirizzo IP sia stato aggiornato nella zona DNS e che i client aggiornino la relativa cache DNS locale.
 
 Se i client si trovano in segmenti di rete diversi e fanno riferimento a un server DNS diverso, è necessario considerare ciò che accade sul trasferimento di zona DNS durante la migrazione dal momento che il tempo di riconnessione dell’applicazione sarà limitato di almeno il tempo di trasferimento di zona di ogni nuovo indirizzo IP per il listener. In caso di vincolo di tempo, è necessario discutere e verificare imponendo un trasferimento di zona incrementale con i team di Windows e, inoltre, impostare il record host DNS su una durata (TTL) inferiore, così i client si aggiornano. Per ulteriori informazioni, vedere [Trasferimenti di zona incrementali](https://technet.microsoft.com/library/cc958973.aspx) e [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
-Per impostazione predefinita il valore TTL per il Record DNS associato al Listener in AlwaysOn in Azure è 1200 secondi. È possibile ridurre questo valore in caso di vincolo di tempo durante la migrazione per assicurarsi che i client aggiornino il proprio DNS con l'indirizzo IP aggiornato per il listener. È possibile visualizzare e modificare la configurazione eseguendo il dump della configurazione del nome di rete virtuale:
+Per impostazione predefinita, il valore TTL per il Record DNS associato al Listener in AlwaysOn in Azure è 1200 secondi. È possibile ridurre questo valore in caso di vincolo di tempo durante la migrazione per assicurarsi che i client aggiornino il proprio DNS con l'indirizzo IP aggiornato per il listener. È possibile visualizzare e modificare la configurazione eseguendo il dump della configurazione del nome di rete virtuale:
 
     $AGName = "myProductionAG"
     $ListenerName = "Mylistener"
@@ -669,7 +669,7 @@ Si noti che più basso è 'HostRecordTTL' più alto sarà il traffico DNS.
 
 ##### Impostazioni applicazione client
 
-Se l'applicazione client SQL supporta .Net 4.5 SQLClient, sarà possibile utilizzare la parola chiave "MULTISUBNETFAILOVER=TRUE'. Tale operazione è consigliata poiché consente una connessione più veloce al gruppo di disponibilità SQL AlwaysOn durante il failover. Enumera tutti gli indirizzi IP associati al listener AlwaysOn in parallelo e consente di raggiungere una velocità di tentativi di connessione TCP maggiore durante un failover.
+Se l'applicazione client SQL supporta .Net 4.5 SQLClient, è possibile usare la parola chiave "MULTISUBNETFAILOVER=TRUE", che è consigliabile applicare perché consente una connessione più veloce al gruppo di disponibilità SQL AlwaysOn durante il failover. Enumera tutti gli indirizzi IP associati al listener AlwaysOn in parallelo e consente una velocità di tentativi di connessione TCP maggiore durante un failover.
 
 Per ulteriori informazioni riguardanti le impostazioni precedenti, vedere [Parola chiave MultiSubnetFailover e funzionalità associate](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Vedere anche [Supporto SqlClient per disponibilità elevata, ripristino di emergenza](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
@@ -685,7 +685,7 @@ Per ulteriori informazioni sulla gestione e configurazione del quorum del cluste
 #### Passaggio 6: Estrarre endpoint e ACL esistenti
     #GET Endpoint info
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
-    #GET ACL Rules for Each EP, this example is for the AlwaysOn Endpoint
+    #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
 Salvarli in un file di testo.
@@ -906,9 +906,9 @@ Ora, rimuovere l’indirizzo IP del servizio cloud precedente.
 
 #### Passaggio 15: Eseguire il controllo dell'aggiornamento DNS
 
-È ora necessario controllare i server DNS nelle reti client SQL Server e assicurarsi che il servizio cluster abbia aggiunto il record host aggiuntivo per l'indirizzo IP aggiunto. Se tali server DNS non sono stati aggiornati, forzare un trasferimento di zona DNS e assicurarsi che i client presenti nella subnet siano in grado di risolversi in entrambi gli indirizzi IP di AlwaysOn in modo che non sia necessario attendere la replica DNS automatica.
+È ora necessario controllare i server DNS nelle reti client SQL Server e assicurarsi che il servizio cluster abbia aggiunto il record host aggiuntivo per l'indirizzo IP aggiunto. Se tali server DNS non sono stati aggiornati, forzare un trasferimento di zona DNS e assicurarsi che i client presenti nella subnet riescano a risolversi in entrambi gli indirizzi IP di AlwaysOn, in modo che non sia necessario attendere la replica DNS automatica.
 
-#### Passaggio 16: Riconfigurare AlwaysOn
+#### Passaggio 16: Riconfigurare Always On
 
 A questo punto è necessario attendere che il database secondario su cui è stato migrato il nodo venga risincronizzato e passare al nodo di replica sincrona e renderlo AFP.
 
@@ -1091,14 +1091,14 @@ Per informazioni sui singoli BLOB: #Controllare lo stato del singolo BLOB Get-Az
 
 #### Passaggio 23: Eseguire il failover di test
 
-A questo punto, è consigliabile consentire al nodo migrato di sincronizzarsi con il nodo di AlwaysOn locale, posizionarlo in modalità di replica sincrona e attendere finché non si è sincronizzato. Quindi eseguire il failover da locale sul primo nodo migrato, ossia AFP. Successivamente, modificare l’ultimo nodo migrato in AFP.
+A questo punto, è consigliabile consentire al nodo migrato di sincronizzarsi con il nodo AlwaysOn locale, impostarlo in modalità di replica sincrona e attendere che sia sincronizzato. Quindi eseguire il failover da locale sul primo nodo migrato, ossia AFP. Successivamente, modificare l’ultimo nodo migrato in AFP.
 
 È consigliabile testare i failover tra tutti i nodi ed eseguire i caos test per assicurarsi che i failover funzionino nel modo previsto e nei tempi indicati.
 
 #### Passaggio 24: Ripristinare le impostazioni quorum del cluster / TTL DNS / Failover Pntrs / impostazioni di sincronizzazione
 ##### Aggiunta della risorsa indirizzo IP nella stessa Subnet
 
-Se sono presenti solo due server SQL e si desidera eseguirne la migrazione a un nuovo servizio cloud ma conservarli nella stessa subnet, è possibile evitare di portare offline il listener per eliminare l'indirizzo IP AlwaysOn originale e aggiungere il nuovo indirizzo IP. Se si esegue la migrazione delle macchine virtuali in un'altra subnet non sarà necessario eseguire questa operazione perché una rete di cluster aggiuntiva farà riferimento a tale subnet.
+Se sono presenti solo due server SQL e si vuole eseguirne la migrazione a un nuovo servizio cloud ma mantenerli nella stessa subnet, è possibile evitare di portare offline il listener per eliminare l'indirizzo IP di AlwaysOn originale e aggiungere il nuovo indirizzo IP. Se si esegue la migrazione delle macchine virtuali in un'altra subnet non sarà necessario eseguire questa operazione perché una rete di cluster aggiuntiva farà riferimento a tale subnet.
 
 Dopo aver attivato la replica secondaria migrata e aggiunto la nuova risorsa indirizzo IP per il nuovo servizio cloud prima del failover della replica primaria esistente, è necessario eseguire questi passaggi in Gestione failover cluster:
 
@@ -1148,4 +1148,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

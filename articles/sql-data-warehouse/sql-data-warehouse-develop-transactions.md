@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transazioni in SQL Data Warehouse
@@ -27,6 +27,7 @@ SQL Data Warehouse implementa le transazioni ACID. Tuttavia, l'isolamento del su
 Le dimensioni di una singola transazione di modifica dati sono limitate. Il limite è attualmente applicato "per ogni distribuzione". Per ottenere la cifra totale è quindi necessario moltiplicare il limite per il numero di distribuzioni. Per calcolare approssimativamente il numero massimo di righe nella transazione, dividere il limite di distribuzione per le dimensioni totali di ogni colonna. Per le colonne di lunghezza variabile valutare la possibilità di usare una lunghezza di colonna media invece delle dimensioni massime.
 
 Ecco alcuni presupposti riportati nella tabella seguente:
+
 * Si è verificata una distribuzione uniforme dei dati 
 * La lunghezza media delle righe è 250 byte
 
@@ -140,4 +141,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

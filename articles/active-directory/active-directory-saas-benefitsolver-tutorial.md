@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/02/2016" 
+    ms.date="04/26/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Benefitsolver
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bene
 
 ###Per abilitare l'integrazione dell'applicazione per Benefitsolver, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Benefitsolver** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Benefitsolver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configura accesso Single Sign-On")
 
@@ -83,8 +83,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurare le impostazioni dell'app")
 
     1.  Nella casella di testo **URL di accesso** digitare ****http://azure.benefitsolver.com**.
-	2.  Nella casella di testo **URL di risposta** digitare ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
-
+2.  Nella casella di testo **URL di risposta** digitare ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Fare clic su **Avanti**.
 
@@ -96,7 +95,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     >[AZURE.NOTE] Il team di supporto di Benefitsolver si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configura accesso Single Sign-On")
 
@@ -134,7 +133,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Benefitsolver, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Benefitsolver** fare clic su **Assegna utenti**.
 
@@ -146,4 +145,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

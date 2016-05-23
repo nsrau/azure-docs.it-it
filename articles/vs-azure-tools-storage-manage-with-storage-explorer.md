@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Gestire le risorsa di archiviazione di Azure con Storage Explorer (anteprima)
@@ -42,8 +42,8 @@ Per visualizzare le risorse di archiviazione di Azure in Storage Explorer, è ne
 ### Associare una risorsa di archiviazione esterna
 
 1. Ottenere il nome dell'account e la chiave per l'account di archiviazione da collegare.
-	1.	Nel portale di anteprima di Azure scegliere l'account di archiviazione da collegare.
-	1.	Nella sezione **Gestisci** del riquadro **Impostazioni** del portale di anteprima di Azure scegliere **Chiavi**.
+	1.	Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) scegliere l'account di archiviazione da collegare.
+	1.	Nella sezione **Gestisci** del riquadro **Impostazioni** fare clic sul pulsante **Chiavi**.
 	1.	Copiare i valori di **Nome account di archiviazione** e **Chiave di accesso primaria**.
 
 		![][2]
@@ -182,4 +182,4 @@ Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

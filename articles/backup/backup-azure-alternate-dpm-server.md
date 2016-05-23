@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # Ripristino dei dati da un altro server DPM nell'archivio di backupRipristino dei dati da un altro server DPM nell'archivio di backup
@@ -32,7 +32,7 @@ Per ripristinare i dati da un altro server DPM:
 
     ![Credenziali DPM esterne](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    >[AZURE.NOTE]Solo i server DPM associati con lo stesso archivio di registrazione possono recuperare i dati.
+    >[AZURE.NOTE] Solo i server DPM associati con lo stesso archivio di registrazione possono recuperare i dati.
 
     Una volta che viene aggiunto il server DPM esterno, è possibile esplorare i dati del server DPM esterno e il server DPM locale dalla scheda **Ripristino**.
 
@@ -73,7 +73,7 @@ Per ripristinare i dati da un altro server DPM:
 
     ![Riepilogo opzioni di ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    >[AZURE.NOTE]Il processo di ripristino può essere monitorato nella scheda **Monitoraggio** del server DPM.
+    >[AZURE.NOTE] Il processo di ripristino può essere monitorato nella scheda **Monitoraggio** del server DPM.
 
     ![Monitoraggio del ripristino](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
@@ -103,4 +103,4 @@ Per ripristinare i dati da un altro server DPM:
 ## Passaggi successivi:
 [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

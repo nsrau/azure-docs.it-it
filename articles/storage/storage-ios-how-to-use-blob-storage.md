@@ -1,6 +1,6 @@
 <properties
     pageTitle="Come usare l'archivio BLOB da iOS | Microsoft Azure"
-    description="Informazioni su come usare il servizio di archiviazione BLOB di Microsoft Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Objective-C."
+	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # Come usare l'archivio BLOB da iOS
@@ -111,7 +111,7 @@ L'esempio seguente mostra come usare l'interfaccia della riga di comando di Azur
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Come si può osservare, quando si usa un token di firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Per altre informazioni sulla firma di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1).
+Come si può osservare, quando si usa un token di firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Per altre informazioni sulla firma di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ##Operazioni asincrone
 > [AZURE.NOTE] Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
@@ -355,4 +355,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

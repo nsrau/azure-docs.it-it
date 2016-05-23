@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -228,15 +228,15 @@ L'esempio successivo illustra come combinare due matrici.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a sinistra, fino a raggiungere la lunghezza totale specificata.
   
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| stringToPad | Sì | Stringa allineata a destra.
+| valueToPad | Sì | Stringa o numero intero allineato a destra.
 | totalLength | Sì | Numero totale di caratteri della stringa restituita.
-| paddingCharacter | Sì | Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale.
+| paddingCharacter | No | Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale. Il valore predefinito è uno spazio.
 
 Nell'esempio seguente viene illustrato come il valore del parametro fornito dall'utente viene completato aggiungendo il carattere zero finché la stringa non raggiunge i 10 caratteri. Se il valore del parametro originale è più lungo di 10 caratteri, non vengono aggiunti caratteri.
 
@@ -295,19 +295,35 @@ Nell'esempio seguente la stringa di input viene divisa con una virgola.
 
 **string(valueToConvert)**
 
-Converte il valore specificato in stringa.
+Converte il valore specificato in una stringa.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| valueToConvert | Sì | Il valore da convertire in Stringa. Il tipo di valore può essere solo Booleano, Numero intero o Stringa.
+| valueToConvert | Sì | Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici.
 
-Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in stringa.
+Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in stringhe.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -397,14 +413,14 @@ Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del p
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Esegue un hash a 64 bit delle stringhe fornite per creare una stringa univoca. Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
+Crea una stringa univoca in base ai valori forniti come parametri. Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString | Sì | Stringa di base usata nella funzione hash per creare una stringa univoca.
-| parametri aggiuntivi in base alle esigenze | No | È possibile aggiungere quante stringhe sono necessarie per creare il valore che specifica il livello di univocità.
+| parametri aggiuntivi in base alle esigenze | No | È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità.
 
-Il valore restituito non è una stringa completamente casuale, ma piuttosto il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più descrittivo.
+Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più facile da riconoscere.
 
 Negli esempi seguenti viene illustrato come usare uniqueString per creare un valore univoco per diversi livelli di uso comune.
 
@@ -439,7 +455,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base **http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare ****http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base ****http://contoso.com/resources/**.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
@@ -671,15 +687,6 @@ L'esempio seguente fa riferimento a un account di archiviazione non distribuito 
 		}
 	}
 
-Se non si vuole specificare direttamente la versione dell'API nel modello, è possibile usare la funzione [providers](#providers) e recuperare uno dei valori, ad esempio la versione più recente, come illustrato di seguito.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 L'esempio seguente fa riferimento a un account di archiviazione in un gruppo di risorse diverso.
 
     "outputs": {
@@ -717,7 +724,7 @@ L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percor
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. L'identificatore viene restituito nel formato seguente:
 
@@ -725,6 +732,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
       
 | Parametro | Obbligatorio | Descrizione
 | :---------------: | :------: | :----------
+| subscriptionId | No | ID sottoscrizione facoltativo. Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si recupera una risorsa in un'altra sottoscrizione.
 | resourceGroupName | No | Nome del gruppo di risorse facoltativo. Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si recupera una risorsa in un altro gruppo di risorse.
 | resourceType | Sì | Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse.
 | resourceName1 | Sì | Nome della risorsa.
@@ -733,7 +741,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 L'esempio seguente mostra come recuperare gli ID risorsa per un sito Web e un database. Il sito Web si trova in un gruppo di risorse denominato **myWebsitesGroup**, mentre il database si trova nel gruppo di risorse corrente per questo modello.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Spesso è necessario usare questa funzione quando si usa un account di archiviazione o una rete virtuale in un gruppo di risorse alternative. L'account di archiviazione o la rete virtuale possono essere usati in più gruppi di risorse, quindi non devono essere eliminati quando si elimina un singolo gruppo di risorse. L'esempio seguente mostra come usare facilmente una risorsa di un gruppo di risorse esterno:
 
@@ -807,4 +815,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

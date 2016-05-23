@@ -114,7 +114,6 @@ La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero
 | Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
 | :-- | :-- | :-- |
 | Ripristino geografico | • RPO < 24 ore.<br/>• ERT < 12 ore. | • RPO < 1 ora.<br/>• ERT < 12 ore. |
-| Replica geografica standard | • RPO < 30 minuti.<br/>• ERT < 2 ore. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 | Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 
 
@@ -167,4 +166,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume (aggiornamento 2)
@@ -35,7 +35,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 >
 >`Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 >
->È possibile convertire correttamente il volume in volume aggiunto in locale se il clone temporaneo viene prima convertito in un clone permanente. Per convertire il clone temporaneo in un clone permanente, creare uno snapshot cloud di esso.
+>Questo errore si verifica solo se si esegue la clonazione in un altro dispositivo. È possibile convertire correttamente il volume in volume aggiunto in locale se il clone temporaneo viene prima convertito in un clone permanente. Per convertire il clone temporaneo in un clone permanente, creare uno snapshot cloud di esso.
 
 ## Creare un clone di un volume
 
@@ -55,11 +55,11 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
   1. Identificare un dispositivo di destinazione. Si tratta del percorso in cui verrà creato il clone. È possibile scegliere lo stesso dispositivo o specificare un altro dispositivo. Se si sceglie un volume associato ad altri provider di servizi cloud (non Azure), nell'elenco a discesa per il dispositivo di destinazione verranno visualizzati solo i dispositivi fisici. Non è possibile clonare un volume associato con altri provider di servizi cloud in un dispositivo virtuale.
 
-        >[AZURE.NOTE] Assicurarsi che la capacità richiesta per il clone sia inferiore a quella disponibile nel dispositivo di destinazione.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
     
-        >[AZURE.NOTE] Il campo **Clona volume come** viene impostato su **A livelli** anche se si esegue la clonazione di un volume aggiunto in locale. Non è possibile modificare questa impostazione. Tuttavia, se è necessario che il volume clonato venga aggiunto anche in locale, è possibile convertire il clone in un volume aggiunto in locale dopo averlo creato. Per informazioni sulla conversione di un volume a livelli in un volume aggiunto in locale, consultare il documento relativo alla [modifica del tipo di volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -90,9 +90,9 @@ Questo clone ora è un volume normale e qualsiasi operazione possibile su un vol
 
 ## Cloni temporanei e cloni permanenti
 
-È possibile clonare un volume specifico da un set di backup. Un clone creato in questo modo è un clone *temporaneo*. Il clone temporaneo disporrà di riferimenti al volume originale e utilizzerà tale volume per la lettura durante la scrittura in locale. Ciò potrebbe causare il rallentamento delle prestazioni, specialmente se il volume clonato è di grandi dimensioni.
+I cloni temporanei e permanenti vengono creati solo quando si esegue la clonazione in un dispositivo differente. È possibile clonare un volume specifico da un set di backup in un dispositivo differente. Un clone creato in questo modo è un clone *temporaneo*. Il clone temporaneo disporrà di riferimenti al volume originale e utilizzerà tale volume per la lettura durante la scrittura in locale.
 
-Dopo l'esecuzione di uno snapshot del cloud di un clone temporaneo, il clone risultante sarà un clone *permanente*. Il clone permanente è indipendente e non contiene alcun riferimento al volume originale dal quale è stato clonato. Per prestazioni più veloci, è consigliabile creare cloni permanenti.
+Dopo l'esecuzione di uno snapshot del cloud di un clone temporaneo, il clone risultante sarà un clone *permanente*. Il clone permanente è indipendente e non contiene alcun riferimento al volume originale dal quale è stato clonato.
 
 ## Scenari per cloni temporanei e cloni permanenti
 
@@ -108,7 +108,7 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
 ### Test nell'ambiente di produzione con un clone permanente
 
-È necessario verificare un bug di test nell'ambiente di produzione. Viene creato un clone del volume nell'ambiente di produzione. Per migliorare le prestazioni, è necessario creare uno snapshot del cloud di questo clone. Il volume clonato è ora indipendente e di conseguenza le prestazioni sono più veloci. In questo scenario viene utilizzato un clone permanente.
+È necessario verificare un bug di test nell'ambiente di produzione. Viene creato un clone del volume nell'ambiente di produzione e quindi creato uno snapshot cloud di questo clone per creare un volume clonato indipendente. In questo scenario viene utilizzato un clone permanente.
 
 ## Passaggi successivi
 - Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set-u2.md).
@@ -117,4 +117,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

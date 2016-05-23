@@ -14,21 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/06/2016"
 	ms.author="robmcm"/>
 
-
-
-
-
-#Applicazione Web Ruby on Rails in una macchina virtuale di Azure
+# Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 
 Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una macchina virtuale Linux.
 
 Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si usa una distribuzione Linux diversa, è necessario modificare la procedura per installare Rails.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
 
 ## Creare una macchina virtuale di Azure
 
@@ -70,9 +65,9 @@ Al termine del provisioning della macchina virtuale, è possibile ottenere l'end
 
 3. Immettere il comando seguente per installare Rails:
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
-	Per velocizzare l'operazione, usare i flag --no-rdoc e --no-ri per ignorare l'installazione della documentazione.
+	Per velocizzare l'operazione, usare i flag --no-rdoc e --no-ri per ignorare l'installazione della documentazione. È probabile che l'esecuzione di questo comando richieda tempo, quindi l'aggiunta di -V consentirà di visualizzare lo stato dell'installazione.
 
 ## Creare ed eseguire un'applicazione
 
@@ -93,7 +88,6 @@ L'output dovrebbe essere simile al seguente.
 	[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
 	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
 	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
-
 
 ## Aggiungere un endpoint
 
@@ -129,8 +123,7 @@ L'output dovrebbe essere simile al seguente.
 
 	![Pagina predefinita Rails][default-rails-cloud]
 
-
-##<a id="next"></a>Passaggi successivi
+## Passaggi successivi
 
 In questa esercitazione è stata eseguita la maggior parte dei passaggi manualmente. In un ambiente di produzione, si potrebbe scrivere l'applicazione in un computer di sviluppo e distribuirla nella macchina virtuale di Azure. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche. Per altre informazioni, vedere http://rubyonrails.org/deploy/.
 
@@ -144,35 +137,23 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 
 * [Distribuzione di contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti][cdn-howto]
 
-
-
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-
-[cdn-howto]: /develop/ruby/app-services/
-
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-
-[tables]: /develop/ruby/how-to-guides/table-service/
-
+[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
-
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
-
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
 
 [default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-
 [vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-
 [endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

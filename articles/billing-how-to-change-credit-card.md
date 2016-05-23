@@ -15,12 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/05/2016"
 	ms.author="genli"/>
 
-# Come modificare la carta di credito utilizzata per pagare una sottoscrizione di Azure
+# Come modificare la carta di credito usata per pagare una fattura di Azure
 
-È possibile pagare utilizzando carte di credito di debito, o ricevere l’autorizzazione per l’addebito con fattura. Per altre informazioni sul pagamento tramite addebito in fattura, vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/).
+In alcuni casi potrebbe essere necessario aggiornare i dati della carta di credito nelle informazioni dell'account oppure modificare la carta usata per pagare una fattura.
+
+Se la carta di credito viene rinnovata e il numero rimane invariato, è possibile aggiornare semplicemente i dati della carta di credito esistente, ad esempio la data di scadenza.
+
+Se il numero della carta di credito dovesse cambiare per smarrimento, furto o scadenza, sarà necessario aggiungere la nuova carta di credito all'account. Questa operazione è necessaria perché il codice di sicurezza CVV cambia insieme al numero della carta di credito.
 
 ## Modificare le informazioni di pagamento per una carta di credito esistente
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account. Nel [portale di Azure](https://portal.azure.com) è possibile accedere al Centro account selezionando **Sottoscrizione** > *nome della sottoscrizione* > **Gestisci**.
@@ -47,4 +51,4 @@
 3. Sul lato destro della pagina selezionare **Modifica il metodo di pagamento**.
 4. Nella pagina **Scegli il metodo di pagamento** selezionare la freccia a discesa accanto alla carta di credito, selezionare la carta di credito che si vuole usare e quindi fare clic su ![checkButton](./media/billing-how-to-change-credit-card/checkbutton.png) per chiudere la finestra.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

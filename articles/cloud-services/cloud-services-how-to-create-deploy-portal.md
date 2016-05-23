@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -34,14 +34,11 @@ In questo argomento viene descritto come usare il metodo di creazione rapida di 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
 
-- **Definizione del servizio**  
-  Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
+- **Definizione del servizio** Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
 
-- **Configurazione del servizio**  
-  l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
+- **Configurazione del servizio** l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
 
-- **Pacchetto del servizio**  
-  Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+- **Pacchetto del servizio** Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
 
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
@@ -54,7 +51,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 - Se si vogliono configurare connessioni Desktop remoto a istanze del ruolo, [configurare i ruoli](cloud-services-role-enable-remote-desktop.md) per Desktop remoto. Questa operazione può essere eseguita solo nel portale classico.
 
-- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il monitoraggio* dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
+- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il *monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
 
 Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro, è necessario [creare il pacchetto del servizio](cloud-services-model-and-package.md#servicepackagecspkg).
 
@@ -70,7 +67,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 ## Creazione e distribuzione
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Nuovo > Calcolo** e quindi scorrere verso il basso e fare clic su **Servizio cloud**.
+2. Fare clic su **Nuovo > Macchine virtuali** e quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
@@ -78,12 +75,13 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 4. Nel nuovo pannello **Servizio cloud** immettere un valore per il **nome DNS**.
 5. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
 6. Selezionare un **percorso**.
-7. Selezionare **Pacchetto** e nel pannello **Carica un pacchetto** compilare i campi obbligatori.  
+7. Fare clic su **Pacchetto**. Verrà visualizzato il pannello **Carica un pacchetto**. Compilare i campi obbligatori.  
 
      Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 
 8. Assicurarsi che l'opzione **Avvia distribuzione** sia selezionata.
-9. Fare clic su **OK**.
+9. Fare clic su **OK** per chiudere il pannello **Carica un pacchetto**.
+10. Se non è disponibile un certificato da aggiungere, fare clic su **Crea**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -118,4 +116,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

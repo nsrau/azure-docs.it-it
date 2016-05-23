@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 
 L'ambiente di sviluppo di Azure SDK include l'emulatore di archiviazione, ovvero un'utilità che simula i servizi BLOB, di coda e di tabella disponibili in Azure nel computer di sviluppo locale. Se si sta compilando un servizio cloud che usa i servizi di archiviazione di Azure o si sta scrivendo una qualsiasi applicazione esterna che chiama i servizi di archiviazione, è possibile testare il codice in locale in relazione all'emulatore di archiviazione. Gli strumenti di Azure per Microsoft Visual Studio integrano la gestione dell'emulatore di archiviazione in Visual Studio. Gli strumenti di Azure inizializzano il database dell'emulatore di archiviazione al primo uso, avviano il servizio dell'emulatore di archiviazione quando si esegue o si sottopone a debug il codice da Visual Studio e forniscono l'accesso di sola lettura ai dati dell'emulatore di archiviazione in Esplora archivi Azure.
 
-Per informazioni dettagliate sull'emulatore di archiviazione, inclusi i requisiti di sistema e le istruzioni per la configurazione personalizzata, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](./storage/storage-use-emulator/).
+Per informazioni dettagliate sull'emulatore di archiviazione, inclusi i requisiti di sistema e le istruzioni per la configurazione personalizzata, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](./storage/storage-use-emulator.md).
 
->[AZURE.NOTE] Le funzionalità della simulazione dell'emulatore di archiviazione e dei servizi di archiviazione di Azure presentano alcune differenze. Per informazioni sulle differenze specifiche, vedere [Differenze tra l'emulatore di archiviazione e i servizi di archiviazione di Azure](./storage/storage-use-emulator) nella documentazione di Azure SDK.
+>[AZURE.NOTE] Le funzionalità della simulazione dell'emulatore di archiviazione e dei servizi di archiviazione di Azure presentano alcune differenze. Per informazioni sulle differenze specifiche, vedere [Differenze tra l'emulatore di archiviazione e i servizi di archiviazione di Azure](./storage/storage-use-emulator.md) nella documentazione di Azure SDK.
 
 ## Configurazione di una stringa di connessione per l'emulatore di archiviazione
 
@@ -43,4 +43,4 @@ L'emulatore di archiviazione fornisce un'interfaccia utente per visualizzare lo 
 
 Il nodo Archiviazione di Azure in Esplora Server consente di visualizzare i dati e modificare le impostazioni per i dati di BLOB e tabelle negli account di archiviazione, incluso l'emulatore di archiviazione. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

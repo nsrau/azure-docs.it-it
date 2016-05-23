@@ -159,7 +159,7 @@ MP3 (MPEG-1 Audio Layer 3)|Sì|Sì
 Windows Media Audio|Sì|Sì
 WAV/PCM|Sì|Sì
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Sì|No
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Sì|No
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |Sì|No
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Sì|No
 
 
@@ -242,4 +242,4 @@ Per ottenere assistenza dal team di **Servizi multimediali**, aprire un [ticket 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

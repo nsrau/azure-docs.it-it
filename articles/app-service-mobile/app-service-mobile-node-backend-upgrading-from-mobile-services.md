@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Eseguire l'aggiornamento del servizio mobile di Azure Node.js esistente al servizio app
 
@@ -38,7 +38,7 @@ L'aggiornamento alla nuova versione di [Mobile Apps SDK](https://www.npmjs.com/p
 
 - Miglioramenti significativi delle prestazioni rispetto a Mobile Services SDK.
 
-- Possibilità di ospitare un sito Web con il back-end per dispositivi mobili e di aggiungere facilmente Azure Mobile SDK a qualsiasi applicazione expressv4 esistente.
+- Possibilità di ospitare un sito Web con il back-end per dispositivi mobili e di aggiungere facilmente Azure Mobile SDK a qualsiasi applicazione express.v4 esistente.
 
 - Creato per lo sviluppo multipiattaforma e locale, Mobile Apps SDK può essere sviluppato ed eseguito in locale su piattaforme Windows, Linux e OSX. L'uso di tecniche di sviluppo comuni di Node, ad esempio l'esecuzione di test [Mocha](https://mochajs.org/) prima della distribuzione, è ora più semplice.
 
@@ -52,7 +52,7 @@ A differenza di quanto avviene con .NET Mobile Apps SDK, l'aggiornamento di un b
 
 Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di App per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
-Si avranno quindi due versioni dell'applicazione: una che rimane invariata e usa le app pubblicate e l'altra che è possibile aggiornare e usare come destinazione con una nuova versione del client. È possibile spostare e testare il codice in base alle esigenze, ma è necessario assicurarsi che tutte le correzioni di bug apportate vengano applicate a entrambe le versioni. Quando si ritiene di avere aggiornato alla versione più recente il numero desiderato di app client, è possibile eliminare l'app migrata originale, se lo si desidera. Questa operazione non comporta l'applicazione di costi aggiuntivi, se l'app è ospitata nello stesso piano di servizio app dell'app per dispositivi mobili.
+Si avranno quindi due versioni dell'applicazione: una che rimane invariata e viene usata dalle app pubblicate in condizioni normali, l'altra che può essere aggiornata e integrata con una nuova versione del client. È possibile spostare e testare il codice in base alle esigenze, ma è necessario assicurarsi che tutte le correzioni di bug apportate vengano applicate a entrambe le versioni. Quando si ritiene di avere aggiornato alla versione più recente il numero desiderato di app client, è possibile eliminare l'app migrata originale, se lo si desidera. Questa operazione non comporta l'applicazione di costi aggiuntivi, se l'app è ospitata nello stesso piano di servizio app dell'app per dispositivi mobili.
 
 La struttura completa del processo di aggiornamento è la seguente:
 
@@ -288,4 +288,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

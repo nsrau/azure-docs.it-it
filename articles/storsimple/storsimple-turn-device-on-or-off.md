@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/21/2016"
    ms.author="alkohli" />
 
 # Attivare o arrestare il dispositivo StorSimple 
@@ -28,12 +28,12 @@ Nella tabella seguente sono elencati diversi scenari per l'attivazione e l'arres
 |Attivare un nuovo dispositivo|[Attivare un nuovo dispositivo](#turn-on-a-new-device)<ul><li>[Nuovo dispositivo con solo l’enclosure principale](#new-device-with-primary-enclosure-only)</li><li>[Nuovo dispositivo con enclosure EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Attivare un dispositivo dopo l'arresto|[Attivare un dispositivo dopo l'arresto](#turn-on-a-device-after-shutdown)<ul><li>[dispositivo con solo l’enclosure principale ](#device-with-primary-enclosure-only)</li><li>[Dispositivo con enclosure EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Attivare un dispositivo dopo un'interruzione dell'alimentazione|[Attivare un dispositivo dopo un'interruzione dell'alimentazione](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo con solo l’enclosure principale](#8100)</li><li>[Dispositivo con enclosure EBOD](#8600)</li></ul>|
-|Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’EBOD|[Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD ](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’EBOD|[Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD ](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
 |Arrestare un dispositivo in esecuzione|[Disattivare un dispositivo in esecuzione](#turn-off-a-running-device)<ul><li>[Dispositivo con solo l’enclosure principale](#8100a)</li><li>[Dispositivo con enclosure EBOD](#8600a)</li></ul>|
 
 ## Attivare un nuovo dispositivo
 
-I passaggi per l'attivazione di un dispositivo Microsoft Azure StorSimple per la prima volta variano a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. Nelle sezioni seguenti sono illustrati i passaggi dettagliati per entrambi i modelli.
+I passaggi per l'attivazione di un dispositivo StorSimple per la prima volta variano a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. Nelle sezioni seguenti sono illustrati i passaggi dettagliati per entrambi i modelli.
 
 - [Nuovo dispositivo con soltanto un’enclosure principale](#new-device-with-primary-enclosure-only)
 
@@ -63,7 +63,7 @@ Quando si configura il dispositivo per la prima volta, eseguire prima i passaggi
 
 ## Attivare un dispositivo dopo l'arresto
 
-I passaggi per l'attivazione di un dispositivo Microsoft Azure StorSimple dopo un arresto variano a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD.
+I passaggi per l'attivazione di un dispositivo StorSimple dopo un arresto variano a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD.
 
 - [Dispositivo con soltanto un’enclosure principale](#device-with-primary-enclosure-only)
 
@@ -107,7 +107,7 @@ Dopo un arresto, utilizzare la procedura seguente per attivare un dispositivo St
 
 ## Attivare un dispositivo dopo un'interruzione dell'alimentazione
 
-Un guasto o un’interruzione dell’alimentazione può causare l’arresto di un dispositivo Microsoft Azure StorSimple. Può verificarsi un'interruzione dell'alimentazione su uno o entrambi gli alimentatori di alimentazione elettrica. Le procedure di ripristino sono diverse a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. In questa sezione viene descritta la procedura di ripristino per ogni scenario.
+Un guasto o un'interruzione dell'alimentazione può causare l'arresto di un dispositivo StorSimple. Può verificarsi un'interruzione dell'alimentazione su uno o entrambi gli alimentatori di alimentazione elettrica. Le procedure di ripristino sono diverse a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. In questa sezione viene descritta la procedura di ripristino per ogni scenario.
 
 - [Dispositivo con soltanto un’enclosure principale](#8100)
 
@@ -177,11 +177,11 @@ Quando vengono rimossi entrambi i cavi Serial Attached SCSI (SAS) o viene interr
 
 10. Verificare che la connessione dell’enclosure EBOD con l’enclosure principale sia buona controllando che i LED SAS (quattro per controller EBOD) siano tutti accesi.
 
->[AZURE.IMPORTANT]Se i cavi SAS sono difettosi o la connessione tra l'enclosure EBOD e l’enclosure principale non è valida, quando si attiva il sistema, esso entra in modalità di ripristino. Se ciò accade, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.IMPORTANT] Se i cavi SAS sono difettosi o la connessione tra l'enclosure EBOD e l’enclosure principale non è valida, quando si attiva il sistema, esso entra in modalità di ripristino. Se ciò accade, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Spegnere un dispositivo in esecuzione
 
-Potrebbe essere necessario arrestare un dispositivo Microsoft Azure StorSimple in esecuzione se viene spostato, sospeso dal servizio, o se ha un componente che non funziona correttamente e che deve essere sostituito. Le procedure sono diverse a seconda del modello del dispositivo Microsoft Azure StorSimple (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. In questa sezione vengono illustrati i passaggi per arrestare un dispositivo in esecuzione.
+Potrebbe essere necessario arrestare un dispositivo StorSimple in esecuzione se deve essere spostato o messo fuori servizio oppure se ha un componente che non funziona correttamente e che deve essere sostituito. Le procedure sono diverse a seconda del modello del dispositivo StorSimple (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. In questa sezione vengono illustrati i passaggi per arrestare un dispositivo in esecuzione.
 
 - [Dispositivo con enclosure principale](#8100a)
 
@@ -191,7 +191,7 @@ Potrebbe essere necessario arrestare un dispositivo Microsoft Azure StorSimple i
 
 Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione dal portale di Azure classico. L'unico modo per arrestare il sistema è tramite Windows PowerShell per StorSimple. Per arrestare il dispositivo in modo ordinato e controllato, accedere a Windows PowerShell per StorSimple e attenersi alla procedura seguente.
 
->[AZURE.IMPORTANT]Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
+>[AZURE.IMPORTANT] Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
 >
 >Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti nello **Stato hardware**.
 
@@ -211,7 +211,7 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
     Questo dovrebbe chiudere il controller in standby corrente.
 
-    >[AZURE.IMPORTANT]Attendere che il controller si arresti completamente prima di procedere al passaggio successivo.
+    >[AZURE.IMPORTANT] Attendere che il controller si arresti completamente prima di procedere al passaggio successivo.
 
 5. Per verificare che la chiusura sia stata completata, controllare la parte posteriore del dispositivo. Il LED di errore del controller deve essere rosso.
 
@@ -225,7 +225,7 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 ### Dispositivo con enclosure EBOD<a name="8600a">
 
->[AZURE.IMPORTANT]Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che tutti i componenti siano integri.
+>[AZURE.IMPORTANT] Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che tutti i componenti siano integri.
 
 #### Per arrestare un dispositivo in esecuzione con enclosure EBOD
 
@@ -235,10 +235,10 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 3. Per verificare che l'enclosure EBOD sia stata chiusa, controllare che tutte le luci nella parte posteriore dell’enclosure EBOD siano spente.
 
->[AZURE.NOTE]I cavi SAS che consentono di collegare l'enclosure EBOD all'enclosure principale non devono essere rimossi fino a dopo l'arresto del sistema.
+>[AZURE.NOTE] I cavi SAS che consentono di collegare l'enclosure EBOD all'enclosure principale non devono essere rimossi fino a dopo l'arresto del sistema.
 
 ## Passaggi successivi
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,15 +1,15 @@
 <properties 
-   authors="danielceckert" 
+   authors="jimdial" 
    documentationCenter="dev-center-name" 
    editor=""
-   manager="jefco" 
+   manager="carmonm" 
    pageTitle="Gestione: timeout di inattività del servizio di bilanciamento del carico" 
    description="Funzionalità di gestione per il timeout di inattività del servizio di bilanciamento carico di Azure" 
    services="virtual-network" 
    />
 
 <tags
-   ms.author="danecke"
+   ms.author="jdial"
    ms.date="09/01/2015"
    ms.devlang="na"
    ms.service="virtual-network"
@@ -152,4 +152,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

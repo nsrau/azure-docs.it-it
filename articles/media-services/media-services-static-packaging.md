@@ -19,11 +19,11 @@
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1 marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1° marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Panoramica
 
-Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali. Una volta codificato, un video può essere inserito in contenitori di file diversi. Il processo di collocare supporti di memorizzazione codificati in un contenitore è denominato creazione di pacchetti. Ad esempio, è possibile prendere un file MP4 e convertirlo in un contenuto Smooth Streaming o HLS usando Azure Media Packager. Per altre informazioni, vedere [confronto tra le funzionalità di codifica e di creazione pacchetti](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali. Una volta codificato, un video può essere inserito in contenitori di file diversi. Il processo di collocare supporti di memorizzazione codificati in un contenitore è denominato creazione di pacchetti. Ad esempio, è possibile prendere un file MP4 e convertirlo in un contenuto Smooth Streaming o HLS usando Azure Media Packager.
 
 Servizi Multimediali supporta pacchetti statici e dinamici. Quando si utilizza il pacchetto di creazione statico è necessario creare una copia dei contenuti in ognuno dei formati richiesti dagli utenti. Con il pacchetto di creazione dinamico, è sufficiente creare un asset che contenga un set di file a velocità in bit adattiva MP4 o Smooth Streaming. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà agli utenti che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
@@ -1447,4 +1447,4 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

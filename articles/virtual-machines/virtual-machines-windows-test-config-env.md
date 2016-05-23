@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Ambiente di test della configurazione di base
@@ -286,10 +286,10 @@ Dopo il riavvio di CLIENT1, connettersi utilizzando il nome dell'account CORP\\U
 Successivamente, verificare che sia possibile accedere al Web e alle risorse di condivisione file in APP1 da CLIENT1.
 
 1.	In Server Manager, nel riquadro dell'albero, fare clic su **Server locale**.
-2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a **Configurazione sicurezza avanzata IE**.
-3.	In **Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
+2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a ** Configurazione sicurezza avanzata IE**.
+3.	In ** Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
 4.	Dalla schermata Start, fare clic su **Internet Explorer**, quindi su **OK**.
-5.	Nella barra degli indirizzi digitare **http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1.
+5.	Nella barra degli indirizzi digitare ****http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1.
 6.	Sulla barra delle applicazioni desktop, fare clic sull'icona Esplora File.
 7.	Nella barra degli indirizzi digitare **\\\app1\\Files**, quindi premere INVIO.
 8.	Dovrebbe essere visualizzata una finestra della cartella con il contenuto della cartella condivisa File.
@@ -302,9 +302,10 @@ Questa sarà la configurazione finale.
 
 La configurazione di base in Azure è ora pronta per lo sviluppo di applicazioni e il test o per ambienti di test aggiuntivi.
 
-## Passaggio successivo
+## Passaggi successivi
 
-- Aggiungere una nuova macchina virtuale usando il [portale di Azure](virtual-machines-windows-hero-tutorial.md) o compilare l'[ambiente di test del cloud ibrido simulato](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+- Aggiungere una nuova macchina virtuale usando il [portale di Azure](virtual-machines-windows-hero-tutorial.md).
+- Creare l'[ambiente di test basato su cloud ibrido simulato](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Riduzione dei costi di macchine virtuali in ambiente di test in Azure
@@ -334,4 +335,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

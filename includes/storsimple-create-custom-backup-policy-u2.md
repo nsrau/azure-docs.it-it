@@ -19,7 +19,7 @@
 
     3. Specificare la frequenza di backup in minuti, ore, giorni o settimane.
 
-    4. Selezionare una pianificazione di conservazione nell'elenco a discesa. Le scelte di conservazione dipendono dalla frequenza di backup. Ad esempio, la conservazione per un criterio giornaliero può essere specificata in settimane, mentre quella per un criterio mensile può essere indicata in mesi.
+    4. Selezionare una pianificazione di conservazione nell'elenco a discesa. Le scelte di conservazione dipendono dalla frequenza di backup.
  
     5. Selezionare la data e l'ora di inizio per il criterio.
 
@@ -29,4 +29,4 @@
 
 8. Si tornerà alla pagina **Criteri di Backup**. La tabella in cui sono elencati i criteri di backup verrà aggiornata in modo da includere il criterio personalizzato.
 
-<!---HONumber=AcomDC_1217_2015-->
+

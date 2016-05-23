@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
@@ -43,7 +43,7 @@ Il funzionamento della stringa di connessione presenta alcune differenze sostanz
 
 - Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics.<RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
 
-- La stringa di connessione nel file .cscfg viene usata anche dal portale di Azure per accedere ai dati di diagnostica, per consentirne la visualizzazione nella scheda **Monitoraggio**. La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
+- La stringa di connessione nel file con estensione cscfg viene usata anche dal [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) per accedere ai dati di diagnostica, in modo da consentirne la visualizzazione nella scheda **Monitoraggio**. La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
 
 ## Migrazione di progetti in Azure SDK 2.6 e versioni successive
 
@@ -357,4 +357,4 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

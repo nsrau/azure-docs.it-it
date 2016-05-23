@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come accedere a una VM | Microsoft Azure"
+	pageTitle="Accedere a una VM di Azure classico | Microsoft Azure"
 	description="Usare il portale di Azure classico per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 
@@ -57,4 +57,4 @@ Di seguito è riportata una procedura video dettagliata dei passaggi in questa e
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

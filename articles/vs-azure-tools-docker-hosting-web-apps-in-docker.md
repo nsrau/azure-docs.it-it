@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher"/>
 
 # Distribuire un contenitore ASP.NET in un host Docker remoto
@@ -51,11 +51,11 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
 1.  Riavviare Visual Studio.
 
 ## 5\. Configurare l'endpoint dell'host Docker in Azure
-Prima di distribuire l'app da Visual Studio in Azure, aggiungere l'endpoint 80 alla macchina virtuale host Docker in modo da visualizzare l'app dal browser in un secondo momento. Questa operazione può essere eseguita tramite il portale di Azure classico o tramite Windows PowerShell:
+Prima di distribuire l'app da Visual Studio in Azure, aggiungere l'endpoint 80 alla macchina virtuale host Docker in modo da visualizzare l'app dal browser in un secondo momento. A tale scopo, è possibile usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) o Windows PowerShell:
 
-- **Usare il portale di Azure classico per configurare l'endpoint dell'host Docker in Azure**
+- **Usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) per configurare l'endpoint dell'host Docker in Azure**
 
-    1.  Passare al [portale di Azure classico](https://manage.windowsazure.com/). 
+    1.  Passare al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
     1.  Toccare **MACCHINE VIRTUALI**.
     
@@ -63,7 +63,7 @@ Prima di distribuire l'app da Visual Studio in Azure, aggiungere l'endpoint 80 a
     
     1.  Toccare la scheda **ENDPOINT**.
     
-    1.  Toccare **Aggiungi** (nella parte inferiore della pagina).
+    1.  Toccare **AGGIUNGI** (nella parte inferiore della pagina).
     
     1.  Seguire le istruzioni per esporre la porta 80, che viene usata dallo script di distribuzione per impostazione predefinita.
 
@@ -77,13 +77,13 @@ Prima di distribuire l'app da Visual Studio in Azure, aggiungere l'endpoint 80 a
         ```
 
 ## 6\. Compilare ed eseguire l'app
-Durante la distribuzione su host remoti, la funzione di mapping volume usata per la modifica e l'aggiornamento dello sviluppo non funzionerà. È pertanto necessario usare la *configurazione per il rilascio* quando si compila un'applicazione per evitare la configurazione del mapping del volume. Svolvere le operazioni seguenti per eseguire l'app.
+Durante la distribuzione su host remoti, la funzione di mapping volume usata per la modifica e l'aggiornamento dello sviluppo non funzionerà. È quindi necessario usare la *configurazione di rilascio* quando si compila un'app, per evitare la configurazione del mapping del volume. Svolvere le operazioni seguenti per eseguire l'app.
 
-1.  Dalla barra degli strumenti di Visual Studio selezionare la configurazione per il **rilascio**
+1.  Sulla barra degli strumenti di Visual Studio selezionare la configurazione di **rilascio**
 
-1.  Modificare la destinazione avviata in **Docker**.
+1.  Modificare la destinazione di avvio impostandola su **Docker**.
 
-1.  Toccare l'icona **Docker** icona per compilare ed eseguire l'app.
+1.  Toccare l'icona **Docker** per compilare ed eseguire l'app.
 
 ![Avviare l'app][2]
 
@@ -96,4 +96,4 @@ I risultati visualizzati dovrebbero essere simili ai seguenti.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

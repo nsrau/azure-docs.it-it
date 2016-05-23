@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,44 +13,55 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
-	ms.author="piyushjo" />
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 
-#Android SDK per Azure Mobile Engagement
+# Uso delle funzionalità avanzate di Azure Mobile Engagement per le app Android
 
-In questo articolo sono disponibili informazioni dettagliate per integrare Azure Mobile Engagement in un'app per Android. Se si vuole fare prima una prova, eseguire l'[esercitazione di 15 minuti](mobile-engagement-android-get-started.md).
+> [AZURE.SELECTOR]
+- [Windows universale](mobile-engagement-windows-store-sdk-overview.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+- [iOS](mobile-engagement-ios-sdk-overview.md)
+- [Android](mobile-engagement-android-sdk-overview.md)
 
-Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk-content.md).
+Informazioni su tutte le funzionalità avanzate di Azure Mobile Engagement che è possibile integrare nell'app Android.
 
-##Procedure di integrazione
-1. Iniziare da qui: [Come integrare Mobile Engagement in un'app per Android](mobile-engagement-android-integrate-engagement.md)
+## Prerequisiti
 
-2. Per le notifiche: [Come integrare il servizio di copertura (di notifica) in un'app per Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM): [Come integrare GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM): [Come integrare ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+[AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
 
-3. Implementazione del piano di tag: [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app per Android](mobile-engagement-android-use-engagement-api.md)
+## Funzionalità avanzate
 
+### Funzionalità di segnalazione
 
-##Note sulla versione
+È possibile aggiungere queste funzionalità:
 
-##4\.2.0 (11/03/2016)
+1. [Opzioni di segnalazione avanzata](mobile-engagement-android-advanced-reporting.md)
+2. [Opzioni di segnalazione della posizione](mobile-engagement-android-location-reporting.md)
+3. [Opzioni di configurazione avanzate](mobile-engagement-android-advanced-configuration.md)
+
+### Notifiche:
+[Come integrare la copertura (notifiche) nell'app per Android](mobile-engagement-android-integrate-engagement-reach.md)
+
+1. Google Cloud Messaging (GCM): [Come integrare GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+
+2. Amazon Device Messaging (ADM): [Come integrare ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+
+### Implementazione del piano di tag:
+[Come usare l'API di assegnazione di tag di Mobile Engagement avanzata nell'app per Android](mobile-engagement-android-use-engagement-api.md)
+
+## Note sulla versione
+
+### 4\.2.0 (11/03/2016)
 
 - L'SDK ora è concesso in licenza con MIT.
 - Consentire la specifica di un identificatore del dispositivo personalizzato in fase di inizializzazione dell'SDK.
 
-##4\.1.0 (08/25/2015)
-
-- Gestione di un nuovo modello di autorizzazione per Android M.
-- Ora è possibile configurare le funzionalità di indirizzo in fase di esecuzione anziché utilizzare `AndroidManifest.xml`.
-- Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
-- Miglioramenti della stabilità.
-
 Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 
-##Procedure di aggiornamento
+## Procedure di aggiornamento
 
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

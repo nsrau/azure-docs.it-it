@@ -24,9 +24,9 @@ Per le finalità di questo articolo, verrà usato il modello classico di applica
 
 <i>Un'applicazione Web moderna basata sul cloud effettua il provisioning di un database SQL per ogni utente finale. L'ISV ha un numero elevato di clienti e usa quindi molti database, definiti database tenant. Poiché i database tenant presentano in genere modelli di attività imprevedibili, l'ISV usa un pool elastico per rendere molto prevedibili i costi del database in periodi estesi di tempo. Il pool elastico semplifica anche la gestione delle prestazioni in caso di picchi dell'attività degli utenti. Oltre ai database tenant, l'applicazione usa anche alcuni database per gestire i profili utente e la sicurezza e per raccogliere i modelli di utilizzo e altro ancora. La disponibilità dei singoli tenant non influisce sulla disponibilità complessiva dell'applicazione. La disponibilità e le prestazioni dei database di gestione, tuttavia, sono essenziali per il funzionamento dell'applicazione e se i database di gestione sono offline, l'intera applicazione è offline.</i>
 
-Nel resto del documento verranno esaminati alcuni scenari correlati e verrà presentata una strategia di ripristino di emergenza per ogni caso.
+Nella parte restante di questo articolo vengono illustrate le strategie di ripristino di emergenza in un'ampia gamma di scenari, dalle applicazioni start-up attente ai costi a quelle con requisiti di disponibilità rigorosi.
 
-## Scenario 1
+## Scenario 1. Start-up attente ai costi
 
 <i>Una start-up estremamente attenta ai costi vuole semplificare la distribuzione e la gestione dell'applicazione ed è favorevole all'uso di un Contratto di servizio limitato per singoli clienti. Vuole tuttavia assicurarsi che l'applicazione nel suo complesso non sia mai offline.</i>
 
@@ -61,7 +61,7 @@ A questo punto l'applicazione sarà online nell'area primaria con tutti i databa
 
 Il **vantaggio** principale di questa strategia è costituito dai costi di esercizio ridotti per la ridondanza a livello dati. I backup vengono eseguiti automaticamente dal servizio database SQL, senza riscrittura di applicazioni e senza costi aggiuntivi. I costi vengono addebitati solo quando i database elastici vengono ripristinati. Lo **svantaggio** consiste nel fatto che il ripristino completo di tutti i database tenant richiederà molto tempo, in base al numero totale di ripristini avviati nell'area di ripristino di emergenza e alle dimensioni complessive dei database tenant. Anche se si attribuisce una priorità maggiore ai ripristini di alcuni tenant rispetto ad altri, si verificheranno conflitti con tutti gli altri ripristini avviati nella stessa area, perché il servizio eseguirà l'arbitraggio e applicherà la limitazione per ridurre al minimo l'impatto complessivo sui database dei clienti esistenti. Il ripristino dei database tenant, inoltre, può essere avviato solo dopo la creazione del nuovo pool elastico nell'area di ripristino di emergenza.
 
-## Scenario 2
+## Scenario 2. Applicazione matura con più livelli di servizio 
 
 <i>Un'applicazione SaaS matura con più livelli di offerte del servizio e diversi Contratti di servizio per i clienti delle versioni di valutazione e i clienti delle versioni a pagamento deve ridurre il più possibile i costi per i clienti delle versioni di valutazione. Questi clienti possono accettare i tempi di inattività, ma si vuole ridurne la probabilità. Per i clienti delle versioni a pagamento, i tempi di inattività possono costituire un rischio inaccettabile. Si vuole quindi assicurare che i clienti delle versioni a pagamento siano sempre in grado di accedere ai propri dati.</i>
 
@@ -102,7 +102,7 @@ Quando l'area primaria viene ripristinata da Azure *dopo* il ripristino dell'app
 
 Il **vantaggio** principale di questa strategia consiste nel fatto che offre il Contratto di servizio migliore per i clienti a pagamento. Garantisce anche che le nuove versioni di valutazione vengano sbloccate non appena viene creato il pool di ripristino di emergenza della versione di valutazione. Lo **svantaggio** è costituito dal fatto che questa installazione aumenterà i costi totali dei database tenant in base al costo del pool di database di ripristino secondario per i clienti a pagamento. Se il pool secondario ha inoltre dimensioni diverse, i clienti a pagamento noteranno prestazioni inferiori dopo il failover fino al completamento dell'aggiornamento del pool nell'area di ripristino di emergenza.
 
-## Scenario 3
+## Scenario 3. Applicazione geograficamente distribuita con più livelli di servizio
 
 <i>Un'applicazione SaaS matura con offerte di più livelli di servizio vuole offrire un Contratto di servizio molto aggressivo ai clienti della versione a pagamento e vuole ridurre al minimo il rischio di impatto di eventuali interruzioni, perché anche una breve interruzione può causare l'insoddisfazione dei clienti. È essenziale che i clienti della versione a pagamento possano accedere sempre ai propri dati. Le versioni di valutazione sono gratuite e non è disponibile alcun Contratto di servizio durante il periodo di valutazione. </i>
 
@@ -146,20 +146,22 @@ Al termine del ripristino dell'area A, è necessario decidere se si vuole usare 
 - Eliminare il pool di ripristino di emergenza (14). 
 
 Ecco i **vantaggi** principali di questa strategia:
+
 - Supporta il Contratto di servizio più aggressivo per i clienti della versione a pagamento, perché assicura che un'interruzione non possa influire su oltre il 50% dei database tenant. 
 - Garantisce che le nuove versioni di valutazione vengano sbloccate non appena viene creato il pool di ripristino di emergenza della versione di valutazione durante il ripristino. 
 - Consente un uso più efficiente della capacità del pool, perché il 50% dei database secondari nel pool 1 e nel pool 2 risulta sicuramente meno attiva rispetto ai database primari.
 
 Ecco gli **svantaggi** principali:
+
 - Le operazioni CRUD rispetto ai database di gestione avranno una latenza minore per gli utenti finali connessi all'area A rispetto agli utenti finali connessi all'area B, perché verranno eseguite rispetto ai database di gestione primari.
 - Richiede una progettazione più complessa per il database di gestione. Ad esempio, ogni record del tenant deve avere un tag location che deve essere modificato durante il failover e il failback.  
 - I clienti della versione a pagamento potrebbero notare prestazioni inferiori al consueto fino al completamento dell'aggiornamento del pool nell'area B. 
 
 ## Riepilogo
 
-Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La scelta della strategia deve essere basata sulle esigenze dell'applicazione, ad esempio modello aziendale, Contratto di servizio da offrire ai clienti, vincoli di budget e così via. Ogni strategia descritta illustra i vantaggi e gli svantaggi, per consentire una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. È necessario esaminare le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con altri componenti dell'applicazione. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La scelta della strategia deve essere basata sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di servizio da offrire ai clienti, i vincoli di budget e così via. Ogni strategia descritta illustra i vantaggi e gli svantaggi, per consentire una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. È quindi necessario esaminare le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-Le pagine seguenti consentono di ottenere informazioni sulle operazioni specifiche necessarie per implementare ogni scenario disponibile in questo articolo:
+I singoli passaggi necessari per ogni scenario richiedono operazioni su un numero elevato di database. È consigliabile usare i processi elastici del database SQL per gestire queste operazioni su larga scala. Per altre informazioni, vedere [Gestione dei database cloud con scalabilità orizzontale](./sql-database-elastic-jobs-overview.md). Le pagine seguenti consentono di ottenere informazioni sulle operazioni specifiche necessarie per implementare ogni scenario disponibile in questo articolo:
 
 - [Aggiungere un database secondario](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Eseguire il failover del database nell'area secondaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -167,4 +169,4 @@ Le pagine seguenti consentono di ottenere informazioni sulle operazioni specific
 - [Eliminare un database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiare un database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Estendere i gruppi di disponibilità AlwaysOn locali ad Azure | Microsoft Azure"
-	description="Questa esercitazione sfrutta le risorse create con il modello di distribuzione classica e descrive come usare la procedura guidata Aggiungi replica in SQL Server Management Studio (SSMS) per aggiungere in Azure una replica del gruppo di disponibilità AlwaysOn."
+	description="Questa esercitazione sfrutta le risorse create con il modello di distribuzione classica e descrive come usare la procedura guidata Aggiungi replica in SQL Server Management Studio (SSMS) per aggiungere una replica del gruppo di disponibilità AlwaysOn in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
 # Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
 
-I gruppi di disponibilità AlwaysOn garantiscono un'elevata disponibilità dei gruppi di database tramite l'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
+I gruppi di disponibilità AlwaysOn garantiscono un disponibilità elevata per i gruppi di database grazie all'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.
 
 È possibile estendere i gruppi di disponibilità locale a Microsoft Azure eseguendo il provisioning di una o più macchine virtuali di Azure con SQL Server e quindi aggiungendole come repliche ai gruppi di disponibilità locale.
 
@@ -35,7 +35,7 @@ L'esercitazione presuppone che l'utente disponga degli elementi seguenti:
 
 ## Procedura guidata Aggiungi replica di Azure
 
-Questa sezione mostra come usare la **procedura guidata Aggiungi replica di Azure** per estendere il gruppo di disponibilità AlwaysOn in modo da includere le repliche di Azure.
+Questa sezione mostra come usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere il gruppo di disponibilità AlwaysOn in modo da includere le repliche di Azure.
 
 1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **[nome del gruppo di disponibilità]**.
 
@@ -95,12 +95,12 @@ Questa sezione mostra come usare la **procedura guidata Aggiungi replica di Azur
 
 ## Creare un listener del gruppo di disponibilità
 
-Dopo aver creato il gruppo di disponibilità, è necessario creare un listener che consenta ai client di connettersi alle repliche. I listener indirizzano le connessioni in ingresso alla replica primaria o a una replica secondaria di sola lettura. Per altre informazioni sui listener, vedere l'articolo relativo alla [configurazione di un listener di ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Dopo aver creato il gruppo di disponibilità, è necessario creare un listener che consenta ai client di connettersi alle repliche. I listener indirizzano le connessioni in ingresso alla replica primaria o a una replica secondaria di sola lettura. Per altre informazioni sui listener, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 ## Passaggi successivi
 
-Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere ad Azure il gruppo di disponibilità AlwaysOn, è possibile anche spostare completamente in Azure alcuni carichi di lavoro di SQL Server. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Oltre a usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere ad Azure il gruppo di disponibilità AlwaysOn, è anche possibile spostare completamente in Azure alcuni carichi di lavoro di SQL Server. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/06/2016"
 	ms.author="micurd"/>
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
@@ -477,7 +477,7 @@ Si noti che se si specifica un percorso relativo per l'opzione`/V` , ad esempio`
 
 ### Specificare il numero di operazioni simultanee da avviare
 
-L'opzione `/NC`specifica il numero di operazioni di copia simultanee. Per impostazione predefinita, AzCopy avvierà un numero di operazioni simultanee pari a otto volte il numero di processori core presenti. Se AzCopy è in esecuzione in una rete con larghezza di banda ridotta, è possibile specificare un numero inferiore per l'opzione in modo da evitare errori generati dalla competizione tra le risorse.
+L'opzione `/NC`specifica il numero di operazioni di copia simultanee. Per impostazione predefinita, AzCopy avvia un determinato numero di operazioni simultanee per aumentare la velocità effettiva di trasferimento dei dati. Per le operazioni su tabella il numero di operazioni simultanee è uguale al numero di processori disponibili. Per le operazioni su BLOB e file il numero di operazioni simultanee è pari a 8 volte il numero di processori disponibili. Se AzCopy è in esecuzione in una rete con larghezza di banda ridotta, è possibile specificare un numero inferiore per il parametro /NC in modo da evitare errori generati dalla competizione tra le risorse.
 
 ### Eseguire AzCopy nell'Emulatore di archiviazione di Azure
 
@@ -583,7 +583,7 @@ AzCopy imposta sempre la proprietà Content-MD5 per un BLOB o un file di Azure d
 
 Indica se trasferire gli snapshot o meno. Questa opzione è valida solo quando l'origine è un BLOB.
 
-Gli snapshot dei BLOB trasferiti vengono rinominati nel formato seguente: [nome-BLOB](snapshot-time)[estensione].
+Gli snapshot di BLOB trasferiti vengono rinominati nel formato seguente: nome-BLOB (ora-snapshot).estensione.
 
 Per impostazione predefinita, gli snapshot non vengono copiati.
 
@@ -864,4 +864,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

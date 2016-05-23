@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Gestire i modelli di larghezza di banda di StorSimple | Microsoft Azure"
    description="In questo articolo viene descritto come gestire i modelli di banda larga di StorSimple, i quali consentono di controllare il consumo di banda larga."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/10/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire i modelli di larghezza di banda StorSimple.
@@ -28,7 +28,7 @@ Utilizzando le pianificazioni relative alla limitazione larghezza di banda è po
 - Centralizzare la gestione e riutilizzare le pianificazioni su più dispositivi in modo semplice e immediato.
 
 > [AZURE.NOTE] Questa funzionalità è disponibile soltanto per i dispositivi fisici StorSimple e non per quelli virtuali.
-   
+
 Tutti i modelli di larghezza di banda relativi al servizio vengono visualizzati in formato tabulare e contengono le informazioni seguenti:
 
 - **Nome**: il nome univoco assegnato al modello di larghezza di banda al momento della creazione.
@@ -63,11 +63,11 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
    2. Selezionare l'opzione **Tutto il giorno** se la pianificazione viene applicata per l'intera giornata. Se questa opzione è selezionata, non sarà più possibile specificare un'opzione **Ora di inizio** oppure **Ora di fine**. La pianificazione viene eseguita dalle 12:00 alle 23:59.
    3. Dall'elenco a discesa, selezionare l'opzione **Ora di inizio**. Si tratta dell'orario relativo all'inizio della pianificazione.
    4. Dall'elenco a discesa, selezionare l'opzione **Ora di fine**. Si tratta dell'orario relativo all'interruzione della pianificazione.
-   
-         > [AZURE.NOTE] Le pianificazioni sovrapposte non sono consentite. Se gli orari di inizio e di fine sono sovrapposti con altre pianificazioni, verrà visualizzato un messaggio di errore.
 
-   5. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) utilizzata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud. Specificare un numero compreso tra 1 e 1000 per questo campo.
-   
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+
+   5. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo.
+
    6. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Il modello creato verrà aggiunto all'elenco relativo ai modelli di larghezza di banda nella pagina **Configura** del servizio.
 
     ![Creare il modello di larghezza di banda.](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
@@ -85,7 +85,7 @@ Eseguire la procedura seguente per modificare un modello di larghezza di banda.
 2. Nella finestra di dialogo **Aggiungi/modifica modello di larghezza di banda**:
 
    1. Dall'elenco a discesa **Modello**, selezionare un modello di larghezza di banda che si desidera modificare.
-   2. Completare le modifiche. (È possibile modificare qualsiasi impostazione esistente.)
+   2. Completare le modifiche. È possibile modificare qualsiasi impostazione esistente.
    3. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Nella pagina Configura del servizio, il modello modificato viene visualizzato nell'elenco relativo ai modelli di larghezza di banda.
 
 3. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina. Fare clic su **Sì**, quando viene richiesta la conferma.
@@ -170,6 +170,6 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 ## Passaggi successivi
 
-- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

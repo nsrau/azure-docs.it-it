@@ -1,43 +1,43 @@
 <properties 
-   pageTitle="Panoramica sul modello di autenticazione e di sicurezza di Hub di eventi | Microsoft Azure"
-   description="Panoramica sul modello di autenticazione e sicurezza di Hub eventi."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Panoramica sul modello di autenticazione e di sicurezza di Hub di eventi | Microsoft Azure"
+    description="Panoramica sul modello di autenticazione e sicurezza di Hub eventi."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/03/2016"
+    ms.author="sethm;clemensv" />
 
 # Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
 
 Il modello di protezione di Hub eventi soddisfa i requisiti seguenti:
 
-- Solo i dispositivi con credenziali valide possono inviare dati a un hub eventi.
+- Solo i dispositivi che presentano le credenziali valide possono inviare dati a un Hub eventi.
 - Un dispositivo non può rappresentare un altro dispositivo.
-- A un dispositivo non autorizzato può essere impedito l'invio di dati a un hub eventi.
+- A un dispositivo non autorizzato può essere impedito l’invio di dati a un Hub eventi.
 
 ## Autenticazione del dispositivo
 
-Il modello di protezione di Hub eventi si basa su una combinazione di token [Shared Access Signature (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) e autori di eventi. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L'autore si può usare solo per inviare messaggi a un hub eventi. Non è possibile ricevere messaggi da un autore.
+Il modello di sicurezza di Hub eventi si basa su una combinazione di token di [firma di accesso condiviso](../service-bus/service-bus-shared-access-signature-authentication.md) e *autori di eventi*. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L’autore è utilizzabile solo per inviare messaggi a un Hub eventi. Non è possibile ricevere messaggi da un autore.
 
-In genere, un hub eventi usa un autore per ogni dispositivo. Tutti i messaggi inviati a uno qualsiasi degli autori di un hub eventi vengono accodati all'interno di tale hub eventi. Gli autori consentono la limitazione e il controllo dell’accesso con granularità fine.
+In genere, un Hub eventi utilizza un autore per ogni dispositivo. Tutti i messaggi inviati a uno qualsiasi degli autori di un Hub eventi vengono accodati all'interno di tale Hub eventi. Gli autori consentono la limitazione e il controllo di accesso con granularità fine.
 
 A ogni dispositivo viene assegnato un token univoco, che viene caricato nel dispositivo. I token vengono prodotti in modo tale che ogni token univoco conceda l'accesso a un diverso autore univoco. Un dispositivo che possiede un token può inviare a un solo autore e a nessun altro autore. Se più dispositivi condividono lo stesso token, ognuno di tali dispositivi condivide un autore.
 
-Sebbene non sia consigliato, è possibile dotare i dispositivi di token che concedono l'accesso diretto a un hub eventi. Qualsiasi dispositivo che contiene un token di questo tipo può inviare messaggi direttamente a tale hub eventi. Tale dispositivo non sarà soggetto alla limitazione. Non è possibile disattivare l'invio a tale hub eventi per il dispositivo.
+Sebbene non sia consigliato, è possibile dotare i dispositivi di token che concedono l'accesso diretto a un Hub eventi. Qualsiasi dispositivo che contiene un token di questo tipo può inviare messaggi direttamente a tale hub eventi. Tale dispositivo non sarà soggetto alla limitazione. Inoltre, non è possibile disattivare l’invio a tale Hub eventi per il dispositivo.
 
 Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono firmati con la stessa chiave. I dispositivi non conoscono la chiave, per cui non possono produrre token.
 
 ### Creare la chiave SAS
 
-Quando si crea uno spazio dei nomi, Bus di servizio genera una chiave SAS a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. È consigliabile produrre una chiave che concede le autorizzazioni di invio all'hub eventi specifico. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
+Quando si crea uno spazio dei nomi, Bus di servizio genera una chiave SAS a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
 
 L'esempio seguente crea una chiave di solo invio durante la creazione dell'hub eventi:
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event hub with a SAS rule that allows sending to that Event hub
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -87,7 +87,7 @@ In genere, i token hanno una durata simile o superiore a quella del dispositivo.
 
 Dopo avere creato i token, viene eseguito il provisioning di ogni dispositivo con il proprio token univoco.
 
-Quando il dispositivo invia dati a un hub eventi, il dispositivo contrassegna il proprio token con la richiesta di invio. Per evitare che un utente malintenzionato intercetti e rubi il token, la comunicazione tra il dispositivo e l'hub eventi deve verificarsi su un canale crittografato.
+Quando il dispositivo invia dati a un Hub eventi, il dispositivo contrassegna il proprio token con la richiesta di invio. Per evitare che un utente malintenzionato intercetti e rubi il token, la comunicazione tra il dispositivo e l'Hub eventi deve verificarsi su un canale crittografato.
 
 ### Disattivazione dei dispositivi
 
@@ -95,7 +95,7 @@ In caso di furto di un token da parte di un utente malintenzionato, l'autore del
 
 ## Autenticazione delle applicazioni back-end
 
-Per autenticare le applicazioni back-end che utilizzano i dati generati dai dispositivi, Hub eventi utilizza un modello di protezione simile al modello utilizzato per gli argomenti di Bus di servizio. Un gruppo di consumer di Hub eventi è equivalente a una sottoscrizione a un argomento di Bus di servizio. Un client può creare un gruppo di consumer, se la richiesta per creare il gruppo di consumer è accompagnata da un token che concede privilegi di gestione per l'hub eventi o per lo spazio dei nomi a cui appartiene l'hub eventi. Un client può usare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'hub eventi o lo spazio dei nomi a cui appartiene l'hub eventi.
+Per autenticare le applicazioni back-end che utilizzano i dati generati dai dispositivi, Hub eventi utilizza un modello di protezione simile al modello utilizzato per gli argomenti di Bus di servizio. Un gruppo di consumer di Hub eventi è equivalente a una sottoscrizione a un argomento di Bus di servizio. Un client può creare un gruppo di consumer, se la richiesta per creare il gruppo di consumer è accompagnata da un token che concede privilegi di gestione per l'Hub eventi o per lo spazio dei nomi a cui appartiene l'Hub di eventi. Un client può utilizzare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'Hub eventi o lo spazio dei nomi a cui appartiene l'Hub eventi.
 
 La versione corrente di Bus di servizio non supporta regole SAS per singole sottoscrizioni. Lo stesso vale per i gruppi di consumer di Hub eventi. In futuro verrà aggiunto il supporto SAS per entrambe le funzionalità.
 
@@ -154,4 +154,4 @@ Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

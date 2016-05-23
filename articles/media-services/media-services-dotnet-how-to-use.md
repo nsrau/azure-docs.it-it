@@ -58,7 +58,7 @@ Il progetto verrà modificato e verranno aggiunti riferimenti all'SDK di Servizi
 
 4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](http://docs.nuget.org/consume/package-restore).
 
-3. Aggiungere un riferimento all'assembly **System.Configuration**, che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
+3. Aggiungere un riferimento all'assembly **System.Configuration**. che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
 
 Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, effettuare le seguenti operazioni:
 
@@ -103,4 +103,4 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

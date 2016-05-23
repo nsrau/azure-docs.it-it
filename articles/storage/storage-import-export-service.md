@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="renash"/>
 
 
@@ -102,7 +102,7 @@ Lo strumento Importazione/Esportazione di Azure genera un *file journal dell'uni
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -195,6 +195,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
+	- Sharkoon QuickPort XT HC
 
 > [AZURE.NOTE] Se si ha un convertitore non incluso nell'elenco precedente, prima di acquistare un convertitore supportato è possibile provare a eseguire lo strumento Importazione/Esportazione di Azure con il convertitore per preparare l'unità e vedere se funziona.
 
@@ -239,7 +240,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - Per le aree geografiche negli Stati Uniti e in Europa è supportato solo [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Tutti i pacchetti vengono restituiti tramite FedEx Ground o FedEx International Economy.
 
-- Solo [DHL](http://www.dhl.com/) è supportato per Asia Pacifico orientale, Asia Pacifico sudorientale, Australia orientale, Australia sud-orientale e Giappone occidentale. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
+- Solo [DHL](http://www.dhl.com/) è supportato per Asia Pacifico orientale, Asia Pacifico sudorientale, Australia orientale, Australia sud-orientale, Giappone occidentale, Giappone orientale e India centrale. Tutti i pacchetti vengono restituiti tramite DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] È necessario fornire il numero di spedizione per il servizio Importazione/Esportazione di Azure o il processo non potrà essere elaborato.
 
@@ -265,6 +266,8 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 	- Australia orientale
 	- Australia sudorientale
 	- Giappone occidentale
+	- Giappone orientale
+	- India centrale
 
 - Viene fornito un indirizzo di spedizione nell'area geografica dell'account di archiviazione. Ad esempio, se il cliente vive negli Stati Uniti e l'account di archiviazione si trova nel data center Europa occidentale, viene fornito un indirizzo di spedizione europeo per l'invio delle unità.
 
@@ -293,4 +296,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

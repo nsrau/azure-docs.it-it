@@ -14,7 +14,7 @@ description="Informazioni su come generare e usare chiavi SSH in un computer Win
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Come usare SSH con Windows in Azure
@@ -32,7 +32,7 @@ In questo argomento viene descritto come creare e usare i file di chiavi pubblic
 
 I client comuni che è possibile installare includono:
 
-- [puTTY e puTTYgen]((http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+- [puTTY and puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 - [Git per Windows](https://git-for-windows.github.io/), che include l'ambiente e gli strumenti
@@ -50,23 +50,16 @@ Di seguito sono descritti gli scenari di distribuzione e i tipi di file da usare
 1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione eseguita tramite il [portale di Azure](https://portal.azure.com), indipendentemente dal modello di distribuzione.
 2. I file con estensione .pem sono necessari per creare macchine virtuali utilizzando il [portale classico](https://manage.windowsazure.com). I file .pem sono supportati anche nelle distribuzioni classiche che usano l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-> [AZURE.NOTE] Se si prevede di gestire il servizio distribuito con il modello di distribuzione classica, è inoltre possibile creare un file in formato **cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per creare questi file in ambiente Linux o Mac, digitare
+> [AZURE.NOTE] Se si prevede di gestire il servizio distribuito con il modello di distribuzione classica, è inoltre possibile creare un file in formato **cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per creare tali file in Windows, digitare: <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Ottenere ssh-keygen e openssl in Windows ##
 
-[In questa sezione](#What-SSH-and-key-creation-programs-do-you-need) precedente sono elencate diverse utilità che includono `ssh-keygen` e `openssl` per Windows. Alcuni esempi sono elencati di seguito:
+[In questa sezione](#What-SSH-and-key-creation-programs-do-you-need) precedente sono elencate diverse utilità che includono `ssh-keygen` e `openssl` per Windows. Ecco alcuni esempi:
 
-### Usare Msysgit ###
+###Usare GitHub per Windows###
 
-1.	Scaricare e installare msysgit dal percorso seguente: [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Eseguire `msys` dalla directory installata, ad esempio c:\\msysgit\\msys.exe
-3.	Passare alla directory `bin` digitando `cd bin`
-
-
-### Usare GitHub per Windows ###
-
-1.	Scaricare e installare GitHub per Windows dal percorso seguente: [http://windows.github.com/](http://windows.github.com/)
-2.	Eseguire Git Shell dal menu Start > Tutti i programmi > GitHub, Inc
+1.	Scaricare e installare GitHub per Windows dal percorso seguente: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.	Eseguire Git Bash dal Menu Start > Tutte le app > GitHub
 
 > [AZURE.NOTE] Quando si eseguono i comandi `openssl` precedenti potrebbe verificarsi il seguente errore:
 
@@ -98,17 +91,35 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 1.	Attenersi a uno dei set di istruzioni seguenti per poter eseguire `openssl.exe`
 2.	Digitare il comando seguente:
 
-		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-
+  ```
+  openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+  ```
 3.	Verrà visualizzata una schermata simile alla seguente:
 
-	![linuxwelcomegit](./media/virtual-machines-linux-ssh-from-linux/linuxwelcomegit.png)
+  ```
+  $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+  Generating a 2048 bit RSA private key
+  .......................................+++
+  .......................+++
+  writing new private key to 'myPrivateKey.key'
+  -----
+  You are about to be asked to enter information that will be incorporated
+  into your certificate request.
+  What you are about to enter is what is called a Distinguished Name or a DN.
+  There are quite a few fields but you can leave some blank
+  For some fields there will be a default value,
+  If you enter '.', the field will be left blank.
+  -----
+  Country Name (2 letter code) [AU]:
+  ```
 
 4.	Rispondere alle domande.
 5.	Dovrebbero essere stati creati due file: `myPrivateKey.key` e `myCert.pem`.
 6.	Se si prevede di usare direttamente l'API, anziché usare il portale di gestione, convertire `myCert.pem` in `myCert.cer` (certificato X509 con codifica DER) con il comando seguente:
 
-		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+  ```
+  openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+  ```
 
 ## Creare una chiave privata PPK per Putty ##
 
@@ -155,4 +166,4 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

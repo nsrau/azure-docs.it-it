@@ -19,64 +19,75 @@
 
 # Creare una nuova API OneDrive in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/connectors-create-api-onedrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+> [AZURE.IMPORTANT] Questo argomento è stato archiviato e verrà presto rimosso. Tutte le novità sono disponibili in [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Per altre informazioni su PowerApps e per iniziare a usarlo, visitare [PowerApps](https://powerapps.microsoft.com).  
+> - Per altre informazioni sulle connessioni disponibili in PowerApps, visitare la pagina sulle [connessioni disponibili](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Aggiungere l'API OneDrive all'ambiente del servizio app dell'organizzazione (tenant).
+<!--Archived
+Add the Onedrive API to your organization's (tenant) app service environment. 
 
-## Creare l'API nel portale di Azure
+## Create the API in the Azure portal
 
-1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Selezionare **Sfoglia** nella barra delle applicazioni: ![][14]
+2. Select **Browse** in the task bar:  
+![][14]
 
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*: ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. In **PowerApps** selezionare **Gestione API**: ![Sfogliare le API registrate][1]
+4. In **PowerApps**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API: ![Add API][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Immettere un **nome** descrittivo per l'API.
+6. Enter a descriptive **name** for your API.  
 	
-7. In **Origine**, selezionare **API disponibili** per selezionare le API predefinite e selezionare **OneDrive**: ![selezionare l'API di OneDrive][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **OneDrive**:  
+![select OneDrive api][3]
 
-8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**: ![configurare le impostazioni dell’API di OneDrive][4]
+8. Select **Settings - Configure required settings**:  
+![configure OneDrive API settings][4]
 
-9. Immettere *Chiave app* e *Segreto app* dell'applicazione OneDrive. Se non è disponibile, vedere la sezione "Registrare un'app di OneDrive per l'utilizzo con PowerApps" in questo argomento per creare i valori chiave e segreto necessari.
+9. Enter the *App Key* and *App Secret* of your OneDrive application. If you don't have one, see the "Register a OneDrive app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Selezionare **OK** per completare i passaggi.
+10. Select **OK** to complete the steps.
 
-Al termine, verrà aggiunta una nuova API di OneDrive all'ambiente del servizio app.
+When finished, a new OneDrive API is added to your app service environment.
 
-## Facoltativo: Registrare un'app per OneDrive per l'utilizzo con PowerApps
+## Optional: Register a OneDrive app for use with PowerApps
 
-Se non si dispone di un'app OneDrive esistente con i valori chiave e segreto, utilizzare i passaggi seguenti per creare l'applicazione e ottenere i valori necessari.
+If you don't have an existing OneDrive app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. Passare alla [pagina di creazione app][5] in _Centro per sviluppatori di account Microsoft_ e accedere con il proprio _Account Microsoft_.
+1. Go to the [app creation page][5] in _Microsoft account developer center_ and sign in with your _Microsoft Account_.
 
-2. Immettere il **Nome applicazione** e selezionare **Accetto**: ![Nuova app di OneDrive][6]
+2. Enter your **Application name**, and select **I accept**:  
+![OneDrive new app][6]
 
-3. Nella pagina delle impostazioni:
+3. In the settings page:  
 
-	1. Selezionare **Impostazioni API**.  
-	2. Impostare l'URL di reindirizzamento sul valore corrispondente ricevuto quando è stata aggiunta la nuova API OneDrive nel portale di Azure (in questo argomento).  
-	3. Selezionare **Salva**.  
+	1. Select **API Settings**.  
+	2. Set the redirect URL to the redirect URL you received when you added the new OneDrive API in the Azure Portal (in this topic).  
+	3. Select **Save**.  
 
-	![Impostazioni dell’app API di OneDrive][7]
+	![OneDrive app API settings][7]
 
-Viene creata una nuova app OneDrive. È possibile utilizzare questa app nella configurazione dell'API di OneDrive nel portale di Azure.
+A new OneDrive app is created. You can use this app in your OneDrive API configuration in the Azure portal. 
 
-## Vedere le API REST
+## See the REST APIs
 
-Informazioni di riferimento sull'[API REST Onedrive](../connectors/connectors-create-api-onedrive.md).
+[Onedrive REST API](../connectors/connectors-create-api-onedrive.md) reference.
 
-## Riepilogo e passaggi successivi
-In questo argomento, è stata aggiunta l'API di OneDrive alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
+## Summary and next steps
+In this topic, you added the OneDrive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Aggiungere una connessione e fornire agli utenti l'accesso](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-onedrive/browse-to-registered-apis.PNG
@@ -89,4 +100,4 @@ In questo argomento, è stata aggiunta l'API di OneDrive alla PowersApps Enterpr
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->
