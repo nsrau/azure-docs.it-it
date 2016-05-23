@@ -95,7 +95,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Impostare un punto di interruzione in index.jsp:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:  
         ![][ic551537]
 
 	    Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
