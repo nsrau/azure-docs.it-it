@@ -41,7 +41,7 @@ Ora aprire una shell ed eseguire il comando seguente, dove:
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### Tunnel DC/OS
+## Tunnel DC/OS
 
 Per aprire un tunnel per gli endpoint correlati a DC/OS, eseguire un comando simile al seguente:
 
@@ -59,7 +59,7 @@ Ora è possibile accedere agli endpoint correlati a DC/OS da:
 
 In modo analogo, è possibile raggiungere le API REST per ogni applicazione attraverso questo tunnel.
 
-### Tunnel Swarm
+## Tunnel Swarm
 
 Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguente:
 
@@ -117,4 +117,4 @@ Distribuire e gestire contenitori con DC/OS o Swarm.
 
 [Utilizzo del servizio contenitore di Azure e DC/OS](./container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

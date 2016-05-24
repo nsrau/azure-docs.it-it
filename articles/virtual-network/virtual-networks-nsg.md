@@ -40,8 +40,7 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti.
 |---|---|---|---|
 |**Nome**|Nome per la regola|Deve essere univoco nell'area<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e segni meno<br/>Deve iniziare con una lettera o un numero<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura<br/>Può contenere fino a 80 caratteri|Se in un gruppo di sicurezza di rete ci sono più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola|
 |**Protocollo**|Protocollo per la regola|TCP, UDP o *|L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a UDP e TCP e può ridurre il numero di regole necessarie<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi assicurarsi di usarlo solo quando è davvero necessario|
-|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte)|Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare "*" nella maggior parte dei casi.<br/>Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola|
-|**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola
+|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte)|Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare "*" nella maggior parte dei casi.<br/>Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola |**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola
 |**Prefisso dell'indirizzo di origine**|Prefisso o tag dell'indirizzo di origine per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
 |**Prefisso dell’indirizzo di destinazione**|Prefisso o tag dell'indirizzo di destinazione per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
 |**Direzione**|Direzione del traffico per la regola|in ingresso o in uscita|Le regole in ingresso e in uscita vengono elaborate separatamente, in base alla direzione|
@@ -125,10 +124,10 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
 |Portale classico|![No][red]|![No][red]|
-|Portale di Azure|![Sì][green]|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
-|PowerShell|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
-|Interfaccia della riga di comando di Azure|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
-|Modello ARM|![No][red]|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
+|Portale di Azure|![Sì][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sì][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sì][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sì][green]</a>|
+|Interfaccia della riga di comando di Azure|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sì][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sì][green]</a>|
+|Modello ARM|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sì][green]</a>|
 
 |**Chiave**|![Sì][green]Supportato. Fare clic per visualizzare l'articolo.|![No][red]Non supportato.|
 |---|---|---|
@@ -173,7 +172,7 @@ Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è p
 
 ### Traffico ICMP
 
-Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli *TCP* o *UDP*. Non esiste un tag specifico per *ICMP*. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite la regola della rete virtuale in ingresso, la regola predefinita 65500 in ingresso, che consente il traffico da/verso qualsiasi porta e protocollo all'interno della rete virtuale.
+Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli *TCP* o *UDP*. Non esiste un tag specifico per *ICMP*. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite la regola della rete virtuale in ingresso, ovvero la regola predefinita 65000 in ingresso, che consente il traffico da/verso qualsiasi porta e protocollo all'interno della rete virtuale.
 
 ### Subnet
 
@@ -250,9 +249,9 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti RDP da Internet|Consenti|100|INTERNET|*|\*|3389|TCP|
+|Consenti RDP da Internet|Consenti|100|INTERNET|**|*|3389|TCP|
 
->[AZURE.NOTE] Si noti che l'intervallo di indirizzi di origine per questa regola è **Internet** e non l'indirizzo VIP per il servizio di bilanciamento del carico. La porta di origine è **\*** e non 500001. Non confondere le regole NAT/regole di bilanciamento del carico con le regole dei gruppi di sicurezza di rete. Le regole dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **NON** al servizio di bilanciamento del carico tra le due.
+>[AZURE.NOTE] Si noti che l'intervallo di indirizzi di origine per questa regola è **Internet** e non l'indirizzo VIP per il servizio di bilanciamento del carico. La porta di origine è ***** e non 500001. Non confondere le regole NAT/regole di bilanciamento del carico con le regole dei gruppi di sicurezza di rete. Le regole dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **NON** al servizio di bilanciamento del carico tra le due.
 
 ### Gruppo di sicurezza di rete per le schede di interfaccia di rete di gestione in BackEnd
 
@@ -260,7 +259,7 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti RDP dal front-end|Consenti|100|192\.168.1.0/24|*|\*|3389|TCP|
+|Consenti RDP dal front-end|Consenti|100|192\.168.1.0/24|**|*|3389|TCP|
 
 ### Gruppo di sicurezza di rete per le schede di interfaccia di rete di accesso al database nel back-end
 
@@ -268,7 +267,7 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti SQL dal front-end|Consenti|100|192\.168.1.0/24|*|\*|1433|TCP|
+|Consenti SQL dal front-end|Consenti|100|192\.168.1.0/24|**|*|1433|TCP|
 
 Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole schede di interfaccia di rete, è necessario distribuire questo scenario come distribuzione di Gestione risorse. Si noti che le regole vengono combinate a livello di subnet e di scheda di interfaccia di rete, in base a come è necessario applicarle.
 
@@ -282,4 +281,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

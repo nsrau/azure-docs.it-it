@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/13/2016"
 	ms.author="carlrab"/>
 
 # Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
@@ -64,4 +64,4 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 - Informazioni su come [Monitorare, gestire e dimensionare un pool di database elastici](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni di database singoli](sql-database-single-database-monitor.md).
 - Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

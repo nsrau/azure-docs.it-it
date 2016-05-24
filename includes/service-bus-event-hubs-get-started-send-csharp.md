@@ -4,11 +4,11 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 
 1. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Sender**.
 
-   ![][7]
+	![][7]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**. 
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**.
 
-3. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto (**Sender**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
+3. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto **Sender** sia specificato nella casella **Versione/i**. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
 	![][8]
 
@@ -21,7 +21,7 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Aggiungere i campi seguenti per la classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione con i diritti **Send** (stringa di connessione **SendRule**). Assicurarsi di rimuovere il suffisso `EntityPath` dalla stringa di connessione:
+5. Aggiungere i campi seguenti alla classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione a livello di spazio dei nomi salvata in precedenza.
 
 	```
 	static string eventHubName = "{Event Hub name}";
@@ -69,5 +69,3 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0413_2016-->

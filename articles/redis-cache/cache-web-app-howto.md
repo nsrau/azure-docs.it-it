@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Come creare un'app Web con la cache Redis
@@ -688,12 +688,13 @@ Se si seleziona il pulsante **Distribuisci in Azure**, verrà aperto il portale 
 1. Nel pannello **Distribuzione personalizzata** selezionare la sottoscrizione di Azure da usare, quindi selezionare un gruppo di risorse esistente o crearne uno nuovo e infine specificare la posizione del gruppo di risorse.
 2. Nel pannello **Parametri** specificare un nome di account amministratore (**ADMINISTRATORLOGIN**, non usare **admin**), la password di accesso dell'amministratore (**ADMINISTRATORLOGINPASSWORD**) e il nome del database (**DATABASENAME**). Gli altri parametri vengono configurati per un piano di hosting del Servizio app gratuito e per i piani con opzioni di costo inferiori per il database SQL e la cache Redis di Azure, non disponibili con un livello gratuito.
 3. Cambiare altre impostazioni, se si vuole, oppure mantenere le impostazioni predefinite e fare clic su **OK**.
-4. Dopo la configurazione delle impostazioni, fare clic su **Rivedere le note legali**.
+
 
 ![Distribuzione in Azure][cache-deploy-to-azure-step-2]
 
-1. Leggere le condizioni nel pannello **Crea** e fare clic su **Crea**.
-2. Per avviare il provisioning delle risorse, fare clic su **Crea** nel pannello **Distribuzione personalizzata**.
+1. Fare clic su **Rivedere le note legali**.
+2. Leggere le condizioni nel pannello **Acquista** e fare clic su **Acquista**.
+3. Per avviare il provisioning delle risorse, fare clic su **Crea** nel pannello **Distribuzione personalizzata**.
 
 Per visualizzare lo stato della distribuzione, fare clic sull'icona di notifica e quindi su **Distribuzione avviata**.
 
@@ -838,4 +839,4 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

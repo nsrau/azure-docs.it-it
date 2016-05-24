@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="04/11/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Introduzione alla libreria di Azure Batch per .NET
@@ -32,13 +32,15 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 - **Account Batch**: dopo avere creato una sottoscrizione di Azure, [creare un account Azure Batch](batch-account-create-portal.md).
 - **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
+> [AZURE.IMPORTANT] Batch attualmente supporta *solo* il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+
 ### Visual Studio
 
 Per compilare il progetto di esempio, è necessario **Visual Studio 2013** o **Visual Studio 2015**. Le versioni gratuite e di valutazione di Visual Studio sono disponibili nella [Panoramica dei prodotti Visual Studio 2015][visual_studio].
 
 ### Esempio di codice *DotNetTutorial*
 
-L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di codice disponibili nel repository [azure-batch-samples][github_samples] su GitHub. È possibile scaricare l'esempio facendo clic sul pulsante **Download ZIP** nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo l'estrazione dei contenuti del file ZIP, la soluzione sarà disponibile nella cartella seguente:
+L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di codice disponibili nel repository [azure-batch-samples][github_samples] in GitHub. È possibile scaricare l'esempio facendo clic sul pulsante **Download ZIP** nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo l'estrazione dei contenuti del file ZIP, la soluzione sarà disponibile nella cartella seguente:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
@@ -82,6 +84,8 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
+
+> [AZURE.IMPORTANT] Come indicato sopra, attualmente è necessario specificare le credenziali per un account di archiviazione **Utilizzo generico** in Archiviazione di Azure. Le applicazioni di Batch useranno l'archivio BLOB nell'account di archiviazione **Utilizzo generico**. Non specificare le credenziali per un account di archiviazione creato selezionando il tipo di account *Archivio BLOB*.
 
 Le credenziali relative all'account Batch e all'account di archiviazione sono disponibili nel pannello dell'account di ogni servizio nel [portale di Azure][azure_portal]\:
 
@@ -753,4 +757,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

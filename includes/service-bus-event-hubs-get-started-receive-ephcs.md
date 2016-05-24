@@ -28,7 +28,9 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 
 	Viene scaricato, installato, il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con tutte le relative dipendenze, e viene aggiunto un riferimento a tale pacchetto.
 
-7. Fare clic con il pulsante destro del mouse sul progetto **Receiver**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla nuova classe il nome **SimpleEventProcessor** e quindi fare clic su **OK** per crearla.
+7. Fare clic con il pulsante destro del mouse sul progetto **Receiver**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla nuova classe il nome **SimpleEventProcessor** e quindi fare clic su **Aggiungi** per crearla.
+
+	![][15]
 
 8. Aggiungere le istruzioni seguenti all'inizio del file SimpleEventProcessor.cs:
 
@@ -89,7 +91,7 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-	Modificare quindo il metodo `Main` nella classe `Program` come segue, sostituendo il nome dell'hub eventi, la stringa di connessione **ReceiveRule** e l'account di archiviazione e la chiave copiata nelle sezioni precedenti: Assicurarsi di rimuovere il suffisso `EntityPath` dalla stringa di connessione:
+	Sostituire quindi il metodo `Main` nella classe `Program` con il codice seguente, sostituendo il nome dell'hub eventi e la stringa di connessione a livello di spazio dei nomi salvata in precedenza, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti.
 
     ```
 	static void Main(string[] args)
@@ -128,6 +130,6 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0413_2016-->

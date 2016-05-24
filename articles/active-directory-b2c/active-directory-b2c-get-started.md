@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Creare un tenant Azure AD B2C
@@ -46,9 +46,6 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 
 6. Il tenant è stato creato e verrà visualizzato nell'estensione Active Directory. Si ha anche il ruolo di amministratore generale del tenant. È possibile aggiungere altri amministratori generali in base alle esigenze.
 
-    > [AZURE.IMPORTANT]
-    Ci può volere fino a due minuti per la creare il tenant. Se si verificano problemi durante la creazione del tenant, vedere [Creazione di un Tenant di Azure AD o di un Tenant di Azure AD B2C - Problemi e risoluzioni](active-directory-b2c-support-create-directory.md) per istruzioni.
-
 ## Passaggio 3: Passare al pannello delle funzionalità B2C nel portale di Azure
 
 1. Passare all'estensione Active Directory sulla barra di spostamento sul lato sinistro.
@@ -61,7 +58,7 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 5. Il portale di Azure con il pannello delle funzionalità B2C si aprirà in una nuova scheda o finestra del browser.
 
     > [AZURE.IMPORTANT]
-    Esiste un problema noto in base al quale questa pagina non carica correttamente (per un numero ridotto di tenant). Aggiornando il browser si dovrebbe risolvere il problema. In caso contrario, contattare il supporto di Azure.
+    Perché il tenant sia accessibile nel portale di Azure possono essere necessari fino a 2-3 minuti. Per risolvere questo problema, ripetere la procedura dopo qualche minuto. Altrimenti, contattare il team di supporto.
 
 6. Aggiungere il pannello alla schermata iniziale per un accesso rapido. Lo strumento di aggiunta appare in rosso nell'angolo superiore destro del pannello delle funzionalità.
 
@@ -72,6 +69,6 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 
 ## Passaggi successivi
 
-Leggere le informazioni su come registrare un'applicazione in Azure AD B2C e creare un'applicazione di avvio rapido in [Anteprima di Azure Active Directory B2C: come registrare l'applicazione](active-directory-b2c-app-registration.md).
+Per informazioni su come registrare un'applicazione in Azure AD B2C e creare un'applicazione di avvio rapido, vedere [Anteprima di Azure Active Directory B2C: registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

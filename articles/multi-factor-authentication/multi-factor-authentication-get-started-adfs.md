@@ -12,14 +12,14 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" ms.topic="get-started-article" 
-	ms.date="02/25/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
 
 
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Se l'azienda ha federato la Active Directory locale con Azure Active Directory tramite ADFS, le due opzioni seguenti per l'utilizzo di Azure Multi-Factor Authentication sono disponibili.
 
@@ -54,4 +54,4 @@ Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Se
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

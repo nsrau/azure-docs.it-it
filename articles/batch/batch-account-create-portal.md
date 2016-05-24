@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Creare e gestire un account Azure Batch nel portale di Azure
@@ -50,7 +50,7 @@ Il [portale di Azure][azure_portal] fornisce gli strumenti necessari per creare 
 
 	d. **Località**: selezionare un'area di Azure in cui creare l'account Batch. Solo le aree supportate dalla sottoscrizione e dal gruppo di risorse verranno visualizzate come opzioni.
 
-    e. **Account di archiviazione** (facoltativo): è possibile associare (collegare) un account di archiviazione al nuovo account Batch. La funzionalità dei [pacchetti dell'applicazione](batch-application-packages.md) di Batch userà l'account di archiviazione collegato per l'archiviazione e il recupero dei pacchetti dell'applicazione. Per altre informazioni su questa funzionalità, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+    e. **Account di archiviazione** (facoltativo): è possibile associare (collegare) un account di archiviazione **Utilizzo generico** al nuovo account Batch. La funzionalità dei [pacchetti dell'applicazione](batch-application-packages.md) di Batch userà l'account di archiviazione collegato per l'archiviazione e il recupero dei pacchetti dell'applicazione. Per altre informazioni su questa funzionalità, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
      > [AZURE.TIP] La rigenerazione delle chiavi in un account di archiviazione collegato richiede speciali considerazioni. Per altri dettagli, vedere più avanti [Considerazioni sugli account Batch](#considerations-for-batch-accounts).
 
@@ -62,7 +62,7 @@ Il [portale di Azure][azure_portal] fornisce gli strumenti necessari per creare 
 
 Il pannello dell'account Batch visualizza diverse proprietà per l'account, oltre a fornire l'accesso ad altre impostazioni, ad esempio chiavi di accesso, quote, utenti e associazione dell'account di archiviazione.
 
-* **URL dell'account Batch**: questo URL fornisce l'accesso all'account Batch quando si usano le API, ad esempio l'API[Batch REST][api_rest] o la libreria client [Batch .NET][api_net], ed è conforme al formato seguente:
+* **URL dell'account Batch**: questo URL fornisce l'accesso all'account Batch quando si usano le API, ad esempio l'API [Batch REST][api_rest] o la libreria client [Batch .NET][api_net], ed è conforme al formato seguente:
 
   `https://<account_name>.<region>.batch.azure.com`
 
@@ -84,13 +84,15 @@ Il pannello dell'account Batch visualizza diverse proprietà per l'account, oltr
 
 * Se si eseguono diversi carichi di lavoro Batch su larga scala, tenere presente che alla sottoscrizione di Azure e a ogni account Batch vengono applicati determinati [limiti e quote per il servizio Batch](batch-quota-limit.md). Le quote correnti per un account Batch vengono visualizzate nel portale nelle proprietà dell'account.
 
-* Se si associa un account di archiviazione all'account Batch, prestare attenzione durante la rigenerazione delle chiavi di accesso all'account di archiviazione. È consigliabile rigenerare una sola chiave dell'account di archiviazione, fare clic su **Chiavi di sincronizzazione** nel pannello dell'account di archiviazione collegato, attendere 5 minuti per consentire alle chiavi di propagarsi ai nodi di calcolo nei pool, quindi rigenerare e sincronizzare l'altra chiave, se necessario. Se si rigenerano entrambe le chiavi contemporaneamente, i nodi di calcolo non riusciranno a sincronizzare entrambe le chiavi e perderanno l'accesso all'account di archiviazione.
+* Se si associa (si collega) un account di archiviazione all'account Batch, prestare attenzione durante la rigenerazione delle chiavi di accesso all'account di archiviazione. È consigliabile rigenerare una sola chiave dell'account di archiviazione, fare clic su **Chiavi di sincronizzazione** nel pannello dell'account di archiviazione collegato, attendere 5 minuti per consentire alle chiavi di propagarsi ai nodi di calcolo nei pool, quindi rigenerare e sincronizzare l'altra chiave, se necessario. Se si rigenerano entrambe le chiavi contemporaneamente, i nodi di calcolo non riusciranno a sincronizzare entrambe le chiavi e perderanno l'accesso all'account di archiviazione.
 
   ![Rigenerazione delle chiavi degli account di archiviazione][4]
 
+> [AZURE.IMPORTANT] Batch attualmente supporta *solo* il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Quando si collega un account di archiviazione di Azure all'account Batch, collegare *solo* un account di archiviazione **Utilizzo generico**.
+
 ## Passaggi successivi
 
-* Per altre informazioni sui concetti e sulle funzionalità del servizio Batch, vedere [Cenni preliminari sulla funzionalità Azure Batch](batch-api-basics.md). L'articolo descrive le risorse primarie di Batch, ad esempio i pool, i nodi di calcolo, i processi e le attività e fornisce una panoramica delle funzionalità del servizio che consentono l'esecuzione di carichi di lavoro di calcolo su larga scala.
+* Per altre informazioni sui concetti e sulle funzionalità del servizio Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md). L'articolo descrive le risorse primarie di Batch, ad esempio i pool, i nodi di calcolo, i processi e le attività e fornisce una panoramica delle funzionalità del servizio che consentono l'esecuzione di carichi di lavoro di calcolo su larga scala.
 
 * Informazioni sulle nozioni di base per lo sviluppo di un'applicazione abilitata per Batch con la [libreria client Batch .NET](batch-dotnet-get-started.md). L'[articolo introduttivo](batch-dotnet-get-started.md) illustra un'applicazione funzionante che usa il servizio Batch per eseguire un carico di lavoro in più nodi di calcolo e include l'uso di Archiviazione di Azure per lo staging e il recupero dei file del carico di lavoro.
 
@@ -107,4 +109,4 @@ Il pannello dell'account Batch visualizza diverse proprietà per l'account, oltr
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->
