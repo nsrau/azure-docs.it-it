@@ -86,15 +86,15 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Nel menu a discesa **Web Container** (Contenitore Web) selezionare il software appropriato per l'applicazione.
 
-        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
+        Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
 
   1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
 
   1. Nel menu a discesa **Resource Group** (Gruppo di risorse) selezionare il gruppo di risorse a cui si vuole associare l'app Web.
 
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        Nota: i gruppi di risorse di Azure consentono di raggruppare le risorse correlate in modo che, ad esempio, possano essere eliminate insieme.
 
-        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
+        È possibile selezionare un gruppo di risorse esistente, se presente, e andare al passaggio g seguente o usare questa procedura per creare un nuovo gruppo di risorse:
 
       * Fare clic su **New** (Nuovo).
 
@@ -110,9 +110,9 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Il menu a discesa **App Service Plan** (Piano servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
 
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
 
-        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+        È possibile selezionare un piano di servizio app esistente, se presente, e andare al passaggio h seguente o usare questa procedura per creare un nuovo piano di servizio app:
 
       * Fare clic su **New** (Nuovo).
 
@@ -134,7 +134,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
+        Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
 
 1. A questo punto si è pronti completare la distribuzione iniziale dell'app Web in Azure:
 
