@@ -1,14 +1,12 @@
-### Per creare un gateway di rete locale, seguire questa procedura:
-
 1. Nel portale di Azure passare a **Nuovo** **>** **Rete** **>** **Gateway di rete locale**.
 
 	![Creare il gateway di rete locale](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. Nel pannello **Crea un gateway di rete locale** specificare un **Nome** per l'oggetto gateway della rete locale.
+2. Nel pannello **Crea un gateway di rete locale** specificare un **Nome** per l'oggetto gateway di rete locale.
  
 3. Specificare un **Indirizzo IP** per il gateway. Questo è l'indirizzo IP del dispositivo VPN esterno a cui connettersi. Non può essere protetto da NAT e deve essere raggiungibile da Azure.
 
-4. **Spazio indirizzi** fa riferimento agli intervalli di indirizzi nella rete solitamente locale. È possibile aggiungere più intervalli di spazi indirizzi. Gli intervalli immessi non possono sovrapporsi gli intervalli di spazi indirizzi usati per una delle reti virtuali che comunicano tramite il gateway. È necessario che siano coordinati con la configurazione locale e con gli spazi indirizzi della rete virtuale di Azure.
+4. **Spazio indirizzi** fa riferimento agli intervalli di indirizzi nella rete, solitamente locale. È possibile aggiungere più intervalli di spazi indirizzi. Gli intervalli immessi non possono sovrapporsi gli intervalli di spazi indirizzi usati per una delle reti virtuali che comunicano tramite il gateway. È necessario che siano coordinati con la configurazione locale e con gli spazi indirizzi della rete virtuale di Azure.
  
 5. Per **Sottoscrizione** verificare che sia visualizzata la sottoscrizione corretta.
 
@@ -23,5 +21,3 @@
 10. Quando è stato creato il gateway di rete locale, verrà aperto nel portale per la visualizzazione.
 
 	
-
-<!---HONumber=AcomDC_0406_2016-->

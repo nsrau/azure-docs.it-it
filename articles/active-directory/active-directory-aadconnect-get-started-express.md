@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="05/10/2016"
 	ms.author="billmath;andkjell"/>
 
 # Introduzione alle impostazioni rapide per Azure AD Connect
@@ -43,11 +43,12 @@ Se non è stata letta la documentazione in [Integrazione delle identità locali 
 4. Nella schermata Impostazioni rapide fare clic su **Usa impostazioni rapide**. ![Avvio di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Nella schermata Connessione ad Azure AD immettere il nome utente e la password di un amministratore globale per Azure AD. Fare clic su **Avanti**. ![Connessione ad Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Se viene visualizzato un errore e si hanno problemi di connettività, vedere [Risolvere i problemi di connettività con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Nella schermata Connessione a Servizi di dominio Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. È possibile immettere la parte relativa al dominio in formato NetBios o FQDN, ad esempio FABRIKAM\\administrator o fabrikam.com\\administrator. Fare clic su **Avanti**. ![Connessione ad AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronto per la configurazione è possibile deselezionare la casella di controllo **Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**. È necessario deselezionare questa casella di controllo per apportare una configurazione aggiuntiva, ad esempio il [filtro](active-directory-aadconnectsync-configure-filtering.md). Se si deseleziona questa opzione, la procedura guidata configura la sincronizzazione ma lascia disabilitata l'utilità di pianificazione, che non verrà eseguita finché non la si abilita manualmente eseguendo di nuovo l'installazione guidata.
+7. Se l'istanza locale di Active Directory include domini UPN non presenti o non verificati, verrà visualizzata questa pagina. Se tutti i domini UPN nell'istanza locale di Servizi di dominio Active Directory sono stati verificati, questa pagina non verrà visualizzata. ![Domini non verificati](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) Se viene visualizzata questa pagina, verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato**. Assicurarsi che i domini usati siano stati verificati in Azure AD. Fare clic sul simbolo Aggiorna dopo avere verificato tutti i domini. Per altre informazioni, vedere [aggiungere e verificare il dominio](active-directory-add-domain.md).
+8. Nella schermata Pronto per la configurazione fare clic su **Installa**.
+	- Nella pagina Pronte per la configurazione è possibile deselezionare la casella di controllo **Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**. È necessario deselezionare questa casella di controllo per eseguire una configurazione aggiuntiva, ad esempio il [filtro](active-directory-aadconnectsync-configure-filtering.md). Se si deseleziona questa opzione, la procedura guidata configura la sincronizzazione ma lascia disabilitata l'utilità di pianificazione, che non verrà eseguita finché non la si abilita manualmente eseguendo di nuovo l'installazione guidata.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per la **distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Abilitare questa opzione se si prevede di avere cassette postali di Exchange contemporaneamente nel cloud e in locale. ![Pronto per la configurazione di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-8. Una volta completata l'installazione, fare clic su **Esci**.
-9. Al termine dell'installazione, disconnettersi e accedere nuovamente prima di usare Synchronization Service Manager o Synchronization Rules Editor.
+9. Al termine dell'installazione, fare clic su **Esci**.
+10. Al termine dell'installazione, disconnettersi e accedere nuovamente prima di usare Synchronization Service Manager o Synchronization Rules Editor.
 
 Per un video sull'uso dell'installazione rapida, vedere:
 
@@ -58,4 +59,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -86,9 +86,9 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Introduzione ad Analisi di flusso di Azure]: stream-analytics-introductiond.md
-[Introduzione all'utilizzo di Analisi di flusso di Azure]: stream-analytics-get-started.md
-[Introduzione all’uso di Analisi di flusso di Azure]: stream-analytics-get-started.md
+[Introduzione ad Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-introductiond.md
+[Introduzione all'utilizzo di Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-get-started.md
+[Introduzione all’uso di Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-get-started.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 [Panoramica dell'integrazione di SQL Data Warehouse]: sql-data-warehouse-overview-integrate.md
 
@@ -97,4 +97,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

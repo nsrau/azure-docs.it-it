@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Guida introduttiva alle query elastiche per il partizionamento orizzontale | Microsoft Azure"
+	pageTitle="Creare report in database cloud con numero maggiore di istanze (partizionamento orizzontale) | Microsoft Azure"
 	description="come utilizzare tra le query di database tra database"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,14 +12,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# Guida introduttiva alle query elastiche per il partizionamento orizzontale
+# Creare report in database cloud con numero maggiore di istanze (anteprima)
 
-Le query del Database elastico (anteprima) per il Database di SQL Azure consente di eseguire query T-SQL che si estendono su più database utilizzando un singolo punto di connessione. Per ulteriori informazioni sulla funzionalità di query del Database elastico, vedere la [panoramica della funzionalità](sql-database-elastic-query-overview.md).
+È possibile creare report da più database SQL di Azure da un unico punto di connessione usando una [query elastica](sql-database-elastic-query-overview.md). Il database deve essere con partizionamento orizzontale.
 
-Questo argomento supporta l'esempio trovato in [Introduzione agli strumenti del Database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come: configurare e utilizzare un Database di SQL Azure per eseguire query che coinvolgono molti database correlati.
+Se si ha un database esistente, vedere [Migrazione dei database esistenti in database con un numero maggiore di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+Per comprendere quali sono gli oggetti SQL necessari per eseguire una query, vedere [Eseguire query in database con partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md).
+
 ## Prerequisiti
 
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
@@ -142,4 +145,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

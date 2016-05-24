@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione
@@ -59,7 +59,7 @@ Usare questi passaggi per il backup del database.
 4.	Fare doppio clic su un database per eseguire il backup, scegliere **Attività**, quindi fare clic su **Backup**.
 5.	Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
 6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\\ [machineName]\\backup[databaseName].bak**, dove **machineName** è il nome del **computer SQL server** principale e **databaseName** è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
-7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro ** [databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
+7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro **[databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
 8.	In **Tipo di Backup**, selezionare **Log delle transazioni**, quindi fare clic su **OK** per due volte.
 9.	Mantenere aperta la sessione Desktop remoto.
 
@@ -80,7 +80,7 @@ Usare questi passaggi per il ripristino del database.
 Dopo che è stato preparato almeno un database (tramite il metodo di backup e ripristino), è possibile creare un gruppo di disponibilità.
 
 1.	Tornare alla sessione Desktop remoto per il server di database primario.
-2.	In **SQL Server Management Studio**, nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Disponibilità elevata AlwaysOn**, quindi fare clic su **Creazione guidata nuovo Gruppo di disponibilità**.
+2.	Nel riquadro sinistro di **SQL Server Management Studio** fare clic con il pulsante destro del mouse su **Disponibilità elevata AlwaysOn**, quindi fare clic su **Creazione guidata Gruppo di disponibilità**.
 3.	Nella pagina **Introduzione**, fare clic su **Avanti**. 
 4.	Nella pagina **Specifica nome del gruppo di disponibilità**, digitare il nome del gruppo di disponibilità in **Nome gruppo di disponibilità** (esempio: AG1), quindi fare clic su **Avanti**.
 5.	Nella pagina **Selezione database** selezionare i database per l'applicazione di cui è stato eseguito il backup, quindi fare clic su **Avanti**. Questi database soddisfano i prerequisiti per un gruppo di disponibilità perché è stato eseguito almeno un backup completo nella replica principale usata.
@@ -103,7 +103,7 @@ Secondaria | Secondario leggibile | Sì
 12.	Nella pagina **Riepilogo** fare clic su **Fine**. Al termine della procedura guidata, controllare la pagina **Risultati**per verificare che il gruppo di disponibilità sia stato creato correttamente. In tal caso, fare clic su **Chiudi** per uscire dalla procedura guidata. 
 13.	Dalla schermata Start digitare **Failover**, quindi fare clic su **Gestione cluster di failover**. Nel riquadro sinistro, aprire il nome del cluster e fare clic su **Ruoli**. Un nuovo ruolo con il nome del gruppo di disponibilità deve essere presente.
 
-È stato configurato correttamente un gruppo di disponibilità AlwaysOn di SQL Server per i database dell'applicazione.
+È stato configurato correttamente un gruppo di disponibilità SQL Server AlwaysOn per i database dell'applicazione.
 
 ![](./media/virtual-machines-windows-ps-lob-ph5/workload-lobapp-phase4.png)
 
@@ -119,4 +119,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 - Vedere queste [linee guida](virtual-machines-linux-infrastructure-service-guidelines.md) se si distribuisce il proprio carico di lavoro IT in Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

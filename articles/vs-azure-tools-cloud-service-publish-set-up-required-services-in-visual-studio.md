@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio
@@ -30,7 +30,7 @@ Usare le procedure seguenti per impostare questi servizi e configurare l'applica
 
 ## Creare un servizio cloud
 
-Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare un servizio cloud, che esegue i ruoli nell'ambiente Azure. È possibile creare un servizio cloud nel portale di gestione di Azure, come descritto nella sezione **Per creare un servizio cloud utilizzando il portale di gestione di Azure**, più avanti in questo argomento. È anche possibile creare un servizio cloud in Visual Studio usando la Pubblicazione guidata.
+Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare un servizio cloud, che esegue i ruoli nell'ambiente Azure. È possibile creare un servizio cloud nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) come descritto nella sezione **Per creare un servizio cloud usando il portale di Azure classico**, più avanti in questo argomento. È anche possibile creare un servizio cloud in Visual Studio usando la Pubblicazione guidata.
 
 ### Per creare un servizio cloud usando Visual Studio
 
@@ -48,9 +48,9 @@ Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare u
 
 1. Immettere il nome del servizio cloud. Il nome fa parte dell'URL per il servizio, quindi deve essere globalmente univoco. Nel nome non viene fatta distinzione tra maiuscole e minuscole.
 
-### Per creare un servizio cloud usando il portale di gestione di Azure
+### Per creare un servizio cloud usando il portale di Azure classico
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=253103) nel sito Web Microsoft.
+1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=253103) nel sito Web Microsoft.
 
 1. (Facoltativo) Per visualizzare un elenco di servizi cloud già creati, selezionare il collegamento Servizi cloud sul lato sinistro della pagina.
 
@@ -66,7 +66,7 @@ Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare u
 
 ## Creare un account di archiviazione
 
-Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. È possibile creare un account di archiviazione usando Visual Studio o il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
+Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. È possibile creare un account di archiviazione usando Visual Studio o il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=253103).
 
 ### Per creare un account di archiviazione usando Visual Studio
 
@@ -82,9 +82,9 @@ Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. 
 
 1. Al termine dell'operazione scegliere **Crea**. Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** in **Esplora soluzioni**.
 
-### Per creare un account di archiviazione usando il portale di gestione di Azure
+### Per creare un account di archiviazione usando il portale di Azure classico
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=253103) nel sito Web Microsoft.
+1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=253103) nel sito Web Microsoft.
 
 1. (Facoltativo) Per visualizzare gli account di archiviazione, fare clic sul collegamento **Archiviazione** nel riquadro sul lato sinistro della pagina.
 
@@ -124,15 +124,15 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 1. Nell'elenco **Sottoscrizione** scegliere la sottoscrizione da usare. Se l'elenco delle sottoscrizioni non include quella desiderata, selezionare il collegamento **Download impostazioni di pubblicazione**.
 
-1. Scegliere il nome dell'account di archiviazione dall'elenco **Nome account**. Gli strumenti di Azure ottengono le credenziali dell'account di archiviazione automaticamente tramite il file con estensione publishsettings. Per specificare le credenziali dell'account di archiviazione manualmente, scegliere l'opzione **Credenziali immesse manualmente** e quindi continuare la procedura. È possibile ottenere il nome dell'account di archiviazione e la chiave primaria dal [portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se non si vogliono specificare le impostazioni dell'account di archiviazione manualmente, fare clic sul pulsante **OK** per chiudere la finestra di dialogo.
+1. Scegliere il nome dell'account di archiviazione dall'elenco **Nome account**. Gli strumenti di Azure ottengono le credenziali dell'account di archiviazione automaticamente tramite il file con estensione publishsettings. Per specificare le credenziali dell'account di archiviazione manualmente, scegliere l'opzione **Credenziali immesse manualmente** e quindi continuare la procedura. È possibile ottenere la chiave primaria e il nome dell'account di archiviazione dal [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se non si vogliono specificare le impostazioni dell'account di archiviazione manualmente, fare clic sul pulsante **OK** per chiudere la finestra di dialogo.
 
 1. Fare clic sul collegamento **Immettere le credenziali dell'account di archiviazione**.
 
 1. Nella casella **Nome account** immettere il nome dell'account di archiviazione.
 
-    >[AZURE.NOTE] Accedere al portale di gestione, quindi fare clic su **Archiviazione**. Il portale mostra un elenco di account di archiviazione. Se si sceglie un account, viene aperta una pagina corrispondente. È possibile copiare il nome dell'account di archiviazione da questa pagina. Se si usa una versione precedente del portale di gestione, il nome dell'account di archiviazione compare nella visualizzazione**Account di archiviazione** del portale di gestione. Per copiare questo nome, evidenziarlo nella finestra **Proprietà** della visualizzazione e premere CTRL+C. Per incollare il nome in Visual Studio, fare clic nella casella di testo **Nome account** e premere CTRL+V.
+    >[AZURE.NOTE] Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) e quindi fare clic su **Archiviazione**. Il portale mostra un elenco di account di archiviazione. Se si sceglie un account, viene aperta una pagina corrispondente. È possibile copiare il nome dell'account di archiviazione da questa pagina. Se si usa una versione precedente del portale classico, il nome dell'account di archiviazione viene indicato nella visualizzazione **Account di archiviazione**. Per copiare questo nome, evidenziarlo nella finestra **Proprietà** della visualizzazione e premere CTRL+C. Per incollare il nome in Visual Studio, fare clic nella casella di testo **Nome account** e premere CTRL+V.
 
-1. Nella casella di testo **Chiave account** immettere la chiave primaria oppure copiarla e incollarla dal [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Per copiare questa chiave dal portale di gestione:
+1. Nella casella **Chiave account** immettere la chiave primaria oppure copiarla dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) e incollarla. Per copiare la chiave:
 
     1. Nella parte inferiore della pagina per l'account di archiviazione appropriato selezionare il pulsante **Gestisci chiavi**.
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio, vedere [Pubblicazione di un servizio Cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

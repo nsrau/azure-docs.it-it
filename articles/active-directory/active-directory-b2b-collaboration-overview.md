@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B Collaboration
@@ -47,7 +47,7 @@ Gli inviti a indirizzi di posta elettronica personali, ad esempio Gmail o [*comc
 Per altre informazioni sul funzionamento di B2B Collaboration, guardare [questo video](http://aka.ms/aadshowb2b).
 
 ## Passaggi successivi
-Vedere gli altri articoli su Collaborazione B2B di Azure.
+Vedere gli altri articoli su Collaborazione B2B di Azure AD.
 
 - [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -58,4 +58,4 @@ Vedere gli altri articoli su Collaborazione B2B di Azure.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

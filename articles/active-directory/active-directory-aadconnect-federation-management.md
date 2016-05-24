@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestione e personalizzazione di AD FS con Azure AD Connect | Microsoft Azure"
+	pageTitle="Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect | Microsoft Azure"
 	description="Gestione di AD FS con Azure AD Connect e personalizzazione dell'esperienza di accesso ad AD FS dell'utente con Azure AD Connect e Powershell."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# Gestione e personalizzazione di AD FS con Azure AD Connect
+# Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect
 
-Questo articolo illustra in modo dettagliato le varie attività relative ad AD FS che è possibile eseguire con Azure AD Connect e altre attività comuni di AD FS che potrebbero essere necessarie per la configurazione di una farm AD FS completa.
+Questo articolo descrive in modo dettagliato le varie attività correlate ad Active Directory Federation Services (AD FS) che è possibile eseguire con Azure AD Connect e altre attività comuni di AD FS che potrebbero essere necessarie per la configurazione completa di una farm AD FS.
 
-## Gestione di AD FS
+## Gestione di AD FS.
 
 Azure AD Connect offre diverse operazioni relative ad AD FS che possono essere eseguite con la procedura guidata di Azure AD Connect con un intervento minimo dell'utente. Al termine dell'installazione guidata di Azure AD Connect, è possibile eseguire nuovamente la procedura guidata per eseguire attività aggiuntive.
 
@@ -28,7 +28,7 @@ Azure AD Connect offre diverse operazioni relative ad AD FS che possono essere e
 
 Azure AD Connect può controllare lo stato corrente della relazione di trust tra AD FS e Azure AD e intraprendere le azioni necessarie per ripristinare il trust. Seguire questa procedura per ripristinare la relazione di trust tra Azure AD e AD FS.
 
-Selezionare **Ripristino del trust di AAD e AD FS** dall'elenco di attività disponibili.
+Selezionare **Ripristino del trust di AAD e AD FS** nell'elenco delle attività disponibili.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -84,9 +84,9 @@ Fare clic su Avanti e scorrere la pagina Configura finale. Al termine dell'aggiu
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Aggiunta di un nuovo server WAP AD FS
+### Aggiunta di un nuovo server Proxy applicazione Web AD FS
 
-> [AZURE.NOTE] Per aggiungere un server WAP tramite Azure AD Connect è necessario il file PFX del certificato. Sarà quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
+> [AZURE.NOTE] Per aggiungere un server Proxy applicazione Web AD FS, Azure AD Connect richiede il file PFX del certificato. Sarà quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
 
 Selezionare **Distribuisci il proxy applicazione Web (nessuno attualmente configurato)** dall'elenco di attività disponibili.
 
@@ -102,7 +102,7 @@ Viene quindi visualizzata la pagina **Specificare il certificato SSL**, in cui �
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-Nella pagina successiva aggiungere il server da aggiungere come WAP. Dato che il server WAP potrebbe anche non essere aggiunto al dominio, la procedura guidata richiede le credenziali amministrative per il server da aggiungere.
+Nella pagina successiva aggiungere il server da usare come proxy applicazione Web. Dato che il server Proxy applicazione Web potrebbe anche non essere aggiunto al dominio, la procedura guidata richiede le credenziali amministrative per il server da aggiungere.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ Nella pagina successiva la procedura guidata mostra un elenco di domini di Azure
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-Dopo aver scelto il dominio, la procedura guidata fornisce informazioni appropriate sulle altre azioni che verranno eseguite e sull'impatto della configurazione. In alcuni casi, se si seleziona un dominio non ancora verificato in Azure AD, la procedura guidata fornisce informazioni che consentono di verificare il dominio. Per altre informazioni su come verificare il dominio, vedere [Aggiungere e verificare un nome di dominio personalizzato in Azure Active Directory](active-directory-add-domain-add-verify-general.md).
+Dopo aver scelto il dominio, la procedura guidata fornisce informazioni appropriate sulle altre azioni che verranno eseguite e sull'impatto della configurazione. In alcuni casi, se si seleziona un dominio non ancora verificato in Azure AD, la procedura guidata fornisce informazioni che consentono di verificare il dominio. Per altre informazioni su come verificare il dominio, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-add-domain.md).
 
 La pagina **Pronto per la configurazione** mostra l'elenco di azioni che verranno eseguite da Azure AD Connect. Fare clic su Installa per terminare la configurazione.
 
@@ -191,7 +191,10 @@ L'uso di "add" anziché "issue" permette di evitare di aggiungere un rilascio pe
 
 Questa regola definisce semplicemente un flag temporaneo "idflag", che è impostato su "useguid" se non è presente un ms-ds-concistencyguid popolato per l'utente. Questo perché AD FS non ammette attestazioni vuote. Quando si aggiungono le attestazioni http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid nella regola 1, l'attestazione msdsconsistencyguid è disponibile SOLO se il valore è popolato per l'utente. In caso contrario, AD FS lo considera come un valore vuoto e lo rimuove immediatamente. Tutti gli oggetti hanno objectguid, quindi l'attestazione è sempre presente dopo l'esecuzione della regola 1.
 
-**Regola 3: rilasciare ms-ds-consistencyguid come ID non modificabile, se presente** c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+**Regola 3: rilasciare objectguid come ID non modificabile se presente**
+
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Si tratta di un controllo EXIST implicito. Se il valore per l'attestazione esiste, viene emesso come ID non modificabile. Si noti che nell'esempio viene emessa l'attestazione nameidentifier. Sarà necessario sostituirla con il tipo di attestazione appropriato per l'ID non modificabile nel proprio ambiente.
 
@@ -205,4 +208,35 @@ Questa regola esegue una semplice verifica del flag temporaneo "idflag" e, in ba
 
 > [AZURE.NOTE] La sequenza delle regole è importante.
 
-<!---HONumber=AcomDC_0427_2016-->
+#### SSO con un UPN di sottodominio
+
+È possibile aggiungere più di un dominio per la federazione usando Azure AD Connect ([Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). L'attestazione basata su UPN deve essere modificata in modo che l'ID autorità di certificazione corrisponda al dominio radice e non al sottodominio, perché il dominio radice federato include anche il figlio.
+
+Per impostazione predefinita, la regola attestazioni per l'ID autorità di certificazione è impostata come:
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Attestazione predefinita per l'ID autorità di certificazione](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+La regola predefinita usa semplicemente il suffisso UPN nell'attestazione per l'ID autorità di certificazione. Ad esempio, John è un utente in sub.contoso.com e contoso.com è federato con Azure AD. John immette john@sub.contoso.com come nome utente durante l'accesso ad Azure AD e quindi la regola attestazioni predefinita per l'ID autorità di certificazione in AD FS lo gestirà nel modo seguente:
+
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+
+=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(john@sub.contoso.com, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+
+**Valore attestazione:** http://sub.contoso.com/adfs/services/trust/
+
+Perché il valore attestazione dell'autorità di certificazione contenga solo il dominio radice, modificare la regola attestazioni in:
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Passaggi successivi
+
+Altre informazioni sulle [opzioni di accesso utente](active-directory-aadconnect-user-signin.md)
+
+<!---HONumber=AcomDC_0511_2016-->

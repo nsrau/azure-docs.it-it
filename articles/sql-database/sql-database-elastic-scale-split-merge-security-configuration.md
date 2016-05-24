@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configurazioni di sicurezza per Scalabilità elastica | Microsoft Azure" 
+    pageTitle="Configurazione della sicurezza del servizio di divisione e unione | Microsoft Azure" 
     description="Impostazione dei certificati 409 per la crittografia" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/23/2016" 
+    ms.date="04/26/2016" 
     ms.author="torsteng;sidneyh" />
 
 
-# Configurazione della sicurezza dei servizi di "split and merge"  
+# Configurazione della sicurezza del servizio di divisione e unione  
 
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
@@ -357,7 +357,7 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà seguir
 * Nella finestra di dialogo Certificato visualizzata selezionare la scheda Dettagli.
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
-* Copiare il valore dell'identificazione personale **Eliminare i caratteri Unicode non visibili davanti alla prima cifra** Eliminare tutti gli spazi
+* Copiare il valore dell'identificazione personale ** Eliminare i caratteri Unicode non visibili davanti alla prima cifra ** Eliminare tutti gli spazi
 
 ## Configurare i client consentiti nel file di configurazione del servizio
 
@@ -487,4 +487,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

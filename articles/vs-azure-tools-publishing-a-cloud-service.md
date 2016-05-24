@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Pubblicazione di un servizio cloud con gli strumenti di Azure
 
 Utilizzando gli Strumenti di Azure per Microsoft Visual Studio, è possibile pubblicare l'applicazione Azure direttamente da Visual Studio. Visual Studio supporta la pubblicazione integrata per la gestione temporanea o l’ambiente di produzione di un servizio cloud.
 
-Prima di poter pubblicare un'applicazione Azure, è necessario disporre di una sottoscrizione di Azure. È necessario anche impostare un servizio cloud e un account di archiviazione che possano essere utilizzati dall'applicazione. È possibile impostarli nel [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+Prima di poter pubblicare un'applicazione Azure, è necessario disporre di una sottoscrizione di Azure. È necessario anche impostare un servizio cloud e un account di archiviazione che possano essere utilizzati dall'applicazione. È possibile impostarli nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] Quando si pubblica, è possibile selezionare l'ambiente di distribuzione per il servizio cloud. E’ necessario inoltre selezionare un account di archiviazione utilizzato per archiviare il pacchetto dell'applicazione durante la distribuzione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione.
 
@@ -35,7 +35,7 @@ Utilizzare le procedure seguenti per pubblicare l'applicazione Azure e per aggio
 
 Quando si pubblica l'applicazione Azure, è possibile eseguire una delle seguenti operazioni:
 
-- Creare un pacchetto del servizio: è possibile utilizzare questo pacchetto e il file di configurazione di servizio per pubblicare l'applicazione in un ambiente di distribuzione dal [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Creare un pacchetto del servizio: è possibile usare questo pacchetto e il file di configurazione del servizio per pubblicare l'applicazione in un ambiente di distribuzione dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 - Pubblicare il progetto Azure da Visual Studio: per pubblicare l'applicazione direttamente in Azure, si utilizza la Pubblicazione guidata. Per altre informazioni, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
@@ -55,13 +55,13 @@ Quando si pubblica l'applicazione Azure, è possibile eseguire una delle seguent
 
   1. Per creare il pacchetto, scegliere il collegamento **Pacchetto**.
 
-      Esplora file mostra il percorso del file del pacchetto appena creato. È possibile copiare questo percorso in modo che sia possibile utilizzarlo dal Portale di gestione di Azure.
+      Esplora file mostra il percorso del file del pacchetto appena creato. È possibile copiare questo percorso per usarlo dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. Per pubblicare il pacchetto in un ambiente di distribuzione, è necessario utilizzare questo percorso come Percorso del pacchetto quando si crea un servizio cloud e distribuire il pacchetto in un ambiente con il [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. Per pubblicare il pacchetto in un ambiente di distribuzione, è necessario usare questo percorso come percorso del pacchetto quando si crea un servizio cloud e si distribuisce il pacchetto in un ambiente con il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facoltativo) Per annullare il processo di distribuzione, nel menu di scelta rapida per la voce nel registro attività, scegliere **Annulla e Rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
 
-    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
+    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facoltativo) Una volta avviate le istanze del ruolo, Visual Studio mostrerà automaticamente l'ambiente di distribuzione nel nodo **Servizi cloud** in Esplora Server. Da qui è possibile visualizzare lo stato delle singole istanze del ruolo. Vedere [Gestione delle risorse di Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). La figura seguente mostra le istanze del ruolo mentre si trovano ancora nello stato di inizializzazione:
 
@@ -121,7 +121,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
 1. Distribuzione Web utilizza un certificato autofirmato non attendibile per impostazione predefinita, che non è consigliato per il caricamento dei dati riservati. Se è necessario proteggere questo processo per i dati riservati, è possibile aggiungere un certificato SSL da utilizzare per le connessioni di Distribuzione Web. Questo certificato deve essere un certificato attendibile, ottenuto da un'autorità di certificazione (CA).
 
-    Per proteggere Distribuzione Web per ogni macchina virtuale per ognuno dei ruoli web, è necessario caricare il certificato attendibile che si desidera utilizzare per distribuzione web per nel [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Ciò garantisce che il certificato venga aggiunto alla macchina virtuale creata per il ruolo web quando si pubblica l'applicazione.
+    Per proteggere Distribuzione Web per ogni macchina virtuale per ognuno dei ruoli Web, è necessario caricare il certificato attendibile che si vuole usare per Distribuzione Web nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Ciò garantisce che il certificato venga aggiunto alla macchina virtuale creata per il ruolo web quando si pubblica l'applicazione.
 
 1. Per aggiungere un certificato SSL attendibile a IIS da utilizzare per le connessioni remote, attenersi alla seguente procedura:
 
@@ -129,7 +129,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
       Il browser richiederà di scaricare un file RDP.
 
-  1. Per aggiungere un certificato SSL, aprire il servizio di gestione in Gestione IIS. In Gestione IIS abilitare SSL aprendo il collegamento **Binding** nel riquadro **Azione**. La finestra di dialogo **Aggiungi binding del sito** verrà visualizzata. Scegliere **Aggiungi**, quindi scegliere HTTPS nell’elenco a discesa **Tipo**. Nell’elenco **Certificato SSL** scegliere il certificato SSL firmato da un'autorità di certificazione, caricato nel Portale di gestione di Azure. Per altre informazioni, vedere [Configurare le impostazioni di connessione per il servizio di gestione](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Per aggiungere un certificato SSL, aprire il servizio di gestione in Gestione IIS. In Gestione IIS abilitare SSL aprendo il collegamento **Binding** nel riquadro **Azione**. La finestra di dialogo **Aggiungi binding del sito** verrà visualizzata. Scegliere **Aggiungi**, quindi scegliere HTTPS nell’elenco a discesa **Tipo**. Nell'elenco **Certificato SSL** scegliere il certificato SSL firmato da una CA e caricato nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per altre informazioni, vedere [Configurare le impostazioni di connessione per il servizio di gestione](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] Se si aggiunge un certificato SSL attendibile, il triangolo giallo di avviso non viene visualizzato nella **Pubblicazione guidata**.
 
@@ -173,4 +173,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

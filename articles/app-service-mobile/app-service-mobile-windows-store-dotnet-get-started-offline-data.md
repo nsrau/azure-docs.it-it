@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
@@ -52,7 +52,17 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 
     >[AZURE.NOTE] Se l'installazione crea un riferimento aggiuntivo a una versione diversa di SQLite rispetto a quella installata, verrà generato un errore di compilazione. Risolvere l'errore rimuovendo il duplicato nel nodo **Riferimenti** dei progetti.
 
-3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nodo **Riferimenti** per i progetti relativi alle piattaforme Windows 8.1 Runtime e Windows Phone 8.1 e verificare che sia presente un riferimento a SQLite, che si trova nella sezione **Estensioni**.
+3. SQLite è una libreria nativa e richiede la scelta di un'architettura specifica della piattaforma, ad esempio **x86**, **x64** o **ARM**. **Qualsiasi CPU** non è supportata. In Esplora soluzioni fare clic sulla soluzione nella parte superiore della schermata, quindi nella casella di riepilogo relativa all'architettura del processore selezionare una delle impostazioni supportate da testare.
+
+    >[AZURE.NOTE] Se si usa Visual Studio 2015, fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Proprietà** per aprire Gestione configurazione e impostare la piattaforma per i progetti Windows e Windows Phone.
+
+    ![][13]
+
+
+4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** per i progetti relativi alle piattaforme Windows 8.1 Runtime e Windows Phone 8.1. Verificare che sia presente un riferimento a SQLite, disponibile nella sezione **Estensioni**.
+
+    >[AZURE.NOTE] Se si usa Visual Studio 2015, fare clic con il pulsante destro del mouse sul nodo **Riferimenti** per i progetti relativi alle piattaforme Windows 8.1 Runtime e Windows Phone 8.1, quindi scegliere **Aggiungi riferimento** per aprire Gestione riferimenti.
+
 
     ![][1] </br>
 
@@ -62,9 +72,6 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 
     **Windows Phone 8.1**
 
-4. SQLite è una libreria nativa e richiede la scelta di un'architettura specifica della piattaforma, ad esempio **x86**, **x64** o **ARM**. **Qualsiasi CPU** non è supportata. In Esplora soluzioni fare clic sulla soluzione nella parte superiore della schermata, quindi nella casella di riepilogo relativa all'architettura del processore selezionare una delle impostazioni supportate da testare.
-
-    ![][13]
 
 5. In Esplora soluzioni, nel progetto condiviso, aprire il file MainPage.cs. Rimuovere i simboli di commento dalle istruzioni using seguenti all'inizio del file:
 
@@ -206,7 +213,7 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 4. Nell'app fare clic sulla casella di controllo accanto ad alcuni elementi da completare nell'archivio locale.
 
-  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. Si noti tuttavia che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, poiché viene effettuata automaticamente ogni volta che si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento completato con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push che pull. Si noti tuttavia che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, poiché viene effettuata automaticamente ogni volta che si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 
 ##Riepilogo
@@ -259,10 +266,10 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 
 <!-- URLs. -->
-[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: ../app-service-mobile-offline-data-sync.md
-[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Creare un'app Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Creare un'app di Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
+[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creare un'app Windows]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creare un'app di Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite per Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite per Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite per Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
@@ -272,4 +279,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

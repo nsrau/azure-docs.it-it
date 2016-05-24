@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Convertire database esistenti per l'uso di strumenti dei database elastici"
+   pageTitle="Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Microsoft Azure"
    description="Convertire database partizionati per l'uso di strumenti dei database elastici mediante la creazione di un gestore mappe partizioni"
    services="sql-database"
    documentationCenter=""
@@ -13,31 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# Convertire database esistenti per l'uso di strumenti dei database elastici
+# Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 
-Se si ha una soluzione esistente scalabile orizzontalmente e partizionata, è possibile usare gli strumenti dei database elastici, ad esempio la [libreria client di database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), mediante le tecniche descritte in questo articolo.
+È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Prima è necessario convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
-Queste tecniche possono essere implementate tramite la [libreria client .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o gli script PowerShell disponibili nella pagina relativa agli [script degli strumenti dei database elastici - database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Negli esempi in questo articolo vengono usati gli script PowerShell.
+## Panoramica
+Per eseguire la migrazione di un database partizionato esistente:
 
-Si noti che è necessario creare i database prima di eseguire i cmdlet Add-Shard e New-ShardMapManager. I cmdlet non creano i database.
-
-i quattro passaggi della creazione di una distribuzione cloud.
-
-1. Preparare il database di gestione delle mappe partizioni.
+1. Preparare il [database del gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 2. Creare la mappa partizioni.
 3. Preparare le singole partizioni.  
 2. Aggiungere i mapping alla mappa partizioni.
 
-Per altre informazioni sull'oggetto ShardMapManager, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Per altre informazioni sugli strumenti dei database elastici, vedere la [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
+Queste tecniche possono essere implementate tramite la [libreria client .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o gli script di PowerShell disponibili nella pagina relativa agli [script degli strumenti di database elastico del database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Negli esempi in questo articolo vengono usati gli script PowerShell.
 
-## Preparazione del database di gestione delle mappe partizioni
-Come gestore mappe partizioni è possibile usare un database nuovo o uno esistente.
+Per altre informazioni su ShardMapManager, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Per una panoramica sugli strumenti di database elastici, vedere [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
+
+## Preparare il database del gestore delle mappe partizioni
+
+Il gestore delle mappe partizioni è un database speciale che contiene i dati per la gestione dei database con un numero maggiore di istanze. È possibile usare un database esistente o crearne un nuovo. Si noti che il database che funge da gestore delle mappe partizioni non deve essere lo stesso della partizione. Si noti anche che lo script di PowerShell non crea automaticamente il database.
 
 ## Passaggio 1: Creare un gestore mappe partizioni
-Si noti che un database che agisce da gestore mappe partizioni non deve essere lo stesso della partizione.
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -59,31 +58,32 @@ Dopo la creazione, è possibile recuperare il gestore mappe partizioni con quest
 	-SqlDatabaseName '<smm_db_name>' 
 
   
-## Passaggio 2: Creare una mappa partizioni
+## Passaggio 2: Creare la mappa partizioni
 
-È possibile scegliere di creare uno dei modelli seguenti:
+È necessario selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database:
 
-1. Singolo tenant per database 
+1. Singolo tenant per database. Per informazioni sui i termini, vedere il [glossario](sql-database-elastic-scale-glossary.md). 
 2. Più tenant per database (due tipi):
-	3. Mapping di tipo intervallo
-	4. Mapping di tipo elenco
+	3. Mapping di tipo elenco
+	4. Mapping di tipo intervallo
  
 
-Se si usa un modello di database single-tenant, usare il mapping di tipo elenco. Il modello single-tenant assegna un database per tenant. Si tratta di un modello efficace per gli sviluppatori SaaS in quanto semplifica la gestione.
+Per un modello a singolo tenant, creare una mappa partizioni con **mapping di tipo elenco**. Il modello single-tenant assegna un database per tenant. Si tratta di un modello efficace per gli sviluppatori SaaS in quanto semplifica la gestione.
 
 ![Mapping di tipo elenco][1]
 
-Al contrario, il modello di database multi-tenant assegna diversi tenant a un database singolo ed è possibile distribuire gruppi di tenant in più database. Si tratta di un modello valido quando si prevede una quantità limitata di dati per ogni tenant. In questo modello viene assegnato un intervallo di tenant a un database usando il *mapping di tipo intervallo*.
+Il modello multi-tenant assegna diversi tenant a un database singolo ed è possibile distribuire gruppi di tenant tra più database. Usare questo modello quando si prevedono esigenze di dati ridotte per ogni tenant. In questo modello viene assegnato un intervallo di tenant a un database usando il **mapping di tipo intervallo**.
  
 
 ![Mapping di tipo intervallo][2]
 
-È anche possibile implementare un modello di database multi-tenant usando il mapping di tipo elenco per assegnare più tenant a un database singolo. Ad esempio, DB1 viene usato per archiviare le informazioni sugli ID tenant 1 e 5 e DB2 archivia i dati per i tenant 7 e 10.
+In alternativa è possibile implementare un modello di database multi-tenant usando il *mapping di tipo elenco* per assegnare più tenant a un database singolo. Ad esempio, DB1 viene usato per archiviare le informazioni sugli ID tenant 1 e 5 e DB2 archivia i dati per i tenant 7 e 10.
 
 ![Tenant multipli su database singolo][3]
 
+**In base alla scelta effettuata, procedere con una delle opzioni seguenti:**
 
-## Passaggio 2, opzione 1: Creare una mappa partizioni per un mapping di tipo elenco
+### Opzione 1: creare una mappa partizioni per un mapping di tipo elenco
 Creare una mappa partizioni usando l'oggetto ShardMapManager.
 
 	# $ShardMapManager is the shard map manager object. 
@@ -92,7 +92,7 @@ Creare una mappa partizioni usando l'oggetto ShardMapManager.
 	-ShardMapManager $ShardMapManager 
  
  
-## Passaggio 2, opzione 2: Creare una mappa partizioni per un mapping di tipo intervallo
+### Opzione 2: creare una mappa partizioni per un mapping di tipo intervallo
 
 Si noti che per usare questo modello di mapping, i valori dell'ID tenant devono essere a intervalli continui ed è accettabile avere gap negli intervalli semplicemente ignorando l'intervallo durante la creazione dei database.
 
@@ -103,7 +103,7 @@ Si noti che per usare questo modello di mapping, i valori dell'ID tenant devono 
 	-RangeShardMapName 'RangeShardMap' 
 	-ShardMapManager $ShardMapManager 
 
-## Passaggio 2, opzione 3: mapping di tipo elenco su un database singolo
+### Opzione 3: eseguire il mapping di tipo elenco in un database singolo
 Per l'impostazione di questo modello è necessario anche creare una mappa di tipo elenco, come illustrato nel passaggio 2, opzione 1.
 
 ## Passaggio 3: preparare le singole partizioni
@@ -117,11 +117,11 @@ Aggiungere ciascuna partizione (database) al gestore mappe partizioni. Ciò cons
 	# The $ShardMap is the shard map created in step 2.
  
 
-## Passaggio 4: aggiungere i mapping
+## Passaggio 4: aggiungere mapping
 
 L'aggiunta di mapping dipende dal tipo di mappa partizioni creato. Se è stata creata una mappa di tipo elenco, aggiungere mapping di tipo elenco. Se è stata creata una mappa di tipo intervallo, aggiungere mapping di tipo intervallo.
 
-### Passaggio 4, opzione 1: eseguire il mapping dei dati per il mapping di tipo elenco
+### Opzione 1: eseguire il mapping dei dati per il mapping di tipo elenco
 
 Eseguire il mapping dei dati aggiungendo un mapping di tipo elenco per ogni tenant.
 
@@ -133,7 +133,7 @@ Eseguire il mapping dei dati aggiungendo un mapping di tipo elenco per ogni tena
 	-SqlServerName '<shard_server_name>' 
 	-SqlDatabaseName '<shard_database_name>' 
 
-### Passaggio 4, opzione 2: eseguire il mapping dei dati per il mapping di tipo intervallo
+### Opzione 2: eseguire il mapping dei dati per il mapping di tipo intervallo
 
 Aggiungere il mapping di tipo intervallo per tutte le associazioni intervallo ID tenant – database:
 
@@ -167,11 +167,11 @@ Dopo aver completato l'installazione, è possibile iniziare a usare la libreria 
 ## Passaggi successivi
 
 
-Ottenere gli script PowerShell dalla pagina relativa agli [script degli strumenti dei database elastici - database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Gli script di PowerShell sono disponibili nella pagina relativa agli [script degli strumenti di database elastici del database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Gli strumenti sono disponibili anche all'indirizzo di GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Gli strumenti sono disponibili anche in GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Usare lo strumento di suddivisione-unione per spostare dati in o da un modello multi-tenant a un modello single-tenant. Vedere la pagina relativa allo [strumento di suddivisione-unione](sql-database-elastic-scale-get-started.md).
+Usare lo strumento di suddivisione-unione per spostare dati in o da un modello multi-tenant a un modello single-tenant. Vedere la pagina relativa allo [strumento di divisione-unione](sql-database-elastic-scale-get-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -181,4 +181,4 @@ Usare lo strumento di suddivisione-unione per spostare dati in o da un modello m
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

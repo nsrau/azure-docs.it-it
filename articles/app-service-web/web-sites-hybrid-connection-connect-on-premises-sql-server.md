@@ -97,7 +97,9 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 
 L'applicazione Web Visual Studio richiede un database di appartenenza al quale Azure può effettuare l'accesso. Ciò richiede un database SQL Server o SQL Server Express (non il database LocalDB usato dal modello MVC per impostazione predefinita), quindi il database di appartenenza verrà creato nel prossimo passaggio.
 
-1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su** Connetti** e quindi fare clic su **Motore di database**). ![Connetti al server][SSMSConnectToServer]
+1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su** Connetti** e quindi fare clic su **Motore di database**).
+
+	![Connetti al server][SSMSConnectToServer]
 
 	In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il nome utente e la password creati in precedenza.
 
@@ -363,4 +365,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

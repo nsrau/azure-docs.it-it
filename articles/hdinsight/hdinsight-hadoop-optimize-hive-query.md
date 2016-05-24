@@ -57,6 +57,7 @@ Per ulteriori informazioni su questi concetti, fare clic su [qui](http://hortonw
 
 Per i cluster HDInsight basati su Windows, è necessario abilitare Tez in fase di provisioning. Di seguito è riportato uno script PowerShell di Azure di esempio per il provisioning di un cluster Hadoop con Tez abilitato:
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -220,4 +221,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

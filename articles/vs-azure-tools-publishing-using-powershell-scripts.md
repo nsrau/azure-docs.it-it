@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test
@@ -37,7 +37,7 @@ Sono disponibili altri strumenti e risorse per l'utilizzo di PowerShell in Visua
 
 ## Come generare script di pubblicazione
 
-È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). È inoltre possibile [generare script per le app web di pubblicazione nel servizio di Azure App](/app-service-web/web-sites-dotnet-get-started.md).
+È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](./virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). È inoltre possibile [generare script per le app web di pubblicazione nel servizio di Azure App](./app-service-web/web-sites-dotnet-get-started.md).
 
 ## Script generati da Visual Studio
 
@@ -149,7 +149,7 @@ Quando si crea una macchina virtuale, il file di configurazione JSON è simile a
 
 È possibile modificare la configurazione JSON per modificare l'operazione eseguita quando si eseguono gli script di pubblicazione. Le sezioni `cloudService` e `virtualMachine` sono necessarie, ma è possibile eliminare la sezione `databases` se non è necessario. Le proprietà che sono vuote nel file di configurazione predefinito generato da Visual Studio sono facoltative; quelle che dispongono di valori nel file di configurazione predefinite sono necessarie.
 
-Se si dispone di un sito Web che dispone di più ambienti di distribuzione (noti come slot) anziché di un unico sito di produzione in Azure, è possibile includere il nome dello slot nel nome del sito Web nel file di configurazione JSON. Ad esempio, se si dispone di un sito Web denominato **mysite** e una slot per esso denominata **test** allora l'URI è mysite test.cloudapp.net, ma il nome corretto da utilizzare nel file di configurazione è mysite(test). È possibile eseguire questo solo se il sito Web e le slot sono già presenti nella sottoscrizione. Se non sono presenti, creare il sito Web eseguendo lo script senza specificare la slot, quindi creare la slot nel portale di gestione di Azure e successivamente eseguire lo script con il nome del sito Web modificato. Per ulteriori informazioni su tutte le slot di distribuzione per le app web, vedere [Configurare ambienti di gestione temporanea per le app web nel Servizio dell’App di Azure](/app-service-web/web-sites-staged-publishing.md).
+Se si dispone di un sito Web che dispone di più ambienti di distribuzione (noti come slot) anziché di un unico sito di produzione in Azure, è possibile includere il nome dello slot nel nome del sito Web nel file di configurazione JSON. Ad esempio, se si dispone di un sito Web denominato **mysite** e una slot per esso denominata **test** allora l'URI è mysite test.cloudapp.net, ma il nome corretto da utilizzare nel file di configurazione è mysite(test). È possibile eseguire questo solo se il sito Web e gli slot sono già presenti nella sottoscrizione. Se non sono presenti, creare il sito Web eseguendo lo script senza specificare lo slot, quindi creare lo slot nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) e successivamente eseguire lo script con il nome del sito Web modificato. Per ulteriori informazioni su tutte le slot di distribuzione per le app web, vedere [Configurare ambienti di gestione temporanea per le app web nel Servizio dell’App di Azure](./app-service-web/web-sites-staged-publishing.md).
 
 ## Come eseguire gli script di pubblicazione
 
@@ -351,4 +351,4 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 Ulteriori informazioni sulla creazione di script PowerShell leggendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e altri script di Azure PowerShell nello [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

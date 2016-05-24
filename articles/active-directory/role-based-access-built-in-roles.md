@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #Controllo degli accessi in base al ruolo: ruoli predefiniti
@@ -34,7 +34,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) | È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) | È in grado di gestire tutto ad eccezione degli accessi. |
 | [Collaboratore Data Factory](#data-factory-contributor) | È in grado gestire le Data factory |
-| [Utente DevTest Lab](#devtest-lab-user) | Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
+| [Utente DevTest Labs](#devtest-labs-user) | Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
 | [Collaboratore account Document DB](#document-db-account-contributor) | È in grado di gestire account Document DB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) | È in grado di gestire account Intelligent Systems |
 | [Collaboratore di rete](#network-contributor) | È in grado di gestire tutte le risorse di rete |
@@ -152,21 +152,25 @@ Può gestire tutto ad eccezione degli accessi.
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-### Utente DevTest Lab
+### Utente DevTest Labs
 Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere le risorse di tutti i tipi | | Microsoft.DevTestLab/labs/labStats/action | Leggere statistiche lab | | Microsoft.DevTestLab/Environments/* | Creare e gestire ambienti |
+| */read | Leggere risorse di tutti i tipi |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Creare un ambiente lab |
+| Microsoft.DevTestLab/labs/formulas/delete | Eliminare formule |
+| Microsoft.DevTestLab/labs/formulas/write | Aggiungere o modificare formule |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Valutare i criteri lab |
 | Microsoft.Compute/virtualMachines/start/action | Avviare macchine virtuali |
-| Microsoft.Compute/virtualMachines/restart/action | Ottenere macchine virtuali |
+| Microsoft.Compute/virtualMachines/restart/action | Riavviare macchine virtuali |
 | Microsoft.Compute/virtualMachines/deallocate/action | Deallocare macchine virtuali |
-| Microsoft.Storage/storageAccounts/listKeys/action | Ottenere chiavi degli account di archiviazione |
-| Microsoft.Network/virtualNetworks/join/action | Partecipare a reti virtuali |
-| Microsoft.Network/loadBalancers/join/action | Partecipare a servizi di bilanciamento del carico |
-| Microsoft.Network/publicIPAddresses/link/action | Collegare a indirizzi IP publisc |
-| Microsoft.Network/networkInterfaces/link/action | Collegare a interfacce di rete |
+| Microsoft.Storage/storageAccounts/listKeys/action | Elencare le chiavi dell'account di archiviazione |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Aggiungere una rete virtuale |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Aggiungere un pool di indirizzi back-end del servizio di bilanciamento del carico |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Aggiungere una regola NAT in ingresso del servizio di bilanciamento del carico |
+| Microsoft.Network/publicIPAddresses/join/action | Aggiungere un indirizzo IP pubblico |
+| Microsoft.Network/networkInterfaces/join/action | Aggiungere una macchina virtuale a un'interfaccia di rete |
 | Microsoft.Network/networkInterfaces/write | Scrivere interfacce di rete |
 
 ### Collaboratore account Document DB
@@ -369,17 +373,17 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore account di archiviazione
-È in grado di gestire gli account di archiviazione
+Può gestire gli account di archiviazione, ma non accedervi.
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Creare e gestire account di archiviazione |
 | Microsoft.Authorization/*/read | Leggere tutte le autorizzazioni |
-| Microsoft.Resources/subscriptions/resources/read | È in grado di leggere le risorse di sottoscrizione |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse della sottoscrizione |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Leggere risorse dei gruppi di risorse della sottoscrizione |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Creare e gestire distribuzioni del gruppo di risorse della sottoscrizione |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
+| Microsoft.Insights/diagnosticSettings/* | Gestire le impostazioni di diagnostica |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Amministratore accessi utente
@@ -487,9 +491,9 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Insights/components/* | È in grado di creare e gestire i componenti di Insights |
 
 ## Vedere anche
-- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione del controllo degli accessi in base al ruolo nel portale di Azure.
+- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione alla funzionalità nel portale di Azure.
 - [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
-- [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
+- [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

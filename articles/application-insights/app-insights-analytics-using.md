@@ -18,7 +18,7 @@
 
 
 
-# Usare Analytics in Application Insights
+# Uso di Analytics in Application Insights
 
 
 [Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
@@ -27,7 +27,7 @@
 
 ## Aprire Analytics
 
-Dalla risorsa home dell'applicazione in Application Insights, fare clic su Analytics.
+Nella home page dell'app in Application Insights fare clic su Analytics.
 
 ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
 
@@ -37,7 +37,7 @@ L'esercitazione in linea fornisce alcune informazioni su come procedere.
 
 ## Scrivere query
 
-Scrivere l'inizio di una query con i nomi di qualsiasi tabella elencata a sinistra. Usare `|` per creare una pipeline di [operatori](app-insights-analytics-queries.md).
+Scrivere una query iniziando con uno dei nomi delle tabelle elencate a sinistra. Usare `|` per creare una pipeline di [operatori](app-insights-analytics-queries.md).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -45,7 +45,7 @@ Scrivere l'inizio di una query con i nomi di qualsiasi tabella elencata a sinist
 * Non inserire righe vuote nella query.
 * Nelle query è possibile usare interruzioni di riga.
 * È possibile mantenere più query nella finestra, separate da righe vuote.
-* Per eseguire una query, **posizionare il cursore all'interno o alla fine della query** e fare clic su Go.
+* Per eseguire una query, **posizionare il cursore all'interno o alla fine della query** e fare clic su Vai.
 
 
 ![](./media/app-insights-analytics-using/130.png)
@@ -56,7 +56,7 @@ Scrivere l'inizio di una query con i nomi di qualsiasi tabella elencata a sinist
 
 ## Ordinare i risultati
 
-È possibile scegliere le colonne che si desidera visualizzare. Espandere gli elementi per visualizzare tutti i valori della colonna restituita.
+È possibile scegliere le colonne che si desidera visualizzare. Espandere gli elementi per visualizzare tutti i valori della colonna restituiti.
 
 ![](./media/app-insights-analytics-using/030.png)
 
@@ -71,7 +71,7 @@ Selezionare il tipo di diagramma desiderato:
 
 ![](./media/app-insights-analytics-using/230.png)
 
-Se si dispone di diverse colonne dei tipi sulla destra, è possibile scegliere le assi x e y e una colonna di dimensioni per dividere i risultati:
+Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi x e y e una colonna di dimensioni per dividere i risultati in base a:
 
 ![](./media/app-insights-analytics-using/100.png)
 
@@ -79,19 +79,19 @@ Per impostazione predefinita, i risultati vengono inizialmente visualizzati in u
 
 ## Eseguire l'esportazione in Excel
 
-Dopo aver eseguito una query, è possibile scaricare un file .csv. Fare clic su **Esporta, In Excel**.
+Dopo aver eseguito una query, è possibile scaricare un file con estensione csv. Fare clic su **Esporta, Excel**.
 
 ## Esportare in Power BI
 
-1. Posizionare il cursore in una query e scegliere **Esportare in Power BI**.
+1. Posizionare il cursore in una query e scegliere **Esporta, Power BI**.
 
     ![](./media/app-insights-analytics-using/240.png)
 
     Verrà scaricato un file di script M.
 
-3. Copiare lo script del linguaggio M nell'editor di query avanzato Power BI Desktop.
+3. Copiare lo script del linguaggio M nell'editor di query avanzato di Power BI Desktop.
  * Aprire il file esportato.
- * In Power BI Desktop selezionare: **Ottenere i dati, Query vuota, Editor avanzato** e incollare lo script del linguaggio M.
+ * In Power BI Desktop selezionare: **Recupera dati, Query vuota, Editor avanzato** e incollare lo script del linguaggio M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -101,6 +101,7 @@ Dopo aver eseguito una query, è possibile scaricare un file .csv. Fare clic su 
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

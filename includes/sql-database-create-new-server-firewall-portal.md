@@ -30,6 +30,9 @@ Usare la procedura seguente nel portale di Azure per creare una regola firewall 
 
  	![nuovo firewall del server](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
+
+ 	> [AZURE.IMPORTANT] Se nel pannello aperto non è presente l'opzione **Firewall**, tornare indietro e assicurarsi che il pannello analizzato sia quello relativo al server logico del database SQL e non quello relativo al database SQL.
+
 5. Fare clic su **Aggiungi IP client** per consentire ad Azure di creare una regola per l'indirizzo IP del client specificato.
 
       ![nuovo firewall del server](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
@@ -38,8 +41,8 @@ Usare la procedura seguente nel portale di Azure per creare una regola firewall 
 
       ![nuovo firewall del server](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
     
-7. Fare clic su **Salva** per creare la regola del firewall a livello di server.
+7. Fare clic su **Salva** per creare la regola firewall a livello di server.
 
      ![nuovo firewall del server](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-	>[AZURE.IMPORTANT] È possibile che l'indirizzo IP client cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per verificare il proprio indirizzo IP, usare [Bing](http://www.bing.com/search?q=my%20ip%20address) e quindi aggiungere un singolo indirizzo IP o un intervallo di indirizzi IP. Per altre informazioni, vedere [Gestire le impostazioni del firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
+	>[AZURE.IMPORTANT] È possibile che l'indirizzo IP client cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per verificare il proprio indirizzo IP, usare [Bing](http://www.bing.com/search?q=my%20ip%20address) e quindi aggiungere un singolo indirizzo IP o un intervallo di indirizzi IP. Per altre informazioni, vedere la sezione sulla [gestione delle impostazioni del firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) del relativo articolo.

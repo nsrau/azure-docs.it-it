@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -214,35 +214,38 @@ Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure 
 
 ## 6\. Visualizzare i dati di telemetria in Application Insights
 
+
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
 Nel pannello Panoramica verranno visualizzati i dati delle richieste HTTP. Se non sono visualizzati, attendere alcuni secondi e quindi fare clic su Aggiorna.
 
 ![dati di esempio](./media/app-insights-java-get-started/5-results.png)
 
+[Altre informazioni sulle metriche.][metrics]
 
-Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate.
+Fare clic su qualsiasi grafico per visualizzare metriche aggregate più dettagliate.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia: `VERB controller/action`. Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`. In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
 
 
-E quando si visualizzano le proprietà di una richiesta, è possibile visualizzare gli eventi di telemetria associati, ad esempio le richieste e le eccezioni.
+### Dati dell'istanza 
+
+Fare clic su un tipo di richiesta specifico per visualizzare le singole istanze.
+
+In Application Insights vengono visualizzati due tipi di dati, ovvero i dati aggregati, archiviati e visualizzati come medie, conteggi e somme, e i dati di istanza, ovvero singoli report di richieste HTTP, eccezioni, visualizzazioni di pagina o eventi personalizzati.
+
+Quando si visualizzano le proprietà di una richiesta, è possibile visualizzare gli eventi di telemetria associati, ad esempio le richieste e le eccezioni.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Analytics: linguaggio di query avanzato
 
-[Altre informazioni sulle metriche.][metrics]
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analytics]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e informazioni utili per la diagnostica.
 
-#### Calcolo automatico del nome dell'indirizzo
-
-Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia: `VERB controller/action`
-
-
-Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`.
-
-In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
+![Esempio di Analytics](./media/app-insights-java-get-started/025.png)
 
 
 ## 5\. Installare l'applicazione nel server
@@ -398,4 +401,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/)
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

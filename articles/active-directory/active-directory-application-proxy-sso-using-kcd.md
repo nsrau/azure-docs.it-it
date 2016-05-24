@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Accesso Single Sign-On con il proxy di applicazione | Microsoft Azure"
+	pageTitle="Single Sign-On con il proxy di applicazione | Microsoft Azure"
 	description="Descrive come fornire accesso Single Sign-On mediante il proxy di applicazione di Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 
-# Accesso Single Sign-On con il proxy di applicazione
+# Single Sign-On con il proxy di applicazione
 
 > [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
-Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Fornisce la migliore esperienza utente: un utente accede al cloud, dove vengono eseguite tutte le convalide di sicurezza (preautenticazione) e, quando la richiesta viene inviata all'applicazione locale, il connettore del proxy di applicazione rappresenta l'utente in modo che l'applicazione back-end lo identifichi come proveniente da un dispositivo aggiunto al dominio.
+Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Questo tipo di accesso offre la migliore esperienza utente con i passaggi seguenti:
+1. Un utente accede al cloud
+2. Tutti i controlli di convalida della sicurezza avvengono nel cloud (autenticazione preliminare)
+3. Quando la richiesta viene inviata all'applicazione locale, il connettore del proxy di applicazione rappresenta l'utente in modo che l'applicazione back-end lo identifichi come proveniente da un dispositivo aggiunto al dominio.
 
 ![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -34,9 +37,9 @@ Il proxy di applicazione di Azure AD consente di fornire un'esperienza di access
 
 ### Diagramma di rete
 
-![Diagramma del flusso di autenticazione di Microsoft AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+Questo diagramma illustra il flusso quando un utente tenta di accedere a un'applicazione locale che usa l'autenticazione integrata di Windows.
 
-Questo diagramma illustra il flusso quando un utente tenta di accedere a un'applicazione locale che usa l'autenticazione integrata di Windows. Flusso generale:
+![Diagramma del flusso di autenticazione di Microsoft AAD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 1. L'utente immette l'URL per accedere all'applicazione locale tramite il proxy di applicazione.
 2. Il proxy di applicazione reindirizza la richiesta ai servizi di autenticazione di Azure AD per la preautenticazione. A questo punto, Azure AD applica gli eventuali criteri di autenticazione e autorizzazione appropriati, ad esempio l'autenticazione a più fattori. Se l'utente viene convalidato, Azure AD crea un token e lo invia all'utente.
@@ -49,9 +52,9 @@ Questo diagramma illustra il flusso quando un utente tenta di accedere a un'appl
 
 ### Prerequisiti
 
-1. Assicurarsi che le app, ad esempio le app Web SharePoint, siano impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx) oppure per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-2. Creare i nomi delle entità servizio per le applicazioni.
-3. Assicurarsi che il server che esegue il connettore e che il server che esegue l'app in fase di pubblicazione siano aggiunti a un dominio e che appartengano allo stesso dominio. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
+- Assicurarsi che le app, ad esempio le app Web SharePoint, siano impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx) oppure per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+- Creare i nomi delle entità servizio per le applicazioni.
+- Assicurarsi che il server che esegue il connettore e che il server che esegue l'app in fase di pubblicazione siano aggiunti a un dominio e che appartengano allo stesso dominio. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
 
 
 ### Configurazione di Active Directory
@@ -63,7 +66,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 1. In Active Directory passare a **Strumenti** > **Utenti e computer**.
 2. Selezionare il server che esegue il connettore.
 3. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** > **Delega**.
-4. Selezionare **Computer attendibile per la delega solo ai servizi specificati** e in **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità (SPN) del server dell'applicazione.
+4. Selezionare **Computer attendibile per la delega solo ai servizi specificati** e in **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità SPN del server applicazioni.
 5. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
 
 ![Schermata della finestra delle proprietà per Connector-SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
@@ -94,7 +97,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 
 | | |
 | --- | --- |
-| Metodo di autenticazione interna | Se si usa il proxy di applicazione per la preautenticazione, è possibile impostare un metodo di autenticazione interno per consentire agli utenti di usufruire dell'accesso Single Sign-On a questa applicazione. <br><br> Selezionare **Autenticazione integrata di Windows** se l'applicazione usa l'autenticazione integrata di Windows ed è possibile configurare la delega vincolata Kerberos per abilitare l'accesso Single Sign-On per questa applicazione. Le applicazioni con autenticazione integrata di Windows devono essere configurate usando la delega vincolata Kerberos, in caso contrario il proxy di applicazione non sarà in grado di pubblicare queste applicazioni. <br><br> Selezionare **Nessuna** se l'applicazione non usa l'autenticazione integrata di Windows. |
+| Metodo di autenticazione interna | Se si usa Azure AD per l'autenticazione preliminare, è possibile impostare un metodo di autenticazione interno per permettere agli utenti di usufruire dell'accesso Single Sign-On (SSO) a questa applicazione. <br><br> Selezionare **Autenticazione integrata di Windows** se l'applicazione usa l'autenticazione integrata di Windows ed è possibile configurare la delega vincolata Kerberos per abilitare l'accesso Single Sign-On per questa applicazione. Le applicazioni con autenticazione integrata di Windows devono essere configurate usando la delega vincolata Kerberos, in caso contrario il proxy di applicazione non sarà in grado di pubblicare queste applicazioni. <br><br> Selezionare **Nessuna** se l'applicazione non usa l'autenticazione integrata di Windows. |
 | SPN dell'applicazione interna | Si tratta del nome dell'entità servizio (SPN) dell'applicazione interna come configurato nell'istanza di Azure AD locale. Il nome dell'entità servizio viene usato dal connettore proxy di applicazione per recuperare i token Kerberos per l'applicazione mediante la delega vincolata Kerberos. |
 
 
@@ -124,14 +127,14 @@ Questa funzionalità consente a molte organizzazioni con diverse identità local
 
 - Non usano nomi di dominio internamente (joe).
 
-- Usano diversi alias locali e nel cloud. Ad esempio joe-johns@contoso.com anziché joej@contoso.com
+- Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com anziché joej@contoso.com
 
 Ciò risulta utile anche con le applicazioni che non accettano indirizzi nel formato di indirizzo di posta elettronica, ossia uno scenario molto comune per i server back-end non Windows.
 
 
 ### Impostazione dell'accesso Single Sign-On per varie identità cloud e locali
 
-1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Ciò avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano inoltre il modo in cui gli utenti accedono a Office 365, dispositivi Windows 10 e altre applicazioni che usano Azure AD come archivio di identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
+1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Questo avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano anche il modo in cui gli utenti accedono a Office 365, ai dispositivi Windows 10 e ad altre applicazioni che usano Azure AD come archivio di identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. Nelle impostazioni di configurazione dell'applicazione che si desidera modificare, selezionare l'**Identità di accesso delegata** da usare:
   - Nome dell'entità utente: joe@contoso.com  
   - Nome alternativo dell'entità utente: joed@contoso.local  
@@ -142,32 +145,21 @@ Ciò risulta utile anche con le applicazioni che non accettano indirizzi nel for
   ![Schermata del menu a discesa dell'identità di accesso delegata](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
 ### Risoluzione dei problemi di accesso Single Sign-On per diverse identità
-Se si verifica un errore nel processo di accesso Single Sign-On, tale errore verrà visualizzato nel registro eventi del computer connettore, come illustrato in [Risoluzione dei problemi](active-directory-application-proxy-troubleshoot.md). Tuttavia, in alcuni casi, la richiesta verrà correttamente inviata all'applicazione back-end mentre tale applicazione invierà una risposta in numerose altre risposte HTTP. Per la risoluzione di problemi di questo tipo, è consigliabile iniziare esaminando il numero di eventi 24029 sul computer connettore nel registro eventi di sessione del proxy di applicazione. L'identità utente usata per la delega verrà visualizzata nel campo "utente" dei dettagli dell'evento. Per attivare il log della sessione, selezionare **Visualizza registri analitici e di debug** nel menu di visualizzazione del visualizzatore eventi.
+Se si verifica un errore nel processo di accesso Single Sign-On, tale errore verrà visualizzato nel registro eventi del computer connettore, come illustrato in [Risoluzione dei problemi](active-directory-application-proxy-troubleshoot.md). Tuttavia, in alcuni casi, la richiesta verrà correttamente inviata all'applicazione back-end mentre tale applicazione invierà una risposta in numerose altre risposte HTTP. Per la risoluzione di problemi di questo tipo, è consigliabile iniziare esaminando il numero di eventi 24029 sul computer connettore nel registro eventi di sessione del proxy di applicazione. L'identità utente usata per la delega verrà visualizzata nel campo "utente" dei dettagli dell'evento. Per attivare il log della sessione, scegliere **Visualizza registri analitici e di debug** dal menu di visualizzazione del Visualizzatore eventi.
 
 
 ## Vedere anche
-Si può fare molto di più con il proxy dell'applicazione:
-
 
 - [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
-- [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
-- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
-- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
+- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
+- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
-## Ulteriori informazioni sul proxy dell’applicazione
-- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
-- [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
-- [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Risorse aggiuntive
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-- [Identità di Azure](fundamentals-identity.md)
+Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

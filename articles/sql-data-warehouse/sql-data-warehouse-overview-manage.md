@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestire i database in Azure SQL Data Warehouse
@@ -59,7 +59,7 @@ Per iniziare, vedere [Connettersi ed eseguire query con SQLCMD][] e [Creare un d
 
 ## Ridimensionare le risorse di calcolo
 
-In SQL Data Warehouse, è possibile aumentare o ridurre rapidamente le prestazioni aumentando o riducendo le risorse di calcolo di CPU, memoria e larghezza di banda di I/O. Per aumentare le prestazioni, è sufficiente modificare il numero delle Unità Data Warehouse (DWU) allocate al proprio database da SQL Data Warehouse. SQL Data Warehouse apporta rapidamente la modifica e gestisce tutte le modifiche sottostanti all'hardware o al software.
+In SQL Data Warehouse, è possibile aumentare o ridurre rapidamente le prestazioni aumentando o riducendo le risorse di calcolo di CPU, memoria e larghezza di banda di I/O. Per ridimensionare le prestazioni, è sufficiente modificare il numero di Unità Data Warehouse (DWU) allocate al proprio database da SQL Data Warehouse. SQL Data Warehouse apporta rapidamente la modifica e gestisce tutte le modifiche sottostanti all'hardware o al software.
 
 Per altre informazioni sulla scalabilità delle DWU, vedere la sezione [Scalare le prestazioni][].
 
@@ -115,7 +115,7 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Image references-->
 
 <!--Article references-->
-[opzioni di ridondanza dell'archiviazione di Azure]: storage-redundancy.md#read-access-geo-redundant-storage
+[opzioni di ridondanza dell'archiviazione di Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Creare un database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

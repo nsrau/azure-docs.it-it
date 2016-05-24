@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # Informazioni sulla connettività sicura cross-premises per le reti virtuali
 
-Questo articolo illustra le diverse modalità di connessione del sito locale a una rete virtuale di Azure. L'articolo si applica a entrambi i modelli di distribuzione classica e di Gestione risorse.
+Questo articolo illustra le diverse modalità di connessione del sito locale a una rete virtuale di Azure. L'articolo si applica a entrambi i modelli di distribuzione classica e di Gestione risorse. Per diagrammi di connessione del gateway VPN, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
 
 Sono disponibili tre opzioni di connessione: da sito a sito, da punto a sito ed ExpressRoute. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 
@@ -31,20 +31,7 @@ Sono disponibili tre opzioni di connessione: da sito a sito, da punto a sito ed 
 
 La tabella seguente può aiutare nella scelta della migliore opzione di connettività per la soluzione.
 
-
-| - | **Da punto a sito** | **Da sito a sito** | **ExpressRoute** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Servizi supportati di Azure** | Servizi cloud e Macchine virtuali | Servizi cloud e Macchine virtuali | [Elenco dei servizi](../expressroute/expressroute-faqs.md#supported-services) |
-| **Larghezze di banda tipiche** | Aggregazione tipica < 100 Mbps | Aggregazione tipica < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocolli supportati** | Secure Socket Tunneling Protocol (SSTP) | IPsec | Connessione diretta su VLAN, tecnologie VPN del provider (MPLS, VPLS, ecc.) |
-| **Routing** | Basato su route (dinamico) | Sono supportati il routing basato su criteri (routing statico) e il routing basato su route (VPN routing dinamico) | BGP |
-| **Resilienza della connessione** | attiva-passiva | attiva-passiva | attiva-attiva |
-| **Caso d'uso tipico** | Creazione di prototipi, scenari di sviluppo/test /laboratorio per servizi cloud e macchine virtuali | Scenari di sviluppo/test/laboratorio e carichi di lavoro di produzione su scala ridotta per servizi cloud e macchine virtuali | Accesso a tutti i servizi di Azure (elenco convalidato), carichi di lavoro aziendali e di importanza strategica, backup, Big Data, Azure come sito di ripristino di emergenza |
-| **CONTRATTO DI SERVIZIO** | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) |
-| **Prezzi** | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentazione tecnica** | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **DOMANDE FREQUENTI** | [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## Connessioni Site-to-site
 
@@ -60,10 +47,12 @@ Una VPN da sito a sito consente di creare una connessione sicura tra il sito loc
 
 - Il dispositivo VPN locale deve disporre di un indirizzo IP IPv4 a Internet. Non può essere dietro un NAT.
 - È necessario il dispositivo VPN compatibile. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). 
-- Il dispositivo VPN che si utilizza deve essere compatibile con il tipo di gateway necessario per la soluzione. Vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
-- La SKU del gateway influirà anche sulla velocità effettiva aggregata. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpngateways.md#gateway-skus). 
+- Il dispositivo VPN che si utilizza deve essere compatibile con il tipo di gateway necessario per la soluzione. Vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
+- La SKU del gateway influirà anche sulla velocità effettiva aggregata. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpngateways.md#gwsku). 
 
-Se si vuole configurare una connessione gateway VPN da sito a sito, mediante il portale di Azure classico e il modello di distribuzione classica, vedere[Configurare una rete virtuale con una connessione di gateway VPN da sito a sito per il modello di distribuzione classica](vpn-gateway-site-to-site-create.md). Se si vuole configurare una VPN da sito a sito, mediante il modello di distribuzione di Gestione risorse, vedere[Creare una rete virtuale con una connessione VPN da sito a sito per il modello di Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md).
+**Metodi e modelli di distribuzione disponibili per la connessione da sito a sito**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 
 ## Connessioni Point-to-Site
@@ -84,7 +73,9 @@ Possono esistere contemporaneamente configurazioni da punto a sito e da sito a s
 
 - Il dispositivo VPN locale non dispone di un indirizzo IP IPv4 a Internet.
 
-Se si vuole configurare una connessione da punto a sito per il modello di distribuzione classica, vedere [Configurare una rete virtuale con una connessione VPN da punto a sito per il modello di distribuzione classica](vpn-gateway-point-to-site-create.md). Se si vuole configurare una connessione da punto a sito per il modello di Gestione risorse, vedere [Configurare una rete virtuale con una connessione VPN da punto a sito per il modello di Gestione risorse](vpn-gateway-howto-point-to-site-rm-ps.md).
+**Metodi e modelli di distribuzione disponibili per la connessione da punto a sito**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Connessioni ExpressRoute
 
@@ -97,6 +88,8 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
+- Per altre informazioni sul gateway VPN, vedere gli articoli [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md), [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) e [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+- Per altre informazioni su ExpressRoute, vedere gli articoli [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md), [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Flussi di lavoro ExpressRoute](../expressroute/expressroute-workflows.md).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/11/2016"
 	ms.author="daleche"/>
 
 # Ripristinare un database a un momento precedente, ripristinare un database eliminato o eseguire il ripristino in seguito a un'interruzione del data center
@@ -42,4 +42,4 @@ Azure offre inoltre backup di ogni database in un'area diversa (un backup con ri
 
 - Nel [portale di Azure](https://azure.microsoft.com/) fare clic su **Nuovo**, quindi su **Dati e archiviazione**, **Database SQL** e quindi selezionare **Backup** come origine del database. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

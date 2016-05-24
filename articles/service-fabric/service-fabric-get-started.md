@@ -3,7 +3,7 @@
    description="Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/18/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Preparare l'ambiente di sviluppo
  Per compilare ed eseguire [applicazioni di Service Fabric][1] nel computer di sviluppo, è necessario installare il runtime, l'SDK e gli strumenti, È anche necessario abilitare l'esecuzione di script Windows PowerShell inclusi nell'SDK.
@@ -64,4 +64,4 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Collegamento WebPI Core SDK"
 [powershell5-download]: https://www.microsoft.com/it-IT/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

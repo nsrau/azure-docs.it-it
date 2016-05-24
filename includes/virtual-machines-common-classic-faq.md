@@ -13,6 +13,13 @@ Tutti i sottoscrittori possono eseguire software del server in una macchina virt
 
 Per le immagini client Windows, alcune versioni di Windows 7 e Windows 8.1 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
+## Perché i gruppi di affinità sono deprecati
+
+I gruppi di affinità sono un concetto legacy fornito in origine per migliorare le prestazioni di rete da VM a VM nelle prime progettazioni di rete di Azure e per supportare la versione iniziale delle reti virtuali (VNet) che erano limitate a un set ridotto di componenti hardware in un'area. L'attuale rete di Azure all'interno di un'area è progettata in modo che i gruppi di affinità non siano più necessari. Le reti virtuali fanno anche parte di ambito a livello di area, quindi un gruppo di affinità non è più necessario quando si usa una rete virtuale. A seguito di questi miglioramenti, non è più consigliabile che i clienti usino i gruppi di affinità, perché possono costituire una limitazione in alcuni scenari. L'uso dei gruppi di affinità comporterà l'inutile associazione delle VM a componenti hardware specifici, con la conseguente limitazione delle opzioni relative alle dimensioni delle VM disponibili. Può anche comportare errori correlati alla capacità quando di aggiungono nuove VM se l'hardware specifico associato al gruppo di affinità ha quasi esaurito la capacità.
+
+Le funzionalità del gruppo di affinità sono già deprecate nel modello di distribuzione Azure Resource Manager e nel portale. Viene anche deprecato il supporto per la creazione di gruppi di affinità e la creazione di risorse di archiviazione aggiunte a un gruppo di affinità dal portale classico. Non è necessario modificare i servizi cloud esistenti che usano un gruppo di affinità. I nuovi servizi cloud non dovranno invece usare gruppi di affinità, a meno che questo approccio non sia consigliato da un tecnico di Azure.
+
+
 ## Quanta memoria è possibile utilizzare con una macchina virtuale?
 
 Ogni disco dati può essere fino a 1 TB. Il numero di dischi dati che è possibile utilizzare dipende dalla dimensione della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md).
@@ -137,5 +144,3 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 [Diversi modi per creare una macchina virtuale Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Diversi modi per creare una macchina virtuale Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
-
-<!---HONumber=AcomDC_0413_2016-->

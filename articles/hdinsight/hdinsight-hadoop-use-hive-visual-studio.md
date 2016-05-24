@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
@@ -31,7 +31,13 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Linux o su Windows)
 
-* Visual Studio 2012 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [Update 3](http://go.microsoft.com/fwlink/?LinkId=390465) o [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
+* Visual Studio (una delle versioni seguenti):
+
+    Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
+
+    Visual Studio 2015 (Community/Enterprise)
+
+- Strumenti HDInsight per Visual Studio. Vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) per informazioni sull'installazione e la configurazione degli strumenti.
 
 ##<a id="run"></a> Eseguire query Hive usando HDInsight Tools per Visual Studio
 
@@ -59,7 +65,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
     * **INPUT\_\_FILE\_\_NAME come '%.log'** -indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con. log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
 
-3. Nella barra degli strumenti selezionare il **cluster HDInsight** che si desidera usare per la query, quindi fare clic su **Invia** per eseguire le istruzioni come processo Hive. Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene imposto su **Completato**.
+3. Nella barra degli strumenti selezionare il **cluster HDInsight** da usare per la query, quindi fare clic su **Submit to WebHCat** per eseguire le istruzioni come processo Hive con WebHCat. È anche possibile inviare il processo con il pulsante __Esegui tramite HiveServer2__ se HiveServer2 è disponibile nella versione del cluster. Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene imposto su **Completato**.
 
 4. Usare il collegamento **Output processo** per visualizzare l'output del processo. Dovrebbe includere `[ERROR] 3`, ovvero il valore restituito dall'istruzione SELECT.
 
@@ -135,4 +141,4 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

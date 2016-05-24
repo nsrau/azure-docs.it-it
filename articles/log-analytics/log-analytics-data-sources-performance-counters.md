@@ -86,11 +86,13 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 | Type=Perf | Tutti i dati sulle prestazioni |
 | Type=Perf Computer="Computer" | Tutti i dati sulle prestazioni da un computer specifico |
 | Type=Perf CounterName="Lunghezza corrente coda del disco" | Tutti i dati sulle prestazioni da un contatore specifico |
-| Type=Perf (ObjectName=Processor) CounterName="% tempo processore" InstanceName=\_Totale | measure Avg(Average) as AVGCPU by Computer | Utilizzo medio della CPU per tutti i computer |
-| Type=Perf (CounterName="% tempo processore") | measure max(Max) by Computer | Utilizzo massimo della CPU per tutti i computer |
-| Type=Perf ObjectName=LogicalDisk CounterName="Lunghezza corrente coda del disco" Computer="Nome computer" | measure Avg(Average) by InstanceName | Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
-| Type=Perf CounterName="Trasferimenti disco/sec" | measure percentile95(Average) by Computer | 95° percentile di trasferimenti disco al secondo per tutti i computer |
-| Type=Perf CounterName="% tempo processore" InstanceName="\_Totale" | measure avg(CounterValue) by Computer Interval 1HOUR | Utilizzo orario medio della CPU per tutti i computer | | Type=Perf Computer="Computer" CounterName=%* InstanceName=\_Totale | measure percentile70(CounterValue) by CounterName Interval 1HOUR | 70° percentile orario di ogni contatore percentuale % per un computer specifico | | Type=Perf CounterName="% tempo processore" InstanceName="\_Totale" (Computer="Computer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Utilizzo CPU orario medio, minimo, massimo e 75° percentile per un computer specifico |
+| Type=Perf (ObjectName=Processor) CounterName="% tempo processore" InstanceName=\_Totale measure Avg(Average) as AVGCPU by Computer | Utilizzo medio della CPU per tutti i computer |
+| Type=Perf (CounterName="% tempo processore") measure max(Max) by Computer | Utilizzo massimo della CPU per tutti i computer |
+| Type=Perf ObjectName=LogicalDisk CounterName="Lunghezza corrente coda del disco" Computer="Nome computer" measure Avg(Average) by InstanceName | Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
+| Type=Perf CounterName="Trasferimenti disco/sec" measure percentile95(Average) by Computer | 95° percentile di trasferimenti disco al secondo per tutti i computer |
+| Type=Perf CounterName="% tempo processore" InstanceName="\_Totale" measure avg(CounterValue) by Computer Interval 1HOUR | Utilizzo orario medio della CPU per tutti i computer |
+| Type=Perf Computer="Computer" CounterName=%* InstanceName=\_Totale measure percentile70(CounterValue) by CounterName Interval 1HOUR | 70° percentile orario di ogni contatore percentuale % per un computer specifico |
+| Type=Perf CounterName="% tempo processore" InstanceName="\_Totale" (Computer="Computer") measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Utilizzo CPU orario medio, minimo, massimo e 75° percentile per un computer specifico |
 
 ## Visualizzazione dei dati sulle prestazioni
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,8 +39,8 @@ Se il pannello delle funzionalità B2C è stato aggiunto alla schermata iniziale
 
 È inoltre possibile accedere al pannello direttamente, passando a [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) dove **{tenant}** deve essere sostituito con il nome usato al momento della creazione del tenant, ad esempio contosob2c. È possibile creare un segnalibro su questo collegamento per l'uso futuro.
 
-> [AZURE.IMPORTANT]
- È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.
+    > [AZURE.IMPORTANT]
+    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
 ### 2\. Accesso nel portale di Azure classico
 
@@ -60,7 +60,7 @@ Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come a
 
 5. Se si sta scrivendo un'applicazione per dispositivi mobili, impostare **Includi client nativo** su **Sì**. Copiare l'**URI di reindirizzamento** predefinito creato automaticamente.
 6. Fare clic su **Crea** per registrare l'applicazione.
-7. Fare clic sull'applicazione appena creata e copiare l'**ID applicazione** univoco globale che verrà usato in seguito nel codice.
+7. Fare clic sull'applicazione appena creata e copiare l'**ID client applicazione** univoco globale che verrà usato in seguito nel codice.
 
 ## Creare un'applicazione di avvio rapido
 
@@ -68,4 +68,4 @@ Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile compl
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/04/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 
@@ -233,4 +233,4 @@ Eseguire lo script \\Programmi\\\Multi-Factor Authentication Server\\Register-Mu
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

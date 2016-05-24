@@ -36,7 +36,8 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 Sono necessari i pacchetti NuGet seguenti:
 
 	Install-Package Microsoft.Azure.Common.Authentication -Pre
-	Install-Package Microsoft.Azure.Management.HDInsight -Pre
+	Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+	Install-Package Microsoft.Azure.Management.HDInsight
 
 L'esempio di codice indica come connettersi ad Azure prima di poter amministrare cluster HDInsight con una sottoscrizione Azure.
 
@@ -48,6 +49,7 @@ L'esempio di codice indica come connettersi ad Azure prima di poter amministrare
 	using Microsoft.Azure.Common.Authentication.Models;
 	using Microsoft.Azure.Management.HDInsight;
 	using Microsoft.Azure.Management.HDInsight.Models;
+	using Microsoft.Azure.Management.ResourceManager;
 
 	namespace HDInsightManagement
 	{
@@ -60,6 +62,10 @@ L'esempio di codice indica come connettersi ad Azure prima di poter amministrare
 			{
 				var tokenCreds = GetTokenCloudCredentials();
 				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+				
+				var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+				var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+				var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
 				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -273,4 +279,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

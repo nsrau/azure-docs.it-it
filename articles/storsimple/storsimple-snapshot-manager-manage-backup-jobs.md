@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Gestione snapshot StorSimple operazioni di backup | Microsoft Azure"
-   description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup pianificati, attualmente in esecuzione e completati."
+   pageTitle="Operazioni di backup di StorSimple Snapshot Manager | Microsoft Azure"
+   description="Viene descritto come usare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire i processi di backup pianificati, attualmente in esecuzione e completati."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
-# Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup
+# Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
 
 ## Panoramica
 
@@ -40,7 +40,7 @@ Utilizzare la procedura seguente per visualizzare i processi di backup pianifica
 
     - **Ultima esecuzione**: la data e l'ora dello snapshot pianificato più recente.
 
-    >[AZURE.NOTE]Solo per gli snapshot monouso, il valore di **Prossima esecuzione** e **Ultima esecuzione** sarà lo stesso.
+    >[AZURE.NOTE] Solo per gli snapshot monouso, il valore di **Prossima esecuzione** e **Ultima esecuzione** sarà lo stesso.
  
     ![Processi di backup pianificati](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
@@ -96,11 +96,11 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
     
     - **Trascorso**: la quantità di tempo trascorso dall'avvio del backup.
 
-    - **Produttività media (MB)**: la quantità media dei dati consegnati, espressa in megabyte (MB).
+    - **Velocità effettiva media (MB)**: rapporto tra i byte totali di dati elaborati e il tempo totale usato per l'elaborazione (MB).
 
-    - **Byte elaborati (MB)**: la quantità di dati del gruppo di volumi che è stata elaborata (in MB).
+    - **Byte elaborati (MB)**: totale dei byte di dati elaborati (in MB).
 
-    - **Byte scritti (MB)**: la quantità di dati scritti per il backup (in MB).
+    - **Byte scritti (MB)**: totale dei byte scritti (in MB). Questo valore include i dati e i metadati e quindi in genere è maggiore rispetto al valore dei byte elaborati.
 
     ![Processi attualmente in esecuzione](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
@@ -108,8 +108,8 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
 ## Passaggi successivi
 
-- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-- Informazioni su come[Utilizzare Gestione snapshot StorSimple per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md)
+- Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md)
 
 
 
@@ -130,4 +130,4 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

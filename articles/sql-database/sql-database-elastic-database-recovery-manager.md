@@ -3,7 +3,7 @@
 	description="Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni." 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
@@ -129,14 +129,13 @@ Il failover geografico e il ripristino sono operazioni che di solito sono gestit
 4. Rilevare le incoerenze nel mapping tra la mappa globale partizioni e la mappa locale partizioni. 
 5. Risolvere le differenze tra la mappa globale partizioni e la mappa locale partizioni, considerando attendibile la mappa locale partizioni. 
 
-Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa partizioni che riflette i percorsi precedenti all'evento di failover. 2. Collega le partizioni alla mappa partizioni riflettendo i nuovi percorsi delle partizioni. Il parametro "Configuration.SecondaryServer" è il nuovo nome del server, ma lo stesso nome del database. 3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione. 4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione.
+L'esempio segue questa procedura:
+1. Rimuove le partizioni dalla mappa partizioni che riflette i percorsi precedenti all'evento di failover.
+2. Collega le partizioni alla mappa partizioni riflettendo i nuovi percorsi delle partizioni. Il parametro "Configuration.SecondaryServer" è il nuovo nome del server, ma lo stesso nome del database.
+3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione. 
+4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione. 
 
-	var shards = smm.GetShards(); 
-	foreach (shard s in shards) 
-	{ 
-	 if (s.Location.Server == Configuration.PrimaryServer) 
-		 { 
-		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
 		  rm.DetachShard(s.Location); 
 		
@@ -149,7 +148,7 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
-	} 
+	}
 
 
 
@@ -160,4 +159,4 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

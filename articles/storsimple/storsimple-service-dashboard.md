@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Dashboard del servizio StorSimple Manager | Microsoft Azure"
    description="Viene descritto il dashboard del servizio StorSimple Manager e si illustra come utilizzarlo per monitorare l'integrità della soluzione StorSimple."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos" />
 
 # Utilizzare il dashboard del servizio StorSimple Manager
@@ -25,7 +25,7 @@ La pagina dashboard del servizio StorSimple Manager fornisce una visualizzazione
 
 Nel dashboard del servizio StorSimple Manager sono visualizzate le informazioni seguenti:
 
-- Nell’area **grafico** è possibile visualizzare il grafico delle metriche pertinenti per i dispositivi. È possibile visualizzare l'archiviazione primaria usata in tutti i dispositivi, nonché l'archiviazione cloud utilizzata dai dispositivi in un periodo di tempo. Utilizzare i controlli nell'angolo in alto a destra del grafico per specificare una scala temporale di 1 settimana, 1 mese, 3 mesi o 1 anno.
+- Nell’area **grafico** è possibile visualizzare il grafico delle metriche pertinenti per i dispositivi. È possibile visualizzare l'archiviazione primaria (aggiunta in locale e a livelli) usata in tutti i dispositivi, nonché l'archiviazione cloud utilizzata dai dispositivi in un periodo di tempo. Utilizzare i controlli nell'angolo in alto a destra del grafico per specificare una scala temporale di 1 settimana, 1 mese, 3 mesi o 1 anno.
 
 - La **Panoramica sull'utilizzo** illustra l'archiviazione primaria fornita e utilizzata da tutti i dispositivi rispetto all'archiviazione totale disponibile tra tutti i dispositivi. **Fornito** si riferisce alla quantità di spazio di archiviazione preparata e allocata per l'utilizzo, mentre **utilizzato** si riferisce all'uso dei volumi come visualizzato dagli iniziatori connessi ai dispositivi.
 
@@ -76,4 +76,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

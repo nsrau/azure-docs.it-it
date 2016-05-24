@@ -29,7 +29,12 @@ Nella tabella seguente sono elencate le origini dati attualmente disponibili in 
 
 | Origine dati | Tipo evento | Descrizione |
 |:--|:--|:--|
-| [Log personalizzati](log-analytics-data-sources-custom-logs.md) | <NomeLog>\_CL | File di testo negli agenti di Windows o Linux contenenti informazioni di log. | | [Log eventi di Windows](log-analytics-data-sources-windows-events.md) | Evento | Eventi raccolti dal log eventi sui computer Windows. | | [Contatori delle prestazioni di Windows](log-analytics-data-sources-performance-counters.md) | Prestazioni | Contatori delle prestazioni raccolti dai computer Windows. | | [Contatori delle prestazioni di Linux](log-analytics-data-sources-performance-counters.md) | Prestazioni | Contatori delle prestazioni raccolti dai computer Linux. | | [Log IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Log di Internet Information Services in formato W3C. | | SysLog | SysLog | Eventi di SysLog nei computer Windows o Linux. |
+| [Log personalizzati](log-analytics-data-sources-custom-logs.md) | \<NomeLog\>_CL | File di testo negli agenti di Windows o Linux contenenti informazioni di log. |
+| [Log eventi di Windows](log-analytics-data-sources-windows-events.md) | Evento | Eventi raccolti dal log eventi sui computer Windows. |
+| [Contatori delle prestazioni di Windows](log-analytics-data-sources-performance-counters.md) | Prestazioni | Contatori delle prestazioni raccolti dai computer Windows. |
+| [Contatori delle prestazioni di Linux](log-analytics-data-sources-performance-counters.md) | Prestazioni | Contatori delle prestazioni raccolti dai computer Linux. |
+| [Log IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Log di Internet Information Services in formato W3C. |
+| SysLog | SysLog | Eventi di SysLog nei computer Windows o Linux. |
 
 ## Configurazione delle origini dati
 

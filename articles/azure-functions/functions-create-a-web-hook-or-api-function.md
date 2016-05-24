@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="05/07/2016"
    ms.author="glenga"/>
    
 # Creare un webhook o una funzione API di Azure
@@ -67,7 +67,8 @@ Verrà successivamente creato il webhook effettivo nel repository GitHub.
 
 	![Creare una nuova funzione di webhook in GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-A questo punto, il webhook di GitHub è configurato per attivare la funzione quando un nuovo commento al problema viene aggiunto. È giunto il momento di testarlo.
+A questo punto, il webhook di GitHub è configurato per attivare la funzione quando un nuovo commento al problema viene aggiunto. 
+È giunto il momento di testarlo.
 
 ##Testare la funzione
 
@@ -82,11 +83,14 @@ A questo punto, il webhook di GitHub è configurato per attivare la funzione qua
 
 Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
-+ [Riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
-+ [Test di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per il test delle funzioni.
-+ [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md) Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.  
++ [Riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
+Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
++ [Test di Funzioni di Azure](functions-test-a-function.md)  
+Descrive diversi strumenti e tecniche per il test delle funzioni.
++ [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
+Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.  
 
 
 [AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0511_2016-->

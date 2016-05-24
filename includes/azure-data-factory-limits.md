@@ -2,6 +2,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 
 **Risorsa** | **Limite predefinito** | **Limite massimo**
 -------- | ------------- | -------------
+data factory in una sottoscrizione di Azure | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 pipeline all'interno di una factory di dati | 100 | 2500
 set di dati all'interno di una factory di dati | 500 | 5000
 sezioni simultanee per ogni set di dati | 10 | 10
@@ -29,4 +30,4 @@ Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0323_2016-->
+

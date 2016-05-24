@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Incorporare un report di Power BI con un oggetto IFrame
@@ -180,8 +180,42 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+Il report appena incorporato nell'applicazione può essere filtrato. La sezione seguente illustra come filtrare un report usando una sintassi dell'URL.
 
-Questo articolo ha illustrato il codice per integrare un report di **Power BI** in un'app. Per iniziare rapidamente a integrare un report in un'app, scaricare questi esempi in GitHub:
+## Filtrare un report
+
+È possibile filtrare un report incorporato tramite una sintassi dell'URL. A tale scopo, aggiungere un parametro della stringa di query all'URL iFrame src specificando il filtro. È possibile **filtrare in base a un valore** e **nascondere il riquadro filtro**.
+
+
+**Filtrare in base a un valore**
+
+Per filtrare in base a un valore è possibile usare una sintassi di query **$filter** con un operatore **eq**, come indicato di seguito:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+Ad esempio, è possibile applicare un filtro in base alla catena di negozi "Lindseys". La parte del filtro dell'URL avrebbe un aspetto simile al seguente:
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} non può includere spazi o caratteri speciali. {fieldValue} accetta un singolo valore categorico.
+
+**Nascondere il riquadro filtro**
+
+Per nascondere il **riquadro filtro** aggiungere **filterPaneEnabled** alla stringa di query del report, come indicato di seguito:
+
+```
+&filterPaneEnabled=false
+```
+
+## Conclusioni
+
+Questo articolo ha illustrato il codice per l'integrazione di un report di **Power BI** in un'app. Per iniziare rapidamente a integrare un report in un'app, scaricare questi esempi in GitHub:
 
 - [Esempio di integrazione di un report con IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [App Web dashboard di esempio](http://go.microsoft.com/fwlink/?LinkId=761493)
@@ -194,4 +228,4 @@ Questo articolo ha illustrato il codice per integrare un report di **Power BI** 
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Ottieni report](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

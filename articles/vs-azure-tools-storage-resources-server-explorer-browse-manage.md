@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Esplorazione e gestione delle risorse di archiviazione con Esplora server
@@ -21,7 +21,7 @@ Se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è 
 
 Per visualizzare Esplora Server in Visual Studio, nella barra dei menu scegliere **Visualizza**, **Esplora server**. Il nodo di archiviazione mostra tutti gli account di archiviazione esistenti in ogni sottoscrizione/certificato di Azure a cui si è connessi. Se l'account di archiviazione non è visualizzato, è possibile aggiungerlo seguendo le istruzioni riportate [più avanti in questo argomento](#add-storage-accounts-by-using-server-explorer).
 
-A partire da Azure SDK 2.7, è anche possibile usare il nuovo Cloud Explorer per visualizzare e gestire le risorse di Azure. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer).
+A partire da Azure SDK 2.7, è anche possibile usare il nuovo Cloud Explorer per visualizzare e gestire le risorse di Azure. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md).
 
 
 ## Visualizzare e gestire le risorse di archiviazione in Visual Studio
@@ -40,7 +40,7 @@ Per visualizzare le risorse in un account di archiviazione, espandere il nodo de
 
 ## Usare le risorse BLOB
 
-Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione selezionato. I contenitori BLOB contengono file BLOB che possono essere organizzati in cartelle e sottocartelle. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](..storage/storage-dotnet-how-to-use-blobs/).
+Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione selezionato. I contenitori BLOB contengono file BLOB che possono essere organizzati in cartelle e sottocartelle. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](./storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Per creare un contenitore BLOB
 
@@ -308,10 +308,10 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 - In Esplora server aprire il menu di scelta rapida per il nome account e quindi scegliere **Elimina**. Se si elimina un account di archiviazione, anche le informazioni sulla chiave salvate per tale account verranno rimosse.
 
-    >[AZURE.NOTE] Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il portale di gestione di Azure.
+    >[AZURE.NOTE] Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Passaggi successivi
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

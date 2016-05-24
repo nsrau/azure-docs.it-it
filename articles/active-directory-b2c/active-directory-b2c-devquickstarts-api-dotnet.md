@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/22/2015"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure Active Directory B2C: Compilare un'API Web .NET
@@ -219,10 +219,10 @@ Infine, compilare ed eseguire sia `TaskWebApp` che `TaskService`. Effettuare l'i
 
 ## Modificare i criteri
 
-Dopo aver protetto l'API con Azure AD B2C, è possibile provare i criteri dell'app e visualizzarne gli effetti o l'assenza di effetti nell'API. È possibile 
-<!--add **identity providers**
+Dopo aver protetto l'API con Azure AD B2C, è possibile provare i criteri dell'app e visualizzarne gli effetti o l'assenza di effetti nell'API. È possibile modificare le attestazioni dell'applicazione nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni aggiunte saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
+<!--add **identity providers** 
 to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->modificare le attestazioni dell'applicazione nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni aggiunte saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
+-->
 
 <!--
 
@@ -236,4 +236,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

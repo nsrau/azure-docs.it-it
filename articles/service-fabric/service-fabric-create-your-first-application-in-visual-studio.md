@@ -3,7 +3,7 @@
    description="Creare, distribuire ed eseguire il debug di un'applicazione Infrastruttura di servizi con Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Creare la prima applicazione di Azure Service Fabric in Visual Studio
 
@@ -115,9 +115,9 @@ A questo punto, è possibile provare a eseguire l'app creata.
   Prima di concludere, è importante ricordare che il cluster locale è molto reale. Anche dopo l'arresto del debugger e la chiusura di Visual Studio, le applicazioni rimarranno in esecuzione in background. A seconda della natura delle app, questa attività in background può richiedere risorse significative del computer. A questo scopo, sono disponibili diverse opzioni di gestione:
 
   1. Per rimuovere una singola applicazione e tutti i relativi dati, usare l'azione **Delete application** in Service Fabric Explorer con il menu **ACTIONS** o il menu di scelta rapida nella vista elenco dell'applicazione nel riquadro a sinistra.
-  
+
     ![Eliminare un'applicazione in Service Fabric Explorer][sfe-delete-application]
-    
+
   2. Dopo l'eliminazione dell'applicazione dal cluster, è quindi possibile scegliere **Unprovision Type** per l'applicazione, che rimuove il pacchetto dell'applicazione, inclusi il codice e la configurazione, dall'archivio immagini del cluster.
   3. Per arrestare il cluster mantenendo i dati dell'applicazione e le tracce, fare clic su **Stop Local Cluster** nell'app dell'area di notifica.
 
@@ -150,4 +150,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->
