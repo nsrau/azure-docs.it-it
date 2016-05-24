@@ -80,7 +80,8 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 
 	![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e nella visualizzazione albero a sinistra viene visualizzato **AzureStorageLinkedService**. ![Servizio collegato Archiviazione nel menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e nella visualizzazione albero a sinistra viene visualizzato **AzureStorageLinkedService**. 
+   	![Servizio collegato Archiviazione nel menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Creare un servizio collegato Azure HDInsight

@@ -106,7 +106,8 @@ Subnet IP|Netmask|Intervallo IP
 1. Fare doppio clic sul file eseguibile. Viene avviata l'installazione.
 2. Nella schermata di selezione della cartella di installazione, assicurarsi che la cartella sia corretta e fare clic su Avanti.
 3. Al termine dell'installazione, fare clic su Fine. Verrà avviata la configurazione guidata.
-4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autenticazione** e fare clic su **Avanti**. Verrà chiusa la procedura guidata e avviato il server. ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autenticazione** e fare clic su **Avanti**. Verrà chiusa la procedura guidata e avviato il server. 
+![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. Tornare nella pagina da cui è stato scaricato il server, scegliere il pulsante relativo alla **generazione delle credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
 

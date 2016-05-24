@@ -459,7 +459,7 @@ Nel metodo `MonitorTasks` in `Program.cs` di DotNetTutorial sono presenti tre co
 
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] fornisce alle applicazioni Batch .NET le utilità helper per il monitoraggio degli stati delle attività. In `MonitorTasks` *DotNetTutorial* attende che tutte le attività raggiungano lo stato [TaskState.Completed][net_taskstate] entro un limite di tempo specificato, quindi termina il processo.
 
-3. **TerminateJobAsync**: la terminazione di un processo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o il valore JobOperations.TerminateJob di blocco) contrassegnerà tale processo come completato. Ciò è essenziale se la soluzione Batch usa [JobReleaseTask][net_jobreltask], un tipo speciale di attività descritto in [Attività di preparazione e completamento dei processi](batch-job-prep-release.md).
+3. **TerminateJobAsync**: la terminazione di un processo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] \(o il valore JobOperations.TerminateJob di blocco) contrassegnerà tale processo come completato. Ciò è essenziale se la soluzione Batch usa [JobReleaseTask][net_jobreltask], un tipo speciale di attività descritto in [Attività di preparazione e completamento dei processi](batch-job-prep-release.md).
 
 Ecco il metodo `MonitorTasks` da `Program.cs` di *DotNetTutorial*:
 
