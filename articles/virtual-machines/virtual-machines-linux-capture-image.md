@@ -71,7 +71,7 @@ Dopo avere effettuato il provisioning e avviato l'esecuzione della VM, si potreb
 
 7. Arrestare la VM di cui è già stato effettuato il deprovisioning usando il comando seguente:
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Generalizzare la VM con il comando seguente:
 
@@ -197,4 +197,4 @@ Per altre opzioni del comando, eseguire `azure help vm create`.
 
 Per gestire le VM con l'interfaccia della riga di comando, vedere le attività in [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

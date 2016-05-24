@@ -29,13 +29,14 @@ Se invece occorre creare distribuzioni di massa di macchine virtuali simili, è 
 
 ## Operazioni preliminari
 
-Questo articolo presuppone che prima di iniziare la procedura, siano soddisfatti i prerequisiti seguenti:
+Questo articolo presuppone che l'utente abbia:
 
-1. È presente una macchina virtuale di Azure che esegue Linux, creata con il modello di distribuzione classica o il modello di distribuzione Resource Manager. Il sistema operativo è stato configurato, i dischi dati sono stati collegati e sono state effettuate altre personalizzazioni, ad esempio l'installazione delle applicazioni necessarie. Questa macchina virtuale verrà usata per creare la copia. Per informazioni su come creare la macchina virtuale di origine, vedere [Creare una macchina virtuale Linux in Azure](virtual-machines-linux-quick-create-cli.md). 
+1. Una **macchina virtuale di Azure che esegue Linux** nel modello di distribuzione classica o Resource Manager con il sistema operativo configurato, i dischi dati collegati e le applicazioni necessarie installate. Per assistenza nella creazione di questa VM, vedere [Creare una VM Linux in Azure](virtual-machines-linux-quick-create-cli.md). 
 
-1. L'interfaccia della riga di comando di Azure è stata scaricata e installata nel computer ed è stato eseguito l'accesso alla propria sottoscrizione di Azure. Per altre informazioni, vedere [Come installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+1. **Interfaccia della riga di comando di Azure** installata nel computer e connessa alla sottoscrizione di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-1. È presente un gruppo di risorse in cui sono stati creati un account di archiviazione e un contenitore BLOB in cui eseguire la copia dei dischi rigidi virtuali. Per altre informazioni su come creare gli account di archiviazione e i contenitori BLOB con l'interfaccia della riga di comando di Azure, vedere [Utilizzo dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../storage/storage-azure-cli.md).
+1. Un **gruppo di risorse** con un **account di archiviazione** e un **contenitore BLOB** creati al suo interno per copiarvi i dischi rigidi virtuali. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure](../storage/storage-azure-cli.md).
+
 
 
 > [AZURE.NOTE] La procedura per le macchine virtuali create con i due modelli di distribuzione come immagine di origine è simile. Verranno indicate le differenze, ove applicabili.
@@ -46,15 +47,15 @@ Questo articolo presuppone che prima di iniziare la procedura, siano soddisfatti
 
 1. Prima di tutto, liberare i dischi rigidi virtuali usati dalla macchina virtuale di origine, seguendo una di queste due procedure:
 
-	- Per **_copiare_** la macchina virtuale di origine, **arrestarla** e **deallocarla**. Nel portale fare clic su **Sfoglia** > **Macchine virtuali** o **Macchine virtuali (versione classica)** > *macchina virtuale desiderata* > **Arresta**. Per le macchine virtuali create nel modello di distribuzione Resource Manager, è possibile usare il comando `azure vm stop <yourResourceGroup> <yourVmName>` dell'interfaccia della riga di comando di Azure, seguito da `azure vm deallocate <yourResourceGroup> <yourVmName>`. Si noti che lo *Stato* della macchina virtuale nel portale passa da **In esecuzione** ad **Arrestato (deallocato)**.
+	- Per **_copiare_** la macchina virtuale di origine, **arrestarla** e **deallocarla**. Nel portale fare clic su **Esplora** > **Macchine virtuali** o **Macchine virtuali (versione classica)** > *VM desiderata* > **Arresta**. Per le VM create nel modello di distribuzione Resource Manager, è possibile usare il comando `azure vm stop <yourResourceGroup> <yourVmName>` dell'interfaccia della riga di comando di Azure, seguito da `azure vm deallocate <yourResourceGroup> <yourVmName>`. Si noti che lo *Stato* della VM nel portale passa da **In esecuzione** ad **Arrestato (deallocato)**.
 	
-	- In alternativa, per **_eseguire la migrazione_** della macchina virtuale di origine, **eliminare** la macchina virtuale e usare il disco rigido virtuale rimanente. Fare clic su **Sfoglia** per passare alla macchina virtuale nel [portale](https://portal.azure.com) e quindi scegliere **Elimina**.
+	- In alternativa, per **_eseguire la migrazione_** della macchina virtuale di origine, **eliminarla** e usare il disco rigido virtuale rimanente. Fare clic su **Esplora** per passare alla macchina virtuale nel [portale](https://portal.azure.com) e quindi scegliere **Elimina**.
 	
 1. Trovare la chiave di accesso per l'account di archiviazione contenente il disco rigido virtuale di origine. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
-	- Se la macchina virtuale di origine è stata creata usando il modello di distribuzione classica, fare clic su **Sfoglia** > **Account di archiviazione (versione classica)** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi** e copiare la chiave etichettata come **CHIAVE DI ACCESSO PRIMARIA**. Nell'interfaccia della riga di comando di Azure passare alla modalità classica usando i comandi `azure config mode asm` e `azure storage account keys list <yourSourceStorageAccountName>`.
+	- Se la VM di origine è stata creata con il modello di distribuzione classica, fare clic su **Esplora** > **Account di archiviazione (versione classica)** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi** e copiare la chiave con l'etichetta **CHIAVE DI ACCESSO PRIMARIA**. In alternativa, nell'interfaccia della riga di comando di Azure passare alla modalità classica usando i comandi `azure config mode asm` e `azure storage account keys list <yourSourceStorageAccountName>`.
 
-	- Per una macchina virtuale creata usando il modello di distribuzione Resource Manager, fare clic su **Sfoglia** > **Account di archiviazione** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi di accesso** e copiare la chiave etichettata come **key1**. Nell'interfaccia della riga di comando di Azure passare alla modalità Resource Manager usando i comandi `azure config mode arm` e `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
+	- Per una VM creata con il modello di distribuzione Resource Manager, fare clic su **Esplora** > **Account di archiviazione** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi di accesso** e copiare la chiave con l'etichetta **key1**. In alternativa, nell'interfaccia della riga di comando di Azure passare alla modalità Resource Manager usando i comandi `azure config mode arm` e `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
 
 1. Copiare i file VHD usando i [comandi dell'interfaccia della riga di comando di Azure per Archiviazione di Azure](../storage/storage-azure-cli.md), come descritto nella procedura seguente. In alternativa, se si preferisce un approccio tramite interfaccia utente per ottenere gli stessi risultati, è possibile usare [Microsoft Azure Storage Explorer](http://storageexplorer.com/). </br>
 	1. Configurare la stringa di connessione per l'account di archiviazione di destinazione. La stringa di connessione conterrà la chiave di accesso per l'account di archiviazione.
@@ -62,7 +63,7 @@ Questo articolo presuppone che prima di iniziare la procedura, siano soddisfatti
 			$azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
 			$export AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
 	
-	2. Creare una [Firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per il file VHD nell'account di archiviazione di origine. Prendere nota dell'output dell'**URL di accesso condiviso** del comando seguente.
+	2. Creare una [firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per il file VHD nell'account di archiviazione di origine. Prendere nota dell'**URL di accesso condiviso** nell'output del comando seguente.
 	
 			$azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
 	
@@ -100,7 +101,7 @@ Creare ora la nuova macchina virtuale con i dischi rigidi virtuali copiati usand
 	$azure vm create -g <yourResourceGroup> -n <yourVmName> -f <yourNicName> -d <UriOfYourOsDisk> -x <UriOfYourDataDisk> -e <DataDiskSizeGB> -Y -l <yourLocation> -y Linux -z "Standard_A1" -o <DestinationStorageAccountName> -R <DestinationStorageAccountBlobContainer>
 
 	
-Gli URL dei dischi dei dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per cercarlo nel portale, passare al contenitore di archiviazione, fare clic sul disco rigido virtuale del sistema operativo o dei dati copiato e quindi copiare il contenuto dell'**URL**.
+Gli URL dei dischi dei dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per trovarlo nel portale, passare al contenitore di archiviazione, fare clic sul disco rigido virtuale del sistema operativo o dei dati copiato e quindi copiare il contenuto dell'**URL**.
 	
 	
 Se il comando riesce, viene visualizzato un output simile al seguente:
@@ -118,13 +119,13 @@ Se il comando riesce, viene visualizzato un output simile al seguente:
 	+ Creating VM "redhatcopy"
 	info:    vm create command OK
 
-La macchina virtuale appena creata è disponibile nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali**.
+La macchina virtuale appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Esplora** > **Macchine virtuali**.
 
 Connettersi alla nuova macchina virtuale con un client SSH a scelta e usare le credenziali dell'account della macchina virtuale originale, ad esempio `ssh OldAdminUser@<IPaddressOfYourNewVM>`. Per altre informazioni sulla connessione SSH alla macchina virtuale Linux, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Passaggi successivi
 
-Per altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire la nuova macchina virtuale, vedere [Comandi dell'interfaccia della riga di comando di Azure per Azure Resource Manager](azure-cli-arm-commands.md).
+Per altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire la nuova macchina virtuale, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager](azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

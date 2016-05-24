@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Ambiente del servizio app di Azure" 
-	description="Informazioni sul funzionamento del servizio app" 
-	keywords="ambiente del servizio app, ambiente del servizio app di azure"
+	pageTitle="Ambiente del servizio app | Microsoft Azure" 
+	description="Che cos'è un ambiente del servizio app di Azure? Introduzione all'ambiente del servizio app." 
+	keywords="ambiente del servizio app di azure, rete virtuale, rete protetta"
 	services="app-service" 
 	documentationCenter="" 
 	authors="yochay" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="stefsch"/>
 
-# Panoramica
+# Documentazione relativa agli ambienti del servizio app
 
 Un ambiente App di servizio è un’opzione di piano di servizio [Premium][PremiumTier] del servizio dell’App di Azure che fornisce un ambiente completamente isolato e dedicato all'esecuzione in modo sicuro delle app di servizio di Azure a livello di scalabilità elevata, tra cui [App Web][WebApps], [App per dispositivi mobili][MobileApps], e [App API][APIApps].
 
@@ -59,4 +59,4 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -107,7 +107,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copiare lo [script Transact-SQL OLTP in memoria](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql) negli Appunti.
+3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) negli Appunti.
  - Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
 
 4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo.
@@ -348,7 +348,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
  - Usare esattamente questo nome.
  - Scegliere qualsiasi livello di servizio Premium.
 
-2. Copiare [sql\_in memory\_analytics\_sample](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql) negli Appunti.
+2. Copiare [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) negli Appunti.
  - Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
  - Lo script crea la tabella delle dimensioni e due tabelle dei fatti. Ogni tabella dei fatti viene popolata con 3,5 milioni di righe.
  - Il completamento dello script potrebbe richiedere 15 minuti.
@@ -371,7 +371,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 #### Query fondamentali per il confronto dell'indice columnstore
 
 
-[Qui](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql) sono disponibili diversi tipi di query T-SQL che è possibile eseguire per migliorare le prestazioni. Dal passaggio 2, nello script T-SQL è presente una coppia di query di interesse diretto. Le due query differiscono per una sola riga:
+[Qui](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) sono disponibili diversi tipi di query T-SQL che è possibile eseguire per migliorare le prestazioni. Dal passaggio 2, nello script T-SQL è presente una coppia di query di interesse diretto. Le due query differiscono per una sola riga:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -533,4 +533,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

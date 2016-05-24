@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Procedura guidata Pubblica l'applicazione Azure
@@ -29,7 +29,7 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 1. Ottenere un account Microsoft e una sottoscrizione di Azure. Una sottoscrizione di valutazione di Azure gratuita per un mese è disponibile [qui](https://azure.microsoft.com/pricing/free-trial/)
 
-1. Creare un servizio cloud e un account di archiviazione in Azure. È possibile eseguire questa operazione in Esplora server in Visual Studio oppure usando il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Creare un servizio cloud e un account di archiviazione in Azure. È possibile eseguire questa operazione in Esplora server in Visual Studio oppure usando il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Abilitare l'applicazione Web per Azure. Per consentire la pubblicazione dell'applicazione Web in Azure da Visual Studio, è necessario associarla a un progetto servizio cloud di Azure in Visual Studio. Per creare il progetto servizio cloud associato, aprire il menu di scelta rapida relativo al progetto per l'applicazione Web, quindi scegliere Converti, **Converti in progetto servizio cloud di Azure**.
 
@@ -139,4 +139,4 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

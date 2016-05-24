@@ -5,7 +5,7 @@
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags
@@ -14,45 +14,23 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="05/09/2016"
     ms.author="sstein"/>
 
 # Creare un nuovo database SQL ed eseguire comuni attività di configurazione del database con i cmdlet di PowerShell 
 
-**Database singolo**
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-get-started.md)
-- [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
+- [C#](sql-database-get-started-csharp.md)
 
 
-Informazioni su come creare un nuovo database SQL ed eseguire comuni attività di configurazione del database usando i cmdlet di PowerShell.
+
+Informazioni su come creare un nuovo database SQL con i cmdlet di PowerShell. Per la creazione di database elastici, vedere [Creare un nuovo pool di database elastici con PowerShell](sql-database-elastic-pool-create-powershell.md).
 
 
-Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-
-- Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-
-
-## Configurare le credenziali e selezionare la sottoscrizione
-
-Ora che si esegue il modulo di Gestione risorse di Azure, è possibile accedere a tutti i cmdlet necessari per creare un database SQL.
-
-È necessario innanzitutto stabilire l'accesso all'account Azure, quindi eseguire il cmdlet seguente e verrà visualizzata una schermata di accesso per l'immissione delle credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
-
-	Add-AzureRmAccount
-
-Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni tra cui l'ID usato per l'accesso con le sottoscrizioni di Azure per le quali si dispone dell'accesso.
-
-
-### Selezionare la sottoscrizione ad Azure
-
-Per selezionare la sottoscrizione, è necessario il relativo ID. È possibile copiarlo dal passaggio precedente o, se si hanno più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Dopo aver eseguito correttamente il cmdlet **Select-AzureRmSubscription**, si ritornerà al prompt dei comandi di PowerShell. Se si hanno più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e verificare che nella sottoscrizione che si vuole usare sia visualizzato **IsCurrent: True**.
+[AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
 
 ## Configurazione del database: creare un gruppo di risorse, il server e la regola firewall
 
@@ -142,4 +120,4 @@ Dopo aver creato un nuovo database SQL e aver eseguito le attività di configura
 
 - [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -21,7 +21,7 @@
 
 Questo argomento contiene informazioni su come inserire diversi tipi di annunci sul lato client.
 
-Per informazioni sul supporto di sottotitoli codificati e annunci nei video in streaming live, vedere, [Sottotitoli codificati supportati e standard per l'inserimento di annunci](media-services-manage-channels-overview.md#cc_and_ads).
+Per informazioni sul supporto di sottotitoli codificati e annunci nei video in streaming live, vedere, [Sottotitoli codificati supportati e standard per l'inserimento di annunci](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 >[AZURE.NOTE] Azure Media Player attualmente non supporta gli annunci.
 
@@ -813,4 +813,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

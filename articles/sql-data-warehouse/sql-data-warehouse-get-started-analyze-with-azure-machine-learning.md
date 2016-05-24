@@ -3,7 +3,7 @@
    description="Suggerimenti per l'uso di Azure Machine Learning con Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Analizzare i dati con Azure Machine Learning
 Questa esercitazione descrive come compilare un modello predittivo di apprendimento automatico con Azure Machine Learning usando i dati di Azure SQL Data Warehouse. In questa esercitazione verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
@@ -65,9 +65,6 @@ Eseguire l'esperimento facendo clic su **Run** sotto l'area di disegno dell'espe
 Una volta terminato con successo l’esperimento, per visualizzare i dati importati ![Visualizzare i dati importati][3], fare clic sulla porta di output nella parte inferiore del modulo Reader e selezionare **Visualize**.
 
 
-
-
-
 ## Passaggio 2: Pulire i dati
 Si elimineranno alcune colonne che non sono rilevanti per il modello.
 
@@ -75,8 +72,6 @@ Si elimineranno alcune colonne che non sono rilevanti per il modello.
 2. Fare clic su **Launch column selector** nel riquadro Properties per specificare le colonne da eliminare.![Selezione delle colonne][4]
 
 3. Escludere due colonne: CustomerAlternateKey e GeographyKey.![Rimuovere le colonne non necessarie][5]
-
-
 
 
 ## Passaggio 3: Compilare il modello
@@ -91,9 +86,6 @@ Si suddivideranno i dati 80-20: 80% per il training di un modello di Machine Lea
 5. Selezionare la colonna **BikeBuyer** come colonna da stimare. ![Selezionare una colonna da stimare][8]
 
 
-
-
-
 ## Passaggio 4: Modello di punteggio
 A questo punto si verificheranno le prestazioni del modello sui dati di test. L'algoritmo scelto verrà confrontato con un algoritmo diverso per verificare quale offre prestazioni migliori.
 
@@ -103,8 +95,6 @@ A questo punto si verificheranno le prestazioni del modello sui dati di test. L'
 4. Trascinare il modulo **Evaluate Model** nell'area di disegno per confrontare i due algoritmi.
 5. Scegliere **Run** per eseguire l'esperimento.![Eseguire l'esperimento][10]
 6. Fare clic con il pulsante destro del mouse sulla porta di output del modulo Evaluate Model e scegliere Visualize.![Visualizzare i risultati della valutazione][11]
-
-
 
 La metrica fornita include curva ROC, curva di precisione/recupero e curva di accuratezza. Esaminando la metrica, si noterà che il primo modello fornisce prestazioni migliori rispetto al secondo. Per vedere i quali sono state le previsioni del primo modello, fare clic sulla porta di output di Score Model e scegliere Visualize.![Visualizzare i risultati di punteggio][12]
 
@@ -118,8 +108,6 @@ Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è poss
 ## Passaggi successivi
 
 Per ulteriori informazioni sulla creazione di modelli di apprendimento automatico predittivi, fare riferimento a [Introduzione a Machine Learning in Azure][].
-
-
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,4 +130,4 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 [caricare manualmente i dati di esempio]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

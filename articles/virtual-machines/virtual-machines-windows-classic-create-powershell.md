@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 # Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell 
@@ -22,7 +22,6 @@
 > [AZURE.SELECTOR]
 - [Portale di Azure classico - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
@@ -34,13 +33,11 @@ In questi passaggi viene illustrato come personalizzare un set di comandi di Azu
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Linux, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](virtual-machines-linux-classic-createpowershell.md).
-
 Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
 
 ## Passaggio 1: Aggiungere l'account
 
-1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **Invio**. 
+1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**. 
 2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**. 
 3. Digitare la password per l'account. 
 4. Fare clic su **Accedi**.
@@ -263,4 +260,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

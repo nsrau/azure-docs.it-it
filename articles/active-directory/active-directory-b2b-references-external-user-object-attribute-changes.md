@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: modifiche all'attributo dell'oggetto utente esterno
@@ -27,7 +27,7 @@ Ciascun utente in una directory di Azure AD è rappresentato da un oggetto utent
 Il rilevamento di questi attributi in Azure AD può aiutare a risolvere i problemi relativi a un utente partner che ha riscattato invito di B2B Collaboration.
 
 ## Articoli correlati
-Vedere gli altri articoli sulla collaborazione B2B di Azure:
+Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 - [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -37,4 +37,4 @@ Vedere gli altri articoli sulla collaborazione B2B di Azure:
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

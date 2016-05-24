@@ -44,7 +44,7 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     >[AZURE.NOTE] Se si scelgono dimensioni maggiori per la macchina virtuale potrebbero essere applicati costi aggiuntivi. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-1. Le macchine virtuali create in Visual Studio richiedono un servizio cloud. Nella pagina **Impostazioni del servizio cloud** selezionare un servizio cloud per la macchina virtuale oppure fare clic su **<Crea nuovo…>** nell'elenco a discesa se non si ha già un servizio cloud oppure si vuole usarne uno nuovo. È anche necessario un account di archiviazione, quindi sceglierne uno (o crearne uno nuovo) nell'elenco a discesa **Account di archiviazione**. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](./storage/storage-introduction/).
+1. Le macchine virtuali create in Visual Studio richiedono un servizio cloud. Nella pagina **Impostazioni del servizio cloud** selezionare un servizio cloud per la macchina virtuale oppure fare clic su **<Crea nuovo…>** nell'elenco a discesa se non si ha già un servizio cloud oppure si vuole usarne uno nuovo. È anche necessario un account di archiviazione, quindi sceglierne uno (o crearne uno nuovo) nell'elenco a discesa **Account di archiviazione**. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../articles/storage/storage-introduction/).
 
 1. Per specificare una rete virtuale (facoltativa) selezionarla negli elenchi a discesa Rete virtuale e Subnet.
 
@@ -157,4 +157,3 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 ## Passaggi successivi
 
 Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
-

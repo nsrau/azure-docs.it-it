@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.Forms
@@ -145,6 +145,9 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		using Newtonsoft.Json.Linq;
 		using System.Text;
 		using System.Linq;
+		using Android.Support.V4.App;
+		using Android.Media;
+
 
 9. Aggiungere le richieste di autorizzazione seguenti all'inizio del file, dopo le istruzioni `using` e prima della dichiarazione `namespace`.
 
@@ -189,12 +192,9 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
 
-		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -206,7 +206,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
                 {
-                  {"body", templateBodyGCM}
+                	{"body", templateBodyGCM}
                 };
 
                 await push.RegisterAsync(RegistrationID, templates);
@@ -256,28 +256,35 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		    createNotification("Unknown message details", msg.ToString());
 		}
 
-		void createNotification(string title, string desc)
-		{
-		    //Create notification
-		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+        void createNotification(string title, string desc)
+        {
+            //Create notification
+            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
-		    //Create an intent to show ui
-		    var uiIntent = new Intent(this, typeof(MainActivity));
+            //Create an intent to show ui
+            var uiIntent = new Intent(this, typeof(MainActivity));
 
-		    //Create the notification
-		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
+            //Use Notification Builder
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
-		    //Auto cancel will remove the notification once the user touches it
-		    notification.Flags = NotificationFlags.AutoCancel;
+            //Create the notification
+            //we use the pending intent, passing our ui intent over which will get called
+            //when the notification is tapped.
+            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
+                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
+                    .SetTicker(title)
+                    .SetContentTitle(title)
+                    .SetContentText(desc)
 
-		    //Set the notification info
-		    //we use the pending intent, passing our ui intent over which will get called
-		    //when the notification is tapped.
-		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
+                    //Set the notification sound
+                    .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
 
-		    //Show the notification
-		    notificationManager.Notify(1, notification);
-		}
+                    //Auto cancel will remove the notification once the user touches it
+                    .SetAutoCancel(true).Build();
+
+            //Show the notification
+            notificationManager.Notify(1, notification);
+        }
 
 14. È necessario implementare anche i gestori `OnUnRegistered` e `OnError` per il ricevitore.
 
@@ -297,13 +304,11 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 1. In Visual Studio o Xamarin Studio, fare clic con il pulsante destro del mouse sul progetto **droid** e scegliere **Imposta come progetto di avvio**.
 
-2. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
+2. Fare clic su **Esegui** per creare il progetto e avviare l'app sul dispositivo Android.
 
-	> [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
-
-3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
+4. Assicurarsi di ricevere una notifica quando viene aggiunto un elemento.
 
 
 
@@ -405,7 +410,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 1. Fare clic con il pulsante destro del mouse sul progetto iOS, quindi scegliere **Imposta come progetto di avvio**.
 
-2. Scegliere **Run** o **F5** in Visual Studio per compilare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
+2. Scegliere **Esegui** o premere **F5** in Visual Studio per compilare il progetto e avviare l'app in un dispositivo iOS, quindi fare clic su **OK** per accettare le notifiche push.
 
 	> [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
@@ -437,9 +442,13 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using WesmcMobileAppGaTest;
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
+
+	Aggiungere anche un'istruzione `using` per lo spazio dei nomi nel progetto portabile che contiene la classe `TodoItemManager`.
+
+		using <Your namespace for the TodoItemManager class>;
+ 
 
 2. In App.xaml.cs aggiungere il metodo `InitNotificationsAsync` seguente. Questo metodo ottiene il canale di notifica push e registra un modello per la ricezione di notifiche di modello dall'hub di notifica. A questo client verrà recapitata una notifica di modello che supporta `messageParam`.
 
@@ -455,15 +464,15 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
-                {
-                  {"body", templateBodyWNS},
-                  {"headers", headers} // Only needed for WNS & MPNS
-                };
+			{
+				{"body", templateBodyWNS},
+				{"headers", headers} // Only needed for WNS & MPNS
+			};
 
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. In App.xaml.cs aggiornare il gestore eventi `OnLaunched` con l'attributo `async` e chiamare `InitNotificationsAsync`.
+3. In App.xaml.cs aggiornare il gestore dell'evento `OnLaunched` con l'attributo `async` e aggiungere una chiamata a `InitNotificationsAsync` alla fine del metodo.
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -510,13 +519,11 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **WinApp** e quindi scegliere **Imposta come progetto di avvio**.
 
 
-2. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
+2. Premere il pulsante **Esegui** per compilare il progetto e avviare l'app.
 
-	> [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+3. Nell'app digitare un nome per un nuovo oggetto todoitem e quindi fare clic sul segno più (**+**) per aggiungerlo.
 
-3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
-
-4. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
+4. Assicurarsi di ricevere una notifica quando viene aggiunto l'elemento.
 
 
 
@@ -527,4 +534,4 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Cenni preliminari sulle funzionalità di Azure Batch
@@ -38,7 +38,7 @@ Il flusso di lavoro di alto livello seguente è quello tipico usato in quasi tut
 
 6. Monitorare lo stato del processo e recuperare i risultati.
 
-> [AZURE.NOTE] È necessario un [account Batch](batch-account-create-portal.md) per usare il servizio Batch e quasi tutte le soluzioni useranno un account di[Archiviazione di Azure][azure_storage] per l'archiviazione e il recupero dei file.
+> [AZURE.NOTE] È necessario un [account Batch](batch-account-create-portal.md) per usare il servizio Batch e quasi tutte le soluzioni useranno un account di[Archiviazione di Azure][azure_storage] per l'archiviazione e il recupero dei file. Batch attualmente supporta solo il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
 Le sezioni seguenti illustrano ognuna delle risorse citate nel flusso di lavoro precedente e molte altre funzionalità di Batch che abiliteranno lo scenario di calcolo distribuito.
 
@@ -130,7 +130,7 @@ Un'attività è un'unità di calcolo associata a un processo ed eseguita in un n
 
 - Applicazione specificata nella **riga di comando** dell'attività.
 
-- **File di risorse** contenenti i dati da elaborare. Questi file vengono copiati automaticamente nel nodo dall'archivio BLOB in un account di archiviazione di Azure. Per altre informazioni, vedere [File e directory](#files) di seguito.
+- **File di risorse** contenenti i dati da elaborare. Questi file vengono copiati automaticamente nel nodo dall'archivio BLOB in un account di archiviazione di Azure **Utilizzo generico**. Per altre informazioni, vedere *Attività di avvio* e [File e directory](#files) di seguito.
 
 - **Variabili di ambiente** richieste dall'applicazione. Per altre informazioni, vedere [Impostazioni di ambiente per le attività](#environment) di seguito.
 
@@ -149,6 +149,8 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 Associando un'**attività di avvio** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
 
 Come per qualsiasi attività Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Azure Batch copierà prima di tutto i file da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere il pacchetto o i file dell'applicazione, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nei nodi di calcolo. La riga di comando dell'attività di avvio potrebbe eseguire uno script di PowerShell o eseguire un'operazione `robocopy`, ad esempio, copiare i file dell'applicazione nella cartella "condivisa", quindi eseguire successivamente un file MSI o `setup.exe`.
+
+> [AZURE.IMPORTANT] Batch attualmente supporta *solo* il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch (incluse le attività standard, le attività di avvio, la preparazione del processo e le attività di rilascio del processo) devono specificare file di risorse che si trovano *solo* negli account di archiviazione **Utilizzo generico**.
 
 In genere è consigliabile che il servizio Batch attenda il completamento dell'attività di avvio prima di considerare il nodo pronto per l'assegnazione di attività, ma questo comportamento è configurabile.
 
@@ -268,11 +270,11 @@ Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere 
 
 In genere è necessario usare certificati per crittografare o decrittografare informazioni riservate per le attività, ad esempio la chiave per un [account di archiviazione Azure][azure_storage]. A questo scopo, i certificati possono essere installati nei nodi. I segreti crittografati vengono passati alle attività nei parametri della riga di comando o incorporati in una delle risorse dell'attività e i certificati installati possono essere usati per decrittografarli.
 
-Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungere un certificato a un account][rest_add_cert] (API Batch REST) o il metodo[CertificateOperations.CreateCertificate][net_create_cert] (API Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
+Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungere un certificato a un account][rest_add_cert] \(API Batch REST) o il metodo[CertificateOperations.CreateCertificate][net_create_cert] \(API Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
 
 ## <a name="scheduling"></a>Priorità di pianificazione
 
-È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di pianificazione dei processi in un account. I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo tramite l'operazione [Aggiornare un processo][rest_update_job] (API Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] (API Batch .NET).
+È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di pianificazione dei processi in un account. I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo tramite l'operazione [Aggiornare un processo][rest_update_job] \(API Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] \(API Batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non dispone di tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
 
@@ -282,9 +284,9 @@ La pianificazione di attività dei pool è indipendente. In pool diversi non è 
 
 Ogni attività eseguita all'interno di un processo Batch può accedere alle variabili di ambiente, sia quelle impostate dal servizio Batch (definite dal sistema, vedere la tabella seguente) sia quelle definite dall'utente. Le applicazioni e gli script eseguiti dalle attività nei nodi di calcolo hanno accesso a queste variabili di ambiente durante l'esecuzione nel nodo.
 
-Impostare le variabili di ambiente definite dall'utente quando si usa l'operazione [Aggiungere un'attività a un processo][rest_add_task] (API Batch REST) o si modifica la proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] (API Batch .NET) durante l'aggiunta di attività a un processo.
+Impostare le variabili di ambiente definite dall'utente quando si usa l'operazione [Aggiungere un'attività a un processo][rest_add_task] \(API Batch REST) o si modifica la proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] \(API Batch .NET) durante l'aggiunta di attività a un processo.
 
-Ottenere le variabili di ambiente di un'attività, sia quelle definite dal sistema che dall'utente, usando l'operazione [Ottenere informazioni su un'attività][rest_get_task_info] (API Batch REST) o accedendo alla proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] (API Batch .NET). Come accennato, i processi eseguiti in un nodo di calcolo possono accedere anche a tutte le variabili di ambiente, ad esempio usando la familiare sintassi `%VARIABLE_NAME%`.
+Ottenere le variabili di ambiente di un'attività, sia quelle definite dal sistema che dall'utente, usando l'operazione [Ottenere informazioni su un'attività][rest_get_task_info] \(API Batch REST) o accedendo alla proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] \(API Batch .NET). Come accennato, i processi eseguiti in un nodo di calcolo possono accedere anche a tutte le variabili di ambiente, ad esempio usando la familiare sintassi `%VARIABLE_NAME%`.
 
 Per qualsiasi attività pianificata in un processo, il servizio Batch imposta il set di variabili di ambiente definite dal sistema seguente:
 
@@ -326,7 +328,7 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 
 Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato sopra in [File e directory](#files), il servizio di Batch invia l'output di stdout e stderr ai file `stdout.txt` e `stderr.txt` che si trovano nella directory dell'attività nel nodo di calcolo. Con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nell'API .NET Batch è possibile recuperare questi e altri file per la risoluzione dei problemi.
 
-È possibile eseguire un'operazione di debug ancora più approfondita accedendo a un nodo di calcolo tramite *Desktop remoto*. È possibile [Ottenere un file RDP da un nodo][rest_rdp] (API Batch REST) o usare il metodo [ComputeNode.GetRDPFile][net_rdp] (API Batch .NET) per l'accesso remoto.
+È possibile eseguire un'operazione di debug ancora più approfondita accedendo a un nodo di calcolo tramite *Desktop remoto*. È possibile [Ottenere un file RDP da un nodo][rest_rdp] \(API Batch REST) o usare il metodo [ComputeNode.GetRDPFile][net_rdp] \(API Batch .NET) per l'accesso remoto.
 
 >[AZURE.NOTE] Per connettersi a un nodo tramite RDP, è necessario creare prima di tutto un utente nel nodo. [Aggiungere un account utente a un nodo][rest_create_user] nell'API Batch REST o usare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET.
 
@@ -411,4 +413,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -32,7 +32,7 @@ Sono disponibili alcuni esempi utili per iniziare a eseguire processi MapReduce 
 
 Sul Web sono disponibili molti altri documenti per le tecnologie relative a Hadoop, ad esempio il flusso e la programmazione MapReduce basati su Java, oltre alla documentazione sui cmdlet usati negli script di Windows PowerShell. Per altre informazioni su queste risorse, vedere:
 
-- [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [Inviare processi Hadoop in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introduzione ad Azure HDInsight][hdinsight-introduction]
 
@@ -55,7 +55,7 @@ Per inviare un progetto MapReduce, è necessario prima creare una definizione de
 
 Il codice sorgente è disponibile nell'[Appendice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
  
 **Per inviare un processo MapReduce per il conteggio delle parole**
 
@@ -1000,4 +1000,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

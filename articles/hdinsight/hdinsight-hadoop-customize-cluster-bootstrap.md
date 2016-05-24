@@ -32,7 +32,10 @@ I cluster non possono conservare le modifiche a causa della creazione di nuove i
 
 Sono disponibili 3 metodi per usare Bootstrap:
 
-- Usare Azure PowerShell
+- Uso di Azure PowerShell
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Usare .NET SDK
 - Usare il modello di Gestione risorse
 
@@ -75,11 +78,11 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice A](
 3. Fare clic sul cluster appena creato usando lo script di PowerShell.
 4. Fare clic su **Dashboard** nella parte superiore del pannello per aprire l'interfaccia utente di Ambari.
 5. Fare clic su **Hive** nel menu di sinistra.
-6. Fare clic su **HiveServer2** da **Summary**.
-7. Fare clic sulla scheda **Configs**.
+6. Fare clic su **HiveServer2** da **Riepilogo**.
+7. Fare clic sulla scheda **Configurazioni**.
 8. Fare clic su **Hive** nel menu di sinistra.
-9. Fare clic sulla scheda **Advanced**.
-10. Scorrere verso il basso e quindi espandere le **Advanced hive-site**.
+9. Fare clic sulla scheda **Avanzate**.
+10. Scorrere verso il basso e quindi espandere le **impostazioni avanzate hive-site**.
 11. Cercare **hive.metastore.client.socket.timeout** nella sezione.
 
 Ecco altri esempi relativi alla personalizzazione di altri file di configurazione:
@@ -249,4 +252,4 @@ Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostaz
 
     #endregion
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

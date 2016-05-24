@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurare i ruoli per un servizio cloud di Azure con Visual Studio
@@ -279,8 +279,8 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. Scegliere l'account di archiviazione da usare in **Nome account**.
 
-    Se si immettono manualmente le credenziali dell'account di archiviazione, copiare o digitare la chiave primaria in **Chiave dell'account**. La chiave può essere copiata dal portale di gestione di Azure. Per copiare la chiave, eseguire questi passaggi dalla visualizzazione **Account di archiviazione** nel portale di gestione di Azure:
-
+    Se si immettono manualmente le credenziali dell'account di archiviazione, copiare o digitare la chiave primaria in **Chiave dell'account**. La chiave può essere copiata dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). Per copiare la chiave, eseguire questa procedura dalla visualizzazione **Account di archiviazione** nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885):
+    
   1. Selezionare l'account di archiviazione da usare per il servizio cloud.
 
   1. Scegliere il pulsante **Gestisci chiavi di accesso** nella parte inferiore della schermata. Verrà visualizzata la finestra di dialogo **Gestisci chiavi di accesso**.
@@ -319,7 +319,7 @@ Per migliorare la sicurezza del servizio cloud di Azure, è possibile creare end
 
 Se si aggiungono endpoint HTTPS, sarà necessario usare un certificato SSL. A tale scopo, è possibile associare certificati al ruolo per tutte le configurazioni del servizio e usarli per gli endpoint.
 
->[AZURE.IMPORTANT] Questi certificati non sono inclusi nel servizio. È necessario caricare i certificati separatamente in Azure tramite il portale di gestione della piattaforma Azure.
+>[AZURE.IMPORTANT] Questi certificati non sono inclusi nel servizio. È necessario caricare i certificati separatamente in Azure attraverso il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Qualsiasi certificato di gestione associato alle configurazioni del servizio viene applicato solo quando il servizio cloud è in esecuzione in Azure. Quando il servizio cloud è in esecuzione nell'ambiente di sviluppo locale, verrà usato un certificato standard gestito dall'emulatore di calcolo di Azure.
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Bus di servizio e PHP con AMQP 1.0 | Microsoft Azure"
-   description="Uso del bus di servizio da PHP con AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Bus di servizio e PHP con AMQP 1.0 | Microsoft Azure"
+    description="Uso del bus di servizio da PHP con AMQP."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Uso del bus di servizio da PHP con AMQP 1.0
 
@@ -187,4 +187,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Bus di servizio e Java con AMQP 1.0 | Microsoft Azure"
-   description="Uso del bus di servizio da Java con AMQP"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Bus di servizio e Java con AMQP 1.0 | Microsoft Azure"
+    description="Uso del bus di servizio da Java con AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Usare il bus di servizio da Java con AMQP 1.0
 
@@ -362,9 +362,9 @@ La tabella seguente illustra il mapping dei tipi di proprietà .NET ai tipi di p
 
 | Tipo di proprietà .NET | Tipo di proprietà JMS | Note |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | 
+| byte | UnsignedByte | - |
 | sbyte | Byte | - |
- | char | Character | - |
+| char | Character | - |
 | short | Short | - |
 | ushort | UnsignedShort | - |
 | int | Integer | - |
@@ -446,4 +446,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

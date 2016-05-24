@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services
@@ -22,8 +22,7 @@
 
 In questa esercitazione si presuppone che l'utente abbia installato Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services:
-> è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services: è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Team Services, seguire questa procedura.
 
@@ -63,7 +62,7 @@ Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.N
 
 ## 3: Collegare il progetto ad Azure
 
-1. A questo punto, dopo avere creato un progetto team VS Team Services contenente il codice sorgente, è possibile connettere il progetto team ad Azure. Nel [portale di Azure classico](http://manage.windowsazure.com) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona **+** in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**. Scegliere il collegamento **Imposta pubblicazione con Visual Studio Team Services**.
+1. A questo punto, dopo avere creato un progetto team VS Team Services contenente il codice sorgente, è possibile connettere il progetto team ad Azure. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) selezionare il servizio cloud o l'app Web, oppure crearne uno nuovo selezionando l'icona **+** in basso a sinistra e scegliendo **Servizio cloud** o **App Web** e quindi **Creazione rapida**. Scegliere il collegamento **Imposta pubblicazione con Visual Studio Team Services**.
 
 	![][10]
 
@@ -162,7 +161,7 @@ Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.N
 
 	![][29]
 
-1. Nel [portale di Azure classico](http://manage.windowsazure.com) è possibile visualizzare la distribuzione associata nella scheda **Distribuzioni** quando si seleziona l'ambiente di gestione temporanea.
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) è possibile visualizzare la distribuzione associata nella scheda **Distribuzioni** quando si seleziona l'ambiente di gestione temporanea.
 
 	![][30]
 
@@ -322,4 +321,4 @@ Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Tea
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

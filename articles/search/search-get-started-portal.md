@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/22/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure nel portale
@@ -23,15 +23,15 @@ Questa introduzione senza codice permette di iniziare a usare Ricerca di Microso
 
 L'esercitazione presuppone un [database di Azure DocumentDB di esempio](#apdx-sampledata) semplice da creare usando i dati e le istruzioni, ma è anche possibile adattare questi passaggi ai dati esistenti in DocumentDB o nel database SQL.
 
-> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](../../includes/free-trial-note.md) e un [servizio di Ricerca di Azure](search-create-service-portal.md). Se non si è pronti per iscriversi a una sottoscrizione di valutazione, è possibile ignorare questa esercitazione e scegliere invece [provare Servizio app di Azure](search-tryappservice.md). Questa opzione alternativa non consente di Ricerca di Azure con un'app Web ASP.NET gratuitamente - un'ora per ogni sessione - è necessaria la sottoscrizione.
+> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](../../includes/free-trial-note.md) e un [servizio di Ricerca di Azure](search-create-service-portal.md).
  
 ## Trovare il servizio
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
-	- Nell'indice fare clic su **Servizi di ricerca**. L'indice elenca ogni servizio di cui è stato effettuato il provisioning nella sottoscrizione. Se è stato definito un servizio di ricerca, verrà visualizzato nell'elenco **Servizi di ricerca**.
-	- Nell'indice fare clic su **Sfoglia** e quindi digitare "ricerca" nella casella di ricerca per generare un elenco di tutti i servizi di ricerca creati nelle proprie sottoscrizioni.
+	- Nell'indice fare clic su **Servizi di ricerca**. L'indice elenca ogni servizio di cui è stato effettuato il provisioning nella sottoscrizione. Se è stato definito un servizio di ricerca, nell'elenco verrà visualizzato **Servizi di ricerca**.
+	- Nell'indice fare clic su **Esplora** e quindi digitare "ricerca" nella casella di ricerca per generare un elenco di tutti i servizi di ricerca creati nelle proprie sottoscrizioni.
 
 ## Verificare lo spazio
 
@@ -50,7 +50,7 @@ Prima di continuare, creare un [database di DocumentDB di esempio](#apdx-sampled
 <a id="defineDS"></a>
 #### Passaggio 1: Definire l'origine dati
 
-1. Nel dashboard del servizio Ricerca di Azure fare clic su **Importa dati** sulla barra dei comandi per avviare una procedura guidata che crea e popola un indice.
+1. Nel dashboard del servizio Ricerca di Azure fare clic su **Importa dati** nella barra dei comandi per avviare una procedura guidata che crea e popola un indice.
 
   ![][7]
 
@@ -66,7 +66,7 @@ Fare clic su **OK** per completare questo passaggio della procedura guidata.
 
 #### Passaggio 2: Definire l'indice
 
-Sempre nella procedura guidata, fare clic su **Indice** e osservare l'area di progettazione usata per creare un indice di Ricerca di Azure. Un indice richiede come minimo un nome e una raccolta di campi, con un campo contrassegnato come chiave del documento. Poiché si usa un set di dati di DocumentDB, i campi vengono rilevati automaticamente dalla procedura guidata e l'indice viene precaricato con campi e assegnazioni dei tipi di dati.
+Sempre nella procedura guidata fare clic su **Indice** e osservare l'area di progettazione usata per creare un indice di Ricerca di Azure. Un indice richiede come minimo un nome e una raccolta di campi, con un campo contrassegnato come chiave del documento. Poiché si usa un set di dati di DocumentDB, i campi vengono rilevati automaticamente dalla procedura guidata e l'indice viene precaricato con campi e assegnazioni dei tipi di dati.
 
   ![][3]
 
@@ -102,7 +102,7 @@ Fare clic su **OK** per completare questo passaggio della procedura guidata.
 
 #### Passaggio 3: Definire l'indicizzatore
 
-Sempre nella procedura guidata **Importa dati**, fare clic su **Indicizzatore** > **Nome**, digitare un nome per l'indicizzatore e usare i valori predefiniti per tutti gli altri valori. Questo oggetto definisce un processo eseguibile. Dopo averlo creato, sarà possibile inserirlo nella pianificazione ricorrente, ma per il momento è consigliabile usare l'opzione predefinita per avviare l'esecuzione dell'indicizzatore una volta, immediatamente, facendo clic su **OK**.
+Sempre nella procedura guidata **Importa dati** fare clic su **Indicizzatore** > **Nome**, digitare un nome per l'indicizzatore e usare i valori predefiniti per tutti gli altri valori. Questo oggetto definisce un processo eseguibile. Dopo averlo creato, sarà possibile inserirlo nella pianificazione ricorrente. Per il momento usare l'opzione predefinita per avviare l'esecuzione dell'indicizzatore una volta, immediatamente, facendo clic su **OK**.
 
 Tutte le voci relative all'importazione dei dati risulteranno compilate e pronte all'uso.
 
@@ -122,15 +122,15 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query.
 
 **Esplora ricerche** è uno strumento di query integrato nel portale. Fornisce una casella di ricerca che consente di verificare se l'input della ricerca restituisce i dati previsti.
 
-1. Fare clic su **Esplora ricerche** sulla barra dei comandi.
-2. Verificare qual è l'indice attivo. Se non è quello appena creato, fare clic su **Cambia indice** sulla barra dei comandi per selezionare l'indice desiderato.
-2. Lasciare vuota la casella di ricerca e quindi fare clic sul pulsante **Cerca** per eseguire una ricerca con caratteri jolly che restituisca tutti i documenti.
+1. Fare clic su **Esplora ricerche** nella barra dei comandi.
+2. Verificare qual è l'indice attivo. Se non è quello appena creato, fare clic su **Cambia indice** nella barra dei comandi per selezionare l'indice richiesto.
+2. Lasciare vuota la casella di ricerca e quindi fare clic sul pulsante **Cerca** per eseguire una ricerca con caratteri jolly che restituisce tutti i documenti.
 3. Immettere alcune query di ricerca full-text. È possibile esaminare i risultati della ricerca con caratteri jolly per acquisire familiarità con gli artisti, gli album e i generi su cui eseguire query.
-4. Provare un'altra sintassi di query usando gli [esempi forniti alla fine di questo articolo](https://msdn.microsoft.com/library/azure/dn798927.aspx) per trovare qualche spunto, modificando la query per poter usare stringhe di ricerca presenti nell'indice con maggiore probabilità.
+4. Provare un'altra sintassi di query usando gli [esempi forniti alla fine di questo articolo](https://msdn.microsoft.com/library/azure/dn798927.aspx) per avere qualche spunto. Modificare quindi la query per poter usare stringhe di ricerca che è probabile trovare nell'indice.
 
 ## Passaggi successivi
 
-Dopo aver eseguito una volta la procedura guidata, è possibile tornare indietro e visualizzare o modificare i singoli componenti, ovvero indice, indicizzatore oppure origine dati. Alcune modifiche, ad esempio il cambiamento del tipo di dati del campo, non sono consentite nell'indice, ma la maggior parte delle proprietà e delle impostazioni sono modificabili. Per visualizzare i singoli componenti, fare clic sul riquadro **Indice**, **Indicizzatore** o **Origini dati** nel dashboard per visualizzare un elenco di oggetti esistenti.
+Dopo aver eseguito una volta la procedura guidata, è possibile tornare indietro e visualizzare o modificare i singoli componenti, ovvero indice, indicizzatore oppure origine dati. Alcune modifiche, ad esempio il cambiamento del tipo di dati del campo, non sono consentite nell'indice, ma la maggior parte delle proprietà e delle impostazioni sono modificabili. Per visualizzare i singoli componenti, fare clic sul riquadro **Indice**, **Indicizzatore** oppure **Origini dati** nel dashboard per visualizzare un elenco di oggetti esistenti.
 
 Per informazioni sulle altre funzionalità descritte in questo articolo, visitare i collegamenti seguenti:
 
@@ -141,7 +141,7 @@ Per informazioni sulle altre funzionalità descritte in questo articolo, visitar
 
 È possibile provare questo stesso flusso di lavoro con la procedura guidata Imposta dati per altre origini dati, ad esempio database SQL di Azure o SQL Server in macchine virtuali di Azure.
 
-> [AZURE.NOTE] È stato annunciato di recente il supporto di un indicizzatore per la ricerca per indicizzazione nell'archiviazione BLOB di Azure, ma la funzionalità è in anteprima e non ancora un'opzione del portale. Per provare l'indicizzatore, è necessario scrivere codice. Per altre informazioni, vedere [Indicizzazione di documenti nell'archiviazione BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] È stato annunciato di recente il supporto di un indicizzatore per la ricerca per indicizzazione nell'archiviazione BLOB di Azure, ma la funzionalità è in anteprima e non ancora un'opzione del portale. Per provare l'indicizzatore, è necessario scrivere codice. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
 
 
 ## Appendice: Creare dati di esempio in DocumentDB
@@ -156,9 +156,9 @@ Le istruzioni seguenti forniscono indicazioni generali, ma non sono esaustive. S
 
 1. [Fare clic qui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) per scaricare un file ZIP contenente i file di dati JSON del Music Store. Per questo set di dati vengono forniti 246 documenti JSON.
 2. Aggiungere DocumentDB alla sottoscrizione e quindi aprire il dashboard del servizio.
-2. Fare clic su **Aggiungi database** per creare un nuovo database con ID `musicstoredb`. Una volta creato, il database verrà visualizzato in un riquadro di database più in basso nella pagina.
+2. Fare clic su **Aggiungi database** per creare un nuovo database con l'ID `musicstoredb`. Una volta creato, il database verrà visualizzato in un riquadro di database più in basso nella pagina.
 2. Fare clic sul nome del database per aprire il pannello corrispondente.
-3. Fare clic su **Aggiungi raccolta** per creare una raccolta con ID `musicstorecoll`.
+3. Fare clic su **Aggiungi raccolta** per creare una raccolta con l'ID `musicstorecoll`.
 3. Fare clic su **Esplora documenti**.
 4. Fare clic su **Carica**.
 5. In **Carica documento** passare alla cartella locale che contiene i file JSON scaricati in precedenza. Selezionare i file JSON in batch non superiori a 100.
@@ -183,4 +183,4 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

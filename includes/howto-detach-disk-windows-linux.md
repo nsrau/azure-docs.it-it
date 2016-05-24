@@ -4,7 +4,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-> [AZURE.NOTE] Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
+> [AZURE.NOTE] Per scollegare un disco del sistema operativo è prima necessario eliminare la macchina virtuale.
 
 
 ## Trovare il disco
@@ -32,5 +32,3 @@ Se non si conosce il nome del disco o si vuole verificarlo prima di averlo scoll
 	![Dettagli relativi allo scollegamento del disco](./media/howto-detach-disk-windows-linux/DetachDiskDetails.png)
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
-
-<!---HONumber=AcomDC_0211_2016-->

@@ -66,7 +66,7 @@ La chiamata dei metodi su un servizio mediante lo stack remoto viene eseguita us
 
 ```csharp
 
-IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
+IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.GetHelloWorld();
 
@@ -82,4 +82,4 @@ Il framework remoto propaga le eccezioni generate nel servizio al client. La log
 
 * [Proteggere le comunicazioni per Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

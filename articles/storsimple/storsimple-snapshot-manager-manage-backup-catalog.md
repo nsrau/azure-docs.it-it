@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Gestione snapshot StorSimple catalogo di backup | Microsoft Azure"
+   pageTitle="Catalogo di backup di StorSimple Snapshot Manager | Microsoft Azure"
    description="Descrive come utilizzare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire il catalogo di backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
-# Uso di Gestione snapshot StorSimple per gestire il catalogo di backup
+# Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
 
 ## Panoramica
 
-La funzione principale di Gestione snapshot StorSimple è consentire di creare copie di backup coerenti con l'applicazione dei volumi di Azure StorSimple sotto forma di snapshot. Gli snapshot vengono quindi elencati in un file XML denominato *catalogo di backup*. Il catalogo di backup consente di organizzare gli snapshot per gruppo di volumi e quindi per snapshot locali o cloud.
+La funzione principale di StorSimple Snapshot Manager è quella di consentire la creazione di copie di backup coerenti con l'applicazione dei volumi StorSimple sotto forma di snapshot. Gli snapshot vengono quindi elencati in un file XML denominato *catalogo di backup*. Il catalogo di backup consente di organizzare gli snapshot per gruppo di volumi e quindi per snapshot locali o cloud.
+
+In questa esercitazione viene descritto come utilizzare il nodo del **catalogo di backup** per completare le attività seguenti:
+
+- Ripristino di un volume 
+- Clonazione di un volume o di un gruppo di volumi 
+- Eliminazione di un backup 
+- Recupero di un file
+- Ripristino del database di StorSimple Snapshot Manager
 
 È possibile visualizzare il catalogo di backup espandendo il nodo del **catalogo di backup** nel riquadro **Ambito**, quindi espandendo il gruppo di volumi.
 
@@ -33,9 +41,9 @@ La funzione principale di Gestione snapshot StorSimple è consentire di creare c
 
     - **Proprietario**: il proprietario del contenuto.
 
-    - **Disponibile**: se lo snapshot è attualmente disponibile. True indica che lo snapshot è disponibile e può essere ripristinato, False indica che lo snapshot non è più disponibile.
+    - **Disponibile**: se lo snapshot è attualmente disponibile. **True** indica che lo snapshot è disponibile e può essere ripristinato, **False** indica che lo snapshot non è più disponibile.
 
-    - **Importato**: se il backup è stato importato. **True** indica che il backup è stato importato dal servizio StorSimple Manager nel momento in cui il dispositivo è stato configurato in Gestione snapshot StorSimple, **False** indica che non è stato importato, ma è stato creato da Gestione snapshot StorSimple. (È possibile identificare facilmente un gruppo di volumi importati perché viene aggiunto un suffisso che identifica il dispositivo da cui è stato importato il gruppo di volumi.)
+    - **Importato**: se il backup è stato importato. **True** indica che il backup è stato importato dal servizio StorSimple Manager nel momento in cui il dispositivo è stato configurato in StorSimple Snapshot Manager, **False** indica che non è stato importato, ma è stato creato da StorSimple Snapshot Manager. (È possibile identificare facilmente un gruppo di volumi importati perché viene aggiunto un suffisso che identifica il dispositivo da cui è stato importato il gruppo di volumi.)
 
     ![Catalogo di backup](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
 
@@ -49,13 +57,6 @@ La funzione principale di Gestione snapshot StorSimple è consentire di creare c
 
     - **Disponibile**: se lo snapshot è attualmente disponibile. **True** indica che lo snapshot è disponibile e può essere ripristinato, **False** indica che lo snapshot non è più disponibile.
 
-In questa esercitazione viene descritto come utilizzare il nodo del **catalogo di backup** per completare le attività seguenti:
-
-- Ripristino di un volume 
-- Clonazione di un volume o di un gruppo di volumi 
-- Eliminazione di un backup 
-- Recupero di un file
-- Ripristino del database di Gestione snapshot StorSimple
 
 ## Ripristino di un volume
 
@@ -63,13 +64,13 @@ Utilizzare la procedura seguente per ripristinare un volume dal backup.
 
 #### Prerequisiti
 
-Se questa operazione non è già stata eseguita, creare un volume e un gruppo di volumi, quindi eliminare il volume. Per impostazione predefinita, Gestione snapshot StorSimple esegue il backup di un volume prima di consentirne l’eliminazione. Questa precauzione permette di evitare la perdita di dati se il volume viene eliminato involontariamente o se i dati devono essere recuperati per qualsiasi motivo.
+Se questa operazione non è già stata eseguita, creare un volume e un gruppo di volumi, quindi eliminare il volume. Per impostazione predefinita, StorSimple Snapshot Manager esegue il backup di un volume prima di consentirne l’eliminazione. Questa precauzione permette di evitare la perdita di dati se il volume viene eliminato involontariamente o se i dati devono essere recuperati per qualsiasi motivo.
 
-Durante la creazione del backup precauzionale, in Gestione snapshot StorSimple viene visualizzato il messaggio seguente.
+Durante la creazione del backup precauzionale, in StorSimple Snapshot Manager viene visualizzato il messaggio seguente.
 
 ![Messaggio di snapshot automatico](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT]Non è possibile eliminare un volume che fa parte di un gruppo di volumi. L'opzione di eliminazione non è disponibile.<br>
+>[AZURE.IMPORTANT] Non è possibile eliminare un volume che fa parte di un gruppo di volumi. L'opzione di eliminazione non è disponibile.<br>
 
 #### Per ripristinare un volume
 
@@ -81,7 +82,7 @@ Durante la creazione del backup precauzionale, in Gestione snapshot StorSimple v
 
     ![Ripristino del catalogo di backup](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png)
 
-4. Nella pagina di conferma, esaminare i dettagli, digitare **Conferma**, quindi fare clic su **OK**. Gestione snapshot StorSimple utilizza il backup per ripristinare il volume.
+4. Nella pagina di conferma, esaminare i dettagli, digitare **Conferma**, quindi fare clic su **OK**. StorSimple Snapshot Manager usa il backup per ripristinare il volume.
 
     ![Ripristino del messaggio di conferma](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png)
 
@@ -117,7 +118,7 @@ Utilizzare la procedura seguente per creare un duplicato (clone) di un volume o 
 
 Utilizzare la procedura seguente per eliminare uno snapshot dal catalogo di backup.
 
->[AZURE.NOTE]L’eliminazione di uno snapshot comporta la rimozione dei dati di cui è stato eseguito il backup associati allo snapshot. Tuttavia, il processo di pulizia dei dati dal cloud potrebbe richiedere alcuni minuti.<br>
+>[AZURE.NOTE] L’eliminazione di uno snapshot comporta la rimozione dei dati di cui è stato eseguito il backup associati allo snapshot. Tuttavia, il processo di pulizia dei dati dal cloud potrebbe richiedere alcuni minuti.<br>
  
 #### Per eliminare un backup
 
@@ -139,7 +140,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 #### Per recuperare un file eliminato
 
-1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Viene visualizzata la finestra della console di Gestione snapshot StorSimple. 
+1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Viene visualizzata la finestra della console di StorSimple Snapshot Manager. 
 
 2. Nel riquadro **Ambito**, espandere il nodo del **catalogo di backup** e passare a uno snapshot che contiene il file eliminato. In genere, è consigliabile selezionare uno snapshot creato poco prima dell'eliminazione.
 
@@ -165,9 +166,9 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 7. Dopo aver ripristinato il file, è possibile eliminare la cartella NTFS che contiene il volume clonato.
 
-## Ripristino del database di Gestione snapshot StorSimple
+## Ripristino del database di StorSimple Snapshot Manager
 
-È consigliabile eseguire regolarmente il backup del database di Gestione snapshot StorSimple sul computer host. Se si verifica un'emergenza o viene riscontrato un errore nel computer host per qualsiasi motivo, è possibile ripristinarlo dal backup. La creazione del backup del database è un processo manuale.
+È consigliabile eseguire regolarmente il backup del database di StorSimple Snapshot Manager sul computer host. Se si verifica un'emergenza o viene riscontrato un errore nel computer host per qualsiasi motivo, è possibile ripristinarlo dal backup. La creazione del backup del database è un processo manuale.
 
 #### Per eseguire il backup e il ripristino del database
 
@@ -183,9 +184,9 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 2. Nel computer host, passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE]ProgramData è una cartella nascosta.
+    >[AZURE.NOTE] ProgramData è una cartella nascosta.
  
-3. Individuare il file XML di catalogo, copiare il file e archiviare la copia in un luogo sicuro o nel cloud. Se viene riscontrato un errore nell’host, è possibile utilizzare questo file di backup per recuperare i criteri di backup creati in Gestione snapshot StorSimple.
+3. Individuare il file XML di catalogo, copiare il file e archiviare la copia in un luogo sicuro o nel cloud. Se viene riscontrato un errore nell’host, è possibile utilizzare questo file di backup per recuperare i criteri di backup creati in StorSimple Snapshot Manager.
 
     ![File del catalogo di backup di Azure StorSimple](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 
@@ -201,11 +202,11 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 6. Eliminare il file XML del catalogo e sostituirlo con la versione di backup creata.
 
-7. Fare clic sull'icona di Gestione snapshot StorSimple del desktop per avviare Gestione snapshot StorSimple.
+7. Fare clic sull'icona di StorSimple Snapshot Manager del desktop per avviare StorSimple Snapshot Manager.
 
 ## Passaggi successivi
 
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-- Ulteriori informazioni sulle[ attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- Ulteriori informazioni sulle[ attività e sui flussi di lavoro di StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

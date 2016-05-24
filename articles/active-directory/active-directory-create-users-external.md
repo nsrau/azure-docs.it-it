@@ -74,13 +74,14 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 - Gli utenti esterni non possono autorizzare applicazioni multi-tenant in directory esterne alla relativa home directory.
 - PowerBI al momento non supporta l'accesso da parte di utenti esterni
 - Il portale di Office non supporta la concessione di licenze a utenti esterni
+- Per quanto riguarda Azure AD PowerShell, gli utenti esterni vengono registrati nella rispettiva home directory e non possono gestire directory in cui sono utenti esterni
 
 
 ## Passaggi successivi
 
-- [Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory](active-directory-create-users.md)
+- [Aggiungere o modificare utenti in Azure Active Directory](active-directory-create-users.md)
 - [Amministrazione di Azure AD](active-directory-administer.md)
 - [Gestire password in Azure AD](active-directory-manage-passwords.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

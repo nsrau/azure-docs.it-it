@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come usare l'archiviazione BLOB da Python | Microsoft Azure"
-	description="Informazioni su come usare il servizio BLOB di Azure da Python per caricare, elencare, scaricare, elencare ed eliminare BLOB."
+	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/29/2016"
+    ms.date="04/29/2016"
 	ms.author="jehine"/>
 
 # Come usare l'archiviazione BLOB di Azure da Python
@@ -125,4 +125,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

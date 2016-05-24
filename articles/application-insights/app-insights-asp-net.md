@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
 
 
@@ -143,15 +143,20 @@ Aprire la risorsa Application Insights nel [portale di Azure][portal].
 
 Se non è stato eseguito l'accesso ad Azure durante l'aggiunta di Application Insights all'app, accedere ora. Selezionare **Configura Application Insights**. Questa operazione consente di continuare a visualizzare i dati di telemetria dall'app attiva dopo averla distribuita. I dati di telemetria verranno visualizzati nel portale di Application Insights.
 
-### Metriche: dati aggregati
+### Live Stream
 
-Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
+Per una visualizzazione rapida dei dati di telemetria durante il debug o immediatamente dopo una distribuzione, usare Live Stream.
 
-![Fare clic per visualizzare altri dati.](./media/app-insights-asp-net/12-first-perf.png)
+![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-asp-net/45.png)
 
-Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
-* *Nessun dato utente o pagina?* - [Aggiungere i dati utente e pagina](app-insights-web-track-usage.md)
+Live Stream è stato progettato in modo da consentire di verificare il corretto funzionamento dell'app immediatamente dopo una distribuzione.
+
+Live Stream mostra solo i dati di pochi minuti precedenti e non conserva i dati.
+
+Richiede l'SDK 2.1.0-beta1 o versione successiva.
+
+
 
 ### Ricerca: singoli eventi
 
@@ -162,6 +167,23 @@ Aprire la ricerca per esaminare le singole richieste e i relativi eventi associa
 [Altre informazioni sulla ricerca](app-insights-diagnostic-search.md)
 
 * *Nessun evento associato?* Impostare le [eccezioni del server](app-insights-asp-net-exceptions.md) e le [dipendenze](app-insights-asp-net-dependencies.md).
+
+
+### Metriche: dati aggregati
+
+Cercare i dati aggregati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
+
+![Fare clic per visualizzare altri dati.](./media/app-insights-asp-net/12-first-perf.png)
+
+Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
+
+* *Nessun dato utente o pagina?* - [Aggiungere i dati utente e pagina](app-insights-web-track-usage.md)
+
+### Analytics: linguaggio di query avanzato
+
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole. [Analytics]() è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e informazioni utili per la diagnostica.
+
+![Esempio di Analytics](./media/app-insights-asp-net/025.png)
 
 
 ## Dati non visualizzati
@@ -179,19 +201,8 @@ Aprire la ricerca per esaminare le singole richieste e i relativi eventi associa
 
 Ora distribuire l'applicazione e osservare l'accumulo dei dati.
 
-### Live Stream
+Usare [Live Stream](#live-stream) per monitorare i primi minuti di una distribuzione o ridistribuzione, in modo da verificare il funzionamento corretto dell'app. Soprattutto quando si sostituisce una versione precedente, occorre verificare se le prestazioni sono migliorate. Se si verifica un problema, è consigliabile ripristinare la versione precedente.
 
-Il corretto funzionamento di un'applicazione è rilevabile già nei primi minuti della distribuzione. Soprattutto quando si sostituisce una versione precedente, occorre verificare se le prestazioni sono migliorate. Se si verifica un problema, è consigliabile ripristinare la versione precedente.
-
-Live Stream consente la visualizzazione immediata di un set di metriche di prestazioni chiave. È progettato per permettere di osservare una ridistribuzione o una riconfigurazione.
-
-![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-asp-net/45.png)
-
-A differenza di altri grafici relativi alle metriche, Live Stream mostra solo i dati di pochi minuti precedenti e non conserva i dati. La pipeline di aggregazione è minima e la visualizzazione viene aggiornata ogni secondo.
-
-Live Stream richiede l'SDK 2.1.0-beta1 o versione successiva.
-
-*Se Live Stream si blocca sulla pagina di configurazione, aggiornare il browser (F5).*
 
 #### Problemi del server di compilazione
 
@@ -246,4 +257,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

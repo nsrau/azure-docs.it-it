@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: limitazioni dell'anteprima corrente
@@ -29,7 +29,7 @@
 - Un numero massimo di 2.000 record può essere caricato tramite CSV.
 
 ## Articoli correlati
-Vedere gli altri articoli sulla collaborazione B2B di Azure:
+Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 - [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -39,4 +39,4 @@ Vedere gli altri articoli sulla collaborazione B2B di Azure:
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

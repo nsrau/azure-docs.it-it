@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/12/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Archivio Azure Data Lake con Java
@@ -28,6 +28,13 @@
 - [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Informazioni su come usare Azure Data Lake Store Java SDK per creare un account Azure Data Lake ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
+
+## Java SDK di Archivio Azure Data Lake
+
+I collegamenti seguenti forniscono il percorso di download per Java SDK per Archivio Data Lake e le informazioni di riferimento su Java SDK. Per questa esercitazione non è necessario scaricare l'SDK o seguire il documento di riferimento. Questi collegamenti sono solo a scopo informativo.
+
+* Il codice sorgente per Java SDK per Archivio Data Lake è disponibile in [GitHub](https://github.com/Azure/azure-sdk-for-java).
+* Le informazioni di riferimento su Java SDK per Archivio Data Lake sono disponibili all'indirizzo [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
 
 ## Prerequisiti
 
@@ -98,7 +105,7 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
     	</dependencies>
 
 
-4. Passare a **File**, quindi **Settings**, **Build, Execution, and Deployment**. Espandere **Build Tools**, **Maven**, quindi espandere **Importing**. Selezionare la casella di controllo **Import Maven projects automatically**. Fare clic su **Apply** e quindi su **OK**.
+4. Passare a **File**, quindi a **Settings** e infine a **Build, Execution, and Deployment**. Espandere **Build Tools**, **Maven**, quindi espandere **Importing**. Selezionare la casella di controllo **Import Maven projects automatically**. Fare clic su **Apply** e quindi su **OK**.
 
 5. Dal riquadro sinistro passare a **src**, **main**, **java**, **<nome pacchetto>**, quindi aprire il file **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
 
@@ -303,4 +310,4 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

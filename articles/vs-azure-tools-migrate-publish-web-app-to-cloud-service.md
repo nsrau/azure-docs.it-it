@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio
@@ -45,7 +45,7 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
     - La proprietà **Copia localmente** viene impostata su true per qualsiasi assembly necessario per MVC 2, MVC 3, MVC 4 e applicazioni aziendali di Silverlight. Questo aggiunge questi assembly al pacchetto del servizio utilizzato per la distribuzione.
 
-  >[AZURE.IMPORTANT]Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.  
+  >[AZURE.IMPORTANT] Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.  
 
   >[AZURE.NOTE] Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
 
@@ -55,17 +55,17 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
 Se si dispone di una stringa di connessione per l'applicazione Web che utilizza un database SQL Server locale, è necessario modificare questa stringa di connessione per utilizzare un'istanza del database SQL ospitata da Azure.
 
->[AZURE.IMPORTANT] La sottoscrizione deve consentire di utilizzare il database SQL. Se si accede alla sottoscrizione dal portale di gestione di Azure, è possibile determinare quali servizi sono forniti dall'abbonamento. Le istruzioni seguenti si applicano al portale di gestione rilasciato. Se si utilizza il portale di gestione di anteprima, passare alla procedura successiva.|
+>[AZURE.IMPORTANT] La sottoscrizione deve consentire di utilizzare il database SQL. Se si accede alla sottoscrizione dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885), è possibile determinare quali servizi vengono forniti dalla sottoscrizione. Le istruzioni seguenti si applicano al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) rilasciato. Se si sta usando il [portale di Azure](http://portal.microsoft.com), passare alla procedura successiva.
 
 ### Per utilizzare un'istanza di database SQL nel ruolo Web della stringa di connessione
 
-1. Per creare un'istanza del database SQL nel portale di gestione di Azure, seguire i passaggi nel seguente articolo: [Creare un server di database SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. Per creare un'istanza del database SQL nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) seguire le istruzioni di questo articolo: [Creare un server di database SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
 
     >[AZURE.NOTE] Quando si impostano le regole del firewall per l'istanza del database SQL, è necessario selezionare la casella di controllo **Consenti ad altri servizi di Azure di accedere a questo server**.
 
 1. Per creare un'istanza del database SQL da usare per la stringa di connessione, seguire i passaggi nella sezione successiva nell'articolo seguente: [Creare un database SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-1. Per copiare la stringa di connessione ADO.NET da utilizzare per la stringa di connessione, eseguire i passaggi seguenti nel portale di gestione per Azure.
+1. Per copiare la stringa di connessione ADO.NET da usare, seguire questa procedura nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
   1. Scegliere il pulsante **Database**, quindi aprire il nodo per la sottoscrizione utilizzata per creare l'istanza del database SQL.
 
@@ -99,9 +99,9 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. Salvare il file modificato e ripubblicare l'applicazione.
 
-### Per usare un'istanza del database SQL tramite il portale di gestione di Azure
+### Per usare un'istanza del database SQL con il portale di Azure classico
 
-1. Nel [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) scegliere il nodo Database SQL.
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885) scegliere il nodo Database SQL.
 
   - Se viene visualizzata l'istanza del database SQL che si desidera utilizzare, scegliere di aprirla.
 
@@ -135,7 +135,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. (Facoltativo) Per annullare il processo di distribuzione, aprire il menu di scelta rapida per la voce nel registro attività e scegliere **Annulla e rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
 
-    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
+    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario usare il [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Facoltativo) Una volta avviate le istanze del ruolo, Visual Studio mostrerà automaticamente l'ambiente di distribuzione nel nodo **Calcolo di Azure** in **Cloud Explorer** o **Esplora server**. Da qui è possibile visualizzare lo stato delle singole istanze del ruolo.
 
@@ -168,7 +168,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. Per creare un database SQL Azure che può essere usato per un'applicazione Web di entità dinamiche ASP.NET, seguire i passaggi nella procedura **Utilizzare un database SQL Azure per l'applicazione** precedentemente in questo argomento.
 
-1. Aggiungere le tabelle e i campi necessari per il database dal portale di gestione di Azure.
+1. Aggiungere le tabelle e i campi necessari per il database dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. La stringa di connessione per questo tipo di applicazione presenta il seguente formato nel file web.config:
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

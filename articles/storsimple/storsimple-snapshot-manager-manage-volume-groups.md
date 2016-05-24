@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager gruppi di volume | Microsoft Azure"
-   description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per creare e gestire i gruppi di volumi."
+   description="Viene descritto come utilizzare lo snap-in MMC StorSimple Snapshot Manager per creare e gestire i gruppi di volumi."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi
+# Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 
 ## Panoramica
 
@@ -23,17 +23,17 @@
 
 I gruppi di volumi sono pool di volumi correlati utilizzati per garantire che i backup siano coerenti con l'applicazione. Per ulteriori informazioni, vedere [Volumi e gruppi di volumi](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) e [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 > * Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
 > 
-> * Quando si configurano gruppi di volumi, non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. Gestione snapshot StorSimple non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
+> * Quando si configurano gruppi di volumi, non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. StorSimple Snapshot Manager non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
  
 ![Nodo Gruppi di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figura 1: Nodo Gruppi di volumi di Gestione snapshot StorSimple**
+**Figura 1: Nodo Gruppi di volumi di StorSimple Snapshot Manager**
 
-In questa esercitazione viene illustrato come utilizzare Gestione snapshot StorSimple per:
+Questa esercitazione illustra come usare StorSimple Snapshot Manager per:
 
 - Visualizzare le informazioni sui gruppi di volumi 
 - Creare un gruppo di volumi
@@ -52,9 +52,9 @@ Colonna risultati | Descrizione
 Nome | La colonna **Nome** contiene il nome del gruppo di volumi.
 Applicazione | La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows.
 Selezionato | La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi.
-Importati | La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure classico e non è stato creato in Gestione snapshot StorSimple.
+Importati | La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure classico e non è stato creato in StorSimple Snapshot Manager.
  
->[AZURE.NOTE]I gruppi di volumi di Gestione snapshot StorSimple vengono inoltre visualizzati nella scheda **Criteri di backup** del portale di Azure classico.
+>[AZURE.NOTE] I gruppi di volumi di StorSimple Snapshot Manager vengono inoltre visualizzati nella scheda **Criteri di backup** del portale di Azure classico.
  
 ## Creare un gruppo di volumi
 
@@ -78,17 +78,17 @@ Utilizzare la procedura seguente per creare un gruppo di volumi.
 
     2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.
 
-        Nella casella **Applicazioni** vengono elencate solo le applicazioni che usano volumi StorSimple di Azure e che dispongono di writer del Servizio snapshot del volume abilitate per tali volumi. Un writer del Servizio snapshot del volume è abilitato solo se tutti i volumi di cui è a conoscenza sono volumi StorSimple di Azure. Se la casella Applicazioni è vuota, non è stata installata alcuna applicazione che utilizza volumi StorSimple di Azure e che dispone di writer del Servizio snapshot del volume. (Attualmente, Azure StorSimple supporta Microsoft Exchange e SQL Server). Per altre informazioni sui writer del Servizio snapshot del volume, vedere [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+        Nella casella **Applicazioni** vengono elencate solo le applicazioni che usano volumi StorSimple e per le quali è abilitato il componente VSS writer. VSS writer è abilitato solo se tutti i volumi di cui è a conoscenza sono volumi StorSimple. Se la casella Applicazioni è vuota, non è stata installata alcuna applicazione che utilizza volumi StorSimple di Azure e che dispone di writer del Servizio snapshot del volume. (Attualmente, Azure StorSimple supporta Microsoft Exchange e SQL Server). Per altre informazioni sui writer del Servizio snapshot del volume, vedere [Integrazione con il servizio Copia Shadow del volume di Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
         Se si seleziona un'applicazione, vengono selezionati automaticamente tutti i volumi associati ad essa. Viceversa, se si selezionano i volumi associati a un'applicazione specifica, l'applicazione viene automaticamente selezionata nella casella **Applicazioni**.
 
-    3. Nella casella **Volumi** selezionare i volumi StorSimple di Azure da aggiungere al gruppo di volumi.
+    3. Nella casella **Volumi** selezionare i volumi StorSimple da aggiungere al gruppo di volumi.
 
       - È possibile includere volumi con una o più partizioni. (I volumi con più partizioni possono essere dischi dinamici o dischi di base con più partizioni.) Un volume che contiene più partizioni viene considerato come una singola unità. Di conseguenza, se si aggiunge solo una delle partizioni a un gruppo di volumi, tutte le altre partizioni vengono automaticamente aggiunte a tale gruppo contemporaneamente. Dopo aver aggiunto un volume con più partizioni a un gruppo di volumi, il volume con più partizioni continua a essere considerato come una singola unità.
 
       - È possibile creare gruppi di volumi vuoti non assegnando alcun volume a essi.
 
-      - Non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. Gestione snapshot StorSimple non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
+      - Non combinare volumi condivisi cluster (CSV) e volumi non condivisi cluster nello stesso gruppo di volumi. StorSimple Snapshot Manager non supporta una combinazione di volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot.
 
 4. Fare clic su **OK** per salvare il gruppo di volumi.
 
@@ -130,7 +130,7 @@ Utilizzare la procedura seguente per modificare un gruppo di volumi.
 
 Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
->[AZURE.WARNING]Ciò elimina anche tutti i backup associati al gruppo di volumi.
+>[AZURE.WARNING] Vengono eliminati anche tutti i backup associati al gruppo di volumi.
 
 #### Per eliminare un gruppo di volumi
 
@@ -144,7 +144,7 @@ Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
 ## Passaggi successivi
 
-- Informazioni su come [usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-- Informazioni su come [usare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [usare StorSimple Snapshot Manager per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

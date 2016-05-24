@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/26/2016"
 	ms.author="prkhad"/>
 
 
@@ -55,9 +55,13 @@ Per istruzioni dettagliate, vedere la sezione [Avvio rapido](#quick-start) più 
 
 ## Macchine virtuali delle serie DS, DSv2 e GS
 
-Archiviazione Premium supporta le macchine virtuali (VM) delle serie DS, DSv2 e GS. Con le macchine virtuali della serie DS, DSv2 o GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è possibile usare dischi di Archiviazione Premium su macchine virtuali non della serie DS o della serie GS. Per informazioni sulle dimensioni e i tipi di VM di Azure disponibili, vedere l'articolo relativo alle [dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md). Di seguito sono indicate alcune delle funzionalità delle VM delle serie DS, DSv2 e GS.
+Archiviazione Premium supporta le macchine virtuali (VM) delle serie DS, DSv2 e GS. Con le macchine virtuali della serie DS, DSv2 o GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è possibile usare dischi di Archiviazione Premium su macchine virtuali non della serie DS o della serie GS.
 
-**Servizio cloud**: le macchine virtuali della serie DS possono essere aggiunte a un servizio cloud che include solo macchine virtuali della serie DS. Non aggiungere macchine virtuali della serie DS a un servizio cloud esistente che include macchine virtuali di una serie diversa. È possibile eseguire la migrazione dei dischi rigidi virtuali esistenti in un nuovo servizio cloud che esegue solo macchine virtuali della serie DS. Se si vuole mantenere lo stesso indirizzo IP virtuale per il nuovo servizio cloud che ospita le VM della serie DS, usare gli [indirizzi IP riservati](../virtual-network/virtual-networks-instance-level-public-ip.md). È possibile aggiungere macchine virtuali serie GS a un servizio cloud esistente che esegue solo le macchine virtuali serie G.
+Per informazioni sulle dimensioni e i tipi di VM di Azure disponibili, vedere [Dimensioni della macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-sizes.md). Per informazioni sulle dimensioni e i tipi di VM per Linux, vedere [Dimensioni della macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+
+Di seguito sono indicate alcune delle funzionalità delle VM delle serie DS, DSv2 e GS:
+
+**Servizio cloud**: le macchine virtuali della serie DS possono essere aggiunte a un servizio cloud che include solo macchine virtuali della serie DS. Non aggiungere macchine virtuali della serie DS a un servizio cloud esistente che include macchine virtuali di una serie diversa. È possibile eseguire la migrazione dei dischi rigidi virtuali esistenti in un nuovo servizio cloud che esegue solo macchine virtuali della serie DS. Se si vuole mantenere lo stesso indirizzo IP virtuale (VIP) per il nuovo servizio cloud che ospita le VM della serie DS, usare gli [indirizzi IP riservati](../virtual-network/virtual-networks-instance-level-public-ip.md). È possibile aggiungere macchine virtuali serie GS a un servizio cloud esistente che esegue solo le macchine virtuali serie G.
 
 **Disco del sistema operativo**: le macchine virtuali di Azure delle serie DS, DSv2 e GS possono essere configurate per usare un disco del sistema operativo ospitato sia in un account di Archiviazione Standard che in un account di Archiviazione Premium. Se si utilizza il disco del sistema operativo solo per l'avvio, è possibile utilizzare un’archiviazione standard basata su disco del sistema operativo. In questo modo si ottengono vantaggi economici e prestazioni analoghe all'archiviazione Premium dopo l'avvio. Se si eseguono operazioni aggiuntive sul disco del sistema operativo diverse dall'avvio, utilizzare Archiviazione Premium poiché fornisce prestazioni migliori. Ad esempio, se l’applicazione in uso esegue letture/scritture dal/al disco del sistema operativo, l'utilizzo di Archiviazione Premium basata su disco del sistema operativo offre prestazioni migliori per la macchina virtuale.
 
@@ -73,7 +77,9 @@ Archiviazione Premium supporta le macchine virtuali (VM) delle serie DS, DSv2 e 
 
 Attualmente, la macchina virtuale di dimensioni maggiori nella serie DS è STANDARD\_DS14 e può fornire fino a 512 MB al secondo in tutti i dischi. La macchina virtuale di dimensioni maggiori nella serie GS è STANDARD\_GS5 e può fornire fino a 2000 MB al secondo in tutti i dischi. Si noti che questi limiti riguardano solo il traffico su disco, esclusi riscontri nella cache e traffico di rete. Esiste una larghezza di banda separata per il traffico di rete delle macchine virtuali che è diversa dalla larghezza di banda dedicata per i dischi di Archiviazione Premium.
 
-Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali delle serie DS, DSv2 e GS, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md). Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
+Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali delle serie DS, DSv2 e GS, vedere [Dimensioni della macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Dimensioni della macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+
+Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
 
 ## Obiettivi di scalabilità e prestazioni di Archiviazione Premium
 
@@ -370,7 +376,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 	>  
 	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il Portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classico**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 5. Per il livello di prestazioni per l'account di archiviazione specificare **Premium**.
 
@@ -378,7 +384,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 
 7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
 9. Selezionare la posizione geografica dell'account di archiviazione. È possibile verificare che Archiviazione Premium sia disponibile nella località selezionata facendo riferimento a [Servizi di Azure per area](https://azure.microsoft.com/regions/#services).
 
@@ -544,4 +550,4 @@ Per altre informazioni su Archiviazione Premium di Azure, vedere gli articoli se
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0511_2016-->

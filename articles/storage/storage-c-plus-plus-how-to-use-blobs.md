@@ -1,6 +1,6 @@
 <properties
     pageTitle="Come usare il servizio di archiviazione BLOB (C++) | Microsoft Azure"
-    description="Informazioni su come usare il servizio di archiviazione BLOB in Azure. Gli esempi sono scritti in C++."
+	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # Come usare l'archiviazione BLOB da C++  
@@ -238,4 +238,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

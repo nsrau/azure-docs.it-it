@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come configurare un servizio cloud | Microsoft Azure" 
+	pageTitle="Come configurare un servizio cloud (portale classico) | Microsoft Azure" 
 	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/22/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Come configurare i servizi cloud
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-configure-portal.md)
-- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Portale di Azure](cloud-services-how-to-configure-portal.md)
+- [Portale di Azure classico](cloud-services-how-to-configure.md)
 
 È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure classico. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
@@ -86,4 +86,4 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 * [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/10/2016"
 	ms.author="mandia"/>
 
 # Gestire e monitorare le app per le API e i connettori predefiniti
@@ -121,9 +121,9 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 
 ## Altre informazioni
 
-[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> 
-[Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/> 
-[Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> 
+[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/>
+[Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
 [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
 
 
@@ -137,4 +137,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

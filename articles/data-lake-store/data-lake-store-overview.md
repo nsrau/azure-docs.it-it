@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Panoramica dell’Archivio Data Lake di Azure
@@ -67,11 +67,18 @@ Azure Data Lake Store utilizza la Azure Active Directory per gli elenchi di aute
 | Autenticazione | L’Archivio Data Lake di Azure si integra con la Azure Active Directory (AAD) per la gestione delle identità e degli accessi per tutti i dati memorizzati nell'archivio Data Lake di Azure. Come risultato dell'integrazione, ci sono i vantaggi di Azure Data Lake tratti da tutte le funzionalità AAD compresi l’autenticazione a più fattori, l'accesso condizionale, il controllo dell'accesso basato su ruoli, il monitoraggio dell'utilizzo dell'applicazione, sicurezza, il monitoraggio e l’avviso di sicurezza, e così via. L’Archivio Data Lake di Azure supporta il protocollo OAuth 2.0 per l'autenticazione con l'interfaccia REST. |
 | Controllo di accesso | L'Archivio Data Lake di Azure fornisce il controllo di accesso mediante il supporto delle autorizzazioni di tipo POSIX esposte dal protocollo WebHDFS. Nella versione corrente, le autorizzazioni possono essere specificate a livello di Data Lake e verranno applicate a tutti i file e cartelle nel Data Lake. Negli aggiornamenti futuri verrà abilitato il controllo di accesso con granularità fine mediante la concessione di autorizzazioni da specificare nei singoli file e cartelle.|
 
-Per istruzioni su come proteggere i dati in Archivio Data Lake, vedere [Protezione dei dati nell'archivio Data Lake di Azure](data-lake-store-secure-data.md).
+Per altre informazioni sulla protezione dei dati in Archivio Data Lake, fare clic sui collegamenti seguenti.
+
+* Per istruzioni su come proteggere i dati in Archivio Data Lake, vedere [Protezione dei dati nell'archivio Data Lake di Azure](data-lake-store-secure-data.md).
+* Se si preferiscono i video, [guardare questo video](https://mix.office.com/watch/1q2mgzh9nn5lx) su come proteggere i dati archiviati in Archivio Data Lake.
 
 ## Applicazioni compatibili con l'archivio Data Lake di Azure
 
-Vedere [Applicazioni e servizi compatibili con Azure Data Lake](data-lake-store-compatible-oss-other-applications.md) per un elenco di applicazioni open source interoperative con archivio Data Lake di Azure. Vedere [Integrazione con altri servizi di Azure](data-lake-store-integrate-with-other-services.md) per comprendere come l’Archivio Data Lake possa essere utilizzato con altri servizi di Azure per abilitare una vasta gamma di scenari.
+Archivio Azure Data Lake è compatibile con la maggior parte dei componenti open source nell'ecosistema Hadoop. Si integra bene anche con altri servizi di Azure. Questo fa di Archivio Data Lake la soluzione ideale per le esigenze di archiviazione dei dati. Per altre informazioni su come usare Archivio Data Lake sia con componenti open source che con altri servizi di Azure, fare clic sui collegamenti seguenti.
+
+* Vedere [Applicazioni e servizi compatibili con Archivio Azure Data Lake](data-lake-store-compatible-oss-other-applications.md) per un elenco di applicazioni open source interoperative con Archivio Data Lake.
+* Vedere [Integrazione con altri servizi di Azure](data-lake-store-integrate-with-other-services.md) per comprendere come l’Archivio Data Lake possa essere utilizzato con altri servizi di Azure per abilitare una vasta gamma di scenari.
+* Per informazioni su come usare Archivio Data Lake in scenari come l'inserimento, l'elaborazione, il download e la visualizzazione di dati, vedere [Scenari per l'uso di Archivio Data Lake](data-lake-store-data-scenarios.md).
 
 ## Che cos'è il sistema di file Archivio Data Lake di Azure (adl://)?
 
@@ -87,4 +94,20 @@ Vedere [Guida introduttiva all’utilizzo di Archivio Data Lake tramite il porta
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introduzione a Azure Data Lake Store utilizzando .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Video su Archivio Data Lake
+
+Se si preferisce guardare dei video per imparare a usare Archivio Data Lake, sono disponibili video su diverse funzionalità.
+
+* [Creare un account di Archivio Azure Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Usare Esplora dati per gestire i dati in Archivio Azure Data Lake](https://mix.office.com/watch/icletrxrh6pc)
+* [Connettere Analisi Azure Data Lake ad Archivio Azure Data Lake](https://mix.office.com/watch/qwji0dc9rx9k)
+* [Accedere ad Archivio Azure Data Lake con Analisi Data Lake](https://mix.office.com/watch/1n0s45up381a8)
+* [Connettere Azure HDInsight ad Archivio Azure Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
+* [Accedere ad Archivio Azure Data Lake con Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
+* [Usare DistCp (Hadoop Distributed Copy) per copiare i dati da e in Archivio Azure Data Lake](https://mix.office.com/watch/1liuojvdx6sie)
+* [Usare Apache Sqoop per spostare i dati tra origini relazionali e Archivio Azure Data Lake](https://mix.office.com/watch/1butcdjxmu114)
+* [Orchestrazione di dati con Azure Data Factory per Archivio Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Protezione dei dati in Archivio Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
+
+<!---HONumber=AcomDC_0518_2016-->

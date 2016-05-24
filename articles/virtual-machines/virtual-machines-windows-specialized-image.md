@@ -28,15 +28,15 @@ Se invece occorre creare distribuzioni di massa di macchine virtuali Windows sim
 
 ## Operazioni preliminari
 
-Questo articolo presuppone che prima di iniziare la procedura, siano soddisfatti i prerequisiti seguenti:
+Questo articolo presuppone che l'utente abbia:
 
-1. È presente una macchina virtuale di Azure che esegue Windows, creata con il modello di distribuzione classica o il modello di distribuzione Resource Manager. Il sistema operativo è stato configurato, i dischi dati sono stati collegati e sono state effettuate altre personalizzazioni, ad esempio l'installazione delle applicazioni necessarie. Questa macchina virtuale verrà usata per creare la copia. Per informazioni su come creare la macchina virtuale di origine, vedere [Come creare una macchina virtuale Windows con Resource Manager](virtual-machines-windows-ps-create.md). 
+1. Una **macchina virtuale di Azure che esegue Windows** nel modello di distribuzione classica o Resource Manager con il sistema operativo configurato, i dischi dati collegati e le applicazioni necessarie installate. Per assistenza nella creazione di questa macchina virtuale, vedere [Creare una VM Windows con Resource Manager e PowerShell](virtual-machines-windows-ps-create.md). 
 
-1. Azure PowerShell è stato installato nel computer ed è stato eseguito l'accesso alla propria sottoscrizione di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1. **Azure PowerShell 1.0 o versione successiva** installato nel computer e connesso alla sottoscrizione di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-1. Lo strumento AzCopy è stato scaricato e installato. Per altre informazioni su questo strumento, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](../storage/storage-use-azcopy.md).
+1. **Strumento AzCopy** installato nel computer. Per altre informazioni, vedere [Trasferire dati con lo strumento da riga di comando AzCopy](../storage/storage-use-azcopy.md).
 
-1. È presente un gruppo di risorse in cui sono stati creati un account di archiviazione e un contenitore BLOB in cui eseguire la copia dei dischi rigidi virtuali. Vedere la sezione [Creare o individuare un account di archiviazione di Azure](virtual-machines-windows-upload-image.md#createstorage) per la procedura necessaria per usare un account di archiviazione esistente o per crearne uno nuovo.
+1. Un **gruppo di risorse** con un **account di archiviazione** e un **contenitore BLOB** creati al suo interno per copiarvi i dischi rigidi virtuali. Vedere la sezione [Creare o individuare un account di archiviazione di Azure](virtual-machines-windows-upload-image.md#createstorage) per la procedura necessaria per usare un account di archiviazione esistente o per crearne uno nuovo.
 
 
 
@@ -50,22 +50,22 @@ Questo articolo presuppone che prima di iniziare la procedura, siano soddisfatti
 
 	- Per **_copiare_** la macchina virtuale di origine, **arrestarla** e **deallocarla**.
 	
-		- Per una macchina virtuale creata usando il modello di distribuzione classica, è possibile usare il [portale](https://portal.azure.com) e fare clic su **Sfoglia** > **Macchine virtuali (classico)** > *Macchina virtuale* > **Arresta** oppure usare il comando PowerShell `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
+		- Per una VM creata usando il modello di distribuzione classica, è possibile usare il [portale](https://portal.azure.com) e fare clic su **Esplora** > **Macchine virtuali (classico)** > *VM preferita* > **Arresta** oppure usare il comando di PowerShell `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
 		
-		- Per una macchina virtuale nel modello di distribuzione Resource Manager, è possibile accedere al portale e fare clic su **Sfoglia** > **Macchine virtuali** > *Macchina virtuale* > **Arresta** oppure usare il comando PowerShell `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Si noti che lo *Stato* della macchina virtuale nel portale passa da **In esecuzione** ad **Arrestato (deallocato)**.
+		- Per una VM nel modello di distribuzione Resource Manager, è possibile accedere al portale e fare clic su **Esplora** > **Macchine virtuali** > *VM preferita* > **Arresta** oppure usare il comando PowerShell `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Si noti che lo *Stato* della macchina virtuale nel portale passa da **In esecuzione** ad **Arrestato (deallocato)**.
 
 	
-	- In alternativa, per **_eseguire la migrazione_** della macchina virtuale di origine, **eliminare** la macchina virtuale e usare il disco rigido virtuale rimanente. Fare clic su **Sfoglia** per passare alla macchina virtuale nel [portale](https://portal.azure.com) e quindi scegliere **Elimina**.
+	- In alternativa, per **_eseguire la migrazione_** della macchina virtuale di origine, **eliminarla** e usare il disco rigido virtuale rimanente. Fare clic su **Esplora** per passare alla macchina virtuale nel [portale](https://portal.azure.com) e quindi scegliere **Elimina**.
 	
 1. Trovare le chiavi di accesso per l'account di archiviazione che contengono il disco rigido virtuale di origine, nonché l'account di archiviazione in cui verrà copiato il disco rigido virtuale per creare la nuova macchina virtuale. La chiave per l'account da cui viene copiato il disco rigido virtuale è chiamata *chiave di origine*, mentre quella per l'account in cui viene copiato il disco rigido virtuale viene chiamata *chiave di destinazione*. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
-	- Se la macchina virtuale di origine è stata creata usando il modello di distribuzione classica, fare clic su **Sfoglia** > **Account di archiviazione (versione classica)** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi** e copiare la chiave etichettata come **CHIAVE DI ACCESSO PRIMARIA**. 
+	- Se la VM di origine è stata creata con il modello di distribuzione classica, fare clic su **Esplora** > **Account di archiviazione (versione classica)** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi** e copiare la chiave con l'etichetta **CHIAVE DI ACCESSO PRIMARIA**. 
 	
-	- Per una macchina virtuale creata usando il modello di distribuzione Resource Manager o per l'account di archiviazione da usare per la nuova macchina virtuale, fare clic su **Sfoglia** > **Account di archiviazione** > *Account di archiviazione* > **Tutte le impostazioni** > **Chiavi di accesso** e copiare la chiave etichettata come **key1**.
+	- Per una macchina virtuale creata usando il modello di distribuzione Resource Manager o per l'account di archiviazione da usare per la nuova VM, fare clic su **Esplora** > **Account di archiviazione** > *account di archiviazione desiderato* > **Tutte le impostazioni** > **Chiavi di accesso** e copiare la chiave con l'etichetta **key1**.
 
-1. Ottenere gli URL per accedere agli account di archiviazione di origine e di destinazione. Nel portale fare clic su **Sfoglia** per passare all'account di archiviazione e fare clic su **BLOB**. Quindi, fare clic sul contenitore che ospita il disco rigido virtuale di origine, ad esempio *vhds* per il modello di distribuzione classica, oppure sul contenitore in cui si vuole copiare il disco rigido virtuale. Fare clic su **Proprietà** per il contenitore e copiare il testo etichettato come **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. L'URL sarà simile a `https://myaccount.blob.core.windows.net/mycontainer`.
+1. Ottenere gli URL per accedere agli account di archiviazione di origine e di destinazione. Nel portale fare clic su **Esplora** per passare all'account di archiviazione e fare clic su **BLOB**. Fare quindi clic sul contenitore che ospita il disco rigido virtuale di origine, ad esempio *vhds* per il modello di distribuzione classica, oppure sul contenitore in cui si vuole copiare il disco rigido virtuale. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. L'URL sarà simile a `https://myaccount.blob.core.windows.net/mycontainer`.
 
-1. Nel computer locale aprire una finestra di comando e passare alla cartella in cui è installato AzCopy. Il percorso sarà simile a *C:\\Programmi (x86)\\Microsoft SDKs\\Azure\\AzCopy*. Dalla posizione specificata, eseguire questo comando: </br>
+1. Nel computer locale aprire una finestra di comando e passare alla cartella in cui è installato AzCopy. Il percorso sarà simile a *C:\\Programmi (x86)\\Microsoft SDKs\\Azure\\AzCopy*. Dalla posizione specificata eseguire questo comando: </br>
 
 		AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying>
 </br>
@@ -89,7 +89,7 @@ Configurare prima di tutto una rete virtuale e una scheda di interfaccia di rete
 	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 
-A questo punto, impostare le configurazioni della macchina virtuale e usare i dischi rigidi virtuali copiati per creare una nuova macchina virtuale come illustrato di seguito. </br>
+A questo punto, impostare le configurazioni della VM e usare i dischi rigidi virtuali copiati per creare una nuova macchina virtuale come illustrato di seguito. </br>
 
 	#Set the VM name and size
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -105,7 +105,7 @@ A questo punto, impostare le configurazioni della macchina virtuale e usare i di
 	$dataDiskName = $vmName + "dataDisk"
 	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
 	
-Gli URL dei dischi dei dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per cercarlo nel portale, passare al contenitore di archiviazione di destinazione facendo clic su sistema operativo o sul disco rigido virtuale dei dati copiato e quindi copiando il contenuto dell'**URL**.
+Gli URL dei dischi dei dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per trovarlo nel portale, passare al contenitore di archiviazione di destinazione, fare clic sul disco rigido virtuale del sistema operativo o dei dati copiato e quindi copiare il contenuto dell'**URL**.
 	
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
@@ -117,16 +117,16 @@ Se il comando riesce, viene visualizzato un output simile al seguente:
 	                         True         OK OK
 
 
-La macchina virtuale appena creata viene visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** OPPURE è possibile usare i comandi PowerShell seguenti:
+La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Esplora** > **Macchine virtuali** OPPURE usando i comandi di PowerShell seguenti:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
 
-Per accedere alla nuova macchina virtuale, fare clic su **Sfoglia** per passare alla macchina virtuale nel [portale](https://portal.azure.com), scegliere **Connetti** e aprire il file RDP del *Desktop remoto*. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale.
+Per accedere alla nuova macchina virtuale, fare clic su **Esplora** per passare alla macchina virtuale nel [portale](https://portal.azure.com), scegliere **Connetti** e aprire il file RDP di *Desktop remoto*. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale.
 
 
 ## Passaggi successivi
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire le macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

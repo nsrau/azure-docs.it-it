@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Funzioni e variabili di sistema
@@ -88,4 +88,4 @@ Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://ms
 > [AZURE.NOTE] Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
   
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

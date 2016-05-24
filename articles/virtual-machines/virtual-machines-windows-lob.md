@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata
@@ -52,7 +52,7 @@ La configurazione rappresentativa di base per un'applicazione line-of-business i
 È costituita dagli elementi seguenti:
 
 - Un'applicazione line-of-business solo Intranet con due server a livello Web e di database
-- Una configurazione SQL Server AlwaysOn con due macchine virtuali che eseguono SQL Server e un computer del nodo di maggioranza in un cluster.
+- Una configurazione SQL Server AlwaysOn con due macchine virtuali che eseguono SQL Server e un computer nodo di maggioranza in un cluster.
 - Servizi di dominio Active Directory nella rete virtuale con due controller di dominio di replica
 
 Per una panoramica delle applicazioni line-of-business, vedere [Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664).
@@ -85,4 +85,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 - Ottenere una [panoramica](virtual-machines-windows-lob-overview.md) del carico di lavoro di produzione prima di approfondire la configurazione.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Connettersi al database SQL con l'autenticazione di Azure Active Directory | Microsoft Azure"
+   pageTitle="Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory | Microsoft Azure"
    description="Informazioni su come connettersi database SQL con l'autenticazione di Azure Active Directory."
    services="sql-database"
    documentationCenter=""
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/06/2016"
+   ms.date="05/05/2016"
    ms.author="rick.byham@microsoft.com"/>
 
-# Connessione al database SQL con l'autenticazione di Azure Active Directory
+# Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory
 
-L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni. Ecco alcuni vantaggi:
+L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Microsoft Azure e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni. Ecco alcuni vantaggi:
 
 - Offre un'alternativa all'autenticazione di SQL Server.
 - Contribuisce ad arrestare la proliferazione delle identità utente nei server di database.
@@ -28,33 +28,34 @@ L'autenticazione di Azure Active Directory è un meccanismo di connessione al da
 - Può eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 - L'autenticazione di Azure Active Directory usa gli utenti di database indipendente per autenticare le identità a livello di database.
 - Azure Active Directory supporta l'autenticazione basata su token per l'autenticazione di applicazioni che si connettono al database SQL.
+- L'autenticazione di Azure Active Directory supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.
 
 > [AZURE.IMPORTANT] L'autenticazione di Azure Active Directory è una funzionalità in anteprima ed è soggetta alle condizioni per l'anteprima del contratto di licenza (ad esempio, il Contratto Enterprise, il Contratto di Microsoft Azure o il Contratto di Sottoscrizione Microsoft Online), nonché alle [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure Active Directory.
 
-1. Creare e popolare un'istanza di Azure Active Directory
-2. Assicurarsi che il database sia un database SQL di Azure versione 12
-3. Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure
-4. Creare un amministratore di Azure Active Directory per Azure SQL Server
-5. Configurare i computer client
-6. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
-7. Connettersi al database usando le identità di Azure AD
+1. Creare e popolare un'istanza di Azure Active Directory.
+2. Assicurarsi che il database sia in un database SQL di Azure versione 12. Questo non è necessario per SQL Data Warehouse.
+3. Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
+4. Creare un amministratore di Azure Active Directory per il server di Azure SQL o per [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+5. Configurare i computer client.
+6. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD.
+7. Connettersi al database usando le identità di Azure AD.
 
 
 ## Architettura di attendibilità
 
-Il diagramma generale seguente riepiloga l'architettura della soluzione relativa all'uso dell'autenticazione di Azure AD con il database SQL di Azure SQL. Le frecce indicano i percorsi di comunicazione.
+Il diagramma generale seguente riepiloga l'architettura della soluzione relativa all'uso dell'autenticazione di Azure AD con il database SQL di Azure SQL. Gli stessi concetti sono validi per SQL Data Warehouse. Per supportare la password utente nativa di Azure Active Directory, viene considerata solo la parte cloud e Azure AD o il database SQL di Azure. Per supportare l'autenticazione federata o l'autenticazione utente/password per le credenziali di Windows, è necessaria la comunicazione con il blocco AD FS. Le frecce indicano i percorsi di comunicazione.
 
 ![diagramma di autenticazione di aad][1]
 
-Il diagramma seguente indica le relazioni federative, di trust e di hosting che consentono a un client di connettersi a un database inviando un token autenticato da un'istanza di Azure AD e considerato attendibile dal database. È importante comprendere che l'accesso a un database con l'autenticazione di Azure AD richiede che la sottoscrizione di hosting sia associata ad Azure Active Directory.
+Il diagramma seguente indica le relazioni federative, di trust e di hosting che consentono a un client di connettersi a un database inviando un token autenticato da un'istanza di Azure AD e considerato attendibile dal database. Il cliente 1 può rappresentare un'istanza di Azure Active Directory con utenti nativi o con utenti federati. Il cliente 2 rappresenta una possibile soluzione che include utenti importati. In questo esempio provengono da un'istanza federata di Azure Active Directory con AD FS sincronizzato con Azure Active Directory. È importante comprendere che l'accesso a un database con l'autenticazione di Azure AD richiede che la sottoscrizione di hosting sia associata ad Azure Active Directory. La stessa sottoscrizione deve essere usata per creare il server di database SQL di Azure o SQL Data Warehouse.
 
 ![relazione di sottoscrizione][2]
 
 ## Struttura dell'account amministratore
 
-Quando si usa l'autenticazione di Azure AD, sono disponibili due account amministratore per il server di database SQL, l'amministratore del server SQL originale e l'amministratore di Azure AD. Solo l'amministratore basato su un account Azure AD può creare il primo utente di database indipendente di Azure AD in un database utente. L'account di accesso dell'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Quando l'amministratore è un account di gruppo, può essere usato da qualsiasi membro del gruppo, abilitando quindi più amministratori di Azure AD per l'istanza di SQL Server. L'uso dell'account di gruppo come amministratore migliora la gestibilità, perché consente di aggiungere e rimuovere a livello centrale i membri del gruppo in Azure AD senza apportare modifiche a utenti o autorizzazioni nel database SQL. È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta.
+Quando si usa l'autenticazione di Azure AD, sono disponibili due account amministratore per il server di database SQL, l'amministratore del server SQL originale e l'amministratore di Azure AD. Gli stessi concetti sono validi per SQL Data Warehouse. Solo l'amministratore basato su un account Azure AD può creare il primo utente di database indipendente di Azure AD in un database utente. L'account di accesso dell'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Quando l'amministratore è un account di gruppo, può essere usato da qualsiasi membro del gruppo, abilitando quindi più amministratori di Azure AD per l'istanza di SQL Server. L'uso dell'account di gruppo come amministratore migliora la gestibilità, perché consente di aggiungere e rimuovere a livello centrale i membri del gruppo in Azure AD senza apportare modifiche a utenti o autorizzazioni nel database SQL. È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta.
 
 ![struttura di amministrazione][3]
 
@@ -62,30 +63,32 @@ Quando si usa l'autenticazione di Azure AD, sono disponibili due account amminis
 
 Per creare nuovi utenti, è necessario avere l'autorizzazione **ALTER ANY USER** sul database. L'autorizzazione **ALTER ANY USER** può esser concessa a qualsiasi utente di database. L'autorizzazione **ALTER ANY USER** è assegnata anche agli account amministratore del server, agli utenti di database con l'autorizzazione **CONTROL ON DATABASE** o **ALTER ON DATABASE** per tale database e ai membri del ruolo del database **db\_owner**.
 
-Per creare un utente di database indipendente nel database SQL di Azure, è necessario connettesi al database con un'identità di Azure AD. Per creare il primo utente di database indipendente, è necessario connettersi al database tramite un amministratore di Azure AD (che corrisponde al proprietario del database). Questa operazione è illustrata nei passaggi 4 e 5 di seguito.
+Per creare un utente di database indipendente nel database SQL di Azure o in SQL Data Warehouse, è necessario connettesi al database con un'identità di Azure AD. Per creare il primo utente di database indipendente, è necessario connettersi al database tramite un amministratore di Azure Active Directory che sia proprietario del database. Questa operazione è illustrata nei passaggi 4 e 5 di seguito. L'autenticazione di Azure Active Directory è possibile unicamente se l'amministratore di Azure Active Directory è stato creato per il server di database SQL di Azure o SQL Data Warehouse. Se l'amministratore di Azure Active Directory è stato rimosso dal server, gli utenti di Azure Active Directory esistenti creati in precedenza all'interno di SQL Server non possono più accedere al database con le credenziali di Azure Active Directory correnti.
 
 ## Funzionalità e limitazioni di Azure AD
 
-È possibile effettuare il provisioning dei membri di Azure Active Directory seguenti nel server SQL Azure:
+È possibile effettuare il provisioning dei membri di Azure Active Directory seguenti nel server di Azure SQL o in SQL Data Warehouse:
 - Membri nativi: un membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-add-domain.md).
-- Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere l'articolo relativo al [nuovo supporto per la federazione di Microsoft Azure con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+- Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Membri importati da altre istanze di Azure Active Directory che sono membri nativi o del dominio federato.
 - Gruppi di Active Directory creati come gruppi di sicurezza.
 
-Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure altri account guest, ad esempio gmail.com, yahoo.com, non sono supportati. Se è possibile accedere a [https://login.live.com](https://login.live.com) con l'account e la password, si sta usando un account Microsoft che non è supportato per l'autenticazione di Azure AD per il database SQL di Azure.
+Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure altri account guest, ad esempio gmail.com, yahoo.com, non sono supportati. Se è possibile accedere a [https://login.live.com](https://login.live.com) con l'account e la password, si sta usando un account Microsoft che non è supportato per l'autenticazione di Azure AD per il database SQL di Azure o per Azure SQL Data Warehouse.
 
-### Considerazione aggiuntive
+### Considerazioni aggiuntive
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure Active Directory dedicato come amministratore.
-- È possibile configurare un solo amministratore di Azure AD (utente o gruppo) per un server di Azure SQL in qualsiasi momento.
-- Inizialmente, solo un amministratore di Azure Active Directory può connettersi al server di Azure SQL con un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure Active Directory successivi.
+- È possibile configurare un solo amministratore di Azure AD, utente o gruppo, per un server di Azure SQL o Azure SQL Data Warehouse in qualsiasi momento.
+- Inizialmente, solo un amministratore di Azure Active Directory può connettersi al server di Azure SQL o ad Azure SQL Data Warehouse con un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure Active Directory successivi.
 - È consigliabile impostare il timeout di connessione su 30 secondi.
-- SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015 supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure Active Directory è supportata dal **provider di dati .NET Framework per SqlServer** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni livello dati (DAC e file con estensione bacpac) possono usare l'autenticazione di Azure Active Directory, ma **sqlcmd.exe** e **bcp.exe** non possono connettersi perché usano il provider ODBC.
+- SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure Active Directory è supportata dal **provider di dati .NET Framework per SQL Server** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni livello dati (DAC e file con estensione bacpac) possono usare l'autenticazione di Azure Active Directory, ma **sqlcmd.exe** e **bcp.exe** non possono connettersi perché usano il provider ODBC.
+- SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 - [Microsoft JDBC Driver 6.0 per SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/) supporta l'autenticazione di Azure Active Directory.
 - PolyBase non può eseguire l'autenticazione di Azure Active Directory.
+- SQL Server Management Studio non è supportato per SQL Data Warehouse. Usare SQL Server Data Tools.
 - Alcuni strumenti, come BI ed Excel, non sono supportati.
 - L'autenticazione a due fattori o altre forme di autenticazione interattiva non sono supportate.
-- L'autenticazione di Azure Active Directory è supportata dai pannelli **Importa database** ed **Esporta database** del portale di Azure.
+- L'autenticazione di Azure Active Directory è supportata per database SQL nei pannelli **Importa database** ed **Esporta database** del portale di Azure. L'importazione e l'esportazione tramite l'autenticazione di Azure Active Directory è supportata anche dal comando PowerShell.
 
 
 ## 1\. Creare e popolare un'istanza di Azure Active Directory
@@ -94,13 +97,13 @@ Creare un'istanza di Azure Active Directory e popolarla con utenti e gruppi. Ope
 
 - Creare il dominio gestito di Azure AD iniziale.
 - Attuare la federazione di un'istanza di Servizi di dominio Active Directory locale con Azure Active Directory.
-- Usando lo strumento **AD FS**, nella sezione **Servizio**, **Endpoint**, abilitare **WS-Trust 1.3** per il percorso URL **/adfs/services/trust/13/windowstransport**.
+- Usando lo strumento **AD FS**, nella sezione **Servizio**, **Endpoint** abilitare **WS-Trust 1.3** per il percorso URL **/adfs/services/trust/13/windowstransport**.
 
-Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Per altre informazioni, vedere gli articoli [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 
-## 2\. Assicurarsi che il database sia un database SQL di Azure versione 12
+## 2\. Assicurarsi che il database SQL sia in un database SQL di Azure versione 12.
 
-L'autenticazione di Azure Active Directory è supportata nell'ultima versione 12 del database SQL. Per informazioni sul database SQL versione 12 e per sapere se è disponibile nella propria area geografica, vedere [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md).
+L'autenticazione di Azure Active Directory è supportata nell'ultima versione 12 del database SQL. Per informazioni sul database SQL versione 12 e per sapere se è disponibile nella propria area geografica, vedere [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md). Questo passaggio non è necessario per Azure SQL Data Warehouse dato che SQL Data Warehouse è disponibile solo nella versione 12.
 
 Se si ha già un database, verificare che sia ospitato nella versione 12 del database SQL. A questo scopo, connettersi al database (usando ad esempio SQL Server Management Studio) ed eseguire `SELECT @@VERSION;` L'output previsto per un database nella versione 12 del database SQL è almeno **Microsoft SQL Azure (RTM) - 12.0**.
 
@@ -124,7 +127,7 @@ Le procedure seguenti forniscono istruzioni dettagliate sulla modifica della dir
 4. Nell'area**impostazioni** fare clic sulla sottoscrizione e quindi su **MODIFICA DIRECTORY** in basso nella pagina.
 
 	![ad-settings-portal][5]
-5. Nella casella **MODIFICA DIRECTORY** selezionare l'istanza di Azure Active Directory associata a SQL Server e quindi fare clic sulla freccia per continuare.
+5. Nella casella **MODIFICA DIRECTORY** selezionare l'istanza di Azure Active Directory associata a SQL Server o SQL Data Warehouse e quindi fare clic sulla freccia per continuare.
 
 	![edit-directory-select][6]
 6. Nella finestra di dialogo **CONFERMA MAPPING DIRECTORY** confermare l'avviso "**Tutti i coamministratori verranno rimossi**".
@@ -132,38 +135,37 @@ Le procedure seguenti forniscono istruzioni dettagliate sulla modifica della dir
 	![edit-directory-confirm][7]
 7. Fare clic sul segno di spunta per ricaricare il portale.
 
-> [AZURE.NOTE] Quando si modifica la directory, l'accesso per tutti i coamministratori, gli utenti e i gruppi di Azure AD e gli utenti delle risorse supportate dalla directory saranno rimossi e l'accesso a questa sottoscrizione o alle relative risorse non sarà più possibile. Solo l'amministratore del servizio potrà configurare l'accesso per le entità in base alla nuova directory. La propagazione di questa modifica a tutte le risorse potrebbe richiedere molto tempo. La modifica della directory modificherà anche l'amministratore di Azure AD per il database SQL e non consentirà l'accesso al database a tutti gli utenti di Azure AD esistenti. L'amministratore di Azure AD deve essere reimpostato, come descritto di seguito, e dovranno essere creati nuovi utenti di Azure AD.
+> [AZURE.NOTE] Quando si modifica la directory, l'accesso per tutti i coamministratori, gli utenti e i gruppi di Azure AD e gli utenti delle risorse supportate dalla directory saranno rimossi e l'accesso a questa sottoscrizione o alle relative risorse non sarà più possibile. Solo l'amministratore del servizio potrà configurare l'accesso per le entità in base alla nuova directory. La propagazione di questa modifica a tutte le risorse potrebbe richiedere molto tempo. La modifica della directory modifica anche l'amministratore di Azure AD per il database SQL e per SQL Data Warehouse e disabilita l'accesso al database per tutti gli utenti di Azure AD esistenti. L'amministratore di Azure AD deve essere reimpostato, come descritto di seguito, e dovranno essere creati nuovi utenti di Azure AD.
 
-## 4\. Creare un amministratore di Azure Active Directory per Azure SQL Server
+## 4\. Creare un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse.
 
-Ogni server di Azure SQL viene avviato con un singolo account amministratore del server, ovvero l'amministratore dell'intera istanza di Azure SQL Server. È necessario creare un secondo amministratore del server, cioè un account Azure AD. Questa entità viene creata come un utente di database indipendente nel database master. Per quando riguarda gli amministratori, gli account amministratore del server sono membri del ruolo **db\_owner** in ogni database utente e ogni database utente viene immesso come utente **dbo**. Per altre informazioni sugli account amministratore del server, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md) e la sezione **Account di accesso e utenti** di [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](sql-database-security-guidelines.md).
+Ogni server di Azure SQL o SQL Data Warehouse viene avviato con un singolo account amministratore del server, che è l'amministratore dell'intera istanza del server di Azure SQL. È necessario creare un secondo amministratore del server, cioè un account Azure AD. Questa entità viene creata come un utente di database indipendente nel database master. Per quando riguarda gli amministratori, gli account amministratore del server sono membri del ruolo **db\_owner** in ogni database utente e ogni database utente viene immesso come utente **dbo**. Per altre informazioni sugli account amministratore del server, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md) e la sezione **Account di accesso e utenti** di [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](sql-database-security-guidelines.md).
 
 Quando si usa Azure Active Directory con la replica geografica, l'amministratore di Azure Active Directory deve essere configurato sia per i server primari che per quelli secondari. Se un server non ha un amministratore di Azure Active Directory, gli utenti e gli account di accesso di Azure Active Directory ricevono un messaggio di errore "Impossibile connettersi al server".
 
 > [AZURE.NOTE] Gli utenti che non hanno un account Azure AD (incluso l'account amministratore di Azure SQL Server) non possono creare utenti di Azure AD, perché non hanno l'autorizzazione per convalidare con Azure AD gli utenti di database proposti.
 
-### Effettuare il provisioning di un amministratore di Azure Active Directory per Azure SQL Server tramite il portale di Azure
+### Effettuare il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o SQL Data Warehouse tramite il portale di Azure
 
-1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio elenca l'associazione della sottoscrizione di Active Directory con il database SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server.
+1. Nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com/) fare clic sulla connessione per visualizzare un elenco a discesa delle possibili directory di Active Directory. Scegliere la directory corretta come directory predefinita di Azure AD. Questo passaggio elenca l'associazione della sottoscrizione di Active Directory con il database SQL di Azure, assicurando che la stessa sottoscrizione venga usata per Azure AD e per SQL Server. Le schermate seguenti mostrano il database SQL di Azure, ma gli stessi concetti sono validi per Azure SQL Data Warehouse.
 
 	![choose-ad][8]
-2. Nel banner a sinistra selezionare **SQL Server**, selezionare l'istanza di **SQL Server** in uso e quindi nel pannello **SQL Server** in alto fare clic su **Impostazioni**.
+2. Nel banner a sinistra selezionare **SQL Server**, selezionare l'istanza di **SQL Server** o **SQL Data Warehouse** corrente e quindi fare clic su **Impostazioni** nella parte superiore del pannello **SQL Server**.
 
 	![impostazioni di AD][9]
 3. Nel pannello **Impostazioni** fare clic su **Amministratore di Active Directory (anteprima)** e accettare la clausola relativa all'anteprima.
 4. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic per visualizzare i dettagli e quindi fare clic su **OK** per accettare le condizioni per l'anteprima.
 5. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic su **Amministratore di Active Directory** e quindi fare clic su **Imposta amministratore** in alto.
 6. Nel pannello **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. Nel pannello Amministratore di Active Directory saranno visualizzati tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati nella sezione precedente **Funzionalità e limitazioni di Azure AD**. Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.
-7. Nel pannello **Amministratore di Active Directory** in alto fare clic su **SALVA**.
-![scegliere l'amministratore][10]
+7. Nel pannello **Amministratore di Active Directory** in alto fare clic su **SALVA**. ![scegliere l'amministratore][10]
 
 	Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore sarà quindi visualizzato nella casella **Amministratore di Active Directory**.
 
 > [AZURE.NOTE] Quando si imposta l'amministratore di Microsoft Azure il nuovo nome dell’amministratore (utente o gruppo) non può essere già presente nel database master come un account di accesso di autenticazione di SQL Server. Se presente, l’impostazione dell’amministratore di Microsoft Azure avrà esito negativo; eseguire il rollback della creazione e indicare che tale (nome) di amministratore già esiste. Poiché tale accesso di autenticazione del server SQL non è parte di Azure AD, qualsiasi tentativo di connettersi al server mediante l'autenticazione di Azure AD avrà esito negativo.
 
-Per rimuovere un amministratore in seguito, nel pannello **Amministratore di Active Directory** in alto fare clic su **Rimuovi amministratore**.
+Per rimuovere un amministratore in un secondo momento, nella parte superiore del pannello **Amministratore di Active Directory** fare clic su **Rimuovi amministratore** e quindi su **Salva**.
 
-### Effettuare il provisioning di un amministratore di Azure AD per Azure SQL Server tramite PowerShell
+### Effettuare il provisioning di un amministratore di Azure AD per il server di Azure SQL o Azure SQL Data Warehouse tramite PowerShell
 
 
 
@@ -179,9 +181,9 @@ Cmdlet usati per il provisioning e la gestione dell'amministratore di Azure AD:
 
 | Nome del cmdlet | Descrizione |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Effettua il provisioning di un amministratore di Azure Active Directory per Azure SQL Server. Deve far parte della sottoscrizione corrente. |
-| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Rimuove un amministratore di Azure Active Directory per Azure SQL Server. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per Azure SQL Server. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Effettua il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per il server di Azure SQL o Azure SQL Data Warehouse. |
 
 Per visualizzare altri dettagli per ogni comando, usare il comando di PowerShell get-help, ad esempio ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
@@ -216,11 +218,11 @@ L'esempio seguente illustra come rimuovere un amministratore di Azure AD:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
-È anche possibile effettuare il provisioning di un amministratore di Azure Active Directory usando le API REST. Per altre informazioni, vedere il [riferimento all'API REST Gestione dei servizi e alle operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+È anche possibile effettuare il provisioning di un amministratore di Azure Active Directory usando le API REST. Per altre informazioni, vedere il [riferimento all'API REST di gestione dei servizi e alle operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
 ## 5\. Configurare i computer client
 
-È necessario installare il software seguente in tutti i computer client da cui le applicazioni o gli utenti si connettono al database SQL di Azure con le identità di Azure AD:
+È necessario installare il software seguente in tutti i computer client da cui le applicazioni o gli utenti si connettono al database SQL di Azure o ad Azure SQL Data Warehouse con le identità di Azure AD:
 
 - .NET Framework 4.6 o versione successiva dalla pagina [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 - Azure Active Directory Authentication Library per SQL Server (**ADALSQL.DLL**) è disponibile in più lingue (sia per x86 che per amd64) dall'Area download in [Microsoft Active Directory Authentication Library per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
@@ -238,20 +240,19 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 
 L'autenticazione di Azure Active Directory richiede la creazione di utenti del database come utenti di database indipendente. Un utente di database indipendente basato su un'identità di Azure AD è un utente di database che non può accedere al database master e del quale viene eseguito il mapping a un'identità nella directory di Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
-> [AZURE.NOTE] Non è possibile creare utenti del database, fatta eccezione per gli amministratori, tramite ruoli portale e ruoli Controllo degli accessi in base al ruolo in quanto non vengono propagati a SQL Server. Inoltre, i ruoli Controllo degli accessi in base al ruolo di Azure non si applicano alle autorizzazioni di database. Ad esempio, il ruolo **Collaboratore SQL Server** non consente l'accesso per connettersi al database SQL. L'autorizzazione di accesso deve essere concessa direttamente nel database tramite istruzioni Transact-SQL.
+> [AZURE.NOTE] Fatta eccezione per gli amministratori, non è possibile creare utenti del database usando ruoli Portale e Controllo degli accessi in base al ruolo, perché non vengono propagati a SQL Server o SQL Data Warehouse. I ruoli Controllo degli accessi in base al ruolo di Azure vengono usati per la gestione delle risorse di Azure e non si applicano alle autorizzazioni di database. Ad esempio, il ruolo **Collaboratore SQL Server** non consente l'accesso per connettersi al database SQL oppure a SQL Data Warehouse. L'autorizzazione di accesso deve essere concessa direttamente nel database tramite istruzioni Transact-SQL.
 
-### Connettersi al database utente tramite SQL Server Management Studio
+### Connettersi al data warehouse o al database dell'utente SQL Server Management Studio o SQL Server Data Tools
 
-Per verificare che l'amministratore di Azure AD sia configurato correttamente, connettersi al database **master** con l'account amministratore di Azure AD. Per effettuare il provisioning di un utente di database indipendente basato su Azure AD, diverso dall'amministratore del server proprietario del database, connettersi al database con un'identità di Azure AD che abbia accesso al database.
+Per verificare che l'amministratore di Azure AD sia configurato correttamente, connettersi al database **master** con l'account amministratore di Azure AD. Per effettuare il provisioning di un utente di database indipendente basato su Azure AD, diverso dall'amministratore del server proprietario del database, connettersi al database con un'identità di Azure AD che abbia accesso al database. SSMS non è supportato per SQL Data Warehouse, usare SSDT.
 
-> [AZURE.IMPORTANT] Il supporto per l'autenticazione di Azure Active Directory è disponibile con [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] Il supporto per l'autenticazione di Azure Active Directory è disponibile con [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015.
 
 #### Connettesi usando l'autenticazione integrata di Active Directory
 
 Usare questo metodo se si è connessi a Windows con le credenziali di Azure Active Directory da un dominio federato.
 
-1. Avviare Management Studio e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. Non è richiesta una password né può essere immessa, perché per la connessione vengono presentate le credenziali esistenti.
-![Selezionare Autenticazione integrata di Active Directory][11]
+1. Avviare SQL Server Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione integrata di Active Directory** nella casella **Autenticazione**. La password non è richiesta e non può essere immessa, perché per la connessione vengono presentate le credenziali esistenti. ![Selezionare Autenticazione integrata di Active Directory][11]
 
 2. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -261,10 +262,9 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 
 Usare questo metodo se si è connessi a Windows con le credenziali di un dominio non federato con Azure o quando si usa l'autenticazione di Azure AD con Azure AD basato sul dominio iniziale o client.
 
-1. Avviare Management Studio e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
+1. Avviare SQL Server Management Studio o SQL Server Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
 2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
-3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o per l'account di dominio federato.
-![Selezionare Autenticazione della password di Active Directory][12]
+3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o per l'account di dominio federato. ![Selezionare Autenticazione della password di Active Directory][12]
 
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -294,6 +294,9 @@ Per creare un utente di database indipendente che rappresenta un'applicazione ch
 
 Per altre informazioni sulla creazione di utenti di database indipendente basati su identità di Azure Active Directory, vedere [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
+
+> [AZURE.NOTE] La rimozione dell'amministratore di Azure Active Directory per il server di Azure SQL impedisce agli utenti dell'autenticazione di Azure AD di connettersi al server. Se necessario, un amministratore del database SQL può eliminare manualmente gli utenti di Azure AD inutilizzabili.
+
 Quando si crea un database utente, questo riceve l'autorizzazione **CONNECT** e può connettersi al database come membro del ruolo **PUBLIC**. Inizialmente le sole autorizzazioni disponibili per l'utente sono quelle concesse al ruolo **PUBLIC** o quelle concesse a qualsiasi gruppo di Windows di cui è membro. Dopo avere effettuato il provisioning di un utente di database indipendente basato su Azure AD, è possibile concedere all'utente altre autorizzazioni, esattamente come si concede un'autorizzazione a qualsiasi altro tipo di utente. In genere si concedono autorizzazioni ai ruoli del database e si aggiungono gli utenti ai ruoli. Per altre informazioni, vedere l'articolo relativo alle [nozioni di base delle autorizzazioni per il motore di database](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Per altre informazioni sui ruoli speciali del database SQL, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). Un utente di dominio federato importato in un dominio gestito deve usare l'identità del dominio gestito.
 
 > [AZURE.NOTE] Gli utenti di Azure AD sono contrassegnati nei metadati del database con il tipo E (EXTERNAL\_USER). I gruppi sono contrassegnati con il tipo X (EXTERNAL\_GROUPS). Per altre informazioni, vedere [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
@@ -305,6 +308,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 
 - Con l'autenticazione integrata di Windows
 - Con un nome di entità e una password di Azure AD
+- Con l'autenticazione del token dell'applicazione
 
 ### 7\.1. Connessione con l'autenticazione integrata (Windows)
 
@@ -337,6 +341,7 @@ Questo tipo di autenticazione consente ai servizi di livello intermedio di conne
 3. Creare un certificato nel computer client che eseguirà l'applicazione.
 4. Aggiungere il certificato come chiave per l'applicazione.
 
+Per altre informazioni, vedere il [blog sulla sicurezza di SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
 
 ## Vedere anche
 
@@ -362,4 +367,4 @@ Questo tipo di autenticazione consente ai servizi di livello intermedio di conne
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

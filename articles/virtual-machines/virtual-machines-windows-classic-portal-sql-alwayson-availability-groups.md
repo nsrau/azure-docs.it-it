@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
-# Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)
+# Configurare i gruppi di disponibilità AlwaysOn in una VM di Azure (GUI)
 
 > [AZURE.SELECTOR]
 - [Portale](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
@@ -27,11 +27,11 @@
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-Questa esercitazione end-to-end illustra come implementare i gruppo di disponibilità tramite SQL Server AlwaysOn in esecuzione in una macchina virtuale di Azure.
+Questa esercitazione end-to-end illustra come implementare i gruppi di disponibilità tramite SQL Server AlwaysOn in esecuzione in macchine virtuali di Azure.
 
->[AZURE.NOTE] Nel portale di gestione di Azure, esiste una nuova impostazione di raccolta per i gruppi di disponibilità AlwaysOn con un Listener. In questo modo, tutto il necessario per i gruppi di disponibilità AlwaysOn viene configurato automaticamente. Per altre informazioni, vedere l'[offerta SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure classico](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Per usare PowerShell, vedere l'esercitazione dello stesso scenario in [Esercitazione: gruppi di disponibilità AlwaysOn in Azure con PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
+>[AZURE.NOTE] Nel portale di gestione di Azure è disponibile una nuova impostazione della raccolta per i gruppi di disponibilità AlwaysOn con un listener. In questo modo, tutto il necessario per i gruppi di disponibilità AlwaysOn viene configurato automaticamente. Per altre informazioni, vedere l'[offerta SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure classico](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Per usare PowerShell, vedere l'esercitazione dello stesso scenario in [Configurare gruppi di disponibilità AlwaysOn nelle VM di Azure (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
 
-Al termine dell'esercitazione, la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
+Al termine dell'esercitazione la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
 - Una rete virtuale contenente più subnet, tra cui una subnet front-end e una back-end
 
@@ -55,7 +55,7 @@ Nell’esercitazione si presuppongono le condizioni seguenti:
 
 - La procedura per il provisioning di una macchina virtuale SQL Server classica dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica è già nota.
 
-- Si dispone già di una conoscenza approfondita dei gruppi di disponibilità AlwaysOn. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Si ha già una conoscenza approfondita dei gruppi di disponibilità AlwaysOn. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 >[AZURE.NOTE] Se si è interessati all'uso di gruppi di disponibilità AlwaysOn con SharePoint, vedere anche [Configurare gruppi di disponibilità AlwaysOn di SQL Server 2012 per SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
@@ -221,7 +221,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -419,7 +419,7 @@ Queste azioni possono essere eseguite in qualsiasi ordine. Tuttavia, i passaggi 
 
 1. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come mostrato di seguito, quindi scegliere **Applica**. Fare clic su **OK** nella finestra di dialogo popup e non chiudere ancora la finestra delle proprietà. Verrà riavviato il servizio SQL Server dopo la modifica dell'account del servizio.
 
-	![Abilitare Gruppi di disponibilità AlwaysOn in Azure](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
+	![Abilita gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
 1. Successivamente, si modifica l'account del servizio SQL Server. Fare clic sulla scheda **Accesso**, digitare **CORP\\SQLSvc1** (per **ContosoSQL1**) o **CORP\\SQLSvc2** (per **ContosoSQL2**) in **Nome account**, inserire e confermare la password, quindi fare clic su **OK**.
 
@@ -491,7 +491,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 ### Creare il gruppo di disponibilità:
 
-1. Tornare alla sessione desktop remoto per **ContosoSQL1**. In **Esplora oggetti** in SSMS fare clic con il pulsante destro del mouse su **Disponibilità elevata AlwaysOn**, quindi scegliere **reazione guidata Gruppo di disponibilità**, come mostrato di seguito.
+1. Tornare alla sessione desktop remoto per **ContosoSQL1**. In **Esplora oggetti** in SSMS fare clic con il pulsante destro del mouse su **Disponibilità elevata AlwaysOn**, quindi fare clic su **Creazione guidata Gruppo di disponibilità**, come mostrato di seguito.
 
 	![Avviare la creazione guidata nuovo gruppo di disponibilità](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
@@ -531,7 +531,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 	![Mostrare dashboard gruppo di disponibilità](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. L'aspetto del **Dashboard AlwaysOn** dovrebbe essere simile a quello riportato di seguito. È possibile visualizzare le repliche, la modalità di failover di ciascuna replica e lo stato di sincronizzazione.
+1. L'aspetto del **Dashboard AlwaysOn** sarà simile a quello riportato di seguito. È possibile visualizzare le repliche, la modalità di failover di ciascuna replica e lo stato di sincronizzazione.
 
 	![Dashboard gruppo di disponibilità](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -548,4 +548,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

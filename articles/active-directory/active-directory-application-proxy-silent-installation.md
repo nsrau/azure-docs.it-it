@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD
@@ -23,7 +23,7 @@
 Può essere necessario inviare uno script di installazione a più server Windows o ai server Windows che non hanno l'interfaccia utente abilitata. In questo argomento viene illustrato come creare uno script di Windows PowerShell che consente l'installazione automatica e installa e registra il connettore del proxy di applicazione di Azure AD.
 
 ## Abilitazione dell'accesso
-Il proxy dell’applicazione funziona mediante l'installazione di un servizio di Windows Server slim chiamato connettore all'interno della rete. Per il corretto funzionamento del connettore del proxy di applicazione, è necessario registrarlo nella directory di Azure AD con un account di amministratore globale e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup. In alternativa, è possibile usare Windows PowerShell per creare un oggetto credenziali per immettere le informazioni di registrazione, oppure è possibile creare il proprio token e usarlo per immettere le informazioni di registrazione.
+Il proxy dell’applicazione funziona mediante l'installazione di un servizio di Windows Server slim chiamato connettore all'interno della rete. Per il corretto funzionamento del connettore del proxy di applicazione, è necessario registrarlo nella directory di Azure AD con un account di amministratore globale e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup. In alternativa, è possibile usare Windows PowerShell per creare un oggetto credenziale in modo da immettere le informazioni di registrazione oppure è possibile creare un token personale e usarlo per immettere le informazioni di registrazione.
 
 ## Passaggio 1: Installare il connettore senza registrazione
 
@@ -125,24 +125,13 @@ Questa operazione viene eseguita utilizzando uno dei metodi seguenti.
 
 
 
-## Passaggi successivi
-Si può fare molto di più con il proxy dell'applicazione:
+## Vedere anche
 
-
+- [Abilitare il proxy di applicazione per Azure Active Directory](active-directory-application-proxy-enable.md)
 - [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
 - [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
-- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
+- [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
 
+Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 
-### Ulteriori informazioni sul proxy dell’applicazione
-- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
-- [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
-- [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Risorse aggiuntive
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-- [Identità di Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

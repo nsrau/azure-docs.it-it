@@ -26,7 +26,7 @@
 
     3. Specificare la frequenza di backup in minuti, ore, giorni o settimane.
 
-    4. Selezionare un periodo di conservazione. Le scelte di conservazione dipendono dalla frequenza di backup. Ad esempio, la conservazione per un criterio giornaliero può essere specificata in settimane, mentre quella per un criterio mensile può essere indicata in mesi.
+    4. Selezionare un periodo di conservazione. Le scelte di conservazione dipendono dalla frequenza di backup.
  
     5. Selezionare la data e l'ora di inizio per il criterio.
 
@@ -40,4 +40,4 @@
 
     ![Criterio di backup personalizzato](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=AcomDC_1203_2015-->
+

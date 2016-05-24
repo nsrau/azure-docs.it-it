@@ -6,7 +6,7 @@
    tags=""
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/24/2016"
+   ms.date="04/19/2016"
    ms.author="tomfitz"/>
 
 # Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
@@ -22,6 +22,16 @@
 Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Per informazioni sulla risoluzione dei problemi di distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi di distribuzione di gruppi di risorse](resource-manager-troubleshoot-deployments-portal.md).
 
 Alcuni errori possono essere evitati convalidando il modello e i parametri prima della distribuzione. Per esempi di convalida del modello, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+
+## Risorsa o modello non valido
+
+Se viene visualizzato un errore indicante che una proprietà in una risorsa o un modello non è valido, potrebbe trattarsi di un carattere mancante nel modello. È facile incorrere in questo errore quando si usano le espressioni del modello perché l'espressione è racchiusa tra virgolette, JSON la convalida comunque e l'editor potrebbe non rilevare l'errore. Ad esempio, l'assegnazione di nome seguente per un account di archiviazione contiene un set di parentesi, tre funzioni, tre set di parentesi, un set di virgolette singole e una proprietà:
+
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+
+Se non si fornisce tutta la sintassi corrispondente, il modello produce un valore molto diverso dal previsto.
+
+A seconda della posizione del carattere mancante nel modello, viene visualizzato un errore indicante che il modello o una risorsa non è valida. L'errore può anche indicare che il processo di distribuzione non è riuscito a elaborare l'espressione del linguaggio del modello. Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione.
 
 ## Il nome della risorsa esiste già
 
@@ -100,7 +110,7 @@ Per l'API REST, vedere [Ottenere informazioni su un provider di risorse](https:/
 
 ## La quota è stata superata
 
-Alcuni problemi potrebbero verificarsi quando una distribuzione supera una quota specifica per un gruppo di risorse, le sottoscrizioni, gli account o per altri ambiti. Ad esempio, la sottoscrizione potrebbe essere configurata in modo da limitare il numero di core per un'area. Se si prova a distribuire una macchina virtuale con un numero di core superiore alla quantità consentita, si riceve un messaggio di errore che informa che la quota è stata superata. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](./azure-subscription-service-limits.md).
+Alcuni problemi potrebbero verificarsi quando una distribuzione supera una quota specifica per un gruppo di risorse, le sottoscrizioni, gli account o per altri ambiti. Ad esempio, la sottoscrizione potrebbe essere configurata in modo da limitare il numero di core per un'area. Se si prova a distribuire una macchina virtuale con un numero di core superiore alla quantità consentita, si riceve un messaggio di errore che informa che la quota è stata superata. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md).
 
 Per esaminare le quote della sottoscrizione per i core, è possibile usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure. L'esempio seguente mostra che la quota di core per un account della versione di valutazione gratuita è quattro:
 
@@ -146,9 +156,9 @@ In questi casi, si deve accedere al portale e rivolgersi all'assistenza per rich
 
 Si può ricevere un messaggio di errore durante la distribuzione perché l'account o l'entità servizio che prova a distribuire le risorse non ha l'accesso necessario per eseguire tali azioni. Azure Active Directory consente all'utente o all'amministratore di controllare con un'elevata precisione quali identità possono accedere e a quali risorse. Ad esempio, se l'account è assegnato al ruolo Lettore non può creare nuove risorse. In tal caso, viene visualizzato un messaggio di errore che indica che l'autorizzazione non è riuscita.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
+Per altre informazioni sull'argomento, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
-Oltre che dal controllo degli accessi in base al ruolo, le azioni di distribuzione possono essere limitate da criteri della sottoscrizione. Attraverso i criteri, l'amministratore può imporre convenzioni in tutte le risorse distribuite nella sottoscrizione. Ad esempio, un amministratore può richiedere che venga fornito un valore di tag specifico per un tipo di risorsa. Se non vengono soddisfatti i requisiti dei criteri, si riceve un messaggio di errore durante la distribuzione. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](./resource-manager-policy.md).
+Oltre che dal controllo degli accessi in base al ruolo, le azioni di distribuzione possono essere limitate da criteri della sottoscrizione. Attraverso i criteri, l'amministratore può imporre convenzioni in tutte le risorse distribuite nella sottoscrizione. Ad esempio, un amministratore può richiedere che venga fornito un valore di tag specifico per un tipo di risorsa. Se non vengono soddisfatti i requisiti dei criteri, si riceve un messaggio di errore durante la distribuzione. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## Verificare la registrazione del provider di risorse
 
@@ -223,7 +233,7 @@ Per impedire che Azure segnali lo stato di completamento della distribuzione, tu
 
 ## Passaggi successivi
 
-- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Azure Resource Manager](./resource-group-audit.md).
-- Per altre informazioni sulle azioni che permettono di determinare gli errori durante una distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi delle distribuzioni di gruppi di risorse](./resource-manager-troubleshoot-deployments-portal.md).
+- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Azure Resource Manager](resource-group-audit.md).
+- Per altre informazioni sulle azioni che permettono di determinare gli errori durante una distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi delle distribuzioni di gruppi di risorse](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/02/2016" 
+    ms.date="05/02/2016" 
     ms.author="elizapo" />
 
 
@@ -91,4 +91,4 @@ con la creazione della prima raccolta di Azure RemoteApp.
 
 [Creare una raccolta nel cloud](remoteapp-create-cloud-deployment.md) o [creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

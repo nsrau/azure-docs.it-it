@@ -87,7 +87,7 @@ Questo articolo contiene collegamenti ad argomenti che illustrano come configura
 
 ##Concetti
 
-Per concetti relativi alla distribuzione di contenuti su richiesta, vedere [Concetti su Servizi multimediali](media-services-concepts.md). players.md).
+Per concetti relativi alla distribuzione di contenuti su richiesta, vedere [Concetti su Servizi multimediali di Azure](media-services-concepts.md).
 
 ##Percorsi di apprendimento di Media Services
 
@@ -101,4 +101,4 @@ Per concetti relativi alla distribuzione di contenuti su richiesta, vedere [Conc
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->
