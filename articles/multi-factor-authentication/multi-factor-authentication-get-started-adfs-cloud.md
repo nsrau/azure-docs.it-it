@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
@@ -56,7 +56,7 @@ Gli indirizzi IP attendibili consentono agli amministratori di ignorare Multi-Fa
 Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due regole attestazioni, una per il tipo di attestazione All'interno della rete aziendale e un'altra per mantenere gli utenti connessi.
 
 1. Aprire il componente di gestione di ADFS.
-2. A sinistra selezionare Attendibilità componente.
+2. A sinistra selezionare Trust relying party.
 3. Al centro fare clic con il pulsante destro del mouse sulla piattaforma delle identità di Microsoft Office 365 e scegliere **Modifica regole attestazione**![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola.** ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso dall'elenco a discesa e fare clic su Avanti. ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
@@ -93,4 +93,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

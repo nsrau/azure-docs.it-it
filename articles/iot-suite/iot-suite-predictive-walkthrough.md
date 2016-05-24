@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/16/2016"
  ms.author="araguila"/>
 
 # Procedura dettagliata della soluzione preconfigurata di manutenzione predittiva
@@ -126,4 +126,4 @@ Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in Io
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,66 +19,6 @@
 
 #Creare SQL Data Warehouse con TSQL
 
-> [AZURE.SELECTOR]
-- [Portale di Azure](sql-data-warehouse-get-started-provision.md)
-- [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
-- [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
+Questo articolo è stato sostituito da [Creare un database di SQL Data Warehouse usando Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md).
 
-Questo articolo illustrerà come creare un'istanza di SQL Data Warehouse usando Transact SQL. Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
-
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-- Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Un server SQL versione 12. Per creare SQL Data Warehouse, sarà necessario un server SQL versione 12. Se non è disponibile un server SQL 12, è consigliabile crearlo nel portale per poter creare l'istanza di SQL Data Warehouse in un nuovo server.
-
-Questo articolo non illustra come eseguire correttamente la configurazione e la connessione con Visual Studio. Per una descrizione completa di queste operazioni, vedere la documentazione relativa a [connessione e query][]. Per iniziare, sarà necessario aprire Esplora oggetti di SQL Server in Visual Studio e connettersi al server che si userà per creare l'istanza di SQL Data Warehouse. A questo punto sarà possibile creare un'istanza di SQL Data Warehouse eseguendo il comando seguente con il database master:
-
-```sql
-CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
-```
-
-È anche possibile creare un'istanza di SQL Data Warehouse aprendo la riga di comando ed eseguendo quanto segue:
-
-```
-sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
-```
-
-
-Quando si eseguono le istruzioni TSQL precedenti, si notino i parametri `MAXSIZE` e `SERVICE_OBJECTIVE`, che indicheranno le dimensioni di archiviazione iniziali e calcoleranno lo spazio assegnato all'istanza di Data Warehouse. `MAXSIZE` accetta le dimensioni seguenti. È consigliabile scegliere dimensioni elevate per supportare la crescita:
-
-+ 250 GB
-+ 500 GB
-+ 750 GB
-+ 1024 GB
-+ 5120 GB
-+ 10240 GB
-+ 20480 GB
-+ 30720 GB
-+ 40960 GB
-+ 51200 GB
-
-`SERVICE_OBJECTIVE` indicherà il numero di DWU iniziali dell'istanza e accetterà i valori seguenti:
-
-+ DW100
-+ DW200
-+ DW300
-+ DW400
-+ DW500
-+ DW600
-+ DW1000
-+ DW1200
-+ DW1500
-+ DW2000
-
-Per informazioni sull'impatto di questi parametri sulla fatturazione, vedere la [pagina dei prezzi][].
-
-## Passaggi successivi
-Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
-
-[connessione e query]: ./sql-data-warehouse-get-started-connect.md
-[migrazione]: ./sql-data-warehouse-overview-migrate.md
-[sviluppo]: ./sql-data-warehouse-overview-develop.md
-[caricamento]: ./sql-data-warehouse-overview-load.md
-[caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

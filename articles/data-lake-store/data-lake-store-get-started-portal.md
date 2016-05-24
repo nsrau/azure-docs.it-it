@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Introduzione all’Archivio Data Lake di Azure tramite il portale di Azure.
@@ -44,6 +44,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 3. Nel pannello **nuovo archivio Data Lake**, fare clic su **Iscriversi per visualizzare l’anteprima**. Leggere le informazioni e quindi fare clic su **OK**. Quando la sottoscrizione è stata abilitata per l'anteprima pubblica, si riceverà un messaggio di posta elettronica.
 
 	![Iscriversi per l'anteprima pubblica](./media/data-lake-store-get-started-portal/preview-signup.png "Creare un nuovo account di Azure Data Lake")
+
+## Apprendimento rapido con i video
+
+Guardare i video seguenti per iniziare a usare Archivio Data Lake.
+
+* [Creare un account Archivio Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Gestire i dati in Archivio Data Lake usando Esplora dati](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Creare un account di Azure Data Lake Store
 
@@ -130,4 +137,4 @@ Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’acc
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,4 @@
-### Per verificare la connessione tramite il portale di Azure
-
-Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di rete virtuale** **>** ***fare clic su clic sul nome del gateway*** **>** **Impostazioni** **>** **Connessioni**. Selezionando il nome della connessione è possibile visualizzare informazioni aggiuntive sulla connessione. Nell'esempio seguente la connessione non è connessa e non è presente alcun flusso di dati.
+È possibile verificare una connessione VPN nel portale di Azure passando a **Gateway di rete virtuale**, **>** ***facendo clic sul nome del gateway*** **>** **Impostazioni** **>** **Connessioni**. Selezionando il nome della connessione è possibile visualizzare informazioni aggiuntive sulla connessione. Nell'esempio seguente la connessione non è connessa e non è presente alcun flusso di dati.
 
 
 ![Verificare la connessione](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
@@ -8,7 +6,7 @@ Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di 
 
 ### Per verificare la connessione tramite PowerShell
 
-È anche possibile verificare che la connessione riesca usando `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. Per configurare i valori in modo che corrispondano ai propri, è possibile usare l'esempio di cmdlet seguente. Quando richiesto, selezionare *A* per eseguire il debug su tutte le connessioni.
+È anche possibile verificare che la connessione sia riuscita usando `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. Per configurare i valori in modo che corrispondano ai propri, è possibile usare l'esempio di cmdlet seguente. Quando richiesto, selezionare "A" per eseguirli tutti.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
@@ -40,5 +38,3 @@ Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di 
 	    "ingressBytesTransferred": 33509044,
 	    "egressBytesTransferred": 4142431
 	  }
-
-<!----HONumber=AcomDC_0406_2016-->

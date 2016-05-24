@@ -4,7 +4,7 @@
 Prima di tutto è necessario che [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 o versione successiva) sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
 
->[AZURE.NOTE] Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager (ARM)](../articles/resource-group-overview.md), quindi gli esempi usano ARM basato sui [cmdlet PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx). I [cmdlet del database SQL di Azure (classico)](https://msdn.microsoft.com/library/azure/dn546723.aspx) del modello di distribuzione classica esistente sono supportati per compatibilità con le versioni precedenti, ma è consigliabile l'uso dei cmdlet basati su ARM.
+>[AZURE.NOTE] Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../articles/resource-group-overview.md). Gli esempi usano quindi i [cmdlet di PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) per Resource Manager. I [cmdlet del database SQL di Azure (versione classica)](https://msdn.microsoft.com/library/azure/dn546723.aspx) del modello di distribuzione classica esistenti sono supportati per compatibilità con le versioni precedenti, ma è consigliabile l'uso dei cmdlet per Resource Manager.
 
 
 Eseguire il cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) per visualizzare una schermata di accesso in cui immettere le credenziali. Usare le stesse credenziali usate per l'accesso al portale di Azure.

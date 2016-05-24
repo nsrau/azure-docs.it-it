@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito usando il portale di Azure classico
@@ -27,17 +27,20 @@
 
 In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Questo articolo si applica al modello di distribuzione classica e fa uso del portale di Azure classico.
 
+
 **Informazioni sui modelli di distribuzione di Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Diagramma di connessione
  
 ![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")
 
 **Strumenti e modelli di distribuzione per le connessioni da sito a sito**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-Se si vogliono connettere reti virtuali, ma non si sta creando una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classica](virtual-networks-configure-vnet-to-vnet-connection.md) o [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione di Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md).
+
+Per connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione tra reti virtuali per il modello di distribuzione classica](virtual-networks-configure-vnet-to-vnet-connection.md). Se si sta cercando una configurazione della connessione di tipo diverso, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
 
  
 ## Prima di iniziare
@@ -48,7 +51,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 -  Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
 
-- Una sottoscrizione di Azure. Se non si ha già una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Creare la rete virtuale
@@ -107,6 +110,6 @@ Configurare quindi il gateway di rete virtuale per creare una connessione da sit
 
 ## Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la documentazione relativa alle [macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

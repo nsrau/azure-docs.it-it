@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione
@@ -44,7 +44,7 @@ Selezionare le tabelle di cui si desidera abilitare l'estensione.
 |**Nome**|Consente di specificare il nome della colonna nella tabella.|
 |(nessun titolo)|Un simbolo all'interno di questa colonna generalmente indica che non è possibile abilitare la tabella selezionata per l'estensione a causa di un problema di blocco. È possibile che la tabella usi un tipo di dati non supportato. Passare il puntatore del mouse sul simbolo per visualizzare altre informazioni in una descrizione comando. Per altre informazioni, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).|
 |**Con estensione**|Indica se la tabella è già abilitata.|
-|**Migrazione**|In RC3 è possibile eseguire la migrazione di un'intera tabella (**Intera tabella**) o specificare un predicato del filtro basato sulla data nella procedura guidata. Per usare un predicato di filtro diverso per selezionare le righe per la migrazione, eseguire l'istruzione ALTER TABLE per specificare il predicato del filtro dopo essere usciti dalla procedura guidata. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)](sql-server-stretch-database-predicate-function.md). Per altre informazioni su come applicare il predicato, vedere [Abilitare Estensione database per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrazione**|È possibile eseguire la migrazione di un'intera tabella, usando l'opzione **Intera tabella**, o specificare un predicato del filtro basato sulla data nella procedura guidata. Per usare un predicato di filtro diverso per selezionare le righe per la migrazione, eseguire l'istruzione ALTER TABLE per specificare il predicato del filtro dopo essere usciti dalla procedura guidata. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)](sql-server-stretch-database-predicate-function.md). Per altre informazioni su come applicare il predicato, vedere [Abilitare Estensione database per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**prime righe**|Consente di specificare il numero di righe nella tabella.|
 |**Dimensione (KB)**|Consente di specificare le dimensioni della tabella in KB.|
 
@@ -163,4 +163,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

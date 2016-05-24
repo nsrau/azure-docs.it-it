@@ -72,7 +72,7 @@ Per un esempio di un modello di Azure Resource Manager che imposta la proprietà
 
 ## <a id="tutorialstart"></a> Proseguimento dell'esercitazione introduttiva su .NET
 
-Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, passare all'articolo successivo relativo all'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
+Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, è stata completata la serie. Per indicazioni su altre informazioni relative alle app per le api, vedere la sezione [Passaggi successivi](#next-steps).
 
 Il resto di questo articolo è una continuazione della serie introduttiva su .NET e si presuppone che sia stata completata correttamente [la prima esercitazione](app-service-api-dotnet-get-started.md).
 
@@ -264,6 +264,13 @@ I passaggi seguenti riepilogano il processo di abilitazione del supporto di CORS
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Uso di Gestione API di Azure con le app per le API
+
+Se si usa Gestione API di Azure con un'app per le API, configurare CORS in Gestione API invece che nell'app per le API. Per altre informazioni, vedere le seguenti risorse:
+
+* [Panoramica di Gestione API di Azure (video: la sezione su CORS inizia al minuto 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [Criteri tra domini di Gestione API](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## Risoluzione dei problemi
 
 Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informa che non è necessaria alcuna installazione.
@@ -275,10 +282,10 @@ Se dopo aver impostato un URL nel pannello CORS del portale si continua a riceve
 
 Se si sta configurando CORS nel codice dell'applicazione e nel servizio app di Azure, si noti che l'impostazione CORS del servizio app sovrascrive ogni altra cosa nel codice dell'applicazione.
 
-Per altre informazioni sulle funzionalità di Visual Studio che semplificano la risoluzione dei problemi, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Per altre informazioni sulle funzionalità di Visual Studio che semplificano la risoluzione dei problemi, vedere [Risoluzione dei problemi delle app del Servizio app di Azure in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Passaggi successivi 
 
-In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
+In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Per altre informazioni sulle app per le API, vedere l'[introduzione all'autenticazione nel servizio app](../app-service/app-service-authentication-overview.md), quindi passare all'esercitazione sull'[autenticazione utente per le app per le API](app-service-api-dotnet-user-principal-auth.md).
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

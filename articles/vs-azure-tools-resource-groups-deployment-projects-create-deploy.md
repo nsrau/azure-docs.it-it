@@ -173,7 +173,13 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 
     ![aggiunta di un riferimento](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Aggiungendo un riferimento si collega il progetto di tipo App Web al progetto di tipo Gruppo di risorse e si impostano tre proprietà chiave. In **Additional Properties** è disponibile la posizione di staging del pacchetto di distribuzione Web di cui verrà eseguito il push nell'Archiviazione di Azure. In **Include File Path** è disponibile il percorso in cui verrà creato il pacchetto. In **Include Targets** è disponibile il comando che verrà eseguito dalla distribuzione. Il valore predefinito di **Build;Package** consente alla distribuzione di sviluppare e creare un pacchetto di distribuzione Web (package.zip). Il profilo di pubblicazione non è necessario, perché la distribuzione ottiene le informazioni necessarie dalle proprietà per creare il pacchetto.
+    Aggiungendo un riferimento si collega il progetto di app Web al progetto di gruppo di risorse e si impostano automaticamente tre proprietà chiave.
+    
+    - In **Additional Properties** è disponibile la posizione di staging del pacchetto di distribuzione Web di cui verrà eseguito il push nell'Archiviazione di Azure. 
+    - In **Include File Path** è disponibile il percorso in cui verrà creato il pacchetto. In **Include Targets** è disponibile il comando che verrà eseguito dalla distribuzione. 
+    - Il valore predefinito di **Build;Package** consente alla distribuzione di sviluppare e creare un pacchetto di distribuzione Web (package.zip).  
+    
+    Il profilo di pubblicazione non è necessario, perché la distribuzione ottiene le informazioni necessarie dalle proprietà per creare il pacchetto.
     
       ![visualizzazione di un riferimento](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
@@ -193,7 +199,7 @@ Al termine della distribuzione è possibile passare al sito e verificare che l'a
 
 ## Passaggi successivi
 
-- Per informazioni sulla gestione delle risorse tramite il portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
-- Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per informazioni sulla gestione delle risorse tramite il portale, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+- Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

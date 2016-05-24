@@ -61,9 +61,11 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 7. Nell’**Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
 
+	> [AZURE.WARNING] Per alcuni tipi di origini, ad esempio Archiviazione di Azure e App Web, è necessario che l'intestazione host corrisponda al dominio dell'origine. A meno che non si abbia un'origine che richiede un'intestazione host diversa dal dominio, è consigliabile lasciare il valore predefinito.
+
 8. Per **Protocollo** e **Porta origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS).
 	
-	> [AZURE.NOTE] **Porta dell'origine** interessa solo la porta che usa l'endpoint per recuperare informazioni dall'origine. L'endpoint stesso sarà disponibile solo ai client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.
+	> [AZURE.NOTE] **Porta dell'origine** interessa solo la porta usata dall'endpoint per recuperare informazioni dall'origine. L'endpoint stesso sarà disponibile solo per i client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.
 	>
 	> Gli endpoint del servizio **Rete CDN di Azure da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco di porte di origine non consentite, vedere l'articolo relativo ai [dettagli sul comportamento della rete CDN di Azure di Akamai](cdn-akamai-behavior-details.md).
 	>
@@ -95,4 +97,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->
