@@ -221,7 +221,7 @@ Questa esercitazione usa l'Azione script dal portale di Azure classico per perso
 	<p>In primo luogo, creare una tabella Hive dalla raccolta DocumentDB. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di includere il parametro DocumentDB.query facoltativo per ridurre i documenti semplicemente a _ts e _rid. </p>
 	
 	> [AZURE.NOTE] **La denominazione DocumentDB.inputCollections non è stata un errore.** Sì, si consente l'aggiunta di più raccolte come input: </br>
-	'*DocumentDB.inputCollections*' = '*\<Nome raccolta di input di DocumentDB 1\>*,*\<Nome raccolta di input di DocumentDB 2\> *' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.
+	'*DocumentDB.inputCollections*' = '*\<Nome raccolta di input di DocumentDB 1\>*,*\<Nome raccolta di input di DocumentDB 2\>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -467,7 +467,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]:  ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
