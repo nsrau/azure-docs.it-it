@@ -335,7 +335,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 	> [AZURE.TIP] Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta DocumentDB vedere [livelli di prestazioni DocumentDB](documentdb-performance-levels.md)
 
-3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file** Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
+3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file **Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
 	
 		<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
 		<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
