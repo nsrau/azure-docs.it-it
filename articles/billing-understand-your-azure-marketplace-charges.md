@@ -29,11 +29,11 @@ Per visualizzare o scaricare la fattura:
 1. Accedere al portale degli account di Azure usando l'ID organizzazione.
 2. Fare clic su **Marketplace**. Viene visualizzato un elenco completo di tutti gli ordini del Marketplace inseriti dall'account Azure. Si noterà che gli ordini sono raggruppati per nome e ID delle sottoscrizioni di Azure padre.
 
-    	![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+    ![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
 3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti sul Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
-    	![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+    ![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine:
 - Prezzo
