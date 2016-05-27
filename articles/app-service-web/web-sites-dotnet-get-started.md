@@ -241,4 +241,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../resource-group-portal.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
