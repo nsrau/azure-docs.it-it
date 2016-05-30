@@ -452,7 +452,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 	GO
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -499,7 +499,7 @@ Ecco lo script SQL che definisce la funzione della distanza.
 	GO
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS

@@ -239,11 +239,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 ## Passaggio 5: Installare il server di gestione
 > [AZURE.TIP] Assicurarsi che questi URL siano accessibili dal server di gestione:
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -306,7 +306,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine 
+	net start obengine
+	
 
 
 
@@ -448,7 +452,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 
 	- Accedere come utente ROOT.
 	- Nel file /etc/ssh/sshd\_config trovare la riga che inizia con PasswordAuthentication.
-	- Rimuovere il commento dalla riga e modificare il valore da **no** a **yes**.
+	- Rimuovere il commento dalla riga e modificare il valore da **no** a **si**.
 	- Trovare la riga che inizia con **Subsystem** e rimuovere il commento.
 
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
@@ -461,7 +465,8 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
 Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 

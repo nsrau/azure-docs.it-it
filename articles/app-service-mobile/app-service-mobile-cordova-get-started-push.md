@@ -61,7 +61,7 @@ Poiché verrà usata la piattaforma di Google Android, è necessario abilitare G
 
 Prima di poter distribuire l'applicazione al dispositivo Android, è necessario abilitare il debug USB. Sul telefono Android seguire questa procedura:
 
-1. Entrare in **Impostazioni** > **Info dispositivo** e selezionare **Numero build ** circa 7 volte finché non sarà abilitata la modalità sviluppatore.
+1. Entrare in **Impostazioni** > **Info dispositivo** e selezionare **Numero build** circa 7 volte finché non sarà abilitata la modalità sviluppatore.
  
 2. Tornare in **Impostazioni** > **Opzioni sviluppatore**, abilitare **Debug USB**, quindi connettere il telefono Android al PC di sviluppo tramite un cavo USB.
 

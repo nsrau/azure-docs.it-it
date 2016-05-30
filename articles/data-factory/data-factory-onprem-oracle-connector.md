@@ -292,7 +292,7 @@ XML | String
 
 ## Suggerimenti per la risoluzione dei problemi
 
-**** Problema: ** viene visualizzato il seguente **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName', messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
+**** Problema: **viene visualizzato il seguente **messaggio di errore**: l’attività di copia ha trovato parametri non validi: 'UnknownParameterName', messaggio dettagliato: Impossibile trovare il Provider di dati Framework .NET richiesto. Potrebbe non essere installato".
 
 **Possibili cause**
 

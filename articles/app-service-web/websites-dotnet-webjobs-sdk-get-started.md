@@ -73,11 +73,13 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 1. Aprire la finestra **Esplora server** in Visual Studio.
 
-2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**. ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**.
+![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Accedere con le credenziali di Azure.
 
-5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**. ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**.
+![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione.
 
@@ -468,7 +470,7 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs*
 	- Nella cartella *Views\\Shared*: il file *\_Layout.cshtml*
-- Nella cartella *Views\\Home*: *Index.cshtml*
+	- Nella cartella *Views\\Home*: *Index.cshtml*
 	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml* <br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.

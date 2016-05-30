@@ -26,7 +26,7 @@ Una configurazione da punto a sito consente di creare una singola connessione si
 
 Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulla connettività sicura cross-premises per le reti virtuali](vpn-gateway-cross-premises-options.md).
 
-Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione di Resource Manager ** (Gestione dei servizi).
+Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione di Resource Manager** (Gestione dei servizi).
 
 **Informazioni sui modelli di distribuzione di Azure**
 

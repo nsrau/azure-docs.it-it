@@ -143,7 +143,7 @@ L'obiettivo di Service Fabric è ridurre le complessità della compilazione di a
 
 * Per altre informazioni:
 	* [Panoramica di Service Fabric](service-fabric-overview.md)
-    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/it-IT/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

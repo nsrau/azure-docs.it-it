@@ -213,7 +213,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 	<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
 	</table>
 
-	Per altre informazioni sul flusso di lavoro di Oozie e sull'utilizzo di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per cluster HDInsight versione 2.1).
+	Per altre informazioni sul flusso di lavoro di Oozie e sull'utilizzo di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per cluster HDInsight versione 2.1).
 
 2. Salvare il file come **C:\\Tutorials\\UseOozie\\workflow.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
 
@@ -380,7 +380,7 @@ Per altre informazioni, vedere l'[articolo introduttivo alle tabelle interne ed 
 
 ##<a id="run"></a>Eseguire il progetto Oozie
 
-Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per cluster HDInsight versione 2.1).
+Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per cluster HDInsight versione 2.1).
 
 **Per inviare un processo Oozie**
 

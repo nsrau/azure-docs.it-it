@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Rete CDN : Come limitare l'accesso al contenuto in base al paese"
-	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese ** per configurare il servizio per consentire o bloccare l'accesso in base al paese."
+	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese** per configurare il servizio per consentire o bloccare l'accesso in base al paese."
 	services="cdn"
 	documentationCenter=".NET"
 	authors="camsoper"

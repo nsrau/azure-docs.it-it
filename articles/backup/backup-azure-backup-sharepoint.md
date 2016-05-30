@@ -153,7 +153,7 @@ Nell'esempio seguente, l'*elemento di SharePoint da ripristinare * è stato acci
 
     ![DPM SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
 
-6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina ** per aprire **Ripristino guidato**. Fare clic su **Avanti**.
+6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina** per aprire **Ripristino guidato**. Fare clic su **Avanti**.
 
     ![Verifica selezione per ripristino](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 

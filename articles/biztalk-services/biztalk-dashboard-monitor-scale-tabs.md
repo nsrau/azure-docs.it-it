@@ -236,14 +236,18 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 
 ##### Per rimuovere o visualizzare la metrica nel grafico
 1. Selezionare la scheda **Monitoraggio**.
-2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni: ![Fare clic su Aggiungi metriche][AddMetrics]
+2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:  
+
+![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
 
-	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico: ![Metrica Utilizzo CPU disabilitata][GrayedMetric]
+	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico:  
+![Metrica Utilizzo CPU disabilitata][GrayedMetric]
 
-	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico: ![Metrica Utilizzo CPU abilitata][EnabledMetric]
+	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico:  
+![Metrica Utilizzo CPU abilitata][EnabledMetric]
 
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 

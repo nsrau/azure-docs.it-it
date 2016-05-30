@@ -39,7 +39,7 @@ Usare questa architettura quando il server di elaborazione è locale e si usa Ex
 
 Usare questa architettura quando il server di elaborazione è in Azure e si dispone di una rete VPN o di una connessione ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Per vedere l'elenco completo delle porte e il diagramma che illustra l'architettura di failback, fare riferimento all'immagine sotto
 
@@ -120,7 +120,7 @@ Per configurare il server di gestione che esegue il server di destinazione maste
 
 #### Installare CentOS 6.6
 
-1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** (Modifica del sistema) selezionare ** Connect automatically** (Connetti automaticamente) e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione. 
+1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices** (Dispositivi di archiviazione di base), verificare che il disco rigido non contenga dati importanti e fare clic su **Yes** (Sì). Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** (Modifica del sistema) selezionare **Connect automatically** (Connetti automaticamente) e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione. 
 2.	Quando viene richiesto il tipo di installazione, selezionare **Create Custom Layout** (Crea layout personalizzato) come partizione. Dopo aver selezionato **Next** (Avanti), selezionare **Free** (Gratuito) e infine fare clic su Create (Crea). Creare partizioni **/**, **/var/crash** e **/home ** con **FS Type:** **ext4**. Creare la partizione di scambio con **FS Type: swap**.
 3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Format** (Formatta) per formattare l'unità con le impostazioni della partizione. Fare clic su **Write change to disk** (Scrivi modifica su disco) per applicare le modifiche della partizione.
 4.	Selezionare **Install boot loader** (Installa caricatore di avvio) > **Next** (Avanti) per installare il caricatore d'avvio nella partizione radice.
@@ -204,4 +204,4 @@ Al termine del failback i dati si trovano nuovamente nel sito locale, ma non son
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!------HONumber=AcomDC_0518_2016-->

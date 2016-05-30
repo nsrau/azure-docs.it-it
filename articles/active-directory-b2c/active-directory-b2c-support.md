@@ -40,7 +40,7 @@
     - Il **Tipo di problema** è **Tecnico**.
 	- Scegliere la **Sottoscrizione** appropriata.
     - Il **Servizio** è **Active Directory**.
-    - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/it-IT/support/plans/).
+    - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/support/plans/).
 
     ![Supporto - Informazioni di base](./media/active-directory-b2c-support/support-basics.png)
 

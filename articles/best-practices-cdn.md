@@ -65,7 +65,8 @@ L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse a
 |Seoul, KR| 190 | 190 | 0% |
 
 
-* Ha un nodo di rete CDN di Azure nella stessa città. ** Ha un nodo di rete CDN di Azure in una città adiacente.
+* Ha un nodo di rete CDN di Azure nella stessa città.  
+\*\* Ha un nodo di rete CDN di Azure in una città adiacente.
 
 ## Sfide  
 

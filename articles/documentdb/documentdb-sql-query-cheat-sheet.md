@@ -19,7 +19,7 @@
 
 # Foglio informativo PDF di SQL DocumentDB
 
-Il **Foglio informativo sulle query SQL di DocumentDB ** consente di scrivere rapidamente query per i dati di DocumentDB mediante la visualizzazione di query, parole chiave, funzioni integrate e operatori comuni in un foglio di riferimento PDF facile stampare.
+Il **Foglio informativo sulle query SQL di DocumentDB** consente di scrivere rapidamente query per i dati di DocumentDB mediante la visualizzazione di query, parole chiave, funzioni integrate e operatori comuni in un foglio di riferimento PDF facile stampare.
 
 DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali dei documenti JSON utilizzando [SQL](documentdb-sql-query.md) senza specificare uno schema o indici secondari. Oltre alle parole chiave e agli operatori standard ANSI SQL, DocumentDB supporta funzioni definite dall'utente (UDF) di JavaScript, operatori JavaScript e una vasta gamma di funzioni predefinite.
 

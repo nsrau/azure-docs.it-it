@@ -40,7 +40,7 @@ In questa sezione si creerà un cluster HBase basato su Linux in HDInsight usand
 
 1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
 
@@ -77,7 +77,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host\_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
+		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net

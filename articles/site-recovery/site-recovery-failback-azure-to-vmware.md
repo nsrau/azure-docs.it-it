@@ -38,7 +38,7 @@ Usare questa architettura quando il server di elaborazione è locale e si usa Ex
 
 Usare questa architettura quando il server di elaborazione è in Azure e si dispone di una rete VPN o di una connessione ExpressRoute.
 
-![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagramma dell'architettura per VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Per vedere l'elenco completo delle porte e il diagramma che illustra l'architettura di failback, fare riferimento all'immagine seguente.
 
@@ -96,7 +96,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 1.  Nell’Insieme di credenziali > Impostazioni > Gestisci infrastruttura di Site Recovery > **Server di configurazione**, sotto l'intestazione Per VMware o computer fisici, selezionare il server di configurazione. Fare clic su + Server di elaborazione
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. Per la distribuzione del server di elaborazione scegliere la distribuzione di un server di elaborazione di failback in Azure
 
@@ -106,11 +106,11 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 
 5. Se è stata selezionata una rete di *distribuzione classica*, verrà richiesto di creare una nuova VM tramite la raccolta di Azure e installare il server di elaborazione al suo interno.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Assicurarsi di selezionare *Classico* come modello di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Installare il server di elaborazione seguendo la procedura [specificata qui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server),
 	
@@ -126,7 +126,7 @@ Se i computer sono stati protetti come risorse classiche (ovvero la macchina vir
 	
 	5. Scegliere la subnet specifica e l'interfaccia di rete per la connessione. Nota: è necessario creare un’[interfaccia di rete](../virtual-network/virtual-networks-multiple-nics.md) (NIC) e selezionarla in fase di distribuzione.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. Fare clic su OK. Si attiverà quindi un processo che creerà una macchina virtuale di tipo di distribuzione Resource Manager con l’installazione del server di elaborazione. È necessario eseguire l’installazione all'interno della VM per registrare il server nel server di configurazione. A tale scopo, seguire [questa procedura](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -153,7 +153,7 @@ Per configurare il server di gestione che esegue il server di destinazione maste
 
 #### Installare CentOS 6.6
 
-1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices**, verificare che il disco rigido non contenga dati importanti e fare clic su **Yes**. Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** selezionare ** Connect automatically** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione. 
+1.	Installare il sistema operativo minimo CentOS 6.6 nella macchina virtuale del server di gestione. Lasciare l'immagine ISO in un'unità DVD e avviare il sistema. Ignorare il test dei supporti, selezionare Inglese (Stati Uniti) come lingua, selezionare **Basic Storage Devices**, verificare che il disco rigido non contenga dati importanti e fare clic su **Yes**. Tutti i dati verranno rimossi. Immettere il nome host del server di gestione e selezionare la scheda di rete del server. Nella finestra di dialogo **Editing System** selezionare **Connect automatically** e aggiungere un indirizzo IP statico, una rete e le impostazioni DNS. Specificare un fuso orario e una password radice per accedere al server di gestione. 
 2.	Quando viene richiesto il tipo di installazione, selezionare **Create Custom Layout** come partizione. Dopo aver selezionato **Next**, selezionare **Free** e infine fare clic su Create. Creare partizioni **/**, **/var/crash** e **/home** con **FS Type:** **ext4**. Creare la partizione di scambio con **FS Type: swap**.
 3.	Se vengono rilevati dispositivi preesistenti viene visualizzato un messaggio di avviso. Fare clic su **Format** per formattare l'unità con le impostazioni della partizione. Fare clic su **Write change to disk** per applicare le modifiche della partizione.
 4.	Selezionare **Install boot loader** > **Next** per installare il caricatore d'avvio nella partizione radice.
@@ -250,4 +250,4 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 - ExpressRoute deve essere configurato nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 - I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. È necessario configurare il peering pubblico in ExpressRoute specificando il data center di destinazione per consentire l'uso di ExpressRoute da parte della replica di Site Recovery.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!-------HONumber=AcomDC_0518_2016-->

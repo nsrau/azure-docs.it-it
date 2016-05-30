@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Single Sign-On di Microsoft Azure AD")
 
-3.  Nella casella di testo **URL di accesso a Igloo Software** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.igloocommunities.com/?signin*" e fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso a Igloo Software** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://company.igloocommunities.com/?signin*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configura URL app")
 

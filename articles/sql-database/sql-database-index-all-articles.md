@@ -351,7 +351,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 180 | [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md) | In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure. |
 | 181 | [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) | Istruzioni Transact-SQL non completamente supportate nel Database SQL di Azure |
 | 182 | [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) | In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. È disponibile un collegamento per le informazioni sulla versione relative ai driver rilasciati dalla community anziché da Microsoft. |
-| 183 | [Ricerca con filtri](https://azure.microsoft.com/it-IT/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
+| 183 | [Ricerca con filtri](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
 
 
 ## Miscellaneous
