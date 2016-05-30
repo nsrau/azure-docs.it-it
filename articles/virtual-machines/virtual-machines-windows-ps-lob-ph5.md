@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -59,7 +59,7 @@ Usare questi passaggi per il backup del database.
 4.	Fare doppio clic su un database per eseguire il backup, scegliere **Attività**, quindi fare clic su **Backup**.
 5.	Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
 6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\\ [machineName]\\backup[databaseName].bak**, dove **machineName** è il nome del **computer SQL server** principale e **databaseName** è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
-7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro **[databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
+7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro ** [databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
 8.	In **Tipo di Backup**, selezionare **Log delle transazioni**, quindi fare clic su **OK** per due volte.
 9.	Mantenere aperta la sessione Desktop remoto.
 
@@ -119,4 +119,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 - Vedere queste [linee guida](virtual-machines-linux-infrastructure-service-guidelines.md) se si distribuisce il proprio carico di lavoro IT in Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

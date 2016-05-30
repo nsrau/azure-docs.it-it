@@ -663,7 +663,7 @@ Tenere presente quanto segue:
 - Non è necessario specificare le ore di **inizio** e **fine** per la pipeline. 
 - È necessario specificare la disponibilità dei set di dati di input e output (frequenza e l'intervallo) in questa fase anche se i valori non vengono usati da Data Factory.  
 - Le pipeline monouso non vengono visualizzate nella vista Diagramma. Si tratta di un comportamento previsto da progettazione. 
-- Non è possibile aggiornare le pipeline monouso. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra. 
+- Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra. 
 
   
 
@@ -698,4 +698,4 @@ Tenere presente quanto segue:
 
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/03/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 
-Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio, PDF o file di Office) salvati nell'archivio BLOB di Azure. Con il nuovo indicizzatore BLOB Ricerca di Azure questo processo diventa rapido e facile.
+Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. Con il nuovo indicizzatore BLOB Ricerca di Azure questo processo diventa rapido e facile.
 
 > [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
@@ -31,11 +31,11 @@ Un indicizzatore è una risorsa che connette le origini dati agli indici di rice
 
 Per impostare l'indicizzazione BLOB, eseguire le operazioni seguenti:
 
-1. Creare un'origine dati di tipo `azureblob` che faccia riferimento a un contenitore (e, facoltativamente, a una cartella in tale contenitore) in un account di archiviazione di Azure
-	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`
-	- Specificare un nome del contenitore. È facoltativamente possibile includere anche una cartella usando il parametro `query`
-2. Creare un indice di ricerca con un campo `content` ricercabile 
-3. Creare l'indicizzatore connettendo l'origine dati all'indice di destinazione
+1. Creare un'origine dati di tipo `azureblob` che faccia riferimento a un contenitore (e, facoltativamente, a una cartella in tale contenitore) in un account di archiviazione di Azure.
+	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`.
+	- Specificare un nome del contenitore. È facoltativamente possibile includere anche una cartella usando il parametro `query`.
+2. Creare un indice di ricerca con un campo `content` disponibile per la ricerca. 
+3. Creare l'indicizzatore connettendo l'origine dati all'indice di destinazione.
 
 ### Creare un'origine dati
 
@@ -104,7 +104,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 Ricerca di Azure indicizza ogni documento (BLOB) come segue:
 
 - L'intero contenuto del testo del documento viene estratto in un campo di tipo stringa denominato `content`. Si noti che attualmente non viene fornito il supporto per l'estrazione di più documenti da un singolo BLOB:
-	- Ad esempio, un file con estensione CSV viene indicizzato come documento singolo.
+	- Ad esempio, un file con estensione CSV viene indicizzato come documento singolo. Se è necessario trattare ogni riga in un file CSV come documento separato, seguire [questo suggerimento di UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- Anche un documento composito o incorporato (ad esempio, un archivio ZIP o un documento di Word con un messaggio di posta elettronica di Outlook incorporato con un allegato PDF) viene indicizzato come documento singolo.
 
 - Le proprietà dei metadati specificate dall'utente eventualmente presenti nel BLOB vengono estratte letteralmente. Le proprietà dei metadati possono essere usate anche per controllare alcuni aspetti del processo di estrazione dei documenti. Per altri dettagli, vedere [Uso di metadati personalizzati per controllare l'estrazione dei documenti](#CustomMetadataControl).
@@ -236,7 +236,7 @@ Vari parametri di configurazione dell'indicizzatore consentono di determinare qu
 
 ### Indicizzare solo i BLOB con estensioni di file specifiche
 
-È possibile indicizzare solo i BLOB con le estensioni di file specificate mediante il parametro di configurazione dell'indicizzatore `indexedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare solo i BLOB .PDF e .DOCX eseguire questa operazione:
+È possibile indicizzare solo i BLOB con le estensioni di file specificate tramite il parametro di configurazione dell'indicizzatore `indexedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare solo i BLOB .PDF e .DOCX eseguire questa operazione:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -264,7 +264,7 @@ Se sono presenti entrambi i parametri `indexedFileNameExtensions` e `excludedFil
 
 ### Indicizzare solo i metadati di archiviazione
 
-È possibile indicizzare solo i metadati di archiviazione e ignorare completamente il processo di estrazione documenti usando la proprietà di configurazione `indexStorageMetadataOnly`. Ciò è utile quando non sono necessari né il contenuto del documento né le proprietà dei metadati specifiche per il tipo di contenuto. Per ottenere questo risultato, impostare la proprietà `indexStorageMetadataOnly` su `true`:
+È possibile indicizzare solo i metadati di archiviazione e ignorare completamente il processo di estrazione documenti usando la proprietà di configurazione `indexStorageMetadataOnly`. Ciò è utile quando non sono necessari né il contenuto del documento né le proprietà dei metadati specifiche per il tipo di contenuto. A tale scopo, impostare la proprietà `indexStorageMetadataOnly` su `true`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -277,7 +277,7 @@ Se sono presenti entrambi i parametri `indexedFileNameExtensions` e `excludedFil
 
 ### Indicizzare i metadati di archiviazione e del tipo di contenuto, ignorando l'estrazione del contenuto
 
-Se si vuole estrarre tutti i metadati ignorando tuttavia l'estrazione del contenuto per tutti i BLOB, è possibile richiedere questo comportamento nella configurazione dell'indicizzatore, invece di aggiungere metadati `AzureSearch_SkipContent` a ogni singolo BLOB. A tale scopo, impostare la proprietà di configurazione dell'indicizzatore `skipContent` su `true`:
+Se è necessario estrarre tutti i metadati ignorando tuttavia l'estrazione del contenuto per tutti i BLOB, è possibile richiedere questo comportamento nella configurazione dell'indicizzatore, invece di aggiungere metadati `AzureSearch_SkipContent` a ogni singolo BLOB. A tale scopo, impostare la proprietà di configurazione dell'indicizzatore `skipContent` su `true`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -292,4 +292,4 @@ Se si vuole estrarre tutti i metadati ignorando tuttavia l'estrazione del conten
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

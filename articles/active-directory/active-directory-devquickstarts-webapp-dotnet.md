@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD facilita e semplifica l'outsourcing della gestione delle identità delle app Web, fornendo un unico account di accesso e disconnessione solo con poche righe di codice. Nelle app Web Asp.NET, a questo scopo si usa l'implementazione di Microsoft del middleware OWIN gestito dalla community e incluso in .NET Framework 4.5. Qui si userà OWIN per: far accedere l'utente all'app con Azure AD come provider di identità; visualizzare alcune informazioni sull'utente; far disconnettere l'utente dall'app.
+Azure AD facilita e semplifica l'outsourcing della gestione delle identità delle app Web, fornendo un unico account di accesso e disconnessione solo con poche righe di codice. Nelle app Web Asp.NET, a questo scopo si usa l'implementazione di Microsoft del middleware OWIN gestito dalla community e incluso in .NET Framework 4.5. OWIN verrà usato per:
+-	Connettere l'utente all'app usando Azure AD come provider di identità.
+-	Visualizzare alcune informazioni relative all'utente.
+-	Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -175,4 +178,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

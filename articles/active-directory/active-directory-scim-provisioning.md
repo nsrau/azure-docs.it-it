@@ -65,7 +65,7 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 ![][2]
 
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
-5.	Nel **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
+5.	Nel campo **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
 6.	Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token di autenticazione (facoltativo)**. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
 7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
 8.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
@@ -702,4 +702,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

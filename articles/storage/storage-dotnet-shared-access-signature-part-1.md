@@ -69,8 +69,8 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
 
 - **Api version** Parametro facoltativo che specifica la versione del servizio di archiviazione da usare per eseguire la richiesta.
 - **Service version** Parametro obbligatorio che specifica la versione del servizio di archiviazione da usare per autenticare la richiesta.
-- **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa; se omessa, la firma diventa immediatamente valida.
-- **Scadenza.** Si riferisce all'ora dopo la quale la firma di accesso condiviso non è più valida. Secondo le procedure consigliate è preferibile specificare una data di scadenza per una firma di accesso condiviso oppure associarla a criteri di accesso archiviati (vedere più avanti).
+- **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa; se omessa, la firma diventa immediatamente valida. Deve essere espressa in UTC (Coordinated Universal Time), con uno speciale designatore UTC ("Z"), ad esempio 1994-11-05T13:15:30Z.
+- **Scadenza.** Si riferisce all'ora dopo la quale la firma di accesso condiviso non è più valida. Secondo le procedure consigliate è preferibile specificare una data di scadenza per una firma di accesso condiviso oppure associarla a criteri di accesso archiviati. Deve essere espressa in UTC (Coordinated Universal Time), con uno speciale designatore UTC ("Z"), ad esempio 1994-11-05T13:15:30Z (vedere più avanti).
 - **Autorizzazione.** Le autorizzazioni specificate per la firma di accesso condiviso indicano le autorizzazioni che il client può eseguire sulla risorsa di archiviazione usando la firma. Le autorizzazioni disponibili per la firma di accesso condiviso dell'account e del servizio sono diverse.
 - **IP.** Un parametro facoltativo che specifica un indirizzo IP o un intervallo di indirizzi IP all'esterno di Azure (vedere la sezione [Stato di configurazione della sessione di Routing](../expressroute/expressroute-workflows.md#routing-session-configuration-state) per Express route) da cui si desidera accettare le richieste.
 - **Protocol.** Parametro facoltativo che specifica il protocollo consentito per una richiesta. I valori possibili sono HTTPS e HTTP (https,http), ovvero il valore predefinito, oppure HTTPS only (https). Si noti che HTTP only non è un valore consentito.
@@ -318,4 +318,4 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

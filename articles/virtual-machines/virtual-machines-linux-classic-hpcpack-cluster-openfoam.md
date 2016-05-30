@@ -30,7 +30,7 @@ Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate ap
 
 ## Prerequisiti
 
-*   **Cluster HPC Pack con nodi di calcolo Linux di dimensione A8 o A9**: distribuire un cluster HPC Pack con nodi di calcolo Linux di dimensione A8 o A9 in Azure usando un [modello di Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o uno [script di Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Per i prerequisiti e i passaggi di entrambe le opzioni, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Se si sceglie l'opzione di distribuzione con lo script di Powershell, vedere il file di configurazione di esempio nei file di esempio alla fine di questo articolo per distribuire un cluster HPC Pack basato su Azure costituito da un nodo head Windows Server 2012 R2 A8 e 2 nodi di calcolo SUSE Linux Enterprise Server 12 A8. Sostituire i valori dell'esempio con i valori appropriati per la sottoscrizione e i nomi dei servizi. 
+*   **Cluster HPC Pack con nodi di calcolo Linux di dimensione A8 o A9**: distribuire un cluster HPC Pack con nodi di calcolo Linux di dimensione A8 o A9 in Azure usando un [modello di Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o uno [script di Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Per i prerequisiti e i passaggi di entrambe le opzioni, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Se si sceglie l'opzione di distribuzione con lo script di PowerShell, vedere il file di configurazione di esempio nei file di esempio alla fine di questo articolo per distribuire un cluster HPC Pack basato su Azure costituito da un nodo head Windows Server 2012 R2 A8 e 2 nodi di calcolo SUSE Linux Enterprise Server 12 A8. Sostituire i valori dell'esempio con i valori appropriati per la sottoscrizione e i nomi dei servizi. 
 
     **Altre informazioni importanti**
 
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

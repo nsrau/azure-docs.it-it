@@ -31,7 +31,7 @@ Questo errore si verifica quando il database di Azure viene spostato o riconfigu
 
 ## Passaggi per risolvere problemi di connettività temporanei
 1.	Controllare il [Dashboard dei servizi di Microsoft Azure](https://azure.microsoft.com/status) per le interruzioni note che si sono verificate durante il periodo nel quale sono stati segnalati errori dall'applicazione.
-2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione. Esaminare la sezione [Errori temporanei](sql-database-connectivity-issues.md) e [le procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md) per altre informazioni e per le strategie di replica generali. Quindi, vedere gli [esempi di codice](sql-database-develop-quick-start-client-code-samples.md) per i dettagli.
+2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione. Esaminare la sezione [Errori temporanei](sql-database-connectivity-issues.md) e [le procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md) per altre informazioni e per le strategie di replica generali. Per informazioni dettagliate, vedere gli esempi di codice in: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md).
 3.	Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere la pagina relativa alla [risoluzione dei problemi di prestazioni](sql-database-troubleshoot-performance.md).
 4.	Se i problemi di connettività persistono, oppure se l'applicazione rileva l'errore per più di 60 secondi o se vengono visualizzate più occorrenze dell'errore in un dato giorno, inoltrare una richiesta di supporto tecnico di Azure selezionando **Ottenere supporto** sul sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options).
 
@@ -39,4 +39,4 @@ Questo errore si verifica quando il database di Azure viene spostato o riconfigu
 - Se si riceve un errore diverso, leggere il [messaggio di errore](sql-database-develop-error-messages.md) per indicazioni sulla causa.
 - Se il problema persiste, consultare il materiale sussidiario in [Risoluzione dei problemi di connessione comuni al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

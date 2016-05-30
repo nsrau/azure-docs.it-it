@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,12 +19,10 @@
 
 # Indicazioni sulla scalabilità automatica
 
-![Logo di Patterns and Practices](media/best-practices-auto-scaling/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 La scalabilità automatica è il processo di allocazione dinamica delle risorse richieste da un'applicazione per soddisfare i requisiti di prestazioni e i contratti di servizio, riducendo contemporaneamente al minimo i costi in fase di esecuzione. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo tempestivo. Se la domanda diminuisce, le risorse possono essere deallocate per ridurre i costi, mantenendo comunque prestazioni adeguate e rispettando i contratti di servizio. La scalabilità automatica sfrutta la flessibilità degli ambienti ospitati nel cloud, attenuando contemporaneamente il sovraccarico di gestione. Riduce infatti la necessità che un operatore monitori continuamente le prestazioni di un sistema e prenda decisioni sull'aggiunta o la rimozione di risorse.
-<br\>
-
 >[AZURE.NOTE] La scalabilità automatica si applica a tutte le risorse usate da un'applicazione, non solo alle risorse di calcolo. Se ad esempio il sistema usa le code dei messaggi per inviare e ricevere informazioni, può creare code aggiuntive con l'implementazione della scalabilità.
 
 ## Tipi di scalabilità
@@ -113,4 +111,4 @@ Anche i modelli e le indicazioni seguenti possono risultare pertinenti per il pr
 - [Operazioni per la scalabilità automatica](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Spazio dei nomi Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Box
 Connettersi a Box per creare ed eliminare file e così via. L'API di Box può essere usata da:
 
-- App per la logica 
+- App per la logica trattate in questo argomento
+- PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -30,14 +31,14 @@ Con Box è possibile:
 - Usare i trigger quando un file viene creato o aggiornato.
 - Usare le azioni per copiare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando un file viene modificato in Box, è possibile usare il file e la posta elettronica tramite Office 365.
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 Box include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai archivio in una cartella</li><li>Ottieni contenuto di file tramite ID</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file tramite ID</li><li>Ottieni metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
+|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -45,9 +46,9 @@ Tutte le API supportano i dati nei formati JSON e XML.
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Box.
 
 1. Accedere all'account Box.
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare Box. 
+2. Selezionare **Authorize** (Autorizza) e consentire alle app per la logica di connettersi e usare Box. 
 
-Dopo aver creato la connessione, immettere le proprietà di Box. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
+Dopo aver creato la connessione, immettere le proprietà di Box. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Box in altre app per la logica.
 
@@ -71,7 +72,7 @@ Carica un file in Box. ```POST: /datasets/default/files```
 
 
 ### Quando un file viene creato
-Attiva un flusso quando un nuovo file viene creato in una cartella di Box ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando viene creato un nuovo file in una cartella di Box ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -132,7 +133,7 @@ Estrae un file di archivio in una cartella di Box, ad esempio un file con estens
 
 
 ### Ottieni contenuto di file tramite ID
-Recupera i contenuti del file da Box tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file da Box tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -146,7 +147,7 @@ Recupera i contenuti del file da Box tramite ID. ```GET: /datasets/default/files
 
 
 ### Ottieni contenuto di file tramite percorso
-Recupera i contenuti dei file da Box tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file da Box tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -203,7 +204,7 @@ Aggiorna un file in Box. ```PUT: /datasets/default/files/{id}```
 
 
 ### Quando un file viene modificato
-Attiva un flusso quando un file viene modificato in una cartella di Box. ```GET: /datasets/default/triggers/onupdatedfile```
+Attiva un flusso quando viene modificato un file in una cartella di Box. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -260,6 +261,6 @@ Attiva un flusso quando un file viene modificato in una cartella di Box. ```GET:
 
 ## Passaggi successivi
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

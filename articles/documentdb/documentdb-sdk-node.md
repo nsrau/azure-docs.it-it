@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/26/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB SDK
@@ -37,12 +37,16 @@
 
 ##Note sulla versione
 
+###<a name="1.7.0"/>1.7.0</a>
+
+- Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
+
 ###<a name="1.6.0"/>1.6.0</a>
-- [Raccolte partizionate](documentdb-partition-data.md) e [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md) implementati. 
+- Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md). 
 
 ###<a name="1.5.6"/>1.5.6</a>
 
-- È stato corretto il bug RangePartitionResolver.resolveForRead, relativo alla mancata restituzione di collegamenti a causa di un concatenamento non valido dei risultati.
+- Correzione del bug RangePartitionResolver.resolveForRead, relativo alla mancata restituzione di collegamenti a causa di un concatenamento non valido dei risultati.
 
 ###<a name="1.5.5"/>1.5.5</a>
 
@@ -50,23 +54,23 @@
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- È stato corretto il problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
+- Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
-- È stato corretto il problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81): gestire correttamente i trattini negli ID dei file multimediali.
+- Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81): gestione corretta dei trattini negli ID dei file multimediali.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- È stato corretto il problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95): avviso di perdita del listener EventEmitter.
+- Correzione del problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95): avviso di perdita del listener EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- È stato corretto il problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
+- Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): rinomina della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
-- Implementa il supporto del partizionamento orizzontale aggiungendo resolver della partizione a intervalli e hash
+- Implementazione del supporto per il partizionamento orizzontale mediante l'aggiunta di resolver della partizione a intervalli e hash.
 
 ### <a name="1.4.0"/>1.4.0</a>
 
@@ -74,7 +78,7 @@
 
 ### <a name="1.3.0"/>1.3.0</a>
 
-- Ignorata per riportare il numero di versione in allineamento con altri SDK
+- Saltata per riallineare il numero di versione con altri SDK.
 
 ### <a name="1.2.2"/>1.2.2</a>
 
@@ -84,7 +88,7 @@
 ### <a name="1.2.1"/>1.2.1</a>
 
 - Implementazione del routing basato su ID
-- Corregge il problema [#49](https://github.com/Azure/azure-documentdb-node/issues/49): conflitto tra la proprietà current e il metodo current()
+- Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49): conflitto tra la proprietà current e il metodo current()
 
 ### <a name="1.2.0"/>1.2.0</a>
 
@@ -94,11 +98,11 @@
 
 ### <a name="1.1.0"/>1.1.0</a>
 
-- Implementa criteri di indicizzazione V2
+- Implementazione del criterio di indicizzazione V2.
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Problema [#40](https://github.com/Azure/azure-documentdb-node/issues/40): implementate le configurazioni eslint e grunt nell'SDK core e promise
+- Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40): implementazione delle configurazioni eslint e grunt nell'SDK core e promise
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -106,13 +110,13 @@
 
 ### <a name="1.0.1"/>1.0.1</a>
 
-- Implementata la possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
-- Aggiornata la documentazione relativa alle API
-- Problema [#41](https://github.com/Azure/azure-documentdb-node/issues/41): errore client.createDocumentAsync  
+- Implementazione della possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
+- Aggiornamento della documentazione relativa alle API
+- Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41): errore client.createDocumentAsync
 
 ### <a name="1.0.0"/>1.0.0</a>
 
-- SDK con disponibilità generale
+- SDK con disponibilità generale.
 
 ## Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
@@ -128,29 +132,7 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |---
-| [1\.5.6](#1.5.6) | 8 marzo 2016 |---
-| [1\.5.5](#1.5.5) | 2 febbraio 2016 |---
-| [1\.5.4](#1.5.4) | 1 febbraio 2016 |---
-| [1\.5.2](#1.5.2) | 26 gennaio 2016 |---
-| [1\.5.2](#1.5.2) | 22 gennaio 2016 |---
-| [1\.5.1](#1.5.1) | 4 gennaio 2016 |---
-| [1\.5.0](#1.5.0) | 31 dicembre 2015 |---
- | [1\.4.0](#1.4.0) | 6 ottobre 2015 |---
- | [1\.3.0](#1.3.0) | 6 ottobre 2015 |---
- | [1\.2.2](#1.2.2) | 10 settembre 2015 |---
- | [1\.2.1](#1.2.1) | 15 agosto 2015 |---
- | [1\.2.0](#1.2.0) | 5 agosto 2015 |---
- | [1\.1.0](#1.1.0) | 9 luglio 2015 |---
- | [1\.0.3](#1.0.3) | 4 giugno 2015 |--- 
-  [1\.0.2](#1.0.2) | 23 maggio 2015 |---
-  | [1\.0.1](#1.0.1) | 15 maggio 2015 |---
-  | [1\.0.0](#1.0.0) | 8 aprile 2015 |---
-  | 0.9.4-versione non definitiva | 6 aprile 2015 | 29 febbraio 2016
-  | 0.9.3-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016
-  | 0.9.2-versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016
-  | 0.9.1-versione non definitiva | 22 agosto 2014 | 29 febbraio 2016
-  | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
+| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.0](#1.6.0) | 29 marzo 2016 |--- | [1\.5.6](#1.5.6) | 08 marzo 2016 |--- | [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- | [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- | [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- | [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- | [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- | [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- | [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- | [1\.2.2](#1.2.2) | 10 settembre 2015 |--- | [1\.2.1](#1.2.1) | 15 agosto 2015 |--- | [1\.2.0](#1.2.0) | 05 agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 luglio 2015 |--- | [1\.0.3](#1.0.3) | 04 giugno 2015 |--- | [1\.0.2](#1.0.2) | 23 maggio 2015 |--- | [1\.0.1](#1.0.1) | 15 maggio 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- | 0.9.4-versione non definitiva | 06 aprile 2015 | 29 febbraio 2016 | 0.9.3-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 | 0.9.2-versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016 | 0.9.1-versione non definitiva | 22 agosto 2014 | 29 febbraio 2016 | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
 
 
 ## Domande frequenti
@@ -160,4 +142,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

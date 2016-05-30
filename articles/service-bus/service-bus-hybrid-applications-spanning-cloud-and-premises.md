@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Abilitare applicazioni ibride per cloud e locali
@@ -38,13 +38,13 @@ Le applicazioni ibride per cloud/locali sono una realtà degli ambienti IT moder
 - [Informazioni sui prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 - [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md)
 - [Informazioni di riferimento sulle API REST del bus di servizio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Sottoscrivere un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Servizi correlati
 
 - [Servizi BizTalk](https://azure.microsoft.com/services/biztalk-services/)
-- [Servizi mobili](https://azure.microsoft.com/services/mobile-services/)
+- [App per dispositivi mobili](https://azure.microsoft.com/services/app-service/mobile/)
 - [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

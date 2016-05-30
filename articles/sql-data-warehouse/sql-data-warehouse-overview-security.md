@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Proteggere un database in SQL Data Warehouse
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure classico][]. Per altre informazioni, vedere [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+È anche possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure][]. Per altre informazioni, vedere [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Controllo
 
@@ -108,9 +108,9 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 [autorizzazioni]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[portale di Azure classico]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

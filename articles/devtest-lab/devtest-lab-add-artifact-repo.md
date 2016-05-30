@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Aggiungere un repository di elementi Git al Lab di sviluppo/test | Microsoft Azure"
-	description="Aggiungere un repository di elementi Git di GitHub o Visual Studio Team Services per gli elementi personalizzati del lab"
+	pageTitle="Aggiungere un repository di elementi Git a un lab | Microsoft Azure"
+	description="Aggiungere un repository GitHub o Git di Visual Studio Team Services per gli elementi personalizzati nei lab di sviluppo e test"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Aggiungere un archivio elementi Git al Lab di sviluppo e test
+# Aggiungere un archivio elementi Git a un lab
 
 > [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di aggiunta di un archivio privato di elementi in un lab di sviluppo/test](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Panoramica
 
-Per impostazione predefinita, un lab di sviluppo e test include gli elementi dell’archivio elementi ufficiale di Lab di sviluppo e test. È possibile aggiungere un archivio elementi di Git al lab per includere gli elementi creati dal team. L’archivio può essere ospitato in [GitHub](https://github.com) o [Visual Studio Team Services (VSTS)](https://visualstudio.com).
+Per impostazione predefinita, un lab include gli elementi dell’archivio ufficiale di Lab di sviluppo e test. È possibile aggiungere un archivio elementi di Git al lab per includere gli elementi creati dal team. L’archivio può essere ospitato in [GitHub](https://github.com) o [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Per informazioni su come creare un archivio GitHub, vedere [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 - Per informazioni su come creare un progetto Team Services con un archivio Git, vedere [Connessione a Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
@@ -51,7 +51,7 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 ###Connettere il lab all'archivio GitHub
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -101,7 +101,7 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
 
 1. Al termine, verrà visualizzato il nuovo token nell’elenco **Token di accesso personale**. Toccare **Copia Token** e quindi salvare il valore del token in quanto verrà utilizzato al più presto.
 
-### Nel lab di sviluppo e test
+### Nel lab
 
 1. Nel proprio pannello del lab, toccare **Impostazioni**.
 
@@ -117,4 +117,4 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
     4. Toccare **Salva**.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

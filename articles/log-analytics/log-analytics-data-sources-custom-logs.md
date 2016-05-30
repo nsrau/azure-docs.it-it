@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Log personalizzati in Log Analytics
@@ -70,8 +70,8 @@ La tabella seguente fornisce esempi di percorsi validi per specificare file di l
 |:--|:--|
 | Tutti i file in *C:\\Logs* con estensione txt nell'agente di Windows | C:\\Logs\\*.txt |
 | Tutti i file in *C:\\Logs* il cui nome inizia con log e un'estensione txt nell'agente di Windows | C:\\Logs\\log*.txt |
-| Tutti i file in */var/log/audit* con estensione txt nell'agente di Windows | /var/log/audit/*.txt |
-| Tutti i file in */var/log/audit* il cui nome inizia con log e un'estensione txt nell'agente di Windows | /var/log/audit/log*.txt |
+| Tutti i file in */var/log/audit* con estensione txt nell'agente di Linux | /var/log/audit/*.txt |
+| Tutti i file in */var/log/audit* con un nome che inizia con log e con l'estensione .txt nell'agente di Linux | /var/log/audit/log*.txt |
   
 
 1.	Selezionare Windows o Linux per specificare il formato del percorso che verrà aggiunto.
@@ -178,4 +178,4 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 - Usare [Campi personalizzati](log-analytics-custom-fields.md) per analizzare le voci del log personalizzato nei singoli campi.
 - Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

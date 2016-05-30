@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/06/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,21 +36,27 @@
 
 ## Note sulla versione
 
+### <a name="1.7.1"/>[1\.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+  - Aggiunta di un overload al metodo ExecuteStoredProcedureAsync basato su URI che accetta RequestOptions come parametro.
+  
+### <a name="1.7.0"/>[1\.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
+  - Aggiunta del supporto per la durata (TTL) relativa ai documenti.
+
 ### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
   - Corretto un bug nel pacchetto Nuget dell'SDK .NET per creare il pacchetto come parte di una soluzione del servizio cloud di Azure.
   
 ### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
-  - [Raccolte partizionate](documentdb-partition-data.md) e [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md) implementati. 
+  - Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-  - **[Corretto]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso."
+  - **[Correzione]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso."
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Supporto LINQ espanso tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.
     - Operatore Take per abilitare il comportamento SELECT TOP in LINQ
     - Operatore CompareTo per abilitare i confronti di intervallo di stringa
     - Operatori Conditional (?) e Coalesce (??)
-  - **[Corretto]** ArgumentOutOfRangeException durante l'unione di proiezione del modello con Where-In nella query linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Correzione]** ArgumentOutOfRangeException durante l'unione della proiezione del modello con Where-In nella query linq. [n. 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corretto]** Se Select non è l'ultima espressione il provider LINQ presuppone che non ci sia alcuna proiezione e produce SELECT * in modo non corretto. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -93,9 +99,9 @@
   - Supporto del provider LINQ per OrderBy() o OrderByDescending()
   - IndexingPolicy per il supporto di Order By 
   
-		**NB: possibile modifica importante** 
+		**NB: Possible breaking change** 
   
-    	Se è presente un codice che esegue il provisioning delle raccolte con criteri di indicizzazione personalizzati, tale codice dovrà essere aggiornato per supportare la nuova classe IndexingPolicy.Se non sono presenti criteri di indicizzazione, tale modifica non avrà alcun impatto.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Supporto per il partizionamento dei dati con IPartitionResolver e le nuove classi HashPartitionResolver e RangePartitionResolver
@@ -107,8 +113,7 @@
 - SDK con disponibilità generale
 
 > [AZURE.NOTE]
-Tra l'anteprima e la disponibilità generale è stata apportata una modifica al nome del pacchetto NuGet, da **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB** 
-<br/>
+Tra l'anteprima e la disponibilità generale è stata apportata una modifica al nome del pacchetto NuGet, da **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB** <br/>.
 
 
 ### <a name="0.9.x-preview"/>[0\.9.x-anteprima](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
@@ -128,22 +133,7 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.6.3](#1.6.3) | 08 aprile 2016 |---
-| [1\.6.2](#1.6.2) | 29 marzo 2016 |---
-| [1\.5.3](#1.5.3) | 19 febbraio 2016 |---
-| [1\.5.2](#1.5.2) | 14 dicembre 2015 |---
-| [1\.5.1](#1.5.1) | 23 novembre 2015 |---
-| [1\.5.0](#1.5.0) | 05 ottobre 2015 |---
-| [1\.4.1](#1.4.1) | 25 agosto 2015 |---
-| [1\.4.0](#1.4.0) | 13 agosto 2015 |---
-| [1\.3.0](#1.3.0) | 05 agosto 2015 |---
-| [1\.2.0](#1.2.0) | 06 luglio 2015 |---
-| [1\.1.0](#1.1.0) | 30 aprile 2015 |---
-| [1\.0.0](#1.0.0) | 08 aprile 2015 |---
-| [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016
-| [0\.9.2-versione non definitiva](#0.9.x-preview) | Gennaio 2015 | 29 febbraio 2016
-| [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016
-| [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
+| [1\.7.1](#1.7.1) | 06 maggio 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.3](#1.6.3) | 08 aprile 2016 |--- | [1\.6.2](#1.6.2) | 29 marzo 2016 |--- | [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 25 agosto 2015 |--- | [1\.4.0](#1.4.0) | 13 agosto 2015 |--- | [1\.3.0](#1.3.0) | 05 agosto 2015 |--- | [1\.2.0](#1.2.0) | 06 luglio 2015 |--- | [1\.1.0](#1.1.0) | 30 aprile 2015 |--- | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- | [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 | [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 | [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016 | [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -152,4 +142,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

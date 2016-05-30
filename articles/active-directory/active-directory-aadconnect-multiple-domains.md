@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Supporto di più domini per la federazione con Azure AD
@@ -153,4 +153,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 5.	Fare clic su Ok. Fare clic su Applica. Fare clic su Ok. Chiudere Gestione ADFS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

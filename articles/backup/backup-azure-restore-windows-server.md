@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ripristino di dati da Azure a un server Windows o un client Windows | Microsoft Azure"
+   pageTitle="Ripristinare i dati in Windows Server o in un client Windows da Azure con il modello di distribuzione di Resource Manager | Microsoft Azure"
    description="Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows."
    services="backup"
    documentationCenter=""
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Ripristinare file da un computer che esegue Windows server o un client Windows
+# Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
+
+> [AZURE.SELECTOR]
+- [Portale di Azure](backup-azure-restore-windows-server.md)
+- [Portale classico](backup-azure-restore-windows-server-classic.md)
+
 In questo articolo viene illustrata la procedura necessaria per eseguire due tipi di operazioni di ripristino:
 
 - Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
 - Ripristinare i dati in un altro computer.
 
-In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali di Backup di Azure.
+In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali dei servizi di ripristino di Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 ## Recuperare i dati nello stesso computer
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
@@ -69,12 +76,12 @@ Include la terminologia utilizzata in questi passaggi:
 
 - *Computer di origine*: il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
 - *Computer di destinazione*: il computer in cui i dati vengono ripristinati.
-- *Insieme di credenziali di esempio*: l'insieme di credenziali di Backup in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
+- *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
 
 > [AZURE.NOTE] I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
-2. Assicurarsi che il *Computer di destinazione* e il *Computer di origine* siano registrati nello stesso insieme di credenziali di Backup.
+2. Assicurarsi che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali dei servizi di ripristino.
 3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
 
     ![Ripristino dei dati](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@ Include la terminologia utilizzata in questi passaggi:
 
     ![In un altro server](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Specificare il file dell'insieme di credenziali che corrisponde all'*Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall'*Insieme di credenziali di esempio* nel portale di Azure. Dopo aver specificato il file delle credenziali dell'insieme di credenziali, in quest'ultimo viene visualizzato l'insieme di credenziali di backup.
+5. Specificare il file dell'insieme di credenziali che corrisponde all'*Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall'*Insieme di credenziali di esempio* nel portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, l'insieme di credenziali dei servizi di ripristino viene visualizzato nel file.
 
 6. Selezionare il *computer di origine* dall'elenco dei computer visualizzati.
 
@@ -108,12 +115,6 @@ Include la terminologia utilizzata in questi passaggi:
 11. Dopo aver specificato i dati di input, fare clic sul pulsante **Ripristina** che attiva le operazioni di ripristino dei file di backup nella destinazione specificata.
 
 ## Passaggi successivi
-- [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
 
-## Altre informazioni
-- [Panoramica di Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
-- [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

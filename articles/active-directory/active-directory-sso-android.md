@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/17/2015"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -89,7 +89,7 @@ Nel sistema operativo iOS questo genera un'animazione di "transizione" in cui l'
 
 Nei sistemi Android e Windows la selezione degli account viene visualizzata in alto nell'applicazione, con un impatto meno fastidioso per l'utente.
 
-#### Come si richiama il broker
+#### Come viene richiamato il broker
 
 Se nel dispositivo è installato un broker compatibile, ad esempio l'applicazione Azure Authenticator, gli SDK di Microsoft Identity richiamano automaticamente il broker quando un utente indica che desidera accedere con un account qualunque dalla piattaforma Microsoft Identity. Può utilizzare un account Microsoft personale, un account scolastico o aziendale o un account fornito e ospitato in Azure tramite i prodotti B2C e B2B. Grazie all'uso della crittografia e di algoritmi estremamente sicuri, le credenziali vengono richieste e recapitate all'applicazione in modo sicuro. I particolari tecnici esatti di questi meccanismi non sono stati pubblicati ma sono stati sviluppati in collaborazione con Apple e Google.
 
@@ -99,13 +99,13 @@ Questi tipi di accessi offrono i seguenti vantaggi:
 
 -  L'utente usufruisce del Single Sign-On per tutte le proprie applicazioni, indipendentemente dal fornitore.
 -  L'applicazione può usare funzionalità aziendali più avanzate, ad esempio l'Accesso condizionale o la suite di prodotti InTune.
--  L'applicazione può supportare l'autenticazione basata sui certificati per gli utenti aziendali.
+-  L'applicazione può supportare l'autenticazione basata su certificati per gli utenti aziendali.
 - Un'esperienza di accesso molto più sicura dato che l'identità dell'applicazione e l'utente vengono verificati dall'applicazione broker con algoritmi di sicurezza aggiuntivi e la crittografia.
 
 Questi tipi di accessi presentano i seguenti svantaggi:
 
 - Nel sistema iOS l'utente viene trasferito dall'esperienza dell'applicazione durante la selezione delle credenziali.
-- Perdita della capacità di gestire l'esperienza di accesso dei clienti all'interno dell'applicazione.
+- Perdita della possibilità di gestire l'esperienza di accesso per i clienti nell'applicazione.
 
 
 
@@ -144,12 +144,12 @@ Sulla base di queste informazioni di base dovrebbe essere possibile comprendere 
 In questo esempio si userà l'SDK ADAL Android per:
 
 - Attivare l'SSO non assistito dal broker per la propria suite di applicazioni
-- Attivare il supporto per l'SSO assistito da broker
+- Attivare il supporto per SSO assistito da broker
 
 
 ### Attivazione dell'SSO per l'SSO non assistito da broker
 
-Per l'SSO non assistito da broker tra applicazioni, gli SDK di Microsoft Identity risolvono automaticamente gran parte delle complessità dell'SSO, tra cui la ricerca dell'utente adatto nella cache e la gestione di un elenco di utenti registrati per le query.
+Per l'SSO non assistito da broker tra applicazioni, gli SDK di Microsoft Identity risolvono automaticamente gran parte delle complessità dell'SSO, tra cui la ricerca dell'utente corretto nella cache e la gestione di un elenco di utenti connessi di cui è possibile effettuare una query.
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
@@ -161,7 +161,7 @@ Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le op
 
 Per comunicare alla piattaforma Microsoft Identity che è consentita la condivisione dei token tra le applicazioni, ciascuna delle applicazioni dovrà condividere lo stesso ID client o ID applicazione. Si tratta dell'identificatore univoco fornito al momento della registrazione della prima applicazione nel portale.
 
-Ci si potrebbe chiedere come si fa a identificare le varie applicazioni nel servizio di gestione delle identità Microsoft se tutte utilizzano lo stesso ID applicazione. La risposta sono gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni applicazione nella suite avrà un URI di reindirizzamento diverso. È possibile che la situazione sia simile alla seguente:
+Ci si potrebbe chiedere come si fa a identificare le varie applicazioni nel servizio di gestione delle identità Microsoft se tutte utilizzano lo stesso ID applicazione. La risposta sono gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. La situazione potrebbe essere simile alla seguente:
 
 URI di reindirizzamento dell'applicazione 1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
@@ -211,7 +211,7 @@ Quando si condivide una risorsa di archiviazione tra le applicazioni, qualsiasi 
 
 L'operazione è terminata. L'SDK di Microsoft Identity condividerà le credenziali tra tutte le applicazioni. Anche l'elenco degli utenti verrà condiviso tra le istanze dell'applicazione.
 
-### Attivazione dell'SSO per l'SSO assistito da broker
+### Attivazione di SSO per SSO assistito da broker
 
 La capacità di un'applicazione di utilizzare qualsiasi broker installato sul dispositivo è **disattivata per impostazione predefinita**. Per usare l'applicazione con il broker è necessario apportare alcune modifiche alla configurazione e aggiungere una parte di codice all'applicazione.
 
@@ -232,7 +232,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### Passaggio 2: Creare un nuovo URI di reindirizzamento con lo schema dell'URL
 
-Per fare in modo che i token delle credenziali vengano sempre restituiti all'applicazione corretta, è necessario assicurarsi che il richiamo dell'applicazione avvenga in un modo verificabile dal sistema operativo Android. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere contraffatto da un'applicazione non autorizzata. Di conseguenza, l'hash del certificato viene usato insieme all'URI dell'applicazione broker per garantire che i token vengano restituiti all'applicazione corretta. È necessario definire l'URI di reindirizzamento univoco all'interno dell'applicazione e impostarlo come URI di reindirizzamento nel portale per gli sviluppatori.
+Per fare in modo che i token delle credenziali vengano sempre restituiti all'applicazione corretta, è necessario assicurarsi che il richiamo dell'applicazione avvenga in un modo verificabile dal sistema operativo Android. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere contraffatto da un'applicazione non autorizzata. Di conseguenza, l'hash del certificato viene usato insieme all'URI dell'applicazione broker per garantire che i token vengano restituiti all'applicazione corretta. È necessario definire questo URI di reindirizzamento univoco nell'applicazione e impostarlo come URI di reindirizzamento nel portale per gli sviluppatori.
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
@@ -259,4 +259,4 @@ MANAGE_ACCOUNTS
 
 Ora l'SDK di Microsoft Identity condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

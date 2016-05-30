@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
 
-L'amministratore può avere la necessità di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione procedano all'eliminazione accidentale di risorse strategiche. Quando sono bloccate, gli utenti autorizzati possono comunque leggere e modificare le risorse, ma non eliminarle.
+L'amministratore può avere la necessità di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. È possibile impostare il livello di blocco **CanNotDelete** o **ReadOnly**. **CanNotDelete** significa che gli utenti autorizzati possono leggere e modificare una risorsa, ma non eliminarla. **ReadOnly** significa che gli utenti autorizzati possono solo leggere la risorsa, ma non modificarla o eliminarla.
 
-Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione vengono usati per applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
+Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull’impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo di accesso in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
 Quando si applica un blocco a un ambito padre, tutte le risorse figlio ereditano lo stesso blocco.
 
@@ -28,9 +28,27 @@ Quando si applica un blocco a un ambito padre, tutte le risorse figlio ereditano
 
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Dei ruoli predefiniti, solo **Owner** e **User Access Administrator** garantiscono tali azioni.
 
+## Creazione di un blocco tramite il portale
+
+Nel pannello Impostazioni della risorsa, del gruppo di risorse o della sottoscrizione che si vuole bloccare, selezionare **Blocchi**.
+
+![Selezionare un blocco](./media/resource-group-lock-resources/select-lock.png)
+
+Per aggiungere un blocco, selezionare **Aggiungi**. Se invece si vuole creare un blocco a un livello padre che verrà ereditato dalla risorsa attualmente selezionata, selezionare l'elemento padre (ad esempio la sottoscrizione visualizzata di seguito).
+
+![Aggiungere un blocco](./media/resource-group-lock-resources/add-lock.png)
+
+Assegnare un nome e un livello al blocco. Facoltativamente è possibile aggiungere note che descrivono il motivo per cui è necessario il blocco.
+
+![Impostare un blocco](./media/resource-group-lock-resources/set-lock.png)
+
+Per eliminare il blocco, selezionare i puntini di sospensione e quindi **Elimina** tra le opzioni disponibili.
+
+![Eliminare un blocco](./media/resource-group-lock-resources/delete-lock.png)
+
 ## Creazione di un blocco in un modello
 
-Nell'esempio seguente viene illustrato un modello che crea un blocco su un account di archiviazione. L'account di archiviazione a cui applicare il blocco viene specificato come parametro. Il nome del blocco corrisponde al nome della risorsa seguito da **/Microsoft.Authorization/**. In questo caso è **myLock**.
+Nell'esempio seguente viene illustrato un modello che crea un blocco su un account di archiviazione. L'account di archiviazione a cui applicare il blocco viene specificato come parametro. Il nome del blocco viene creato con il nome della risorsa seguito da **/Microsoft.Authorization/** e dal nome del blocco stesso, in questo caso **myLock**.
 
 Il tipo fornito è specifico del tipo di risorsa. Per l'archiviazione, il tipo è "Microsoft.Storage/storageaccounts/providers/locks".
 
@@ -90,4 +108,4 @@ Azure Powershell fornisce altri comandi per la gestione dei blocchi, ad esempio 
 - Per modificare il gruppo di risorse in cui si trova una risorsa, vedere [Spostamento delle risorse in un nuovo gruppo di risorse](resource-group-move-resources.md).
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

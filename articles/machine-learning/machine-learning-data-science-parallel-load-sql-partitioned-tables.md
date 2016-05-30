@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
-In questo documento viene descritto come creare tabelle partizionate per l'importazione parallela in blocco di dati in un database di SQL Server.
-
-Per il caricamento/trasferimento di dati di grandi dimensioni, l'importazione di dati nel database SQL e le query successive possono essere migliorate utilizzando _tabelle e visualizzazioni di partizione_.
+In questo documento viene descritto come creare tabelle partizionate per l'importazione parallela in blocco di dati in un database di SQL Server. Per il caricamento/trasferimento di dati di grandi dimensioni, l'importazione di dati nel database SQL e le query successive possono essere migliorate utilizzando _tabelle e visualizzazioni di partizione_.
 
 
 ## Creazione di un nuovo database e di un set di filegroup
@@ -31,7 +29,7 @@ Per il caricamento/trasferimento di dati di grandi dimensioni, l'importazione di
 
 - Aggiungere uno o più file (se necessario) per ogni filegroup del database
 
- > [AZURE.NOTE] Specificare il filegroup di destinazione che conterrà i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
+ > [AZURE.NOTE] Specificare il filegroup di destinazione contenente i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
  
 Nell'esempio seguente vengono creati un nuovo database con tre filegroup diverso da quello primario e gruppi di log, ognuno contenente un file fisico. I file di database vengono creati nella cartella dei dati di SQL Server predefinita, come configurato nell'istanza di SQL Server. Per ulteriori informazioni sui percorsi dei file predefiniti, vedere [Percorsi dei file per istanze predefinite e denominate di SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -92,6 +90,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 	    ON <TablePScheme>(<partition_field>)
 
 - Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
+
 
 ## Importazione in blocco dei dati per ogni singola tabella di partizione
 
@@ -166,6 +165,7 @@ Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo
     While (Get-Job -State "Running") { Start-Sleep 10 }
     date
 
+
 ## Creazione di indici per ottimizzare i join e le prestazioni delle query
 
 - Per estrarre i dati di modellazione da più tabelle, creare indici sulle chiavi join per migliorare le prestazioni dei join.
@@ -181,9 +181,10 @@ o
 
  > [AZURE.NOTE] È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenterà il caricamento dei dati.
 
+
 ## Esempio di Advanced Analytics Process and Technology in azione
 
 Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

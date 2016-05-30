@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="05/09/2016" 
 	ms.author="mimig"/>
 
 # informazioni su NoSQL in Microsoft Azure
 
-È possibile che si voglia conoscere la gamma di tecnologie NoSQL disponibili in Azure, come le varie tecnologie si differenziano tra loro o i modelli relazionali disponibili. Oppure, è possibile avere in mente dati specifici ma non essere certi di quale sia la tecnologia NoSQL migliore per l'applicazione utilizzata. In questi casi, trarre vantaggio degli insegnamenti fondamentali offerti da David Chappell in questo white paper dettagliato.
+È possibile che si voglia conoscere la gamma di tecnologie NoSQL disponibili in Azure, come le varie tecnologie si differenziano tra loro o i modelli relazionali disponibili. Oppure, è possibile avere in mente dati specifici ma non essere certi di quale sia la tecnologia NoSQL migliore per l'applicazione utilizzata.
 
-Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
+
+In questo caso, sono disponibili due risorse:
+
+- Articolo su [NoSQL e SQL](documentdb-nosql-vs-sql.md). L'articolo tratta le differenze tra NoSQL e SQL e presenta le offerte relative a NoSQL e SQL da Microsoft.
+- White paper sulle [informazioni relative a NoSQL in Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292) di David Chappell. Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 
  - Differenziazione tra dati operativi, letti e scritti dalle applicazioni, e dati analitici, usati per fornire business intelligence (BI) e determinare la tecnologia più adatta alle proprie esigenze.
  - Una breve analisi della tecnologia relazionale.
@@ -28,8 +32,7 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
  - Un confronto delle tecnologie NoSQL e del database SQL di Azure. 
  - Quando usare DocumentDB di Visual Studio. Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
 
-**Download PDF**: [Informazioni sulle tecnologie NoSQL in Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

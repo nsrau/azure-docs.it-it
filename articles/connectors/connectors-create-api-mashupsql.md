@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore SQL Connector
@@ -25,7 +25,7 @@ Il connettore SQL Connector può essere usato da:
 
 - [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flussi](http://flows.microsoft.com)  
+- [Flusso](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -61,6 +61,8 @@ Per creare app per la logica con SQL Connector, è prima necessario creare una *
 | ---|---|---|
 |SqlConnectionString|Sì|Fornisce la stringa di connessione SQL|
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
+
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Mashup SQL](../../includes/connectors-create-api-mashupsql.md)]
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -302,4 +304,4 @@ Aggiornamento riga: aggiorna una riga esistente in una tabella SQL
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -92,7 +92,7 @@ Ad esempio, in questo modo è possibile installare Anaconda su Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@ Verrà richiesto di specificare e confermare una password, quindi stampare la pa
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-In seguito verrà modificato il file di configurazione del profilo, che corrisponde al file `jupyter_notebook_config.py` della directory corrente. Si noti che questo file potrebbe non essere presente: in tal caso, crearlo. Questo file contiene alcuni campi, tutti impostati come commento per impostazione predefinita. È possibile aprire questo file con qualsiasi editor di testo, assicurandosi che includa almeno il contenuto seguente: Assicurarsi di sostituire la password con sha1 dal passaggio precedente.
+In seguito verrà modificato il file di configurazione del profilo, che corrisponde al file `jupyter_notebook_config.py` della directory corrente. Si noti che questo file potrebbe non essere presente: in tal caso, crearlo. Questo file contiene alcuni campi, tutti impostati come commento per impostazione predefinita. È possibile aprire questo file con qualsiasi editor di testo, assicurandosi che includa almeno il contenuto seguente: **Assicurarsi di sostituire la password c.NotebookApp.password nella configurazione con sha1 dal passaggio precedente**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@ In seguito verrà modificato il file di configurazione del profilo, che corrispo
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -189,14 +189,14 @@ Nel [repository][] di codice sorgente di IPython è disponibile un'intera direct
 
 Jupyter Notebook offre un'eccellente interfaccia per l'accesso interattivo alla potenza dell'ecosistema Python in Azure. Rende possibile un'ampia gamma di casi di utilizzo, tra cui la semplice esplorazione di Python per apprenderne le funzionalità, l'analisi e la visualizzazione di dati, la simulazione e l'elaborazione parallela. I documenti Notebook risultanti contengono un record completo dei calcoli eseguiti e possono essere condivisi con altri utenti di Jupyter. È possibile utilizzare Jupyter Notebook come applicazione locale, ma si tratta di una soluzione particolarmente indicata per le distribuzioni cloud in Azure.
 
-Le funzionalità di base di Jupyter sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] \(PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
+Le funzionalità di base di Jupyter sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] (PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
 
 ## Passaggi successivi
 
 Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com//documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

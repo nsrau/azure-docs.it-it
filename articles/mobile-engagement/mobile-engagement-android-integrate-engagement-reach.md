@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo" />
 
 #Come integrare il servizio di copertura di Engagement in Android
@@ -644,4 +644,4 @@ Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

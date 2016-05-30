@@ -16,7 +16,10 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Esercitazione: Come usare il dispositivo gemello (anteprima)
+# Esercitazione: Come usare il dispositivo gemello con C# (anteprima)
+
+[AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+## Introduzione
 
 Gestione dei dispositivi dell'hub Iot di Azure include il dispositivo gemello, una rappresentazione lato server di un dispositivo fisico. Il diagramma seguente mostra i componenti del dispositivo gemello.
 
@@ -28,7 +31,7 @@ Le proprietà del dispositivo sono costituite da un dizionario predefinito di pr
 
 ## Sincronizzazione delle proprietà del dispositivo
 
-Il dispositivo fisico è l'origine autorevole delle proprietà del dispositivo. I valori selezionati nel dispositivo fisico sono automaticamente sincronizzati nel dispositivo gemello nell'hub IoT tramite il modello di *osservazione/notifica* descritto dalla specifica LWM2M.
+Il dispositivo fisico è l'origine autorevole delle proprietà del dispositivo. I valori selezionati nel dispositivo fisico sono automaticamente sincronizzati nel dispositivo gemello nell'hub IoT tramite il modello di *osservazione/notifica* descritto dalla specifica [LWM2M][lnk-lwm2m].
 
 Quando il dispositivo fisico si connette all'hub IoT, avvia le *osservazioni* delle proprietà del dispositivo selezionate. Il dispositivo fisico *notifica* quindi all'hub IoT le modifiche apportate alle proprietà del dispositivo. Per implementare l'isteresi, il valore di **pmin**, ovvero il tempo minimo tra le notifiche, è impostato su 5 minuti. Questo significa che per ogni proprietà il dispositivo fisico non invia all'hub IoT una notifica più di una volta ogni 5 minuti, anche se si è verificata una modifica. Per garantire l'aggiornamento, **pmax**, ovvero il tempo massimo tra le notifiche, è impostato su 6 ore. Questo significa che per ogni proprietà il dispositivo fisico invia all'hub IoT una notifica almeno una volta ogni 6 ore, anche se la proprietà non ha subito modifiche in tale periodo.
 
@@ -37,6 +40,7 @@ Quando il dispositivo fisico si disconnette, la sincronizzazione viene arrestata
 L'elenco completo delle proprietà del dispositivo osservate automaticamente è riportato sotto:
 
 ![][img-observed]
+
 
 ## Esecuzione dell'esempio del dispositivo gemello
 
@@ -92,12 +96,12 @@ Non è possibile eseguire una lettura approfondita sulle proprietà del servizio
 
 ### Scrittura approfondita
 
-Per modificare una proprietà del dispositivo accessibile in scrittura, è possibile eseguire una scrittura approfondita che avvia un processo del dispositivo per scrivere il valore nel dispositivo fisico. Non tutte le proprietà del dispositivo sono accessibili in scrittura. Per un elenco completo, vedere l'appendice A dell'articolo [Introduzione della libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
+Per modificare una proprietà del dispositivo accessibile in scrittura, è possibile eseguire una scrittura approfondita che avvia un processo del dispositivo per scrivere il valore nel dispositivo fisico. Non tutte le proprietà del dispositivo sono accessibili in scrittura. Per un elenco completo, vedere l'appendice A dell'articolo sull'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
 
 Il processo invia un messaggio al dispositivo fisico richiedendo l'aggiornamento della proprietà specificata. Il dispositivo gemello non viene aggiornato immediatamente al termine del processo. Sarà necessario attendere fino all'intervallo di notifica successivo. Al termine della sincronizzazione, sarà possibile visualizzare la modifica nel dispositivo gemello eseguendo una lettura superficiale.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue);
+JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
 ### Dettagli di implementazione del simulatore di dispositivi
@@ -111,7 +115,7 @@ int level = get_batterylevel();  // call to platform specific code
 set_device_batterylevel(0, level);
 ```
 
-Invece di usare il metodo Set, è anche possibile implementare un callback. Per altre informazioni su questa opzione, vedere [Introduzione alla libreria di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
+Invece di usare il metodo Set, è anche possibile implementare un callback. Per altre informazioni su questa opzione, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure][lnk-dm-library].
 
 ## Passaggi successivi
 
@@ -127,6 +131,7 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
 [img-observed]: media/iot-hub-device-management-device-twin/image2.png
 
+[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-dm-library]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -134,4 +139,4 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

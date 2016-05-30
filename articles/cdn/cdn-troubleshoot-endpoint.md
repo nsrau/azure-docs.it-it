@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Risoluzione dei problemi degli endpoint della rete CDN che restituiscono stati 404
@@ -37,11 +37,11 @@ Le cause possono essere diverse, ad esempio:
 
 ## Passaggi per la risoluzione dei problemi
 
-> [AZURE.IMPORTANT] Dopo aver creato un endpoint della rete CDN, questo non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. In genere è disponibile entro 90 minuti, ma in alcuni casi può richiedere più tempo. Se si completa la procedura in questo documento e si ricevono comunque risposte 404, è consigliabile attendere alcune ore e controllare nuovamente prima di aprire un ticket di supporto.
+> [AZURE.IMPORTANT] Dopo aver creato un endpoint della rete CDN, questo non sarà disponibile immediatamente per l'uso, perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione dei profili della <b>Rete CDN di Azure fornita da Akamai</b> di solito dura meno di un minuto. Per i profili della <b>rete CDN di Azure fornita da Verizon</b>, la propagazione in genere viene completata entro 90 minuti, ma in alcuni casi può richiedere più tempo. Se si completa la procedura in questo documento e si ricevono comunque risposte 404, è consigliabile attendere alcune ore e controllare nuovamente prima di aprire un ticket di supporto.
 
 ### Controllare il file di origine
 
-Prima di tutto, è necessario verificare che il file che si vuole memorizzare nella cache sia disponibile nell'origine e accessibile pubblicamente. Il modo più rapido per eseguire questa operazione consiste nell'aprire un browser in una sessione InPrivate o anonima e passare direttamente al file. Digitare o incollare semplicemente l'URL nella casella dell'indirizzo e verificare se il file previsto è disponibile. Per questo esempio, si userà un file disponibile in un account di archiviazione di Azure, accessibile all'indirizzo `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`. Come si può notare, il test viene superato.
+Prima di tutto, è necessario verificare che il file che si vuole memorizzare nella cache sia disponibile nell'origine e accessibile pubblicamente. Il modo più rapido per eseguire questa operazione consiste nell'aprire un browser in una sessione InPrivate o anonima e passare direttamente al file. Digitare o incollare semplicemente l'URL nella casella dell'indirizzo e verificare se il file previsto è disponibile. Per questo esempio si userà un file disponibile in un account di archiviazione di Azure, accessibile all'indirizzo `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`. Come si può notare, il test viene superato.
 
 ![Completamento della procedura](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
@@ -65,7 +65,9 @@ Verificare che **Tipo di origine** sia corretto e verificare il **Nome host dell
 
 Un altro elemento da controllare sono le porte **HTTP** e **HTTPS**. Nella maggior parte dei casi, 80 e 443 sono corrette e non saranno necessarie modifiche. Tuttavia, se il server di origine è in ascolto su una porta diversa, dovrà essere rappresentata qui. Se non si è certi, esaminato solo l'URL del file di origine. Le specifiche per HTTP e HTTPS indicano le porte 80 e 443 come impostazioni predefinite. Nell'URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, una porta non è specificata, quindi viene presupposto il valore predefinito 443 e le impostazioni sono corrette.
 
-Tuttavia, si supponga che l'URL per il file di origine testato in precedenza sia `http://www.contoso.com:8080/file.txt`. Si noti `:8080` alla fine del segmento del nome host. Indica al browser di usare la porta `8080` per connettersi al server Web `www.contoso.com`, quindi sarà necessario immettere 8080 nel campo **Porta HTTP**. È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
+Si supponga tuttavia che l'URL per il file di origine testato in precedenza sia `http://www.contoso.com:8080/file.txt`. Si noti `:8080` alla fine del segmento del nome host. Indica al browser di usare la porta `8080` per connettersi al server Web `www.contoso.com`, quindi sarà necessario immettere 8080 nel campo **Porta HTTP**. È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
+
+> [AZURE.NOTE] Gli endpoint della **rete CDN di Azure fornita da Akamai** non consentono l'intera gamma di porte TCP per le origini. Per un elenco di porte di origine non consentite, vedere l'articolo [Dettagli del comportamento della rete CND di Azure fornita da Akamai](cdn-akamai-behavior-details.md).
   
 ### Controllare le impostazioni dell'endpoint
 
@@ -79,7 +81,7 @@ Verrà visualizzato il pannello **Configura** dell'endpoint.
 
 #### Protocolli
 
-Per **Protocolli**,verificare che sia selezionato il protocollo usato dai client. Lo stesso protocollo usato dal client sarà quello usato per accedere all'origine, quindi è importante che le porte di origine siano configurate correttamente nella sezione precedente. L'endpoint sarà in ascolto solo sulle porte HTTP e HTTPS (80 e 443) predefinite, indipendentemente dalle porte di origine.
+In **Protocolli** verificare che sia selezionato il protocollo usato dai client. Lo stesso protocollo usato dal client sarà quello usato per accedere all'origine, quindi è importante che le porte di origine siano configurate correttamente nella sezione precedente. L'endpoint sarà in ascolto solo sulle porte HTTP e HTTPS (80 e 443) predefinite, indipendentemente dalle porte di origine.
 
 Tornare all'esempio ipotetico con `http://www.contoso.com:8080/file.txt`. Come si ricorderà, per Contoso è stata specificata `8080` come porta HTTP, ma si supponga anche che sia stata specificata `44300` come porta HTTPS. Se è stato creato un endpoint denominato `contoso`, il nome host dell'endpoint della rete CDN sarà `contoso.azureedge.net`. Una richiesta per `http://contoso.azureedge.net/file.txt` è una richiesta HTTP, quindi l'endpoint userà HTTP sulla porta 8080 per recuperarlo dall'origine. Una richiesta sicura tramite HTTPS, `https://contoso.azureedge.net/file.txt`, farà sì che l'endpoint usi HTTPS sulla porta 44300 quando recupera il file dall'origine.
 
@@ -95,4 +97,4 @@ Ad esempio, nell'endpoint di esempio si vuole che tutte le risorse nell'account 
 
 Cosa accade se si vuole usare la rete CDN per ogni percorso nell'origine? Si supponga di voler esporre solo il percorso `publicblob`. Se si immette */publicblob* nel campo **Percorso dell'origine**, l'endpoint inserirà */publicblob* prima di ogni richiesta all'origine. Ciò significa che la richiesta per `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` richiederà in effetti la parte della richiesta dell'URL, `/publicblob/lorem.txt`, aggiungendo `/publicblob` all'inizio. Ciò comporta una richiesta per `/publicblob/publicblob/lorem.txt` dall'origine. Se tale percorso non viene risolto in un file effettivo, l'origine restituirà uno stato 404. L'URL corretto per recuperare lorem.txt in questo esempio sarà in effetti `https://cdndocdemo.azureedge.net/lorem.txt`. Si noti che non è incluso il percorso */publicblob*, perché la parte della richiesta dell'URL è `/lorem.txt` e l'endpoint aggiunge `/publicblob`, con il conseguente passaggio della richiesta `/publicblob/lorem.txt` all'origine.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

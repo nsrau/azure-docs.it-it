@@ -26,7 +26,7 @@ Una configurazione da punto a sito consente di creare una singola connessione si
 
 Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulla connettività sicura cross-premises per le reti virtuali](vpn-gateway-cross-premises-options.md).
 
-Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione di Resource Manager** (Gestione dei servizi).
+Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione di Resource Manager ** (Gestione dei servizi).
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -123,7 +123,7 @@ Per questa configurazione si useranno i valori seguenti:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Caricare il file CER del certificato radice in Azure. È possibile usare un certificato radice dall'ambiente aziendale per la creazione di certificati oppure è possibile usare un certificato autofirmato. È possibile caricare fino a 20 certificati radice. Per istruzioni sulla creazione di un certificato radice autofirmato con *makecert*, vedere [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md). Si noti che il file con estensione CER non contiene la chiave privata del certificato radice.
+10. Caricare il file CER del certificato radice in Azure. È possibile usare un certificato radice dall'ambiente aziendale per la creazione di certificati oppure è possibile usare un certificato autofirmato. È possibile caricare fino a 20 certificati radice. Per istruzioni sulla creazione di un certificato radice autofirmato con *makecert*, vedere [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md). Si noti che il file con estensione CER non contiene la chiave privata del certificato radice. Per ottenere la chiave pubblica come mostrato nell'esempio seguente, esportare il file con estensione cer come un file con codifica in base 64 X.509 (.CER) e quindi aprirlo nel Blocco note. Copiare al suo interno tutto ciò che è compreso tra: -----BEGIN CERTIFICATE----- ed -----END CERTIFICATE-----
 	
 	Di seguito è riportato un esempio dell'aspetto che avrà il file. La parte difficile nel caricare i dati del certificato pubblico riguarda la necessità di copiare e incollare l'intera stringa senza spazi. In caso contrario, il caricamento non funzionerà. Per questo passaggio è necessario usare il proprio file del certificato con estensione cer. Non provare a copiare e incollare il codice di esempio seguente.
 
@@ -240,4 +240,4 @@ I certificati vengono usati per autenticare client VPN per VPN da punto a sito. 
 
 È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="05/05/2016"
    ms.author="ganesr"/>
 
 
@@ -98,7 +98,7 @@ Eseguire il comando seguente per ottenere i dettagli del circuito ExpressRoute:
 
     get-azurededicatedcircuit
 
-Si dovrebbe essere in grado di vedere la chiave servizio elencata. È ora possibile gestire i collegamenti al circuito ExpressRoute. Gli articoli seguenti illustrano in modo dettagliato come gestire i collegamenti al circuito ExpressRoute:
+Si dovrebbe essere in grado di vedere la chiave servizio elencata. È ora possibile gestire i collegamenti al circuito ExpressRoute usando i comandi del modello di distribuzione classico standard per le reti virtuali classiche e i comandi standard di ARM per le reti virtuali ARM. Gli articoli seguenti illustrano in modo dettagliato come gestire i collegamenti al circuito ExpressRoute:
 
 - [Collegare la rete virtuale al circuito ExpressRoute nel modello di distribuzione Resource Manager](expressroute-howto-linkvnet-arm.md)
 - [Collegare la rete virtuale al circuito ExpressRoute nel modello di distribuzione classica](expressroute-howto-linkvnet-classic.md)
@@ -126,4 +126,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

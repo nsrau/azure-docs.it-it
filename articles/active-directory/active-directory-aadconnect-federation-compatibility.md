@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Elenco di compatibilità di federazione di Azure AD
@@ -215,9 +215,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |**Contratti Kerberos supportati|
-| Applicazioni rich client, ad esempio Lync, Office Subscription, CRM | Supportato |Autenticazione integrata di Windows non supportata|
-| Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuna|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |**Contratti Kerberos supportati| | Applicazioni rich client, ad esempio Lync, Office Subscription, CRM | Supportato |Autenticazione integrata di Windows non supportata| | Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |Nessuna|
 
 **NetIQ supporta l'autenticazione Kerberos tramite la configurazione di un contratto Kerberos. Per assistenza per questa configurazione, contattare NetIQ o consultare la guida all'installazione. Per altre informazioni su NetIQ Access Manager, vedere [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 
@@ -320,4 +318,4 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Per altre informazioni, vedere l'articolo sulla [configurazione dell'accesso Single Sign-On in AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

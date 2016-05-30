@@ -45,13 +45,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 * |
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1 15v2](#standard-tier-dv2-series) |210 - 250 *|
-|[14 DS1](#standard-tier-ds-series) |160 |
-|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
-|[G1-5](#standard-tier-g-series) |180 - 240 * |
-|[GS1-5](#standard-tier-gs-series) |180 - 240 * |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-15v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
@@ -150,6 +144,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere l'
 |Standard\_DS12\_v2 |4|28|4|Disco SSD locale = 56 GB |8|144| 12\.800 192 MB al secondo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD locale = 112 GB |16|288| 25\.600 384 MB al secondo | alto |
 |Standard\_DS14\_v2 |16|112|8|Disco SSD locale = 224 GB |32|576| 50\.000 768 MB al secondo | molto alta |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD locale = 280 GB |40| 720|62\.500 960 MB al secondo | molto alta |
 
 
 **Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
@@ -190,6 +185,7 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 ## Passaggi successivi
 
 - Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
-- Informazioni su [istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-performance Computing (HPC).
+- Altre informazioni sulle [istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-performance Computing (HPC).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

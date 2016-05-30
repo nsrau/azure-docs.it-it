@@ -47,7 +47,7 @@ Una risorsa di Application Insights rappresenta il punto in cui vengono analizza
     ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-cloudservices/02-props.png)
 
 
-È in genere preferibile creare una risorsa separata per i dati da ogni ruolo Web e di lavoro.
+È in genere [preferibile creare risorse separate per i dati provenienti da ruoli Web e di lavoro distinti](app-insights-separate-resources.md).
 
 In alternativa, è possibile inviare dati da tutti i ruoli a una sola risorsa, ma impostare una [proprietà predefinita][apidefaults] in modo da potere filtrare o raggruppare i risultati di ogni ruolo.
 
@@ -59,7 +59,7 @@ In alternativa, è possibile inviare dati da tutti i ruoli a una sola risorsa, m
     ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Aggiungere il pacchetto NuGet [Application Insights per Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Questa versione dell'SDK include i moduli che aggiungono il contesto del server come le informazioni sui ruoli. Per i ruoli di lavoro, utilizzare Application Insights per i servizi di Windows.
+2. Per i ruoli Web aggiungere il pacchetto NuGet [Application Insights per app Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Questa versione dell'SDK include i moduli che aggiungono il contesto del server come le informazioni sui ruoli. Per i ruoli di lavoro usare [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Cercare "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -173,7 +173,7 @@ Application Insights SDK può segnalare le chiamate eseguite dall'app alle dipen
 
 Se l'applicazione usa .NET Framework 4.6 o versione successiva, non è necessario eseguire altre operazioni.
 
-In caso contrario è necessario impostare il ruolo Web o di lavoro con l'[agente di Application Insights](app-insights-monitor-performance-live-website-now.md), noto anche come "Status Monitor".
+In caso contrario, impostare il ruolo Web o di lavoro con l'[agente di Application Insights](app-insights-monitor-performance-live-website-now.md), noto anche come "Status Monitor".
 
 Per usare l'agente di Application Insights con i ruoli Web/di lavoro:
 
@@ -275,7 +275,7 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 
 [api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
-[apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[apidynamicikey]: app-insights-separate-resources.md#dynamic-ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md
@@ -286,4 +286,4 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

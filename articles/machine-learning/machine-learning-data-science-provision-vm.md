@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft
-
-## Introduzione
 
 La macchina virtuale per l'analisi scientifica dei dati di Microsoft è un'immagine di macchina virtuale (VM) di Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
 
@@ -114,7 +112,7 @@ Per usare R per l'analisi, è necessario che nella macchina virtuale sia install
 Per lo sviluppo tramite Python, è installata la distribuzione Anaconda Python 2.7 e 3.5. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati. È possibile usare Python Tools per Visual Studio (PTVS), installato con Visual Studio 2015 Community Edition, o uno degli ambienti IDE inclusi in Anaconda, ad esempio IDLE o Spyder. È possibile avviare uno di questi IDE eseguendo una ricerca sulla barra di ricerca (**Win**+**S**). **Nota**: per puntare Strumenti Python per Visual Studio su Anaconda Python 2.7 e 3.5, è necessario creare ambienti personalizzati per ogni versione passando a Strumenti -> Strumenti Python ->Ambienti Python, fare clic su "+ Personalizza" in Visual Studio 2015 Community Edition e impostare i percorsi di ambiente. Anaconda Python 2.7 viene installato in C:\\Anaconda e Anaconda Python 3.5 viene installato in C:\\Anaconda\\envs\\py35. Per la procedura dettagliata, vedere la [documentazione di PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it).
 
 ### Notebook Jupyter
-La distribuzione Anaconda include anche il notebook di Jupyter, un ambiente per condividere il codice e le analisi. Un server notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM da desktop remoto, è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server notebook di Jupyter. Nota: continuare se vengono visualizzati avvisi relativi al certificato. Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e l'altro in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo aver eseguito l'autenticazione al notebook di Jupyter mediante la password creata nel passaggio precedente.
+La distribuzione Anaconda include anche il notebook di Jupyter, un ambiente per condividere il codice e le analisi. Un server notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM da desktop remoto, è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server notebook di Jupyter. Nota: se vengono visualizzati avvisi relativi al certificato, continuare. Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e l'altro in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo aver eseguito l'autenticazione al notebook di Jupyter mediante la password creata nel passaggio precedente.
 
 ### Visual Studio 2015 Community Edition
 Visual Studio Community Edition è installato nella VM. È una versione gratuita di IDE più diffuso di Microsoft che è possibile usare per scopi di valutazione e per team molto piccoli. È possibile consultare le condizioni di licenza [qui](https://www.visualstudio.com/support/legal/mt171547). Aprire Visual Studio facendo doppio clic sull'icona del desktop o sul menu **Start**. È anche possibile cercare i programmi premendo i tasti **Win** + **S** e immettendo "Visual Studio". È quindi possibile creare progetti in linguaggi come C# e Python. Sono inoltre disponibili plug-in installati che semplificano l'utilizzo dei servizi Azure come Catalogo dati di Azure, Azure HDInsight (Hadoop, Spark) e Azure Data Lake.
@@ -145,8 +143,8 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 
 * Esaminare i vari strumenti di analisi scientifica dei dati nella macchina virtuale per l'analisi scientifica dei dati facendo clic sul pulsante di avvio ed estraendo gli strumenti elencati nel menu
 * Passare a **C:\\Programmi\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale.  
-* Leggere l'articolo intitolato [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
+* Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) per esempi di Machine Learning e di analisi dei dati usando Cortana Intelligence Suite. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

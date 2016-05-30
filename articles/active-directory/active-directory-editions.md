@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/12/2016"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -30,7 +30,7 @@ Per migliorare Azure Active Directory, è possibile aggiungere funzionalità a p
 Le sottoscrizioni di Office 365 includono funzionalità di Azure Active Directory aggiuntive, descritte nella tabella di confronto seguente.
 
 
-> [AZURE.NOTE] Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
+> [AZURE.NOTE] Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
 
 
 - **Azure Active Directory Basic**: progettata per gli utenti che svolgono attività basate sul cloud, questa edizione garantisce l'accesso alle applicazioni incentrate su cloud e soluzioni di gestione delle identità self-service. L'edizione Basic di Azure Active Directory offre funzionalità per il miglioramento della produttività e la riduzione dei costi, ad esempio la gestione degli accessi basata sui gruppi, la reimpostazione delle password self-service per le applicazioni cloud e il proxy dell'applicazione di Azure Active Directory (per pubblicare applicazioni Web locali usando Azure Active Directory), supportate da un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%.
@@ -50,7 +50,7 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 ##Confronto tra le funzionalità disponibili a livello generale
 
-> [AZURE.NOTE] Per una visualizzazione diversa dei dati, vedere [Funzionalità di Azure Active Directory](https://www.microsoft.com/server-cloud/products/azure-active-directory/Features.aspx).
+> [AZURE.NOTE] Per una visualizzazione diversa dei dati, vedere [Funzionalità di Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 | | Azure AD Free | Azure AD Basic | Azure AD Premium |
 | ---                      | :-:           | :-:            | :-:              |
@@ -60,7 +60,7 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 
 
-<br>
+
 
 **Funzionalità comuni**
 
@@ -117,8 +117,8 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 
 
-<br>
-<hr>
+
+
 ## Funzionalità comuni
 #### Oggetti directory 
 
@@ -134,7 +134,6 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 | Fino a 500.000 oggetti| Nessun limite di oggetti| Nessun limite di oggetti| Nessun limite di oggetti per gli account utente di Office 365|
 
 
-<br>
 
 #### Gestione di utenti/gruppi (aggiunta/aggiornamento/eliminazione) / Provisioning basato sull'utente, registrazione dei dispositivi
 
@@ -153,8 +152,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 - [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br>
-<hr>
+
+
 #### Accesso Single Sign-On (SSO)
 
 **Tipo:** funzionalità comuni
@@ -164,7 +163,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 app per utente [1] <br> (SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] <br>(livello gratuito + app del proxy di applicazione) | Nessun limite [2] <br> (livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] <br> (SaaS preintegrato e app integrate per gli sviluppatori)|
+| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] (livello gratuito + app del proxy di applicazione) | Nessun limite [2] (livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)|
 
 [1] Con Azure AD Free e Azure AD Basic, gli utenti finali a cui è stato assegnato l'accesso alle app SaaS possono visualizzare fino a 10 app nel proprio pannello di accesso e possono ottenere l'accesso SSO a tali app. Con le sottoscrizioni Free e Basic gli amministratori possono configurare l'accesso SSO e assegnare agli utenti l'accesso a qualsiasi numero di app SaaS, ma gli utenti finali possono vedere un massimo di 10 app alla volta nel proprio pannello di accesso.
 
@@ -174,8 +173,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
 
-<br>
-<hr>
+
+
 #### Modifica delle password self-service per gli utenti cloud
 
 **Tipo:** funzionalità comuni
@@ -191,8 +190,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 - [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
 
 
-<br>
-<hr>
+
+
 #### Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory) 
 
 **Tipo:** funzionalità comuni
@@ -208,8 +207,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<br>
-<hr>
+
+
 #### Report su sicurezza/utilizzo
 
 **Tipo:** funzionalità comuni
@@ -225,8 +224,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<br>
-<hr>
+
+
 
 ## Funzionalità Premium e Basic
 #### Provisioning/gestione dell'accesso basato sul gruppo
@@ -244,8 +243,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br>
-<hr>
+
+
 #### Reimpostazione delle password self-service per gli utenti cloud
 
 **Tipo:** funzionalità Basic
@@ -261,8 +260,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Reimpostazione della password di Azure AD per utenti e amministratori](active-directory-passwords.md)
 
-<br>
-<hr>
+
+
 #### Personalizzazione aziendale (pagine di accesso/personalizzazione del panello di accesso)
 
 **Tipo:** funzionalità Basic
@@ -276,10 +275,10 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Altre informazioni:**
 
-- [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
+- [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<br>
-<hr>
+
+
 #### Proxy dell'applicazione
 
 **Tipo:** funzionalità Basic
@@ -295,8 +294,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)
 
-<br>
-<hr>
+
+
 #### Contratti di servizio del 99,9%
 
 **Tipo:** funzionalità Basic
@@ -312,8 +311,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 
-<br>
-<hr>
+
+
 
 ## Funzionalità Premium
 #### Gestione self-service dei gruppi e delle app/aggiunta self-service di applicazioni/gruppi dinamici
@@ -329,7 +328,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 
 
-<br>
+
          
 #### Reimpostazione, modifica, sblocco con writeback in locale delle password in modalità self-service
 
@@ -344,7 +343,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 
 
-<br>
+
 
 #### Multi-Factor Authentication, cloud e in locale (server MFA)
 
@@ -361,8 +360,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br>
-<hr>
+
+
 #### Licenze CAL MIM e server MIM 
 
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Microsoft Identity Manager viene eseguito sul sistema operativo Windows Server. Di conseguenza, purché il server esegua una copia con licenza valida di Windows Server, Microsoft Identity Manager può essere installato e usato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
@@ -378,7 +377,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 
 
-<br>
+
 
 #### Cloud App Discovery 
 
@@ -395,8 +394,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 - [Ricerca di applicazioni cloud non gestite con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br>
-<hr>
+
+
 #### Connect Health
 
 **Tipo:** funzionalità Premium
@@ -412,8 +411,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 - [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](active-directory-aadconnect-health.md)
 
-<br>
-<hr>
+
+
 #### Rollover automatico delle password per account di gruppo
 
 **Tipo:** funzionalità Premium
@@ -426,8 +425,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | | | ![Controllo][12]| |
 
 
-<br>
-<hr>
+
+
 ## Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
 #### Aggiunta di un dispositivo ad Azure AD, Desktop SSO, Microsoft Passport per Azure AD, con ripristino Bitlocker per amministratori
 
@@ -441,7 +440,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 
-<br>
+
 
 #### Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD
 
@@ -454,7 +453,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | :-: | :-: | :-: | :-: |
 | | | ![Controllo][12]| |
 
-<hr>
+
 
 
 ## Funzionalità in anteprima di Azure AD
@@ -483,4 +482,4 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

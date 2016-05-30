@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/20/2016"
+	ms.date="04/29/2016"
 	ms.author="carlrab" />
 
 # Indicazioni sulle prestazioni del database SQL di Azure per i singoli database
@@ -62,6 +62,8 @@ Grazie alle impostazioni dei livelli di prestazioni nei livelli di servizio Stan
 
 Per altre informazioni su livelli di prestazioni e DTU, vedere [Livelli di servizio e delle prestazioni del database SQL di Azure](sql-database-service-tiers.md).
 
+
+
 ## Vantaggi dei livelli di servizio
 
 Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo dei livelli di servizio è quello di fornire un elevato livello di prevedibilità delle prestazioni impiegando diversi livelli di prestazioni. Questi livelli consentono ai clienti con una vasta gamma di requisiti di risorse relative ai propri database di operare in un ambiente di calcolo più dedicato.
@@ -84,6 +86,20 @@ Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo
 Il livello esatto necessario dipende dai requisiti del carico massimo per ciascuna dimensione di risorsa. È possibile che in alcune applicazioni vengano usate quantità irrilevanti di una risorsa alle quali, però, sono associati requisiti significativi in un'altra.
 
 Per altre informazioni sui livelli di servizio, vedere [Livelli di servizio e delle prestazioni del database SQL di Azure](sql-database-service-tiers.md).
+
+## Informazioni sui prezzi e sulla fatturazione
+
+I pool di database elastici vengono fatturati in base alle caratteristiche seguenti:
+
+- Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database.
+- Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database singoli.
+- Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database autonomi.
+
+
+- Il prezzo di un pool elastico è basato sul numero di eDTU del pool. Il prezzo di un pool elastico è indipendente dall'utilizzo dei database elastici in esso contenuti.
+- Il prezzo di base viene calcolato da (numero di pool eDTUs) x (prezzo unitario per eDTU).
+
+Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle eDTU per un database autonomo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Limiti e funzionalità dei livelli di servizio
 Ogni livello di servizio e prestazione è associato a limiti e caratteristiche di prestazione differenti. La tabella seguente descrive queste caratteristiche per un singolo database.
@@ -110,7 +126,7 @@ Il **ripristino di emergenza** consente il ripristino da un'interruzione nel dat
 
 Il *ripristino geografico* è disponibile per tutti i livelli di servizio senza costi aggiuntivi. In caso di interruzione, è possibile usare il backup con ridondanza geografica più recente per ripristinare il database in qualsiasi area di Azure.
 
-La replica geografica attiva e standard fornisce funzionalità di ripristino di emergenza analoghe, ma con un obiettivo del punto di ripristino più limitato. Ad esempio, con il ripristino geografico, l'obiettivo del punto di ripristino è inferiore a 1 ora (in altre parole, il backup può fare riferimento all'ora precedente). Con la replica geografica, invece, l'obiettivo del punto di ripristino è inferiore a 5 secondi.
+La [replica geografica attiva](sql-database-geo-replication-overview.md) fornisce funzionalità di ripristino di emergenza analoghe, ma con un obiettivo del punto di ripristino più limitato. Ad esempio, con il ripristino geografico, l'obiettivo del punto di ripristino è inferiore a 1 ora (in altre parole, il backup può fare riferimento all'ora precedente). Con la replica geografica attiva, invece, l'obiettivo del punto di ripristino è inferiore a 5 secondi.
 
 Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
@@ -291,11 +307,11 @@ Anche se i livelli di servizio sono progettati per migliorare la stabilità e la
 ## Tecniche di ottimizzazione
 Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare il database SQL di Azure in modo da ottenere prestazioni ottimali dall'applicazione ed eseguire così operazioni usando il livello di prestazioni più basso possibile. Diverse tecniche corrispondono alle tradizionali procedure consigliate di ottimizzazione di SQL Server, ma alcune sono specifiche per il database SQL di Azure. In alcuni casi è possibile estendere le tecniche tradizionali di SQL Server per poterle usare anche nel database SQL di Azure esaminando le risorse utilizzate per un database in modo da poter individuare le aree da ottimizzare ulteriormente.
 
-### Query Performance Insight e Index Advisor
-Il database SQL fornisce due strumenti nel portale di Azure classico per l'analisi e la risoluzione dei problemi di prestazioni con il database:
+### Informazioni dettagliate sulle prestazioni delle query e Advisor per database SQL
+Il database SQL fornisce due strumenti nel portale di Azure per l'analisi e la risoluzione dei problemi di prestazioni con il database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Index Advisor](sql-database-index-advisor.md)
+- [Advisor per database SQL](sql-database-index-advisor.md)
 
 Per altre informazioni su ciascuno strumento e sul relativo utilizzo, vedere i collegamenti precedenti. Le due sezioni seguenti sugli indici mancanti e sull'ottimizzazione delle query forniscono altri modi per trovare e correggere manualmente problemi di prestazioni simili. Si consiglia di provare innanzitutto gli strumenti nel portale per diagnosticare e correggere i problemi in modo più efficiente. Usare l'approccio di ottimizzazione manuale per i casi particolari.
 
@@ -324,7 +340,7 @@ L'esempio seguente crea un caso in cui il piano di query selezionato contiene un
 
 Il database SQL di Azure include una funzionalità per suggerire agli amministratori del database come individuare e correggere condizioni comuni di indici mancanti. Le DMV incorporate nel database SQL di Azure considerano i casi in cui, durante la compilazione di query, l'uso di un indice consentirebbe di ridurre in modo significativo il costo stimato per l'esecuzione di una query. Durante l'esecuzione di query, si tiene traccia della frequenza con cui viene eseguito ogni piano di query e del divario stimato tra l'esecuzione del piano di query e quello immaginato in cui sarebbe presente l'indice in questione. Questo consente a un amministratore di database di ipotizzare rapidamente quali modifiche di progettazione fisica del database potrebbero migliorare il costo complessivo del carico di lavoro per un database specificato e il relativo carico di lavoro reale.
 
->[AZURE.NOTE] Prima di usare le DMV per trovare gli indici mancanti, innanzitutto rivedere la sezione su [Query Performance Insight e Index Advisor](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Prima di usare le DMV per trovare gli indici mancanti, innanzitutto rivedere la sezione su [Informazioni dettagliate sulle prestazioni delle query e Advisor per database SQL](#query-performance-insight-and-index-advisor).
 
 La query seguente può essere usata per valutare i potenziali indici mancanti.
 
@@ -491,4 +507,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

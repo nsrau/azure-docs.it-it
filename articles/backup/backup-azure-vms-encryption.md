@@ -36,13 +36,22 @@ Esistono molte parti di questa soluzione che devono essere configurate e gestite
 
 | Funzione | Software utilizzato | Note aggiuntive |
 | -------- | ------------- | ------- |
-| Crittografia | BitLocker o dmcrypt | Poiché la crittografia avviene in un *diverso* livello quando è messa a confronto con il Backup di Azure, non importa quale software di crittografia si utilizza. Ciò premesso, questa esperienza è stata convalidata solo con Bitlocker e dmcrypt.<br><br> Per crittografare i dati, è necessaria una chiave. La chiave deve anche essere mantenuta al sicuro per garantire l'accesso autorizzato ai dati. |
-| Gestione della chiave | CloudLink SecureVM<br>o Azure KeyVault | La chiave è fondamentale per la crittografia o la decrittografia dei dati. È impossibile recuperare i dati senza la chiave corretta. Questo diventa *estremamente* importante con:<br><li>Attivazioni della chiave<li>Conservazione a lungo termine<br><br>Ad esempio, è possibile che la chiave usata per effettuare il backup dei dati 7 anni non sia la stessa chiave usata oggi. Se non si è in possesso della chiave usata 7 anni fa, non sarà possibile usare i dati ripristinati da quel momento.|
+| Crittografia | BitLocker o dmcrypt | Poiché la crittografia avviene in un *diverso* livello quando è messa a confronto con il Backup di Azure, non importa quale software di crittografia si utilizza. Ciò premesso, questa esperienza è stata convalidata solo con CloudLink usando Bitlocker e dmcrypt.<br><br> Per crittografare i dati, è necessaria una chiave. La chiave deve anche essere mantenuta al sicuro per garantire l'accesso autorizzato ai dati. |
+| Gestione della chiave | CloudLink SecureVM | La chiave è fondamentale per la crittografia o la decrittografia dei dati. È impossibile recuperare i dati senza la chiave corretta. Questo diventa *estremamente* importante con:<br><li>Attivazioni della chiave<li>Conservazione a lungo termine<br><br>Ad esempio, è possibile che la chiave usata per effettuare il backup dei dati 7 anni non sia la stessa chiave usata oggi. Se non si è in possesso della chiave usata 7 anni fa, non sarà possibile usare i dati ripristinati da quel momento.|
 | Backup dei dati | Backup di Azure | Usare Backup di Azure per eseguire il backup di macchine virtuali IaaS di Azure mediante il [Portale di gestione di Azure](http://manage.windowsazure.com) o PowerShell |
 | Ripristino dei dati | Backup di Azure | Usare Backup di Azure per ripristinare i dischi o un'intera macchina virtuale da un punto di ripristino. I dati non vengono decrittografati dal Backup di Azure come parte dell'operazione di ripristino.|
 | Decrittografia | BitLocker o dmcrypt | Per leggere i dati da un disco dati ripristinato o da una macchina virtuale ripristinata, il software ha bisogno della chiave dal software di gestione delle chiavi. È impossibile decrittografare i dati senza la chiave corretta. |
 
 > [AZURE.IMPORTANT]  Gestione delle chiavi - compreso il rollover della chiave - non è una parte del Backup di Azure. Questo aspetto deve essere gestito in modo indipendente, ma è molto importante per l’operazione complessiva di backup/ripristino.
+
+### Scenari Supportati
+
+
+| &nbsp; | Insieme di credenziali per il backup | Insieme di credenziali dei servizi di ripristino |
+| :-- | :-- | :-- |
+| Macchine virtuali IaaS V1 di Azure | Sì | No |
+| Macchine virtuali IaaS V2 di Azure | N/D | No |
+
 
 ## CloudLink SecureVM
 
@@ -62,4 +71,4 @@ Quando è necessario effettuare il rollover o modificare le chiavi per le macchi
 - [Guida alla distribuzione - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Distribuzione e uso di SecureVM - video](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

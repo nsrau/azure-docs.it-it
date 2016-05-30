@@ -1,7 +1,7 @@
-##Highly available solutions with Azure traffic manager
+##Soluzioni a disponibilità elevata con Gestione traffico di Azure
 
-You need to determine whether your workload's high availability requirements can be met by using Azure traffic manager alone, or if you need to combine traffic manager with other DNS solutions, or processes. Depending on your needs, you can use:
+È necessario determinare se i requisiti di disponibilità elevata del carico di lavoro possono essere soddisfatti usando esclusivamente Gestione traffico di Azure oppure se è necessario combinare Gestione traffico con altre soluzioni o processi DNS. A seconda delle esigenze, è possibile usare:
 
-- **Traffic manager alone**. If a 99.99% up time is sufficient for your workload, you can use traffic manager by itself. In the event of failure in the traffic manager service, users will not be able to access your workload until the traffic manager service is reestablished.
+- **Esclusivamente Gestione traffico **. Se per il carico di lavoro è sufficiente un tempo di attività del 99,99%, è possibile usare esclusivamente Gestione traffico. In caso di errore nel servizio di gestione traffico, gli utenti non saranno in grado di accedere al carico di lavoro fino a quando il servizio di gestione traffico non verrà ristabilito.
 
-- **Use another traffic manager solution along with Azure traffic manager**. In the event of failure in the traffic manager service, you can change your CNAME record to point to the other traffic manager service. Access to your workload is still available, and distributed to all locations hosting your workload. This is the most expensive solution, but may be required for workloads that need a higher SLA.
+- **Usare un'altra soluzione di gestione traffico insieme a Gestione traffico di Azure**. In caso di errore nel servizio di gestione traffico, è possibile modificare il record CNAME in modo da puntare all'altro servizio di gestione traffico. L'accesso al carico di lavoro è ancora disponibile e distribuito in tutte le posizioni che ospitano il carico di lavoro. Questa è la soluzione più costosa, ma potrebbe essere necessaria per i carichi di lavoro che richiedono un contratto di servizio superiore.

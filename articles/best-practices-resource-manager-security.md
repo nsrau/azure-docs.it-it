@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerazioni sulla sicurezza per Gestione risorse di Azure"
+	pageTitle="Considerazioni sulla sicurezza per Resource Manager | Microsoft Azure"
 	description="Mostra approcci consigliati di Gestione risorse di Azure per la protezione delle risorse con chiavi e segreti, il controllo degli accessi in base al ruolo e i gruppi di sicurezza di rete."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -306,7 +306,7 @@ Ogni subnet creata in una rete virtuale viene associata automaticamente a una ta
 
 ### Route BGP
 
-Al momento della redazione di questo articolo, [ExpressRoute](./expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](./expressroute/expressroute-introduction.md).
+Al momento della redazione di questo articolo, [ExpressRoute](./expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](./virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](./expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE] Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
@@ -339,4 +339,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Per configurare routing e inoltro IP, vedere [Creare route definite dall'utente in Gestione risorse mediante un modello](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

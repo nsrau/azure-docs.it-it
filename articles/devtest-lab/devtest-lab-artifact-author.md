@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare elementi personalizzati per le macchine virtuali del Lab di sviluppo/test | Microsoft Azure"
+	pageTitle="Creare elementi personalizzati per le macchine virtuali di lab di sviluppo/test | Microsoft Azure"
 	description="Informazioni su come creare i propri elementi per l'uso nei Lab di sviluppo/test"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-#Creare elementi personalizzati per le macchine virtuali di Lab di sviluppo e test
+#Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
 
 > [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di elementi personalizzati](/documentation/videos/how-to-author-custom-artifacts)
 
@@ -118,10 +118,10 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 	![Esempio di archivio git dell’elemento](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Aggiungere l'archivio di elementi al lab, vedere l'articolo [Aggiungere un archivio elementi Git al Lab di sviluppo e test](devtest-lab-add-artifact-repo.md).
+1. Aggiungere l'archivio di elementi al lab, vedere l'articolo sull'[aggiunta di un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
 
 ## Passaggi successivi
 
-- Informazioni su come [Aggiungere un archivio elementi Git nel Lab di sviluppo e test](devtest-lab-add-artifact-repo.md).
+- Informazioni su come [aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

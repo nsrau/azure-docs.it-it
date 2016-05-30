@@ -59,7 +59,7 @@ Per risolvere al meglio eventuali problemi di compatibilità, oltre a eseguire r
 Per correggere gli errori rilevati, usare uno dei seguenti strumenti di migrazione di database:
 
 - [SQL Server Data Tools per Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): per usare SSDT, importare lo schema del database in SQL Server Data Tools per Visual Studio "SSDT", compilare il progetto per una distribuzione della versione 12 del database SQL, risolvere tutti i problemi di compatibilità rilevati in SSDT e poi sincronizzare le modifiche al database di origine, o a una sua copia. Attualmente questo è il metodo consigliato per testare e risolvere i problemi di compatibilità con la versione 12 del database SQL. Fare clic sul collegamento per la [procedura dettagliata per l'uso di SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-- [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): l'uso di SQL Server Management Studio consente di correggere gli errori rilevati utilizzando un altro strumento, tramite i comandi di Transact-SQL. Questo metodo è destinato principalmente agli utenti avanzati che possono modificare lo schema del database direttamente nel database di origine. 
+- [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): l'uso di SQL Server Management Studio consente di correggere gli errori rilevati usando un altro strumento, tramite i comandi di Transact-SQL. Questo metodo è destinato principalmente agli utenti avanzati che possono modificare lo schema del database direttamente nel database di origine. 
 - [Migrazione guidata database SQL di Microsoft Azure ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): per usare SAMW, dal database di origine si genera uno script Transact-SQL che viene poi trasformato dalla procedura guidata, se possibile, per rendere lo schema compatibile con la versione 12 del database SQL. Una volta completata questa operazione, SAMW si connette alla versione 12 del database SQL per eseguire lo script. Questo strumento analizzerà anche i file di traccia per determinare i problemi di compatibilità. Lo script può essere generato solo con lo schema o può includere dati in formato BCP.
 
 ## Eseguire la migrazione di un database di SQL Server compatibile nel database SQL
@@ -85,4 +85,4 @@ Per eseguire la migrazione con tempi di inattività minimi, usare la [replica di
 
 	 ![Migrazione di database SQL Server - Migrazione di database SQL nel cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

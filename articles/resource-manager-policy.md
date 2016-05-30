@@ -91,15 +91,13 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 | In | "in" : [ "&lt;valore1&gt;","&lt;valore2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nomeChiave&gt;" |
 
-### Campi e origini
+### Fields
 
 Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa. Un'origine rappresenta le caratteristiche della richiesta stessa.
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e **alias proprietà**.
-
-Origini: **action**.
+Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e ** alias proprietà**.
 
 ### Alias delle proprietà 
 L'alias delle proprietà è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto di PowerShell verrà aggiunto in futuro:
@@ -339,8 +337,8 @@ L'esempio seguente illustra come annidare gli operatori logici per richiedere un
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -387,7 +385,7 @@ Con un corpo della richiesta simile al seguente:
     }
 
 
-La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Come api-version, usare *2016-04-01*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version usare *2016-04-01*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Creare una definizione di criteri tramite PowerShell
 
@@ -420,7 +418,7 @@ Per creare una nuova assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Come api-version, usare *2016-04-01*.
+{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2016-04-01*.
 
 Con un corpo della richiesta simile al seguente:
 
@@ -464,4 +462,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Compilare app multi-tenant con il database SQL di Azure"
+   pageTitle="Il database SQL di Azure crea app multi-tenant con isolamento ed efficienza"
    description="Informazioni su come compilare app multi-tenant con il database SQL di Azure"
    keywords=""
    services="sql-database"
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Compilare app multi-tenant con il database SQL di Azure
+# Compilare app multi-tenant tramite il database SQL di Azure con isolamento ed efficienza
 
 ## Sfruttare i pool elastici per compilare app multi-tenant più efficienti
 
@@ -55,4 +55,14 @@ Oltre ai pool elastici, sono disponibili funzionalità del database SQL che perm
 
 Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Passaggi successivi
+
+Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
+
+## Altre informazioni
+
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

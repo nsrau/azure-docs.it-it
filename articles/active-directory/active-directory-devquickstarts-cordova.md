@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="vittorib"/>
 
 # Integrare Azure AD con un'app Apache Cordova
@@ -91,7 +91,7 @@ Azure AD rilascerà token solo alle applicazioni note. Prima di poter usare Azur
 
 Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Questo valore sarà necessario nelle sezioni successive: è possibile trovarlo nella scheda **Configura** dell'app appena creata.
 
-Per eseguire `DirSearchClient Sample`, assegnare all'app appena creata l'autorizzazione ad eseguire query nell'_API Azure AD Graph_:
+Per eseguire `DirSearchClient Sample`, assegnare all'app appena creata l'autorizzazione ad eseguire query nell'_API Graph di Azure AD_:
 -	Nella scheda **Configura** individuare la sezione "Autorizzazioni per altre applicazioni". Per l'applicazione "Azure Active Directory" aggiungere l'autorizzazione **Accede alla directory come utente registrato** in **Autorizzazioni delegate**. In questo modo l'applicazione potrà cercare gli utenti nell'API Graph.
 
 ## *2. Clonare il repository dell'app di esempio necessario per l'esercitazione*
@@ -223,7 +223,7 @@ L'app è finalmente pronta per essere eseguita. Il funzionamento è molto sempli
 
    Tablet/PC: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Dispositivi mobili (richiede la connessione del dispositivo sobile Windows10 al PC): `cordova run windows --archs=arm -- --appx=uap --phone`
+   Dispositivi mobili (richiede la connessione del dispositivo mobile Windows10 al PC): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    __Nota__: durante la prima esecuzione è possibile che venga richiesto di accedere per ottenere una licenza per sviluppatori. Per altre informazioni, vedere [Ottenere una licenza per sviluppatori](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
@@ -269,4 +269,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

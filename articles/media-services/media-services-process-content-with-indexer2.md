@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="04/22/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
@@ -56,7 +56,7 @@ I file di sottotitoli codificati con questi formati possono essere utili per ren
 
 ##Configurazione delle attività (set di impostazioni)
 
-Quando si crea un'attività di indicizzazione con **Azure Media Indexer 2 Preview*, è necessario specificare un set di impostazioni di configurazione.
+Quando si crea un'attività di indicizzazione con **Azure Media Indexer 2 Preview**, è necessario specificare un set di impostazioni di configurazione.
 
 Il codice JSON seguente imposta i parametri disponibili.
 
@@ -289,4 +289,4 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

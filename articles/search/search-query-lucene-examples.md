@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="04/22/2016"
+    ms.date="05/17/2016"
     ms.author="liamca"
 />
 
@@ -48,8 +48,8 @@ Si noti che la query usa un indice di Ricerca di Azure preconfigurato e denomina
 
 È possibile modificare gli esempi dell'articolo specificando una costruzione **nomecampo:terminericerca** per definire un'operazione query con campo, dove il campo è una singola parola e anche il termine di ricerca è una singola parola o una frase, che può includere operatori booleani. Ecco alcuni esempi:
 
-- business\_title:senior NOT junior
-- state:"New York" AND "New Jersey"
+- business\_title:(senior NOT junior)
+- state:("New York" AND "New Jersey")
 
 Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, come in questo caso per la ricerca di due città distinte nel campo "location". Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
 
@@ -129,4 +129,4 @@ Provare a specificare il parser di query Lucene nel codice. I collegamenti segue
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

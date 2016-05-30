@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="jgao"/>
 
 #Gestire cluster Hadoop in HDInsight tramite il portale di Azure
@@ -64,7 +64,7 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
 	
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
 	- **Dashboard**, **Dashboard del cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
-	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
 	- **Ridimensiona cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -196,17 +196,49 @@ Questo processo può essere programmato in molti modi:
 
 Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
 
-##Modificare il nome utente del cluster
+##Modificare le password
 
-Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight (anche noto come account utente HTTP) e l'account utente SSH vengono creati durante il processo di creazione. È possibile usare l'interfaccia utente Web di Ambari per modificare nome utente e password dell'account utente del cluster:
+Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight (anche noto come account utente HTTP) e l'account utente SSH vengono creati durante il processo di creazione. È possibile usare l'interfaccia utente Web di Ambari per modificare nome utente e password dell'account utente del cluster e le azioni script per modificare l'account utente SSH.
 
-**Per modificare la password utente del cluster HDInsight**
+###Modificare la password utente del cluster
+
+> [AZURE.NOTE] Se si modifica la password utente del cluster (admin), è possibile che le azioni script eseguite sul cluster abbiano esito negativo. Nel caso in cui siano presenti azioni script persistenti che hanno come destinazione nodi di lavoro, queste potrebbero avere esito negativo se si aggiungono nodi al cluster mediante operazioni di ridimensionamento. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Accedere all'interfaccia utente Web di Ambari usando le credenziali utente del cluster HDInsight. Il nome utente predefinito è **admin**. L'URL è **https://<HDInsight Cluster Name>azurehdinsight.net**.
-2. Fare clic su **Admin (Amministratore)** dal menu in alto, quindi fare clic su "Manage Ambari" (Gestisci Ambari). 
-3. Nel menu a sinistra fare clic su **Users (Utenti)**.
+2. Scegliere **Admin** (Amministratore) dal menu in alto e quindi fare clic su "Manage Ambari" (Gestisci Ambari). 
+3. Scegliere **Users** (Utenti) dal menu a sinistra.
 4. Fare clic su **Admin**.
-5. Fare clic su **Change Password (Cambia password)**.
+5. Fare clic su **Change Password** (Modifica password).
+
+Ambari modifica la password in tutti i nodi del cluster.
+
+###Modificare la password utente SSH
+
+1. Usando un editor di testo, salvare il codice seguente come file con nome __changepassword.sh__.
+
+    > [AZURE.IMPORTANT] È necessario usare un editor che prevede LF come terminazione di riga. Se l'editor prevede CRLF, lo script non funzionerà.
+    
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+
+2. Caricare il file in un percorso di archiviazione a cui è possibile accedere da HDInsight con un indirizzo HTTP o HTTPS, ad esempio in un archivio di file pubblico come OneDrive o l'archiviazione BLOB di Azure. Salvare l'URI (indirizzo HTTP o HTTPS) nel file, poiché sarà necessario nel passaggio successivo.
+
+3. Nel portale di Azure selezionare il cluster HDInsight e quindi fare clic su __Tutte le impostazioni__. Nel pannello __Impostazioni__ selezionare __Azioni script__.
+
+4. Nella pannello __Azioni script__ selezionare __Invia nuova__. Quando appare il pannello __Invia azione script__ immettere le informazioni seguenti.
+
+    | Campo | Valore |
+    | ----- | ----- |
+    | Nome | Modifica password SSH |
+    | URI script Bash | L'URI per il file changepassword.sh |
+    | Nodi (head, lavoro, Nimbus, Supervisor, Zookeeper, e così via) | ✓ per tutti i tipi di nodo elencati |
+    | Parametri | Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password.
+    | Salvare questa azione script... | Lasciare questo campo vuoto.
+
+5. Selezionare __Crea__ per applicare lo script. Al termine dell'esecuzione dello script, sarà possibile usare la nuova password per connettersi al cluster tramite SSH.
 
 ##Concedere/Revocare l'accesso
 
@@ -218,14 +250,14 @@ Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con 
 - Oozie
 - Templeton
 
-Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso tramite [interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) e [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso tramite l'[interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) e [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ##Trovare l'ID sottoscrizione
 
 **Per trovare gli ID sottoscrizione di Azure**
 
 1. Accedere al [Portale][azure-portal].
-2. Fare clic su **Esplora tutto** dal menu a sinistra e quindi fare clic su **Sottoscrizioni**. Ogni sottoscrizione ha un nome e un ID.
+2. Scegliere **Esplora tutto** dal menu a sinistra e quindi fare clic su **Sottoscrizioni**. Ogni sottoscrizione ha un nome e un ID.
 
 Ogni cluster è associato a una sottoscrizione di Azure. L'ID sottoscrizione viene visualizzato nel riquadro **Informazioni di base** del cluster. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
@@ -254,19 +286,19 @@ Non è possibile eseguire il processo Hive direttamente dal portale di Azure, ma
 2. Aprire Hive View (vista Hive) come illustrato nella schermata seguente:  
 
 	![Vista Hive di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
-3. Fare clic su **Query** nel menu in alto.
-4. Immettere una query Hive in **Query Editor (Editor di query)**, quindi fare clic su **Execute (Esegui)**.
+3. Scegliere **Query** dal menu in alto.
+4. Immettere una query Hive in **Query Editor** (Editor di query) e quindi fare clic su **Execute** (Esegui).
 
 ##Monitorare i processi
 
-Vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Ambari Web](hdinsight-hadoop-manage-ambari.md#monitoring).
+Vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ##Ricerca dei file
 
 Tramite il portale di Azure è possibile esplorare il contenuto del contenitore predefinito.
 
 1. Accedere a [https://portal.azure.com](https://portal.azure.com).
-2. Fare clic su **Cluster HDInsight** nel menu a sinistra per elencare i cluster esistenti.
+2. Scegliere **Cluster HDInsight** dal menu a sinistra per elencare i cluster esistenti.
 3. Fare clic sul nome del cluster. Se l'elenco di cluster è lungo, è possibile utilizzare il filtro nella parte superiore della pagina.
 4. Fare clic su **Impostazioni**.
 5. Nel pannello **Impostazioni** selezionare **Chiavi di archiviazione di Azure**.
@@ -300,4 +332,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

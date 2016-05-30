@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="05/12/2016"
     ms.author="elizapo" />
 
 
@@ -37,4 +37,4 @@ Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end
 - [Creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
-
-## Introduzione 
 
 Esplora archivi Azure è uno strumento basato su Windows gratuito per analizzare e modificare i dati in un account di archiviazione di Azure. Questo argomento descrive come usarlo per caricare e scaricare i dati dall'archivio BLOB di Azure. Lo strumento può essere scaricato da [Azure Storage Explorer](http://storageexplorer.com/).
 
@@ -59,4 +57,4 @@ I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esp
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

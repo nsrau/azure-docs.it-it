@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/10/2015"
+	ms.date="05/18/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Correggere un errore di memoria insufficiente con le impostazioni di memoria di Hive in Hadoop in Azure HDInsight
@@ -109,7 +109,7 @@ Come illustrato nel post di blog sulle [impostazioni della memoria Yarn di Hadoo
 
 Come suggerisce il post di blog, le due impostazioni di memoria seguenti definiscono la memoria del contenitore per l'heap: **hive.tez.container.size** e **hive.tez.java.opts**. In base all'esperienza attuale, l'eccezione di memoria insufficiente non è correlata alle dimensioni ridotte del contenitore. Ossia, ad essere ridotte solo le dimensioni dell'heap di Java (hive.tez.java.opts). Pertanto ogni volta che viene visualizzato un errore di memoria insufficiente, è possibile provare ad aumentare **hive.tez.java.opts**. Se necessario, può essere necessario aumentare **hive.tez.container.size**. L'impostazione **java.opts** deve essere circa l'80% di **container.size**.
 
-> [AZURE.NOTE]L'impostazione **hive.tez.java.opts** deve sempre essere inferiore a **hive.tez.container.size**.
+> [AZURE.NOTE]  L'impostazione **hive.tez.java.opts** deve sempre essere inferiore a **hive.tez.container.size**.
 
 Poiché una macchina D12 ha una memoria di 28 GB, si è deciso di usare una dimensione del contenitore di 10 GB (10.240 MB) e assegnare l'80% a java.opts. Questa operazione è stata eseguita nella console di Hive mediante l'impostazione seguente:
 
@@ -122,4 +122,4 @@ In base a queste impostazioni, la query è stata eseguita in meno di dieci minut
 
 Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0518_2016-->

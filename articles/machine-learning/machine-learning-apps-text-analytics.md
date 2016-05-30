@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 
 # API di Machine Learning: Analisi del testo per analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e rilevamento di argomenti
+
+>[AZURE.NOTE] Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**consultare questo documento**](../cognitive-services-text-analytics-quick-start/). La versione 2 è ora la versione preferita di questa API.
 
 ## Panoramica
 
@@ -383,4 +385,4 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 | TopicId | ID dell'argomento a cui sono stati assegnati i record. |
 | Distance | Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

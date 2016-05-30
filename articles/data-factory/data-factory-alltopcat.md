@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/12/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,14 +22,6 @@
 In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio Azure Data Factory. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
 
 
-
-
-## Nuovo
-
-
-| Titolo | Descrizione |
-| :-- | :-- |
-| [Chiamare i programmi Spark da Data Factory](data-factory-spark.md) | È possibile chiamare i programmi Spark da una data factory di Azure usando l'attività MapReduce. |
 
 
 ## Concetti principali
@@ -58,11 +50,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) | In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando la Copia guidata supportata da Data Factory. |
 | [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor](data-factory-get-started-using-editor.md) | In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure. |
 | [Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio](data-factory-get-started-using-vs.md) | In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Visual Studio. |
-| [Esercitazione: Spostare ed elaborare i file di log con Azure Data Factory (Portale di Azure)](data-factory-tutorial.md) | Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure e Data Factory Editor nel portale di Azure. |
-| [Esercitazione: Spostare ed elaborare i file di log con Data factory [PowerShell]](data-factory-tutorial-using-powershell.md) | Questa esercitazione avanzata descrive uno scenario reale e lo implementa usando il servizio Data factory di Azure e Azure PowerShell. |
-| [Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (portale di Azure)](data-factory-tutorial-extend-onpremises.md) | Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure in modo che le copie della pipeline producano dei dati in un database SQL Server. |
-| [Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | Questa procedura dettagliata estende l'esercitazione utilizzando Azure PowerShell in modo che le copie della pipeline producano dei dati in un database SQL Server. |
-
 
 ## Spostamento dei dati
 
@@ -105,6 +92,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | [Attività Hive](data-factory-hive-activity.md) | Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight. |
 | [Orchestrazione di HPC e dati con Azure Batch e Data factory](data-factory-data-processing-using-batch.md) | Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch. |
 | [Richiamare i programmi MapReduce da Data factory](data-factory-map-reduce.md) | Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure. |
+| [Chiamare i programmi Spark da Data Factory](data-factory-spark.md) | È possibile chiamare i programmi Spark da una data factory di Azure usando l'attività MapReduce. |
 | [Attività di Pig](data-factory-pig-activity.md) | Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight. |
 | [Eseguire script U-SQL in Azure Data Lake Analytics da Data factory di Azure](data-factory-usql-activity.md) | Informazioni su come elaborare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics. |
 | [Attività di stored procedure di SQL Server](data-factory-stored-proc-activity.md) | Informazioni sull'uso dell'attività di stored procedure di SQL Server da una pipeline di Data factory per richiamare una stored procedure in un database SQL di Azure o in Azure SQL Data Warehouse. |
@@ -156,7 +144,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | [Data factory di Azure - Domande frequenti](data-factory-faq.md) | Domande frequenti su Data factory di Azure. |
 | [Azure Data Factory - Funzioni e variabili di sistema](data-factory-functions-variables.md) | Fornisce un elenco delle funzioni e delle variabili di sistema di Azure Data Factory |
 | [Data factory di Azure - Regole di denominazione](data-factory-naming-rules.md) | Descrive le regole di denominazione per le entità di Data factory. |
-| [Note sulla versione di Data factory di Azure](data-factory-release-notes.md) | Note sulla versione di Data factory |
 | [Risolvere i problemi di Data factory](data-factory-troubleshoot.md) | Informazioni su come risolvere i problemi relativi all'uso di Data factory di Azure. |
 
 
@@ -168,6 +155,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - [Grafiche del percorso di apprendimento per i servizi di Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
-- Grafica del percorso di apprendimento: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- Grafiche del percorso di apprendimento: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

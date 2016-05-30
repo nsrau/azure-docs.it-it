@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio
@@ -640,6 +640,10 @@ Per altre informazioni sulla creazione delle topologie C#, visitare la pagina [S
 
 Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsight, vedere le risorse seguenti:
 
+**Microsoft SCP.NET**
+
+* [Guida alla programmazione SCP](hdinsight-storm-scp-programming-guide.md)
+
 **Apache Storm in HDInsight**
 
 -	[Distribuzione e monitoraggio di topologie con Apache Storm in HDInsight](hdinsight-storm-deploy-monitor-topology.md)
@@ -658,4 +662,4 @@ Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsi
 
 -	[Introduzione a HBase in HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

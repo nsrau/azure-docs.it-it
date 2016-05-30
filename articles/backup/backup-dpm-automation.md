@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/20/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -98,16 +98,7 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent | 
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agente\Scratch |
-| /m | Accetta Microsoft Update | - | 
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | 
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | 
-| /ph | Indirizzo host proxy | - | 
-| /po | Numero porta host proxy | - | 
-| /pu | Nome utente host proxy | - | 
-| /pw | Password proxy | - |
+| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
 
 ### Registrazione del servizio Backup di Azure
 Per poter eseguire la registrazione con il servizio Backup di Azure, è necessario assicurarsi che i [prerequisiti](backup-azure-dpm-introduction.md) siano soddisfatti. È necessario:
@@ -300,7 +291,10 @@ Infine, è necessario eseguire il commit delle modifiche affinché DPM possa ese
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Visualizzare i punti di backup
-È possibile usare il cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) per ottenere un elenco di tutti i punti di ripristino per un'origine dati. In questo esempio vengono recuperati tutti i gruppi protezione dati nel server DPM che verranno archiviati in una matrice ```$PG```, vengono ottenute le origini dati corrispondenti a ```$PG[0]``` e vengono ottenuti tutti i punti di ripristino per un'origine dati.
+È possibile usare il cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) per ottenere un elenco di tutti i punti di ripristino per un'origine dati. Nell'esempio seguente, vengono:
+- recuperati tutti i gruppi di protezione (PG) nel server DPM da archiviare in una matrice ```$PG```
+- ottenuti le origini dati corrispondenti alla matrice ```$PG[0]```
+- ottenuti tutti i punti di ripristino per un'origine dati.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -333,4 +327,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 - Per altre informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

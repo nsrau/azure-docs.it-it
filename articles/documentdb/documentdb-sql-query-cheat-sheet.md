@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/13/2016" 
 	ms.author="mimig"/>
 
 # Foglio informativo PDF di SQL DocumentDB
@@ -39,4 +39,4 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 - Per un esplorare le opzioni delle query disponibili in DocumentDB, vedere [Query di DocumentDB](documentdb-sql-query.md).
 - Per la documentazione di riferimento correlata, vedere [Linguaggio delle query SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 
@@ -30,14 +30,14 @@ Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad s
 
 ```AIQL
 
-    requests 
-    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    requests      // Table of events that log HTTP requests.
+    | where timestamp > ago(7d) and client_City == "Hyderabad"
     | summarize clients = dcount(client_IP) 
       by tod_UTC=bin(timestamp % 1d, 1h), resultCode
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-Si contano indirizzi IP del client distinti, raggruppandoli in base all'ora del giorno negli ultimi 30 giorni.
+Si contano indirizzi IP client distinti, raggruppandoli in base all'ora del giorno negli ultimi 7 giorni.
 
 Verranno visualizzati i risultati in una presentazione con grafico a barre, con lo stack dei risultati ottenuti da codici di risposta diversi:
 
@@ -53,9 +53,9 @@ Sono inoltre disponibili operazioni statistiche avanzate:
 
 Il linguaggio include diverse funzionalità utili, è possibile:
 
-* [Filtrare](app-insights-analytics-queries.md) i dati di telemetria app non elaborati in base a qualsiasi campo, inserendo proprietà personalizzate e metriche.
-* [Unire](app-insights-analytics-queries.md#join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate di dipendenza, eccezioni e tracce di log.
-* [Aggregazioni](app-insights-analytics-aggregations.md) statistiche avanzate.
+* [Filtrare](app-insights-analytics-reference.md#where-operator) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
+* [Unire](app-insights-analytics-reference.md#join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate di dipendenze, eccezioni e tracce di log.
+* [Aggregazioni](app-insights-analytics-reference.md#aggregations) statistiche avanzate.
 * Altrettanto efficace come SQL, ma molto più semplice per le query complesse: anziché nidificare le istruzioni, i dati vengono inviati tramite pipe da un'operazione semplice alla successiva.
 * Visualizzazioni immediate e avanzate.
 
@@ -82,4 +82,4 @@ Attualmente sono disponibili i risultati delle query per una settimana di dati.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

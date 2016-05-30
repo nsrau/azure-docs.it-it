@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="cgronlun"
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Come configurare un firewall del database SQL di Azure
@@ -29,9 +29,6 @@ Per configurare il firewall del database, creare regole del firewall che specifi
 
 **Raccomandazione:** Microsoft consiglia di utilizzare le regole del firewall a livello di database quando è possibile al fine di aumentare la portabilità del database. Utilizzare le regole del firewall a livello di server quando si dispone di molti database che presentano gli stessi requisiti di accesso e non si desidera dedicare tempo a configurare singolarmente ogni database.
 
-**Informazioni sulle federazioni:** l'implementazione corrente delle federazioni verrà ritirata con i livelli di servizio Web e Business. Valutare la possibilità di distribuire soluzioni di partizionamento orizzontale personalizzato per l’ottimizzazione di scalabilità, flessibilità e prestazioni. Per altre informazioni sul partizionamento orizzontale personalizzato, vedere [Scalabilità orizzontale dei database SQL di Azure](https://msdn.microsoft.com/library/dn495641.aspx).
-
-> [AZURE.NOTE] Se si crea una federazione di database nel database SQL di Azure in cui il database radice contiene regole del firewall a livello di database, le regole non vengono copiate nei database membri della federazione. Quando sono necessarie regole del firewall a livello di database per i membri della federazione, è necessario creare nuovamente le regole per i membri della federazione. Tuttavia, se un membro della federazione contenente una regola del firewall a livello di database viene diviso in nuovi membri della federazione utilizzando l'istruzione ALTER FEDERATION … SPLIT, i nuovi membri di destinazione avranno le stesse regole del firewall a livello di database del membro della federazione di origine. Per altre informazioni sulle federazioni, vedere [Federazioni in database SQL di Azure](https://msdn.microsoft.com/library/hh597452.aspx).
 
 ## Panoramica sul firewall del database SQL
 
@@ -64,7 +61,7 @@ Quando si tenta di connettersi al server di database da un'applicazione di Azure
 
 - Nel [portale di Microsoft Azure](https://portal.azure.com/) selezionare la casella di controllo **Consenti ai servizi di Azure di accedere al server** durante la creazione di un nuovo server.
 
-- Nel [portale classico](http://go.microsoft.com/fwlink/p/?LinkID=161793) nella scheda **Configura** in un server, nella sezione **Servizi consentiti**, fare clic su **Sì** per **Servizi di Microsoft Azure**.
+- Dal [portale classico](http://go.microsoft.com/fwlink/p/?LinkID=161793) nella scheda **Configura** in un server, nella sezione **Servizi consentiti**, fare clic su **Sì** per **Servizi di Microsoft Azure**.
 
 ## Creazione della prima regola del firewall a livello di server
 
@@ -72,7 +69,7 @@ La prima impostazione del firewall a livello di server può essere creata usando
 
 ## Creazione di regole del firewall a livello di database
 
-Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per altre informazioni su come configurare le regole del firewall a livello del database, vedere [sp\_set\_database\_firewall\_rule (database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx)
+Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per altre informazioni su come configurare le regole del firewall a livello del database, vedere [sp\_set\_database\_firewall\_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx) (sp\_set\_database\_firewall\_rule (database SQL di Azure).
 
 ## Gestione di regole del firewall a livello di programmazione
 
@@ -117,7 +114,7 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 - **Configurazione del firewall locale:** prima che il computer possa accedere al database SQL di Azure, è necessario creare un'eccezione del firewall sul computer per la porta TCP 1433. È necessario aprire delle porte aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per altre informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- **Rete NAT (Network address translation):** a causa di NAT, l'indirizzo IP utilizzato dal computer per connettersi al database SQL di Azure potrebbe essere diverso da quello indicato nelle impostazioni di configurazione IP del computer. Per visualizzare l'indirizzo IP usato dal computer connettersi ad Azure, accedere al portale e spostarsi nella scheda **Configura** sul server che ospita il database. Nella sezione **Indirizzi IP consentiti**, viene visualizzato **lndirizzo IP client corrente**. Fare clic su **Aggiungi** negli **Indirizzi IP consentiti ** per consentire al computer di accedere al server.
+- **Rete NAT (Network address translation):** a causa di NAT, l'indirizzo IP utilizzato dal computer per connettersi al database SQL di Azure potrebbe essere diverso da quello indicato nelle impostazioni di configurazione IP del computer. Per visualizzare l'indirizzo IP usato dal computer per connettersi ad Azure, accedere al portale e spostarsi nella scheda **Configura** sul server che ospita il database. Nella sezione **Indirizzi IP consentiti**, viene visualizzato **lndirizzo IP client corrente**. Fare clic su **Aggiungi** negli **Indirizzi IP consentiti ** per consentire al computer di accedere al server.
 
 - **Le modifiche all'elenco di consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate alla configurazione del firewall del database SQL di Azure possono essere necessari fino a cinque minuti.
 
@@ -138,4 +135,4 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

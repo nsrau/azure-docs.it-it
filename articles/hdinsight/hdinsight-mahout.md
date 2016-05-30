@@ -41,7 +41,9 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 ##prerequisiti
 
 - **Un cluster Hadoop basato su Windows in HDInsight**. Per informazioni su come crearne uno, vedere [Introduzione all'utilizzo di Hadoop in HDInsight][getstarted]
-- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Workstation con Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>Generare raccomandazioni con Windows PowerShell
@@ -170,7 +172,7 @@ La prima colonna rappresenta il valore `userID`. I valori racchiusi tra "[" e "]
 
 ###Visualizzare l'output
 
-Anche se l'output generato risulta appropriato per l'uso in un'applicazione, non è facilmente leggibile. Si può usare il file `moviedb.txt` dal server per risolvere `movieId` in un nome di film, ma prima è necessario scaricarlo dal server insieme al file delle classificazioni usando lo script seguente:
+Anche se l'output generato risulta appropriato per l'uso in un'applicazione, non è facilmente leggibile. Si può usare `moviedb.txt` dal server per risolvere `movieId` in un nome di film, ma prima è necessario scaricarlo dal server insieme al file delle classificazioni usando lo script seguente:
 
     # The HDInsight cluster name.
 	$clusterName = "the cluster name"
@@ -425,9 +427,9 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Al termine della compilazione, il file JAR sarà disponibile in __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Dopo il rilascio di Mahout 1.0 dovrebbe essere possibile usare i pacchetti predefiniti con HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Caricare il file JAR in __example/jars__ nella risorsa di archiviazione predefinita del cluster. Sostituire CLUSTERNAME nello script seguente con il nome del cluster HDInsight, e sostituire FILENAME con il percorso per il file __mahout-coure-0.9-job.jar__.
 
@@ -527,4 +529,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

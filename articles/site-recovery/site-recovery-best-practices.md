@@ -33,7 +33,7 @@ Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la
 
 **Componente** | **Replicare in Azure (con VMM)** | **Replicare in Azure (senza VMM)** | **Replicare in un sito secondario (con VMM)**
 ---|---|---|---
-**VMM** | Uno o più server VMM in esecuzione su System Center 2012 R2. Il server VMM deve avere almeno un cloud contenente uno o più gruppi host VMM. | Non applicabile | Almeno un server VMM in esecuzione su System Center 2012 R2. È consigliabile un server VMM in ogni sito. Il server VMM deve avere almeno un cloud contenente uno o più gruppi host VMM. I cloud devono avere impostato il profilo funzionalità di Hyper-V. 
+**VMM** | Uno o più server VMM in esecuzione su System Center 2012 R2. Il server VMM deve avere almeno un cloud contenente uno o più gruppi host VMM. | Non applicabile | Almeno un server VMM in esecuzione su System Center 2012 R2. È consigliabile un server VMM in ogni sito. Il server VMM deve avere almeno un cloud contenente uno o più gruppi host VMM. I cloud devono avere impostato il profilo funzionalità di Hyper-V.
 **Hyper-V** | Uno o più server host Hyper-V nel data center locale che eseguono almeno Windows Server 2012 R2. Il server Hyper-V deve trovarsi in un gruppo host in un cloud VMM. | Uno o più server Hyper-V nei siti di origine e di destinazione che eseguono almeno Windows Server 2012 R2. | Uno o più server Hyper-V nei siti di origine e di destinazione che eseguono almeno Windows Server 2012 con gli aggiornamenti più recenti. Il server Hyper-V deve trovarsi in un gruppo host in un cloud VMM.
 **Macchine virtuali** | È necessaria almeno una VM nel server Hyper-V di origine. Le VM che eseguono la replica in Azure devono essere conformi ai [prerequisiti delle macchine virtuali di Azure](#azure-virtual-machine-requirements). <br> Installare o aggiornare i [servizi di integrazione](https://technet.microsoft.com/library/dn798297.aspx) nella macchina virtuale usando la procedura indicata [qui](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | Almeno una VM nel server Hyper-V di origine. Le macchine virtuali che eseguono la replica in Azure devono essere conformi ai [prerequisiti delle macchine virtuali di Azure](#azure-virtual-machine-requirements). <br> Installare o aggiornare i [servizi di integrazione](https://technet.microsoft.com/library/dn798297.aspx) nella macchina virtuale usando la procedura indicata [qui](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | Almeno una VM nel cloud VMM di origine. <br> Installare o aggiornare i [servizi di integrazione](https://technet.microsoft.com/library/dn798297.aspx) nella macchina virtuale usando la procedura indicata [qui](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4).
 **Account di Azure** | Sono necessari un account e una sottoscrizione di [Azure](https://azure.microsoft.com/). | Non applicabile | Sono necessari un account e una sottoscrizione di [Azure](https://azure.microsoft.com/).
@@ -57,9 +57,9 @@ Nella tabella vengono riepilogati i requisiti per la replica di VM VMware e di s
 
 **Componente** | **Replicare in Azure (avanzato)** | **Replicare in un sito secondario**
 ---|---|---
-**Sito primario locale** | Installare un server di gestione che esegue tutti i componenti di Site Recovery, ovvero configurazione, processo, destinazione master. | Installare un server di elaborazione per la memorizzazione nella cache, la compressione e la crittografia dei dati di replica prima dell'invio al sito secondario. È possibile installare altri server di elaborazione per il bilanciamento del carico o per la tolleranza di errore. 
-**Sito secondario locale** | Non applicabile | Installare un singolo server di configurazione usato per configurare, gestire e monitorare la distribuzione.<br/><br>È consigliabile installare un server vContinuum per semplificare la gestione del server di configurazione.<br/><br/>Sarà necessario configurare il server di destinazione master come una VM in esecuzione sul server vSphere secondario. 
-**vCenter/ESXi per VMware** | Se si esegue la replica di VM VMware o se si vuole eseguire il failback di server fisici, è necessario un server vSphere ESX/ESXi nel sito primario. È anche consigliabile usare un server vCenter per gestire gli host ESXi. | Nel sito primario e secondario saranno necessari uno o più host ESXi VMware e facoltativamente un server vCenter. 
+**Sito primario locale** | Installare un server di gestione che esegue tutti i componenti di Site Recovery, ovvero configurazione, processo, destinazione master. | Installare un server di elaborazione per la memorizzazione nella cache, la compressione e la crittografia dei dati di replica prima dell'invio al sito secondario. È possibile installare altri server di elaborazione per il bilanciamento del carico o per la tolleranza di errore.
+**Sito secondario locale** | Non applicabile | Installare un singolo server di configurazione usato per configurare, gestire e monitorare la distribuzione.<br/><br>È consigliabile installare un server vContinuum per semplificare la gestione del server di configurazione.<br/><br/>Sarà necessario configurare il server di destinazione master come una VM in esecuzione sul server vSphere secondario.
+**vCenter/ESXi per VMware** | Se si esegue la replica di VM VMware o se si vuole eseguire il failback di server fisici, è necessario un server vSphere ESX/ESXi nel sito primario. È anche consigliabile usare un server vCenter per gestire gli host ESXi. | Nel sito primario e secondario saranno necessari uno o più host ESXi VMware e facoltativamente un server vCenter.
 **Failback** | È necessario un ambiente VMware per il failback da Azure, anche se si esegue la replica di server fisici.<br/><br/>Sarà necessario configurare un server di elaborazione come VM di Azure. <br/><br/>Il server di configurazione funge da server di destinazione master, ma se si esegue il failback di volumi elevati di traffico, è consigliabile configurare un server di destinazione master locale aggiuntivo. [Altre informazioni](site-recovery-failback-azure-to-vmware-classic.md)| Il failback dal sito secondario al sito primario viene eseguito solo verso VMware, anche se è stato eseguito il failover su un computer fisico. Per il failback è necessario configurare un server di destinazione master come VM sul server vSphere primario.
 **Account di Azure** | Sono necessari un account e una sottoscrizione di [Azure](https://azure.microsoft.com/). | Non applicabile
 **Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un [account di Archiviazione di Azure](../storage/storage-redundancy.md#geo-redundant-storage). I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. | Non applicabile
@@ -85,7 +85,7 @@ Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti avrà
 Conteggio dischi dati | 16 o meno (il valore massimo è una funzione delle dimensioni della macchina virtuale creata; 16 = XL) | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Dimensioni VHD dischi dati | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Schede di rete | Sono supportate più schede |
-Indirizzo IP statico | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure Si noti che l'indirizzo IP statico per una macchina virtuale Linux in esecuzione su Hyper-V non è supportato. 
+Indirizzo IP statico | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure Si noti che l'indirizzo IP statico per una macchina virtuale Linux in esecuzione su Hyper-V non è supportato.
 Disco iSCSI | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
 VHD condiviso | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Disco FC | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
@@ -112,7 +112,19 @@ Usare i suggerimenti seguenti per ottimizzare e ridimensionare la distribuzione.
 - **RPO**: Site Recovery supporta un obiettivo del punto di ripristino (RPO) quasi sincrono quando si esegue la replica ad Azure. Ciò presuppone sufficiente larghezza di banda tra il datacenter e Azure.
 
 
+##URL del servizio
+Assicurarsi che questi URL siano accessibili dal server
 
+
+**URL** | **Da VMM a VMM** | **Da VMM ad Azure** | **Da sito Hyper-V ad Azure** | **Da VMware ad Azure**
+---|---|---|---|---
+ *.accesscontrol.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ *.backup.windowsazure.com | | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ *.hypervrecoverymanager.windowsazure.com | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ *.store.core.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ *.blob.core.windows.net | | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ https://www.msftncsi.com/ncsi.txt | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Accesso richiesto
 
 
 ## Passaggi successivi
@@ -127,4 +139,4 @@ Dopo aver compreso e confrontato i requisiti generali di distribuzione, è possi
 - [Replicare le VM Hyper-V in un sito secondario con SAN](site-recovery-vmm-san.md)
 - [Replicare le VM Hyper-V con un singolo server VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

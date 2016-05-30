@@ -13,43 +13,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="04/27/2016"
 	ms.author="spelluru"/>
 
 
 # Guida alle prestazioni delle attività di copia e all'ottimizzazione
 Questo articolo descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data factory di Azure. Elenca anche le prestazioni osservate durante i test interni e descrive i modi per ottimizzare le prestazioni dell'attività di copia.
 
-## Panoramica dello spostamento dati in Data factory di Azure
-L'attività di copia esegue lo spostamento dati in Data factory di Azure e si basa su un [servizio di spostamento dati disponibile a livello globale](data-factory-data-movement-activities.md#global), che può copiare dati tra [diversi archivi dati](data-factory-data-movement-activities.md#supported-data-stores-for-copy-activity) in modo sicuro, affidabile, scalabile ed efficiente. Il servizio di spostamento dati sceglie automaticamente l'area ottimale per eseguire l'operazione di spostamento dati in base alla posizione degli archivi dati di origine e sink. Attualmente viene usata l'area più vicina all'archivio dati sink.
+L'attività di copia consente uno spostamento dei dati a velocità effettiva elevata come spiegano gli esempi seguenti:
 
-Di seguito vengono illustrati i modi in cui avviene lo spostamento dei dati in scenari diversi.
+- Inserimento di 1 TB di dati nell'archiviazione BLOB di Azure dal file system locale e dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps.
+- Inserimento di 1 TB di dati nell'archivio Azure Data Lake dal file system locale e dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps. 
+- Inserimento di 1 TB di dati in Azure SQL Data Warehouse dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps. 
 
-### Copia di dati tra due archivi dati cloud
-Quando sia l'archivio dati di origine che l'archivio dati sink (destinazione) si trovano nel cloud, l'attività di copia prevede le fasi seguenti per copiare/spostare i dati dall'origine al sink.
+Vedere le sezioni seguenti per altre informazioni sulle prestazioni delle attività di copia e suggerimenti per ottimizzarle.
 
-1.	Legge i dati dall'archivio dati di origine
-2.	Esegue la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo in base alle configurazioni dei set di dati di input e output e all'attività di copia
-3.	Scrive i dati nell'archivio dati di destinazione
-
-![Copiare dati tra due archivi dati cloud](./media/data-factory-copy-activity-performance/copy-data-between-two-cloud-stores.png)
-
-**Nota:** le forme delimitate da linee con punti (compressione, mapping delle colonne e così via) sono funzionalità che possono essere sfruttate o meno nel proprio caso d'uso.
-
-
-### Copia dei dati tra un archivio dati locale e un archivio dati cloud
-Per [spostare i dati tra un archivio dati locale e un archivio dati cloud](data-factory-move-data-between-onprem-and-cloud.md), è necessario installare il Gateway di gestione dati, ovvero un agente che consente lo spostamento e l'elaborazione ibridi dei dati sul computer locale. In questo scenario la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo in base alle configurazioni dei set di dati di input e output e all'attività di copia vengono eseguiti dal Gateway di gestione dati.
-
-![Copiare dati tra un archivio dati locale e un archivio dati cloud](./media/data-factory-copy-activity-performance/copy-data-between-onprem-and-cloud.png)
+> [AZURE.NOTE] Se non si ha una conoscenza generale dell'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) prima di continuare a leggere l'articolo.
 
 ## Procedura di ottimizzazione delle prestazioni
 Di seguito sono indicati i passaggi tipici da eseguire per ottimizzare le prestazioni della soluzione Data factory di Azure con l'attività di copia.
 
 1.	**Stabilire una baseline.** Durante la fase di sviluppo, testare la pipeline con l'attività di copia confrontandola con dati di esempio rappresentativi. È possibile sfruttare il [modello di sezionamento](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) di Data factory di Azure per limitare la quantità di dati usati.
 
-	Raccogliere le caratteristiche relative a tempi di esecuzione e prestazioni, controllando il pannello "Sezione dati" e il pannello "Dettagli esecuzione attività" del set di dati di output nel portale di anteprima di Azure, che mostra la durata dell'attività di copia e la dimensione dei dati copiati.
-
-	![Dettagli esecuzione attività](./media/data-factory-copy-activity-performance/activity-run-details.png)
+	Usare l'**app di monitoraggio e gestione** per raccogliere informazioni su tempo di esecuzione e caratteristiche di prestazione. Fare clic sul riquadro **Monitoraggio e gestione** nella home page della data factory, selezionare il **set di dati di output** nella visualizzazione ad albero e quindi selezionare l'attività di copia nell'elenco **Activity Windows** (Finestre attività). Nell'elenco **Activity Windows** (Finestre attività) verrà visualizzate la durata dell'attività di copia, mentre la dimensione dei dati copiati e la velocità effettiva saranno visualizzate nella finestra **Activity Window Explorer** (Esplora finestra attività) a destra. Vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md) per altre informazioni sull'app.
+	
+	![Dettagli esecuzione attività](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
 	È possibile confrontare le prestazioni e le configurazioni del proprio scenario con le [informazioni di riferimento sulle prestazioni](#performance-reference) basate sulle osservazioni interne pubblicate più avanti.
 2. **Diagnosi e ottimizzazione delle prestazioni.** Se le prestazioni osservate non rispondono alle aspettative, è necessario identificare i colli di bottiglia delle prestazioni ed eseguire le ottimizzazioni opportune per eliminare o ridurre l'impatto dei colli di bottiglia. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo argomento, ma qui di seguito sono elencate alcune considerazioni comuni.
@@ -60,6 +48,9 @@ Di seguito sono indicati i passaggi tipici da eseguire per ottimizzare le presta
 	- [Mapping di colonne](#considerations-on-column-mapping)
 	- [Gateway di gestione dati](#considerations-on-data-management-gateway)
 	- [Altre considerazioni](#other-considerations)
+	- [Copia parallela](#parallel-copy)
+	- [Unità di spostamento dei dati cloud](#cloud-data-movement-units)    
+
 3. **Espandere la configurazione all'insieme dei dati.** Una volta verificati i risultati dell'esecuzione e le prestazioni, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire tutti i dati presi in considerazione.
 
 ## Informazioni di riferimento sulle prestazioni
@@ -67,13 +58,12 @@ Di seguito sono indicati i passaggi tipici da eseguire per ottimizzare le presta
 
 ![Matrice delle prestazioni](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE] **Presto disponibili:** attualmente si sta lavorando per migliorare le caratteristiche delle prestazioni di base e a breve nella tabella precedente saranno presenti nuovi e più elevati valori per la velocità effettiva.
-
 Punti da notare:
 
 - La velocità effettiva viene calcolata con la formula seguente: [dimensione dei dati letti dall'origine]/[durata dell'esecuzione dell'attività di copia]
 - Per calcolare i valori precedenti, è stato usato il set di dati [TPC-H](http://www.tpc.org/tpch/).
 - Nel caso degli archivi dati di Microsoft Azure, l'origine e il sink sono nella stessa area di Azure.
+- Impostazione di **cloudDataMovementUnits** su 1 e valore di **parallelCopies** non specificato.
 - Nel caso dello spostamento dati ibrido (da locale a cloud o da cloud a locale), il Gateway di gestione dati (istanza singola) era ospitato in un computer diverso da quello dell'archivio dati locale, con la configurazione seguente. Si noti che, con una sola attività in esecuzione nel gateway, l'operazione di copia ha utilizzato solo una piccola parte delle risorse della CPU/memoria di questo computer e della larghezza di banda di rete.
 	<table>
 	<tr>
@@ -90,11 +80,104 @@ Punti da notare:
 	</tr>
 	</table>
 
+## Copia parallela
+Per ottimizzare la velocità effettiva di un'operazione di copia e ridurre il tempo di spostamento dei dati, è possibile considerare di leggere i dati dall'origine e/o scrivere i dati nella destinazione **parallelamente all'esecuzione di un'attività di copia**.
+ 
+Si noti che questa impostazione è diversa dalla proprietà **Concurrency** disponibile nella definizione dell'attività. La proprietà Concurrency determina il numero di **attività di copia eseguite contemporaneamente** in runtime per elaborare i dati da finestre attività diverse (dall'1 alle 2, dalle 2 alle 3, dalle 3 alle 4 e così via). È utile quando si esegue un carico cronologico. Nel caso discusso in questo articolo la copia parallela è applicata all'**esecuzione di una singola attività**.
+
+**Scenario di esempio**: considerare l'esempio seguente in cui è necessario elaborare più sezioni dati del passato. Il servizio Data Factory esegue un'istanza dell'attività di copia, ossia esegue un' attività, per ogni sezione dati.
+
+- Sezione dati dalla prima finestra attività (dall'1 alle 2) = = > esecuzione attività 1
+- Sezione dati dalla seconda finestra attività (dalle 2 alle 3) = = > esecuzione attività 2
+- Sezione dati dalla seconda finestra attività (dalle 3 alle 4) = = > esecuzione attività 3
+- e così via.
+
+Avendo impostato la proprietà **Concurrency** su **2** in questo esempio, l'**esecuzione attività 1** e l'** esecuzione attività 2** possono copiare i dati da due finestre attività **contemporaneamente** così da migliorare le prestazioni dello spostamento dei dati. Se tuttavia più file sono associati all'esecuzione dell'attività 1, viene copiato dall'origine nella destinazione un file per volta.
+
+### Proprietà parallelCopies
+È possibile usare la proprietà **parallelCopies** per indicare il parallelismo che l'attività di copia deve usare. In altre parole, considerare questa proprietà come numero massimo di thread all'interno di un'attività di copia che leggono dall'origine e/o scrivono negli archivi di dati del sink in parallelo.
+
+Per ogni esecuzione dell'attività di copia, Azure Data Factory determina in modo intelligente il numero di copie parallele da usare per copiare i dati dall'archivio dell'origine dati nell'archivio dati di destinazione. Il numero predefinito di copie parallele usate dipende dai tipi di origine e sink:
+
+Origine e sink |	Numero predefinito di copie parallele determinato dal servizio
+------------- | -------------------------------------------------
+Copia di dati tra **archivi basati su file**, ad esempio BLOB di Azure, Azure Data Lake,file system locale, HDFS locale | Qualsiasi numero compreso **tra 1 e 32** in base alla **dimensione dei file** e al **numero di unità di spostamento dei dati cloud** (vedere la sezione successiva per la definizione) usate per la copia dei dati tra due archivi dati cloud (o) la configurazione fisica del computer del gateway impiegato per la copia ibrida (copia di dati in/da un archivio dati locale)
+Copia di dati da **qualsiasi archivio dati di origine in Tabella di Azure** | 4
+Tutte le altre coppie di origine e sink | 1
+
+Nella maggior parte dei casi il comportamento predefinito dovrebbe garantire la velocità effettiva migliore. È tuttavia possibile sostituire il valore predefinito specificando un valore per la proprietà **parallelCopies** in modo da controllare il carico degli archivi dati sui computer o ottimizzare le prestazioni di copia. Deve essere compreso tra **1 e 32, in entrambi i casi**. In fase di esecuzione dell'attività di copia sarà scelto il valore minore o uguale al valore configurato così da garantire prestazioni ottimali.
+
+	"activities":[  
+	    {
+	        "name": "Sample copy activity",
+	        "description": "",
+	        "type": "Copy",
+	        "inputs": [{ "name": "InputDataset" }],
+	        "outputs": [{ "name": "OutputDataset" }],
+	        "typeProperties": {
+	            "source": {
+	                "type": "BlobSource",
+	            },
+	            "sink": {
+	                "type": "AzureDataLakeStoreSink"
+	            },
+	            "parallelCopies": 8
+	        }
+	    }
+	]
+
+Tenere presente quanto segue:
+
+- Per copiare i dati tra archivi basati su file, il parallelismo avviene a livello di file. In altre parole, non si verifica una suddivisione in blocchi all'interno di un singolo file. Il numero effettivo di copie parallele usate per l'operazione di copia non sarà maggiore del numero dei file. Se il comportamento di copia è di tipo mergeFile, non sarà possibile sfruttare il parallelismo.
+- Quando si specifica un valore per la proprietà parallelCopies, considerare che l'aumento del carico influisce sugli archivi dati di origine e sink, nonché sul gateway, in caso di una copia ibrida, soprattutto quando le attività sono multiple o le stesse attività vengono eseguite contemporaneamente sullo medesivo archivio dati. Se si nota che l'archivio dati o il gateway è sovraccaricato, diminuire il valore di parallelCopies per alleggerirlo.
+- Quando i dati vengono copiati da archivi dati non basati su file in archivi basati su file, la proprietà parallelCopies non viene considerata anche se è specificata e non si assiste a operazioni di parallelismo.
+
+> [AZURE.NOTE] Per sfruttare la funzionalità parallelCopies durante una copia ibrida, è necessario usare una versione successiva alla 1.11 di Gateway di gestione dati.
+
+### Unità di spostamento dei dati cloud
+L'**unità di spostamento dei dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità nel servizio Azure Data Factory, usata per eseguire un'operazione di copia da cloud a cloud. Non è contemplata nel caso di copia ibrida. Per impostazione predefinita, il servizio Azure Data Factory usa un'unica unità di spostamento dei dati cloud per eseguire una singola attività di copia. È possibile sostituire questa impostazione predefinita specificando un valore per la proprietà **cloudDataMovementUnits**. A questo punto l'impostazione cloudDataMovementUnits viene **supportata solo** quando vengono copiati dati **tra due archiviazioni BLOB di Azure** o da un'**archiviazione BLOB di Azure a un archivio Azure Data Lake** e ha effetto quando i file da copiare sono più di uno e la dimensione di ogni file è uguale o maggiore a 16 MB.
+
+Se si copiano file di dimensioni relativamente grandi, è possibile che, impostando un valore elevato della proprietà **parallelCopies**, le prestazioni non migliorino a causa delle risorse insufficienti di un'unica unità di spostamento dei dati cloud. In questi casi è possibile scegliere di usare più unità di spostamento dei dati cloud per copiare molti dati a una velocità effettiva elevata. Per specificare il numero di unità di spostamento dei dati cloud che l'attività di copia deve usare, impostare un valore per la proprietà **cloudDataMovementUnits** come illustrato di seguito:
+
+	"activities":[  
+	    {
+	        "name": "Sample copy activity",
+	        "description": "",
+	        "type": "Copy",
+	        "inputs": [{ "name": "InputDataset" }],
+	        "outputs": [{ "name": "OutputDataset" }],
+	        "typeProperties": {
+	            "source": {
+	                "type": "BlobSource",
+	            },
+	            "sink": {
+	                "type": "AzureDataLakeStoreSink"
+	            },
+	            "cloudDataMovementUnits": 4
+	        }
+	    }
+	]
+
+I **valori consentiti** per la proprietà cloudDataMovementUnits sono: 1 (valore predefinito), 2, 4 e 8. Se sono necessarie più unità di spostamento dei dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure ](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Il **numero effettivo di unità di spostamento dei dati cloud** usate per l'operazione di copia sarà uguale o minore del valore configurato, a seconda del numero di file da copiare dall'origine che soddisfa i criteri di dimensione.
+
+> [AZURE.NOTE] La proprietà parallelCopies deve essere >= alla proprietà cloudDataMovementUnits ove specificata. Se cloudDataMovementUnits è maggiore di 1, lo spostamento dei dati parallelo coinvolge cloudDataMovementUnits nell'attività di copia, migliorando così le prestazioni.
+
+Se si copiano più file di grandi dimensione impostando la proprietà **cloudDataMovementUnits** su 2, 4 e 8, le prestazioni possono essere pari a 2x (2 volte), 4x e 7x rispetto al valore di riferimento specificato nella sezione Informazioni di riferimento sulle prestazioni.
+
+Fare riferimento ai [casi d'uso di esempio](#case-study---parallel-copy) descritti in questo articolo per sfruttare le due proprietà sopra illustrate e ottimizzare la velocità effettiva dello spostamento dei dati.
+ 
+È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Di conseguenza, se un processo di copia impiegava un'ora con 1 unità cloud e ora richiede 15 minuti con 4 unità cloud, la fattura complessiva sarà pressoché identica. Ecco un altro scenario. Supporre che si usino 4 unità cloud e che la prima impieghi 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti durante l'esecuzione di un'attività di copia. Verrà addebitato il tempo totale necessario per la copia,ossia per lo spostamento dei dati, ovvero 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sui costi.
+
+
+
 ## Considerazioni sull'origine
 ### Generale
 Assicurarsi che l'archivio dati sottostante non venga sovraccaricato da altri carichi di lavoro in esecuzione in/per tale archivio, tra cui, ad esempio l'attività di copia.
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#appendix-data-store-performance-tuning-reference) specifici degli archivi dati per informazioni sulle caratteristiche delle prestazioni degli archivi dati e su come ridurre i tempi di risposta e ottimizzare la velocità effettiva.
+
+Se i dati vengono copiati dall'**archiviazione BLOB di Azure** in **SQL Data Warehouse di Azure**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli.
+
 
 ### Archivi dati basati su file
 *Include il BLOB di Azure, Azure Data Lake e il file system locale*
@@ -116,6 +199,9 @@ Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottim
 Assicurarsi che l'archivio dati sottostante non venga sovraccaricato da altri carichi di lavoro in esecuzione in/per tale archivio, tra cui, ad esempio l'attività di copia.
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#appendix-data-store-performance-tuning-reference) specifici degli archivi dati per informazioni sulle caratteristiche delle prestazioni degli archivi dati e su come ridurre i tempi di risposta e ottimizzare la velocità effettiva.
+
+Se i dati vengono copiati dall'**archiviazione BLOB di Azure** in **SQL Data Warehouse di Azure**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli.
+
 
 ### Archivi dati basati su file
 *Include il BLOB di Azure, Azure Data Lake e il file system locale*
@@ -214,7 +300,26 @@ Uno o più fattori seguenti possono costituire il collo di bottiglia delle prest
 
 In questo caso, è possibile che la compressione dati BZIP2 stia rallentando l'intera pipeline. Passando al codec di compressione GZIP è possibile ridurre questo collo di bottiglia.
 
-## Appendice - Informazioni di riferimento sull'ottimizzazione delle prestazioni dell'archivio dati
+
+## Case study: copia parallela  
+
+**Scenario I:** copiare 1000 file da 1 MB dal file system locale nell'archiviazione BLOB di Azure
+
+**Analisi e ottimizzazione delle prestazioni:** si supponga di aver installato il Gateway di gestione dati in un computer quad-core. Per impostazione predefinita Data Factory usa 16 copie parallele per spostare contemporaneamente i file dal file system al BLOB di Azure. La velocità in questo caso sarà buona. Se necessario, è anche possibile specificare il numero di copie parallele. Quando si copia un numero elevato di file di piccole dimensioni, le copie parallele aumentano considerevolmente la velocità grazie a un uso più efficiente delle risorse coinvolte.
+
+![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+
+**Scenario II:** copiare 20 BLOB di 500 MB ognuno dall'archiviazione BLOB di Azure in Azure Data Lake Store Analysis e ottimizzare le prestazioni.
+
+**Analisi e ottimizzazione delle prestazioni:** in questo scenario Data Factory copia i dati dall'archiviazione BLOB di Azure in Azure Data Lake usando un'unica copia e un'unica unità di spostamento dei dati cloud. La proprietà parallelCopies è impostata su 1. La velocità effettiva si avvicina ai valori indicati nella [sezione riguardante i riferimenti di prestazioni](#performance-reference) precedente.
+
+![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+
+Se si copiano file di dimensioni superiori a decine di MB e il volume totale è grande, è possibile che, impostando un valore più alto della proprietà parallelCopies, le prestazioni di copia non migliorino a causa delle risorse insufficienti di un'unica unità di spostamento dei dati cloud. È invece necessario specificare altre unità di spostamento dei dati cloud per ottenere più risorse ed eseguire lo spostamento dei dati. Non specificare un valore per la proprietà parallelCopies. In modo Data Factory eseguirà il parallelismo. In questo caso, impostare cloudDataMovementUnits su 4 perché la velocità effettiva sia circa 4x.
+
+![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
+
+## Informazioni di riferimento sull'ottimizzazione delle prestazioni dell'archivio dati
 Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione delle prestazioni per alcuni archivi dati supportati:
 
 - Archiviazione di Azure (inclusi BLOB di Azure e Tabella di Azure): [Obiettivi di scalabilità per Archiviazione di Azure](../storage/storage-scalability-targets.md) ed [Elenco di controllo relativo a prestazioni e scalabilità di Archiviazione di Azure](../storage//storage-performance-checklist.md)
@@ -224,4 +329,4 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

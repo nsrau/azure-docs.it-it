@@ -20,7 +20,7 @@
 
 Questo argomento illustra come creare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure in esecuzione nel modello Resource Manager. Un gruppo di disponibilità AlwaysOn richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello classico.
 
 Per completare questa attività, è necessario un gruppo di disponibilità AlwaysOn di SQL Server distribuito in macchine virtuali di Azure nel modello Resource Manager. Entrambe le macchine virtuali di SQL Server devono appartenere allo stesso set di disponibilità. È possibile usare il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) per creare automaticamente il gruppo di disponibilità AlwaysOn in Azure Resource Manager. Questo modello crea automaticamente il servizio di bilanciamento del carico interno.
 
@@ -267,4 +267,4 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 - Con un servizio di bilanciamento del carico interno è possibile accedere al listener solo dalla stessa rete virtuale.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

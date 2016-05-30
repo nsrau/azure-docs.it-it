@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole della rete CDN
 
-In questo argomento sono riportate descrizioni dettagliate delle condizioni di corrispondenza e delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN) di Azure.
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] Il motore regole richiede il livello Premium della rete CDN. Per altre informazioni sulle funzionalità dei livelli Standard e Premium della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti di Azure](cdn-overview.md).
+In questo argomento sono riportate descrizioni dettagliate delle condizioni di corrispondenza e delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN) di Azure.
 
 ## Condizioni di corrispondenza
 
@@ -98,6 +98,8 @@ Una funzionalità definisce il tipo di azione che verrà applicato al tipo di ri
 ### Accesso
 
 Queste funzionalità sono progettate per controllare l'accesso al contenuto.
+
+> [AZURE.NOTE] L'autenticazione con token in genere non è ancora disponibile, ma sarà supportata nelle versioni future.
 
 Nome | Scopo
 -----|--------
@@ -206,4 +208,4 @@ La funzionalità Web application firewall determina se una richiesta sarà verif
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

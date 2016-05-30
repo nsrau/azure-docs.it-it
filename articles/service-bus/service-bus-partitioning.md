@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Entità di messaggistica partizionate | Microsoft Azure"
-   description="Descrive come partizionare le entità di messaggistica usando più broker messaggi."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Entità di messaggistica partizionate | Microsoft Azure"
+    description="Descrive come partizionare le entità di messaggistica usando più broker messaggi."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Entità di messaggistica partizionate
 
@@ -23,9 +23,9 @@ Per altre informazioni sugli elementi interni del bus di servizio, vedere l'argo
 
 ## Code e argomenti partizionati
 
-Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene effettuata in modo casuale dal bus di servizio o in base a una chiave di partizione che può essere specificata dal mittente.
+Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 
-Quando un client vuole ricevere un messaggio da una coda, da una sottoscrizione o da un argomento partizionato, il bus di servizio esegue query su tutti i frammenti dei messaggi, quindi restituisce al ricevitore il primo messaggio restituito dagli archivi di messaggistica. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
+Quando un client vuole ricevere un messaggio da una coda partizionata, da una sottoscrizione o da un argomento partizionato, il bus di servizio esegue query su tutti i frammenti dei messaggi, quindi restituisce al ricevitore il primo messaggio ottenuto dagli archivi di messaggistica. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
 
 I messaggi a una coda o a un argomento partizionato non presentano costi aggiuntivi, né in invio né in ricezione.
 
@@ -144,4 +144,4 @@ Per altre informazioni sul partizionamento delle entità di messaggistica, veder
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

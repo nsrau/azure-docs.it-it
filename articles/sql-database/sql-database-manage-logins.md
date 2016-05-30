@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso  
@@ -24,7 +24,7 @@ Informazioni sulla gestione della sicurezza del database SQL, in particolare la 
 
 ## Provisioning del database e account di accesso delle entità di sicurezza a livello di server
 
-Nel Database SQL di Microsoft Azure, quando si effettua l'iscrizione per il servizio, il processo di provisioning crea un server di Database SQL di Azure, un database denominato **master**, e un account di accesso che rappresenta l'entità di livello server di Database SQL Azure. Tale account di accesso è simile all'entità di livello server, **sa**, per un'istanza locale di SQL Server.
+Nel Database SQL di Microsoft Azure, quando si effettua l'iscrizione per il servizio, il processo di provisioning crea un server di Database SQL di Azure, un database denominato **master**, e un account di accesso che rappresenta l'entità di livello server di Database SQL Azure. Tale account di accesso è simile all'entità di livello server, **sa**, per un'istanza locale di SQL Server. I concetti descritti in questo argomento si applicano anche ad Azure SQL Data Warehouse.
 
 L'account dell’entità di livello server di Database SQL di Azure dispone sempre dell'autorizzazione per gestire la sicurezza a livello di server e a livello di database. In questo argomento viene descritto come utilizzare l'entità di livello server e altri account per gestire gli account di accesso e i database nel Database SQL.
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Esercitazione del database SQL di Azure: Introduzione alla sicurezza del database SQL di Azure](sql-database-get-started-security.md) [Linee guida e limitazioni per la sicurezza per il database SQL di Azure](sql-database-security-guidelines.md) [Connessione al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

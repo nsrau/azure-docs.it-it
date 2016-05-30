@@ -86,7 +86,7 @@ Dati di esempio e i file con estensione jar sono disponibili nel file system Had
 
 ## Procedure consigliate relative al file system HDFS, all'archivio BLOB di Azure e all'archiviazione
 
-Nella maggior parte delle distribuzioni di Hadoop, il file system HDFS è supportato dall'archiviazione locale nei computer del cluster. Sebbene sia un sistema efficiente, può essere costoso per una soluzione basata su cloud dove viene addebitata una tariffa oraria per risorse di calcolo.
+Nella maggior parte delle distribuzioni di Hadoop, il file system HDFS è supportato dall'archiviazione locale nei computer del cluster. Sebbene sia un sistema efficiente, può essere costoso per una soluzione basata su cloud dove viene addebitata una tariffa oraria o al minuto per le risorse di calcolo.
 
 HDInsight usa l'archivio BLOB di Azure come archivio predefinito, con i vantaggi seguenti:
 
@@ -98,7 +98,7 @@ Poiché è l'archivio predefinito per HDInsight, in genere non è necessario ese
 
 	hadoop fs -ls /example/data
 
-Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre **wasb://** al comando.
+Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre ****WASB://** al comando.
 
 HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **WASB://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
 
@@ -257,4 +257,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

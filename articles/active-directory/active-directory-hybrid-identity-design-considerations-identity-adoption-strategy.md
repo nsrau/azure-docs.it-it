@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 
@@ -73,7 +73,10 @@ La strategia scelta determinerà l'esperienza di accesso per gli utenti. Le tabe
 | Exchange ActiveSync | Richiesta di credenziali | Single Sign-On per Lync, richiesta di credenziali per Exchange |
 | App per dispositivi mobili | Richiesta di credenziali | Richiesta di credenziali |
 
-Se nel corso dell'attività 1 è stato determinato che è in uso un provider di identità di terze parti o che ne verrà usato uno per usufruire della federazione con Azure AD, è necessario essere a conoscenza delle funzionalità supportate seguenti: - Qualsiasi provider SAML 2.0 conforme per il profilo SP-Lite può supportare l'autenticazione ad Azure AD e alle applicazioni associate - Supporta l'autenticazione passiva che semplifica l'autenticazione a Outlook Web App, SharePoint Online e così via - I client di Exchange Online possono essere supportati tramite il profilo Enhanced Client Profile per SAML 2.0
+Se nel corso dell'attività 1 è stato determinato che è in uso un provider di identità di terze parti o che ne verrà usato uno per la federazione con Azure AD, è necessario essere a conoscenza delle funzionalità supportate seguenti:
+- Qualsiasi provider SAML 2.0 conforme per il profilo SP-Lite può supportare l'autenticazione ad Azure AD e alle applicazioni associate
+- Supporta l'autenticazione passiva che semplifica l'autenticazione a Outlook Web App, SharePoint Online e così via
+- I client di Exchange Online possono essere supportati usando il profilo Enhanced Client Profile per SAML 2.0
 
 È anche importante conoscere quali funzionalità non saranno disponibili:
 
@@ -197,4 +200,4 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

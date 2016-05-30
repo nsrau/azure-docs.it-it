@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -102,25 +102,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 
 > [AZURE.TIP] Se si dispone già di un profilo di rete CDN che si desidera usare per questa esercitazione, passare a [Creare un nuovo endpoint della rete CDN](#create-a-new-cdn-endpoint).
 
-**Per creare un nuovo profilo di rete CDN**
-
-1. Nel [portale di gestione di Azure](https://portal.azure.com), in alto a sinistra, fare clic su **Nuovo**. Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
-
-    Viene visualizzato il pannello del nuovo profilo di rete CDN.
-
-    ![Nuovo profilo di rete CDN][new-cdn-profile]
-
-2. Inserire un nome per il profilo di rete CDN.
-
-3. Selezionare un **Piano tariffario** oppure usare il valore predefinito.
-
-4. Selezionare o creare un **Gruppo di risorse**. Non è necessario che questo sia lo stesso Gruppo di risorse dell’account di archiviazione.
-
-5. Selezionare la **Sottoscrizione** per questo profilo di rete CDN. Questa dovrà essere la stessa sottoscrizione dell'account di archiviazione ai fini di questa esercitazione.
-
-6. Selezionare un **Percorso**. Questo è il percorso di Azure in cui verranno archiviate le informazioni relative al profilo di rete CDN. Non incide sulle posizioni dell’endpoint di rete CDN. Non è necessario che sia lo stesso percorso dell'account di archiviazione.
-
-7. Per creare il nuovo profilo, fare clic sul pulsante **Crea**.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Creare un nuovo endpoint della rete CDN
 
@@ -177,7 +159,7 @@ Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**,
 -	Qualsiasi controller/azione
 -	Se la stringa di query viene abilitata sull'endpoint della rete CDN, qualsiasi URL con stringhe di query
 
-In effetti, con la configurazione precedente, è possibile ospitare l’intero servizio cloud da **http://*&lt;cdnName>*.azureedge.net/**. Se si passa a **http://camservice.azureedge.net/**, si ottiene il risultato dell’azione da Home/Index.
+In effetti, con la configurazione precedente, è possibile ospitare l’intero servizio cloud da **http://*&lt;cdnName>*.azureedge.net/**. Se si passa a ****http://camservice.azureedge.net/**, si ottiene il risultato dell’azione da Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -637,4 +619,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

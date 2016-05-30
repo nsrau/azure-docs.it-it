@@ -89,7 +89,7 @@ Questo passaggio descrive come archiviare un certificato SSL acquistato nell'ins
     ![inserimento immagine della creazione di un nuovo insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    L'insieme di credenziali delle chiavi di Azure prevede addebiti minimi per l'archiviazione di questo certificato. Il costo sarà di circa $ 0,03 centesimi (USD) Per altre informazioni vedere**[Prezzi di Insieme di credenziali delle chiavi](https://azure.microsoft.com/pricing/details/key-vault/)**.
+    L'insieme di credenziali delle chiavi di Azure prevede addebiti minimi per l'archiviazione di questo certificato. Per altre informazioni, vedere **[Prezzi di Insieme di credenziali delle chiavi](https://azure.microsoft.com/pricing/details/key-vault/)**.
 
 4. Dopo aver selezionato l'archivio dell'insieme di credenziali delle chiavi in cui archiviare il certificato, andare avanti e archiviarlo facendo clic sul pulsante **"Archivia"** nella parte superiore del pannello **"Stato dell'insieme di credenziali delle chiavi"**.
 
@@ -146,7 +146,7 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
                               
-            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host * **.contosocertdemo.com** o * **.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
+            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
@@ -194,7 +194,7 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
     ![inserimento immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. Con la reimpostazione verrà emesso un nuovo certificato da parte dell'autorità di certificazione.
-4. Non sono previsti addebiti per la reimpostazione per l'intera durata del certificato. 
+4. Non sono previsti addebiti per la reimpostazione delle chiavi per l'intera durata del certificato. 
 5. La reimpostazione modifica lo stato del certificato su Rilascio in sospeso. 
 6. Quando il certificato è pronto, accertarsi di sincronizzare le risorse usando questo certificato per evitare l'interruzione del servizio.
 7. Non è disponibile l'opzione di sincronizzazione per i certificati non ancora assegnati all'app Web. 
@@ -208,4 +208,4 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

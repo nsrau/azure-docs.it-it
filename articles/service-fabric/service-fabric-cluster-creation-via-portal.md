@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -75,7 +75,7 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
 
 	b. Selezionare le dimensioni della macchina virtuale e il piano tariffario. Il valore predefinito è D4 Standard. Se tuttavia si prevede di usare questo cluster solo per testare l'applicazione, è possibile selezionare una VM D2 o di dimensioni inferiori.
 
-	c. Il numero minimo di macchine virtuali per il tipo di nodo primario è determinato dal livello di affidabilità scelto per il cluster. Il valore predefinito per il livello di affidabilità è Medio. Per altre informazioni su come scegliere l'affidabilità e la durabilità del cluster di Service Fabric, vedere il relativo [articolo](service-fabric-cluster-reliability-and-durability.md).
+	c. Il numero minimo di macchine virtuali per il tipo di nodo primario è determinato dal livello di affidabilità scelto per il cluster. Il valore predefinito per il livello di affidabilità è Medio. Altre informazioni su come [scegliere l'affidabilità e la durabilità del cluster di Service Fabric](service-fabric-cluster-capacity.md).
 
 	c. Scegliere il numero di macchine virtuali per il tipo di nodo. È possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in un secondo momento, ma per il tipo di nodo primario il minimo è determinato dal livello di affidabilità che si è scelto. Gli altri tipi di nodo possono avere un minimo di una macchina virtuale.
 
@@ -141,39 +141,39 @@ Completata la configurazione del cluster, è ora possibile connettersi e iniziar
 
 ### Connettersi a un cluster non sicuro
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Connettersi a un cluster sicuro
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+1. Eseguire quanto segue per configurare il certificato sul computer che si userà per eseguire il comando di PowerShell "Connect-serviceFabricCluster".
 
-        ```powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+2. Eseguire il comando di PowerShell seguente per connettersi a un cluster sicuro. I dettagli del certificato sono gli stessi specificati nel portale.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
-        For example, the PowerShell command above should look similar to the following:
+    Ad esempio, il comando di PowerShell precedente sarà simile a quello riportato di seguito.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Distribuire l'app
 La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distribuire l'applicazione, sostituendo i percorsi indicati con quelli appropriati per il computer in uso. L'esempio seguente distribuisce l'applicazione di esempio per il conteggio delle parole.
@@ -207,7 +207,7 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
 
 ## Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
 
-Ognuno dei tipi di nodo specificati nel cluster corrisponde a un set di scalabilità di macchine virtuali configurato. Per altre informazioni, vedere l'articolo relativo all'[uso di RDP nell'istanza di un set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
+Ognuno dei tipi di nodo specificati nel cluster corrisponde a un set di scalabilità di macchine virtuali configurato. Per i dettagli, fare riferimento a [Connessione remota a un'istanza di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node).
 
 ## Passaggi successivi
 
@@ -229,4 +229,4 @@ Dopo aver creato un cluster, è possibile reperire altre informazioni sulla rela
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

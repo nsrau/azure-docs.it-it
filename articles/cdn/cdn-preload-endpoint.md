@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Precaricamento di risorse in un endpoint della rete CDN di Azure
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Per impostazione predefinita, gli asset vengono prima di tutto memorizzati nella cache quando vengono richiesti. Questo significa che la prima richiesta da ogni area potrebbe richiedere più tempo, poiché i server perimetrali non avranno il contenuto memorizzato nella cache e la richiesta dovrà essere inoltrata al server di origine. Il precaricamento del contenuto consente di evitare questa latenza della prima richiesta.
 
@@ -58,4 +60,4 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Integrare un'app in una rete virtuale di Azure #
@@ -59,7 +59,9 @@ Prima di procedere con la connessione della propria app Web a una rete virtuale,
 
 ## Abilitazione della funzionalità Integrazione rete virtuale ##
 
-È possibile connettersi a una rete virtuale nuova o a una esistente. Se si crea una nuova rete oltre a creare la rete virtuale, viene preconfigurato un gateway di routing dinamico e viene abilitata una VPN da punto a sito.
+Questo documento è incentrato principalmente sull'uso del portale di Azure per l'integrazione rete virtuale. Per abilitare l'integrazione della rete virtuale con l'app tramite PowerShell, seguire le istruzioni riportate di seguito: [Connettere l'app alla rete virtuale tramite PowerShell][IntPowershell].
+
+È possibile connettere l'app a una rete virtuale nuova o a una esistente. Se si crea una nuova rete durante l'integrazione, oltre a creare la rete virtuale, viene preconfigurato un gateway di routing dinamico e viene abilitata una VPN da punto a sito.
 
 >[AZURE.NOTE] La configurazione di una nuova integrazione di reti virtuali può richiedere diversi minuti.
 
@@ -83,7 +85,7 @@ L'interfaccia utente di Integrazione rete virtuale consente di selezionare da un
 Per abilitare l'integrazione è sufficiente fare clic sulla rete virtuale con cui eseguire l'integrazione. Dopo aver selezionato la rete virtuale, l'app verrà riavviata automaticamente per rendere effettive le modifiche.
 
 ##### Abilitare la connessione da punto a sito in una rete virtuale V1 #####
-Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario eseguirne prima di tutto la configurazione. Per eseguire questa operazione per una rete virtuale V1, passare al [portale di Azure][AzurePortal] e visualizzare l'elenco Reti virtuali (classico). Qui fare clic sulla rete con cui eseguire l'integrazione e quindi sulla casella grande Connessioni VPN in Informazioni di base. Da qui è possibile creare la VPN da punto a sito e anche fare in modo che venga creato un gateway. La rete da punto a sito con gateway appena creata sarà pronta dopo circa 30 minuti.
+Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario eseguirne prima di tutto la configurazione. Per eseguire questa operazione per una rete virtuale V1, accedere al [portale di Azure][AzurePortal] e visualizzare l'elenco Reti virtuali (classico). Qui fare clic sulla rete con cui eseguire l'integrazione e quindi sulla casella grande Connessioni VPN in Informazioni di base. Da qui è possibile creare la VPN da punto a sito e anche fare in modo che venga creato un gateway. La rete da punto a sito con gateway appena creata sarà pronta dopo circa 30 minuti.
 
 ![][8]
 
@@ -94,7 +96,7 @@ Per configurare una rete virtuale V2 con un gateway e una connessione da punto a
 ### Creazione di una rete virtuale preconfigurata ###
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale V2. Se si vuole creare una rete virtuale V1 con un gateway e una connessione da punto a sito, è necessario eseguire questa operazione manualmente tramite l'interfaccia utente di rete.
 
-Per creare una rete virtuale V2 tramite l'interfaccia utente di Integrazione rete virtuale, selezionare semplicemente **Crea una nuova rete virtuale** e specificare:
+Per creare una rete virtuale V2 tramite l'interfaccia utente dell'integrazione rete virtuale, selezionare semplicemente **Crea una nuova rete virtuale** e specificare:
 
 - Nome della rete virtuale
 - Blocco di indirizzi della rete virtuale
@@ -257,7 +259,7 @@ Sono disponibili 3 funzioni che consentono l'accesso alle risorse ospitate su re
 
 Per le connessioni ibride è necessario installare nella rete un agente di inoltro denominato Gestione connessione ibrida. Gestione connessione ibrida deve potersi connettere ad Azure e anche all'applicazione. Questa soluzione è particolarmente utile da una rete remota, ad esempio la rete locale o perfino un'altra rete ospitata su cloud, perché non richiede un endpoint accessibile da Internet. Gestione connessione ibrida può essere eseguita solo su sistemi Windows e prevede un massimo di 5 istanze in esecuzione per garantire un'elevata disponibilità. Le connessioni ibride, tuttavia, supportano solo il TCP e ogni endpoint di connessione ibrida deve corrispondere a una combinazione host:porta specifica.
 
-La funzionalità Ambiente del servizio app consente di eseguire un'istanza del servizio app di Azure nella propria rete virtuale. In questo modo le app possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi. Tra i vantaggi dell'ambiente del servizio app c'è la possibilità di usare 8 processi di lavoro dedicati alla memoria centrale con 14 GB di RAM. Un altro vantaggio è la possibilità di ridimensionare il sistema in base alle esigenze. A differenza degli ambienti multi-tenant, in cui l'ASP ha dimensioni limitate, in un ambiente del servizio app è possibile controllare il numero di risorse da assegnare al sistema. Per quanto riguarda l'argomento di questo documento, uno dei vantaggi dell'ambiente del servizio app rispetto all'integrazione di reti virtuali è che il primo è compatibile con una VPN ExpressRoute.
+La funzionalità Ambiente del servizio app consente di eseguire un'istanza del servizio app di Azure nella propria rete virtuale. In questo modo le app possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi. Tra i vantaggi dell'ambiente del servizio app c'è la possibilità di usare 8 processi di lavoro dedicati alla memoria centrale con 14 GB di RAM. Un altro vantaggio è la possibilità di ridimensionare il sistema in base alle esigenze. A differenza degli ambienti multi-tenant, in cui l'ASP ha dimensioni limitate, in un ambiente del servizio app è possibile controllare il numero di risorse da assegnare al sistema. Per quanto riguarda l'argomento di questo documento, uno dei vantaggi dell'ambiente del servizio app rispetto all'integrazione di reti virtuali è che il primo è compatibile con una VPN ExpressRoute.
 
 Nonostante ci sia una parziale sovrapposizione, nessuna di queste funzionalità può sostituire le altre. In base alle esigenze e all'uso che se ne intende fare è possibile stabilire quali funzionalità usare. Ad esempio:
 
@@ -287,5 +289,6 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo. La fun
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -83,7 +83,7 @@ No, il controllo non deve essere abilitato nei server proxy applicazione ADFS n�
 
 **D: In che modo vengono risolti gli avvisi di Azure AD Connect Health?**
 
-Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. Ovvero, se entro 48 ore dalla generazione dell'avviso viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
+Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. Ovvero, se entro 72 ore dalla generazione dell'avviso non viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
 
 
 
@@ -106,4 +106,4 @@ Quando si rimuove un agente da un server, il server non viene rimosso automatica
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

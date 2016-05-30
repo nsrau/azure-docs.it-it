@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/17/2016" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Gateway di gestione dati
@@ -22,7 +22,13 @@ Una delle maggiori difficoltà relative all'integrazione moderna dei dati consis
 
 Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
-## Versione corrente: 1.11.5918.1.
+## VERSIONE CORRENTE (1.12.5953.1)
+- Correzioni di bug
+
+
+## Versioni precedenti
+
+## 1\.11.5918.1
 
 - La dimensione massima del registro eventi del gateway è aumentata da 1 MB a 40 MB.
 - Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo. 
@@ -30,8 +36,6 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 - Miglioramenti delle prestazioni
 	- È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
 - Correzioni di bug
-
-## Versioni precedenti
 
 ## 1\.10.5892.1
 
@@ -145,4 +149,4 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 ### Perché Gestione origine dati prova a connettersi a un gateway?
 Si tratta di una progettazione di sicurezza secondo cui è possibile configurare solo origini dati locali per l'accesso cloud all'interno della rete aziendale, evitando la propagazione delle credenziali all'esterno del firewall aziendale. Assicurarsi che il computer possa raggiungere il computer in cui è installato il gateway.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # Note sulla versione dell'array virtuale StorSimple
@@ -40,6 +40,6 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | **10.** | Azure PowerShell | I dispositivi virtuali StorSimple non possono essere gestiti tramite Azure PowerShell in questa versione. | La gestione dei dispositivi virtuali deve essere eseguita tramite il portale di Azure classico e l'interfaccia utente Web locale. |
 | **11.** | Modifica della password | La console del dispositivo array virtuale accetta solo input nel formato della tastiera inglese (Stati Uniti). | |
 | **12.** | CHAP | Le credenziali di autenticazione CHAP create non possono essere rimosse. Se si modificano le credenziali di autenticazione CHAP, per rendere effettive le modifiche è necessario portare i volumi offline e quindi riportarli online. | Questi problemi verranno risolti in una versione successiva. |
-| **13.** | Volumi aggiunti in locale | Le risorse di archiviazione usate visualizzate per un volume aggiunto in locale possono essere diverse nel servizio e nell'host iSCSI. | L'host ha la visualizzazione del file system.<br></br>Il dispositivo vede i blocchi allocati quando il volume aveva raggiunto le dimensioni massime.|
+| **13.** | Server iSCSI | Le risorse di archiviazione usate visualizzate per un volume iSCSI possono essere diverse nel servizio StorSimple Manager e nell'host iSCSI. | L'host iSCSI ha la visualizzazione del file system.<br></br>Il dispositivo vede i blocchi allocati quando il volume aveva raggiunto le dimensioni massime.|
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

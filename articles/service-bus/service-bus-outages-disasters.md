@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Isolamento delle applicazioni del bus di servizio da interruzioni ed emergenze del servizio | Microsoft Azure"
-   description="Descrive le tecniche che è possibile usare per proteggere le applicazioni da potenziali interruzioni del bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Isolamento delle applicazioni del bus di servizio da interruzioni ed emergenze del servizio | Microsoft Azure"
+    description="Descrive le tecniche che è possibile usare per proteggere le applicazioni da potenziali interruzioni del bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -27,7 +27,7 @@ Il termine "emergenza" indica la perdita permanente di un'unità di scala del bu
 
 Il bus di servizio usa più archivi di messaggistica per memorizzare messaggi inviati a code o argomenti. Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo.
 
-Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi servizio che è affiliato a un data center. Il bus di servizio non abilita la replica geografica automatica dei dati, né consente a uno spazio dei nomi servizio di estendersi su più data center.
+Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi servizio che è affiliato a un data center. Il bus di servizio non abilita la replica geografica automatica dei dati, né consente a uno spazio dei nomi di estendersi su più data center.
 
 ## Protezione da interruzioni del servizio di controllo di accesso (ACS)
 
@@ -41,7 +41,7 @@ Una coda o un argomento non partizionato viene assegnato a un archivio di messag
 
 ## Protezione da interruzioni o emergenze dei data center
 
-Per consentire un failover tra due data center, è possibile creare uno spazio dei nomi servizio del bus di servizio in ogni data center. Ad esempio, lo spazio dei nomi servizio del bus di servizio **contosoPrimary.servicebus.windows.net** potrebbe trovarsi nell'area centro-settentrionale degli Stati Uniti, mentre **contosoSecondary.servicebus.windows.net** potrebbe trovarsi in quella meridionale. Se un'entità di messaggistica del bus di servizio deve rimanere accessibile in caso di interruzione del data center, è possibile creare l'entità in entrambi gli spazi dei nomi.
+Per consentire un failover tra due data center, è possibile creare uno spazio dei nomi servizio del bus di servizio in ogni data center. Ad esempio, lo spazio dei nomi servizio del bus di servizio **contosoPrimary.servicebus.windows.net** potrebbe trovarsi nell'area centro-settentrionale degli Stati Uniti, mentre **contosoSecondary.servicebus.windows.net** potrebbe trovarsi in quella centro-meridionale. Se un'entità di messaggistica del bus di servizio deve rimanere accessibile in caso di interruzione del data center, è possibile creare l'entità in entrambi gli spazi dei nomi.
 
 Per altre informazioni, vedere la sezione "Errore del bus di servizio in un data center di Azure" in [Modelli di messaggistica asincrona e disponibilità elevata][].
 
@@ -61,7 +61,7 @@ Se l'applicazione non richiede una comunicazione mittente-ricevitore permanente,
 
 ## Replica attiva
 
-La replica attiva usa entità in entrambi gli spazi dei nomi servizio per ogni operazione. Ogni client invia sempre due copie di un messaggio. La prima viene inviata all'entità primaria, ad esempio **contosoPrimary.servicebus.windows.net/sales**, la seconda all'entità secondaria, ad esempio **contosoSecondary.servicebus.windows.net/sales**.
+La replica attiva usa entità in entrambi gli spazi dei nomi per ogni operazione. Ogni client invia sempre due copie di un messaggio. La prima viene inviata all'entità primaria, ad esempio **contosoPrimary.servicebus.windows.net/sales**, la seconda all'entità secondaria, ad esempio **contosoSecondary.servicebus.windows.net/sales**.
 
 Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima copia di un messaggio ed elimina la seconda. Per eliminare i messaggi duplicati, il mittente deve contrassegnare ogni messaggio con un identificatore univoco. Entrambe le copie del messaggio devono essere contrassegnate con lo stesso identificatore. Per contrassegnare il messaggio, è possibile usare le proprietà [BrokeredMessage.MessageId][] o [BrokeredMessage.Label][] o una proprietà personalizzata. Il ricevitore deve mantenere l'elenco dei messaggi già ricevuti.
 
@@ -111,4 +111,4 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
   [Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
   [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

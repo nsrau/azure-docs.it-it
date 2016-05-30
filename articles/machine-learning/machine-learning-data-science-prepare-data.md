@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Attività per preparare i dati per operazioni avanzate con Machine Learning
 
-## Introduzione
 La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte di Cortana Analytics Process (CAP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su CAP, vedere i passaggi descritti nell'articolo relativo a [Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Le attività di pre-elaborazione e pulizia, ad esempio l'attività di esplorazione dei dati, possono essere eseguite in un'ampia gamma di ambienti, ad esempio SQL, Hive o Azure Machine Learning Studio, e con vari strumenti e linguaggi, ad esempio R o Python, a seconda della posizione in cui sono memorizzati i dati e della modalità di formattazione. Poiché CAP è iterativo per natura, queste attività possono essere eseguite in vari passaggi nel flusso di lavoro del processo.
@@ -110,4 +109,4 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

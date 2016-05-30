@@ -37,7 +37,7 @@ Esistono due impostazioni principali correlate alla scalabilità:
 * Il [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) o il piano di servizio Dynamic 
 * La dimensione della memoria per l'ambiente di esecuzione 
 
-Il costo di una funzione varia a seconda del tipo di piano di servizio selezionato. Con i piani di servizio Dynamic, il costo è in funzione del tempo di esecuzione, delle dimensioni della memoria e del numero di esecuzioni. Il costo cambia solo quando il codice viene effettivamente eseguito.
+Il costo di una funzione varia a seconda del tipo di piano di servizio selezionato. Con i piani di servizio Dynamic, il costo è in funzione del tempo di esecuzione, delle dimensioni della memoria e del numero di esecuzioni. I costi si accumulano solo quando il codice viene effettivamente eseguito.
 
 I piani di servizio normali consentono di ospitare le funzioni in VM esistenti che possono essere usate anche per eseguire altro codice. Oltre al pagamento mensile per queste VM, non vi sono altri costi aggiuntivi per l'esecuzione delle funzioni sulle macchine stesse.
 
@@ -47,4 +47,4 @@ Quando si creano app di funzione, è possibile scegliere di eseguirle all'intern
 
 [AZURE.INCLUDE [Piano di servizio Dynamic](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

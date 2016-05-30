@@ -18,13 +18,12 @@
 
 # Autenticazione utente per le app per le API nel servizio app di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/app-service-api-auth-selector.md)]
-
 ## Panoramica
 
-Questo è il quarto articolo della serie introduttiva per app per le API del servizio app. In questo articolo si apprenderà:
+Questo articolo illustra come proteggere un'app per le API di Azure in modo che possa essere chiamata solo dagli utenti autenticati. Questo articolo presuppone che sia stato letto l'articolo [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
 
-* Come proteggere un'app per le API del servizio app in modo che possa essere chiamata solo dagli utenti autenticati.
+Si apprenderà come:
+
 * Come configurare un provider di autenticazione, con dettagli relativi ad Azure Active Directory (Azure AD).
 * Come utilizzare un'app per le API protetta con [Active Directory Authentication Library (ADAL) per JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
@@ -32,11 +31,11 @@ L'articolo contiene due sezioni:
 
 * La sezione [Come configurare l'autenticazione utente nel servizio app di Azure](#authconfig) spiega in generale come configurare l'autenticazione utente per qualsiasi app per le API. È applicabile anche a tutti i framework supportati dal servizio app, ad esempio .NET, Node.js e Java.
 
-* A partire dalla sezione [Proseguimento delle esercitazioni introduttive su .NET](#tutorialstart), l'articolo fornisce informazioni sulla configurazione di un'applicazione di esempio con un back-end .NET e un front-end AngularJS, che usa Azure Active Directory per l'autenticazione utente.
+* A partire dalla sezione [Proseguimento delle esercitazioni sulle app per le API .NET](#tutorialstart), l'articolo illustra in dettaglio la configurazione di un'applicazione di esempio con un back-end .NET e un front-end AngularJS. L'applicazione usa Azure Active Directory per l'autenticazione utente.
 
 ## <a id="authconfig"></a> Come configurare l'autenticazione utente nel servizio app di Azure
 
-Questa sezione fornisce istruzioni generali applicabili a tutte le app per le API. Per i passaggi specifici dell'applicazione di esempio .NET To Do List, vedere [Proseguimento delle esercitazioni introduttive su .NET](#tutorialstart).
+Questa sezione fornisce istruzioni generali applicabili a tutte le app per le API. Per i passaggi specifici dell'applicazione di esempio .NET To Do List, vedere [Proseguimento delle esercitazioni sulle app per le API .NET](#tutorialstart).
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare al pannello **Impostazioni** dell'app per le API da proteggere, individuare la sezione **Funzionalità**, quindi fare clic su **Autenticazione/Autorizzazione**.
 
@@ -70,21 +69,21 @@ Fatto questo, il servizio app autenticherà tutte le chiamate API prima che ragg
 
 Per effettuare chiamate API autenticate, il chiamante include token di connessione OAuth 2.0 del provider di autenticazione nell'intestazione dell'autorizzazione delle richieste HTTP. Il token può essere acquisito con l'SDK del provider di autenticazione.
 
-## <a id="tutorialstart"></a> Proseguimento delle esercitazioni introduttive su .NET
+## <a id="tutorialstart"></a> Proseguimento delle esercitazioni sulle app per le API .NET
 
-Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, passare all'articolo successivo [Autenticazione dell'entità servizio per app per le API del servizio app di Azure](app-service-api-dotnet-service-principal-auth.md).
+Se si stanno seguendo le esercitazioni su Node.js o Java per le app per le API, passare all'articolo successivo [Autenticazione dell'entità servizio per app per le API nel servizio app di Azure](app-service-api-dotnet-service-principal-auth.md).
 
-Se si sta seguendo la serie introduttiva su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione nel servizio app e Azure AD](#azureauth).
+Se si sta seguendo la serie di esercitazioni su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione nel servizio app e in Azure AD](#azureauth).
 
-Per seguire questa esercitazione anche se la prima e la seconda non sono state completate, attenersi alla procedura seguente:
+Se si desidera seguire questa esercitazione senza passare per la prima e la seconda, eseguire la procedura seguente, che illustra come iniziare tramite un processo automatizzato per distribuire l'applicazione di esempio.
 
-1. Verificare di avere tutti i prerequisiti indicati nella [prima esercitazione](app-service-api-dotnet-get-started.md). Oltre ai prerequisiti indicati, queste esercitazioni sull'autenticazione presuppongono che l'utente abbia già usato le app Web del servizio app e le app per le API in Visual Studio e il portale di Azure.
+>[AZURE.NOTE] I passaggi seguenti conducono allo stesso punto di partenza a cui si arriva seguendo le prime due esercitazioni, con una sola eccezione: Visual Studio non sa a quale app Web o app per le API verrà distribuito ogni progetto. Ciò significa che in questa esercitazione non sono disponibili istruzioni precise per eseguire la distribuzione alle destinazioni corrette. Se non si è in grado di capire come eseguire in modo autonomo la procedura di distribuzione, è consigliabile seguire la serie di esercitazioni partendo dalla [prima](app-service-api-dotnet-get-started.md) anziché iniziare con il processo di distribuzione automatizzata illustrato qui.
 
-2. Fare clic sul pulsante **Distribuisci in Azure** nel [file leggimi del repository di esempio To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web. Prendere nota del gruppo di risorse di Azure che viene creato, poiché questa informazione potrà essere usata in un secondo tempo per la ricerca dei nomi delle app Web e delle app per le API.
+1. Assicurarsi di soddisfare tutti i prerequisiti indicati nella [prima esercitazione](app-service-api-dotnet-get-started.md). Oltre ai prerequisiti indicati, queste esercitazioni sull'autenticazione presuppongono che l'utente abbia già usato le app Web del servizio app e le app per le API in Visual Studio e il portale di Azure.
+
+2. Fare clic sul pulsante **Deploy to Azure** (Distribuisci in Azure) nel [file leggimi del repository di esempio di To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web. Prendere nota del gruppo di risorse di Azure che viene creato, poiché questa informazione potrà essere usata in un secondo tempo per la ricerca dei nomi delle app Web e delle app per le API.
  
-3. Scaricare o clonare il [repository di esempio To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) per ottenere il codice da usare per lavorare in locale in Visual Studio.
-
-Questi passaggi portano allo stesso punto di partenza a cui si arriva seguendo le prime due esercitazioni, con una sola eccezione: Visual Studio non sa ancora a quale app Web o app per le API verrà distribuito ogni progetto. Quando si distribuisce un progetto, è necessario selezionare l'app Web o l'app per le API di Azure per poter eseguire la distribuzione. Per ottenere i nomi dell'app Web e dell'app per le API, aprire il portale di Azure e passare al pannello del gruppo di risorse per il gruppo creato facendo clic sul pulsante **Distribuisci in Azure**.
+3. Scaricare o clonare il [repository di esempio di To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) per ottenere il codice da usare in locale in Visual Studio.
 
 ## <a id="azureauth"></a> Configurare l'autenticazione nel servizio app e in Azure AD
 
@@ -337,4 +336,4 @@ Per informazioni su come creare un'applicazione AngularJS a singola pagina con u
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

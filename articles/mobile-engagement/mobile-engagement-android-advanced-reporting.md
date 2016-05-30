@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Opzioni di segnalazione avanzata per Android Azure Mobile Engagement SDK"
-	description="Opzioni di segnalazione avanzata per Android per Azure Mobile Engagement SDK"
+	pageTitle="Opzioni di segnalazione avanzata per Android SDK per Azure Mobile Engagement"
+	description="Descrive come eseguire la segnalazione avanzata per l'acquisizione di analisi per Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Opzioni di segnalazione con Engagement in Android
@@ -28,40 +28,6 @@ Questo argomento descrive scenari di segnalazione aggiuntivi nell'applicazione A
 [AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
 
 Anche se l'esercitazione completata era volutamente diretta e semplice, è possibile scegliere tra diverse opzioni.
-
-## Compilazione con ProGuard
-
-Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantenere alcune classi. È possibile usare il frammento di codice di configurazione seguente:
-
-
-			-keep public class * extends android.os.IInterface
-			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
-			<methods>;
-		 	}
-
-## Tag nel file AndroidManifest.xml
-
-Nel tag service nel file AndroidManifest.xml l'attributo `android:label` consente di scegliere il nome del servizio Engagement così come verrà presentato agli utenti finali nella schermata dei servizi in esecuzione sul telefono. È consigliabile impostare questo attributo su `"<Your application name>Service"`, ad esempio `"AcmeFunGameService"`.
-
-Se si specifica l'attributo `android:process`, il servizio Engagement verrà eseguito nel relativo processo (l'esecuzione di Engagement nello stesso processo dell'applicazione può ridurre la reattività del thread principale o dell'interfaccia utente).
-
-## Uso di Application.onCreate()
-
-Il codice inserito in `Application.onCreate()` e in altri callback dell'applicazione verrà eseguito per tutti i processi dell'applicazione, incluso il servizio Engagement. È possibile che si verifichino effetti collaterali indesiderati, ad esempio allocazioni di memoria e thread superflui nel processo di Engagement oppure ricevitori o servizi di trasmissione duplicati.
-
-Se si esegue l'override di `Application.onCreate()`, è consigliabile aggiungere il frammento di codice seguente all'inizio della funzione `Application.onCreate()`:
-
-			 public void onCreate()
-			 {
-			   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
-			     return;
-
-			   ... Your code...
-			 }
-
-È possibile eseguire la stessa operazione per `Application.onTerminate()`, `Application.onLowMemory()` e `Application.onConfigurationChanged(...)`.
-
-È anche possibile estendere `EngagementApplication` anziché `Application`: il callback esegue il controllo del processo `Application.onCreate()` e chiama `Application.onApplicationProcessCreate()` solo se il processo corrente non è quello che ospita il servizio Engagement. Per gli altri callback vengono applicate le stesse regole.
 
 ## Modifica delle classi `Activity`
 
@@ -79,24 +45,57 @@ Se non si può o non si vuole eseguire l'overload delle classi `Activity`, è po
 
 Di seguito è fornito un esempio:
 
-			public class MyActivity extends Some3rdPartyActivity
-			{
-			  @Override
-			  protected void onResume()
-			  {
-			    super.onResume();
-			    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
-			    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
-			  }
+	public class MyActivity extends Some3rdPartyActivity
+	{
+	  @Override
+	  protected void onResume()
+	  {
+	    super.onResume();
+	    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
+	    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
+	  }
 
-			  @Override
-			  protected void onPause()
-			  {
-			    super.onPause();
-			    EngagementAgent.getInstance(this).endActivity();
-			  }
-			}
+	  @Override
+	  protected void onPause()
+	  {
+	    super.onPause();
+	    EngagementAgent.getInstance(this).endActivity();
+	  }
+	}
 
 Questo esempio è molto simile alla classe `EngagementActivity` e alle relative varianti, il cui codice di origine è disponibile nella cartella `src`.
 
-<!---HONumber=AcomDC_0511_2016-->
+## Uso di Application.onCreate()
+
+Il codice inserito in `Application.onCreate()` e in altri callback dell'applicazione verrà eseguito per tutti i processi dell'applicazione, incluso il servizio Engagement. È possibile che si verifichino effetti collaterali indesiderati, ad esempio allocazioni di memoria e thread superflui nel processo di Engagement oppure ricevitori o servizi di trasmissione duplicati.
+
+Se si esegue l'override di `Application.onCreate()`, è consigliabile aggiungere il frammento di codice seguente all'inizio della funzione `Application.onCreate()`:
+
+	 public void onCreate()
+	 {
+	   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
+	     return;
+
+	   ... Your code...
+	 }
+
+È possibile eseguire la stessa operazione per `Application.onTerminate()`, `Application.onLowMemory()` e `Application.onConfigurationChanged(...)`.
+
+È anche possibile estendere `EngagementApplication` anziché `Application`: il callback esegue il controllo del processo `Application.onCreate()` e chiama `Application.onApplicationProcessCreate()` solo se il processo corrente non è quello che ospita il servizio Engagement. Per gli altri callback vengono applicate le stesse regole.
+
+## Tag nel file AndroidManifest.xml
+
+Nel tag service nel file AndroidManifest.xml l'attributo `android:label` consente di scegliere il nome del servizio Engagement così come verrà presentato agli utenti finali nella schermata dei servizi in esecuzione sul telefono. È consigliabile impostare questo attributo su `"<Your application name>Service"`, ad esempio `"AcmeFunGameService"`.
+
+Se si specifica l'attributo `android:process`, il servizio Engagement verrà eseguito nel relativo processo (l'esecuzione di Engagement nello stesso processo dell'applicazione può ridurre la reattività del thread principale o dell'interfaccia utente).
+
+## Compilazione con ProGuard
+
+Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantenere alcune classi. È possibile usare il frammento di codice di configurazione seguente:
+
+	-keep public class * extends android.os.IInterface
+	-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+	<methods>;
+ 	}
+
+<!---HONumber=AcomDC_0518_2016-->

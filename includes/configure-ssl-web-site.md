@@ -44,7 +44,7 @@ Per ottenere un certificato SSL da usare con il servizio app di Azure, è necess
 >
 > I certificati di crittografia a curva ellittica (ECC) sono supportati nel servizio app di Azure, ma sono relativamente nuovi e per la procedura da seguire per la richiesta di firma del certificato è opportuno rivolgersi alla propria Autorità di certificazione.
 
-Potrebbe essere necessario, inoltre, ottenere **[certificati intermedi](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**, noti anche come certificati della catena, se sono usati dall'Autorità di certificazione. L'uso di certificati intermedi è considerato più sicuro rispetto ai "certificati non in catena", quindi questi certificati sono usati spesso dalle Autorità di certificazione. I certificati intermedi vengono spesso forniti come download separato dal sito Web dell'Autorità di certificazione. In questo articolo sono descritti i passaggi da eseguire per assicurarsi che eventuali certificati intermedi vengano uniti al certificato caricato nelle app.
+Potrebbe essere necessario, inoltre, ottenere **[certificati intermedi](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**, noti anche come certificati della catena, se sono usati dall'Autorità di certificazione. L'uso di certificati intermedi è considerato più sicuro rispetto ai "certificati non in catena", quindi questi certificati sono usati spesso dalle Autorità di certificazione. I certificati intermedi vengono spesso forniti come download separato dal sito Web dell'Autorità di certificazione. Questo articolo descrive i passaggi da eseguire per assicurarsi che eventuali certificati intermedi vengano uniti al certificato caricato nelle app.
 
 > [AZURE.NOTE]
 >
@@ -404,11 +404,11 @@ L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i 
 
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.
 
-6.	Fare clic su **Aumenta**.
+6.	Fare clic su **Aumenta prestazioni**.
 	
 	![Scheda Scalabilità][scale]
 
-7.	Nella sezione **Aumenta** impostare la modalità del piano del servizio app facendo clic su **Seleziona**.
+7.	Nella sezione **Aumenta prestazioni** impostare la modalità del piano del servizio app facendo clic su **Seleziona**.
 
 	> [AZURE.NOTE] Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per l'app Web '&lt;nome app&gt' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni. È possibile che venga visualizzato un errore di tipo "Server di istanze riservate disponibili non sufficienti per soddisfare la richiesta". Se viene visualizzato questo errore, contattare il [Supporto per Azure](/support/options/).
 
@@ -455,6 +455,7 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 >
 > 2. Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
 
+> [AZURE.NOTE] Se si aggiunge un **SSL basato su IP** a una app Web che già dispone di un'**associazione SNI** con un certificato diverso, non appena IP SSL viene abilitato per l'app Web, il nome host del sito viene riassegnato a quell'indirizzo IP, in modo che se il record CNAME di un altro nome host viene puntato al nome host di quel sito, riceverà traffico anche sull'indirizzo IP SSL. In questi casi è stata creata un'altra voce DNS: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; è il nome dell'app Web del Servizio app di Azure. È quindi necessario modificare i record DNS che puntano al nome usato nell'associazione SNI in modo che punti invece a sni.&lt;nameofyourWebApp&gt;.azurewebsites.net.
 
 A questo punto dovrebbe essere possibile passare all'app usando `HTTPS://` anziché `HTTP://` per verificare che il certificato sia stato configurato correttamente.
 
@@ -563,5 +564,3 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
-
-<!---HONumber=AcomDC_0323_2016-->

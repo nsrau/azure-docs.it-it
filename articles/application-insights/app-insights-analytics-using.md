@@ -29,7 +29,7 @@
 
 Nella home page dell'app in Application Insights fare clic su Analytics.
 
-![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics-using/001.png)
 
 L'esercitazione in linea fornisce alcune informazioni su come procedere.
 
@@ -37,7 +37,7 @@ L'esercitazione in linea fornisce alcune informazioni su come procedere.
 
 ## Scrivere query
 
-Scrivere una query iniziando con uno dei nomi delle tabelle elencate a sinistra. Usare `|` per creare una pipeline di [operatori](app-insights-analytics-queries.md).
+Scrivere una query iniziando con uno dei nomi delle tabelle elencate a sinistra. Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -60,9 +60,9 @@ Scrivere una query iniziando con uno dei nomi delle tabelle elencate a sinistra.
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Fare clic sull'intestazione di una colonna per riordinare velocemente i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Pertanto, questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. A tale scopo, usare l'operatore [top](app-insights-analytics-queries.md#top-operator) o [sort](app-insights-analytics-queries.md#sort-operator).
+> [AZURE.NOTE] Fare clic sull'intestazione di una colonna per riordinare velocemente i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Pertanto, questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. A tale scopo, usare l'operatore [top](app-insights-analytics-reference.md#top-operator) o [sort](app-insights-analytics-reference.md#sort-operator).
 
-Tuttavia, si consiglia di usare gli operatori [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) o [summarize](app-insights-analytics-queries.md#summarize-operator) per evitare il download di tabelle di grandi dimensioni dal server. È comunque previsto un limite automatico di circa 10.000 righe per ogni query.
+È buona norma, tuttavia, usare gli operatori [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) o [summarize](app-insights-analytics-reference.md#summarize-operator) per evitare di scaricare tabelle di grandi dimensioni dal server. È comunque previsto un limite automatico di circa 10.000 righe per ogni query.
 
 
 ## Diagrammi
@@ -75,7 +75,7 @@ Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi
 
 ![](./media/app-insights-analytics-using/100.png)
 
-Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma è possibile usare la [direttiva render](app-insights-analytics-queries.md#render-directive) alla fine di una query.
+Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma è possibile usare la [direttiva render](app-insights-analytics-reference.md#render-directive) alla fine di una query.
 
 ## Eseguire l'esportazione in Excel
 
@@ -104,4 +104,4 @@ Dopo aver eseguito una query, è possibile scaricare un file con estensione csv.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

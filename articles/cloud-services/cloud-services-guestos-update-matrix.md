@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2016"
+   ms.date="05/17/2016"
    ms.author="yuemlu"/>
 
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
@@ -28,6 +28,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## Novità e aggiornamenti
+
+###### **17 maggio 2016**
+L’implementazione del sistema operativo guest di maggio inizierà il 17 maggio 2016 e dovrebbe essere rilasciata il 10 giugno 2016.
 
 ###### **18 aprile 2016**
 L'implementazione del sistema operativo guest di aprile inizierà il 18 aprile 2016 e dovrebbe essere rilasciata il 12 maggio 2016.
@@ -55,9 +58,10 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.31\_201604-01 | 12 maggio 2016* | Dopo la versione 4.33 | Da definire |
+| WA-GUEST-OS-4.32\_201605-01 | 10 giugno 2016* | Dopo la versione 4.34 | Da definire |
+| WA-GUEST-OS-4.31\_201604-01 | 2 maggio 2016 | Dopo la versione 4.33 | Da definire |
 | WA-GUEST-OS-4.30\_201603-01 | 7 aprile 2016 | Dopo la versione 4.32 | Da definire |
-| WA-GUEST-OS-4.29\_201602-02 | 12 marzo 2016 | Dopo la versione 4.31 | Da definire |
+| WA-GUEST-OS-4.29\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
 | WA-GUEST-OS-4.28\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire | 
 | WA-GUEST-OS-4.27\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
 | ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
@@ -80,9 +84,10 @@ Supporta .NET 4.0, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.38\_201604-01 | 12 maggio 2016* | Dopo la versione 3.40 | Da definire |
+| WA-GUEST-OS-3.39\_201605-01 | 10 giugno 2016* | Dopo la versione 3.41 | Da definire |
+| WA-GUEST-OS-3.38\_201604-01 | 2 maggio 2016 | Dopo la versione 3.40 | Da definire |
 | WA-GUEST-OS-3.37\_201603-01 | 7 aprile 2016 | Dopo la versione 3.39 | Da definire |
-| WA-GUEST-OS-3.36\_201602-02 | 12 marzo 2016 | Dopo la versione 3.38 | Da definire |
+| WA-GUEST-OS-3.36\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
 | WA-GUEST-OS-3.35\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire |
 | WA-GUEST-OS-3.34\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
 | ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
@@ -106,9 +111,10 @@ Supporta .NET 3.5, 4.0
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.50\_201604-01 | 12 maggio 2016* | Dopo la versione 2.52 | Da definire |
+| WA-GUEST-OS-2.51\_201605-01 | 10 giugno 2016* | Dopo la versione 2.53 | Da definire |
+| WA-GUEST-OS-2.50\_201604-01 | 2 maggio 2016 | Dopo la versione 2.52 | Da definire |
 | WA-GUEST-OS-2.49\_201603-01 | 7 aprile 2016 | Dopo la versione 2.51 | Da definire |
-| WA-GUEST-OS-2.48\_201602-02 | 12 marzo 2016 | Dopo la versione 2.50 | Da definire |
+| WA-GUEST-OS-2.48\_201602-02 | 12 marzo 2016 | 2 giugno 2016 | Da definire |
 | WA-GUEST-OS-2.47\_201601-01 | 12 febbraio 2016 | 7 maggio 2016 | Da definire |
 | WA-GUEST-OS-2.46\_201512-01 | 12 gennaio 2016 | 12 aprile 2016 | Da definire |
 | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 gennaio 2016 | 12 marzo 2016 | Da definire |
@@ -126,7 +132,7 @@ L'elenco di patch incluse con il rilascio del sistema operativo di ogni mese è 
 
 ## Supporto SDK
 
-Anche se i [criteri di ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l’SDK più recente supportato.
+Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l’SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni dell’SDK compatibili |
 | --------------- | ----------------------- |
@@ -136,7 +142,7 @@ Anche se i [criteri di ritiro di Azure SDK][retire policy sdk] indicano che solo
 | 1 | Versione 1.0+ |
 
 ## Informazioni sui rilasci del sistema operativo guest
-Esistono tre date importanti per le versioni dei sistemi operativi guest: la data di **rilascio**, la data di **disabilitazione** e la data di **scadenza**. Un sistema operativo guest è considerato disponibile quando è disponibile sul portale e può essere selezionato come sistema operativo guest di destinazione. Quando un sistema operativo guest raggiunge la data di **disabilitazione**, viene rimosso da Azure. Tuttavia qualsiasi servizio cloud che abbia come obiettivo quel sistema operativo guest funzionerà normalmente.
+Sono tre le date importanti per le versioni dei sistemi operativi guest: la data di **rilascio**, la data di **disabilitazione** e la data di **scadenza**. Un sistema operativo guest è considerato disponibile quando è disponibile sul portale e può essere selezionato come sistema operativo guest di destinazione. Quando un sistema operativo guest raggiunge la data di **disabilitazione**, viene rimosso da Azure. Tuttavia qualsiasi servizio cloud che abbia come obiettivo quel sistema operativo guest funzionerà normalmente.
 
 La finestra temporale fra la data di **disabilitazione** e la data di **scadenza** offre un margine di tempo che facilita la transizione da un sistema operativo guest a un altro più recente. Se si usa l'opzione *automatico* come sistema operativo guest, la versione usata sarà sempre la più recente e non ci si dovrà preoccupare della scadenza.
 
@@ -145,16 +151,13 @@ Quando si supera la data di **scadenza**, qualsiasi servizio cloud che usa ancor
 ## Spiegazione delle famiglie e delle versioni del sistema operativo guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
-- **Famiglia di sistemi operativi guest**
-Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
+- **Famiglia di sistemi operativi guest** Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
 
-- **Versione del sistema operativo guest** 
-Specifica per l'immagine di una famiglia di sistemi operativi guest e le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
+- **Versione del sistema operativo guest** Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
 
     I numeri iniziano da 0 e vengono incrementati di 1 a ogni aggiunta di un nuovo set di aggiornamenti. Gli zeri finali vengono visualizzati solo se sono importanti; ad esempio, la versione 2.10 è una versione diversa e successiva rispetto alla versione 2.1.
 
-- **Rilascio del sistema operativo guest**
- Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
+- **Rilascio del sistema operativo guest** Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
 
 Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il rilascio.
 
@@ -179,7 +182,7 @@ Se si aggiorna manualmente il sistema operativo guest, leggere le informazioni i
 ## Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com//documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/it-IT/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -200,4 +203,4 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Configurare la gestione dei costi
@@ -26,7 +26,7 @@ La funzionalità di gestione dei costi dei lab di sviluppo/test consente di tene
 
 Per abilitare il grafico della tendenza dei costi mensili stimati, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -68,4 +68,4 @@ Altre operazioni da eseguire:
 - [Configurare immagini del Marketplace](./devtest-lab-configure-marketplace-images.md): il lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
 - [Creare una VM in un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova macchina virtuale da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

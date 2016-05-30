@@ -43,11 +43,13 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
 **Note sull'installazione di RHEL**
 
+- Vedere anche [Note generali sull'installazione di Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) per altri suggerimenti sulla preparazione di Linux per Azure.
+
 - Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD usando la console di gestione di Hyper-V o il cmdlet di PowerShell **convert-vhd**.
 
 - Le unità VHD devono essere create come "fisse". Le unità VHD dinamiche non sono supportate.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), spesso predefinite per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, sui dischi di dati si può usare LVM o RAID.
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, spesso predefinite per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra macchina virtuale per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
 
 - Non configurare una partizione swap nel disco del sistema operativo. È possibile configurare l'agente Linux per poter creare un file di scambio sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -97,7 +99,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+9.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
@@ -147,7 +149,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
         # export HISTSIZE=0
         # logout
 
-16.	Fare clic su **Azione > Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+16.	Fare clic su **Action > Shut Down** (Azione > Arresta) nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ### <a id="rhel7xhyperv"> </a>Preparare una macchina virtuale RHEL 7.1/7.2 dalla console di gestione di Hyper-V###
 
@@ -198,7 +200,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
         ClientAliveInterval 180
 
-10.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+10.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -225,7 +227,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
         # export HISTSIZE=0
         # logout
 
-15.	Fare clic su **Azione > Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+15.	Fare clic su **Action > Shut Down** (Azione > Arresta) nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 
 ## Preparare una macchina virtuale basata su Red Hat da KVM
@@ -318,7 +320,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
 		# service sshd restart
 
-13.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+13.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
@@ -449,7 +451,7 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
         systemctl restart sshd
 
-13.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+13.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -503,13 +505,13 @@ In questa sezione si presuppone che un'immagine RHEL sia già stata installata (
 
 ## Preparare una macchina virtuale basata su Red Hat da VMware
 ### Prerequisiti
-In questa sezione si presuppone che una macchina virtuale RHEL sia già stata installata in VMware. Per informazioni dettagliate su come installare un sistema operativo in VMware, vedere [Guida all'installazione del sistema operativo guest VMware](http://partnerweb.vmware.com/GOSIG/home.html).
+In questa sezione si presuppone che una macchina virtuale RHEL sia già stata installata in VMware. Per informazioni dettagliate su come installare un sistema operativo in VMware, vedere [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html) (Guida all'installazione del sistema operativo guest VMware).
 
 - Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, spesso predefinite per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra macchina virtuale per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o RAID.
 
 - Non configurare una partizione swap nel disco del sistema operativo. È possibile configurare l'agente Linux per poter creare un file di scambio sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
-- Quando si crea il disco rigido virtuale, selezionare **Archivia disco virtuale come singolo file**.
+- Quando si crea il disco rigido virtuale, selezionare **Store virtual disk as a single file** (Archivia disco virtuale come singolo file).
 
 
 
@@ -550,7 +552,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+7.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
@@ -680,7 +682,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
         ClientAliveInterval 180
 
-9.	È stato effettuato il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
+9.	È stato eseguito il push del pacchetto WALinuxAgent `WALinuxAgent-<version>` nel repository di funzionalità aggiuntive di Red Hat. Abilitare il repository di funzionalità aggiuntive eseguendo questo comando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -859,17 +861,17 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 2.	Posizionare il file kickstart in una posizione accessibile dal sistema di installazione.
 
-3.	Creare una nuova macchina virtuale nella console di gestione Hyper-V. Nella pagina **Connessione disco rigido virtuale** selezionare **Collega un disco rigido virtuale in un secondo momento** e completare la creazione guidata della macchina virtuale.
+3.	Creare una nuova macchina virtuale nella console di gestione Hyper-V. Nella pagina **Connessione disco rigido virtuale** selezionare **Connetti un disco rigido virtuale successivamente** e completare la creazione guidata della macchina virtuale.
 
 4.	Aprire le impostazioni della macchina virtuale:
 
-    a. Associare un nuovo disco rigido virtuale alla VM Verificare di selezionare **Formato VHD** e **A dimensione fissa**.
+    a. Associare un nuovo disco rigido virtuale alla VM Accertarsi di selezionare **VHD Format** (Formato VHD) e **Fixed Size** (A dimensione fissa).
 
     b. Collegare l'ISO di installazione all'unità DVD.
 
     c. Impostare il BIOS per l'avvio da CD.
 
-5.	Avviare la VM. Quando viene visualizzata la guida all'installazione, premere **Scheda** per configurare le opzioni di avvio.
+5.	Avviare la VM. Quando viene visualizzata la guida all'installazione, premere **Tab** per configurare le opzioni di avvio.
 
 6.	Inserire `inst.ks=<the location of the kickstart file>` alla fine di opzioni di avvio e premere **Invio**.
 
@@ -910,8 +912,8 @@ Ricompilare initramfs:
 Per altri dettagli, vedere le informazioni sulla [ricompilazione di initramfs](https://access.redhat.com/solutions/1958).
 
 ## Passaggi successivi
-È ora possibile usare il disco rigido virtuale Red Hat Enterprise Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo relativo a [creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+È ora possibile usare il disco rigido virtuale Red Hat Enterprise Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
 Per altre informazioni sugli hypervisor certificati per l'esecuzione di Red Hat Enterprise Linux, visitare [il sito Web di Red Hat](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

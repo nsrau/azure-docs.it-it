@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
 
 #  Campionamento in Application Insights
@@ -24,11 +24,23 @@ Il campionamento è una funzionalità di Application Insights che consente di ra
 
 Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
 
+## In breve:
+
+* Il campionamento mantiene un record su *n* e rimuove il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%.
+* Se l'applicazione invia molti dati di telemetria, il campionamento si verifica automaticamente. Il campionamento automatico interviene solo in presenza di volumi elevati e solo in applicazioni server Web ASP.NET.
+* È inoltre possibile impostare il campionamento manualmente, nella pagina del portale relativa ai prezzi (per ridurre il volume dei dati di telemetria mantenuti e rispettare la quota mensile) o nel file con estensione config di ASP.NET SDK, per ridurre anche il traffico di rete.
+* La frequenza di campionamento corrente è una proprietà di ogni record. Nella finestra di ricerca aprire un evento, ad esempio una richiesta. Espandere tutte le proprietà tramite i puntini di sospensione "…" per trovare la proprietà "* count", ad esempio, "request count" o "event count", a seconda del tipo di telemetria. Se è > 1, il campionamento è in corso. Se è uguale a 3, il campionamento è al 33%: ogni record mantenuto rappresenta 3 record generati originariamente.
+* Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
+* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](app-insights-analytics-tour.md#counting-sampled-data). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
+
+
+## Tipi di campionamento
+
 Esistono tre diversi metodi di campionamento:
 
-* **Campionamento adattivo** che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. Si tratta di un'opzione predefinita dell'SDK versione 2.0.0-beta3.
-* **Campionamento a frequenza fissa** che riduce il volume dei dati di telemetria inviati dai server ASP.NET e dai browser degli utenti. È necessario impostare la frequenza.
-* **Campionamento per inserimento** che riduce il volume dei dati di telemetria mantenuto dal servizio Application Insights, in base a una frequenza impostata dall'utente. Non riduce il traffico di telemetria, ma consente all'utente di rispettare la quota mensile. 
+* **Campionamento adattivo**, che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. Si tratta di un'opzione predefinita dell'SDK versione 2.0.0-beta3.
+* **Campionamento a frequenza fissa**, che riduce il volume dei dati di telemetria inviati sia dal server ASP.NET che dai browser degli utenti. È necessario impostare la frequenza.
+* **Campionamento per inserimento**, che riduce il volume dei dati di telemetria mantenuto dal servizio Application Insights in base a una frequenza impostata dall'utente. Non riduce il traffico di telemetria, ma consente all'utente di rispettare la quota mensile. 
 
 ## Campionamento per inserimento
 
@@ -41,6 +53,8 @@ Impostare la frequenza di campionamento nel pannello Quota + prezzi:
 ![Nel pannello Panoramica sull'applicazione fare clic su Impostazioni, Quota, Esempi e quindi selezionare una frequenza di campionamento e fare clic su Aggiorna.](./media/app-insights-sampling/04.png)
 
 Come in altri tipi di campionamento, l'algoritmo consente di mantenere gli elementi di telemetria correlati. Ad esempio, quando si controllano i dati di telemetria nella ricerca, sarà possibile trovare la richiesta correlata a una particolare eccezione. I conteggi di metrica, ad esempio la frequenza delle richieste e delle eccezioni, vengono mantenuti correttamente.
+
+I punti dati che vengono rimossi dal campionamento non sono disponibili in alcuna funzionalità di Application Insights, ad esempio nell'[esportazione continua](app-insights-export-telemetry.md).
 
 Il campionamento per inserimento non funziona mentre è attivo il campionamento a frequenza fissa o adattivo basato sull'SDK. Se la frequenza di campionamento nell'SDK è inferiore al 100%, la frequenza di campionamento di inserimento impostata viene ignorata.
 
@@ -74,7 +88,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Quando il valore della percentuale di campionamento cambia, periodo di tempo dopo il quale è consentito ridurre nuovamente la percentuale di campionamento per acquisire meno dati.
 
-* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
 
     Quando il valore della percentuale di campionamento cambia, periodo di tempo dopo il quale è consentito aumentare nuovamente la percentuale di campionamento per acquisire più dati.
 
@@ -242,6 +256,7 @@ Invece di impostare il parametro di campionamento nel file .config, è possibile
 
 ([Informazioni sui processori di telemetria](app-insights-api-filtering-sampling.md#filtering).)
 
+
 ## Quando usare il campionamento?
 
 Il campionamento adattivo viene automaticamente abilitato se si usa ASP.NET SDK versione 2.0.0-beta3 o successiva. Nel server Microsoft è possibile usare il campionamento per inserimento indipendentemente dalla versione dell'SDK in uso.
@@ -315,9 +330,7 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
  * Sì, il campionamento adattivo modifica gradualmente la percentuale di campionamento, in base al volume attualmente osservato della telemetria.
 
-*È possibile conoscere la frequenza di campionamento usata dal campionamento adattivo?*
-
- * Sì - utilizzare il metodo del codice di configurazione del campionamento adattivo, e sarà possibile fornire un callback che ottiene la frequenza di campionamento. Se si usa l'esportazione continua, è possibile visualizzare la frequenza di campionamento elencata nei punti dati esportati.
+ 
 
 *Se si usa il campionamento a frequenza fissa, come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
 
@@ -343,4 +356,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
  * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

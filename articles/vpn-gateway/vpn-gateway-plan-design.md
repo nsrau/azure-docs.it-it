@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 # Pianificazione e progettazione per il gateway VPN
@@ -23,7 +23,7 @@ Le operazioni di pianificazione e progettazione di connessioni cross-premise e d
 ## Pianificazione
 
 
-### <a name="compare"></a>1. Confrontare le opzioni di connettività cross-premise
+### <a name="compare"></a>Opzioni di connettività di più sedi locali
 
 Se si è scelto di connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre modi diversi: Da sito a sito, Da punto a sito ed ExpressRoute. Confrontare le diverse connessioni cross-premise disponibili. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 
@@ -44,7 +44,7 @@ La tabella seguente può aiutare nella scelta della migliore opzione di connetti
 
 
 
-### <a name="gwrequire"></a>2. Considerare i requisiti del gateway per tipo di VPN e SKU
+### <a name="gwrequire"></a>Requisiti del gateway per tipo di VPN e SKU
 
 
 Quando si crea un gateway VPN, è necessario specificare lo SKU del gateway da usare. Sono disponibili 3 SKU del Gateway VPN:
@@ -57,7 +57,7 @@ Quando si crea un gateway VPN, è necessario specificare lo SKU del gateway da u
 
 
 
-### 3\. Tipi di gateway e stime della velocità effettiva aggregata
+### <a name="aggthroughput"></a>Tipi di gateway e stime della velocità effettiva aggregata
 
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. La velocità effettiva aggregata stimata può essere un fattore determinante per la progettazione. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/). La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
 
@@ -65,7 +65,7 @@ La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregat
 
 
 
-### <a name="wf"></a>4. Flusso di lavoro
+### <a name="wf"></a>Flusso di lavoro
 
 L'elenco seguente descrive il flusso di lavoro comune per la connettività cloud:
 
@@ -78,11 +78,11 @@ L'elenco seguente descrive il flusso di lavoro comune per la connettività cloud
 
 ## Progettazione
 
-### 1\. Selezionare una topologia di connessione
+### <a name="topologies"></a>Topologie di connessione
 
-Iniziare leggendo l'articolo [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
+Iniziare esaminando i diagrammi nell'articolo [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md). L'articolo contiene i diagrammi di base, i modelli di distribuzione per ogni topologia (Azure Resource Manager o classica) e gli strumenti di distribuzione che è possibile usare per distribuire la configurazione.
 
-### 2\. Comprendere le nozioni di base della progettazione
+### <a name="designbasics"></a>Nozioni di base sulla progettazione
 
 Le sezioni seguenti illustrano le nozioni di base del gateway VPN. È anche consigliabile prendere in considerazione le [limitazioni dei servizi di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -113,7 +113,7 @@ Ecco i tipi di gateway VPN:
 - VPN
 - ExpressRoute
 
-#### Informazioni sui tipi di connessione
+#### <a name="connectiontype"></a>Informazioni sui tipi di connessione
 
 Ogni configurazione richiede un tipo di connessione specifico. Ecco i tipi di connessione:
 
@@ -134,27 +134,28 @@ Le tabelle seguenti mostrano il tipo di VPN e il relativo mapping a ogni configu
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)]
 
-### <a name="devices"></a>3. Selezionare un dispositivo VPN per le connessioni Da sito a sito
+### <a name="devices"></a>Dispositivi VPN per connessioni da sito a sito
 
 Per configurare una connessione Da sito a sito, indipendentemente dal modello di distribuzione, sono necessari gli elementi seguenti:
 
 - Un dispositivo VPN compatibile con i gateway VPN di Azure
 - Un indirizzo IP IPv4 pubblico che non si trovi dietro un NAT
 
-È necessario avere esperienza nella configurazione del dispositivo VPN per creare una configurazione Da sito a sito. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi VPN per le connessioni di gateway VPN](vpn-gateway-about-vpn-devices.md). L'articolo sui dispositivi VPN contiene informazioni su dispositivi convalidati e requisiti per i dispositivi che non sono stati convalidati, oltre a collegamenti a documenti di configurazione del dispositivo per ogni dispositivo, se disponibili.
+È necessario avere esperienza nella configurazione del dispositivo VPN. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi VPN per le connessioni di gateway VPN](vpn-gateway-about-vpn-devices.md). L'articolo sui dispositivi VPN contiene informazioni su dispositivi convalidati e requisiti per i dispositivi che non sono stati convalidati, oltre a collegamenti a documenti di configurazione del dispositivo per ogni dispositivo, se disponibili.
 
-### <a name="forcedtunnel"></a>4. Prendere in considerazione il routing con tunneling forzato
+### <a name="forcedtunnel"></a>Prendere in considerazione il routing con tunneling forzato
 
 Per la maggior parte delle configurazioni è possibile impostare il tunneling forzato. Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo. Si tratta di un requisito di sicurezza critico per la maggior parte dei criteri IT aziendali.
 
-Senza il tunneling forzato, il traffico associato a Internet dalle macchine virtuali in Azure raggiungerà direttamente Internet attraversando sempre l'infrastruttura di rete di Azure, senza l'opzione che consente di ispezionare o controllare il traffico. L'accesso a Internet non autorizzato potrebbe provocare la divulgazione di informazioni o altri tipi di violazioni della sicurezza. Per altre informazioni sulla configurazione del tunneling forzato, vedere [Configurare il tunneling forzato per i gateway VPN con modello di distribuzione classica](vpn-gateway-about-forced-tunneling.md) e [Configurare il tunneling forzato per i gateway VPN con modello di distribuzione Azure Resource Manager](vpn-gateway-about-forced-tunneling.md).
+Senza il tunneling forzato, il traffico associato a Internet dalle macchine virtuali in Azure raggiungerà direttamente Internet attraversando sempre l'infrastruttura di rete di Azure, senza l'opzione che consente di ispezionare o controllare il traffico. L'accesso a Internet non autorizzato potrebbe provocare la divulgazione di informazioni o altri tipi di violazioni della sicurezza.
 
-**Diagramma di tunneling forzato**
+Per altre informazioni sulla configurazione del tunneling forzato, vedere [Configurare il tunneling forzato per i gateway VPN con modello di distribuzione classico](vpn-gateway-about-forced-tunneling.md) e [About forced tunneling for the Resource Manager deployment model](vpn-gateway-about-forced-tunneling.md) (Configurare il tunneling forzato per i gateway VPN con modello di distribuzione Resource Manager).
+
+**Diagramma tunneling forzato**
 
 ![Connessione di tunneling forzato](./media/vpn-gateway-plan-design/forced-tunnel.png "tunneling forzato")
 
-
-Questa tabella elenca il modello di distribuzione per cui è disponibile il tunneling forzato, gli strumenti di distribuzione che è possibile usare per configurarlo e collegamenti diretti agli eventuali articoli disponibili. Le tabelle vengono aggiornate di frequente in base alla disponibilità di nuovi articoli utili.
+È possibile configurare una connessione di tunneling forzato in entrambi i modelli di distribuzione e tramite strumenti diversi. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 
 [AZURE.INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
@@ -162,6 +163,8 @@ Questa tabella elenca il modello di distribuzione per cui è disponibile il tunn
 
 ## Passaggi successivi
 
-Per altre informazioni che aiutano a semplificare la progettazione, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) e [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). Per altre informazioni sulle topologie di connessione, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
+Per altre informazioni che aiutano a semplificare la progettazione, vedere gli articoli [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) e [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+Per altre informazioni sulle topologie di connessione, vedere [Topologie di connessione del gateway VPN di Azure](vpn-gateway-topology.md).
+
+<!---HONumber=AcomDC_0518_2016-->

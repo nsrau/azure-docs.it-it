@@ -466,6 +466,8 @@ Questo comando elimina un'immagine di una macchina virtuale.
 
 Questo comando crea un'immagine di una macchina virtuale. I file VHD personalizzati vengono caricati nell'archiviazione BLOB, che è l'origina da cui viene creata l'immagine della macchina virtuale. L'immagine potrà quindi essere utilizzata per creare una macchina virtuale. I parametri relativi all'ubicazione e al sistema operativo sono obbligatori.
 
+>[AZURE.NOTE]Questo comando supporta attualmente solo il caricamento di file con estensione vhd fissi. Per caricare un file con estensione vhd dinamico, usare le [utilità VHD di Azure per Go](https://github.com/Microsoft/azure-vhd-utils-for-go).
+
 Alcuni sistemi impongono limitazioni sui descrittori di file per processo. Se questo limite viene superato, dallo strumento viene visualizzato un errore di limite di descrittori di file. È possibile eseguire nuovamente il comando usando il parametro -p &lt;numero> per ridurre il numero massimo di caricamenti paralleli. Il numero massimo di caricamenti paralleli predefinito è 96.
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
@@ -2348,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

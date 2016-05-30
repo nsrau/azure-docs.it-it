@@ -158,4 +158,4 @@ Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

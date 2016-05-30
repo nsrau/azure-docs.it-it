@@ -31,7 +31,7 @@ Poiché il servizio app gestisce le VM di Azure, l'archiviazione, le connessioni
 
 - Le app del servizio app sono isolate sia da Internet che dalle risorse di Azure di altri clienti.
 - La comunicazione di segreti (ad esempio, stringhe di connessione) tra l'app del servizio app e altre risorse di Azure (ad esempio, database SQL) in un gruppo di risorse rimanga all'interno di Azure e non superi i limiti di rete. I segreti siano sempre crittografati.
-- Tutte le comunicazioni tra l'app del servizio app e le risorse esterne, ad esempio gestione di PowerShell, interfaccia della riga di comando, Azure SDK, API REST e connessioni ibride siano crittografate correttamente.
+- Tutte le comunicazioni tra l'app del servizio app e le risorse esterne, ad esempio gestione di PowerShell, interfaccia della riga di comando, Azure SDK, API REST e connessioni ibride, siano crittografate correttamente.
 - La gestione delle minacce 24 ore su 24 protegge le risorse del servizio app da malware, attacchi Distributed Denial of Service (DDoS), attacchi man-in-the-middle (MITM) e altre minacce. 
 
 Per altre informazioni sulla sicurezza della piattaforma e dell'infrastruttura in Azure, vedere [Centro protezione di Azure](/support/trust-center/security/).
@@ -56,13 +56,13 @@ Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo 
 
 ##<a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
 
-Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
+Se si usa il nome di dominio ***.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio ***.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
 
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
 
 ## Sicurezza del livello dati
 
-Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](sql-database-threat-detection-get-started). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security.md) per altre informazioni su come proteggere i dati.
+Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dei dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](../sql-database/sql-database-threat-detection-get-started.md). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security.md) per altre informazioni su come proteggere i dati.
 
 Se si usa un provider di database di terze parti, ad esempio ClearDB, è consigliabile consultare direttamente la documentazione del fornitore per le procedure di sicurezza consigliate.
 
@@ -101,9 +101,9 @@ Servizio App di Azure offre all'app accesso FTP sicuro al file system tramite **
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Esplora tutto**.
-3. Dal pannello **Sfoglia** selezionare **Servizi app**.
-4. Dal pannello **Servizi app** selezionare l'app desiderata.
-5. Dal pannello dell'app selezionare **Tutte le impostazioni**.
+3. Nel pannello **Sfoglia** selezionare **Servizi app**.
+4. Nel pannello **Servizi app** selezionare l'app desiderata.
+5. Nel pannello dell'app selezionare **Tutte le impostazioni**.
 6. Nel pannello **Impostazioni** selezionare **Proprietà**.
 7. Il collegamenti FTP e FTPS sono disponibili nel pannello **Impostazioni**. 
 
@@ -123,4 +123,4 @@ Per informazioni sulla registrazione di informazioni nelle app del servizio app,
 
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

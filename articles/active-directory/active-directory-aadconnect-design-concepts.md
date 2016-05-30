@@ -65,7 +65,32 @@ Le restrizioni seguenti sono quindi applicabili ad Azure AD Connect:
 - Se si installa un altro server di Azure AD Connect, sarà necessario selezionare lo stesso attributo sourceAnchor usato in precedenza. Se si passa ad Azure AD Connect dopo avere usato DirSync, sarà necessario usare **objectGUID**, perché questo è l'attributo usato da DirSync.
 - Se il valore di sourceAnchor viene modificato dopo l'esportazione dell'oggetto in Azure AD, il servizio di sincronizzazione Azure AD Connect genererà un errore e non consentirà altre modifiche all'oggetto prima della risoluzione del problema e della reimpostazione del valore precedente di sourceAnchor nella directory di origine.
 
+## Accesso ad Azure AD
+
+Durante l'integrazione della directory locale con Azure AD, è importante capire come le impostazioni di sincronizzazione possono influire sul modo in cui l'utente esegue l'autenticazione. Azure AD usa userPrincipalName o UPN per autenticare l'utente. Tuttavia, quando si sincronizzano gli utenti è necessario scegliere con attenzione l'attributo da usare per userPrincipalName.
+
+### Scegliere l'attributo per userPrincipalName
+
+Quando si seleziona l'attributo per specificare il valore di UPN da usare in Azure è necessario verificare quanto segue:
+
+* I valori di attributo devono essere conformi alla sintassi UPN (RFC 822), ovvero devono essere nel formato username@domain.
+* Il suffisso nei valori deve corrispondere a uno dei domini personalizzati verificati in Azure AD
+
+Nelle impostazioni rapide come attributo deve essere scelto userPrincipalName. Tuttavia, se si ritiene che l'attributo userPrincipalName non contenga il valore che gli utenti dovrebbero usare per l'accesso ad Azure, è necessario scegliere **Installazione personalizzata** e indicare l'attributo appropriato.
+
+### Stato del dominio personalizzato e UPN
+È importante verificare che esista un dominio verificato per il suffisso UPN.
+
+John è un utente di contoso.com. Si vuole fare in modo che John usi l'UPN locale john@contoso.com per l'accesso ad Azure dopo che è stata eseguita la sincronizzazione degli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com. A tale scopo, è necessario aggiungere e verificare contoso.com come dominio personalizzato in Azure AD per poter avviare la sincronizzazione degli utenti. Se il suffisso UPN di John, ad esempio contoso.com, non corrisponde a un dominio verificato in Azure AD, il suffisso UPN verrà sostituito con azurecontoso.onmicrosoft.com e John dovrà usare john@azurecontoso.onmicrosoft.com per accedere ad Azure.
+
+### Domini locali non instradabili e UPN per Azure AD
+Alcune organizzazioni usano domini non instradabili, ad esempio contoso.local, o domini semplici con etichetta singola come contoso. In Azure AD non sarà possibile verificare un dominio non instradabile. Azure AD Connect è in grado eseguire la sincronizzazione con un solo dominio verificato in Azure AD. Quando si crea una directory di Azure AD, viene creato un dominio instradabile che diventa dominio predefinito per Azure AD, ad esempio contoso.onmicrosoft.com. Si rende quindi necessario verificare eventuali altri domini instradabili nello stesso scenario, nel caso in cui non si voglia eseguire la sincronizzazione con il dominio .onmicrosoft.com predefinito.
+
+Per altre informazioni sull'aggiunta e la verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-add-domain.md).
+
+Azure AD Connect rileva se l'esecuzione avviene in un ambiente di dominio non instradabile e avvisa che è opportuno non proseguire con le impostazioni rapide. Se si opera in un dominio non instradabile, è probabile che anche l'UPN degli utenti abbia un suffisso non instradabile. Ad esempio, se si opera in contoso.local, Azure AD Connect suggerisce di usare le impostazioni personalizzate anziché le impostazioni rapide. Con le impostazioni personalizzate sarà possibile specificare l'attributo che deve essere usato come nome UPN per l'accesso ad Azure dopo la sincronizzazione degli utenti con Azure AD. Per altre informazioni, vedere **Selezione dell'attributo per il nome dell'entità utente in Azure AD**.
+
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

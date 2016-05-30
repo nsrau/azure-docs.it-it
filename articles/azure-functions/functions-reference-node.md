@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
 
-È possibile includere i pacchetti nella directory delle funzioni, ad esempio tramite `npm install`, e quindi importarli in una funzione nel modo consueto, ad esempio tramite `require('packagename')`.
+È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
+
+È anche possibile usare `npm install` nell'interfaccia della riga di comando SCM (Kudu) dell'app per le funzioni:
+
+1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Fare clic su **Debug Console (Console debug) > CMD**.
+
+3. Accedere a `D:\home\site\wwwroot<function_name>`.
+
+4. Eseguire `npm install`.
+
+Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali (ad esempio con `require('packagename')`).
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -163,4 +175,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

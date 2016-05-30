@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -164,7 +164,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo ** SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
 6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
@@ -233,7 +233,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 1.  Nel portale di Azure classico (o dal passaggio precedente) selezionare **MACCHINE VIRTUALI**.
 
-2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da **http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
+2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da ****http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
 ##<a name="cde"></a>Eseguire la connessione al motore di database da un altro computer
 
@@ -306,4 +306,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

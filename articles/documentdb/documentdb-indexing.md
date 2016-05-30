@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="05/05/2016" 
 	ms.author="arramac"/>
 	
 # Indicizzazione automatica in Azure DocumentDB
@@ -23,7 +23,7 @@ Questo articolo è un estratto del documento ["Indicizzazione senza schema con A
 Dopo la lettura di questo articolo, si sarà in grado di rispondere alle domande seguenti:
 
 - In che modo DocumentDB deduce lo schema da un documento JSON?
-- In che modo DocumentDB crea un indice di documenti diversi?
+- In che modo DocumentDB crea un indice su documenti diversi?
 - In che modo DocumentDB esegue l'indicizzazione automatica su larga scala?
 
 ##<a id="HowDocumentDBIndexingWorks"></a> Come funziona l'indicizzazione di DocumentDB
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

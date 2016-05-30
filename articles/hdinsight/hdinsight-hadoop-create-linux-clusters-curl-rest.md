@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/16/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
@@ -44,7 +44,7 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
     > 
     > Per rimuovere l'alias, utilizzare la seguente procedura dal prompt di PowerShell:
     >
-    > ```Remove-item alias:curl`
+    > `Remove-item alias:curl`
     >
     > Una volta rimosso l'alias, sarà possibile utilizzare la versione di cURL installata nel sistema.
 
@@ -66,7 +66,7 @@ In genere i modelli vengono forniti modelli in due parti; il modello stesso e un
         }
     }
 
-Ad esempio, di seguito è un'unione dei file di modello e di parametri da [https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password), che consente di creare un cluster basato su Linux utilizzando una password per proteggere l'account utente SSH.
+Ad esempio, di seguito è riportata una fusione dei file di modello e di parametri ricavati da [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), che consente di creare un cluster basato su Linux usando una password per proteggere l'account utente SSH.
 
     {
         "properties": {
@@ -262,49 +262,117 @@ Questo esempio verrà utilizzato nei passaggi di questo documento. È necessario
 
 ##Effettuare l'accesso alla sottoscrizione di Azure
 
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo __login__.
+Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il comando `azure login`.
 
 ##Creare un’entità servizio
 
-> [AZURE.IMPORTANT] Quando si esegue la procedura descritta nell'articolo al collegamento di seguito, è necessario apportare le modifiche seguenti:
-> 
-> * Quando i passaggi indicano di utilizzare un valore di __lettore__, è necessario utilizzare invece __proprietario__. Verrà creata un’entità servizio in grado di apportare modifiche ai servizi sulla sottoscrizione, necessaria per la creazione di un cluster HDInsight.
->
-> È inoltre necessario salvare le informazioni seguenti, utilizzate in questo processo:
-> 
-> * ID sottoscrizione: ricevuto quando si utilizza `azure account list`
-> * ID tenant: ricevuto quando si utilizza `azure account list`
-> * ID dell'applicazione: restituito durante la creazione dell'entità servizio
-> * Password per l'entità servizio: utilizzata quando si crea l’entità servizio
+> [AZURE.NOTE] Questa procedura costituisce una sintesi delle informazioni contenute nella sezione _Autenticazione con password - Interfaccia della riga di comando di Azure_ del documento [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli). Consente di creare una nuova entità servizio necessaria per autenticare le richieste dell'API REST usate per la creazione di risorse di Azure, ad esempio un cluster HDInsight.
 
-Seguire i passaggi nella sezione _Autenticare l’entità servizio con una password - Interfaccia di riga di comando di Azure_ del documento [Autenticazione di un'entità servizio con Gestione risorse di Azure](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli). Verrà creata una nuova entità servizio che può essere utilizzata per autenticare la richiesta di creazione del cluster.
+1. Al prompt dei comandi, in una sessione terminal o in una shell usare il comando seguente per elencare le sottoscrizioni di Azure.
+
+        azure account list
+        
+    Nell'elenco selezionare la sottoscrizione che si vuole usare e annotare il valore della colonna __Id__, che costituisce l'__ID sottoscrizione__ e dovrà essere usato nella maggior parte dei passaggi descritti in questo documento.
+
+2. Creare una nuova applicazione in Azure Active Directory.
+
+        azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
+        
+    Sostituire i valori di `--name`, `--home-page` e `--identifier-uris` con valori personalizzati. Specificare una password per la nuova voce di Active Directory.
+    
+    > [AZURE.NOTE] Poiché si sta creando questa applicazione per l'autenticazione tramite un'entità servizio, non è necessario che i valori `--home-page` e `--identifier-uris` facciano riferimento a una pagina Web effettiva ospitata in Internet, ma possono essere anche semplici URI univoci.
+    
+    Dall'elenco di dati restituiti salvare il valore __AppId__.
+    
+        data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
+        data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
+        data:    DisplayName:    exampleapp
+        ...
+        info:    ad app create command OK
+    
+3. Creare un'entità servizio usando il valore __AppId__ precedentemente restituito.
+
+        azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
+        
+     Dall'elenco di dati restituiti salvare il valore __ID oggetto__.
+     
+        info:    Executing command ad sp create
+        - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+        data:    Display Name:     exampleapp
+        data:    Service Principal Names:
+        data:                      4fd39843-c338-417d-b549-a545f584a745
+        data:                      https://www.contoso.org/example
+        info:    ad sp create command OK
+        
+4. Assegnare il ruolo __Proprietario__ all'entità servizio usando il valore __ID oggetto__ precedentemente restituito. È necessario usare anche l'__ID sottoscrizione__ ottenuto in precedenza.
+    
+        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
+        
+    Dopo il completamento del comando, l'entità servizio disporrà dell'accesso all'ID sottoscrizione specificato in qualità di Proprietario.
 
 ##Ottenere un token di autenticazione
 
-Utilizzare le operazioni seguenti per ottenere un nuovo token da Azure. Sostituire __TENANTID__, __APPLICATIONID__ e __PASSWORD__ con le informazioni salvate durante la creazione di un'entità servizio:
+1. Usare il comando seguente per trovare l'__ID tenant__ relativo alla sottoscrizione.
 
-    curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" \
-    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=APPLICATIONID" \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=PASSWORD" \
-    --data-urlencode "resource=https://management.azure.com/"
+        azure account show -s <subscription ID>
+        
+    Nell'elenco dei dati restituiti trovare la voce __ID tenant__.
+    
+        info:    Executing command account show
+        data:    Name                        : MyAzureAccount
+        data:    ID                          : 45a1014d-0f27-25d2-b838-b8f373d6d52e
+        data:    State                       : Enabled
+        data:    Tenant ID                   : 22f988bf-56f1-41af-91ab-3d7cd011db47
+        data:    Is Default                  : true
+        data:    Environment                 : AzureCloud
+        data:    Has Certificate             : No
+        data:    Has Access Token            : Yes
+        data:    User name                   : myname@contoso.org
+        data:    
+        info:    account show command OK
 
-Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON.
+2. Generare un nuovo token usando l'API REST di Azure.
 
-> [AZURE.IMPORTANT] Il documento JSON restituito da questa richiesta contiene un elemento denominato __access\_token__; il valore di questo elemento è il token di accesso da utilizzare per l'autenticazione delle richieste utilizzate nelle sezioni successive di questo documento.
+        curl -X "POST" "https://login.microsoftonline.com/TenantID/oauth2/token" \
+        -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        --data-urlencode "client_id=AppID" \
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_secret=password" \
+        --data-urlencode "resource=https://management.azure.com/"
+    
+    Sostituire __TenantID__, __AppID__ e __password__ con i valori ottenuti o usati in precedenza.
+
+    Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON.
+
+    Il documento JSON restituito da questa richiesta contiene un elemento denominato __access\_token__; il valore di questo elemento è il token di accesso da utilizzare per l'autenticazione delle richieste utilizzate nelle sezioni successive di questo documento.
+    
+        {
+            "token_type":"Bearer",
+            "expires_in":"3599",
+            "expires_on":"1463409994",
+            "not_before":"1463406094",
+            "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
+        }
 
 ##Creare un gruppo di risorse
 
 Per creare un nuovo gruppo di risorse, seguire questa procedura. È necessario creare innanzitutto il gruppo prima di poter creare le risorse, ad esempio il cluster HDInsight.
 
-* Sostituire __SUBSCRIPTIONID__ con l’ID sottoscrizione ricevuto durante la creazione dell'entità servizio.
-* Sostituire __ACCESSTOKEN__ con il token di accesso ricevuto nel passaggio precedente.
-* Sostituire __DATACENTERLOCATION__ con il datacenter in cui si desidera creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud". 
-* Sostituire __GROUPNAME__ con il nome che si desidera usare per questo gruppo:
+* Sostituire __SubscriptionID__ con l'ID sottoscrizione ricevuto durante la creazione dell'entità servizio.
+* Sostituire __AccessToken__ con il token di accesso ricevuto nel passaggio precedente.
+* Sostituire __DataCenterLocation__ con il data center in cui si vuole creare il gruppo di risorse e le risorse. Ad esempio "Stati Uniti centrali del sud". 
+* Sostituire __ResourceGroupName__ con il nome che si vuole usare per questo gruppo:
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d $'{ "location": "DATACENTERLOCATION" }’
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DataCenterLocation"
+}'
+```
 
 Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON che include le informazioni del gruppo. L’elemento `"provisioningState"` conterrà un valore di `"Succeeded"`.
 
@@ -312,15 +380,20 @@ Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corp
 
 Utilizzare le operazioni seguenti per distribuire la configurazione del cluster (valori di modello e di parametri,) nel gruppo di risorse.
 
-* Sostituire __SUBSCRIPTIONID__ e __ACCESSTOKEN__ con i valori utilizzati in precedenza. 
-* Sostituire __GROUPNAME__ con il nome del gruppo di risorse creato nella sezione precedente.
-* Sostituire __DEPLOYMENTNAME__ con il nome che si desidera utilizzare per la distribuzione.
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
+* Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
+* Sostituire __DeploymentName__ con il nome che si vuole usare per questa distribuzione.
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{impostare la stringa del corpo su modello e parametri}"
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
-> [AZURE.NOTE] Se il documento JSON contenente il modello e i parametri è stato salvato in un file, è possibile utilizzare quanto indicato di seguito invece di `-d "{modello e parametri}"':
+> [AZURE.NOTE] Se il documento JSON contenente il modello e i parametri è stato salvato in un file, è possibile usare il codice seguente anziché `-d "{ template and parameters}"`:
 >
-> ```--data-binary "@/path/to/file.json"```
+> `--data-binary "@/path/to/file.json"`
 
 Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON che include le informazioni dell’operazione di distribuzione.
 
@@ -330,10 +403,14 @@ Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corp
 
 Per verificare lo stato della distribuzione, usare il comando seguente:
 
-* Sostituire __SUBSCRIPTIONID__ e __ACCESSTOKEN__ con i valori utilizzati in precedenza. 
-* Sostituire __GROUPNAME__ con il nome del gruppo di risorse creato nella sezione precedente.
+* Sostituire __SubscriptionID__ e __AccessToken__ con i valori usati in precedenza. 
+* Sostituire __ResourceGroupName__ con il nome del gruppo di risorse creato nella sezione precedente.
 
-    curl -X "GET" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json"
+```
+curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json"
+```
 
 Restituirà informazioni di un documento JSON che contiene informazioni sull'operazione di distribuzione. L’elemento `"provisioningState"` conterrà lo stato della distribuzione; se contiene un valore di `"Succeeded"`, quindi la distribuzione è stata completata correttamente. A questo punto, il cluster deve essere disponibile per l'utilizzo.
 
@@ -358,4 +435,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore SendGrid
@@ -25,7 +25,7 @@ Il connettore SendGrid può essere usato da:
 
 - [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flussi](http://flows.microsoft.com)  
+- [Flusso](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -57,9 +57,13 @@ Per creare app per la logica con SendGrid, è prima necessario creare una **conn
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |ApiKey|Sì|Fornisce la chiave API per SendGrid|
-Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
+ 
+
+>[AZURE.INCLUDE [Passaggi per creare una connessione a SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
+
+Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
 ## Informazioni di riferimento per SendGrid
 Si applica alla versione: 1.0
@@ -188,4 +192,4 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

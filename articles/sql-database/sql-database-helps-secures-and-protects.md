@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="05/13/2016"
    ms.author="carlrab"/>
    
 # Il database SQL di Azure facilita la sicurezza e la protezione
@@ -25,7 +25,7 @@ Il database SQL di Azure supporta milioni di database di importanza strategica n
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## In caso di emergenza
+## È disponibile il supporto.
 
 Ovviamente si spera sempre di non essere costretti ad accedere ai backup dei giorni precedenti o a recuperare i dati in seguito a una situazione di emergenza. Se però ci si ritrova in una situazione di questo tipo, il database SQL è di grande aiuto. Con un livello di disponibilità del 99,99%, backup automatici, ripristino temporizzato, replica geografica incorporata e opzioni di failover, si può contare su un ambiente in cui l'app è al sicuro e protetta.
 
@@ -45,4 +45,14 @@ Il database SQL offre più livelli di protezione dei dati. I dati vengono protet
 
 Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Passaggi successivi
+
+Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
+
+## Altre informazioni
+
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

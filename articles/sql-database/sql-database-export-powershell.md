@@ -33,10 +33,10 @@ Quando si vuole creare un archivio per un database SQL di Azure, è possibile es
 - Perché un archivio sia coerente dal punto di vista transazionale, è necessario assicurarsi che non si verifichi alcuna attività di scrittura durante l'esportazione oppure è necessario eseguire l'esportazione da una [copia coerente dal punto di vista transazionale](sql-database-copy.md) del database SQL di Azure
 - La dimensione massima di un file BACPAC salvato nell'archivio BLOB di Azure è pari a 200 GB. Usare l'utilità del prompt dei comandi [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) per archiviare un file BACPAC più grande in un percorso locale. Questa utilità è disponibile sia in Visual Studio che in SQL Server. È inoltre possibile [scaricare](https://msdn.microsoft.com/library/mt204009.aspx) la versione più recente di SQL Server Data Tools per ottenere questa utilità.
 - L'archiviazione Premium di file BACPAC in Azure non è supportata.
-- Se l'operazione di esportazione dura oltre 20 ore può essere annullata. Per migliorare le prestazioni durante l'esportazione, è possibile:
- - Aumentare temporaneamente il livello di servizio 
- - Sospendere tutte le attività di lettura e scrittura durante l'esportazione
- - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. I servizi di esportazione devono infatti completare la scansione della tabella per tentare di esportare l'intera tabella
+- Se l'operazione di esportazione dura oltre 20 ore, potrebbe essere annullata. Per migliorare le prestazioni durante l'esportazione è possibile:
+ - Aumentare temporaneamente il livello di servizio. 
+ - Interrompere tutte le attività di lettura e scrittura durante l'esportazione.
+ - Usare un indice cluster in tutte le tabelle di grandi dimensioni. Senza indici cluster, l'esportazione potrebbe non riuscire se dovesse durare più di 6 - 12 ore. Questo perché i servizi di esportazione devono completare la scansione della tabella prima di provare a esportarla per intero.
  
 > [AZURE.NOTE] I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
@@ -151,4 +151,4 @@ L’esecuzione di questo comando richiede una password. Immettere la password de
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

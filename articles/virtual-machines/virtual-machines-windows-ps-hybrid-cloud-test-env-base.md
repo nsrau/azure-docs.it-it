@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -331,4 +331,4 @@ L'ambiente cloud ibrido è ora pronto per il testing.
 
 - Impostare una [farm Intranet di SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), un'[applicazione line-of-business basata sul Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [server di sincronizzazione della directory di Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) in questo ambiente.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

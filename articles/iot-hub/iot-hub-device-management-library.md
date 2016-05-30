@@ -46,13 +46,13 @@ Per il servizio il modo principale per interagire con il dispositivo fisico è a
 
 Le sezioni seguenti illustrano l'architettura della libreria client e forniscono le linee guida per implementare i diversi oggetti dispositivo nel dispositivo.
 
-## Principi di progettazione e concetti funzionali della libreria client di Gestione dei dispositivi
+## Principi di progettazione e concetti funzionali della libreria client di gestione dei dispositivi
 La libreria client di Gestione dei dispositivi è stata progettata pensando alla portabilità e all'integrazione multipiattaforma. Questi obiettivi sono stati raggiunti prendendo le decisioni di progettazione seguenti:
 
 1.	È basata sul protocollo standard LWM2M su COAP per applicare l'estendibilità a una serie di dispositivi diversi.
 2.	È scrittura in ANSI C99 per facilitare la portabilità a un'ampia gamma di piattaforme.
 3.	È protetta con l'autenticazione TCP/TLS e hub IoT di Azure (token di firma di accesso condiviso) in modo che possa essere usata in scenari di sicurezza elevata.
-4.	È basata sul progetto OSS [Eclipse Wakaama][lnk-Wakaama] per sfruttare gli elementi esistenti e contribuire alla community.
+4.	È basata sul progetto OSS [Eclipse Wakaama][lnk-Wakaama] per sfruttare codice esistente e contribuire alla community.
 
 ### Concetti di LWM2M pertinenti
 È stato scelto lo standard LWM2M per applicare l'estendibilità a una serie di dispositivi diversi. Per semplificare l'esperienza di sviluppo, è stata eseguita l'astrazione della maggior parte del protocollo. È tuttavia importante conoscere i principi di base della libreria, soprattutto il modello di dati e come i dati vengono trasmessi.
@@ -69,7 +69,7 @@ Si noti che in questo modello ci sono due relazioni "1 a molti":
 - **Oggetti e risorse**: ogni oggetto può avere più risorse. Un oggetto, ad esempio, può contenere le risorse di aggiornamento del firmware del dispositivo Contoso come l'URI del pacchetto in cui viene archiviata la nuova immagine.
 
 #### Modello di osservazione/notifica: come vengono trasmessi i dati in LWM2M
-Oltre a questi concetti, è importante conoscere come i dati scorrono dal dispositivo al servizio. A questo scopo, LWM2M definisce il modello di "osservazione/notifica". Quando il dispositivo fisico si connette al servizio, avvia le "osservazioni" delle proprietà del dispositivo selezionato. Il dispositivo fisico "notifica" quindi al servizio le modifiche alle proprietà del dispositivo.
+Oltre a questi concetti, è importante conoscere come i dati scorrono dal dispositivo al servizio. A questo scopo, LWM2M definisce il modello di "osservazione/notifica". Quando il dispositivo fisico si connette al servizio, l'hub IoT avvia le "osservazioni" delle proprietà del dispositivo selezionate. Il dispositivo fisico "notifica" quindi al servizio le modifiche alle proprietà del dispositivo.
 
 Nella libreria client il modello di osservazione/notifica è stato implementato per inviare i dati di gestione dei dispositivi dal dispositivo all'hub IoT. Il modello viene controllato da due parametri:
 
@@ -222,4 +222,4 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,25 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Creare funzionalità per i dati di archiviazione BLOB di Azure tramite Panda
 
+Questo documento tratta come creare funzionalità per i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/). Una volta mostrato come caricare i dati in un frame di dati Panda, viene illustrato come generare funzionalità relative alle categorie usando script Python con i valori di indicatore e funzionalità per la creazione di contenitori.
 
-##Introduzione
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio di [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-In questo documento viene descritto come creare funzionalità per i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/). Una volta mostrato come caricare in un frame di dati Panda, viene illustrato come generare funzionalità relative alle categorie con i valori dell'indicatore e funzionalità per la creazione di contenitori, in entrambi i casi mediante gli script di Python.
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
-
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)]( https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Prerequisiti
-Questo articolo presuppone che l'utente abbia:
-
-* È stato creato un account di archiviazione BLOB di Azure e vi sono stati archiviati i dati disponibili. Per istruzioni su come configurare un account, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage).
+Questo articolo si basa sul presupposto che sia stato creato un account di archiviazione BLOB di Azure e vi siano stati archiviati dati. Per istruzioni su come configurare un account, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage).
 
 
 ## Caricare i dati in un intervallo di dati Pandas
@@ -138,9 +131,9 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Lettore](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
-	![lettore BLOB](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
+![lettore BLOB](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
 
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->
