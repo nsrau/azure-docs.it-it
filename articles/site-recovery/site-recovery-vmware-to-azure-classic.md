@@ -19,10 +19,12 @@
 # Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery
 
 > [AZURE.SELECTOR]
-- [Avanzato](site-recovery-vmware-to-azure-classic.md)
-- [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
+- [Portale di Azure](site-recovery-vmware-to-azure.md)
+- [Portale classico](site-recovery-vmware-to-azure-classic.md)
+- [Portale classico (legacy)](site-recovery-vmware-to-azure-classic-legacy.md)
 
-Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, leggere l'articolo su [Azure Site Recovery](site-recovery-overview.md).
+
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
 
 ## Panoramica
 
@@ -33,7 +35,7 @@ Questo articolo illustra come:
 
 >[AZURE.NOTE] Questo articolo illustra come eseguire la replica in Azure. Per eseguire la replica di VM VMware o di server fisici Windows/Linux in un data center secondario, seguire le istruzioni contenute in [questo articolo](site-recovery-vmware-to-vmware.md).
 
-È possibile inviare commenti o domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Distribuzione avanzata
 
@@ -183,7 +185,7 @@ La tabella seguente contiene un riepilogo dei prerequisiti per la distribuzione 
 **Prerequisito** | **Dettagli**
 --- | ---
 **Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery.
-**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.[Altre informazioni](../storage/storage-introduction.md) sull'Archiviazione di Azure.<br/><br/>
+**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica Standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.[Altre informazioni](../storage/storage-introduction.md) sull'Archiviazione di Azure.<br/><br/>
 **Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di credenziali di Site Recovery.<br/><br/>Si noti che per eseguire il failback dopo il failover in Azure è necessaria una connessione VPN o Azure ExpressRoute configurata dalla rete di Azure al sito locale.
 
 
@@ -212,7 +214,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
 Configurare una rete di Azure in modo che le macchine virtuali di Azure siano connesse a una rete dopo il failover e in modo che il failback al sito locale possa funzionare come previsto.
 
-1. Nel portale di Azure > **Crea rete virtuale**, specificare il nome della rete. l'intervallo di indirizzi IP e il nome della subnet.
+1. Nel portale di Azure > **Crea rete virtuale**, quindi specificare il nome della rete, l'intervallo di indirizzi IP e il nome della subnet.
 2. Per eseguire il failback è necessario aggiungere una VPN o ExpressRoute alla rete. La VPN ed ExpressRoute possono essere aggiunti alla rete anche dopo il failover.
 
 [Altre informazioni](../virtual-network/virtual-networks-overview.md) sulle reti di Azure.
@@ -260,11 +262,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![Software di terze parti](./media/site-recovery-vmware-to-azure-classic/combined-wiz2.png)
 
-5. In **Impostazioni Internet** specificare in che modo il provider che verrà installato sul server si connetterà ad Azure Site Recovery tramite Internet.
+5. In **Impostazioni Internet** specificare in che modo il provider che verrà installato nel server dovrà connettersi ad Azure Site Recovery tramite Internet.
 
 	- Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente senza un proxy**.
 	- Per connettersi al proxy attualmente configurato nel server, selezionare **Connetti con le impostazioni proxy esistenti**.
-	- Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connetti con impostazioni proxy personalizzate**.
+	- Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connetti con le impostazioni proxy personalizzate**.
 	- Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
 	- L'eventuale proxy usato deve permettere di accedere agli URL seguenti:
 
@@ -282,7 +284,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
-9. In **Dettagli ambiente** specificare se si vuole eseguire la replica di macchine virtuali VMware. In caso affermativo, il programma di installazione verifica se è installato PowerCLI 6.0.
+9. In **Dettagli ambiente** specificare se si vuole eseguire la replica di VM VMware. In caso affermativo, il programma di installazione verifica se è installato PowerCLI 6.0.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz6.png)
 
@@ -290,7 +292,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![Posizione di installazione](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
 
-11. In **Selezione rete** specificare il listener (scheda di rete e porta SSL) sul quale il server invia e riceve i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, verrà aperta la porta 443 nel server per l'invio e la ricezione di informazioni sull'orchestrazione della replica. La porta 443 non deve essere usata per i dati di replica.
+11. In **Selezione rete** specificare il listener (scheda di rete e porta SSL) in cui il server deve inviare e ricevere i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, verrà aperta la porta 443 nel server per l'invio e la ricezione di informazioni sull'orchestrazione della replica. La porta 443 non deve essere usata per i dati di replica.
 
 
 	![Selezione della rete](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
@@ -305,10 +307,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
-	net stop obengine
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine 
 	net start obengine
-	 
+	
+
 
 
 ### Eseguire l'installazione dalla riga di comando
@@ -340,7 +343,7 @@ Il server di elaborazione può rilevare automaticamente le macchine virtuali VMw
 
 Procedere come segue:
 
-1. Nel server vCenter, creare un ruolo **Azure\_Site\_Recovery** al livello di vCenter con le [autorizzazioni necessarie](#vmware-permissions-for-vcenter-access).
+1. Nel server vCenter creare un ruolo, **Azure\_Site\_Recovery**, a livello di vCenter con le [autorizzazioni necessarie](#vmware-permissions-for-vcenter-access).
 2. Assegnare il ruolo **Azure\_Site\_Recovery** a un utente di vCenter.
 
 	>[AZURE.NOTE] Un account utente di vCenter con un ruolo di sola lettura può eseguire il failover senza arrestare le macchine di origine protette. Per arrestare tali macchine è necessario il ruolo Azure\_Site\_Recovery. Se si sta eseguendo la sola migrazione delle macchine virtuali da VMware in Azure e non è necessario il failback, il ruolo di sola lettura è sufficiente.
@@ -350,7 +353,7 @@ Procedere come segue:
 
 	![Aggiungere un account](./media/site-recovery-vmware-to-azure-classic/credentials1.png)
 
-3. In **Dettagli account** aggiungere le credenziali da usare per accedere al server vCenter. Potrebbero trascorrere più di 15 minuti prima che il nome dell'account venga visualizzato nel portale. Per aggiornare immediatamente, fare clic su Aggiorna nella scheda **Server di configurazione**.
+3. In **Dettagli dell'account** aggiungere le credenziali da usare per accedere al server vCenter. Potrebbero trascorrere più di 15 minuti prima che il nome dell'account venga visualizzato nel portale. Per aggiornarlo immediatamente, fare clic su Aggiorna nella scheda **Server di configurazione**.
 
 	![Dettagli](./media/site-recovery-vmware-to-azure-classic/credentials2.png)
 
@@ -384,7 +387,7 @@ I gruppi di protezione sono raggruppamenti logici di macchine virtuali che si vu
 
 	![Creare un gruppo di protezione](./media/site-recovery-vmware-to-azure-classic/protection-groups1.png)
 
-2. Nella pagina **Specificare le impostazioni del gruppo di protezione** immettere un nome per il gruppo e in **Da** selezionare il server di configurazione in cui creare il gruppo. **Destinazione** è Azure.
+2. Nella pagina **Specificare le impostazioni del gruppo di protezione** immettere un nome per il gruppo e in **Da** selezionare il server di configurazione in cui creare il gruppo. La **destinazione** è Azure.
 
 	![Impostazioni del gruppo di protezione](./media/site-recovery-vmware-to-azure-classic/protection-groups2.png)
 
@@ -434,7 +437,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 
 #### Preparare il push automatico nei server Linux
 
-1.	Verificare che il computer Linux da proteggere sia supportato, come descritto in [Prerequisiti locali](#on-premises-prerequisites). Verificare la disponibilità della connettività di rete tra il computer da proteggere e il server di gestione che esegue il server di elaborazione.
+1.	Verificare che il computer Linux da proteggere sia supportato come descritto in [Prerequisiti locali](#on-premises-prerequisites). Verificare la disponibilità della connettività di rete tra il computer da proteggere e il server di gestione che esegue il server di elaborazione.
 
 2.	Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve essere un utente ROOT nel server Linux di origine. Si noti che queste credenziali vengono usate solo per l'installazione push del servizio Mobility.
 
@@ -449,7 +452,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 
 	- Accedere come utente ROOT.
 	- Nel file /etc/ssh/sshd\_config trovare la riga che inizia con PasswordAuthentication.
-	- Rimuovere il commento dalla riga e modificare il valore da **no** a **yes**.
+	- Rimuovere il commento dalla riga e modificare il valore da **no** a **si**.
 	- Trovare la riga che inizia con **Subsystem** e rimuovere il commento.
 
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
@@ -462,7 +465,7 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
 Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
@@ -471,11 +474,11 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6
 
 
 1. Scaricare ed eseguire il relativo programma di installazione.
-2. In Prima di iniziare, selezionare **Servizio Mobility**.
+2. In **Prima di iniziare** selezionare **Servizio Mobility**.
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure-classic/mobility3.png)
 
-3. In **Dettagli del nuovo server di configurazione** specificare l'indirizzo IP del server di gestione e la passphrase generata durante l'installazione dei componenti del server di gestione. Per recuperare la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione.
+3. In **Dettagli del server di configurazione** specificare l'indirizzo IP del server di gestione e la passphrase generata durante l'installazione dei componenti del server di gestione. Per recuperare la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di gestione.
 
 	![Servizio Mobility](./media/site-recovery-vmware-to-azure-classic/mobility6.png)
 
@@ -484,7 +487,7 @@ Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6
 
 È possibile eseguire l'installazione anche dalla riga di comando:
 
-UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <directory di installazione>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <percorso file della passphrase>] [/LogFilePath <Log File Path>]
+UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]
 
 Dove:
 
@@ -555,7 +558,7 @@ Aggiungere computer a un gruppo di protezione:
 
 4. In **Specificare le risorse di destinazione** selezionare l'account di archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Si noti che gli account di archiviazione premium non sono attualmente supportati.
 
-	>[AZURE.NOTE] Lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse non è supportato.
+	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
 
 	![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -585,7 +588,7 @@ Lo stato può essere monitorato nella pagina **Processi**.
 
 3. È possibile modificare le impostazioni descritte di seguito.
 
-	-  **Nome della macchina virtuale Azure**: il nome assegnato al computer in Azure dopo il failover. Il nome deve essere conforme ai requisiti di Azure.
+	-  **Nome della VM di Azure**: il nome assegnato al computer in Azure dopo il failover. Il nome deve essere conforme ai requisiti di Azure.
 
 	-  **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. [Altre informazioni](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables) su dimensioni e schede di rete. Si noti che:
 
@@ -594,7 +597,7 @@ Lo stato può essere monitorato nella pagina **Processi**.
 			- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
 			- Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
 		- Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
-	- **Rete di Microsoft Azure**: è necessario specificare una rete di Azure a cui le VM di Azure verranno connesse dopo il failover. In caso contrario, le macchine virtuali di Azure non verranno connesse ad alcuna rete. È necessario specificare una rete di Azure anche per eseguire il failback da Azure nel sito locale. Il failback richiede una connessione VPN tra una rete di Azure e una rete locale.
+	- **Rete di Azure**: è necessario specificare una rete di Azure a cui le VM di Azure verranno connesse dopo il failover. In caso contrario, le macchine virtuali di Azure non verranno connesse ad alcuna rete. È necessario specificare una rete di Azure anche per eseguire il failback da Azure nel sito locale. Il failback richiede una connessione VPN tra una rete di Azure e una rete locale.
 	- **Indirizzo IP/Subnet di Azure**: per ogni scheda di rete è necessario selezionare la subnet a cui deve connettersi la VM di Azure. Si noti che:
 		- Se la scheda di rete del computer di origine è configurata per l'uso di un indirizzo IP statico, è possibile specificare un indirizzo IP statico per la macchina virtuale di Azure. Se non si specifica un indirizzo IP statico verrà allocato un indirizzo IP disponibile. Se viene specificato un indirizzo IP di destinazione già usato da un'altra macchina virtuale in Azure, il failover avrà esito negativo. Se la scheda di rete del computer di origine è configurata per l'uso del protocollo DHCP, l'impostazione per Azure sarà DHCP.
 
@@ -668,13 +671,13 @@ Il failover non pianificato viene avviato da Azure e può essere eseguito anche 
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover1.png)
 
-2. Se si esegue la replica di macchine virtuali VMware è possibile provare ad arrestare le macchine virtuali locali. Il failover continua indipendentemente dall'esito di questo tentativo. Se l'operazione non viene eseguita correttamente, i dettagli dell'errore vengono visualizzati nella scheda Processi > **Processi di failover non pianificati**.
+2. Se si esegue la replica di macchine virtuali VMware è possibile provare ad arrestare le macchine virtuali locali. Il failover continua indipendentemente dall'esito di questo tentativo. Se l'operazione non viene eseguita correttamente, i dettagli dell'errore vengono visualizzati nella scheda **Processi** > **Processi di failover non pianificati**.
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover2.png)
 
 	>[AZURE.NOTE] Questa opzione non è disponibile se si esegue la replica di server fisici. Se possibile, è necessario provare ad arrestare i computer manualmente.
 
-3. In **Conferma failover** verificare la direzione del failover (verso Azure) e selezionare il punto di ripristino da usare per il failover. Se nella configurazione delle proprietà di replica sono state abilitate più macchine virtuali, è possibile ripristinare fino all'ultimo punto di ripristino dell'applicazione o coerente con l'arresto anomalo del sistema. È anche possibile selezionare **Punto di ripristino personalizzato** per eseguire il ripristino a un punto precedente nel tempo. Fare clic sul segno di spunta per avviare il failover.
+3. In **Conferma failover** verificare la direzione del failover in Azure e selezionare il punto di ripristino da usare per il failover. Se nella configurazione delle proprietà di replica sono state abilitate più macchine virtuali, è possibile ripristinare fino all'ultimo punto di ripristino dell'applicazione o coerente con l'arresto anomalo del sistema. È anche possibile selezionare **Punto di ripristino personalizzato** per eseguire il ripristino a un punto precedente nel tempo. Fare clic sul segno di spunta per avviare il failover.
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover3.png)
 
@@ -705,7 +708,7 @@ Per configurare un server di elaborazione aggiuntivo, procedere come segue:
 ### Installare il server di elaborazione
 
 1. Nella pagina Avvio rapido scaricare il file di installazione unificata per l'installazione del componente di Site Recovery. Eseguire l'installazione.
-2. In **Prima di iniziare** selezionare **Aggiungere server di elaborazione per scalare la distribuzione**.
+2. In **Prima di iniziare** selezionare **Aggiungere server di elaborazione per aumentare le istanze di distribuzione**.
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
@@ -759,4 +762,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

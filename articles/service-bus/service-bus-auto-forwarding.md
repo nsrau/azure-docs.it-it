@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Inoltro automatico di entità di messaggistica del bus di servizio | Microsoft Azure"
-   description="Illustra come concatenare una coda o una sottoscrizione a una coda o un argomento differente che fa parte dello stesso spazio dei nomi del servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Inoltro automatico di entità di messaggistica del bus di servizio | Microsoft Azure"
+    description="Come concatenare una coda o una sottoscrizione a un'altra coda o argomento."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Concatenamento di entità del bus di servizio con l'inoltro automatico
 
-La funzionalità di *inoltro automatico* consente di concatenare una coda o una sottoscrizione a una coda o un argomento differente che fa parte dello stesso spazio dei nomi del servizio. Quando l'inoltro automatico è abilitato, il bus di servizio rimuove automaticamente i messaggi presenti nella prima coda o sottoscrizione (origine) e li inserisce nella seconda coda o nell'argomento (destinazione). Si noti che è comunque possibile inviare un messaggio direttamente all'entità di destinazione. Tenere inoltre presente che non è possibile concatenare una coda secondaria, ad esempio una coda di messaggi non recapitabili, a una coda o un argomento differente.
+La funzionalità di *inoltro automatico* consente di concatenare una coda o una sottoscrizione a una coda o un argomento differente che fa parte dello stesso spazio dei nomi. Quando l'inoltro automatico è abilitato, il bus di servizio rimuove automaticamente i messaggi presenti nella prima coda o sottoscrizione (origine) e li inserisce nella seconda coda o nell'argomento (destinazione). Si noti che è comunque possibile inviare un messaggio direttamente all'entità di destinazione. Tenere presente che non è possibile concatenare una coda secondaria, ad esempio una coda di messaggi non recapitabili, a una coda o a un argomento differente.
 
 ## Utilizzo dell'inoltro automatico
 
@@ -31,7 +31,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 L'entità di destinazione deve essere presente al momento della creazione dell'entità di origine. In caso contrario, il bus di servizio restituisce un'eccezione quando gli viene chiesto di creare l'entità di origine.
 
-È possibile usare l'inoltro automatico per ampliare un singolo argomento. Il bus di servizio limita il numero delle sottoscrizioni per un determinato argomento. Creando argomenti di secondo livello, è possibile aggiungere altre sottoscrizioni. Si noti che, pur non essendo vincolati dalla limitazione del bus di servizio relativa al numero delle sottoscrizioni, l'aggiunta di un secondo livello di argomenti consente complessivamente di migliorare la velocità effettiva dell'argomento.
+È possibile usare l'inoltro automatico per ampliare un singolo argomento. Il bus di servizio limita il [numero delle sottoscrizioni per un determinato argomento](service-bus-quotas.md) a 2.000. Creando argomenti di secondo livello, è possibile aggiungere altre sottoscrizioni. Si noti che, pur non essendo vincolati dalla limitazione del bus di servizio relativa al numero delle sottoscrizioni, l'aggiunta di un secondo livello di argomenti consente complessivamente di migliorare la velocità effettiva dell'argomento.
 
 ![Scenario di inoltro automatico][0]
 
@@ -43,7 +43,7 @@ Se uno dei rappresentanti si assenta, viene riempita la coda personale, ma non l
 
 ## Considerazioni sulla funzionalità di inoltro automatico
 
-Se l'entità di destinazione ha accumulato troppi messaggi e supera la quota oppure è disabilitata, l'entità di origine aggiunge i messaggi alla relativa coda dei messaggi non recapitabili finché non si libera spazio nella destinazione o l'entità non viene abilitata di nuovo. I messaggi resteranno nella coda dei messaggi non recapitabili, pertanto sarà necessario riceverli ed elaborarli in modo esplicito da tale coda.
+Se l'entità di destinazione ha accumulato troppi messaggi e supera la quota oppure è disabilitata, l'entità di origine aggiunge i messaggi alla relativa [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md) finché non si libera spazio nella destinazione o l'entità non viene abilitata di nuovo. I messaggi resteranno nella coda dei messaggi non recapitabili, pertanto sarà necessario riceverli ed elaborarli in modo esplicito da tale coda.
 
 Se si concatenano singoli argomenti per ottenere un argomento composito con diverse sottoscrizioni, è consigliabile avere a disposizione un certo numero di sottoscrizioni sull'argomento di primo livello e un numero più elevato di sottoscrizioni sugli argomenti di secondo livello. Ad esempio, un argomento di primo livello con 20 sottoscrizioni, ciascuna delle quali concatenata a un argomento di secondo livello con 200 sottoscrizioni, consente una velocità effettiva più alta rispetto a un argomento di primo livello con 200 sottoscrizioni, ciascuna delle quali concatenata a un argomento di secondo livello con 20 sottoscrizioni.
 
@@ -69,4 +69,4 @@ Per altre informazioni sui miglioramenti di prestazioni del bus di servizio, ved
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Entità di messaggistica partizionate]: service-bus-partitioning.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

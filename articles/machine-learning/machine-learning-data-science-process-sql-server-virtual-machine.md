@@ -3,7 +3,7 @@
 	description="Elaborazione dei dati di SQL Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="fashah;garye" />
+	ms.date="05/16/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
@@ -66,7 +66,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 
 ###<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 
-In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
+In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene usata la somma condizionale e nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
 	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -84,7 +84,7 @@ Nell'esempio seguente viene descritto come creare funzionalità categorizzate, i
 
 In questa sezione, viene descritto come implementare una singola colonna di una tabella al fine di creare ulteriori funzionalità. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
-Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
+Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
 
 - Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est.
 - Una cifra nell'ordine delle centinaia, diversa da zero, indica che si sta utilizzando la longitudine invece della latitudine.
@@ -97,7 +97,7 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 - La quinta posizione decimale è caratterizzata da un valore massimo a 1,1 m: consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
 - La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
 
-le informazioni sulla posizione possono essere inserite in funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
+Le informazioni sulla posizione possono essere inserite nelle funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. È anche possibile chiamare un endpoint REST come l'API di Bing Maps, disponibile nell'articolo dedicato a come [trovare una posizione in base a un punto](https://msdn.microsoft.com/library/ff701710.aspx), per visualizzare informazioni sull'area/quartiere.
 
 	select 
 		<location_columnname>
@@ -110,17 +110,17 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
+Le funzionalità basate su posizione descritte in precedenza possono essere usate anche per creare altre funzionalità di conteggio.
 
 
-> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura (per un esempio di come farlo usando pyodbc, vedere l'articolo dedicato a [un esempio HelloWorld per l'accesso a SQL Server con python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
-La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create usando il modulo [Lettore][reader] in Azure ML, come descritto di seguito:
+La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare funzionalità o accedere a quelle già create usando il modulo di [importazione dati][reader] in Azure Machine Learning, come descritto di seguito:
 
 ![lettori azureml][1]
 
@@ -139,7 +139,7 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-A questo punto, è possibile utilizzare il frame di dati di Pandas, come descritto nell'argomento [Elaborazione dei dati BLOB di Azure nell'ambiente di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md).
+A questo punto, è possibile usare il frame di dati di Pandas, come descritto nell'articolo [Elaborazione dei dati BLOB di Azure nell'ambiente di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md).
 
 ## Analisi scientifica dei dati di Azure nell'esempio di azione
 
@@ -152,4 +152,4 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

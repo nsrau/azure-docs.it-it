@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Informazioni su Azure Multi-Factor Authentication | Microsoft Azure"
-	description="Questo argomento spiega che cos'è Multi-Factor Authentication e perché usare questo servizio, fornisce inoltre informazioni sul client di Multi-Factor Authentication e sui diversi metodi e versioni disponibili. Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
+	description="Questo argomento spiega che cos'è Multi-Factor Authentication (MFA) e perché usare questo servizio, fornisce informazioni sul client di Multi-Factor Authentication e sui diversi metodi e versioni disponibili. Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
 	keywords="Introduzione a MFA, panoramica di mfa, che cos'è mfa"
 	services="multi-factor-authentication"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/07/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -35,7 +35,7 @@ Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati 
 Per una panoramica del funzionamento di Azure Multi-Factor Authentication, vedere il video seguente.
 
 
-> [AZURE.VIDEO multi-factor-authentication-overview]
+>[AZURE.VIDEO multi-factor-authentication-overview]
 
 ##Vantaggi dell'uso di Azure Multi-Factor Authentication
 
@@ -54,7 +54,7 @@ Azure multi-Factor Authentication è una soluzione semplice da usare, scalabile 
 
 Per altre informazioni sui motivi per cui è consigliabile usare Azure Multi-Factor Authentication, vedere il video seguente.
 
-> [AZURE.VIDEO windows-azure-multi-factor-authentication]
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## Come funziona Azure Multi-Factor Authentication
@@ -75,7 +75,7 @@ Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati 
 
 Per ulteriori informazioni su come funziona, vedere il video seguente.
 
-> [AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## Metodi disponibili per la multi-factor authentication
 Quando un utente accede, una verifica aggiuntiva viene inviata all'utente. Di seguito è riportato un elenco di metodi che possono essere utilizzati per la seconda verifica.
@@ -95,7 +95,7 @@ Versione | Descrizione
 ------------- | ------------- |
 Multi-Factor Authentication per Office 365 | Questa versione funziona solo con le applicazioni di Office 365 e viene gestita dal portale di Office 365. Gli amministratori possono quindi proteggere le risorse di Office 365 con multi-factor authentication. Questa versione viene fornita con una sottoscrizione a Office 365.
 Multi-Factor Authentication per amministratori di Azure | Lo stesso subset di funzionalità di Multi-Factor Authentication per Office 365 sarà disponibile per tutti gli amministratori di Azure senza costi aggiuntivi. Ogni account amministrativo della sottoscrizione di Azure può ora usufruire di un ulteriore livello di protezione abilitando la funzionalità di multi-factor authentication di base. Ora, un amministratore che desidera accedere al portale di Azure per creare una macchina virtuale, un sito Web, gestire l'archiviazione, i servizi mobili o qualsiasi altro servizio di Azure può aggiungere l'autenticazione a più fattori all'account di amministratore.
-Azure Multi-Factor Authentication | Azure multi-Factor Authentication offre la più ampia gamma di funzionalità. Fornisce opzioni di configurazione aggiuntive tramite il portale di gestione di Azure, segnalazione avanzata e il supporto per un intervallo di applicazioni locali e cloud. Azure Multi-Factor Authentication fa parte di Azure Active Directory Premium.
+Azure Multi-Factor Authentication | Azure multi-Factor Authentication offre la più ampia gamma di funzionalità. Fornisce opzioni di configurazione aggiuntive tramite il portale di gestione di Azure, segnalazione avanzata e il supporto per un intervallo di applicazioni locali e cloud. Azure Multi-Factor Authentication fa parte di Azure Active Directory Premium ed Enterprise Mobility Suite.
 
 ## Confronto tra le funzionalità delle versioni
 Nella tabella seguente viene fornito un elenco delle funzionalità disponibili nelle varie versioni di Azure Multi-Factor Authentication.
@@ -209,4 +209,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

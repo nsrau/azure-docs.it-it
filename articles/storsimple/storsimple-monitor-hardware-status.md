@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare le componenti hardware e lo stato
@@ -39,7 +39,7 @@ Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chas
 
 - **Componenti controller 1**: i componenti che costituiscono lo chassis EBOD 1, simili a quelli indicati per lo chassis EBOD 0.
 
->[AZURE.NOTE]**La sezione dello stato dell'hardware non è presente nella pagina Manutenzione per un dispositivo virtuale StorSimple (1100).**
+>[AZURE.NOTE] **La sezione dello stato dell'hardware non è presente nella pagina Manutenzione per un dispositivo virtuale StorSimple (1100).**
 
 
 ## Monitorare lo stato dell'hardware
@@ -136,4 +136,4 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 - Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Flussi di Azure Active Directory Identity Protection | Microsoft Azure"
+	pageTitle="Esperienze di accesso con Azure AD Identity Protection | Microsoft Azure"
 	description="Presenta una panoramica dell'esperienza utente quando Identity Protection ha mitigato o risolto la situazione di rischio di un utente o quando l'autenticazione a più fattori è richiesta da una policy."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
-#Flussi di Azure Active Directory Identity Protection
+# Esperienze di accesso con Azure AD Identity Protection
 
 Con Azure Active Directory Identity Protection è possibile:
 
@@ -158,4 +158,4 @@ Se l’accesso degli utenti compromessi è bloccato, un amministratore può gene
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

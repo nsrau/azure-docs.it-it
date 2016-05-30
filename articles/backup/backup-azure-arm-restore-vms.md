@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/10/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -56,15 +56,11 @@
 
     ![Elenco di VM nell'insieme di credenziali](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
 
-5. Dall'elenco selezionare una VM per aprire il dashboard.
-
-    ![Elenco di VM nell'insieme di credenziali](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault-selected.png)
-
-    Nel dashboard della VM viene visualizzata l'area Monitoraggio, che include il riquadro Punti di ripristino.
+5. Dall'elenco selezionare una VM per aprire il dashboard. Il dashboard della VM apre l'area di monitoraggio che include il riquadro Punti di ripristino.
 
     ![Elenco di VM nell'insieme di credenziali](./media/backup-azure-arm-restore-vms/vm-blade.png)
 
-6. Scegliere **Ripristina** dal menu del dashboard della VM.
+6. Scegliere **Ripristina** dal menu del dashboard della VM
 
     ![Elenco di VM nell'insieme di credenziali](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
@@ -72,14 +68,12 @@
 
     ![Pannello Ripristina](./media/backup-azure-arm-restore-vms/restore-blade.png)
 
-7. Nel pannello **Ripristina** fare clic su **Punto di ripristino** per aprire il pannello **Selezionare il punto di ripristino**.
+7. Nel pannello **Ripristina** fare clic su **Punto di ripristino** per aprire il pannello in cui **selezionare il punto di ripristino**.
 
     ![Pannello Ripristina](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    Per impostazione predefinita, la finestra di dialogo mostra tutti i punti di ripristino degli ultimi 30 giorni. Modificare gli elenchi **Periodo**, **Anno** e **Coerenza dei punti di ripristino** in base alla necessità. Per altre informazioni su ogni tipo di punto di ripristino, vedere la spiegazione relativa alla [Coerenza dei dati](./backup-azure-vms-introduction.md#data-consistency).
-    - **Periodo** indica i mesi dell'anno o gli ultimi 30 giorni.
-    - **Anno** indica l'anno specifico.
-    - L'elenco **Coerenza dei punti di ripristino** include le opzioni seguenti:
+    Per impostazione predefinita, la finestra di dialogo visualizza tutti i punti di ripristino degli ultimi 30 giorni. Usare il **filtro** nella parte superiore del pannello per modificare l'intervallo di tempo dei punti di ripristino. Per impostazione predefinita, vengono visualizzati i punti di ripristino di ogni coerenza. Modificare il filtro **Tutti i punti di ripristino** per selezionare una coerenza specifica dei punti di ripristino. Per altre informazioni sui tipi di punto di ripristino, vedere la spiegazione relativa alla [Coerenza dei dati](./backup-azure-vms-introduction.md#data-consistency).
+    - Nell'elenco **Coerenza dei punti di ripristino** scegliere:
         - Punti di ripristino coerenti con l'arresto anomalo del sistema
         - Punti di ripristino coerenti con l'applicazione
         - Punti di ripristino coerenti con il file system
@@ -91,77 +85,46 @@
 
     Il pannello **Ripristina** indica che il punto di ripristino è stato impostato.
 
-    ![Punto di ripristino configurato](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
+    ![Punto di ripristino impostato](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 
-9. Nel pannello **Ripristina** fare clic su **Configurazione di ripristino** per aprire il pannello corrispondente.
-
-    ![Configurazione guidata del ripristino configurata](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
-## Scelta di una configurazione di ripristino delle VM
-
-Dopo avere selezionato il punto di ripristino, è possibile scegliere un account di archiviazione e il metodo per la configurazione della VM di ripristino. È possibile configurare la macchina virtuale di ripristino usando il portale di Azure o PowerShell. Quando si sceglie un account di archiviazione, è necessario scegliere uno degli account che condividono la stessa posizione dell'insieme di credenziali dei Servizi di ripristino. Gli account di archiviazione con ridondanza della zona non sono supportati. Se non sono disponibili account di archiviazione con la stessa posizione dell'insieme di credenziali dei Servizi di ripristino, è necessario crearne uno prima di iniziare l'operazione di ripristino.
-
-1. Se non è già aperto, passare al pannello **Ripristina**. Assicurarsi che sia stato selezionato un **Punto di ripristino**, quindi fare clic su **Configurazione di ripristino** per aprire il pannello **Configurazione di ripristino**.
+9. Nel pannello **Ripristino** si apre automaticamente la schermata di **configurazione del ripristino** dopo aver impostato il punto di ripristino.
 
     ![Configurazione guidata del ripristino configurata](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-2. Nel pannello **Configurazione di ripristino** fare clic su **Account di archiviazione** per aprire l'elenco di account di archiviazione disponibili nella stessa posizione dell'insieme di credenziali dei Servizi di ripristino.
+## Scelta di una configurazione di ripristino per la macchina virtuale
 
-3. Scegliere un account di archiviazione dall'elenco e quindi fare clic su OK.
+Dopo aver selezionato il punto di ripristino, scegliere una configurazione per la macchina virtuale di ripristino. È possibile configurare la macchina virtuale ripristinata tramite il portale di Azure o PowerShell.
 
-    ![Elenco di account di archiviazione](./media/backup-azure-arm-restore-vms/list-of-storage-accounts.png)
+> [AZURE.NOTE] Il portale offre un'opzione di creazione rapida per la macchina virtuale ripristinata. Se si desidera personalizzare la configurazione della macchina virtuale da ripristinare, usare PowerShell per ripristinare i dischi di cui è stato eseguito il backup e allegarli all'opzione di configurazione della macchina virtuale. Vedere [Ripristino di una VM con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations).
 
-    Nel pannello **Configurazione di ripristino** l'account di archiviazione scelto viene visualizzato nella finestra di dialogo **Account di archiviazione**.
+1. Se non è già aperto, passare al pannello **Ripristina**. Assicurarsi che sia stato selezionato un **punto di ripristino**, quindi fare clic su **Configurazione di ripristino** per aprire il pannello **Configurazione di ripristino**.
 
-    ![Scegliere gli account di archiviazione](./media/backup-azure-arm-restore-vms/selected-storage-account.png)
+    ![Configurazione guidata del ripristino configurata](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-4. È possibile configurare una VM di tipo Azure Resource Manager o classica di base quando si ripristina una macchina virtuale nel portale. Se si vuole ripristinare una configurazione complessa, ad esempio una delle opzioni dell'elenco seguente, è necessario usare PowerShell per configurare la VM dal disco. Se non si sceglie una configurazione complessa, procedere al Passaggio 5.
-
-    ![Elenco di configurazioni complesse delle VM](./media/backup-azure-arm-restore-vms/complex-vm-configurations.png)
-
-    Se la configurazione di ripristino *è* considerata complessa, nel pannello **Configurazione di ripristino** fare clic su **OK**. Il pannello **Configurazione di ripristino** viene chiuso e accanto alla configurazione di ripristino viene visualizzato un segno di spunta. Fare clic su **Ripristina** per avviare il processo di ripristino su disco. Non procedere al Passaggio 5. Andare invece a [Ripristino di una VM con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations).
-
-    ![Ripristino configurato](./media/backup-azure-arm-restore-vms/restore-configured.png)
-
-5. Nel pannello **Configurazione di ripristino** fare clic su **Configurazione macchina virtuale** per aprire il pannello **Crea macchina virtuale**.
-
-    ![Apertura del pannello Crea VM](./media/backup-azure-arm-restore-vms/recovery-configuration-create-vm.png)
-
-6. Nel pannello **Crea macchina virtuale** immettere o selezionare i valori per ogni campo seguente:
-
-    - **Nome macchina virtuale**: specificare un nome per la VM. Il nome deve essere univoco per il gruppo di risorse (per una VM Azure Resource Manager) oppure per il servizio cloud (per una VM classica). Se si sostituisce una macchina virtuale esistente con lo stesso nome, eliminare prima di tutto la VM esistente e i rispettivi dischi dati, quindi ripristinare i dati da Backup di Azure.
-    - **Gruppo di risorse**: usare un gruppo di risorse esistente oppure crearne uno nuovo. Se si ripristina una VM classica, usare questo campo per specificare il nome del nuovo servizio cloud. Quando si crea un nuovo gruppo di risorse/servizio cloud, è necessario che il nome sia univoco a livello globale. Il nome del servizio cloud è in genere associato a un URL pubblico, ad esempio: [serviziocloud].cloudapp.net. Se si prova a usare un nome già usato per il gruppo di risorse cloud/servizio cloud, Azure assegna al gruppo di risorse/servizio cloud lo stesso nome della VM. Azure visualizza i gruppi di risorse/servizi cloud e le VM non associate ai gruppi di affinità. Per altre informazioni, vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) a livello di area](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-    - **Rete virtuale**: selezionare la rete virtuale (VNET) quando si crea la VM. Questo campo indica tutte le VNET associate alla sottoscrizione.
-
+2. Nel pannello della **configurazione di ripristino** specificare o selezionare i valori per ciascuno dei campi seguenti:
+    - **Nome macchina virtuale**: specificare un nome per la macchina virtuale. Il nome deve essere univoco per il gruppo di risorse (per una VM Azure Resource Manager) oppure per il servizio cloud (per una VM classica). Non è possibile sostituire la macchina virtuale quando si tratta di un macchina virtuale presente nella sottoscrizione.
+    - **Gruppo di risorse**: usare un gruppo di risorse esistente oppure crearne uno nuovo. Se si ripristina una VM classica, usare questo campo per specificare il nome del nuovo servizio cloud. Quando si crea un nuovo gruppo di risorse/servizio cloud, è necessario che il nome sia univoco a livello globale. Il nome del servizio cloud è in genere associato a un URL pubblico, ad esempio: [serviziocloud].cloudapp.net. Se si prova a usare un nome già usato per il gruppo di risorse cloud/servizio cloud, Azure assegna al gruppo di risorse/servizio cloud lo stesso nome della VM. Azure visualizza i gruppi di risorse/servizi cloud e le VM non associate ai gruppi di affinità. Per altre informazioni, vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+    - **Rete virtuale**: selezionare la rete virtuale (VNET) quando si crea la macchina virtuale. Questo campo indica tutte le VNET associate alla sottoscrizione. Il gruppo di risorse della macchina virtuale è visualizzato tra parentesi. 
+    - **Subnet**: se la VNET ha subnet, la prima subnet viene selezionata per impostazione predefinita. Se sono presenti altre subnet, selezionare quella desiderata.
+    - **Account di archiviazione**: questa opzione apre l'elenco di account di archiviazione nella stessa posizione dell'insieme di credenziali dei servizi di ripristino. Quando si sceglie un account di archiviazione, è necessario scegliere uno degli account che condividono la stessa posizione dell'insieme di credenziali dei Servizi di ripristino. Gli account di archiviazione con ridondanza della zona non sono supportati. Se non sono disponibili account di archiviazione con la stessa posizione dell'insieme di credenziali dei Servizi di ripristino, è necessario crearne uno prima di iniziare l'operazione di ripristino. Il tipo di replica dell'account di archiviazione viene visualizzato tra parentesi. 
+    
     > [AZURE.NOTE] È necessario selezionare una VNET quando si ripristina una VM basata su Azure Resource Manager. Una VNET è facoltativa per una macchina virtuale classica.
 
-    - **Subnet**: se la VNET ha subnet, la prima subnet viene selezionata per impostazione predefinita. Se sono presenti altre subnet, selezionare quella desiderata.
+3. Nel pannello **Configurazione di ripristino** fare clic su **OK** per finalizzare la configurazione di ripristino.
 
-7. Nel pannello **Crea VM** fare clic su **OK** per completare la configurazione.
-
-    Il pannello **Crea VM** viene chiuso e nel pannello **Configurazione di ripristino** viene mostrato il nome della nuova macchina virtuale.
-
-    ![Configurazione di ripristino completata](./media/backup-azure-arm-restore-vms/recovery-configuration-complete.png)
-
-8. Nel pannello **Configurazione di ripristino** fare clic su **OK** per finalizzare la configurazione di ripristino.
-
-9. Nel pannello **Ripristina** fare clic su **Ripristina** per attivare l'operazione di ripristino.
+4. Nel pannello **Ripristina** fare clic su **Ripristina** per attivare l'operazione di ripristino.
 
     ![Configurazione di ripristino completata](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
 ## Tenere traccia dell'operazione di ripristino
 
-Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenere traccia dell'operazione di ripristino. Il servizio di backup crea anche la notifica e la visualizza temporaneamente.
-
-![Ripristino attivato](./media/backup-azure-arm-restore-vms/restore-triggered.png)
-
-Se la notifica non viene visualizzata, è sempre possibile fare clic sull'icona Notifiche per visualizzare tutte le notifiche.
+Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenere traccia dell'operazione di ripristino. Il servizio di backup crea anche la notifica e la visualizza temporaneamente nell'area di notifica del portale. Se la notifica non viene visualizzata, è sempre possibile fare clic sull'icona Notifiche per visualizzare tutte le notifiche.
 
 ![Ripristino attivato](./media/backup-azure-arm-restore-vms/restore-notification.png)
 
 Per visualizzare l'operazione durante l'elaborazione oppure per visualizzarla dopo il completamento, aprire l'elenco Processi di backup.
 
-1. Scegliere **Sfoglia** dal menu Azure e nell'elenco dei servizi digitare **Servizi di ripristino**. L'elenco di servizi viene modificato in base a quanto digitato. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
+1. Scegliere **Sfoglia** dal menu Azure e nell'elenco dei servizi digitare **Servizi di ripristino**. L'elenco di servizi viene modificato in base a quanto digitato. Selezionare **Insiemi di credenziali dei servizi di ripristino** quando viene visualizzato.
 
     ![Aprire l'insieme di credenziali dei Servizi di ripristino](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
@@ -171,18 +134,13 @@ Per visualizzare l'operazione durante l'elaborazione oppure per visualizzarla do
 
 2. Dall'elenco selezionare l'insieme di credenziali associato alla VM ripristinata. Quando si fa clic sull'insieme di credenziali, viene aperto il dashboard corrispondente.
 
-    ![Elenco di insiemi di credenziali dei Servizi di ripristino](./media/backup-azure-arm-restore-vms/select-vault-open-vault-jobs.png)
-
 3. Nel riquadro **Processi di backup** del dashboard dell'insieme di credenziali fare clic su **Macchine virtuali di Azure** per visualizzare i processi associati all'insieme di credenziali.
 
     ![Dashboard dell'insieme di credenziali](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
-    Viene aperto il pannello **Processi di backup** e viene visualizzato l'elenco di processi.
+    Viene aperto il pannello **Processi di backup** e viene visualizzato l'elenco dei processi.
 
     ![Elenco di VM nell'insieme di credenziali](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
-
-
-
 
 ## Ripristino delle macchine virtuali con configurazioni di rete speciali
 È possibile eseguire il backup e ripristinare le macchine virtuali con le configurazioni di rete speciali seguenti. Queste configurazioni richiedono tuttavia alcune considerazioni speciali nel corso del processo di ripristino.
@@ -191,16 +149,15 @@ Per visualizzare l'operazione durante l'elaborazione oppure per visualizzarla do
 - Macchine virtuali con più indirizzi IP riservati
 - Macchine virtuali con più NIC
 
->[AZURE.IMPORTANT] Quando si crea la configurazione di rete speciale per le macchine virtuali, è necessario usare PowerShell per il ripristino da disco.
-
+>[AZURE.IMPORTANT] Quando si crea la configurazione di rete speciale per macchine virtuali, è necessario usare PowerShell per il ripristino da disco.
 
 Per potere ricreare completamente le macchine virtuali dopo il ripristino su disco, seguire questa procedura:
 
-1. Ripristinare i dischi da un insieme di credenziali dei Servizi di ripristino usando [PowerShell per Backup di Azure](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Ripristinare i dischi da un insieme di credenziali dei servizi di ripristino tramite [PowerShell](backup-azure-vms-automation.md/#restore-an-azure-vm)
 
 2. Creare la configurazione della macchina virtuale necessaria per il servizio di bilanciamento del carico/per più NIC/per più indirizzi IP riservati tramite i cmdlet di PowerShell e usarla per creare la macchina virtuale con la configurazione desiderata.
 	- Creare una macchina virtuale nel servizio cloud con [bilanciamento del carico interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com//documentation/articles/load-balancer-internet-getstarted/)
+	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creare una macchina virtuale con [più indirizzi IP riservati](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -210,4 +167,4 @@ Dopo avere appreso come ripristinare le VM, è possibile vedere l'articolo sulla
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

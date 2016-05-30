@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
-## Introduzione
 
-In questo documento vengono descritti i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento usando un codice Python di esempio. Di seguito, è riportata la procedura per eseguire questa operazione:
+In questo documento vengono descritti i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento tramite le procedure scritte in Python.
 
 **Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
 
@@ -28,7 +27,7 @@ Il **menu** seguente collega ad argomenti che descrivono come campionare dati da
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-Questa attività di campionatura è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Questa attività di campionatura è un passaggio di [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Download e sotto-campionamento dei dati
@@ -65,7 +64,7 @@ Questa attività di campionatura è un passaggio in [Cortana Analytics Process (
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	A questo punto, è possibile utilizzare il frame di dati precedente con il campione dell'1% per esplorare ulteriormente i dati e creare funzionalità.
+A questo punto, è possibile utilizzare il frame di dati precedente con il campione dell'1% per esplorare ulteriormente i dati e creare funzionalità.
 
 ##<a name="heading"></a>Caricamento e lettura dei dati in Azure Machine Learning
 
@@ -99,13 +98,8 @@ Questa attività di campionatura è un passaggio in [Cortana Analytics Process (
 
 3. Leggere i dati del BLOB di Azure tramite il [Lettore](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure ML, come illustrato nell’immagine successiva:
  
-![lettore BLOB][1]
+![lettore BLOB](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
-[1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
-
-
-<!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

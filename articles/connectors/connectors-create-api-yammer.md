@@ -47,21 +47,7 @@ Per usare l'API di Yammer, creare prima una **connessione**, quindi specificare 
 | ---|---|---|
 |Token|Sì|Specificare le credenziali di Yammer|
 
-Seguire questa procedura per accedere a Yammer e completare la configurazione della **connessione** Yammer nell'app per la logica:
-
-1. Selezionare **Recurrence**
-2. Selezionare una **frequenza** e immettere un **intervallo**
-3. Selezionare **Add an action** ![Configurare Yammer][1]
-4. Immettere Yammer nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Yammer nel nome
-5. Selezionare **Yammer - Get all messages**
-6. Selezionare **Sign in to Yammer**:
-![Configurare Yammer][2]
-7. Specificare le credenziali di Yammer per accedere e autorizzare l'applicazione ![Configurare Yammer][3]  
-8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Consentire** a Yammer di interagire con l'app per la logica:
-![Configurare Yammer][4] 
-9. Dopo l'accesso, tornare all'app per la logica per completarla configurando la sezione **Yammer - Get all messages** e aggiungendo gli altri trigger e azioni necessari.
-![Configurare Yammer][5]  
-10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
@@ -96,7 +82,7 @@ Corrisponde a "Tutte" le conversazioni nell'interfaccia Web di Yammer. ```GET: /
 
 
 ### Pubblica un messaggio in un gruppo o nel feed generale dell'organizzazione
-Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specificato altrimenti verrà pubblicato nel feed generale dell'organizzazione. ```POST: /messages.json```
+Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specificato, altrimenti verrà pubblicato nel feed generale dell'organizzazione. ```POST: /messages.json```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -201,7 +187,7 @@ Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specifi
 
 
 ## Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png
@@ -209,4 +195,4 @@ Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specifi
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Log di IIS in Log Analytics | Microsoft Azure"
    description="Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics. Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Log di IIS in Log Analytics
@@ -27,6 +27,8 @@ Log Analytics supporta solo i file log IIS archiviati in formato W3C. Non raccog
 
 Configurare i log di IIS in Log Analytics dal [menu Dati nelle impostazioni di Log Analytics](log-analytics-data-sources.md/configuring-data-sources). Non occorre selezionare nessuna impostazione oltre a **Raccogli i file di log IIS in formato W3C**.
 
+Quando è abilitata la raccolta di log IIS, si consiglia di configurare l'impostazione di rollover dei log IIS su ciascun server.
+
 
 ## Raccolta dei dati
 
@@ -35,7 +37,7 @@ Log Analytics raccoglie le voci dei log di IIS da ogni origine connessa a interv
 
 ## Proprietà dei record del log di IIS
 
-I record dei log di IIS sono di tipo **W3CIISLog**; nella tabella seguente vengono riportate le loro proprietà .
+I record dei log di IIS sono di tipo **W3CIISLog**; nella tabella seguente vengono riportate le loro proprietà.
 
 | Proprietà | Descrizione |
 |:--|:--|
@@ -76,7 +78,7 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 ## Passaggi successivi
 
 - Configurare Log Analytics per raccogliere altre [origini dati](log-analytics-data-sources.md) per l'analisi.
-- Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+- Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 - Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

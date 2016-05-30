@@ -31,12 +31,12 @@ Il secondo passaggio della procedura guidata offre la possibilità di modificare
 
 Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizzata. Al successivo utilizzo di PIM, anche di un altro amministratore della sicurezza, verrà visualizzato il dashboard di PIM.
 
-- Se si vuole aggiungere o rimuovere gli utenti dai ruoli o modificare le assegnazioni da permanenti a temporanee, vedere [Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user) per altre informazioni.
-- Se si concedere a più utenti l'accesso per la gestione di PIM, vedere [Come concedere l'accesso per la gestione in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim) per altre informazioni.
+- Se si vuole aggiungere o rimuovere gli utenti dai ruoli o modificare le assegnazioni da permanenti a temporanee, vedere [Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user.md) per altre informazioni.
+- Per concedere a più utenti l'accesso per la gestione di PIM, vedere l'articolo [Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

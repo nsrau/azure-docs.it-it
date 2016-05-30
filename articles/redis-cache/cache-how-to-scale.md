@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Come scalare Cache Redis di Azure" 
+	pageTitle="Come ridimensionare Cache Redis di Azure | Microsoft Azure" 
 	description="Informazioni su come ridimensionare le istanze di Cache Redis di Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,73 +13,79 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
-# Come scalare Cache Redis di Azure
+# Come ridimensionare Cache Redis di Azure
 
->[AZURE.NOTE] Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima non è possibile scalare una cache di livello premium, ma è possibile modificare il piano tariffario in una cache premium. È inoltre possibile [modificare la dimensione del cluster](cache-how-to-premium-clustering.md#cluster-size) in una cache premium con il clustering abilitato.
+>[AZURE.NOTE] Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima.
 
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare la dimensione della cache usando il pannello **Modifica piano tariffario** nel [portale di Azure](https://portal.azure.com).
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile ridimensionare la cache usando il pannello **Modifica piano tariffario** nel [portale di Azure](https://portal.azure.com).
 
-## Quando è necessario scalare
+## Quando è necessario ridimensionare la cache
 
-È possibile utilizzare le funzionalità di [monitoraggio](cache-how-to-monitor.md) di Cache Redis di Azure per monitorare l'integrità e le prestazioni delle applicazioni nella cache e per determinare se è necessario scalare la cache.
+È possibile usare le funzionalità di [monitoraggio](cache-how-to-monitor.md) di Cache Redis di Azure per monitorare l'integrità e le prestazioni delle applicazioni nella cache e per determinare se è necessario ridimensionare la cache.
 
-È possibile monitorare le metriche seguenti per determinare se è necessario scalare.
+Per determinare se è necessario un ridimensionamento è possibile monitorare le metriche seguenti.
 
 -	Carico server Redis
 -	Utilizzo della memoria
 -	Larghezza di banda della rete
 -	Utilizzo di CPU
 
-Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile passare a un livello di prezzo della cache superiore o inferiore che sia adatto all'applicazione. Per ulteriori informazioni su come determinare quale tipo di livello di prezzo di cache utilizzare, vedere l’articolo relativo all’[offerta e alle dimensioni di Cache Redis da utilizzare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile passare a un piano tariffario della cache superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all'[offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-## Scalare una cache
-Per scalare la cache [passare alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Impostazioni**, **Piano tariffario**.
+## Ridimensionare una cache
+Per ridimensionare la cache, [passare alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Impostazioni**, **Piano tariffario**.
 
-È inoltre possibile scegliere il **livello Standard** o il **livello Basic** nel pannello **Cache Redis**.
+È anche possibile fare clic su **Piano tariffario** nel pannello **Cache Redis**.
 
-![Pricing tier][redis-cache-pricing-tier-part]
+![Piano tariffario][redis-cache-pricing-tier-part]
 
-Selezionare il livello di prezzo desiderato dal pannello **Livello di prezzo** e fare clic su **Seleziona**.
+Selezionare il piano tariffario desiderato dal pannello **Piano tariffario** e fare clic su **Seleziona**.
 
-![Pricing tier][redis-cache-pricing-tier-blade]
+![Piano tariffario][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE] È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
+>[AZURE.NOTE] Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti.
 >
->-	Non è possibile ridimensionare le istanze di una cache **Premium**.
->-	Non è possibile scalare da una cache **Standard** a una cache **Basic**.
->-	È possibile passare da una cache **Basic** a una cache **Standard** ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
+>-	Non è possibile passare da un piano tariffario superiore a uno inferiore.
+>    -    Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
+>    -    Non è possibile passare da una cache **Standard** a una cache **Basic**.
+>-	È possibile passare da una cache **Basic** a una cache **Standard**, ma non modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+>-	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 >-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 
-Mentre viene eseguito il ridimensionamento della cache al nuovo livello di prezzo, nel pannello **Cache Redis** viene visualizzato uno stato **Ridimensionamento**.
+Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis** viene visualizzato lo stato **Ridimensionamento**.
 
 ![Ridimensionamento][redis-cache-scaling]
 
-Quando il ridimensionamento è completato, lo stato passa da **Ridimensionamento** a **In esecuzione**.
+Al termine dell'operazione, lo stato passa da **Ridimensionamento** a **In esecuzione**.
 
-## Come automatizzare un’operazione di ridimensionamento
+## Come automatizzare un'operazione di ridimensionamento
 
-Oltre a scalare le istanze di Cache Redis di Azure nel portale di Azure, è possibile eseguire il ridimensionamento mediante i cmdlet di PowerShell per Cache Redis di Azure e le librerie di gestione di Microsoft Azure.
+Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis di Azure è possibile eseguire i cmdlet di PowerShell per Cache Redis di Azure, l'interfaccia della riga di comando di Azure e le librerie di gestione di Microsoft Azure.
 
-### Scalare tramite PowerShell
+-	[Ridimensionare la cache tramite PowerShell](#scale-using-powershell)
+-	[Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure](#scale-using-azure-cli)
+-	[Ridimensionare la cache tramite le librerie di gestione di Microsoft Azure](#scale-using-maml)
 
-È possibile scalare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come scalare una cache denominata `myCache` in una cache di 2,5 GB.
+### Ridimensionare la cache tramite PowerShell
+
+È possibile ridimensionare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` configurando una dimensione di 2,5 GB.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Per altre informazioni sulla scalabilità con PowerShell, vedere [scalare una cache Redis usando Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
+Per altre informazioni sul ridimensionamento con PowerShell, vedere le istruzioni per [ridimensionare una cache Redis mediante PowerShell](cache-howto-manage-redis-cache-powershell.md#scale).
 
-### Scalare tramite l'interfaccia della riga di comando di Azure
+### Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure
 
-Per scalare le istanze di Cache Redis di Azure con l'interfaccia della riga di comando di Azure, chiamare il comando `azure rediscache set` e passare le modifiche alla configurazione desiderata che includono una nuova dimensione, SKU o del cluster, a seconda dell'operazione di scalabilità desiderata.
+Per ridimensionare le istanze di Cache Redis di Azure con l'interfaccia della riga di comando di Azure, chiamare il comando `azure rediscache set` e passare le modifiche di configurazione desiderate che includono una nuova dimensione della cache, SKU o dimensione del cluster, a seconda dell'operazione di ridimensionamento desiderata.
 
-Per altre informazioni sulla scalabilità con l'interfaccia della riga di comando di Azure, vedere [Modificare le impostazioni di una Cache Redis esistente](cache-manage-cli.md#scale).
+Per altre informazioni sul ridimensionamento tramite l'interfaccia della riga di comando di Azure, vedere [Modificare le impostazioni di una Cache Redis esistente](cache-manage-cli.md#scale).
 
-### Scalare tramite le librerie di gestione di Microsoft Azure
+### Ridimensionare la cache tramite le librerie di gestione di Microsoft Azure
 
-Per scalare le istanze di Cache Redis di Azure Redis usando le [librerie di gestione di Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione di `RedisProperties.SKU.Capacity`.
+Per ridimensionare le istanze di Cache Redis di Azure Redis usando le [librerie di gestione di Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione di `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -99,70 +105,75 @@ Per scalare le istanze di Cache Redis di Azure Redis usando le [librerie di gest
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
 
-Per ulteriori informazioni, vedere l’esempio relativo alla [gestione di Cache Redis Cache tramite MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML).
+Per altre informazioni, vedere l'esempio relativo alla [gestione di Cache Redis tramite le librerie di gestione di Microsoft Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML).
 
 ## Domande frequenti relative al ridimensionamento
 
-Nell’elenco seguente sono fornite le risposte alle domande poste comunemente sul ridimensionamento di Cache Redis di Azure.
+Nell'elenco seguente sono riportate le risposte alle domande poste comunemente sul ridimensionamento di Cache Redis di Azure.
 
-## È possibile ridimensionare verso, da o in una cache Premium
+-	[È possibile eseguire un ridimensionamento verso, da o in una cache Premium?](#can-i-scale-to-from-or-within-a-premium-cache)
+-	[Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+-	[Come funziona il ridimensionamento?](#how-does-scaling-work)
+-	[Durante il ridimensionamento i dati nella cache andranno persi?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[La cache rimarrà disponibile durante il ridimensionamento?](#will-my-cache-be-available-during-scaling)
+-	[Operazioni non supportate](#operations-that-are-not-supported)
+-	[Quanto tempo richiede il ridimensionamento?](#how-long-does-scaling-take)
+-	[Come è possibile stabilire quando il ridimensionamento è completato?](#how-can-i-tell-when-scaling-is-complete)
+-	[Perché questa funzionalità è in anteprima?](#why-is-this-feature-in-preview)
 
--	Non è possibile scalare dai piani tariffari di una cache **Basic** o **Standard** a quello di una cache **Premium**.
--	Non è possibile scalare da una cache **Premium** a un piano tariffario **Basic** o **Standard**.
--	È possibile scalare dal piano tariffario di una cache **Premium** a un altro.
--	Se è stato abilitato il clustering durante la creazione della cache **Premium**, è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size).
+### È possibile eseguire un ridimensionamento verso, da o in una cache Premium?
 
-Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+-	Non è possibile passare da una cache **Premium** a un piano tariffario **Basic** o **Standard**.
+-	È possibile passare da piano tariffario della cache **Premium** a un altro.
+-	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario prima passare da **Basic** a **Standard** con un'operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
+-	Se è stato abilitato il clustering durante la creazione della cache **Premium**, è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size). Attualmente non è possibile abilitare il clustering in una cache esistente che è stata creata senza clustering.
 
-## Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?
+    Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
-No, il nome della cache e le chiavi restano invariate durante un'operazione di ridimensionamento.
+### Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?
 
-## Come funziona il ridimensionamento?
+No, il nome della cache e le chiavi restano invariati durante un'operazione di ridimensionamento.
 
-Quando viene ridimensionata una cache **Basic**, essa viene chiusa e viene eseguito il provisioning di una nuova cache utilizzando la nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
+### Come funziona il ridimensionamento?
 
-Quando una cache **Basic** viene scalata in una cache **Standard**, viene eseguito il provisioning di una cache di replica e i dati vengono copiati dalla cache principale alla cache di replica. La cache rimane disponibile durante il processo di ridimensionamento.
+-	Quando viene ridimensionata, una cache **Basic** viene arrestata e viene eseguito il provisioning di una nuova cache in base alla nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
+-	Quando si passa da una cache **Basic** a una **Standard**, viene eseguito il provisioning di una cache di replica e i dati vengono copiati dalla cache principale a quella di replica. Durante il processo di ridimensionamento, la cache rimane disponibile.
+-	Quando si ridimensiona una cache **Standard** passando a una dimensione maggiore o a una cache **Premium**, una delle repliche viene arrestata, ne viene rieseguito il provisioning in base alla nuova dimensione e i dati vengono trasferiti. Viene quindi eseguito il failover dell'altra replica e successivamente ne viene rieseguito il provisioning, in modo analogo a quanto accade in caso di errore di uno dei nodi della cache.
 
-Quando una cache **Standard** viene scalata, una delle repliche viene arrestata e ne viene rieseguito il provisioning alla nuova dimensione. I dati vengono trasferiti in questa replica, quindi si esegue il failover dell'altra replica prima di rieseguirne il provisioning, in modo simile a quanto accade nel processo che si verifica durante un errore di uno dei nodi della cache.
+### Durante il ridimensionamento i dati nella cache andranno persi?
 
-## Durante il ridimensionamento i miei dati dalla cache andranno persi?
+-	Quando si modifica la dimensione di una cache **Basic**, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
+-	Quando si passa da una cache **Basic** a una cache **Standard**, in genere i dati nella cache vengono mantenuti.
+-	Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache). 
 
-Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
-
-Quando una cache **Basic** viene ridimensionata in una cache**Standard**, generalmente i dati nella cache vengono mantenuti.
-
-Quando una cache **Standard** viene scalata in una dimensione superiore, in genere vengono mantenuti tutti i dati. Quando si scala una cache **Standard** a una dimensione inferiore, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e alla nuova dimensione di questa. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache).
 
 Si noti che mentre le cache Standard e Premium dispongono di un contratto di servizio pari al 99,9% di disponibilità, non esiste un contratto di servizio per la perdita dei dati.
 
-## La cache sarà disponibile durante il ridimensionamento?
+### La cache rimarrà disponibile durante il ridimensionamento?
 
-Le cache **Standard** restano disponibili durante l'operazione di ridimensionamento.
+-	Le cache **Standard** e **Premium** rimangono disponibili durante l'operazione di ridimensionamento.
+-	Le cache **Basic** sono offline durante la configurazione di una dimensione diversa, ma rimangono disponibili durante il passaggio da **Basic** a **Standard**.
 
-Le cache **Basic** sono offline durante le operazioni di ridimensionamento a una dimensione diversa, ma rimangono disponibili quando si esegue il ridimensionamento da una cache **Basic** a una **Standard**.
+### Operazioni non supportate
 
-## Operazioni non supportate
+-	Non è possibile passare da un piano tariffario superiore a uno inferiore.
+    -    Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
+    -    Non è possibile passare da una cache **Standard** a una cache **Basic**.
+-	È possibile passare da una cache **Basic** a una cache **Standard**, ma non modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+-	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
+-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 
-Non è possibile scalare una cache **Premium**.
+Se l'operazione di ridimensionamento non riesce, il servizio tenta di annullare l'operazione e la dimensione originale della cache viene ripristinata.
 
-Non è possibile scalare da una cache **Standard** a una cache **Basic**.
-
-È possibile scalare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
-
-È possibile aumentare una cache **C0** (250 MB) a una dimensione superiore, ma non è possibile ridurre una cache di dimensioni superiori a una cache **C0**.
-
-Se l’operazione di ridimensionamento non riesce, il servizio ripristina l’operazione e la cache ritorna alla dimensione originale.
-
-## Quanto tempo richiede il ridimensionamento?
+### Quanto tempo richiede il ridimensionamento?
 
 Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati nella cache.
 
-## Come è possibile stabilire quando il ridimensionamento è completato?
+### Come è possibile stabilire quando il ridimensionamento è completato?
 
-Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
+Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completato, lo stato della cache passa a **In esecuzione**.
 
-## Perché questa funzionalità è in anteprima?
+### Perché questa funzionalità è in anteprima?
 
 Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerimenti. In base ai commenti, questa funzionalità sarà rilasciata a breve per la disponibilità generale.
 
@@ -178,4 +189,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

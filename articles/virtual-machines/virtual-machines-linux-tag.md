@@ -19,13 +19,13 @@
 
 # Come contrassegnare una macchina virtuale Linux in Azure
 
-In questo articolo vengono descritti diversi modi per contrassegnare una macchina virtuale Linux in Azure tramite Azure Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite la gestione risorse di Azure.
+Questo articolo descrive diversi modi per contrassegnare una macchina virtuale Linux in Azure tramite il modello di distribuzione Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite il modello di distribuzione Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Assegnazione di tag con Azure CLI
 
-L’assegnazione di tag è supportata per le risorse che sono già state create tramite la CLI di Azure. Per iniziare, impostare l’[ambiente CLI di Azure][]. Accedere alla sottoscrizione tramite l'interfaccia della riga di comando di Azure e passare alla modalità ARM (`azure config mode arm`).
+L’assegnazione di tag è supportata per le risorse che sono già state create tramite la CLI di Azure. Per iniziare, impostare l’[ambiente CLI di Azure][]. Accedere alla sottoscrizione tramite l'interfaccia della riga di comando di Azure e passare alla modalità Resource Manager (`azure config mode arm`).
 
 È possibile visualizzare tutte le proprietà per una determinata macchina virtuale, compresi i tag, utilizzando questo comando:
 
@@ -42,8 +42,7 @@ Per rimuovere tutti i tag, è possibile usare il parametro **–T** nel comando 
 
 Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di comando di Azure e il portale, esaminare i dettagli di utilizzo per visualizzare i tag nel portale di fatturazione.
 
-
-
+[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Passaggi successivi
 
@@ -60,4 +59,4 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

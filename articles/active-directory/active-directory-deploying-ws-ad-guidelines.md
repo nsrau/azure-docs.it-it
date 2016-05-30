@@ -24,7 +24,7 @@ Questo articolo descrive le differenze più importanti tra la distribuzione di S
 
 L'articolo è destinato a utenti già esperti nella distribuzione di Active Directory in locale. Illustra le differenze tra la distribuzione di Active Directory nelle macchine virtuali di Microsoft Azure o nelle reti virtuali di Azure e le tradizionali distribuzioni di Active Directory in locale. Le macchine virtuali e le reti virtuali di Azure fanno parte di un'offerta di infrastruttura distribuita come servizio (IaaS) destinata alle organizzazioni perché possano sfruttare le risorse di elaborazione nel cloud.
 
-Per coloro che non hanno familiarità con la distribuzione di Active Directory, vedere [Guida alla distribuzione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/cc753963) o [Pianificazione della distribuzione di AD FS](https://technet.microsoft.com/library/dn151324.aspx), secondo il caso.
+Per coloro che non hanno familiarità con la distribuzione di Active Directory, vedere [Guida alla distribuzione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/cc753963) o [Pianificazione della distribuzione di AD FS](https://technet.microsoft.com/library/dn151324.aspx), secondo il caso.
 
 Nell'articolo si presuppone che il lettore abbia familiarità con i concetti seguenti:
 
@@ -53,7 +53,7 @@ Per altre informazioni su queste differenze, vedere [Nozioni fondamentali sulla 
 - [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 - [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md)
-- [Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
+- [Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
@@ -338,7 +338,7 @@ Un'applicazione compatibile con LDAP viene distribuita in una macchina virtuale 
 
 - [Topologia di rete](#BKMK_NetworkTopology): creare una rete virtuale di Azure con la [connettività cross-premise](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-- [Metodo di installazione](#BKMK_InstallMethod): distribuire controller di dominio di replica dal dominio Active Directory di Windows Server aziendale. Per un controller di dominio di replica è possibile installare Servizi di dominio Active Directory di Windows Server nella VM e, facoltativamente, usare la funzionalità Installazione da supporto per ridurre la quantità di dati che devono essere replicati nel nuovo controller di dominio durante l'installazione. Per un'esercitazione, vedere [Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). Anche se si usa Installazione da supporto, potrebbe risultare più pratico compilare il controller di dominio virtuale in locale e spostare l'intero disco rigido virtuale (VHD) nel cloud, invece di replicare Servizi di dominio Active Directory di Windows Server durante l'installazione. Per motivi di sicurezza, è consigliabile eliminare il disco rigido virtuale dalla rete locale dopo che è stato copiato in Azure.
+- [Metodo di installazione](#BKMK_InstallMethod): distribuire controller di dominio di replica dal dominio Active Directory di Windows Server aziendale. Per un controller di dominio di replica è possibile installare Servizi di dominio Active Directory di Windows Server nella VM e, facoltativamente, usare la funzionalità Installazione da supporto per ridurre la quantità di dati che devono essere replicati nel nuovo controller di dominio durante l'installazione. Per un'esercitazione, vedere [Install a replica Active Directory domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md) (Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure). Anche se si usa Installazione da supporto, potrebbe risultare più pratico compilare il controller di dominio virtuale in locale e spostare l'intero disco rigido virtuale (VHD) nel cloud, invece di replicare Servizi di dominio Active Directory di Windows Server durante l'installazione. Per motivi di sicurezza, è consigliabile eliminare il disco rigido virtuale dalla rete locale dopo che è stato copiato in Azure.
 
 - [Topologia del sito Active Directory di Windows Server](#BKMK_ADSiteTopology): creare un nuovo sito di Azure in Siti e servizi di Active Directory. Creare un oggetto subnet di Active Directory di Windows Server per rappresentare la rete virtuale di Azure e aggiungere la subnet al sito. Creare un nuovo collegamento di sito che include il nuovo sito di Azure e il sito in cui si trova l'endpoint VPN della rete virtuale di Azure per controllare e ottimizzare il traffico di Active Directory di Windows Server da e verso Azure.
 
@@ -558,4 +558,4 @@ Per stabilire le opzioni di configurazione della distribuzione che meglio soddis
 
 > [AZURE.NOTE] Per ottenere il bilanciamento del carico per gli endpoint AD FS di Windows Server in Azure, configurare tutti i membri della farm AD FS di Windows Server nello stesso servizio cloud e usare la funzionalità di bilanciamento del carico di Azure per le porte HTTP (80 predefinita) e HTTPS (443 predefinita). Per altre informazioni, vedere relativo al [probe di bilanciamento del carico di Azure](https://msdn.microsoft.com/library/azure/jj151530). Il bilanciamento del carico di rete di Windows Server non è supportato in Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

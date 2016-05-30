@@ -18,7 +18,7 @@
 
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](sql-data-warehouse-encryption-tde.md)
+- [Portale di Azure](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 La funzionalità Transparent Data Encryption (TDE) di SQL Data Warehouse di Azure consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
@@ -27,9 +27,9 @@ TDE esegue la crittografia dell'archiviazione di un intero database usando una c
 
 ##Abilitazione della crittografia
 
-Per abilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
+Per abilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 
-1. Aprire il database nel [portale di Azure classico](https://portal.azure.com)
+1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
 4. Selezionare l’impostazione ![][2] su **Attiva**
@@ -37,9 +37,9 @@ Per abilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
 
 ##Disabilitazione della crittografia
 
-Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
+Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 
-1. Aprire il database nel [portale di Azure classico](https://portal.azure.com)
+1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
 4. Selezionare l’impostazione ![][4] su **Disattiva**
@@ -61,4 +61,4 @@ Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguent
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

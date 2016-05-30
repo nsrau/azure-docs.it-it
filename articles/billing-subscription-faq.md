@@ -43,7 +43,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 
 - [Come si integrano i contratti di servizio di Azure con gli attuali contratti di licenza Microsoft per soluzioni locali?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-- [Non viene visualizzata alcuna fattura per l'ultimo periodo di fatturazione. Perché?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [Non viene visualizzata alcuna fattura per l'ultimo periodo di fatturazione. Motivo](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
 **Sottoscrizioni**
 
@@ -123,7 +123,7 @@ In quanto amministratore account Azure, è possibile visualizzare la fattura cor
 
 ### Come si aggiornano o si modificano le informazioni relative alla carta di credito?
 
-Per istruzioni su come usare una carta di credito diversa come metodo di pagamento o su come aggiungere una nuova carta di credito, vedere l'articolo [Come modificare la carta di credito usata per pagare una sottoscrizione di Azure](billing-how-to-change-credit-card.md).
+Se la carta di credito viene rinnovata e il numero rimane invariato, è possibile aggiornare semplicemente i dati della carta di credito esistente, ad esempio la data di scadenza. Se cambia il numero di carta di credito o si vuole usare un'altra carta, è necessario aggiungere la nuova carta. È possibile trovare istruzioni per aggiornare o aggiungere una carta di credito qui: [Come modificare la carta di credito utilizzata per pagare una sottoscrizione di Azure](billing-how-to-change-credit-card.md).
 
 ### Come si possono conoscere in anticipo i tempi di inattività del servizio per manutenzione pianificata?
 
@@ -277,4 +277,4 @@ Sì.
 
 Attualmente non si prevede di offrire Azure o il database SQL tramite SPLA.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

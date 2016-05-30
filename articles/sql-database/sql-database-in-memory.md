@@ -460,7 +460,7 @@ GO
 Le funzionalità di OLTP in memoria nel database SQL di Azure sono [attive per l'anteprima dal 28 ottobre 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-Durante la fase di anteprima prima della disponibilità generale (GA), OLTP in memoria è supportato solo per:
+Nell'anteprima corrente, OLTP in memoria è supportato solo per:
 
 - Database a un livello di servizio *Premium*.
 
@@ -491,7 +491,11 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 #### Altre relazioni
 
 
-- L'uso delle funzionalità OLTP in memoria con i database in pool elastici non è supportato durante l'anteprima, ma potrebbe esserlo in futuro:
+- L'uso delle funzionalità OLTP in memoria con i database in pool elastici non è supportato durante l'anteprima.
+ - Per spostare un database che ha o ha avuto oggetti di OLTP in memoria in un pool elastico, seguire questa procedura:
+  - 1. Eliminare le tabelle con ottimizzazione per la memoria, i tipi di tabella e i moduli di T-SQL compilati in modo nativo nel database
+  - 2. Impostare il livello di servizio del database su standard. *Attualmente è presente un problema che impedisce lo spostamento dei database Premium che nel passato disponevano di oggetti OLTP in memoria all'interno di un pool elastico. Il team di Azure DB è impegnato attivamente nella risoluzione del problema.
+  - 3. Spostare il database in un pool elastico
 
 - L'uso di OLTP in memoria con SQL Data Warehouse non è supportato.
  - La funzionalità di indice columnstore delle analisi in memoria è supportata in SQL Data Warehouse.
@@ -533,4 +537,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

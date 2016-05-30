@@ -31,7 +31,7 @@ Informazioni su come creare cluster HDInsight tramite modelli di Gestione risors
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
 - [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/o [interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
+- Azure PowerShell o interfaccia della riga di comando di Azure
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -39,7 +39,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 Il modello di Gestione risorse di Azure semplifica la creazione di cluster HDInsight, delle risorse dipendenti (ad esempio, l'account di archiviazione predefinito) e di altre risorse (ad esempio, il database SQL di Azure per usare Apache Sqoop) per l'applicazione in un'unica operazione coordinata. Nel modello vengono definite le risorse necessarie per l'applicazione e vengono specificati i parametri di distribuzione per immettere valori nei diversi ambienti di distribuzione. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
 
-Nell'[Appendice A](#appx-a-arm-template) è disponibile un modello di Azure Resource Manager per la creazione di un cluster HDInsight e dell'account di archiviazione di Azure dipendente. Usare un editor di testo per salvare il modello in un file nella workstation. Si apprenderà come chiamare il modello usando diversi strumenti.
+Nell'[Appendice A](#appx-a-arm-template) è disponibile un modello di Azure Resource Manager per la creazione di un cluster HDInsight e dell'account di Archiviazione di Azure dipendente. Usare un editor di testo per salvare il modello in un file nella workstation. Si apprenderà come chiamare il modello usando diversi strumenti.
 
 Per altre informazioni sul modello di Gestione risorse di Azure, vedere
 
@@ -130,7 +130,7 @@ Vedere [Distribuire con l'API REST](../resource-group-template-deploy.md#deploy-
 
 Con Visual Studio, è possibile creare un progetto del gruppo di risorse e distribuirlo in Azure mediante l'interfaccia utente. Selezionare il tipo di risorse da includere nel progetto e le risorse vengono aggiunte automaticamente al modello di Gestione risorse. Il progetto fornisce anche uno script di PowerShell per distribuire il modello.
 
-Per un'introduzione all'uso di Visual Studio con i gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
@@ -140,7 +140,7 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).
 - Per informazioni sulle sezioni del modello di Azure Resource Manager, vedere [Creazione di modelli](../resource-group-authoring-templates.md).
-- Per un elenco delle funzioni che è possibile usare in un modello di Azure Resource Manager, vedere [Funzioni del modello](../resource-group-template-functions.md).
+- Per un elenco delle funzioni che è possibile usare in un modello di Azure Resource Manager, vedere [Funzioni di modello](../resource-group-template-functions.md).
 
 
 
@@ -294,4 +294,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
         }
     }
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

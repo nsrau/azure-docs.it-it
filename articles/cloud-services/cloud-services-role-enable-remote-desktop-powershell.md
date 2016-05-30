@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="05/17/2016" 
 ms.author="adegeo"/>
 
 # Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con PowerShell
@@ -35,7 +35,7 @@ Il cmdlet [Set AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/li
 Se si usa PowerShell in modo interattivo è possibile impostare facilmente l'oggetto PSCredential chiamando il cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
-	$remoteusercredentials = Get-Credential
+$remoteusercredentials = Get-Credential
 ```
 
 Verrà visualizzata una finestra di dialogo in cui immettere il nome utente e password per l'utente remoto in modo sicuro.
@@ -45,7 +45,7 @@ Poiché PowerShell verrà prevalentemente usato per gli scenari di automazione, 
 Usare il codice di PowerShell seguente per creare un file della password sicura:
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 Una volta creato il file della password (password.txt), si userà solo questo file e non sarà necessario specificare la password in testo normale. Se è necessario aggiornare la password, è possibile eseguire di nuovo il codice di PowerShell precedente con la nuova password per generare un nuovo file password.txt.
@@ -57,12 +57,12 @@ Per creare l'oggetto credential dal file della password sicura, è necessario le
 Questo esempio di PowerShell illustra come impostare l'estensione di Desktop remoto in un servizio cloud:
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+$servicename = "cloudservice"
+$username = "RemoteDesktopUser"
+$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+$expiry = $(Get-Date).AddDays(1)
+$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 È anche possibile specificare lo slot di distribuzione e i ruoli per i quali si vuole abilitare Desktop remoto. Se questi parametri non sono specificati, il cmdlet userà per impostazione predefinita lo slot di distribuzione Produzione e abiliterà Desktop remoto su tutti i ruoli nella distribuzione di produzione.
 
@@ -73,7 +73,7 @@ L'estensione per il Desktop remoto è associata a una distribuzione. Se si crea 
 Il cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) può essere usato per integrare Desktop remoto in una specifica istanza del ruolo del servizio cloud. È possibile usare il parametro *LocalPath* nel cmdlet per scaricare il file RDP in locale oppure usare il parametro *Launch* per avviare direttamente la finestra di dialogo Connessione Desktop remoto per accedere all'istanza del ruolo del servizio cloud.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
@@ -81,7 +81,7 @@ Il cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/
 Il cmdlet [Get AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) mostra se Desktop remoto è abilitato in una distribuzione del servizio. Il cmdlet restituirà il nome utente per l'utente Desktop remoto e i ruoli sui quali l'estensione di Desktop remoto è abilitata. È possibile specificare facoltativamente uno slot di distribuzione con il valore predefinito Produzione.
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## Rimuovere l'estensione di Desktop remoto da un servizio 
@@ -91,10 +91,11 @@ Per rimuovere l'estensione di Desktop remoto dalla distribuzione del servizio, �
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
-
 ```  
 
->[AZURE.NOTE] Il parametro *UninstallConfiguration* disinstallerà qualsiasi configurazione dell'estensione applicata al servizio. La configurazione dell'estensione è associata alla configurazione del servizio per attivare l'estensione con una distribuzione, quindi la distribuzione deve essere associata a tale configurazione dell'estensione. Se si chiama il cmdlet Remove senza *UninstallConfiguration* la distribuzione verrà disassociata dalla configurazione dell'estensione, rimuovendo in effetti l'estensione dalla distribuzione. La configurazione dell'estensione rimarrà comunque associata al servizio. Per rimuovere completamente la configurazione dell'estensione, è necessario chiamare il cmdlet Remove con il parametro *UninstallConfiguration*.
+>[AZURE.NOTE] Per rimuovere completamente la configurazione dell'estensione, è necessario chiamare il cmdlet *remove* con il parametro **UninstallConfiguration**.
+>
+>Il parametro **UninstallConfiguration** disinstallerà qualsiasi configurazione dell'estensione applicata al servizio. La configurazione dell'estensione è associata alla configurazione del servizio per attivare l'estensione con una distribuzione, quindi la distribuzione deve essere associata a tale configurazione dell'estensione. Se si chiama il cmdlet *remove* senza **UninstallConfiguration** la distribuzione verrà dissociata dalla configurazione dell'estensione, rimuovendo in effetti l'estensione dalla distribuzione. La configurazione dell'estensione rimarrà comunque associata al servizio.
 
 
 
@@ -102,4 +103,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

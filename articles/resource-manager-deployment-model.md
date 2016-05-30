@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
@@ -26,7 +26,9 @@ Per la maggior parte delle risorse, è possibile passare a Resource Manager senz
 - **Archiviazione**: supporta account di archiviazione obbligatori che archiviano dischi rigidi virtuali per le macchine virtuali, inclusi il sistema operativo e altri dischi dati.
 - **Rete**: supporta le schede di rete, gli indirizzi IP di macchine virtuali e le subnet all'interno di reti virtuali obbligatori, nonché i servizi di bilanciamento del carico, gli indirizzi IP del servizio di bilanciamento del carico e i gruppi di sicurezza di rete facoltativi.
 
-Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Per comprendere il modello utilizzato per distribuire le risorse, è opportuno approfondire i due modelli.
+Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Se si è pronti per eseguire la migrazione delle risorse dalla distribuzione classica alla distribuzione di Azure Resource Manager vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
+
+Per comprendere il modello utilizzato per distribuire le risorse, è opportuno approfondire i due modelli.
 
 ## Caratteristiche di Gestione risorse
 
@@ -145,7 +147,7 @@ Verrà restituita la macchina virtuale:
     Location          : westus
     SubscriptionId    : {guid}
 
-Tuttavia, il cmdlet **Get-AzureRmVM** restituisce solo le macchine virtuali distribuite tramite Resource Manager. Il comando seguente non restituisce la macchina virtuale creata tramite distribuzione classica.
+Tuttavia il cmdlet **Get-AzureRmVM** restituisce solo le macchine virtuali distribuite tramite Resource Manager. Il comando seguente non restituisce la macchina virtuale creata tramite distribuzione classica.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
 
@@ -161,7 +163,7 @@ Esistono alcune importanti considerazioni da tenere presente quando si usano le 
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
 
-Se è possibile affrontare i tempi di inattività per le macchine virtuali, è possibile passarle dalla distribuzione classica alla Gestione risorse con gli [script di PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
+Se si è pronti per eseguire la migrazione delle risorse dalla distribuzione classica alla distribuzione di Azure Resource Manager vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
 
 Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
@@ -169,8 +171,8 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 
 ## Passaggi successivi
 
-- Per la procedura dettagliata di creazione del modello che definisce una macchina virtuale, un account di archiviazione e una rete virtuale, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
-- Per sapere di più sulla struttura di modelli di Resource Manager, vedere l'articolo sulla [creazione dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+- Per la procedura dettagliata di creazione del modello che definisce una macchina virtuale, un account di archiviazione e una rete virtuale vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
+- Per informazioni sulla struttura dei modelli di Resource Manager vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

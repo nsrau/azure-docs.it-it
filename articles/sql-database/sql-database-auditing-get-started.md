@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="05/17/2016"
 	ms.author="carlrabeler; ronitr"/>
- 
+
 # Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo in genere è disponibile per i livelli di servizio Basic, Standard e Premium.
 
@@ -57,7 +57,7 @@ I log di controllo vengono archiviati nell'account di archiviazione di Azure. È
 
 Un criterio di controllo può essere definito per un database specifico o come criterio server predefinito. Un criterio di controllo del server predefinito verrà applicato a tutti i database di un server che non dispone di un criterio di controllo di override del database.
 
-Prima di impostare il controllo verificare che si stia utilizzando un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Prima di impostare il controllo verificare che si stia utilizzando un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Se si dispone di impostazioni del firewall restrittive, tenere presente che l'[endpoint dell'IP del database verrà modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il Controllo.
 
 
 ##<a id="subheading-2"></a>Configurare il controllo per il database
@@ -140,7 +140,7 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 3. Tornare al pannello di configurazione di controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e premere **SALVA**.
 
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** il *Tasto di scelta secondario* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
-  
+
 ##<a id="subheading-7"></a>Automazione
 Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure.
 
@@ -175,7 +175,4 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-
- 
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

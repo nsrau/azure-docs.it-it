@@ -4,7 +4,7 @@
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Indicazioni sulla rete per la distribuzione di contenuti (CDN)
 
-![Logo di Patterns and Practices](./media/best-practices-cdn/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 La Rete di distribuzione dei contenuti di Microsoft Azure (CDN) offre agli sviluppatori una soluzione globale per distribuire contenuti a larghezza di banda elevata ospitati in Azure o in altre posizioni. Con la rete CDN è possibile memorizzare nella cache gli oggetti disponibili pubblicamente caricati dall'archivio BLOB di Azure un'applicazione Web, una macchina virtuale, una cartella dell'applicazione o altre posizioni HTTP/HTTPS. La cache della rete CDN può essere mantenuta in posizioni strategiche per fornire la larghezza di banda massima per la distribuzione di contenuto agli utenti. In genere, la rete CDN viene usata per recapitare contenuto statico come immagini, fogli di stile, documenti, file script sul lato client e pagine HTML.
@@ -53,20 +53,20 @@ Ecco alcuni usi tipici della rete CDN:
 L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse aree geografiche. Il ruolo Web di destinazione viene distribuito in Azure West US. Esiste una stretta correlazione tra un boost maggiore dovuto alla rete CDN e la vicinanza a un nodo della rete CDN. Per un elenco completo delle posizioni dei nodi della rete CDN, vedere [Posizione dei nodi nella rete per la distribuzione di contenuti (CDN) di Azure](./cdn/cdn-pop-locations.md/).
 
 
-|| Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) | % miglioramento tempi CDN|
+|| Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) |% miglioramento tempi CDN|
 |-------------|------------------------|--------------------|------------------|
-|*San José, CA| 47.5 | 46.5 | 2 % |
-|**Dulles, VA| 109 | 40.5 | 169% |
+|*San José, CA| 47\.5 | 46\.5 | 2% |
+|**Dulles, VA| 109 | 40\.5 | 169% |
 |Buenos Aires, AR| 210 | 151 | 39%|
 |*Londra, UK| 195 | 44 | 343%|
 |Shanghai, CN| 242 | 206 | 17% |
-|*Singapore | 214 | 74 | 189 % |
-|*Tokyo, JP | 163 | 48 | 204 % |
+|*Singapore | 214 | 74 | 189% |
+|*Tokyo, JP | 163 | 48 | 204% |
 |Seoul, KR| 190 | 190 | 0% |
 
 
-\* Ha un nodo di rete CDN di Azure nella stessa città.  
-\*\* Ha un nodo di rete CDN di Azure in una città adiacente.  
+* Ha un nodo di rete CDN di Azure nella stessa città.  
+\*\* Ha un nodo di rete CDN di Azure in una città adiacente.
 
 ## Sfide  
 
@@ -284,4 +284,4 @@ L'uso della riscrittura di URL richiede di apportare alcune modifiche alla creaz
 + [Integrare un servizio cloud con la rete CDN di Azure](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Procedure consigliate per la rete per la distribuzione di contenuti di Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

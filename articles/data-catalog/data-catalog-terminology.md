@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
@@ -51,7 +51,7 @@ I metadati descrittivi dell'asset di dati possono includere informazioni su come
 - L'URL di un'identità e lo strumento di gestione dell'accesso (ad esempio Microsoft Identity Manager) che può essere usato per accedere all'origine dati.
 - Una voce di testo libero che descrive come gli utenti possono accedere all'origine dati.
 
-## Anteprime
+## Preview
 
 L'anteprima nel Catalogo dati di Azure è uno snapshot di 20 record al massimo che possono essere estratti dall'origine dati durante la registrazione e archiviati nel catalogo con i metadati dell’asset di dati. L'anteprima può aiutare gli utenti a individuare un asset di dati per comprenderne meglio lo scopo e la funzione. In altre parole, i dati di esempio possono essere più importanti dei soli nomi di colonna e tipi di dati. Le anteprime sono supportate solo per tabelle e viste e devono essere selezionate in modo esplicito dall'utente durante la registrazione.
 
@@ -73,7 +73,7 @@ Un esperto è un utente che è stato identificato come avente una prospettiva in
 
 ## Proprietario
 
-Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari.
+Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari. Per altre informazioni, vedere [Come gestire gli asset di dati](data-catalog-how-to-manage.md).
 > [AZURE.NOTE] La gestione e la proprietà sono disponibili solo nell'edizione Standard del Catalogo dati di Azure.
 
 ## Registrazione
@@ -86,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

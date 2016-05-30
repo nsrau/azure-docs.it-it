@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Protezione dei dati presenti in Archivio Data Lake di Azure
@@ -34,6 +34,10 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
+
+## Apprendimento rapido con i video
+
+[Guardare questo video](https://mix.office.com/watch/1q2mgzh9nn5lx) su come proteggere i dati archiviati in Archivio Data Lake.
 
 ## Creare gruppi di sicurezza in Azure Active Directory
 
@@ -98,8 +102,8 @@ Con l'assegnazione di utenti/gruppi di sicurezza al file system di Azure Data La
 
 	![Elencare profili di accesso standard e personalizzato](./media/data-lake-store-secure-data/adl.acl.2.png "Elencare profili di accesso standard e personalizzato")
 
-	* L'accesso standard è un tipo di accesso in stile UNIX, in cui si specificano i permessi di lettura, scrittura ed esecuzione per tre diverse classi utente: proprietario, gruppo e altri.
-	* L'accesso personalizzato corrisponde invece agli elenchi di controllo di accesso POSIX, che consentono di impostare autorizzazioni per utenti non anonimi o gruppi specifici, e non solo il gruppo o il proprietario del file.
+	* L'**accesso standard** è un tipo di accesso in stile UNIX, in cui si specificano i permessi di lettura, scrittura ed esecuzione per tre diverse classi utente: proprietario, gruppo e altri.
+	* L'**accesso personalizzato** corrisponde invece agli elenchi di controllo di accesso POSIX, che consentono di impostare autorizzazioni per utenti non anonimi o gruppi specifici, e non solo il gruppo o il proprietario del file. 
 	
 	Per altre informazioni, vedere l'articolo sugli [elenchi di controllo di accesso HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -111,15 +115,20 @@ Con l'assegnazione di utenti/gruppi di sicurezza al file system di Azure Data La
 
 	![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-secure-data/adl.acl.4.png "Assegnare autorizzazioni a un gruppo")
 
+	Le autorizzazioni sono descritte di seguito:
 
-	>[AZURE.NOTE] L'autorizzazione di esecuzione è sempre necessaria per l'enumerazione delle directory e, spesso, anche per concedere a un utente o un gruppo l'accesso in sola lettura ai dati.
+	* **Lettura** - Se questa autorizzazione è impostata su una directory, consente di leggere i nomi dei file nella directory.
+	* **Scrittura** - Se questa autorizzazione è impostata su una directory, consente di modificare gli elementi nella directory, ad esempio creare un file, eliminare un file o rinominare un file.
+	* **Esecuzione** - Se questa autorizzazione è impostata su una directory, consente di leggere i nomi dei file nella directory. Inoltre consente accedere ai metadati del file, se è noto il nome del file. Questa autorizzazione non consente però di elencare i file nella directory, a meno che non sia impostata anche l'autorizzazione **Lettura**.
+
+	>[AZURE.NOTE] L'autorizzazione **Lettura + Esecuzione** è sempre necessaria per l'enumerazione delle directory e, spesso, anche per concedere a un utente o un gruppo l'accesso in sola lettura ai dati.
 
 
 6. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. Il gruppo appena aggiunto, con le autorizzazioni associate, risulterà ora elencato nel pannello di **accesso**.
 
 	![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-secure-data/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
 
-	> [AZURE.IMPORTANT] Nella versione corrente, l'elenco **Accesso personalizzato** non può contenere più di 9 voci. Per aggiungere più di 9 utenti, è necessario creare gruppi di sicurezza, aggiungere utenti a tali gruppi e fornire ai gruppi di sicurezza creati accesso all'account di Archivio Data Lake.
+	> [AZURE.IMPORTANT] Nella versione corrente l'elenco **Accesso personalizzato** non può contenere più di 9 voci. Per aggiungere più di 9 utenti, è necessario creare gruppi di sicurezza, aggiungere utenti a tali gruppi e fornire ai gruppi di sicurezza creati accesso all'account di Archivio Data Lake.
 
 7. Se necessario, è possibile modificare le autorizzazioni di accesso anche dopo aver aggiunto il gruppo. Selezionare o deselezionare la casella di controllo per ogni tipo di autorizzazione (lettura, scrittura, esecuzione), in modo da aggiungerla o rimuoverla dal gruppo di sicurezza. Fare clic su **Salva** per salvare le modifiche o su **Ignora** per annullare le modifiche.
 
@@ -165,4 +174,4 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 - [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

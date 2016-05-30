@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/16/2016"
 	ms.author="markvi"/>
 
 #Notifiche di Azure Active Directory Identity Protection 
@@ -59,4 +59,4 @@ Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

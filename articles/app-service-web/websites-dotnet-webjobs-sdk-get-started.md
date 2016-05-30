@@ -78,7 +78,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 3. Accedere con le credenziali di Azure.
 
-5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**. 
+5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**.
 ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione.
@@ -299,7 +299,7 @@ Come procedura consigliata per la sicurezza, [evitare di inserire informazioni s
 
 In questa sezione si userà **Esplora server** per impostare i valori delle stringhe di connessione in Azure.
 
-7. In **Esplora server** fare clic con il pulsante destro del mouse sull'app Web in **Azure > {gruppo di risorse}**, quindi scegliere **Visualizza impostazioni**.
+7. In **Esplora server** fare clic con il pulsante destro del mouse sull'App Web in **Azure >Servizio app > {gruppo di risorse}**, quindi scegliere **Visualizza impostazioni**.
 
 	La finestra **App Web di Azure** si apre nella scheda **Configurazione**.
 
@@ -817,5 +817,4 @@ Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale co
 
 Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0518_2016-->

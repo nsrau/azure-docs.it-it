@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,16 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="04/20/2016"
 	ms.author="jroth" />
 
-# Creare una macchina virtuale SQL Server in Azure PowerShell (Classic)
+# Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)
 
 ## Panoramica
 
 In questo articolo viene descritta la procedura per creare una macchina virtuale SQL Server in Azure usando i cmdlet di PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Modello Gestione risorse. Se è necessaria la versione relativa a Resource Manager di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (Resource Manager)](virtual-machines-windows-ps-sql-create.md).
 
 ## Installare e configurare PowerShell
 
@@ -168,8 +170,8 @@ Per istruzioni aggiuntive sul provisioning delle macchine virtuali con PowerShel
 
 In molti casi, il passaggio successivo consiste nella migrazione dei database in questa nuova macchina virtuale di SQL Server. Per linee guida sulla migrazione dei database, vedere [Migrazione di un database a SQL Server in una VM di Azure](virtual-machines-windows-migrate-sql.md).
 
-Se si è interessati anche all'uso del Portale di Azure per creare macchine virtuali SQL Server, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md). Si noti che l'esercitazione che illustra il portale descrive la creazione di macchine virtuali mediante il modello consigliato di Gestione risorse anziché il modello classico impiegato in questo argomento di PowerShell.
+Se si è interessati anche all'uso del portale di Azure per creare macchine virtuali SQL Server, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md). Si noti che l'esercitazione che illustra il portale descrive la creazione di macchine virtuali mediante il modello consigliato di Gestione risorse anziché il modello classico impiegato in questo argomento di PowerShell.
 
 Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0518_2016-->

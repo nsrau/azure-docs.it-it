@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # Introduzione alle API Text Analytics per rilevare sentimenti, frasi chiave, argomenti e lingua
@@ -24,7 +24,7 @@ Questo documento illustra come configurare il servizio o l'applicazione per l'us
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
-Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](machine-learning-apps-text-analytics/).
+Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](../machine-learning-apps-text-analytics/).
 
 Al termine di questa esercitazione, si sarà in grado di rilevare a livello di codice:
 
@@ -64,7 +64,7 @@ In questa attività si effettuerà l'iscrizione al servizio di analisi di testo.
 
 È facile rilevare sentimenti, frasi chiave e lingue presenti nel testo. A livello di codice si otterranno gli stessi risultati restituiti dall'[esperienza della demo](//go.microsoft.com/fwlink/?LinkID=759712).
 
-**Suggerimento** Per l'analisi dei sentimenti, è consigliabile dividere il testo in frasi. In questo modo è possibile ottenere in genere una precisione superiore nelle stime dei sentimenti.
+>[AZURE.TIP] Per l'analisi dei sentimenti, è consigliabile dividere il testo in frasi. In questo modo è possibile ottenere in genere una precisione superiore nelle stime dei sentimenti.
 
 1. È necessario impostare le intestazioni come indicato di seguito. Si noti che JSON è attualmente l'unico formato di input accettato per le API. XML non è supportato.
 
@@ -198,7 +198,7 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-1. Eseguire periodicamente una query sull'intestazione `operation-location` restituita con un richiesta **GET**. È consigliabile eseguire questa operazione una volta al minuto.
+1. Eseguire periodicamente una query sull'intestazione `operation-location` restituita con una richiesta **GET**. È consigliabile eseguire questa operazione una volta al minuto.
 
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
@@ -236,8 +236,52 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 			}
 		}
 
+Si noti che la risposta con esito positivo per gli argomenti dall'endpoint `operations` avrà il seguente schema:
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+Di seguito viene spiegata ogni parte della risposta:
+
+**topics**
+
+| Chiave | Descrizione |
+|:-----|:----|
+| id | Identificatore univoco di ciascun argomento. |
+| score | Numero di documenti assegnati all'argomento. |
+| keyPhrase | Parola o frase di riepilogo dell'argomento. |
+
+**topicAssignments**
+
+| Chiave | Descrizione |
+|:-----|:----|
+| documentId | Identificatore del documento. Equivale all'ID incluso nell'input. |
+| topicId | ID dell'argomento a cui è stato assegnato il documento. |
+| distance | Punteggio di un'associazione documento-argomento compreso tra 0 e 1. Minore è il valore della distanza, più forte è l'associazione all'argomento. |
+
+**errors**
+
+| Chiave | Descrizione |
+|:-----|:----|
+| id | Identificatore univoco del documento di input cui fa riferimento l'errore. |
+| message | Messaggio di errore. |
+
 ## Passaggi successivi ##
 
-Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile vedere come si usa uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati, nonché per automatizzare informazioni dettagliate per ottenere una visualizzazione in tempo reale dei dati di testo.
+Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati, nonché per automatizzare le informazioni dettagliate per ottenere una visualizzazione in tempo reale dei dati di testo.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

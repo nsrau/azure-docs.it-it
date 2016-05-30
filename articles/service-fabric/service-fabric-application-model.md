@@ -3,7 +3,7 @@
    description="Come modellare e descrivere le applicazioni e servizi in infrastruttura di servizi."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"   
-   ms.author="seanmck"/>
+   ms.date="05/12/2016"   
+   ms.author="ryanwi"/>
 
 # Modellare un'applicazione in Service Fabric
 
@@ -29,7 +29,7 @@ Un'applicazione è una raccolta di servizi costituenti che eseguono determinate 
 
 Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in un'aggregazione di tipi di servizi. Un tipo di servizio è una categorizzazione di un servizio. La categorizzazione di un servizio può disporre di impostazioni e configurazioni diverse, ma la funzionalità di base resta la stessa. Le istanze di un servizio sono le diverse varianti di configurazione dello stesso tipo di servizio.
 
-Le classi (o "tipi") di applicazioni e servizi vengono descritte mediante file XML (manifesti delle applicazioni e manifesti dei servizi), che agiscono come modelli in base ai quali possono essere create istanze delle applicazioni dall'archivio immagini del cluster.
+Le classi (o "tipi") di applicazioni e servizi vengono descritte mediante file XML (manifesti delle applicazioni e manifesti dei servizi), che agiscono come modelli in base ai quali possono essere create istanze delle applicazioni dall'archivio immagini del cluster. La definizione dello schema per il file ServiceManifest.xml e ApplicationManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 Il codice di istanze di applicazioni diverse verrà eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione inoltre può essere gestito, ovvero aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti. Per semplificare il diagramma, vengono visualizzati solo i pacchetti codice/configurazione/dati relativi a `ServiceType4`, anche se ogni tipo di servizio può includere alcuni o tutti questi tipi di pacchetti.
 
@@ -44,7 +44,7 @@ Il diagramma seguente illustra la relazione tra applicazioni e istanze di serviz
 ![Partizioni e repliche in un servizio][cluster-application-instances]
 
 
->[AZURE.TIP] È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Descrivere un servizio
 
@@ -254,4 +254,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

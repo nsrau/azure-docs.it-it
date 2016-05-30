@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 
->[AZURE.NOTE]- Per domande relative al codificatore Premium, inviare mepd tramite posta elettronica a Microsoft.com.
->
->- Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
+>[AZURE.NOTE] Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
+
+Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
 
 ##Panoramica
 
@@ -268,6 +268,7 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 	}
 
 
+Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
 
 ##Percorsi di apprendimento di Media Services
 
@@ -277,4 +278,4 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

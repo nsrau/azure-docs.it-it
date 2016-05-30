@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/17/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Creare cluster HBase nella rete virtuale di Azure 
@@ -40,7 +40,7 @@ In questa sezione si creerà un cluster HBase basato su Linux in HDInsight usand
 
 1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
 
@@ -167,7 +167,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 				}
 				if($PropertyName -eq "FQDNSuffix")
 				{
-					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/components/resourcemanager"
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/YARN/components/RESOURCEMANAGER"
 					$Response = $webclient.DownloadString($Url)
 					$JsonObject = $Response | ConvertFrom-Json
 					$FQDN = $JsonObject.host_components[0].HostRoles.host_name
@@ -272,4 +272,4 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per ulterior
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

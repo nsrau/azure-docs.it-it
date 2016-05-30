@@ -275,7 +275,7 @@ Nel codice precedente LoginResult e LoginResultUser sono solo semplici oggetti c
 			}
 		}
 
-Il metodo `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` include un parametro _audience_ e un parametro _issuer_. Entrambi vengono in genere impostati sull'URL della radice dell'applicazione, usando lo schema HTTPS Allo stesso modo, è consigliabile impostare _secretKey_ come valore della chiave per la firma dell'applicazione. Si tratta di un valore sensibile che non deve mai essere condiviso o incluso in un client. È possibile ottenere questo valore mentre è ospitato nel servizio app facendo riferimento alla variabile di ambiente _WEBSITE\_AUTH\_SIGNING\_KEY_. Se necessario in un contesto di debug locale, seguire le istruzioni nella sezione [Debug locale con autenticazione](#local-debug) per recuperare la chiave e archiviarla come impostazione dell'applicazione.
+Il metodo `AppServiceLoginHandler.CreateToken()` include un parametro _audience_ e un parametro _issuer_. Entrambi vengono in genere impostati sull'URL della radice dell'applicazione, usando lo schema HTTPS Allo stesso modo, è consigliabile impostare _secretKey_ come valore della chiave per la firma dell'applicazione. Si tratta di un valore sensibile che non deve mai essere condiviso o incluso in un client. È possibile ottenere questo valore mentre è ospitato nel servizio app facendo riferimento alla variabile di ambiente _WEBSITE\_AUTH\_SIGNING\_KEY_. Se necessario in un contesto di debug locale, seguire le istruzioni nella sezione [Debug locale con autenticazione](#local-debug) per recuperare la chiave e archiviarla come impostazione dell'applicazione.
 
 È anche necessario fornire una durata per il token rilasciato, oltre a eventuali attestazioni che si vuole includere. È necessario fornire un'attestazione dell'oggetto, come mostrato nel codice di esempio.
 
@@ -461,4 +461,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

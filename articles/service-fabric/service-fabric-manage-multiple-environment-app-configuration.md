@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="seanmck"/>
 
 # Gestire i parametri dell'applicazione per più ambienti
@@ -24,7 +24,7 @@ Come semplice esempio, si consideri `InstanceCount` per un servizio senza stato.
 
 ## Definizione dei parametri specifici dell'ambiente
 
-La soluzione per questo problema di configurazione è costituita da un set di servizi predefiniti con parametri e file di parametri dell'applicazione che compilano i valori dei parametri per un determinato ambiente.
+La soluzione per questo problema di configurazione è costituita da un set di servizi predefiniti con parametri e file di parametri dell'applicazione che compilano i valori dei parametri per un determinato ambiente. I parametri predefiniti per servizi e applicazioni vengono configurati all'interno dei manifesti dei servizi e delle applicazioni. La definizione dello schema per i file ServiceManifest.xml e ApplicationManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ### Servizi predefiniti
 
@@ -33,10 +33,13 @@ Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di 
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
-                ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+                ServiceTypeName="Stateful1Type"
+                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
                 <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
+                    PartitionCount="[Stateful1_PartitionCount]"
+                    LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
         </StatefulService>
@@ -116,17 +119,19 @@ Si può scegliere dall'elenco dei file di parametri disponibili quando si pubbli
 
 ### Distribuire da PowerShell
 
-Lo script di PowerShell `DeployCreate-FabricApplication.ps1` accetta un file di parametri come parametro.
+Lo script `Deploy-FabricApplication.ps1` di PowerShell incluso nel modello del progetto dell'applicazione accetta un profilo di pubblicazione come parametro e PublishProfile contiene un riferimento al file dei parametri dell'applicazione.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## Passaggi successivi
 
-Per altre informazioni su alcuni concetti di base illustrati in questo argomento, vedere [Panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni di Service Fabric](service-fabric-manage-application-in-visual-studio.md).
+Per altre informazioni su alcuni concetti di base illustrati in questo argomento, vedere [Service Fabric technical overview](service-fabric-technical-overview.md) (Panoramica tecnica di Service Fabric). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell'infrastruttura di servizi](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

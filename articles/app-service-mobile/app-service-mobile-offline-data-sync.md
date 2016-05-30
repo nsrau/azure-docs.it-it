@@ -60,7 +60,7 @@ Un *contesto di sincronizzazione* è associato a un oggetto client mobile (ad es
 
 Un archivio locale è associato al contesto di sincronizzazione mediante un metodo di inizializzazione, ad esempio `IMobileServicesSyncContext.InitializeAsync(localstore)` nell'[SDK del client .NET].
 
-## Funzionamento della sincronizzazione offline
+## <a name="how-sync-works"></a>Funzionamento della sincronizzazione offline
 
 Quando si usano le tabelle di sincronizzazione, il codice client controlla quando le modifiche locali verranno sincronizzate con un back-end dell'app per dispositivi mobili di Azure. I dati vengono inviati al back-end solo quando viene effettuata una chiamata per il *push* delle modifiche locali. Analogamente, l'archivio locale viene popolato con nuovi dati solo quando viene effettuata una chiamata per il *pull* dei dati.
 
@@ -76,9 +76,10 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 
   Il nome della query può essere una stringa qualsiasi, ma deve essere univoco per ogni query logica dell'app. In caso contrario, diverse operazioni pull potrebbero sovrascrivere lo stesso timestamp di sincronizzazione incrementale e le query potrebbero restituire risultati non corretti.
 
-  Se la query ha un parametro, è possibile creare un nome di query univoco incorporando il valore del parametro. Ad esempio, se si applica un filtro in base all'ID utente, il nome della query potrebbe essere analogo al seguente:
+  Se la query ha un parametro, è possibile creare un nome di query univoco incorporando il valore del parametro. Ad esempio, se si applica un filtro in base all'ID utente, il nome della query potrebbe essere analogo al seguente (in C#):
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid, 
+			syncTable.Where(u => u.UserId = userid));
 
   Se si intende rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In questo caso, verranno recuperati tutti i record in ogni chiamata a `PullAsync`, potenzialmente inefficace.
 
@@ -103,4 +104,4 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 [Xamarin Android: Abilitare la sincronizzazione offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Abilitare la sincronizzazione offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

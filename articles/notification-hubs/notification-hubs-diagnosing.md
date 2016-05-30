@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/04/2016" 
 	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
@@ -77,7 +77,9 @@ Supponendo che Hub di notifica sia stato configurato correttamente e che tutti i
 
 > [AZURE.NOTE] Dato che l'elaborazione avviene in parallelo, l'ordine di recapito delle notifiche non è garantito.
 
-A questo punto, Hub di notifica di Azure è ottimizzato per un modello di recapito "at-most-once" per i messaggi, che comporta un tentativo di deduplicazione per fare in modo che nessuna notifica venga recapitata più di una volta a un dispositivo. A questo scopo, prima dell'invio effettivo del messaggio al PNS vengono esaminate le registrazioni per garantire che venga inviato un solo messaggio per ID dispositivo. Dato che ogni batch viene inviato al PNS, che a sua volta accetta e convalida le registrazioni, è possibile che il PNS rilevi un errore in una o più registrazioni in un batch, restituisca un errore a Hub di notifica di Azure e interrompa l'elaborazione, eliminando completamente il batch interessato. Questo vale soprattutto per gli APNS che usano un protocollo di flusso TCP. Vista l'ottimizzazione per il recapito "at-most-once", tenere presente che non vi saranno nuovi tentativi per il batch non riuscito poiché non si sa con certezza se il batch è stato eliminato interamente o parzialmente dal PNS. Il PNS, comunque, indica a Hub di notifica di Azure quale registrazione ha causato l'errore e sulla base di questo feedback è possibile rimuovere la registrazione dal database. Ciò significa che un batch di registrazioni o un suo subset potrebbe non ricevere una notifica, ma siccome la registrazione errata è stata eliminata, al successivo tentativo di invio è più probabile che l'operazione abbia esito positivo. Visto il numero crescente dei dispositivi di destinazione (alcuni clienti inviano notifiche a milioni di dispositivi), l'eliminazione sporadica di un batch non fa molta differenza in termini di percentuale complessiva di dispositivi che ricevono le notifiche, ma se invece le notifiche inviate sono poche e sono presenti alcuni errori PNS, è possibile che la mancata ricezione interessi tutte le notifiche o gran parte di esse. Se questo comportamento si verifica frequentemente, è necessario identificare le registrazioni errate ed eliminarle. È necessario sicuramente eliminare le registrazioni create manualmente perché sono la causa più comune delle notifiche non recapitate. Nel caso di un ambiente di test, è possibile eliminare direttamente tutte le registrazioni poiché le app, all'apertura nei dispositivi, tenteranno di ripetere la registrazione in Hub di notifica, assicurando così la validità di tutte le registrazioni create successivamente.
+A questo punto, Hub di notifica di Azure è ottimizzato per un modello di recapito "at-most-once" per i messaggi, che comporta un tentativo di deduplicazione per fare in modo che nessuna notifica venga recapitata più di una volta a un dispositivo. A questo scopo, prima dell'invio effettivo del messaggio al PNS vengono esaminate le registrazioni per garantire che venga inviato un solo messaggio per ID dispositivo. Dato che ogni batch viene inviato al PNS, che a sua volta accetta e convalida le registrazioni, è possibile che il PNS rilevi un errore in una o più registrazioni in un batch, restituisca un errore a Hub di notifica di Azure e interrompa l'elaborazione, eliminando completamente il batch interessato. Questo vale soprattutto per gli APNS che usano un protocollo di flusso TCP. Sebbene sia possibile eseguire al massimo un recapito, in questo caso rimuoviamo la registrazione dell'errore dal database e ripetiamo il recapito della notifica per il resto dei dispositivi nel batch.
+
+È possibile che venga visualizzata una comunicazione di errore per il tentativo di recapito non riuscito su una registrazione tramite le API REST dell'Hub di notifica di Azure: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) (Dati di telemetria per messaggio: ottenere i dati di telemetria del messaggio di notifica) e [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx) (Feedback PNS). Per un codice di esempio, vedere [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ##Problemi relativi a PNS
 
@@ -240,4 +242,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

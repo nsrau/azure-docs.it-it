@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/10/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisiti di Azure AD Connect
@@ -56,6 +56,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 - Il server Azure AD Connect necessita della risoluzione DNS per Intranet e Internet. Il server DNS deve essere in grado di risolvere i nomi per l'istanza locale di Active Directory e per gli endpoint di Azure AD.
 - Se sono presenti firewall nella rete Intranet ed è necessario aprire alcune porte tra i server Azure AD Connect e i controller di dominio, vedere [Porte di Azure AD Connect](active-directory-aadconnect-ports.md) per altre informazioni.
 - Se il proxy limita gli URL a cui è possibile accedere, gli URL documentati in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devono essere aperti nel proxy.
+    - Se si usa Microsoft Cloud in Germania o il cloud di Microsoft Azure per enti pubblici, vedere [Azure AD Connect: Considerazioni speciali per le istanze](active-directory-aadconnect-instances.md) per i relativi URL.
 - Se si usa un proxy in uscita per la connessione a Internet, è necessario aggiungere l'impostazione seguente al file **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** in modo che l'Installazione guidata e il servizio di sincronizzazione di Azure AD Connect possano connettersi a Internet e ad Azure AD. Questo testo deve essere immesso alla fine del file. In questo codice &lt;PROXYADRESS&gt; rappresenta l'indirizzo IP del proxy effettivo o nome host.
 
 ```
@@ -70,7 +71,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
     </system.net>
 ```
 
-- Se il server proxy richiede l'autenticazione, l'[account di servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) deve trovarsi nel dominio ed è necessario usare il percorso personalizzato di installazione delle impostazioni per specificare un [account di servizio personalizzato](active-directory-aadconnect-get-started-custom.md#install-required-components). Occorre inoltre modificare machine.config. Modificando machine.config, l'installazione guidata e il motore di sincronizzazione risponderanno alle richieste di autenticazione dal server proxy. In tutte le pagine dell’istallazione guidata, esclusa la pagina **Configura** vengono utilizzate le credenziali dell’utente che ha effettuato l’accesso. Nella pagina **Configura** alla fine dell'installazione guidata, il contesto diventa l'[account del servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) che è stato creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
+- Se il server proxy richiede l'autenticazione, l'[account di servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) deve trovarsi nel dominio ed è necessario usare il percorso di installazione personalizzato delle impostazioni per specificare un [account di servizio personalizzato](active-directory-aadconnect-get-started-custom.md#install-required-components). Occorre inoltre modificare machine.config. Modificando machine.config, l'installazione guidata e il motore di sincronizzazione risponderanno alle richieste di autenticazione dal server proxy. In tutte le pagine dell’istallazione guidata, esclusa la pagina **Configura** vengono utilizzate le credenziali dell’utente che ha effettuato l’accesso. Nella pagina **Configura** alla fine dell'installazione guidata, il contesto diventa l'[account del servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) che è stato creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
 
 ```
     <system.net>
@@ -172,4 +173,4 @@ I requisiti minimi per i computer che eseguono ADFS o i server applicazioni Web 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

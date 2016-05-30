@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Override del comportamento HTTP predefinito mediante il motore regole
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Panoramica
 
 Il motore regole consente di personalizzare la modalità con cui vengono gestite le richieste HTTP, come ad esempio il blocco della distribuzione di determinati tipi di contenuto, la definizione di un criterio di memorizzazione nella cache e la modifica della intestazioni HTTP. Questa esercitazione illustra la creazione di una regola che modifica il comportamento di memorizzazione nella cache degli asset della rete CDN. Nella sezione "[Vedere anche](#see-also)" sono disponibili anche contenuti video.
-
-> [AZURE.NOTE] Il motore regole è una funzionalità del piano Premium per la rete CDN. Per un confronto delle funzionalità della rete CDN Standard e Premium, vedere [Panoramica della rete CDN di Azure](cdn-overview.md).
 
 ## Esercitazione
 
@@ -38,6 +38,8 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 	![Opzioni delle regole della nuova rete CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
+	>[AZURE.IMPORTANT] L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l’override delle azioni specificate da una regola precedente.
+	
 3. Inserire un nome per la casella di testo **Nome / Descrizione**.
 
 4. Identificare il tipo di richieste che a cui verrà applicata la regola. Per impostazione predefinita, viene selezionata la condizione corrispondente **Sempre**. Si utilizzerà **Sempre** per questa esercitazione, quindi lasciarla selezionata.
@@ -58,12 +60,10 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 6.  Fare clic sul pulsante **Aggiungi** per salvare la nuova regola. La nuova regola ora è in attesa di approvazione. Dopo l’approvazione, lo stato viene modificato da **XML in sospeso** a **XML Attivo**.
 
-## Considerazioni
-
-- L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l’override delle azioni specificate da una regola precedente.
+	>[AZURE.IMPORTANT] La propagazione delle modifiche delle regole in tutta la rete CDN può durare fino a 90 minuti.
 
 ## Vedere anche
-* [Vedere il video relativo alle nuove potenti funzionalità Premium della rete CDN di Azure](../../videos/azure-cdns-powerful-new-premium-features/)
+* [Vedere il video relativo alle nuove potenti funzionalità Premium della rete CDN di Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)
 * [Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole](cdn-rules-engine-details.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

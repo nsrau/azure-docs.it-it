@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Gestire e risolvere i problemi di Database Estensione
@@ -56,4 +56,4 @@ Per avere suggerimenti sulla risoluzione dei problemi, vedere l'articolo relativ
 
 [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

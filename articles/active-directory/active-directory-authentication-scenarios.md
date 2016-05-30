@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Scenari di autenticazione per Azure AD
@@ -469,4 +469,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

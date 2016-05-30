@@ -53,7 +53,7 @@ Per eseguire questa operazione, seguire questa procedura:
 
 ## Configurare Automazione di Azure per l'accesso alle macchine virtuali
 
-La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare le istanze del set di scalabilità VM. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.
+La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare una macchina virtuale. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.
 
 * [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -90,4 +90,4 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

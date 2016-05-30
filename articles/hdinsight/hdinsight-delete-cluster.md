@@ -18,7 +18,7 @@ ms.author="larryfr"/>
 
 #Come eliminare un cluster HDInsight
 
-I cluster HDInsight vengono fatturati con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. In questo documento si apprenderà come eliminare un cluster tramite il portale di Azure, Azure PowerShell e l’interfaccia della riga di comando di Azure.
+La fatturazione del cluster HDInsight è calcolata al minuto, inizia dopo che il cluster è stato creato e termina quando il cluster viene eliminato, perciò è sempre opportuno eliminare un cluster quando non lo si usa più. In questo documento si apprenderà come eliminare un cluster tramite il portale di Azure, Azure PowerShell e l’interfaccia della riga di comando di Azure.
 
 > [AZURE.IMPORTANT] L'eliminazione di un cluster HDInsight non comporta l'eliminazione degli account di archiviazione di Azure associati al cluster. Ciò consente di mantenere e riutilizzare i dati archiviati dal cluster.
 
@@ -34,7 +34,7 @@ I cluster HDInsight vengono fatturati con tariffa oraria, perciò si deve sempre
 
 ##Azure PowerShell
 
-> [AZURE.NOTE] Se Azure PowerShell non è stato installato e configurato, usare la procedura riportata nel documento [Installare e configurare Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Da un prompt di PowerShell, usare il comando seguente per eliminare il cluster:
 
@@ -52,4 +52,4 @@ Da un prompt, usare il comando seguente per eliminare il cluster:
     
 Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

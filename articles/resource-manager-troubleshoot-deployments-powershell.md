@@ -27,9 +27,7 @@
 
 Se è stato riscontrato un errore durante la distribuzione di risorse in Azure, è necessario risolvere la causa dell'errore. Azure PowerShell fornisce cmdlet che consentono di trovare facilmente gli errori e determinare potenziali correzioni.
 
-È possibile risolvere i problemi relativi alla distribuzione esaminando i log di controllo o le operazioni di distribuzione. Questo argomento illustra entrambi i metodi.
-
-È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Per altre informazioni, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Usare i log di controllo per risolvere i problemi
 
@@ -142,7 +140,8 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 ## Passaggi successivi
 
-- Per altre informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager](resource-group-template-deploy.md).
+- Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

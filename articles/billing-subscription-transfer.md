@@ -25,7 +25,7 @@ Se:
 - Si vuole spostare la sottoscrizione di Azure da una directory a un'altra.
 - Azure e Office 365 sono in tenant diversi e si vogliono consolidare.
 
-Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera.
+Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile modificare l'amministratore dell'account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari, indipendentemente dal paese in cui si opera. Ora il trasferimento degli acquisti di Azure Marketplace è supportato anche per questi tipi di sottoscrizione.
 
 ## Come trasferire una sottoscrizione di Azure
 
@@ -59,8 +59,9 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     Il trasferimento non incide in alcun modo sul servizio. In pratica, viene annullata la sottoscrizione dell'attuale amministratore account e ne viene creata una nuova con l'account del destinatario, associando però i servizi di Azure sottostanti alla nuova sottoscrizione. L'ID sottoscrizione rimane invariato.
 
--   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**-   
-    Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
+-   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**-
+Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
+
 
 -   **Se si rileva la proprietà della fatturazione di una sottoscrizione da un'altra organizzazione, quest'ultima continuerà ad avere accesso alle risorse del nuovo proprietario?**
 
@@ -109,10 +110,10 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkID=533293)
 2. Inoltre, è possibile utilizzare il controllo di accesso basato sui ruoli (RBAC) per la sottoscrizione e i servizi. Visitare il [portale di Azure](https://portal.azure.com) [Ulteriori informazioni su RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Aggiornare le credenziali associate ai servizi della sottoscrizione. Sono state illustrate le seguenti operazioni:
-    -   Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
     -	Chiavi di accesso per servizi quali Archiviazione. Per ulteriori informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso all’archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Le credenziali di accesso remote per servizi quali macchine virtuali di Azure
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

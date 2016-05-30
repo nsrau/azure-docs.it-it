@@ -45,7 +45,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 	
 	Dopo il completamento dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
 	
-5. In impostazioni fare clic su **Scalare orizzontalmente**, selezionare *Conteggio istanze scelto manualmente* nell'elenco a discesa, far scorrere la barra **Istanza** da sinistra a destra per aumentare il numero di istanze, quindi fare clic su **Salva** nella barra dei comandi. L'opzione relativa alle dimensioni delle istanze non è disponibile nella modalità **condivisa**. Per altre informazioni sulle dimensioni delle istanze, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure][vmsizes].
+5. In impostazioni fare clic su **Scalare orizzontalmente**, selezionare *Conteggio istanze scelto manualmente* nell'elenco a discesa, far scorrere la barra **Istanza** da sinistra a destra per aumentare il numero di istanze, quindi fare clic su **Salva** nella barra dei comandi. L'opzione relativa alle dimensioni delle istanze non è disponibile nella modalità **condivisa**. Per altre informazioni sulle dimensioni delle istanze, vedere [Prezzi di Servizio app][vmsizes].
 	
 	![Dimensioni delle istanze per la modalità base][ChooseBasicInstances]
 	
@@ -180,7 +180,7 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
+[vmsizes]: /pricing/details/app-service/
 [SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
@@ -202,4 +202,4 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

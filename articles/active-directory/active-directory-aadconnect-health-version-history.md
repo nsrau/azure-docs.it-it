@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: cronologia delle versioni
@@ -86,4 +86,4 @@ Questo articolo permette di tenere traccia delle versioni che sono state rilasci
 ## Passaggi successivi
 Informazioni su come [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

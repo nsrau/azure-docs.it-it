@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,21 +57,20 @@ Per configurare l'integrazione di Moxtra in Azure AD, è necessario aggiungere M
 
 **Per aggiungere Moxtra dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
-<br><br> ![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+<br><br>![Active Directory][1] <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> 
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>
 ![Applicazioni][2]<br>
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> 
+4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br>
 ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> 
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br>
 ![Applicazioni][4]<br>
 6. Nella casella di ricerca, digitare **Moxtra**.<br><br>
 ![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
-7. Nel riquadro dei risultati, selezionare **Moxtra** e quindi fare clic su **Completa** per aggiungere l'applicazione.
-<br><br>
+7. Nel riquadro dei risultati, selezionare **Moxtra** e quindi fare clic su **Completa** per aggiungere l'applicazione.<br><br>
 ![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -93,7 +92,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Moxtra, è ne
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Moxtra.
 
 L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente mostra un esempio di questa operazione.
-<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
+<br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
 
 
 
@@ -103,10 +102,10 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
 <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Moxtra** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
-<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png)<br>
+<br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
 
-3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: 
-<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png)<br>
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura:
+<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
     a. Nella casella di testo **URL Sign On**, digitare il seguente URL: **https://www.moxtra.com/service/#login**.
 
@@ -124,7 +123,7 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
 1. In un'altra finestra del browser, accedere al sito aziendale di Moxtra come amministratore.
 
 1. Nella barra degli strumenti a sinistra, fare clic su**Admin Console > SAML Single Sign-On** e quindi su **Nuovo**.
-<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png)<br>
+<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) <br>
 
 
 1. Nella pagina **SAML**, eseguire i passaggi seguenti:
@@ -149,7 +148,7 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
     h. Fare clic su **Aggiorna**.
 
 
-6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
+6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
 7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**.
@@ -198,13 +197,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. 
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) <br>
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
 <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: 
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
@@ -272,30 +271,30 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Moxtra.
 
 ### Assegnazione dell'utente test di Azure AD
 
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Moxtra. 
+Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Moxtra.
 <br><br>![Assegna utente][200] <br>
 
 **Per assegnare Britta Simon a Moxtra, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. 
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 <br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni, selezionare **Moxtra**. 
+2. Nell'elenco di applicazioni, selezionare **Moxtra**.
 <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_50.png) <br>
 
-1. Nel menu in alto fare, clic su **Utenti**. 
+1. Nel menu in alto fare, clic su **Utenti**.
 <br><br>![Assegna utente][203] <br>
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. 
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 <br><br>![Assegna utente][205]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> 
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br>
 Quando si fa clic sul riquadro Moxtra nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Moxtra.
 
 
@@ -323,4 +322,4 @@ Quando si fa clic sul riquadro Moxtra nel pannello di accesso, si dovrebbe acced
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

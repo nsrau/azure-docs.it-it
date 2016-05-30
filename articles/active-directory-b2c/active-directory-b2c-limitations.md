@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
 
-Nel periodo di anteprima di Azure Active Directory (Azure AD) B2C molte funzionalità e caratteristiche non sono ancora supportate. Molte di queste limitazioni verranno rimosse prima che Azure AD B2C sia disponibile a livello generale. È tuttavia necessario tenerle presenti se si creano applicazioni per utenti basate su Azure AD B2C durante la fase di anteprima.
+Nel periodo di anteprima di Azure Active Directory (Azure AD) B2C molte funzionalità e caratteristiche non sono ancora supportate. Molti di questi problemi e limiti noti verranno eliminati prima che Azure AD B2C sia disponibile a livello generale. È tuttavia necessario tenerli presenti se si creano applicazioni rivolte agli utenti finali basate su Azure AD B2C durante la fase di anteprima.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -92,4 +92,11 @@ Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure classi
 
 Attualmente non è possibile verificare correttamente un dominio nel [portale di Azure classico](https://manage.windowsazure.com/). Microsoft sta lavorando per trovare una soluzione.
 
-<!---HONumber=AcomDC_0427_2016-->
+## Problemi di accesso con i criteri MFA nei browser Safari
+
+Le richieste ai criteri di accesso, con autenticazione MFA attivata, hanno esito negativo a intermittenza nei browser Safari con errori HTTP 400 (richiesta non valida). Il problema è dovuto al fatto che in Safari i limiti per le dimensioni dei cookie sono bassi e può essere risolto in due modi:
+
+- Usare un criterio di "iscrizione o accesso" anziché un criterio di "accesso".
+- Ridurre il numero di **attestazioni applicazione** richieste nel criterio. 
+
+<!---HONumber=AcomDC_0518_2016-->

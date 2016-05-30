@@ -35,6 +35,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 - Visual Studio 2013 o 2015.
 
 ## Creare i cluster
+
 .NET SDK per HDInsight fornisce librerie client .NET che semplificano l'uso di HDInsight da un'applicazione .NET Framework. Seguire le istruzioni seguenti per creare un'applicazione console Visual Studio e incollare il codice per la creazione di un cluster.
 
 L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazione predefinito. Nell'[appendice A](#appx-a-create-dependent-components) è disponibile uno script di PowerShell per creare i componenti dipendenti.
@@ -45,8 +46,8 @@ L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazio
 2. Eseguire il comando NuGet seguente nella console di Gestione pacchetti NuGet.
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 6. Da Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo, incollare il codice seguente e indicare i valori per le variabili:
 
@@ -58,7 +59,7 @@ L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazio
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 		
 		namespace CreateHDInsightCluster
 		{
@@ -75,7 +76,7 @@ L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazio
 				private const int NewClusterNumNodes = 1;
 				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
 				private const OSType NewClusterOsType = OSType.Windows;
-				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+				private const string NewClusterType = "Hadoop";
 				private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
 				private const string NewClusterPassword = "<HTTP User password>";
@@ -87,8 +88,9 @@ L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazio
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 					
-					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+					var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+					var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+					var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 					
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 				
@@ -107,9 +109,8 @@ L'applicazione richiede un gruppo di risorse di Azure e l'account di archiviazio
 		
 					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
-                    System.Console.ReadLine();
-                    
+					System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+					System.Console.ReadLine();
 				}
 
 				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
@@ -163,6 +164,8 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 ##Appendice A: Creare i componenti dipendenti
 
 Lo script di Azure PowerShell seguente può essere usato per creare i componenti dipendenti necessari per l'applicazione .NET in questa esercitazione.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     ####################################
     # Set these variables
@@ -229,4 +232,4 @@ Lo script di Azure PowerShell seguente può essere usato per creare i componenti
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="05/18/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
@@ -29,11 +29,13 @@ Gli scenari comuni in cui si verifica questa situazione comprendono:
 
 Il valore predefinito di 500 oggetti può essere modificato con PowerShell utilizzando `Enable-ADSyncExportDeletionThreshold`. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione di sincronizzazione verrà eseguita ogni 30 minuti, il valore è il numero di eliminazioni visualizzate in 30 minuti.
 
-Con questa funzionalità abilitata, in caso di un numero eccessivo di eliminazioni da esportare ad Azure AD, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
+Se il numero di eliminazioni da esportare in Azure AD è eccessivo, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
 
 ![Messaggio di posta elettronica per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Gentile (contatto tecnico), Sincronizzazione delle identità: il giorno (data) è stato rilevato che il numero di eliminazioni ha superato la soglia di eliminazione per (nome dell'organizzazione). È stato inviato un totale di (numero) oggetti per l'eliminazione in questa esecuzione di sincronizzazione delle identità. È stato quindi raggiunto o superato il valore della soglia di eliminazione configurato di (numero) oggetti. Prima di continuare, è necessario confermare di voler procedere con l'elaborazione di queste eliminazioni. Per altre informazioni sull'errore indicato in questo messaggio di posta elettronica, vedere l'articolo che illustra come evitare eliminazioni accidentali.*
+
+È anche possibile visualizzare lo stato `stopped-deletion-threshold-exceeded` nell'interfaccia utente di **Synchronization Service Manager** per il profilo di esportazione. ![Interfaccia utente di Synchronization Service Manager per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventuali azioni correttive. Per visualizzare gli oggetti che devono essere eliminati, procedere come segue:
 
@@ -56,4 +58,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
 
-Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati in Azure DocumentDB da un altro archivio dati e spostare i dati da un altro archivio dati a DocumentDB. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare i dati in Azure DocumentDB da un altro archivio dati e spostare i dati da Azure DocumentDB in un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Gli esempi seguenti mostrano come copiare dati da e in Azure DocumentDB e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
 
@@ -419,12 +419,14 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 
 	**Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.
  
-3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Risposta:** No. 
 4. **Domanda:** è possibile specificare più di una raccolta di DocumentDB per una tabella?
 	
 	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
      
+## Ottimizzazione delle prestazioni  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

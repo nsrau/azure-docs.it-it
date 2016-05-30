@@ -9,7 +9,7 @@ Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https:
 
 ![Distribuzione semplice di tag](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Questo modello include i seguenti tag: *Reparto*, *Applicazione* e *Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
+Questo modello include i seguenti tag:*Reparto**Applicazione*e*Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
 
 ![Tag di Azure in un modello](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
@@ -44,24 +44,3 @@ Aggiungere un nuovo tag tramite il portale definendo la propria coppia chiave/va
 Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
 
 ![Nuovo Tag salvato nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
-
-
-## Visualizzazione dei tag nei dettagli dell'utilizzo
-
-I tag applicati a risorse di calcolo, rete e archiviazione tramite Gestione risorse di Azure verranno compilati nei dettagli di utilizzo nel [portale di fatturazione](https://account.windowsazure.com/).
-
-Fare clic su **Scarica dettagli dell'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
-
-![Dettagli di utilizzo nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
-
-Selezionare l'estratto conto e i dettagli di utilizzo **Versione 2**:
-
-![Dettagli sull'utilizzo di Version 2 Preview nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
-
-Dai dettagli di utilizzo, è possibile visualizzare tutti i tag nella colonna **tag**:
-
-![Colonna dei tag nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
-
-Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acquisire nuove informazioni nei dati relativi al consumo.
-
-<!---HONumber=AcomDC_0406_2016-->

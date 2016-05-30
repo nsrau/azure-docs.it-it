@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar" 
 	tags="azure-service-management"/>
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
@@ -705,4 +705,4 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

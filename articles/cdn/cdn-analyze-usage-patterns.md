@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Analizzare i modelli di utilizzo della rete CDN
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report:
 
@@ -142,4 +144,4 @@ Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV
 
 I report possono essere generati solo negli ultimi 18 mesi.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

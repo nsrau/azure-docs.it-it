@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -31,10 +31,10 @@ Di seguito sono descritte alcune query di base utili per iniziare.
 
 Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights:
 
-![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take): visualizzare n righe
+## [Take](app-insights-analytics-reference.md#take-operator): visualizzare n righe
 
 I punti dati che registrano le operazioni degli utenti (in genere richieste HTTP ricevute dall'app Web) vengono archiviati in una tabella denominata `requests`. Ogni riga è un punto dati di telemetria ricevuto da Application Insights SDK nell'applicazione.
 
@@ -56,7 +56,7 @@ Espandere un elemento per visualizzare i dettagli:
 
 > [AZURE.NOTE] Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Tenere presente che questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. A tale scopo, usare l'operatore `top` o `sort`.
 
-## [Top](app-insights-analytics-aggregations.md#top) e [sort](app-insights-analytics-aggregations.md#sort)
+## [Top](app-insights-analytics-reference.md#top-operator) e [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` per un esempio o `sort` per l'intera tabella.
 
@@ -84,9 +84,9 @@ Il risultato sarebbe stato lo stesso, ma l'esecuzione sarebbe risultata più len
 Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, verranno riordinati solo i record recuperati.
 
 
-## [Project](app-insights-analytics-aggregations.md#project): selezionare, rinominare e calcolare le colonne
+## [Project](app-insights-analytics-reference.md#project-operator): selezionare, rinominare e calcolare le colonne
 
-Usare [`project`](app-insights-analytics-aggregations.md#project) per selezionare solo le colonne desiderate:
+Usare [`project`](app-insights-analytics-reference.md#project-operator) per selezionare solo le colonne volute:
 
 ```AIQL
 
@@ -117,11 +117,13 @@ Nell'espressione scalare:
 * `1d` (la cifra uno seguita da "d") è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonda un'ora per difetto al secondo più vicino.
 
-Le [espressioni](app-insights-analytics-scalars.md) possono includere tutti gli operatori consueti (`+`, `-`, ...) ed è disponibile una gamma di funzioni utili.
+Le [espressioni](app-insights-analytics-reference.md#scalars) possono includere tutti gli operatori consueti (`+`, `-`, ...) ed è disponibile una gamma di funzioni utili.
 
-## [Extend](app-insights-analytics-aggregations.md#extend): calcolare le colonne
+    
 
-Per aggiungere colonne a quelle esistenti, usare [`extend`](app-insights-analytics-aggregations.md#extend):
+## [Extend](app-insights-analytics-reference.md#extend-operator): calcolare le colonne
+
+Per aggiungere colonne a quelle esistenti, usare [`extend`](app-insights-analytics-reference.md#extend-operator):
 
 ```AIQL
 
@@ -130,9 +132,53 @@ Per aggiungere colonne a quelle esistenti, usare [`extend`](app-insights-analyti
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Per mantenere tutte le colonne esistenti, [`extend`](app-insights-analytics-aggregations.md#extend) è meno dettagliato di [`project`](app-insights-analytics-aggregations.md#project).
+Se si vogliono mantenere tutte le colonne esistenti, [`extend`](app-insights-analytics-reference.md#extend-operator) è meno dettagliato di [`project`](app-insights-analytics-reference.md#project-operator).
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize): aggregare gruppi di righe
+
+## Accesso a oggetti annidati
+
+È facile accedere agli oggetti annidati. Nel flusso exceptions, ad esempio, sono visibili oggetti strutturati come questo:
+
+![risultato](./media/app-insights-analytics-tour/520.png)
+
+È possibile renderlo flat scegliendo le proprietà che interessano:
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## Proprietà e misure personalizzate
+
+Se l'applicazione associa a eventi [dimensioni (proprietà) personalizzate e misure personalizzate](app-insights-api-custom-events-metrics.md#properties), queste saranno visibili negli oggetti `customDimensions` e `customMeasurements`.
+
+
+Ad esempio, se l'applicazione include:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+Per estrarre questi valori in Dati di analisi:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] In [Esplora metriche](app-insights-metrics-explorer.md) tutte le misurazioni personalizzate associate a qualsiasi tipo di telemetria vengono visualizzate insieme nel pannello delle metriche, con le metriche inviate usando `TrackMetric()`. In Dati di analisi, invece, le misure personalizzate sono ancora associate al tipo di telemetria su cui sono state rilevate e le metriche vengono visualizzate all'interno del proprio flusso `metrics`.
+
+
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregare gruppi di righe
 
 `Summarize` applica una *funzione di aggregazione* specificata a gruppi di righe.
 
@@ -151,7 +197,7 @@ Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene 
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Si noti che si sta usando la funzione `bin` (detta anche `floor`). Se si usasse solo `by timestamp`, ogni riga di input finirebbe nel rispettivo piccolo gruppo. Per gli scalari continui, ad esempio ore o numeri, è necessario suddividere l'intervallo continuo in un numero gestibile di valori distinti e `bin` (che è in realtà la nota funzione `floor` per l'arrotondamento per difetto) è il modo più semplice per farlo.
+Si noti che si sta usando la funzione `bin` (detta anche `floor`). Se si usasse solo `by timestamp`, ogni riga di input finirebbe in un piccolo gruppo distinto. Per i valori scalari continui, ad esempio ore o numeri, è necessario suddividere l'intervallo continuo in un numero gestibile di valori discreti. Il modo più semplice per eseguire questa operazione è tramite `bin`, che è in realtà la nota funzione `floor` per l'arrotondamento per difetto.
 
 È possibile usare la stessa tecnica per ridurre gli intervalli di stringhe:
 
@@ -162,15 +208,15 @@ Si noti che è possibile usare `name=` per impostare il nome di una colonna di r
 
 ## Conteggio dei dati campionati
 
-`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma, quando nell'operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti eventi `itemCount` per ogni punto dati visualizzato. Il riepilogo di itemCount offre quindi una stima valida del numero di eventi originale.
+`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma quando nell'operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti eventi `itemCount` per ogni punto dati visualizzato. Il riepilogo di itemCount offre quindi una stima valida del numero di eventi originale.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-È disponibile anche un'aggregazione `count()`, oltre a un'operazione di conteggio, se si desidera effettivamente contare il numero di righe in un gruppo.
+È disponibile anche un'aggregazione `count()`, oltre a un'operazione di conteggio, per i casi in cui si vuole effettivamente contare il numero di righe in un gruppo.
 
 
-Esiste un intervallo di [funzioni di aggregazione](app-insights-analytics-aggregations.md).
+Esiste un intervallo di [funzioni di aggregazione](app-insights-analytics-reference.md#aggregations).
 
 
 ## Disegnare i risultati
@@ -196,9 +242,9 @@ Per impostazione predefinita, i risultati vengono visualizzati sotto forma di ta
 Si noti che anche se i risultati non sono stati ordinati in base all'ora (come è possibile osservare nella visualizzazione tabella), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
 
 
-## [Where](app-insights-analytics-aggregations.md#where): filtro in base a una condizione
+## [Where](app-insights-analytics-reference.md#where-operator): filtro in base a una condizione
 
-Se Application Insights è stato configurato per il monitoraggio di entrambi i lati [client](app-insights-javascript.md) e server dell'app, alcuni dati di telemetria del database provengono dai browser.
+Se Application Insights è configurato per il monitoraggio sia del lato [client](app-insights-javascript.md) che del lato server dell'app, alcuni dati di telemetria del database provengono dai browser.
 
 Si osservino solo le eccezioni riportate dai browser:
 
@@ -218,7 +264,7 @@ L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chi
  * `==`, `<>`: uguale a e non uguale a
  * `=~`, `!=`: stringa con distinzione maiuscole/minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
-Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-scalars.md).
+Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
 
 ### Filtro degli eventi
 
@@ -230,7 +276,7 @@ Individuare le richieste non riuscite:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` è di tipo stringa, quindi è necessario [eseguire il cast](app-insights-analytics-scalars.md#casts) per un confronto numerico.
+`responseCode` è di tipo stringa, quindi per un confronto numerico è necessario [eseguire il cast](app-insights-analytics-reference.md#casts).
 
 Riepilogare le diverse risposte:
 
@@ -339,7 +385,7 @@ La clausola `where` esclude le sessioni monofase (sessionDuration==0) e imposta 
 
 
 
-## [Percentili](app-insights-analytics-aggregations.md#percentiles)
+## [Percentili](app-insights-analytics-reference.md#percentiles)
 
 Quali intervalli di durate coprono le diverse percentuali delle sessioni?
 
@@ -385,7 +431,7 @@ Per ottenere una suddivisione separata per ogni paese, è sufficiente visualizza
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 È possibile accedere a più tabelle, incluse le richieste e le eccezioni.
 
@@ -404,7 +450,7 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let): assegnare un risultato a una variabile
+## [Let](app-insights-analytics-reference.md#let-clause): assegnare un risultato a una variabile
 
 Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
@@ -423,4 +469,4 @@ Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le p
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

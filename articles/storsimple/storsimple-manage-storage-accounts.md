@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
@@ -60,7 +60,10 @@ Esistono tre tipi di account di archiviazione che è possibile utilizzare con il
 
 Durante il salvataggio dell'account di archiviazione, il servizio tenta di comunicare con il provider di servizi cloud. Le credenziali e i dati di accesso forniti verranno autenticati in questa fase. L’account di archiviazione viene creato solo se l'autenticazione ha esito positivo. Se l'autenticazione non riesce, verrà visualizzato un messaggio di errore appropriato.
 
-> [AZURE.NOTE]La procedura per l'aggiunta di un account di archiviazione varia in base alla versione del software StorSimple in uso. Assicurarsi di seguire la procedura corretta per la versione di StorSimple a disposizione.
+Gli account di archiviazione di Resource Manager creati nel portale di Azure sono supportati anche con StorSimple. Gli account di archiviazione di Resource Manager non sono visualizzati nell'elenco a discesa per la selezione. Quando si cerca di creare un contenitore di volumi, solo gli account di archiviazione creati nel portale di Azure classico vengono visualizzati. Gli account di archiviazione di Resource Manager devono essere aggiunti tramite la procedura di aggiunta di account di archiviazione descritta di seguito.
+
+> [AZURE.NOTE] La procedura per l'aggiunta di un account di archiviazione varia in base alla versione del software StorSimple in uso. Assicurarsi di seguire la procedura corretta per la versione di StorSimple a disposizione.
+
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -87,7 +90,7 @@ Durante il salvataggio dell'account di archiviazione, il servizio tenta di comun
   
 ## Eliminare un account di archiviazione
 
-> [AZURE.IMPORTANT]È possibile eliminare un account di archiviazione solo se non viene utilizzato da un contenitore di volumi. Se un account di archiviazione viene utilizzato da un contenitore di volumi, eliminare prima il contenitore di volumi e poi l'account di archiviazione associato.
+> [AZURE.IMPORTANT] È possibile eliminare un account di archiviazione solo se non viene utilizzato da un contenitore di volumi. Se un account di archiviazione viene utilizzato da un contenitore di volumi, eliminare prima il contenitore di volumi e poi l'account di archiviazione associato.
 
 #### Per eliminare un account di archiviazione
 
@@ -103,7 +106,7 @@ Durante il salvataggio dell'account di archiviazione, il servizio tenta di comun
 
 Per motivi di sicurezza, la rotazione delle chiavi è spesso un requisito nei centri dati.
 
-> [AZURE.NOTE]Le seguenti informazioni per la rotazione delle chiavi e la procedura di rotazione si applicano solo agli account di archiviazione di Microsoft Azure. Se si usa un altro provider di servizi cloud, è possibile gestire le chiavi degli account di archiviazione tramite il dashboard di tale provider.
+> [AZURE.NOTE] Le seguenti informazioni per la rotazione delle chiavi e la procedura di rotazione si applicano solo agli account di archiviazione di Microsoft Azure. Se si usa un altro provider di servizi cloud, è possibile gestire le chiavi degli account di archiviazione tramite il dashboard di tale provider.
  
 Ogni sottoscrizione di Microsoft Azure può essere associata a uno o più account di archiviazione. L'accesso a tali account di archiviazione è controllato dalle chiavi di sottoscrizione e di accesso associate a ogni account di archiviazione.
 
@@ -151,4 +154,4 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 - Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

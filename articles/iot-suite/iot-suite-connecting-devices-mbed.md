@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite
+# Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -199,7 +199,7 @@ Per riferimento, ecco un esempio di messaggio relativo ai **comandi** ricevuto d
 
     ![][11]
 
-4. In PuTTY fare clic sul tipo di connessione **Serial**. Poiché il dispositivo si connette in genere a 115200 baud, immettere 115200 nella casella **Velocità**. Fare quindi clic su **Apri**.
+4. In PuTTY fare clic sul tipo di connessione **Serial**. Poiché il dispositivo si connette in genere a 9600 baud, immettere 9600 nella casella **Velocità**. Fare quindi clic su **Apri**.
 
 5. Inizia l'esecuzione del programma. Potrebbe essere necessario reimpostare la scheda (premere CTRL+INTERR o premere il pulsante reset della scheda) se il programma non si avvia automaticamente quando ci si connette.
 
@@ -220,4 +220,4 @@ Per riferimento, ecco un esempio di messaggio relativo ai **comandi** ricevuto d
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

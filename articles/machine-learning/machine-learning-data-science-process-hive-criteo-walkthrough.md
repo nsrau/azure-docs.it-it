@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="ginathan;bradsev" />
 
 # Il Cortana Analytics Process in azione - Uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
@@ -94,7 +94,7 @@ Un approccio alternativo per accedere ai dati, esplorarli e modellarli senza ese
 
 ## <a name="login"></a>Accedere al nodo head del cluster
 
-Per accedere al nodo head del cluster, usare il portale di [gestione di Azure](manage.windowsazure.com) per individuare il cluster. Fare clic sull'icona di HDInsight a forma di elefante a sinistra e quindi fare doppio clic sul nome del cluster. Passare alla scheda **Configurazione**, fare doppio clic sull'icona CONNETTI nella parte inferiore della pagina e immettere le credenziali di accesso remoto quando richiesto. In questo modo, verrà visualizzato il nodo head del cluster.
+Per accedere al nodo head del cluster, usare il portale di [gestione di Azure](https://manage.windowsazure.com) per individuare il cluster. Fare clic sull'icona di HDInsight a forma di elefante a sinistra e quindi fare doppio clic sul nome del cluster. Passare alla scheda **Configurazione**, fare doppio clic sull'icona CONNETTI nella parte inferiore della pagina e immettere le credenziali di accesso remoto quando richiesto. In questo modo, verrà visualizzato il nodo head del cluster.
 
 Di seguito è illustrata la tipica finestra visualizzata al primo accesso al nodo head del cluster:
 
@@ -663,4 +663,4 @@ Si noti che per i due esempi di test chiesti (nel framework JSON dello script Py
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

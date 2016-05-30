@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Importare un file BACPAC per creare un nuovo database di SQL Azure tramite PowerShell
@@ -41,10 +41,6 @@ Per importare un database SQL è necessario quanto segue:
 - Un file con estensione bacpac (BACPAC) del database che si vuole importare. Il file BACPAC deve essere inserito in un contenitore BLOB di un[account di archiviazione di Azure (classico)](../storage/storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT] Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
-
-
-
 ## Configurare le credenziali e selezionare la sottoscrizione
 
 È innanzitutto necessario stabilire l'accesso all'account Azure, poi avviare PowerShell ed eseguire il cmdlet seguente. Nella schermata di accesso utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
@@ -67,7 +63,7 @@ Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà 
 
 Esistono alcune variabili in cui è necessario sostituire i valori di esempio con i valori specifici per il database e l'account di archiviazione.
 
-Il nome del server deve essere un server che è attualmente presente nella sottoscrizione selezionata nel passaggio precedente ed è il server in cui si vuole creare il database.
+Il nome del server deve essere un server che è attualmente presente nella sottoscrizione selezionata nel passaggio precedente ed è il server in cui si vuole creare il database. Si noti che non è supportata l'importazione di un database direttamente in un pool elastico, ma è possibile importarlo prima in un database singolo e poi spostare il database in un pool.
 
 Il nome del database è il nome desiderato per il nuovo database.
 
@@ -153,4 +149,4 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Problemi di riavvio o ridimensionamento della VM | Microsoft Azure"
    description="Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Classico](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Gestione risorse](../articles/virtual-machines/virtual-machines-linux-arm-restart-resize-error-troubleshooting.md)
+- [Gestione risorse](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
 
@@ -76,9 +76,9 @@ Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
   * Creare un nuovo servizio cloud, verificando che non sia collegato a un gruppo di affinità e non sia associato a una rete virtuale collegata a un gruppo di affinità.
 
   * Nel servizio creare una nuova VM con dimensioni maggiori.
-  
+
 È possibile consolidare tutte le VM nello stesso servizio cloud. Se il servizio cloud esistente è associato a una rete virtuale basata sull'area, è possibile connetterlo alla rete virtuale esistente.
 
 Se il servizio cloud esistente non è associato a una rete virtuale basata sull'area, è necessario eliminare le VM nel servizio cloud esistente e ricrearle nel nuovo servizio cloud dai relativi dischi. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

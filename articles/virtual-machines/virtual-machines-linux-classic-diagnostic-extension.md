@@ -44,7 +44,7 @@ L'estensione può essere abilitata tramite il [portale di Azure](https://ms.port
 Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, seguire questi [passaggi](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL del blog di Windows"/).
 
 
-Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensione tramite i comandi dell'interfaccia della riga di comando di Azure. In questo modo è possibile leggere e visualizzare i dati direttamente dalla tabella di archiviazione.
+Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensione tramite i comandi dell'interfaccia della riga di comando di Azure. In questo modo è possibile leggere e visualizzare i dati direttamente dalla tabella di archiviazione. Si noti che i metodi di configurazione descritti di seguito non funzioneranno per il portale di Azure. Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, questa estensione deve essere abilitata tramite il portale di Azure, come indicato nel paragrafo precedente.
 
 
 ## Prerequisiti
@@ -74,15 +74,13 @@ Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsof
 ###   Scenario 2. Personalizzare la metrica di monitoraggio delle prestazioni  
 In questa sezione viene descritto come personalizzare la tabella dati delle prestazioni e della diagnostica.
 
-Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto visualizzato nell'esempio seguente. Specificare i dati specifici che si desidera raccogliere.
+Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto descritto in precedenza nello Scenario 1. Creare anche un file denominato PublicConfig.json mostrato nell'esempio seguente. Specificare i dati specifici che si desidera raccogliere.
 
 Per tutti i provider e le variabili supportati, fare riferimento a questo [documento](https://scx.codeplex.com/wikipage?title=xplatproviders). È possibile disporre di più query e archiviarle in più tabelle aggiungendo altre query nello script.
 
 Per impostazione predefinita i dati Rsyslog verranno sempre raccolti.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -90,17 +88,15 @@ Per impostazione predefinita i dati Rsyslog verranno sempre raccolti.
 	}
 
 
-Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scenario 3. Caricamento dei propri file di log
 In questa sezione viene descritto come raccogliere e caricare file di log specifici all'account di archiviazione. È necessario specificare il percorso del file di log e il nome della tabella in cui archiviare il log. È possibile disporre di più file di log aggiungendo più voci di file/tabella nello script.
 
-Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto seguente:
+Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto descritto nello Scenario 1. Creare un altro file denominato PublicConfig.json con il contenuto seguente.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -109,21 +105,19 @@ Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto segue
 	}
 
 
-Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scenario 4. Disabilitare l'estensione di monitoraggio Linux
-Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto seguente:
+Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto descritto nello Scenario 1. Creare un altro file denominato PublicConfig.json con il contenuto seguente.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
-Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Esaminare i dati
@@ -143,4 +137,4 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 ## Problemi noti
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

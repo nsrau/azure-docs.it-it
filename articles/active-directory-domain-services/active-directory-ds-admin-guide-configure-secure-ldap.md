@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
@@ -26,7 +26,7 @@ Per eseguire le attività elencate in questo articolo, è necessario:
 
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
 
-3. **Servizi di dominio** abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](./active-directory-ds-getting-started.md).
+3. I **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](./active-directory-ds-getting-started.md).
 
 4. Un **certificato da usare per abilitare l'accesso LDAP sicuro**.
     - È **consigliabile** ottenere un certificato dalla CA dell'organizzazione o da un'autorità di certificazione pubblica. Si tratta di un'opzione di configurazione molto più sicura.
@@ -113,7 +113,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
 
     ![Aggiungere lo snap-in certificati, Seleziona computer](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-local-computer.png)
 
-7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in** fare clic su **OK** per aggiungere lo snap-in certificati a MMC.
+7. Nella finestra di dialogo **Aggiungi o rimuovi snap-in **fare clic su **OK** per aggiungere lo snap-in certificati a MMC.
 
     ![Aggiungere lo snap-in certificati a MMC, Fatto](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
 
@@ -242,4 +242,4 @@ La procedura è terminata ed è possibile connettersi al dominio gestito usando 
 
 - [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

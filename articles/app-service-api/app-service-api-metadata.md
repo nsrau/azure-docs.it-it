@@ -56,4 +56,6 @@ Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è l
 
 Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e utilizzo di un'app per le API, vedere [Introduzione alle app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+Se si usa Gestione API di Azure con app per le API, è possibile usare metadati di Swagger per importare l'API in Gestione API. Per altre informazioni, vedere [Come importare la definizione di un'API con le operazioni in Gestione API di Azure](../api-management/api-management-howto-import-api.md).
+
+<!---HONumber=AcomDC_0518_2016-->

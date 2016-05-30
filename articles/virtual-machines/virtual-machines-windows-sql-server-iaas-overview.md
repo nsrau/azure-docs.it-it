@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # Panoramica di SQL Server in Macchine virtuali di Azure
 
 [SQL Server in esecuzione in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) consente di ospitare i database di SQL Server nel cloud. È ad esempio possibile eseguire la migrazione di un database locale a una VM di Azure preconfigurata con Windows Server 2012 R2 e SQL Server 2014 Enterprise Edition. Ma ci sono molti altri scenari possibili, come le configurazioni con più computer che supportano la disponibilità elevata o le architetture ibride con connettività alle reti locali.
 
-Per una panoramica completa, guardare il video che spiega perché una [VM di Azure è la piattaforma migliore per SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
+Per una panoramica completa, vedere il video seguente:
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## Soluzioni SQL
 
@@ -40,7 +42,7 @@ In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'a
 
 Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Dopo aver effettuato la registrazione per una sottoscrizione, il modo più semplice per distribuire una macchina virtuale SQL Server in Azure consiste nell'[effettuare il provisioning di un'immagine della raccolta di macchine virtuali SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
+Dopo aver eseguito la registrazione per una sottoscrizione, il modo più semplice per distribuire una macchina virtuale SQL Server in Azure consiste nell'[eseguire il provisioning di un'immagine della raccolta di macchine virtuali SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
 
 È importante notare che esistono due modelli per creare e gestire le macchine virtuali di Azure: il modello classico e Gestione risorse. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md). Ogni argomento deve indicare chiaramente il modello di destinazione, a meno che non si applichi a entrambi i modelli, classico e di Resource Manager, come questo articolo.
 
@@ -65,7 +67,7 @@ Per determinare le impostazioni di configurazione migliori della macchina virtua
 
 ## Migrare i dati
 
-Quando la macchina virtuale SQL Server è attiva e in esecuzione, è possibile eseguire la migrazione di database esistenti alla macchina. Per le linee guida e un elenco di opzioni per la migrazione, vedere [Migrazione di un database a SQL Server in una VM di Azure](virtual-machines-windows-migrate-sql.md).
+Quando la macchina virtuale SQL Server è attiva e in esecuzione, è possibile eseguire la migrazione di database esistenti alla macchina. Per le linee guida e un elenco di opzioni per la migrazione, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md).
 
 ## Disponibilità elevata
 
@@ -86,6 +88,6 @@ Prima di tutto, [creare una VM SQL Server nel portale di Azure](virtual-machines
 
 Esaminare quindi le [procedure consigliate per le prestazioni](virtual-machines-windows-sql-performance.md) e le [tecniche di migrazione](virtual-machines-windows-migrate-sql.md) in relazione allo spostamento dei carichi di lavoro di SQL Server in VM di Azure.
 
-Per altre informazioni su SQL Server in Macchine virtuali di Azure, vedere le [domande frequenti su SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle VM SQL per interagire con Microsoft e la community.
+Per altre informazioni su SQL Server in macchine virtuali di Azure, vedere [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle VM SQL per interagire con Microsoft e la community.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

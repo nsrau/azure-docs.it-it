@@ -37,7 +37,7 @@
 
 Una volta scelto il metodo di compilazione, è possibile seguire le rispettive procedure indicate sotto per iniziare la compilazione.
 
-##Compilazione di una configurazione DSC con il portale di anteprima di Azure##
+##Compilazione di una configurazione DSC con il portale di Azure##
 
 1.  Nell'account di automazione fare clic su **Configurazioni**.
 2.  Fare clic su una configurazione per aprirne il pannello.
@@ -115,7 +115,7 @@ PowerShell richiede i parametri in un elemento [hashtable](http://technet.micros
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 Per informazioni sul passaggio di PSCredentials come parametri, vedere <a href="#credential-assets">**Asset credenziali**</a> più avanti.
@@ -185,7 +185,7 @@ I riferimenti agli asset sono gli stessi nelle configurazioni di Azure Automatio
 - [Variabili](automation-variables.md)
 
 ###Asset credenziali###
-Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset credenziali con **Get-AutomationPSCredential**, gli asset credenziali possono essere passati anche con i parametri, se necessario. Se una configurazione accetta un parametro di tipo **PSCredential**, è necessario passare il nome stringa di un asset credenziale di Automazione di Azure come valore di tale parametro, invece di un oggetto PSCredential. In background, l'asset credenziali di Automazione di Azure con tale nome verrà recuperato e passato alla configurazione.
+Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset delle credenziali con **Get-AutomationPSCredential**, gli asset delle credenziali possono essere passati anche con i parametri, se necessario. Se una configurazione accetta un parametro di tipo **PSCredential**, è necessario passare il nome stringa di un asset credenziale di Automazione di Azure come valore di tale parametro, invece di un oggetto PSCredential. In background, l'asset credenziali di Automazione di Azure con tale nome verrà recuperato e passato alla configurazione.
 
 Per garantire la sicurezza delle credenziali nelle configurazioni dei nodi (documenti di configurazione MOF), è necessario crittografare le credenziali nel file MOF delle configurazioni dei nodi. Automazione di Azure va oltre e crittografa l'intero file MOF. Attualmente è però necessario comunicare a PowerShell DSC che l'output delle credenziali in testo normale durante la generazione dei file MOF delle configurazioni dei nodi è corretto, perché PowerShell DSC non sa che dopo la generazione Automazione di Azure crittograferà l'intero file MOF tramite un processo di compilazione.
 
@@ -228,4 +228,4 @@ L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

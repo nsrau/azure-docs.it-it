@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2016"
+   ms.date="05/09/2016"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

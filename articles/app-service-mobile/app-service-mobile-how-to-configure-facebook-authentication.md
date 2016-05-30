@@ -34,17 +34,17 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 4. Fare clic su **My Apps** > **Add a New App** > **Website** > **Skip and Create App ID**.
 
-5. In **Display Name** immettere un nome univoco per l'app, scegliere una categoria per l'app in **Category**, quindi fare clic su **Create App ID** e completare il controllo di sicurezza. Si passerà al dashboard dello sviluppatore per la nuova app di Facebook.
+5. In **Display Name** (Nome visualizzato) digitare un nome univoco per l'app, digitare un indirizzo in **Contact Email** (Indirizzo di posta elettronica di contatto), scegliere una categoria per l'app in **Category** (Categoria), quindi fare clic su **Create App ID** (Crea ID app) e completare il controllo di sicurezza. Si passerà al dashboard dello sviluppatore per la nuova app di Facebook.
 
-6. In "Facebook Login" fare clic su **Get Started**. Aggiungere l'**URI di reindirizzamento** dell'applicazione in **Valid OAuth redirect URIs** e quindi fare clic su **Save Changes**.
+6. In "Facebook Login" (Accesso a Facebook) fare clic su **Get Started** (Informazioni di base). Aggiungere l'URI di **Redirect URI** (URI di reindirizzamento) dell'applicazione in **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) e quindi fare clic su **Save Changes** (Salva modifiche).
 
 	> [AZURE.NOTE] L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
-6. Nel riquadro di spostamento a sinistra fare clic su **Settings**. Nel campo **App Secret** fare clic su **Show**, fornire la password se richiesto, quindi prendere nota dei valori di **App ID** e **App Secret**. Questi verranno usati più avanti per configurare l'applicazione in Azure.
+6. Nel riquadro di spostamento a sinistra fare clic su **Settings** (Impostazioni). Nel campo **App Secret** fare clic su **Show**, fornire la password se richiesto, quindi prendere nota dei valori di **App ID** e **App Secret**. Questi verranno usati più avanti per configurare l'applicazione in Azure.
 
 	> [AZURE.IMPORTANT] Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
 
-7. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per eseguire l'autenticazione di altri account di Facebook, fare clic su **App Review** e abilitare l'opzione **Make <your-app-name> public** e consentire così l'accesso pubblico generale con l'autenticazione di Facebook.
+7. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per eseguire l'autenticazione di altri account di Facebook, fare clic su **App Review** (Controllo app) e abilitare l'opzione **Make <your-app-name> public** (Rendi pubblica) e consentire così l'accesso pubblico generale con l'autenticazione di Facebook.
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Facebook all'applicazione
 
@@ -75,4 +75,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

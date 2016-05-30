@@ -60,7 +60,7 @@ Per concedere a un altro utente l'accesso per la gestione del servizio PIM stess
 
 I ruoli in Exchange Online o SharePoint Online, ad eccezione di quelli indicati in precedenza, non sono rappresentati in Azure AD e quindi non sono visibili in PIM. Per altre informazioni sulla modifica delle assegnazioni di ruolo specifiche in questi servizi di Office 365, vedere [Autorizzazioni in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Anche le sottoscrizioni di Azure e i gruppi di risorse non sono rappresentati in Azure AD. Per gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator). In [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md) sono disponibili altre informazioni su questo argomento.
+Anche le sottoscrizioni di Azure e i gruppi di risorse non sono rappresentati in Azure AD. Per gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md). In [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md) sono disponibili altre informazioni su questo argomento.
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -87,4 +87,4 @@ L'accesso a Microsoft Online Services può richiedere che all'utente sia assegna
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

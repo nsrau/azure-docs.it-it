@@ -484,9 +484,9 @@ Proprietà | Descrizione | Obbligatorio
 folderPath | Percorso della cartella. Esempio: myfolder<br/><br/>Usare il carattere di escape '\\' per i caratteri speciali nella stringa. Ad esempio, per folder\\subfolder specificare folder\\\subfolder e per d:\\samplefolder specificare d:\\\samplefolder.<br/><br/>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi di cartella basati su data e ora di inizio/fine delle sezioni. | Sì
 fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato avrà il formato seguente: <br/><br/>Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
-Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. **La proprietà di formato non è attualmente supportata per i sistemi di file locali. La relativa abilitazione è prevista al più presto, come indicato di seguito.** | No
-fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*.log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Nota**: fileFilter è applicabile per un set di dati di input FileShare | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+Format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà **type** in format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per i dettagli vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat) e [Specifica di JsonFormat](#specifying-jsonformat). Se si vuole eseguire un **copia binaria invariata**, non specificare il formato nei data set di origine e di destinazione. | No
+fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*.log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Nota**: fileFilter è applicabile a un set di dati di input FileShare | No
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Optimal** e **Fastest**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 > [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
 
@@ -520,52 +520,7 @@ Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile 
 
 Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
 
-### Specifica di TextFormat
-
-Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format** all'interno della sezione **typeProperties**.
-
-Proprietà | Descrizione | Obbligatorio
--------- | ----------- | --------
-columnDelimiter | Carattere/i usato/i come separatore di colonne in un file. Il valore predefinito è la virgola (,). | No
-rowDelimiter | Carattere/i usato/i come separatore raw in un file. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No
-escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Nessun valore predefinito. È necessario specificare al massimo un carattere per questa proprietà.<br/><br/>Ad esempio, se la virgola (,) viene usata come delimitatore di colonna ma si vuole inserire una virgola nel testo, ad esempio "Hello, world", è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No
-quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No
-nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Il valore predefinito è "\\N".> | No
-encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. <br/><br/>Ad esempio: windows-1250 or shift\_jis. Il valore predefinito è UTF-8. | No
-
-#### Esempi:
-
-L'esempio seguente illustra alcune delle proprietà del formato per **TextFormat**.
-
-	"typeProperties":
-	{
-	    "folderPath": "MyFolder",
-	    "fileName": "MyFileName"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": """,
-	        "NullValue": "NaN"
-	    }
-	},
-
-Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
-
-	"escapeChar": "$",
-
-### Specifica di AvroFormat
-
-Se il formato è impostato su **AvroFormat**, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
-
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
-	
-Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]  
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Proprietà del tipo di attività di copia di una condivisione file
@@ -580,18 +535,18 @@ Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazion
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione, ovvero il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. Il nome dei file di destinazione verrà generato automaticamente. | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione, ovvero il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si troveranno nel primo livello della cartella di destinazione. Il nome dei file di destinazione verrà generato automaticamente. | No |
 
 ### esempi ricorsivi e copyBehavior
 In questa sezione viene descritto il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
 
 ricorsiva | copyBehavior | Comportamento risultante
 --------- | ------------ | --------
-true | preserveHierarchy | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la stessa struttura dell'origine<br/><br/>>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.  
-true | flattenHierarchy | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la destinazione Cartella1 avrà la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File5
-true | mergeFiles | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 + File3 + File4 + File 5 verrà unito in un file con nome del file generato automaticamente<
-false | preserveHierarchy | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Sottocartella1 con File3, File4 e File5 non considerati.
-false | flattenHierarchy | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/><br/>Sottocartella1 con File3, File4 e File5 non considerati.<
+true | preserveHierarchy | Per una cartella di origine Cartella1 con la struttura:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la stessa struttura dell'origine<br/><br/>>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.  
+true | flattenHierarchy | Per una cartella di origine Cartella1 con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File5
+true | mergeFiles | Per una cartella di origine Cartella1 con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 + File3 + File4 + File 5 verrà unito in un file con nome del file generato automaticamente
+false | preserveHierarchy | Per una cartella di origine Cartella1 con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Sottocartella1 con File3, File4 e File5 non considerati.
+false | flattenHierarchy | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/><br/>Sottocartella1 con File3, File4 e File5 non considerati.
 false | mergeFiles | Per una cartella di origine Cartella1 con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la cartella di destinazione Cartella1 avrà la struttura seguente<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 verrà unito in un file con nome del file generato automaticamente. Nome generato automaticamente per File1<br/><br/>Sottocartella1 con File3, File4 e File5 non considerati.
 
 
@@ -600,7 +555,7 @@ false | mergeFiles | Per una cartella di origine Cartella1 con la struttura segu
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Ottimizzazione delle prestazioni  
-Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
 
 
@@ -609,4 +564,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

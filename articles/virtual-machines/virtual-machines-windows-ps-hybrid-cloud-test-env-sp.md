@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -201,7 +201,7 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 3.	Nella finestra di dialogo che informa che potrebbe essere necessario riavviare alcuni servizi durante la configurazione, fare clic su **Sì**.
 4.	Nella pagina Connetti a una server farm, fare clic su **Creare una nuova server farm**, quindi fare clic su **Avanti**.
 5.	Nella pagina Specifica le impostazioni del database di configurazione, digitare **sql1.corp.contoso.com** in **Server del database**, digitare **CORP\\SPFarmAdmin** in **Nome utente**, digitare la password dell'account SPFarmAdmin in **Password**, quindi fare clic su **Avanti**.
-6.	Nella pagina Specifica impostazioni sicurezza Farm digitare **P@ssphrase** sia in **Passphrase** che **Conferma passphrase**, quindi fare clic su **Avanti**.
+6.	Nella pagina Specifica impostazioni sicurezza Farm digitare ****P@ssphrase** sia in **Passphrase** che **Conferma passphrase**, quindi fare clic su **Avanti**.
 7.	Nella pagina Configurazione applicazione Web Amministrazione centrale SharePoint, fare clic su **Avanti**.
 8.	Nella pagina Completamento della configurazione guidata ai prodotti SharePoint fare clic su **Avanti**. La configurazione guidata dei prodotti SharePoint potrebbe richiedere alcuni minuti.
 9.	Nella pagina Configurazione completata, fare clic su **Fine**. Dopo il completamento, viene avviato Internet Explorer con una scheda denominata Initial Farm Configuration Wizard.
@@ -222,6 +222,6 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 
 ## Passaggio successivo
 
-- Distribuire il [carico di lavoro di produzione](virtual-machines-windows-sp-intranet-overview.md).
+- [Configurare](https://technet.microsoft.com/library/ee836142.aspx) la farm di SharePoint.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

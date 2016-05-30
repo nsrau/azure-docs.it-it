@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/11/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -47,7 +47,7 @@ Per importare un database SQL da un file bacpac è necessario quanto segue:
 
 ## Selezionare il server che conterrà il database
 
-Aprire il pannello di SQL Server per il database che si desidera importare:
+Aprire il pannello di SQL Server:
 
 1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **SQL Server**.
@@ -60,7 +60,7 @@ Aprire il pannello di SQL Server per il database che si desidera importare:
 
     ![configurare le opzioni di archiviazione][2]
 
-1.  Selezionare il livello di prezzo per il nuovo database e fare clic su **Seleziona**.
+1.  Selezionare il livello di prezzo per il nuovo database e fare clic su **Seleziona**. Non è supportata l'importazione di un database direttamente in un pool elastico, ma è possibile importarlo prima in un database singolo e poi spostare il database in un pool.
 
     ![selezionare un livello di prezzo][3]
 
@@ -109,4 +109,4 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

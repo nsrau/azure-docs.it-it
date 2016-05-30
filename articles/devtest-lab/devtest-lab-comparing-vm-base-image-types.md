@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Confronto tra immagini personalizzate e formule nei lab di sviluppo/test
@@ -35,11 +35,11 @@ Le immagini personalizzate offrono un modo statico e non modificabile per creare
 Le formule offrono un modo dinamico per creare macchine virtuali in base a una configurazione o alle impostazioni desiderate.
 
 **Vantaggi**
-- È possibile acquisire in tempo reale le modifiche apportate nell'ambiente in tempo reale usando gli elementi. Ad esempio, per creare una macchina virtuale installata con i bit più recenti della pipeline di rilascio o integrando il codice più recente dal repository, è possibile specificare semplicemente un elemento che consenta di distribuire i bit più recenti o integri il codice più recente nella formula insieme a un'immagine di base di destinazione. Ogni volta che la formula viene usata per creare macchine virtuali, il codice o i bit più recenti vengono integrati o distribuiti alla macchina virtuale. 
+- È possibile acquisire in tempo reale le modifiche apportate nell'ambiente in tempo reale usando gli elementi. Ad esempio, per installare una macchina virtuale con i bit più recenti della pipeline di rilascio o integrare il codice più recente dal repository, è possibile specificare semplicemente un elemento che consenta di distribuire i bit più recenti o integri il codice più recente nella formula insieme a un'immagine di base di destinazione. Ogni volta che la formula viene usata per creare macchine virtuali, il codice o i bit più recenti vengono integrati o distribuiti alla macchina virtuale. 
 - A differenza delle immagini personalizzate, le formule possono definire impostazioni predefinite come le dimensioni delle macchine virtuali e le impostazioni della rete virtuale. 
 - Le impostazioni salvate in una formula vengono visualizzate come valori predefiniti, ma possono essere modificate quando viene creata la macchina virtuale. 
 
 **Svantaggi**
 - La creazione di una macchina virtuale da una formula può richiedere più tempo rispetto alla creazione da un'immagine personalizzata.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

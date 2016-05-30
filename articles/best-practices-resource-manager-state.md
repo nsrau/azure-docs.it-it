@@ -365,7 +365,7 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
         "type": "string"
       }
      
-Per un esempio dell'uso della sezione outputs di un modello collegato per la restituzione dei dischi dati per una macchina virtuale, vedere [Creazione di più dischi dati per una macchina virtuale](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+Per un esempio di uso della sezione outputs di un modello collegato per la restituzione dei dischi dati per una macchina virtuale, vedere [Creazione di più dischi dati per una macchina virtuale](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Definizione delle impostazioni di autenticazione per la macchina virtuale
 
@@ -426,4 +426,4 @@ Quando si definisce la macchina virtuale, si imposta **osProfile** sulla variabi
 - Per informazioni sulle sezioni del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per tutte le funzioni disponibili in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

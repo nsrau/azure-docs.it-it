@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Indicazioni specifiche del servizio per la ripetizione di tentativi
 
-![](media/best-practices-retry-service-specific/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 
@@ -1107,4 +1107,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

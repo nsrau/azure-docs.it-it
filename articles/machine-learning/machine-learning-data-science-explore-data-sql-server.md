@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Esplorazione dei dati nella macchina virtuale di SQL Server in Azure
 
-##Introduzione
 
 In questo documento viene illustrato come esplorare i dati archiviati in una macchina virtuale SQL Server in Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
 
@@ -76,4 +75,4 @@ Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Proc
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

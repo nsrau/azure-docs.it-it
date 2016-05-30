@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Indicazioni generali per la ripetizione di tentativi
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 
@@ -115,4 +115,4 @@ Le linee guida seguenti consentono di definire un meccanismo di gestione degli e
 * [Modello di transazioni di compensazione](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modelli di idempotenza](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

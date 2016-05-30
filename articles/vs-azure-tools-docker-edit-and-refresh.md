@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Debug delle app in un contenitore Docker locale con Edit and Refresh | Microsoft Azure"
-   description="Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale e aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento"
+   pageTitle="Debug di applicazioni in un contenitore Docker locale | Microsoft Azure"
+   description="Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale, aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento e impostare i punti di interruzione del debug"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="AllenClark"
    manager="douge"
    editor="" />
 <tags
@@ -12,105 +12,124 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/25/2016"
-   ms.author="tarcher" />
+   ms.date="05/13/2016"
+   ms.author="allclark" />
 
-# Debug delle app in un contenitore Docker locale con Edit and Refresh
+# Debug delle applicazioni in un contenitore Docker locale
 
 ## Panoramica
-Visual Studio Tools for Docker offre un modo pratico per sviluppare e testare l'applicazione localmente in un contenitore Docker senza dover riavviare il contenitore ogni volta che si apporta una modifica al codice. Questo articolo illustra come usare la funzionalità "Edit and Refresh" per avviare un'app Web ASP.NET 5 in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare le modifiche.
+Gli Strumenti di Visual Studio per Docker consentono di sviluppare e convalidare l'applicazione in locale in un contenitore Docker. Non è necessario riavviare il contenitore ogni volta che si esegue una modifica del codice. Questo articolo illustra come usare la funzionalità di modifica e aggiornamento per avviare un'App Web ASP.NET Core in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare le modifiche. Illustra anche come impostare i punti di interruzione per il debug.
+
+> [AZURE.NOTE] Il supporto del contenitore di Windows sarà disponibile nelle versioni future
 
 ## Prerequisiti
 È necessario installare gli strumenti seguenti.
 
-- [Visual Studio 2015 Update 1](https://go.microsoft.com/fwlink/?LinkId=691979)
-- [Microsoft ASP.NET e strumenti Web 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
-- [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
+- [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
-- [Configurare il client Docker](./vs-azure-tools-docker-setup.md)
 
-> [AZURE.NOTE] Se è installata una versione precedente di Visual Studio 2015 Tools for Docker, sarà necessario disinstallarla dal Pannello di controllo prima di installare la versione più recente.
+Per eseguire i contenitori Docker in locale, è necessario un client di Docker locale. È possibile usare la [casella degli strumenti di Docker](https://www.docker.com/products/overview#/docker_toolbox) che richiede la disabilitazione di Hyper-V o in alternativa è possibile usare [Docker per la versione Beta di Windows](https://beta.docker.com) che usa Hyper-V e richiede Windows 10.
+
+Nella casella degli strumenti di Docker, è necessario [configurare il client di Docker](./vs-azure-tools-docker-setup.md)
 
 ## Modifica di un'app in esecuzione in un contenitore Docker locale
-Visual Studio 2015 Tools for Docker consente agli sviluppatori di app Web ASP .NET 5 di testare ed eseguire l'applicazione in un contenitore Docker, di apportare modifiche all'applicazione in Visual Studio e di aggiornare il browser per visualizzare le modifiche applicate all'app in esecuzione nel contenitore.
+Gli Strumenti di Visual Studio 2015 per Docker consentono agli sviluppatori di App Web ASP .NET Core RC2 di testare ed eseguire l'applicazione in un contenitore Docker, apportare modifiche all'applicazione in Visual Studio e aggiornare il browser per visualizzare le modifiche applicate all'app in esecuzione nel contenitore. Con .NET Core e gli Strumenti di Visual Studio per Docker versione 0.20, è anche possibile impostare punti di interruzione per il codice in esecuzione nel contenitore Docker.
 
-1. Nel menu di Visual Studio selezionare **File > Nuovo > Progetto**. 
+1. Nel menu di Visual Studio selezionare **File > Nuovo > Progetto**.
 
 1. Nella sezione **Modelli** della finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web**.
 
-1. Selezionare **Applicazione Web ASP.NET**.
+1. Selezionare **ASP.NET Core Web Application (.NET Core)** (applicazione Web ASP.NET Core (.NET Core).
 
-1. Assegnare un nome alla nuova applicazione (o accettare quello predefinito).
+1. Assegnare un nome alla nuova applicazione (o accettare quello predefinito), quindi toccare **OK**.
 
-1. Toccare **OK**.
+1. In **ASP.NET Core Templates** (modelli di ASP.NET Core) selezionare **Applicazione Web** e toccare **OK**.
 
-1. In **Modelli ASP.NET 5** selezionare **Applicazione Web ASP.NET**.
+1. Deselezionare **Ospita nel cloud** dal momento che come soluzione di distribuzione verrà usato Docker.
 
-1. Toccare **OK**.
-
-1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi > Supporto Docker**.
+1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **Add > Docker Support** (Aggiungi > Supporto Docker).
 
 	![][0]
- 
+
 1. Nel nodo del progetto vengono creati i file seguenti:
 
 	![][1]
 
-1. Impostare Configurazione soluzione su `Debug` e premere **&lt;F5>** per avviare il test dell'applicazione localmente.
+> [AZURE.NOTE] Se si sta usando [Docker per la versione Beta di Windows](https://beta.docker.com), aprire Properties (Proprietà)\\Docker.props, eliminare il valore predefinito e riavviare Visual Studio in modo che il valore abbia effetto. ![][2]
 
-1. Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, una console di PowerShell cercherà di avviare l'app Web nel browser predefinito. Se si usa il browser Microsoft Edge, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+##Modifica e aggiornamento
+Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'applicazione in un contenitore e continuare ad apportare modifiche, visualizzandole come si farebbe con IIS Express.
 
-1. Tornare a Visual Studio e aprire `Views\Home\Index.cshtml`.
+1. Impostare la configurazione della soluzione su `Debug` e premere **& lt;CTRL + F5 >** per creare l'immagine Docker ed eseguirla localmente. Visualizzare la finestra di output, usando la compilazione oppure
+
+1. Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio cercherà di avviare l'App Web nel browser predefinito. Se si usa il browser Microsoft Edge o se si verificano problemi, vedere l'articolo sulla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+
+1. Tornare a Visual Studio e aprire `Views\Home\About.cshtml`.
 
 1. Aggiungere il contenuto HTML seguente alla fine del file e salvare le modifiche.
 
-		<div>
-			<h1>Hello from Docker Container!</h1>
-		</div>
+	```
+	<h1>Hello from a Docker Container!</h1>
+	```
 
-1.	Tornare al browser e aggiornarlo.
+1.	Visualizzare la finestra di output e, quando viene completata la compilazione di .NET e viene visualizzato `Application started. Press Ctrl+C to shut down`, tornare al browser e aggiornare la pagina.
 
-1.	Scorrere fino alla fine della home page per visualizzare le modifiche applicate. Si noti che la ricompilazione del sito può richiedere alcuni secondi. Se quindi le modifiche non vengono immediatamente visualizzate, è sufficiente aggiornare di nuovo il browser.
+1.	Si dovrebbero vedere visualizzate le modifiche applicate.
 
-##Risoluzione dei problemi 
+##Punto di interruzione di debug
+Spesso è necessario analizzare le modifiche in modo più approfondito, sfruttando le funzionalità di debug di Visual Studio.
 
-- **L'esecuzione dell'app fa sì che PowerShell venga aperto, visualizzi un errore e quindi venga chiuso. La pagina del browser non si apre.**
+1.	Tornare a Visual Studio e aprire `Controllers\HomeController.cs`
 
-	È possibile che si verifichi un errore durante l'esecuzione di `docker-compose-up`. Per visualizzare l'errore, eseguire questi passaggi:
+1.  Sostituire il contenuto del metodo About() con quanto riportato di seguito:
 
-	1. Aprire il file `Properties\launchSettings.json`.
-	
-	1. Individuare la voce Docker.
-	
-	1. Individuare la riga che inizia come segue:
+	```
+	string message = "Your application description page from wthin a Container";
+	ViewData["Message"] = message;
+    ````
 
-			"commandLineArgs": "-ExecutionPolicy RemoteSigned …”
-	
-	1. Aggiungere il parametro `-noexit` in modo che la riga ora sia simile alla seguente. In questo modo PowerShell rimarrà aperto e sarà possibile visualizzare l'errore.
+1.  Impostare un punto di interruzione a sinistra della riga `string message`...
 
-			"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+1.  Premere **& lt; F5 >** per avviare il debug.
 
-- **Compilazione: non è possibile compilare l'immagine. Errore durante il controllo della connessione TLS: l'host non è in esecuzione.**
+1.  Accedere alla pagina About per raggiungere il punto di interruzione.
 
-	Verificare che l'host Docker predefinito sia in esecuzione. Vedere l’articolo [Configurare il client Docker](./vs-azure-tools-docker-setup.md).
+1.  Passare a Visual Studio per visualizzare il punto di interruzione ed esaminare il valore del messaggio.
 
-- **Non è possibile trovare il mapping del volume.**
+	![][3]
 
-	Per impostazione predefinita, VirtualBox condivide `C:\Users` come `c:/Users`. Se il progetto non è in `c:\Users`, aggiungerlo manualmente alle [cartelle condivise](https://www.virtualbox.org/manual/ch04.html#sharedfolders) di VirtualBox.
+##Riepilogo
+Con gli [Strumenti di Visual Studio 2015 per Docker](https://aka.ms/DockerToolsForVS), si ottiene la produttività tipica del lavoro in locale, nella realtà produttiva offerta dallo sviluppo in un contenitore Docker.
 
-- **Uso di Microsoft Edge come browser predefinito.**
+## Risoluzione dei problemi
+[Risoluzione dei problemi di sviluppo di Docker in Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
-	Se si usa il browser Microsoft Edge, è possibile che il sito non si apra perché Edge considera l'indirizzo IP non sicuro. Per risolvere il problema, eseguire questa procedura:
-	1. Nella casella Esegui di Windows digitare `Internet Options`.
-	2. Toccare **Opzioni Internet** quando vengono visualizzate. 
-	2. Toccare la scheda **Sicurezza**.
-	3. Selezionare l'area **Intranet locale**.
-	4. Toccare **Siti**. 
-	5. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco. 
-	6. Aggiornare la pagina in Edge per visualizzare il sito come operativo. 
-	7. Per altre informazioni su questo problema, vedere il post di blog di Scott Hanselman relativo all'[impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
+## Altre informazioni su Docker con Visual Studio, Windows e Azure
+
+- [Strumenti di Docker per Visual Studio](http://aka.ms/dockertoolsforvs): sviluppo di codice .NET Core in un contenitore
+- [Strumenti di Docker per Visual Studio Team Services](http://aka.ms/dockertoolsforvsts): compilare e distribuire contenitori Docker
+- [Strumenti di Docker per Visual Studio Code](http://aka.ms/dockertoolsforvscode): servizi di linguaggio per la modifica dei file di Docker, con altri scenari e2e presto disponibili
+- [Informazioni sul contenitore di Windows](http://aka.ms/containers): informazioni su Windows Server e Nano Server
+- [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/): [Introduzione al servizio contenitore di Azure](http://aka.ms/AzureContainerService)
+
+## Altri strumenti di Docker
+
+[Some great docker tools ](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/) (Importanti strumenti di Docker, blog di Steve Lasker)
+
+## Articoli utili
+
+[Introduction to Microservices from NGINX](https://www.nginx.com/blog/introduction-to-microservices/) (Introduzione ai microservizi di NGINX)
+
+## Presentazioni
+
+- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/) (Presentazione dal vivo a Las Vegas nel 2016: e2e di Docker)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Introduzione ad ASP.NET Core build 2016 - Demo)
+- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/) (Sviluppo di applicazioni .NET in contenitori, Channel 9)
 
 [0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
 [1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
+[2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
+[3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

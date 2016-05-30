@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc"/>
 
-# Creazione e gestione di una zona DNS nel portale di Azure
+# Creare una zona DNS nel portale di Azure
 
 
 > [AZURE.SELECTOR]
@@ -29,18 +29,13 @@
 
 Questo articolo illustra i passaggi per creare una zona DNS con il portale di Azure. È anche possibile creare una zona DNS con PowerShell o l'interfaccia della riga di comando.
 
-Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web). Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio è necessario prima di tutto creare una zona DNS. Qualsiasi record DNS creato per un particolare dominio si troverà all'interno di una zona DNS per il dominio.
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-### <a name="names"></a>Informazioni sui nomi delle zone DNS
- 
-- Il nome della zona deve essere univoco all'interno del gruppo di risorse e la zona non deve esistere già, altrimenti l'operazione non riesce.
-
-- Lo stesso nome di zona può essere usato nuovamente in un gruppo di risorse diverso o in un'altra sottoscrizione Azure. Se più zone condividono lo stesso nome, a ogni istanza verranno assegnati diversi indirizzi del server dei nomi e può essere delegata solo un'istanza dal dominio padre. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](#delegate).
 
 ### Informazioni sui tag per DNS di Azure
 
 
-I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
+I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere l'articolo [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
 È possibile aggiungere tag nel portale di Azure con il pannello **Impostazioni** per la zona DNS.
 
@@ -74,7 +69,7 @@ I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per e
 9. Dopo aver creato la nuova zona, nel dashboard viene aperto il pannello per la nuova zona.
 
 
-## Visualizzare i record di zona DNS
+## Visualizzare i record
 
 La creazione di una zona DNS comporta anche la creazione dei record seguenti:
 
@@ -93,6 +88,29 @@ La creazione di una zona DNS comporta anche la creazione dei record seguenti:
 
 	![zona](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
 
+## Test
+
+È possibile testare la zona DNS usando strumenti DNS come nslookup, DIG o il [cmdlet di PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario indirizzare la query DNS direttamente a uno dei server dei nomi per la zona. I server dei nomi per la zona sono specificati nei record NS, ottenuti tramite il comando `Get-AzureRmDnsRecordSet` precedente. Assicurarsi di sostituire i valori corretti per la propria zona nel comando seguente.
+
+	nslookup
+	> set type=SOA
+	> server ns1-01.azure-dns.com
+	> contoso.com
+
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
+
+	contoso.com
+        	primary name server = ns1-01.azure-dns.com
+        	responsible mail addr = msnhst.microsoft.com
+        	serial  = 1
+        	refresh = 900 (15 mins)
+        	retry   = 300 (5 mins)
+        	expire  = 604800 (7 days)
+        	default TTL = 300 (5 mins)
+
 
 
 ## Eliminare una zona DNS
@@ -106,6 +124,6 @@ La creazione di una zona DNS comporta anche la creazione dei record seguenti:
 
 ## Passaggi successivi
 
-Dopo aver creato la zona DNS, vedere [Introduzione alla creazione di set di record e record](dns-getstarted-create-recordset-portal.md), [Come gestire le zone DNS](dns-operations-dnszones.md) e [Come gestire i record DNS](dns-operations-recordsets-portal.md).
+Dopo aver creato una zona DNS, creare [set di record e record](dns-getstarted-create-recordset-portal.md) per avviare la risoluzione dei nomi per il dominio Internet.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

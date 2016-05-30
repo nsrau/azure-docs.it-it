@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
@@ -37,7 +37,6 @@ Questi siti sono applicazioni Web completamente funzionali che usano Ricerca di 
 
 [**Demo del portale dei processi di New York City (NYC) per Ricerca di Azure**](http://aka.ms/azjobsdemo) è un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure utilizzando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
 
-[**Provare il servizio app e Ricerca di Azure nell’app combinata ASP.NET MVC**](search-tryappservice.md) è una sessione di un'ora gratuita con Ricerca di Azure che include dati, un'applicazione Web funzionale e un codice sorgente che è possibile modificare online per provare le varie funzionalità di ricerca in un’applicazione ASP.NET.
 
 [**Sito Demo Ricerca di Azure**](https://searchsamples.azurewebsites.net/#/) è una raccolta di app demo per la Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure.
 
@@ -46,7 +45,7 @@ Questi siti sono applicazioni Web completamente funzionali che usano Ricerca di 
 Ecco alcuni dei video e delle esercitazioni più apprezzati relativi a Ricerca di Azure.
 
 - [Video: Introduzione di Microsoft Virtual Academy a Ricerca di Azure](https://mva.microsoft.com/it-IT/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) è un'ottima risorsa per imparare a usare Ricerca di Azure.
-- [Video: AzureCon 2015: procedure consigliate per Ricerca di Azure ](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) offre consigli pratici su come ottenere l'aumento del numero di istanze, prestazioni ottimali ed efficienza di codifica durante la creazione di app per scenari mobili o Web. 
+- [Video: AzureCon 2015: procedure consigliate per Ricerca di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) offre consigli pratici su come ottenere l'aumento del numero di istanze, prestazioni ottimali ed efficienza di codifica durante la creazione di app per scenari mobili o Web. 
 - [Esempio di codice per la libreria client .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) è un'applicazione ASP.NET MVC 5 che usa la libreria client .NET per le operazioni di ricerca.
 - [Esercitazione: Come usare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) illustra come configurare ed eseguire un'applicazione Web di esempio di Visual Studio che si integra con Ricerca di Azure.
 - [Esercitazione: Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md) è una procedura dettagliata basata esclusivamente sul portale che consente di ottenere un indice e i dati senza scrivere alcun codice. Questa esercitazione è utile per imparare a eseguire attività comuni nel portale.
@@ -89,4 +88,4 @@ Procedura dettagliata|Descrizione
 [Esercitazione sui profili di punteggio](search-get-started-scoring-profiles.md)|Provare i profili di punteggio usando un'app console.
 [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md)|Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

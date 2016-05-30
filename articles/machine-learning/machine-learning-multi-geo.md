@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Guida per più aree geografiche
@@ -38,7 +38,9 @@ Se si apre un esperimento dalla raccolta, è inoltre possibile selezionare in qu
 
 ## Gestione del servizio Web
 
-Per gestire a livello di programmazione i servizi web, ad esempio per la ripetizione della formazione, utilizzare l'indirizzo specifico dell’area geografica: ****https://asiasoutheast.management.azureml.net**
+Per gestire a livello di programmazione i servizi web, ad esempio per la ripetizione della formazione, usare l'indirizzo specifico dell'area geografica:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Punti da notare
 
@@ -57,4 +59,4 @@ Aggiungere una domanda sul [forum di Azure Machine Learning](https://social.msdn
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

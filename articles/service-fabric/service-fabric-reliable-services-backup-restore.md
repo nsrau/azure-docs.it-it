@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/13/2016"
    ms.author="mcoskun"/>
 
 # Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
@@ -193,4 +193,4 @@ Reliable State Manager consente di eseguire il ripristino da un backup con l'API
 
 **RestoreAsync** rilascia prima di tutto ogni stato esistente nella replica primaria in cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

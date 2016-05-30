@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Segnalazione della posizione per Android Mobile Engagement"
-	description="Segnalazione della posizione per Android per Azure Mobile Engagement"
+	pageTitle="Segnalazione della posizione per Android SDK per Azure Mobile Engagement"
+	description="Descrive come configurare la segnalazione della posizione per Android SDK per Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Segnalazione della posizione in Engagement in Android
+# Segnalazione della posizione per Android SDK per Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Questo argomento descrive come eseguire la segnalazione della posizione in Engagement nell'applicazione Android.
+Questo argomento descrive come eseguire la segnalazione della posizione per l'applicazione Android.
 
 ## Prerequisiti
 
 [AZURE.INCLUDE [Prerequisiti](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Segnalazione della posizione
 
@@ -47,7 +46,7 @@ Per abilitare la segnalazione differita della posizione, è possibile utilizzare
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Oppure è possibile continuare a utilizzare ``ACCESS_FINE_LOCATION`` se è già utilizzato nell'applicazione.
 
@@ -66,7 +65,7 @@ Per abilitare la segnalazione della posizione in tempo reale, aggiungere una rig
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Oppure è possibile continuare a utilizzare ``ACCESS_FINE_LOCATION`` se è già utilizzato nell'applicazione.
 
@@ -82,7 +81,7 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale usa
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Segnalazione in background
 
@@ -98,18 +97,18 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale è 
 
 La segnalazione della posizione in background verrà arrestata se l'utente riavvia il dispositivo. Per fare in modo che venga riavviata automaticamente al riavvio, aggiungere quanto segue:
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Autorizzazioni Android M
+## Autorizzazioni Android M
 
 A partire da Android M, alcune autorizzazioni vengono gestite in fase di esecuzione e richiedono l'approvazione dell'utente.
 
@@ -160,4 +159,4 @@ Ecco un esempio di codice da utilizzare in un'attività dell'applicazione per ri
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

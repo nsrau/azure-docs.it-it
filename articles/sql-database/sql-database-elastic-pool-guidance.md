@@ -22,7 +22,7 @@ Valutare se l'uso di un pool di database elastici può risultare conveniente in 
 
 - Per una panoramica dei pool di database elastici, vedere l'articolo sui [pool di database elastici di database SQL](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di database SQL versione 12.
+> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure ad eccezione di Stati Uniti centro-settentrionali, Brasile meridionale, India occidentale, India meridionale e Cina settentrionale, dove sono attualmente in anteprima. La disponibilità generale dei pool elastici in queste aree verrà offerta al più presto.
 
 ## Un pool elastico di database.
 
@@ -131,4 +131,4 @@ Non tutti i database singoli sono candidati ottimali per i pool. Database con mo
 - [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 - [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

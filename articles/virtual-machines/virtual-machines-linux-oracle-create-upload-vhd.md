@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
 
 # Preparare una macchina virtuale Oracle Linux per Azure
-
-
-- [Preparare una macchina virtuale Oracle Linux 6.4+ per Azure](#oracle6)
-- [Preparare una macchina virtuale Oracle Linux 7.0+ per Azure](#oracle7)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -30,7 +26,9 @@
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Oracle Linux in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-**Note generali sull'installazione di Oracle Linux**
+### Note generali sull'installazione di Oracle Linux
+
+- Vedere anche [Note generali sull'installazione di Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) per altri suggerimenti sulla preparazione di Linux per Azure.
 
 - Il kernel compatibile con Red Hat di Oracle e i relativi UEK3 (Unbreakable Enterprise Kernel) sono supportati sia su Hyper-V sia su Azure. Per ottenere i migliori risultati, assicurarsi di eseguire l'aggiornamento al kernel più recente durante la preparazione del VHD Oracle Linux.
 
@@ -38,7 +36,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
 
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare LVM o [RAID](virtual-machines-linux-configure-raid.md).
+- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le VM clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra VM per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md).
 
 - NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che usano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure (waagent) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
 
@@ -46,9 +44,10 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
-- Verificare che il repository `Addons` sia abilitato. Modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e modificare la riga `enabled=0` in `enabled=1` sotto **[ol6\_addons]** o **[ol7\_addons]** in questo file.
+- Verificare che il repository `Addons` sia abilitato. Modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ) e cambiare la riga `enabled=0` in `enabled=1` in **[ol6\_addons]** o **[ol7\_addons]** in questo file.
 
-## <a id="oracle6"> </a> Oracle Linux 6.4+ ##
+
+## Oracle Linux 6.4+ ##
 
 Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifici passaggi di configurazione nel sistema operativo.
 
@@ -77,13 +76,12 @@ Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifi
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Spostare o eliminare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Queste regole provocano problemi quando si clona una macchina virtuale in Windows Microsoft o Hyper-V:
+6.	Modificare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti possono provocare problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. Assicurarsi che il servizio di rete venga eseguito all'avvio attivando il seguente comando:
+7. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
 
 		# chkconfig network on
 
@@ -136,7 +134,7 @@ Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifi
 ----------
 
 
-## <a id="oracle7"> </a> Oracle Linux 7.0+ ##
+## Oracle Linux 7.0+ ##
 
 **Modifiche in Oracle Linux 7**
 
@@ -169,11 +167,9 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 		PEERDNS=yes
 		IPV6INIT=no
 
-5.	Spostare o eliminare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti provocano problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
+5.	Modificare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti possono provocare problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
 
@@ -190,9 +186,9 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 9.	Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A tale scopo, aprire "/etc/default/grub" in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`, ad esempio:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-	In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. Inoltre, è consigliabile *rimuovere* i parametri seguenti:
+	In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. Disattiva anche nuove convenzioni di denominazione OEL 7 per NIC. Inoltre, è consigliabile *rimuovere* i parametri seguenti:
 
 		rhgb quiet crashkernel=auto
 
@@ -210,6 +206,7 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 12. Installare l'agente Linux di Azure eseguendo il comando seguente:
 
 		# sudo yum install WALinuxAgent
+		# sudo systemctl enable waagent
 
 13.	Non creare l'area di swap sul disco del sistema operativo.
 
@@ -231,6 +228,6 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 
 ## Passaggi successivi
-È ora possibile usare il file con estensione vhd Oracle Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo relativo a [creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+È ora possibile usare il file con estensione vhd Oracle Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

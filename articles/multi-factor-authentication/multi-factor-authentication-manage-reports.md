@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Report in Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

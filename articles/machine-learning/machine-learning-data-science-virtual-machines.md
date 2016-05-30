@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Macchine virtuali per l'analisi scientifica dei dati in Azure
 
@@ -41,4 +41,4 @@ In seguito al provisioning e alla configurazione delle macchine virtuali, è pos
 > [AZURE.NOTE] Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

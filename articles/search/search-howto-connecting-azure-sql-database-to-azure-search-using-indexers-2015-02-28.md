@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
@@ -70,7 +70,7 @@ Creare, innanzitutto, l'origine dati:
 
 Quindi, creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall’[interfaccia utente del portale](https://portal.azure.com) o usando l’[API di creazione dell’indice](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Vedere la tabella seguente per il mapping tra tipi di dati di ricerca di SQL e Azure.
 
-****Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
+## Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
 
 |Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti |Note 
 |------|-----|----|
@@ -275,4 +275,4 @@ A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un no
 
 A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

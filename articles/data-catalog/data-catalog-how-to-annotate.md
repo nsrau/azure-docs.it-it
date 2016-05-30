@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 
@@ -40,7 +40,8 @@ Ognuna di queste prospettive è utile, e **Catalogo dati Azure** utilizza un app
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome descrittivo | È possibile fornire nomi descrittivi a livello di asset di dati, per rendere le risorse di dati più facilmente comprensibili. I nomi descrittivi sono particolarmente utili quando il nome dell'oggetto sottostante è di difficile interpretazione, abbreviato o non significativo per gli utenti. |
 | Descrizione | È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
-| Tag | I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag sono etichette definite dall'utente che possono essere utilizzate per classificare asset di dati o attributi. |
+| Tag (tag utente) | I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag utente sono etichette definite dall'utente che possono essere usate per definire categorie di asset di dati o attributi. |
+| Tag (tag glossario) | I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag di glossario sono termini di glossario definiti a livello centrale che possono essere usati per definire categorie di asset di dati o attributi tramite una tassonomia aziendale comune. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md) |
 | Esperti | Gli esperti possono essere forniti a livello di asset di dati. Gli esperti identificano utenti o gruppi con prospettive da esperti sui dati e possono fungere come punto di contatto per gli utenti che individuano le origini dei dati registrati e hanno domande le cui risposte non vengono fornite dalle annotazioni esistenti. |
 | Richiedere l'accesso | Le informazioni di richiesta di accesso possono essere fornite a livello di asset di dati. Queste informazioni sono per gli utenti che individuano un'origine dati per cui non dispongono di autorizzazioni di accesso. Gli utenti possono immettere l'indirizzo di posta elettronica dell'utente o del gruppo che concede l'accesso, l'URL del processo o lo strumento a cui gli utenti devono accedere, oppure immettere lo stesso processo come testo. |
 
@@ -59,6 +60,6 @@ I metadati estratti dai dati di origine durante la registrazione e i metadati fo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono fornire le annotazioni affinché venga individuata e compresa in maniera più semplice dal portale **Catalogo dati Azure**.
 
 ## Vedere anche
-- Per altre informazioni dettagliate sull'annotazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
+- Per informazioni dettagliate su come annotare le origini dati, vedere [Introduzione ad Azure Data Catalog](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

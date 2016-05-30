@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Introduzione al livello di Azure Redis Cache Premium" 
+	pageTitle="Introduzione al livello di Azure Redis Cache Premium | Microsoft Azure" 
 	description="Informazioni su come creare e gestire la persistenza di Redis, il clustering di Redis e il supporto di rete virtuale per le istanze di Cache di Redis di Azure del livello Premium" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Introduzione al livello di Azure Redis Cache Premium
 Cache Redis di Azure è una cache distribuita e gestita che consente di creare applicazioni estremamente scalabili e reattive fornendo un accesso molto veloce ai dati.
 
-Il nuovo livello Premium è un livello pronto aziendale che include tutte le funzionalità di livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza e sicurezza avanzata. Continuare a leggere per ulteriori informazioni sulle funzionalità aggiuntive del livello di cache Premium.
+Il nuovo livello Premium è un livello per aziende che include tutte le funzionalità del livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza, importazione/esportazione e sicurezza avanzata. Continuare a leggere per ulteriori informazioni sulle funzionalità aggiuntive del livello di cache Premium.
 
 ## Prestazioni migliori rispetto al livello Standard o base
 **Prestazioni migliori a livello Standard o di base.** Le cache nel livello Premium sono distribuite su un hardware che dispone di processori più veloci e che offre prestazioni migliori rispetto al livello Standard o di base. Le cache di livello Premium dispongono di velocità effettiva più elevata e minori latenze.
@@ -45,6 +45,16 @@ Le cache create nel livello base o Standard sono accessibili sulla rete internet
 
 Per altre informazioni, vedere [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 
+## Importazione/Esportazione
+
+L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati da Cache Redis di Azure, importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache premium a un BLOB di pagine in un account di archiviazione di Azure. Questa operazione consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
+
+L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su qualsiasi provider di cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
+
+L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure su file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella macchina virtuale che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
+
+Per altre informazioni, vedere [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Come importare ed esportare i dati da Cache Redis di Azure).
+
 ## Passaggi successivi
 
 Creare una cache ed esplorare le nuove funzionalità del livello premium.
@@ -52,6 +62,7 @@ Creare una cache ed esplorare le nuove funzionalità del livello premium.
 -	[Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md)
 -	[Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md)
 -	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
+-	[How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Come importare ed esportare i dati da Cache Redis di Azure).
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

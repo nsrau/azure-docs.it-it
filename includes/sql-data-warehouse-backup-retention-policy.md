@@ -8,8 +8,8 @@ As of circa 2016-04-22, the following topics might include this include:
 articles/sql-data-warehouse/sql-data-warehouse-overview-expectations.md
 articles/sql-data-warehouse/sql-data-warehouse-overview-backup-and-restore.md
 -->
-SQL Data Warehouse backs up all live data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows you to restore the data to one of at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. 
+SQL Data Warehouse esegue il backup di tutti i dati dinamici almeno ogni 8 ore usando snapshot di Archiviazione di Azure. Tali snapshot vengono conservati per 7 giorni. È quindi possibile ripristinare i dati tornando indietro almeno a uno dei 21 momenti specifici degli ultimi 7 giorni e arrivando fino all'ora in cui è stato acquisito l'ultimo snapshot.
 
-SQL Data Warehouse takes a database snapshot before a database is dropped and retains it for 7 days. When this occurs, it no longer retains snapshots from the live database. This allows you to restore a deleted database to the point when it was deleted.
+Prima dell'eliminazione del database, SQL Data Warehouse esegue uno snapshot del database e lo conserva per 7 giorni. In questo caso, non mantiene gli snapshot dal database attivo. Ciò consente di ripristinare un database eliminato al momento dell'eliminazione.
 
-SQL Data Warehouse copies snapshots asynchronously to a different geographical Azure region for added recoverability in case of a regional failure. If you cannot access your database because of a failure in an Azure region, you can restore your database to one of the geo-redundant snapshots.
+SQL Data Warehouse copia gli snapshot in modo asincrono in un'area geografica di Azure diversa per assicurare una maggiore recuperabilità in caso di errori a livello di area. Se non è consentito accedere al database a causa di un errore in un'area di Azure, è possibile ripristinare il database a uno degli snapshot con ridondanza geografica.

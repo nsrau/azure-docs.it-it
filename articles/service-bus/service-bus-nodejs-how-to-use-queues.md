@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][].
+Questo articolo illustra come usare le code del bus di servizio in Node.js. Gli esempi sono scritti in JavaScript e utilizzano il modulo Node.js di Azure. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -145,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Code di Azure e code del bus di servizio][].
+Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][].
 
 ## Ricevere messaggi da una coda
 
@@ -185,7 +185,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere le risorse seguenti.
+Per altre informazioni sulle code, vedere le risorse seguenti.
 
 -   [Code, argomenti e sottoscrizioni][]
 -   Repository [Azure SDK for Node][] su GitHub
@@ -199,7 +199,7 @@ Per altre informazioni, vedere le risorse seguenti.
   [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Applicazione Web Node.js]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Quote del bus di servizio]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: invio di richieste di supporto
@@ -40,7 +40,7 @@
     - Il **Tipo di problema** è **Tecnico**.
 	- Scegliere la **Sottoscrizione** appropriata.
     - Il **Servizio** è **Active Directory**.
-    - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/it-IT/support/plans/).
+    - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/support/plans/).
 
     ![Supporto - Informazioni di base](./media/active-directory-b2c-support/support-basics.png)
 
@@ -70,4 +70,4 @@ Non tentare di effettuare l'iscrizione per una nuova sottoscrizione di Azure nel
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

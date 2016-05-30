@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Facebook
 Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via. L'API di Facebook può essere usata da:
 
-- App per la logica 
+- App per la logica trattate in questo argomento
+- PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -31,14 +32,14 @@ Con Facebook è possibile:
 - Usare un trigger quando si riceve un nuovo post.
 - Usare azioni per pubblicare un post nel diario, ottenere il feed di una pagina e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando nel diario è presente un nuovo post, è possibile selezionare tale post ed eseguirne il push al feed di Twitter. 
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 L'API di Facebook include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-| <ul><li>Quando nel diario è presente un nuovo post</li></ul> |<ul><li>Ottieni feed dal diario</li><li>Pubblica post nel diario</li><li>Quando nel diario è presente un nuovo post</li><li>Ottieni feed della pagina</li><li>Ottieni diario utente</li><li>Pubblica post nella pagina</li></ul>
+| <ul><li>When there is a new post on my timeline</li></ul> |<ul><li>Get feed from my timeline</li><li>Post to my timeline</li><li>When there is a new post on my timeline</li><li>Get page feed</li><li>Get user timeline</li><li>Post to page</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -48,7 +49,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere al proprio account Facebook
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Facebook. 
 
-Dopo aver creato la connessione, immettere le proprietà di Facebook. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Facebook in altre app per la logica.
 
@@ -56,7 +57,7 @@ Dopo aver creato la connessione, immettere le proprietà di Facebook. **Informaz
 Si applica alla versione 1.0.
 
 ### Ottieni feed dal diario
-Ottiene i feed dal diario dell'utente connesso. ```GET: /me/feed```
+Ottiene i feed dalla sequenza temporale dell'utente connesso. ```GET: /me/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -75,7 +76,7 @@ Ottiene i feed dal diario dell'utente connesso. ```GET: /me/feed```
 
 
 ### Pubblica post nel diario
-Pubblica un messaggio di stato nel diario dell'utente connesso. ```POST: /me/feed```
+Pubblica un messaggio di stato nella sequenza temporale dell'utente connesso. ```POST: /me/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -91,7 +92,7 @@ Pubblica un messaggio di stato nel diario dell'utente connesso. ```POST: /me/fee
 
 
 ### Quando nel diario è presente un nuovo post
-Quando nel diario dell'utente connesso è presente un nuovo post, attiva un nuovo flusso. ```GET: /trigger/me/feed```
+Attiva un nuovo flusso in presenza di un nuovo post nella sequenza temporale dell'utente connesso ```GET: /trigger/me/feed```
 
 Non sono disponibili parametri.
 
@@ -124,7 +125,7 @@ Ottiene i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
 
 
 ### Ottieni diario utente
-Ottiene i post dal diario di un utente. ```GET: /{userId}/feed```
+Ottiene i post dalla sequenza temporale di un utente. ```GET: /{userId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -144,7 +145,7 @@ Ottiene i post dal diario di un utente. ```GET: /{userId}/feed```
 
 
 ### Pubblica post nella pagina
-Pubblica un messaggio in una pagina di Facebook come utente connesso. ```POST: /{pageId}/feed```
+Pubblica un messaggio in una pagina Facebook come utente connesso. ```POST: /{pageId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -433,6 +434,6 @@ I membri di questi gruppi hanno più probabilità di vedere questo post, gli alt
 
 ## Passaggi successivi
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

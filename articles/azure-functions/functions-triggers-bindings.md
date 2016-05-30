@@ -20,7 +20,7 @@
 
 # Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure
 
-Questo articolo illustra come configurare e scrivere codice per trigger e associazioni in Funzioni di Azure. La maggior parte di queste associazioni viene gestita facilmente dall'interfaccia utente **integrata** del portale di Azure, ma il portale non illustra tutte le funzionalità e le opzioni per ogni associazione.
+Questo articolo illustra come configurare e scrivere codice per trigger e associazioni in Funzioni di Azure. La maggior parte di queste associazioni viene gestita facilmente dall'interfaccia utente delle **funzionalità di integrazione** del portale di Azure, ma il portale non illustra tutte le funzionalità e le opzioni per ogni associazione.
 
 Questo articolo presuppone che l'utente abbia già letto gli articoli di riferimento per sviluppatori [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e [C#](functions-reference-csharp.md) o [Node](functions-reference-node.md).
 
@@ -28,7 +28,7 @@ Questo articolo presuppone che l'utente abbia già letto gli articoli di riferim
 
 È possibile usare un trigger HTTP o webhook per chiamare una funzione in risposta a una richiesta HTTP. La richiesta deve includere una chiave API, che attualmente è disponibile solo nell'interfaccia utente del portale di Azure.
 
-L'URL della funzione è una combinazione dell'URL dell'app di funzione e del nome della funzione:
+L'URL della funzione è una combinazione dell'URL del nome dell'app per le funzioni e del nome della funzione:
 
 ```
  https://{function app name}.azurewebsites.net/api/{function name} 
@@ -86,7 +86,7 @@ Per informazioni su come configurare un webhook GitHub, vedere la pagina relativ
 
 Per impostazione predefinita, una chiave API deve essere inclusa con una richiesta HTTP per attivare una funzione HTTP o webhook. La chiave può essere inclusa in una variabile della stringa di query denominata `code` oppure in un'intestazione HTTP `x-functions-key`. Per le funzioni non webhook, è possibile indicare che una chiave API non è obbligatoria impostando la proprietà `authLevel` su "anonymous" nel file *function.json*.
 
-È possibile trovare i valori della chiave API nella cartella *D:\\home\\data\\Functions\\secrets* nel file system dell'app di funzione. La chiave master e la chiave della funzione vengono impostate nel file *host.json*, come illustrato in questo esempio.
+È possibile trovare i valori della chiave API nella cartella *D:\\home\\data\\Functions\\secrets* nel file system dell'app per le funzioni. La chiave master e la chiave della funzione vengono impostate nel file *host.json*, come illustrato in questo esempio.
 
 ```json
 {
@@ -117,7 +117,7 @@ using System.Threading.Tasks;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -177,7 +177,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string jsonContent = await req.Content.ReadAsStringAsync();
     dynamic data = JsonConvert.DeserializeObject(jsonContent);
 
-    log.Verbose($"WebHook was triggered! Comment: {data.comment.body}");
+    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         body = $"New GitHub comment: {data.comment.body}"
@@ -220,9 +220,9 @@ Il trigger timer gestisce automaticamente la scalabilità orizzontale di più is
 
 ### Formato dell'espressione schedule
 
-L'espressione schedule può essere un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include 6 campi: {second} {minute} {hour} {day} {month} {day of the week}. In molti documenti con l'espressione cron disponibili online viene omesso il campo {second}, quindi, se si copia il contenuto da uno di questi documenti, sarà necessario inserire il campo aggiuntivo.
+L'espressione schedule può essere un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include 6 campi: {secondo} {minuto} {ora} {giorno} {mese} {giorno della settimana}. In molti documenti con l'espressione cron disponibili online viene omesso il campo {secondo}, quindi, se si copia il contenuto da uno di questi documenti, sarà necessario inserire il campo aggiuntivo.
 
-L'espressione schedule può essere anche nel formato *hh:mm:ss* per specificare il ritardo prima di ogni attivazione della funzione.
+L'espressione schedule può essere anche nel formato *hh:mm:ss* per specificare il ritardo tra ogni attivazione della funzione.
 
 Ecco alcuni esempi di espressione schedule.
 
@@ -254,7 +254,7 @@ Questo esempio di codice C# scrive un singolo log ogni volta che viene attivata 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
 }
 ```
 
@@ -262,43 +262,23 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 In questa sezione sono disponibili le procedure seguenti:
 
-* [Proprietà connection di archiviazione di Azure in function.json](#storageconnection)
 * [Trigger della coda di archiviazione di Azure](#storagequeuetrigger)
 * [Associazione di output della coda di archiviazione di Azure](#storagequeueoutput)
-* [Trigger dei BLOB di archiviazione di Azure](#storageblobtrigger)
+* [Trigger del BLOB di archiviazione di Azure](#storageblobtrigger)
 * [Associazioni di input e di output dei BLOB di archiviazione di Azure](#storageblobbindings)
 * [Associazioni di input e di output delle tabelle di archiviazione di Azure](#storagetablesbindings)
 
-### <a id="storageconnection"></a> Proprietà connection di archiviazione di Azure in function.json
-
-Per tutti i trigger e le associazioni di archiviazione di Azure, il file *function.json* include una proprietà `connection`, ad esempio:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
-            "queueName": "myqueue-items",
-            "connection":""
-        }
-    ]
-}
-```
-
-Se si lascia `connection` vuota, il trigger o l'associazione userà l'account di archiviazione predefinito per l'app di funzione. Se si vuole che il trigger o l'associazione usi un account di archiviazione diverso, creare un'impostazione dell'app nell'app di funzione che punti all'account di archiviazione che si vuole usare e impostare `connection` sul nome dell'impostazione dell'app. Per aggiungere un'impostazione dell'app, seguire questa procedura:
-
-1. Nel pannello **App di funzione** del portale di Azure fare clic su **Impostazioni dell'app di funzione > Vai alle impostazioni del servizio app**.
-
-2. Nel pannello **Impostazioni** fare clic su **Impostazioni applicazione**.
-
-3. Scorrere verso il basso fino alla sezione **Impostazioni app** e aggiungere una voce con **Chiave** = *{some unique value of your choice}* e **Valore** = stringa di connessione per l'account di archiviazione.
-
 ### <a id="storagequeuetrigger"></a> Trigger della coda di archiviazione di Azure
 
-Il file *function.json* fornisce il nome della coda di cui eseguire il polling e il nome della variabile per il messaggio della coda, ad esempio:
+Il file *function.json* per un trigger della coda di archiviazione specifica le seguenti proprietà.
+
+- `name`: nome della variabile usato nel codice della funzione per la coda o il messaggio della coda. 
+- `queueName`: nome della coda sulla quale eseguire il polling. Per le regole di denominazione della coda vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia `connection` vuoto il trigger funziona con la stringa di connessione di archiviazione predefinita dell'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *queueTrigger*.
+- `direction`: deve essere impostato su *in*. 
+
+#### Esempio di *function.json* per un trigger della coda di archiviazione
 
 ```json
 {
@@ -306,10 +286,10 @@ Il file *function.json* fornisce il nome della coda di cui eseguire il polling e
     "bindings": [
         {
             "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
             "queueName": "myqueue-items",
-            "connection":""
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
         }
     ]
 }
@@ -317,12 +297,12 @@ Il file *function.json* fornisce il nome della coda di cui eseguire il polling e
 
 #### Tipi supportati di trigger della coda
 
-Il messaggio della coda può essere deserializzato in uno di questi tipi:
+Il messaggio della coda può essere deserializzato in uno qualsiasi dei seguenti tipi:
 
-* `string`
-* `byte[]`
-* Oggetto JSON   
-* `CloudQueueMessage`
+* Object (da JSON)
+* Stringa
+* Matrice di byte 
+* `CloudQueueMessage` (C#) 
 
 #### Metadati del trigger della coda
 
@@ -349,7 +329,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -368,27 +348,37 @@ L'SDK chiamerà una funzione fino a 5 volte per elaborare un messaggio nella cod
 
 La coda non elaborabile è denominata *{nomecodaoriginale}*-poison. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
 
-Per gestire manualmente i messaggi non elaborabili, è possibile ottenere il numero di volte in cui un messaggio è stato prelevato per l'elaborazione controllando `dequeueCount`.
+Per gestire manualmente i messaggi non elaborabili, è possibile verificare in `dequeueCount` quante volte un messaggio è stato prelevato per l'elaborazione.
 
-### <a id="storagequeueoutput"></a> Associazione di output queue di archiviazione di Azure
+### <a id="storagequeueoutput"></a> Associazione di output della coda di archiviazione di Azure
 
-Il file *function.json* fornisce il nome della coda di output e il nome di una variabile per il contenuto del messaggio. Questo esempio usa un trigger della coda e scrive un messaggio della coda.
+Il file *function.json* per un'associazione di output della coda di archiviazione specifica le seguenti proprietà.
+
+- `name`: nome della variabile usato nel codice della funzione per la coda o il messaggio della coda. 
+- `queueName`: nome della coda. Per le regole di denominazione della coda vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia `connection` vuoto il trigger funziona con la stringa di connessione di archiviazione predefinita dell'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *queue*.
+- `direction`: deve essere impostato su *out*. 
+
+#### Esempio di *function.json* per un'associazione di output della coda di archiviazione
+
+Questo esempio usa un trigger della coda e scrive un messaggio della coda.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "myQueue",
-      "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "",
+      "connection": "MyStorageConnection",
+      "type": "queue",
       "direction": "out"
     }
   ],
@@ -396,16 +386,18 @@ Il file *function.json* fornisce il nome della coda di output e il nome di una v
 }
 ``` 
 
-#### Tipi supportati dall'associazione di output queue
+#### Tipi supportati di associazione di output della coda
 
-L'associazione `queue` può serializzare i tipi seguenti in un messaggio della coda:
+L'associazione `queue` può serializzare i seguenti tipi in un messaggio della coda:
 
-* `string` (crea il messaggio di coda se il valore del parametro è diverso da null quando termina la funzione)
-* `byte[]` (funziona come string) 
-* `CloudQueueMessage` (funziona come string) 
-* Oggetto JSON (crea un messaggio con un oggetto null se il parametro è null quando termina la funzione)
+* Object (`out T` in C#, crea un messaggio con un oggetto null se il parametro è null quando termina la funzione)
+* String (`out string` in C#, crea il messaggio di coda se il valore del parametro è diverso da null quando termina la funzione)
+* Matrice di byte (`out byte[]` in C#, funziona come string) 
+* `out CloudQueueMessage` (C#, funziona come string) 
 
-#### Esempio di codice dell'associazione di output queue
+In C#, è anche possibile definire l'associazione a `ICollector<T>` o `IAsyncCollector<T>` dove `T` è uno dei tipi supportati.
+
+#### Esempi di codice dell'associazione di output della coda
 
 Questo esempio di codice C# scrive un singolo messaggio della coda di output per ogni messaggio della coda di input.
 
@@ -428,7 +420,17 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Trigger del BLOB di archiviazione di Azure
 
-*Function.json* fornisce un percorso che specifica il contenitore da monitorare e facoltativamente un modello di nome BLOB. Questo esempio attiva i BLOB aggiunti al contenitore samples-workitems.
+Il file *function.json* per un trigger del BLOB di archiviazione specifica le seguenti proprietà.
+
+- `name`: nome della variabile usato nel codice della funzione per il BLOB. 
+- `path`: percorso che specifica il contenitore da monitorare e facoltativamente un modello di nome BLOB.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia `connection` vuoto il trigger funziona con la stringa di connessione di archiviazione predefinita dell'app per le funzioni, specificata dall'impostazione dell'app AzureWebJobsStorage.
+- `type`: deve essere impostato su *blobTrigger*.
+- `direction`: deve essere impostato su *in*.
+
+#### Esempio di *function.json* per un trigger del BLOB di archiviazione
+
+Questo esempio attiva i BLOB aggiunti al contenitore samples-workitems.
 
 ```json
 {
@@ -445,13 +447,15 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-> [AZURE.NOTE] Se il contenitore BLOB monitorato dal trigger contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Inoltre, [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB per i contenitori di grandi dimensioni non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare un trigger della coda invece di un trigger di BLOB per elaborare il BLOB.
-
 #### Tipi supportati di trigger dei BLOB
 
-I BLOB possono essere deserializzati in questi tipi:
+Il BLOB può essere deserializzato in uno dei seguenti tipi in funzioni Node o C#:
 
-* string
+* Object (da JSON)
+* Stringa
+
+Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti tipi:
+
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
@@ -465,18 +469,18 @@ I BLOB possono essere deserializzati in questi tipi:
 
 #### Esempio di codice C# del trigger dei BLOB
 
-Questo codice di esempio C# registra i contenuti di ogni BLOB aggiunto al contenitore.
+Questo codice di esempio C# registra i contenuti di ogni BLOB aggiunto al contenitore monitorato.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
 #### Modelli di nome di trigger dei BLOB
 
-È possibile specificare un modello di nome di BLOB in `path`, ad esempio:
+È possibile specificare un modello di nome di BLOB nella proprietà `path`, ad esempio:
 
 ```json
 "path": "input/original-{name}",
@@ -492,13 +496,13 @@ Un altro esempio:
 
 Anche questo percorso troverà un BLOB denominato *original-Blob1.txt* e il valore delle variabili `blobname` e `blobextension` nel codice della funzione sarà *original-Blob1* e *txt*.
 
-È possibile limitare i tipi di BLOB che attivano la funzione specificando un modello con un valore fisso per l'estensione di file. Se si imposta `path` su *samples/{name}.png*, solo i BLOB *.png* nel contenitore *samples* attiveranno la funzione.
+È possibile limitare i tipi di BLOB che attivano la funzione specificando un modello con un valore fisso per l'estensione di file. Se si imposta `path` su *samples/{nome}.png*, la funzione verrà attivata solo dai BLOB *.png* nel contenitore *samples*.
 
 Se è necessario specificare un modello di nome per i nomi di BLOB con parentesi graffe nel nome, raddoppiare le parentesi graffe. Se ad esempio si desidera trovare i BLOB nel contenitore *images* con nomi simile al seguente:
 
 		{20140101}-soundfile.mp3
 
-Usare questo per la proprietà `path`:
+usare la seguente notazione per la proprietà `path`:
 
 		images/{{20140101}}-{name}
 
@@ -510,7 +514,7 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione chiamata per il BLOB ("*{function app name}*.Functions.*{function name}*", ad esempio: "functionsf74b96f7.Functions.CopyBlob")
+* La funzione chiamata per il BLOB ("*{nome dell'app per le funzioni}*.Functions.*{nome della funzione}*", ad esempio: "functionsf74b96f7.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -524,22 +528,36 @@ Quando una funzione trigger di BLOB ha esito negativo, l'SDK la chiama nuovament
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{function app name}*.Functions.*{function name}*)
+* FunctionId (nel formato *{nome dell'app per le funzioni}*.Functions.*{nome della funzione}*)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
 * ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
+#### Polling dei BLOB per contenitori di grandi dimensioni
+
+Se il contenitore BLOB monitorato dal trigger contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Inoltre, [i log di archiviazione vengono creati in base al principio del "massimo impegno"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB per i contenitori di grandi dimensioni non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare un trigger della coda invece di un trigger di BLOB per elaborare il BLOB.
+ 
 ### <a id="storageblobbindings"></a> Associazioni di input e di output dei BLOB di archiviazione di Azure
 
-*Function.json* fornisce il nome del contenitore e i nomi delle variabili per il nome e il contenuto del BLOB. Questo esempio usa un trigger della coda per copiare un BLOB:
+Il file *function.json* per l'associazione di input o di output di un BLOB di archiviazione specifica le seguenti proprietà.
+
+- `name`: nome della variabile usato nel codice della funzione per il BLOB. 
+- `path`: percorso che specifica il contenitore dal quale leggere o nel quale aggiungere dati al BLOB e facoltativamente un modello di nome di BLOB.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia `connection` vuota l'associazione funziona con la stringa di connessione di archiviazione predefinita dell'app per le funzioni, specificata dall'impostazione app AzureWebJobsStorage.
+- `type`: deve essere impostato su *blob*.
+- `direction` : impostare su *in* o *out*. 
+
+#### Esempio di *function.json* per un'associazione di input o output con un BLOB di archiviazione
+
+Questo esempio usa un trigger della coda per copiare un BLOB:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -548,14 +566,14 @@ Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene 
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -565,13 +583,16 @@ Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene 
 
 #### Tipi supportati di input e di output di BLOB
 
-L'associazione `blob` può serializzare o deserializzare i tipi seguenti:
+L'associazione `blob` può serializzare o deserializzare i tipi seguenti nelle funzioni Node.js o C#:
 
+* Object (`out T` in C# per il BLOB di output: crea un BLOB come oggetto null se il valore del parametro è null quando la funzione termina)
+* String (`out string` in C# per il BLOB di output: crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione restituisce un valore)
+
+Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
+
+* `TextReader` (solo input)
+* `TextWriter` (solo output)
 * `Stream`
-* `TextReader`
-* `TextWriter`
-* `string` (per il BLOB di output: crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione restituisce un valore)
-* Oggetto JSON (per il BLOB di output: crea un BLOB come oggetto null se il valore del parametro è null quando la funzione termina)
 * `CloudBlobStream` (solo output)
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -581,25 +602,41 @@ L'associazione `blob` può serializzare o deserializzare i tipi seguenti:
 
 Questo esempio di codice C# copia un BLOB il cui nome viene ricevuto in un messaggio della coda.
 
-```CSHARP
+```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
 ### <a id="storagetablesbindings"></a> Associazioni di input e di output delle tabelle di archiviazione di Azure
 
-*Function.json* per le tabelle di archiviazione fornisce diverse proprietà:
+Il file *function.json* per le tabelle di archiviazione specifica le seguenti proprietà.
 
-* `name`: nome della variabile da usare nel codice per l'associazione delle tabelle.
-* `tableName`
-* `partitionKey` e `rowKey`: usati insieme per leggere una singola entità in una funzione C# o Node oppure per scrivere una singola entità in una funzione Node.
-* `take`: numero massimo di righe da leggere per l'input tabella in una funzione Node.
-* `filter`: espressione di filtro OData per l'input tabella in una funzione Node.
+- `name`: nome della variabile usato nel codice della funzione per l'associazione della tabella. 
+- `tableName` : nome della tabella.
+- `partitionKey` e `rowKey`: usati insieme per leggere una singola entità in una funzione C# o Node oppure per scrivere una singola entità in una funzione Node.
+- `take`: numero massimo di righe da leggere per l'input tabella in una funzione Node.
+- `filter`: espressione di filtro OData per l'input tabella in una funzione Node.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. Se si lascia `connection` vuota l'associazione funziona con la stringa di connessione di archiviazione predefinita dell'app per le funzioni, specificata dall'impostazione app AzureWebJobsStorage.
+- `type`: deve essere impostato su *table*.
+- `direction` : impostare su *in* o *out*. 
 
-Queste proprietà supportano gli scenari seguenti:
+#### Tipi di input e output supportati nelle tabelle di archiviazione
+
+L'associazione `table` può serializzare o deserializzare oggetti nelle funzioni Node.js o C#. Gli oggetti avranno le proprietà PartitionKey e RowKey.
+
+Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
+
+* `T` dove `T` implementa `ITableEntity`
+* `IQueryable<T>` (solo input)
+* `ICollector<T>` (solo output)
+* `IAsyncCollector<T>` (solo output)
+
+#### Scenari di associazione delle tabelle di archiviazione
+
+L'associazione delle tabelle supporta gli scenari seguenti:
 
 * Leggere una singola riga in una funzione C# o Node.
 
@@ -607,7 +644,7 @@ Queste proprietà supportano gli scenari seguenti:
 
 * Leggere più righe in una funzione C#.
 
-	Il runtime di Funzioni fornisce un oggetto `IQueryable<T>` associato alla tabella. Il tipo `T` deve derivare da `TableEntity` o implementare `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario. È possibile usare l'oggetto `IQueryable` per qualsiasi filtro necessario.
+	Il runtime di Funzioni offre un oggetto `IQueryable<T>` associato alla tabella. Il tipo `T` deve derivare da `TableEntity` o implementare `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario. È possibile usare l'oggetto `IQueryable` per qualsiasi operazione di filtro necessaria.
 
 * Leggere più righe in una funzione Node.
 
@@ -615,18 +652,18 @@ Queste proprietà supportano gli scenari seguenti:
 
 * Scrivere una o più righe in una funzione C#.
 
-	Il runtime di Funzioni fornisce un oggetto `ICollector<T>` o `IAsyncCollector<T>` associato alla tabella, dove `T` specifica lo schema delle entità che si vuole aggiungere. In genere il tipo `T` deriva da `TableEntity` o implementa `ITableEntity`, anche se non necessariamente. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario.
+	Il runtime di Funzioni offre un oggetto `ICollector<T>` o `IAsyncCollector<T>` associato alla tabella, dove `T` specifica lo schema delle entità che si vuole aggiungere. In genere, ma non necessariamente, il tipo `T` deriva da `TableEntity` o implementa `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario.
 
-#### Leggere una singola entità tabella in C# o in Node
+#### Esempio di tabelle di archiviazione: lettura di una singola entità di tabella in C# o in Node
 
-Questo esempio di *function.json* usa un trigger della coda per leggere una singola riga della tabella, con un valore della chiave di partizione hardcoded e la chiave della riga fornita nel messaggio della coda.
+Questo esempio di *function.json* usa un trigger della coda per leggere una singola riga della tabella, con un valore della chiave di partizione hardcoded e la chiave della riga specificata nel messaggio della coda.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -637,20 +674,21 @@ Questo esempio di *function.json* usa un trigger della coda per leggere una sing
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
 L'esempio di codice C# seguente usa il file *function.json* precedente per leggere una singola entità tabella. Il messaggio della coda ha il valore della chiave della riga e l'entità tabella viene letta in un tipo definito nel file *run.csx*. Il tipo include le proprietà `PartitionKey` e `RowKey` e non deriva da `TableEntity`.
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personEntity.Name}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -661,7 +699,7 @@ public class Person
 }
 ```
 
-Anche l'esempio di codice Node seguente usa il file *function.json* precedente per leggere una singola entità tabella.
+Anche l'esempio di codice Node seguente usa il file *function.json* precedente per leggere una singola entità di tabella.
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -671,16 +709,16 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Leggere più entità tabella in C# 
+#### Esempio di tabelle di archiviazione: lettura di più entità di tabella in C# 
 
-L'esempio di file *function.json* e di codice C# seguente legge le entità per una chiave di partizione specificata nel messaggio della coda.
+Il file *function.json* e l'esempio di codice C# seguenti leggono le entità per una chiave di partizione specificata nel messaggio della coda.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -688,6 +726,7 @@ L'esempio di file *function.json* e di codice C# seguente legge le entità per u
     {
       "name": "tableBinding",
       "type": "table",
+      "connection": "MyStorageConnection",
       "tableName": "Person",
       "direction": "in"
     }
@@ -704,10 +743,10 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Verbose($"Name: {person.Name}");
+        log.Info($"Name: {person.Name}");
     }
 }
 
@@ -717,9 +756,9 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Creare più entità tabella in C# 
+#### Esempio di tabelle di archiviazione: creazione di più entità di tabella in C# 
 
-L'esempio di *function.json* e *run.csx* seguente illustra come scrivere entità tabella in C#.
+L'esempio di *function.json* e *run.csx* seguente illustra come scrivere entità di tabella in C#.
 
 ```json
 {
@@ -731,7 +770,7 @@ L'esempio di *function.json* e *run.csx* seguente illustra come scrivere entità
     },
     {
       "tableName": "Person",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -746,7 +785,7 @@ public static void Run(string input, ICollector<Person> tableBinding, TraceWrite
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Verbose($"Adding Person entity {i}");
+            log.Info($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -766,16 +805,16 @@ public class Person
 
 ```
 
-#### Creare un'entità tabella in Node
+#### Esempio di tabelle di archiviazione: creazione un'entità di tabella in Node
 
-L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'entità tabella in Node.
+L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'entità di tabella in Node.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -784,7 +823,7 @@ L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'enti
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "personEntity",
       "type": "table",
       "direction": "out"
@@ -798,6 +837,167 @@ L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'enti
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Trigger e associazioni del bus di servizio di Azure
+
+In questa sezione sono disponibili le procedure seguenti:
+
+* [Bus di servizio di Azure: comportamento PeekLock](#sbpeeklock)
+* [Bus di servizio di Azure: gestione di messaggi non elaborabili](#sbpoison)
+* [Bus di servizio di Azure: threading singolo](#sbsinglethread)
+* [Trigger della coda o dell'argomento del bus di servizio di Azure](#sbtrigger)
+* [Associazione di output della coda o dell'argomento del bus di servizio di Azure](#sboutput)
+
+### <a id="sbpeeklock"></a> Bus di servizio di Azure: comportamento PeekLock
+
+Il runtime di Funzioni riceve un messaggio in modalità `PeekLock` e chiama `Complete` sul messaggio se la funzione viene completata correttamente oppure `Abandon` se la funzione ha esito negativo. Se il tempo di esecuzione della funzione supera il timeout di `PeekLock`, il blocco viene rinnovato automaticamente.
+
+### <a id="sbpoison"></a> Bus di servizio di Azure: gestione di messaggi non elaborabili
+
+Il bus di servizio esegue la gestione dei messaggi non elaborabili in modo autonomo, non controllabile o modificabile nella configurazione o nel codice di Funzioni di Azure.
+
+### <a id="sbsinglethread"></a> Bus di servizio di Azure: threading singolo
+
+Per impostazione predefinita il runtime di Funzioni elabora più messaggi della coda contemporaneamente. Per impostare il runtime in modo che elabori un solo messaggio della coda o dell'argomento alla volta, impostare `serviceBus.maxConcurrrentCalls` su 1 nel file *host.json*. Per informazioni sul file *host.json* vedere [Struttura di cartelle](functions-reference.md#folder-structure) nell'articolo Guida di riferimento per gli sviluppatori e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) nella wiki del repository WebJobs.Script.
+
+### <a id="sbtrigger"></a> Trigger della coda o dell'argomento del bus di servizio di Azure
+
+Il file *function.json* per un trigger del bus di servizio specifica le seguenti proprietà.
+
+- `name`: nome della variabile usata nel codice della funzione per la coda o l'argomento o per il messaggio della coda o dell'argomento. 
+- `queueName`: solo per il trigger della coda, il nome della coda in cui eseguire il polling.
+- `topicName`: solo per il trigger dell'argomento, il nome dell'argomento in cui eseguire il polling.
+- `subscriptionName`: solo per il trigger dell'argomento, il nome della sottoscrizione.
+- `connection`: nome di un'impostazione dell'app che contiene una stringa di connessione del bus di servizio. La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico. Se la stringa di connessione non dispone di diritti di gestione impostare la proprietà `accessRights`. Se si lascia `connection` vuota il trigger o l'associazione funzionano con la stringa di connessione del bus di servizio predefinita dell'app per le funzioni, specificata dall'impostazione app AzureWebJobsServiceBus.
+- `accessRights`: specifica i diritti di accesso disponibili per la stringa di connessione. Il valore predefinito è `manage`. Impostare su `listen` se si usa una stringa di connessione che non specifica autorizzazioni di gestione. In caso contrario il runtime di Funzioni potrebbe provare senza successo a eseguire operazioni che richiedono diritti di gestione.
+- `type`: deve essere impostato su *serviceBusTrigger*.
+- `direction`: deve essere impostato su *in*. 
+
+Il messaggio di coda del bus di servizio può essere deserializzato in uno qualsiasi dei seguenti tipi:
+
+* Object (da JSON)
+* string
+* matrice di byte 
+* `BrokeredMessage` (C#) 
+
+#### Esempio di *function.json* per l'uso di un trigger di coda del bus di servizio
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### Esempio di codice C# che elabora un messaggio di coda del bus di servizio
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+#### Esempio di codice Node.js che elabora un messaggio di coda del bus di servizio
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+### <a id="sboutput"></a> Output della coda o dell'argomento del bus di servizio di Azure
+
+Il file *function.json* per un'associazione di output del bus di servizio specifica le seguenti proprietà.
+
+- `name`: nome della variabile usato nel codice della funzione per la coda o il messaggio della coda. 
+- `queueName`: solo per il trigger della coda, il nome della coda in cui eseguire il polling.
+- `topicName`: solo per il trigger dell'argomento, il nome dell'argomento in cui eseguire il polling.
+- `subscriptionName`: solo per il trigger dell'argomento, il nome della sottoscrizione.
+- `connection`: identico al trigger del bus di servizio.
+- `accessRights`: specifica i diritti di accesso disponibili per la stringa di connessione. Il valore predefinito è `manage`. Impostare su `send` se si usa una stringa di connessione che non specifica autorizzazioni di gestione. In caso contrario il runtime di Funzioni potrebbe provare senza successo a eseguire operazioni che richiedono diritti di gestione, ad esempio la creazione di code.
+- `type`: deve essere impostato su *serviceBus*.
+- `direction`: deve essere impostato su *out*. 
+
+Funzioni di Azure può creare un messaggio di coda del bus di servizio da uno qualsiasi dei tipi seguenti.
+
+* Object (crea sempre un messaggio JSON; crea il messaggio con un oggetto null se il valore è null quando la funzione termina)
+* string (crea il messaggio della coda se il valore è diverso da null quando la funzione termina)
+* matrice di byte (funziona come string) 
+* `BrokeredMessage` (C#, funziona come string)
+
+Per la creazione di più messaggi in una funzione C# è possibile usare `ICollector<T>` o `IAsyncCollector<T>`. Quando si chiama il metodo `Add` viene creato un messaggio.
+
+#### Esempio di *function.json* che usa un trigger timer per scrivere messaggi di coda del bus di servizio
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### Esempio di codice C# che crea messaggi di coda del bus di servizio
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
+```
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
+```
+
+#### Esempio di codice Node.js che crea un messaggio di coda del bus di servizio
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
     context.done();
 };
 ```
@@ -817,10 +1017,10 @@ Il file function.json fornisce le proprietà seguenti da usare con l'associazion
 
 - `name`: nome della variabile usato nel codice della funzione per il documento.
 - `type`: deve essere impostato su "documentdb".
-- `databaseName`: database contenente il documento.
-- `collectionName`: raccolta contenente il documento.
+- `databaseName`: database che contiene il documento.
+- `collectionName`: raccolta che contiene il documento.
 - `id`: ID del documento da recuperare. Questa proprietà supporta associazioni simili a "{queueTrigger}", che useranno il valore della stringa del messaggio della coda come ID documento.
-- `connection`: questa stringa deve essere un'impostazione applicazione configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda Integra, verrà automaticamente creata una nuova impostazione dell'app con un nome nel formato yourAccount\_DOCUMENTDB. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `connection`: questa stringa deve essere un'Impostazione applicazione configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda Integra, verrà automaticamente creata una nuova impostazione dell'app con un nome nel formato yourAccount\_DOCUMENTDB. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
 - `direction: deve essere impostato su *"in"*.
 
 Function.json di esempio:
@@ -861,7 +1061,7 @@ Usando il file function.json di esempio precedente, l'associazione di input di D
 
 ### <a id="docdboutput"></a> Associazioni di output di Azure DocumentDB
 
-Le funzioni possono scrivere i documenti JSON in un database Azure DocumentDB usando l'associazione di output **Azure DocumentDB Document**. Per altre informazioni su Azure DocumentDB, vedere [Introduzione a DocumentDB](../documentdb/documentdb-introduction.md) ed [Esercitazione introduttiva](../documentdb/documentdb-get-started.md).
+Le funzioni possono scrivere documenti JSON in un database Azure DocumentDB usando l'associazione di output **Azure DocumentDB Document**. Per altre informazioni su Azure DocumentDB vedere [Introduzione a DocumentDB](../documentdb/documentdb-introduction.md) ed [Esercitazione introduttiva](../documentdb/documentdb-get-started.md).
 
 Il file function.json fornisce le proprietà seguenti da usare con l'associazione di output di DocumentDB:
 
@@ -869,7 +1069,7 @@ Il file function.json fornisce le proprietà seguenti da usare con l'associazion
 - `type`: deve essere impostato su *"documentdb"*.
 - `databaseName`: database contenente la raccolta in cui verrà creato il nuovo documento.
 - `collectionName`: raccolta in cui verrà creato il nuovo documento.
-- `createIfNotExists`: valore booleano che indica se la raccolta verrà creata qualora non esista. Il valore predefinito è *false*. Il motivo è che le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+- `createIfNotExists`: valore booleano che indica se la raccolta verrà creata quando non esiste. Il valore predefinito è *false*. Il motivo è che le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 - `connection`: questa stringa deve essere un'**Impostazione applicazione** configurata sull'endpoint per l'account DocumentDB. Se si sceglie l'account dalla scheda **Integra**, verrà automaticamente creata una nuova impostazione dell'app con un nome nel formato `yourAccount_DOCUMENTDB`. Se è necessario creare manualmente l'impostazione dell'app, la stringa di connessione effettiva deve avere il formato `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction`: deve essere impostato su *"out"*. 
  
@@ -917,7 +1117,7 @@ Documento di output:
 
 	public static void Run(string myQueueItem, out object document, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   
 	    document = new {
 	        text = $"I'm running in a C# function! {myQueueItem}"
@@ -945,7 +1145,7 @@ Sarebbe possibile usare il codice C# seguente in una funzione trigger della coda
 	
 	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	    
 	    dynamic employee = JObject.Parse(myQueueItem);
 	    
@@ -966,32 +1166,32 @@ Output di esempio:
 	  "address": "A town nearby"
 	}
 
-## Associazioni di tabelle semplici per le app per dispositivi mobili di Azure
+## Associazioni delle app per dispositivi mobili di Azure
 
-Le app per dispositivi mobili del servizio app di Azure consentono di esporre i dati degli endpoint tabella ai client per dispositivi mobili. Questi stessi dati tabulari possono essere usati nelle associazioni sia di input che di output con Funzioni di Azure. Quando si ha un'app per dispositivi mobili back-end Node.js, è possibile usare questi dati tabulari nel portale di Azure con le *tabelle semplici*. Le tabelle semplici supportano lo schema dinamico in modo che le colonne vengano aggiunte automaticamente rispettando la corrispondenza con la forma dei dati che vengono inseriti, semplificando così lo sviluppo dello schema. Lo schema dinamico è abilitato per impostazione predefinita ed è consigliabile disabilitarlo in un'app per dispositivi mobili di produzione. Per altre informazioni sulle tabelle semplici nelle app per dispositivi mobili, vedere [Procedura: Usare le tabelle semplici nel portale di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Si noti che le tabelle semplici nel portale non sono attualmente supportate per le app per dispositivi mobili back-end per .NET. È possibile continuare a usare le associazioni di funzione degli endpoint tabella delle app per dispositivi mobili back-end per .NET, ma lo schema dinamico non è supportato nelle app per dispositivi mobili back-end per .NET.
+Le app per dispositivi mobili del servizio app di Azure consentono di esporre i dati degli endpoint tabella ai client per dispositivi mobili. Questi stessi dati tabulari possono essere usati con le associazioni sia di input che di output in Funzioni di Azure. Grazie al supporto dello schema dinamico, un'app per dispositivi mobili back-end Node.js è ideale per l'esposizione di dati tabulari da usare con le funzioni. Lo schema dinamico è abilitato per impostazione predefinita ed è consigliabile disabilitarlo in un'app per dispositivi mobili di produzione. Per altre informazioni sugli endpoint di tabella in un back-end Node. js vedere [Panoramica: operazioni su tabella](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Nelle app per dispositivi mobili il back-end Node.js supporta l'esplorazione e la modifica di tabelle nel portale. Per altre informazioni vedere la sezione relativa alla [modifica nel portale](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) nell'argomento che illustra l'uso del SDK Node.js. Quando si usa un'app per dispositivi mobili del back-end .NET con le funzioni di Azure è necessario aggiornare manualmente il modello di dati come richiesto dalla funzione. Per altre informazioni sugli endpoint tabella in un'app per dispositivi mobili del back-end .NET vedere [Procedura: Definire un controller tabelle](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) nell'argomento relativo al SDK del back-end .NET.
 
 In questa sezione sono disponibili le procedure seguenti:
 
-* [Chiave API di tabelle semplici per le app per dispositivi mobili di Azure](#easytablesapikey)
-* [Associazione di input di tabelle semplici per le app per dispositivi mobili di Azure](#easytablesinput)
-* [Associazione di output di tabelle semplici per le app per dispositivi mobili di Azure](#easytablesoutput)
+* [Chiave API delle tabelle per le app per dispositivi mobili di Azure](#mobiletablesapikey)
+* [Associazione di input delle tabelle per le app per dispositivi mobili di Azure](#mobiletablesinput)
+* [Associazione di output delle tabelle per le app per dispositivi mobili di Azure](#mobiletablesoutput)
 
-### <a id="easytablesapikey"></a> Usare una chiave API per proteggere l'accesso agli endpoint delle tabelle semplici delle app per dispositivi mobili.
+### <a id="mobiletablesapikey"></a> Usare una chiave API per proteggere l'accesso agli endpoint delle tabelle delle app per dispositivi mobili.
 
-Funzioni di Azure attualmente non può accedere agli endpoint protetti dall'autenticazione servizio app. Ciò significa che gli endpoint delle app per dispositivi mobili usati nelle funzioni con le associazioni delle tabelle semplici devono consentire l'accesso anonimo, che è l'impostazione predefinita. Le associazioni delle tabelle semplici consentono di specificare una chiave API, ovvero un segreto condiviso che può essere usato per impedire l'accesso indesiderato da app diverse dalle proprie funzioni. Le app per dispositivi mobili non hanno il supporto predefinito per l'autenticazione con la chiave API. È tuttavia possibile implementare una chiave API nell'app per dispositivi mobili back-end per Node.js seguendo gli esempi nell'articolo relativo all'[implementazione di una chiave API in app per dispositivi mobili del servizio app di Azure back-end](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key).
+In Funzioni di Azure le associazioni delle tabelle delle app per dispositivi mobili consentono di specificare una chiave API, ovvero un segreto condiviso che può essere usato per impedire l'accesso indesiderato ad app diverse dalle proprie funzioni. Le app per dispositivi mobili non hanno il supporto predefinito per l'autenticazione con la chiave API. È tuttavia possibile implementare una chiave API nell'app per dispositivi mobili back-end Node.js seguendo gli esempi nell'articolo [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Back-end dell'app per dispositivi mobili del servizio app di Azure che implementa una chiave API). In modo simile è possibile implementare una chiave API in un' [app per dispositivi mobili back-end .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
 
 >[AZURE.IMPORTANT] Questa chiave API non deve essere distribuita con i client app per dispositivi mobili, ma è consigliabile distribuirla in modo sicuro solo ai client lato servizio, ad esempio Funzioni di Azure.
 
-### <a id="easytablesinput"></a> Associazione di input di tabelle semplici per le app per dispositivi mobili di Azure
+### <a id="mobiletablesinput"></a> Associazione di input per le app per dispositivi mobili di Azure
 
-Le associazioni di input possono caricare un record direttamente da un endpoint tabella delle app per dispositivi mobili e passarlo direttamente all'associazione. L'ID record viene determinato in base al trigger che ha richiamato la funzione. In una funzione C# eventuali modifiche apportate al record vengono automaticamente inviate alla tabella quando la funzione termina correttamente.
+Le associazioni di input possono caricare un record da un endpoint tabella per dispositivi mobili e passarlo direttamente all'associazione. L'ID record viene determinato in base al trigger che ha richiamato la funzione. In una funzione C# eventuali modifiche apportate al record vengono automaticamente inviate alla tabella quando la funzione termina correttamente.
 
-Il file function.json supporta le proprietà seguenti da usare con le associazioni di input delle tabelle semplici delle app per dispositivi mobili:
+Il file function.json supporta l'uso delle seguenti proprietà con le associazioni di input delle app per dispositivi mobili:
 
 - `name`: nome della variabile usato nel codice della funzione per il nuovo record.
-- `type`: il tipo di associazione deve essere impostato su *easyTable*.
+- `type`: il tipo di associazione deve essere impostato su *mobileTable*.
 - `tableName`: tabella in cui verrà creato il nuovo record.
-- `id`: ID del record da recuperare. Questa proprietà supporta associazioni simili a `{queueTrigger}`, che useranno il valore della stringa del messaggio della coda come ID record.
+- `id`: ID del record da recuperare. Questa proprietà supporta associazioni simili a `{queueTrigger}` che useranno il valore stringa del messaggio della coda come ID record.
 - `apiKey`: stringa corrispondente all'impostazione applicazione che specifica la chiave API facoltativa per l'app per dispositivi mobili. È necessaria quando l'app per dispositivi mobili usa una chiave API per limitare l'accesso client.
 - `connection`: stringa corrispondente all'impostazione applicazione che specifica l'URI dell'app per dispositivi mobili.
 - `direction`: direzione dell'associazione, che deve essere impostata su *in*.
@@ -1002,7 +1202,7 @@ Function.json di esempio:
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
 	      "connection": "My_MobileApp_Uri",
@@ -1013,9 +1213,9 @@ Function.json di esempio:
 	  "disabled": false
 	}
 
-#### Esempio di codice di tabelle semplici di app per dispositivi mobili di Azure per un trigger della coda C#
+#### Esempio di codice di app per dispositivi mobili di Azure per un trigger della coda C#
 
-In base al file function.json di esempio precedente, l'associazione di input recupera il record con l'ID corrispondente alla stringa del messaggio della coda e lo passa al parametro *record*. Quando il record non viene trovato, il parametro è null. Il record viene quindi aggiornato con il nuovo valore di *Text* quando la funzione termina.
+In base al file function.json di esempio precedente l'associazione di input recupera da un endpoint tabella delle app per dispositivi mobili il record con l'ID corrispondente alla stringa del messaggio della coda e lo passa al parametro *record*. Quando il record non viene trovato, il parametro è null. Il record viene quindi aggiornato con il nuovo valore di *Text* quando la funzione termina.
 
 	#r "Newtonsoft.Json"	
 	using Newtonsoft.Json.Linq;
@@ -1028,9 +1228,9 @@ In base al file function.json di esempio precedente, l'associazione di input rec
 	    }    
 	}
 
-#### Esempio di codice di tabelle semplici di app per dispositivi mobili di Azure per un trigger della coda Node.js
+#### Esempio di codice di app per dispositivi mobili di Azure per un trigger della coda Node.js
 
-In base al file function.json di esempio precedente, l'associazione di input recupera il record con l'ID corrispondente alla stringa del messaggio della coda e lo passa al parametro *record*. Nelle funzioni Node.js i record aggiornati non vengono inviati alla tabella. Questo esempio di codice scrive il record recuperato nel log.
+In base al file function.json di esempio precedente l'associazione di input recupera da un endpoint tabella delle app per dispositivi mobili il record con l'ID corrispondente alla stringa del messaggio della coda e lo passa al parametro *record*. Nelle funzioni Node.js i record aggiornati non vengono inviati alla tabella. Questo esempio di codice scrive il record recuperato nel log.
 
 	module.exports = function (context, input) {    
 	    context.log(context.bindings.record);
@@ -1038,14 +1238,14 @@ In base al file function.json di esempio precedente, l'associazione di input rec
 	};
 
 
-### <a id="easytablesoutput"></a> Associazione di output di tabelle semplici per le app per dispositivi mobili di Azure
+### <a id="mobiletablesoutput"></a> Associazione di output per le app per dispositivi mobili di Azure
 
-La funzione può scrivere un record in un endpoint tabella delle app per dispositivi mobili usando un'associazione di output delle tabelle semplici.
+La funzione può scrivere un record in un endpoint tabella delle app per dispositivi mobili usando un'associazione di output.
 
-Il file function.json supporta le proprietà seguenti da usare con l'associazione di output delle tabelle semplici:
+Il file function.json supporta le proprietà seguenti da usare con l'associazione di output delle tabelle per dispositivi mobili:
 
 - `name`: nome della variabile usato nel codice della funzione per il nuovo record.
-- `type`: tipo di associazione che deve essere impostato su *easyTable*.
+- `type`: tipo di associazione che deve essere impostato su *mobileTable*.
 - `tableName`: tabella in cui viene creato il nuovo record.
 - `apiKey`: stringa corrispondente all'impostazione applicazione che specifica la chiave API facoltativa per l'app per dispositivi mobili. È necessaria quando l'app per dispositivi mobili usa una chiave API per limitare l'accesso client.
 - `connection`: stringa corrispondente all'impostazione applicazione che specifica l'URI dell'app per dispositivi mobili.
@@ -1057,7 +1257,7 @@ Function.json di esempio:
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "connection": "My_MobileApp_Uri",
 	      "apiKey": "My_MobileApp_Key",
@@ -1067,9 +1267,9 @@ Function.json di esempio:
 	  "disabled": false
 	}
 
-#### Esempio di codice di tabelle semplici di app per dispositivi mobili di Azure per un trigger della coda C#
+#### Esempio di codice di app per dispositivi mobili di Azure per un trigger della coda C#
 
-Questo esempio di codice C# inserisce un nuovo record con una proprietà *Text* nella tabella specificata nell'associazione precedente.
+Questo esempio di codice C# inserisce un nuovo record in un endpoint tabella dell'app per dispositivi mobili con una proprietà *Text* nella tabella specificata nell'associazione precedente.
 
 	public static void Run(string myQueueItem, out object record)
 	{
@@ -1078,9 +1278,9 @@ Questo esempio di codice C# inserisce un nuovo record con una proprietà *Text* 
 	    };
 	}
 
-#### Esempio di codice di tabelle semplici di app per dispositivi mobili di Azure per un trigger della coda Node.js
+#### Esempio di codice di app per dispositivi mobili di Azure per un trigger della coda Node.js
 
-Questo esempio di codice Node.js inserisce un nuovo record con una proprietà *text* nella tabella specificata nell'associazione precedente.
+Questo esempio di codice Node.js inserisce un nuovo record in un endpoint tabella dell'app per dispositivi mobili con una proprietà *text* nella tabella specificata nell'associazione precedente.
 
 	module.exports = function (context, input) {
 	
@@ -1093,15 +1293,15 @@ Questo esempio di codice Node.js inserisce un nuovo record con una proprietà *t
 
 ## Associazione di output di hub di notifica di Azure
 
-Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che registrano le notifiche, vedere [Introduzione a Hub di notifica](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e fare clic sulla piattaforma client di destinazione nella parte superiore.
+Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per le notifiche vedere [Introduzione a Hub di notifica](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e fare clic sulla piattaforma client di destinazione nella parte superiore.
 
 Il file function.json fornisce le proprietà seguenti da usare con l'associazione di output di un hub di notifica:
 
 - `name`: nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica.
 - `type`: deve essere impostato su *"notificationHub"*.
-- `tagExpression`: le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche che corrispondono all'espressione tag. Per altre informazioni, vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression`: le espressioni tag consentono di specificare che le notifiche vanno recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag. Per altre informazioni vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-routing-tag-expressions.md).
 - `hubName`: nome della risorsa hub di notifica nel portale di Azure.
-- `connection`: questa stringa di connessione deve essere una stringa di connessione **Impostazione applicazione** impostata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
+- `connection`: questa stringa di connessione deve essere una stringa di connessione **Application Setting** (Impostazione applicazione) impostata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
 - `direction`: deve essere impostato su *"out"*. 
  
 Function.json di esempio:
@@ -1124,13 +1324,13 @@ Function.json di esempio:
 
 Per usare un'associazione di output dell'hub di notifica, è necessario configurare la stringa di connessione per l'hub. A questo scopo, nella scheda *Integra* selezionare l'hub di notifica o crearne uno nuovo.
 
-È anche possibile aggiungere manualmente una stringa di connessione per un hub esistente aggiungendo una stringa di connessione per *DefaultFullSharedAccessSignature* all'hub di notifica. Questa stringa di connessione fornisce l'autorizzazione di accesso alla funzione per inviare messaggi di notifica. Il valore della stringa di connessione *DefaultFullSharedAccessSignature* è accessibile dal pulsante **chiavi** nel pannello principale della risorsa hub di notifica nel portale di Azure. Per aggiungere manualmente una stringa di connessione per l'hub, usare la procedura seguente:
+È anche possibile aggiungere manualmente una stringa di connessione per un hub esistente aggiungendo una stringa di connessione per *DefaultFullSharedAccessSignature* all'hub di notifica. Questa stringa di connessione fornisce l'autorizzazione di accesso alla funzione per inviare messaggi di notifica. Il valore della stringa di connessione *DefaultFullSharedAccessSignature* è accessibile dal pulsante **keys** (Chiavi) nel pannello principale della risorsa hub di notifica nel portale di Azure. Per aggiungere manualmente una stringa di connessione per l'hub, usare la procedura seguente:
 
-1. Nel pannello **App di funzione** del portale di Azure fare clic su **Impostazioni dell'app di funzione > Vai alle impostazioni del servizio app**.
+1. Nel pannello **App per le funzioni** del portale di Azure fare clic su **Function App Settings (Impostazioni dell'app per le funzioni) > Go to App Service settings (Vai alle impostazioni del servizio app)**.
 
 2. Nel pannello **Impostazioni** fare clic su **Impostazioni applicazione**.
 
-3. Scorrere verso il basso fino alla sezione **Stringhe di connessione** e aggiungere una voce denominata per il valore *DefaultFullSharedAccessSignature* per l'hub di notifica. Impostare il tipo su **Personalizzato**.
+3. Scorrere verso il basso fino alla sezione **Stringhe di connessione** e aggiungere una voce chiamata per il valore *DefaultFullSharedAccessSignature* per l'hub di notifica. Impostare il tipo su **Personalizzato**.
 4. Fare riferimento al nome della stringa di connessione nelle associazioni di output. È simile a **MyHubConnectionString** usato nell'esempio precedente.
 
 ### Esempio di codice di hub di notifica di Azure per un trigger timer Node.js 
@@ -1163,7 +1363,7 @@ Questo esempio invia una notifica per la [registrazione di un modello](../notifi
 	 
 	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
 	}
 	 
@@ -1180,13 +1380,13 @@ Questo esempio invia una notifica per la [registrazione di un modello](../notifi
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		log.Info($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{"message":"Hello from C#. Processed a queue item!"}";
 	}
 
 ### Esempio di codice C# del trigger della coda dell'hub di notifica di Azure con il tipo Notification
 
-Questo esempio illustra come usare il tipo `Notification` definito nella [libreria Hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Per usare questo tipo e la libreria, è necessario caricare un file *project.json* per l'app di funzione. Il file project.json è un file di testo JSON simile al seguente:
+Questo esempio illustra come usare il tipo `Notification` definito nella [libreria Hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Per usare questo tipo e la libreria è necessario caricare un file *project.json* per l'app per le funzioni. Il file project.json è un file di testo JSON simile al seguente:
 
 	{
 	  "frameworks": {
@@ -1198,7 +1398,7 @@ Questo esempio illustra come usare il tipo `Notification` definito nella [librer
 	  }
 	}
 
-Per altre informazioni sul caricamento del file project.json, vedere la pagina relativa al [caricamento di un file project.json](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+Per altre informazioni sul caricamento del file project.json vedere [Uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions) (Caricamento di un file project.json).
 
 Codice di esempio:
 
@@ -1208,7 +1408,7 @@ Codice di esempio:
 	 
 	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
 	{
-	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
 	private static TemplateNotification GetTemplateNotification(string message)
@@ -1226,4 +1426,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

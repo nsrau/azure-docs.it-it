@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore Wunderlist
@@ -25,11 +25,11 @@ Il connettore Wunderlist può essere usato da:
 
 - [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flussi](http://flows.microsoft.com)  
+- [Flusso](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -83,10 +83,14 @@ Il connettore Wunderlist può essere usato come azione e include trigger. Tutti 
 ## Creare una connessione a Wunderlist
 Per creare app per la logica con Wunderlist, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
-|Proprietà| Obbligatoria|Descrizione|
+|Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Fornisce le credenziali di Wunderlist|
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
+
+
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -661,7 +665,7 @@ Eliminare un promemoria: elimina un promemoria specifico.
 
 
 
-### Task
+### Attività
 
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
@@ -900,4 +904,4 @@ Eliminare un promemoria: elimina un promemoria specifico.
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

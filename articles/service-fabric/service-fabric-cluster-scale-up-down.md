@@ -1,6 +1,6 @@
 <properties
    pageTitle="Aumentare o ridurre le istanze del cluster di Service Fabric | Microsoft Azure"
-   description="Aumentare o ridurre le istanze di un cluster di Service Fabric per soddisfare esigenze specifiche aggiungendo o rimuovendo nodi di macchine virtuali."
+   description="Aumentare o ridurre le istanze di un cluster di Service Fabric per rispondere alla domanda impostando le regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di VM."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,72 +13,65 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="chackdan"/>
 
 
-# Aumentare o ridurre le istanze di un cluster di Service Fabric mediante l'aggiunta o la rimozione di macchine virtuali
+# Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di ridimensionamento
 
-È possibile aumentare o ridurre le istanze dei cluster di Azure Service Fabric per soddisfare esigenze specifiche aggiungendo o rimuovendo macchine virtuali.
+I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric è configurato come un set di scalabilità di macchine virtuali separato. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md). Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di VM nel back-end, si dovranno configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di VM.
 
->[AZURE.NOTE] È necessario che nella sottoscrizione sia incluso un numero di core sufficienti per aggiungere le nuove VM che costituiranno il cluster.
+>[AZURE.NOTE] È necessario che nella sottoscrizione sia incluso un numero di core sufficienti per aggiungere le nuove VM che costituiranno il cluster. Non esiste attualmente una funzionalità di convalida del modello quindi, se viene raggiunto uno dei limiti della quota, verrà visualizzato un errore in fase di distribuzione.
 
-## Aumentare o ridurre le istanze di un cluster di Service Fabric manualmente
+## Scegliere il tipo di nodo o il set di scalabilità di VM da ridimensionare
 
-### Scegliere il tipo di nodo di cui aumentare o ridurre le istanze
+Attualmente non è possibile specificare le regole di ridimensionamento automatico per i set di scalabilità di VM tramite il portale, quindi si userà Azure PowerShell 1.0 o versione successiva per elencare i tipi di nodo e aggiungervi quindi le regole di ridimensionamento automatico.
 
-Se il cluster include più tipi di nodo, sarà necessario aggiungere o rimuovere le VM da specifici tipi di nodo. Ecco come:
+Per ottenere l'elenco dei set di scalabilità di VM che costituiscono il cluster, eseguire i cmdlet seguenti:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+```powershell
+Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/VirtualMachineScaleSets
 
-2. Passare a **Cluster di Service Fabric**. ![Pagina dei cluster di Service Fabric nel portale di Azure][BrowseServiceFabricClusterResource]
+Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <VM Scale Set name>
+```
 
-3. Selezionare il cluster di cui si vuole aumentare o ridurre il numero di istanze.
+## Impostare le regole di ridimensionamento automatico per il tipo di nodo o il set di scalabilità di VM
 
-4. Passare al pannello **Impostazioni** nel dashboard del cluster. Se il pannello **Impostazioni** non viene visualizzato, fare clic su **Tutte le impostazioni** nella parte principale del dashboard del cluster.
+Se nel cluster sono disponibili più tipi di nodi, è necessario eseguire questa operazione per ogni tipo di nodo o set di scalabilità di VM per cui si vuole aumentare o ridurre le istanze. Considerare il numero di nodi che essere disponibili prima di configurare il ridimensionamento automatico. Il numero minimo di nodi necessari per il tipo di nodo primario è determinato dal livello di affidabilità scelto. Per altre informazioni, vedere la sezione relativa ai [livelli di affidabilità](service-fabric-cluster-capacity.md).
 
-5. Fare clic su **Tipi di nodo**. Verrà visualizzato un pannello contenente l'elenco dei tipi di nodo.
+>[AZURE.NOTE]  La riduzione delle istanze del tipo di nodo primario, impostando un valore inferiore al numero minimo, renderà il cluster instabile o lo arresterà. In questo caso, è possibile che si verifichi una perdita di dati per le applicazioni e per i servizi di sistema.
 
-6. Fare clic sul tipo di nodo di cui si vuole aumentare o ridurre il numero di istanze. Verrà visualizzato un pannello contenente i dettagli relativi al tipo di nodo.
+Attualmente la funzionalità di ridimensionamento automatico non è determinata dai carichi che le applicazioni segnalano a Service Fabric. Al momento. il ridimensionamento automatico che si ottiene dipende esclusivamente dai contatori delle prestazioni generati da ognuna delle istanze del set di scalabilità di VM.
 
-### Aumentare il numero di istanze mediante l'aggiunta di nodi
+Seguire le istruzioni [per configurare il ridimensionamento automatico per ogni set di scalabilità di VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
-Modificare il numero di VM fino a raggiungere la quantità desiderata e salvare. I nodi o le VM vengono aggiunti al termine del processo di distribuzione.
+>[AZURE.NOTE] In uno scenario di riduzione delle istanze, a meno che il tipo di nodo non abbia un livello di durabilità Gold o Silver, sarà necessario chiamare il cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) con il nome del nodo appropriato.
 
-### Ridurre il numero di istanze mediante la rimozione di nodi
+## Comportamenti che è possibile osservare in Service Fabric Explorer
 
-La rimozione di nodi è un processo che si articola in due passaggi:
+Quando si aumentano le istanze di un cluster, Service Fabric Explorer riflette il numero di nodi, ovvero le istanze del set di scalabilità di VM, che fanno parte del cluster. Quando tuttavia si riducono le istanze di un cluster, il nodo o l'istanza della VM rimossa viene ancora visualizzata con uno stato non integro, a meno di chiamare il cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) con il nome del nodo appropriato.
 
-1. Modificare il numero di VM fino a raggiungere la quantità desiderata e salvare. L'estremità inferiore del dispositivo di scorrimento indica il numero minimo di VM necessarie per quel tipo di nodo.
+Ecco la spiegazione di questo comportamento.
 
-    >[AZURE.NOTE] È necessario conservare almeno 5 VM per il tipo di nodo primario.
+I nodi elencati in Service Fabric Explorer riflettono le informazioni a disposizione dei servizi di sistema di Service Fabric, in particolare FM, circa il numero di nodi presenti nel cluster attualmente o in precedenza. Quando si riducono le istanze del set di scalabilità di VM, la VM viene eliminata, ma il servizio di sistema FM continua a ritenere che il nodo, precedentemente mappato alla VM eliminata, verrà ripristinato. Service Fabric Explorer continua quindi a visualizzare tale nodo, anche se lo stato di integrità è sconosciuto o di errore.
 
-2. Al termine del processo di distribuzione verranno comunicati i nomi delle VM che è possibile eliminare. Sarà quindi necessario individuare le risorse delle VM ed eliminarle:
+Per assicurarsi che un nodo venga rimosso quando si rimuove una VM, sono disponibili due opzioni:
 
-    a. Tornare al dashboard del cluster e fare clic su **Gruppo di risorse**. Verrà visualizzato il pannello **Gruppo di risorse**.
+1) Scegliere un livello di durabilità Gold o Silver (disponibile a breve) per i tipi di nodo del cluster, che fornirà l'integrazione dell'infrastruttura. In questo caso i nodi saranno rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si riducono le istanze. Vedere [i dettagli sui livelli di durabilità](service-fabric-cluster-capacity.md).
 
-    b. Controllare nell'area **Riepilogo** o aprire l'elenco di risorse facendo clic su "**...**".
+2) Dopo aver ridotto le istanze della VM, si dovrà chiamare il [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
 
-    c. Fare clic sul nome della VM che il sistema ha indicato come eliminabile.
-
-    d. Fare clic sull'icona **Elimina** per eliminare la VM.
-
->[AZURE.NOTE] I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, in genere non è consigliabile spegnere tutti i computer nel cluster a meno che non sia stato prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).
-
-## Ridimensionare automaticamente i cluster di Service Fabric
-
-Attualmente i Service Fabric Cluster non supportano il ridimensionamento automatico. Nel prossimo futuro i cluster si baseranno su set di scalabilità di macchine virtuali. Questo renderà possibile il ridimensionamento automatico, che avrà un comportamento simile a quello del ridimensionamento automatico disponibile nei servizi cloud.
-
-## Ridimensionare i cluster tramite PowerShell o l'interfaccia della riga di comando
-
-Questo articolo descrive come ridimensionare i cluster tramite il portale. È tuttavia possibile eseguire le stesse azioni dalla riga di comando usando i comandi di Gestione risorse di Azure sulla risorsa del cluster. La risposta del comando GET sulla risorsa del cluster restituisce l'elenco di nodi che sono stati disabilitati.
+>[AZURE.NOTE] I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, non è in genere sicuro arrestare tutte le macchine virtuali del cluster senza avere prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).
 
 ## Passaggi successivi
+Per altre informazioni sulla pianificazione della capacità del cluster, l'aggiornamento di un cluster e il partizionamento dei servizi, vedere gli articoli seguenti:
 
-- [Informazioni sugli aggiornamenti dei cluster](service-fabric-cluster-upgrade.md)
-- [Informazioni sul partizionamento dei servizi con stato per la massima scalabilità](service-fabric-concepts-partitioning.md)
+- [Considerazioni sulla pianificazione della capacità del cluster di Service Fabric](service-fabric-cluster-capacity.md)
+- [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md)
+- [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
+[ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

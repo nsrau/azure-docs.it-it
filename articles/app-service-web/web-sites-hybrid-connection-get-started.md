@@ -73,17 +73,17 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 2. Nel pannello Connessioni ibride fare clic su **Aggiungi**.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. Viene visualizzato il pannello **Aggiungi una connessione ibrida**. Poiché si tratta della prima connessione ibrida, l'opzione **Nuova connessione ibrida** è preselezionata e viene visualizzato il pannello **Crea connessione ibrida**.
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Nel **blade di connessione ibrida crea**:
-	- per **nome**, fornisce un nome per la connessione
-	- per **Hostname**, immettere il nome del computer locale che ospita la risorsa.
-	- per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).
-	- fare clic su **servizio parlare Biz**
+	Nel **pannello Crea connessione ibrida**:
+	- In **Nome** specificare un nome per la connessione.
+	- In **Nome host** immettere il nome del computer locale in cui è ospitata la risorsa.
+	- In **Porta** immettere il numero di porta usato dalla risorsa locale (1433 per un'istanza predefinita di SQL Server).
+	- Fare clic su **Servizio BizTalk**
 
 
 4. Viene visualizzato il pannello **Crea servizio BizTalk**. Immettere un nome per il servizio BizTalk, quindi fare clic su **OK**.
@@ -98,8 +98,8 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	
 6. Al termine del processo l'area delle notifiche nel portale informa che la connessione è stata creata correttamente.
 	<!--- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
@@ -164,11 +164,11 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 
 ## Configurare il progetto di back-end .NET per App per dispositivi mobili per la connessione al database di SQL Server
 
-In Servizio app, un progetto di back-end .NET per App per dispositivi mobili è semplicemente un'app Web ASP.NET dotata di un SDK per App per dispositivi mobili installato e inizializzato. Per usare l'app Web come backend di App per dispositivi mobili, è necessario [scaricare e inizializzare l'SDK back-end .NET per App per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+In Servizio app, un progetto di back-end .NET per App per dispositivi mobili è semplicemente un'app Web ASP.NET dotata di un SDK per App per dispositivi mobili installato e inizializzato. Per usare l'App Web come back-end di App per dispositivi mobili, è necessario [scaricare e inizializzare l'SDK back-end .NET per App per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
 
 Per App per dispositivi mobili, è necessario anche definire una stringa di connessione per il database locale e modificare il back-end in modo che possa usare questa connessione.
 
-1. In Esplora soluzioni di Visual Studio, aprire il file Web.config per il back-end .NET per App per dispositivi mobili, individuare la sezione **connectionStrings**, aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
+1. In Esplora soluzioni di Visual Studio aprire il file Web.config per il back-end .NET per App per dispositivi mobili, individuare la sezione **connectionStrings**, aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
 
 	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -182,7 +182,7 @@ Per App per dispositivi mobili, è necessario anche definire una stringa di conn
 
 3. Fare clic su **Salva** in Visual Studio per salvare il file Web.config.
 
-	> [AZURE.NOTE] Questa impostazione di connessione viene usata per l'esecuzione nel computer locale. Per l'esecuzione in Azure viene eseguito l'override di questa impostazione con l'impostazione di connessione definita nel portale.
+	> [AZURE.NOTE]Questa impostazione di connessione viene usata per l'esecuzione nel computer locale. Per l'esecuzione in Azure viene eseguito l'override di questa impostazione con l'impostazione di connessione definita nel portale.
 
 4. Espandere la cartella **Modelli** e aprire il file di modello dati, che termina con *Context.cs*.
 
@@ -227,7 +227,7 @@ A questo punto è possibile ripubblicare il progetto server e provare la nuova c
 
 [Sito Web delle connessioni ibride](https://azure.microsoft.com/services/biztalk-services/)
 
-[Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-dashboard-monitor-scale-tabs/)
+[Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@ A questo punto è possibile ripubblicare il progetto server e provare la nuova c
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

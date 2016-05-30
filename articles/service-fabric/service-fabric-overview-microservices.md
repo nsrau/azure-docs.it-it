@@ -27,7 +27,7 @@ Ecco quali sono le mutevoli esigenze aziendali:
 
 Queste esigenze aziendali incidono sul *modo* di compilare le applicazioni.
 
-Per altre informazioni sull'approccio di Azure ai microservizi, leggere [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+Per altre informazioni sull'approccio di Azure ai microservizi, leggere [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
 
 ## Approccio alla progettazione monolitico o con microservizi
 Tutte le applicazioni si evolvono con il trascorrere del tempo. Le applicazioni che hanno maggior successo si evolvono diventando utili per le persone. Le applicazioni che invece non hanno successo non si evolvono e alla fine vengono deprecate. La domanda diventa quindi: quanto si sa attualmente dei propri requisiti e come si pensa che possano svilupparsi in futuro? Ad esempio, se si sta compilando un'applicazione per la creazione di report per un reparto e si è certi che rimarrà entro l'ambito dell'azienda e che i report avranno breve durata, la scelta dell'approccio sarà diversa rispetto alla compilazione di un servizio per il recapito di contenuto video a decine di milioni di clienti. A volte pubblicare qualcosa come modello di verifica è un fattore determinante, avendo la consapevolezza che l'applicazione potrà essere riprogettata in seguito. La sovraprogettazione di qualcosa che non si userà mai ha poco senso. È il solito compromesso della progettazione. D'altra parte, quando le aziende discutono della creazione per il cloud, l'aspettativa diventa crescita e utilizzo. Il problema è che la crescita e la scalabilità sono imprevedibili. Si vorrebbe poter creare prototipi velocemente, ma allo stesso tempo sapere di essere sulla strada giusta per gestire il successo futuro. Questo è l'approccio a un avvio snello: compilare, misurare, apprendere, reiterare.
@@ -143,9 +143,9 @@ L'obiettivo di Service Fabric è ridurre le complessità della compilazione di a
 
 * Per altre informazioni:
 	* [Panoramica di Service Fabric](service-fabric-overview.md)
-    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/it-IT/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,7 +3,7 @@
    description="Panoramica della terminologia di Service Fabric. Illustra i concetti chiave relativi alla terminologia e i termini usati nel resto della documentazione."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/05/2016"
-   ms.author="msfussell"/>
+   ms.author="ryanwi"/>
 
 # Panoramica della terminologia di Service Fabric
 
@@ -90,4 +90,4 @@ Per altre informazioni su Service Fabric, vedere:
 - [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
 - [Scenari applicativi](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

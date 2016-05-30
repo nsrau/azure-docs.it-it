@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 #Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -151,7 +151,7 @@ KeyVault-BYOK-Tools-Australia.zip
 
 ---
 
-[**Azure per enti pubblici:**](../../../../features/gov/)
+[**Azure per enti pubblici:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -380,4 +380,4 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet√
 
 √à ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

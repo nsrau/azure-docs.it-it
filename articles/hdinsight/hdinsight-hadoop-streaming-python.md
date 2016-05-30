@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/13/2016"
    ms.author="larryfr"/>
 
 #Sviluppo di programmi per la creazione di flussi Python per HDInsight
@@ -32,6 +32,8 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 * Un cluster Hadoop basato su Linux in HDInsight
 
 * Un editor di testo
+
+    > [AZURE.IMPORTANT] L'editor di testo deve usare LF come terminazione di riga. Se usa CRLF, ciò causerà errori in seguito all'esecuzione del processo MapReduce su cluster HDInsight basati su Linux. In caso di dubbi, usare il passaggio facoltativo nella sezione [Eseguire MapReduce](#run-mapreduce) per convertire ogni CRLF in LF.
 
 * Per i client Windows, PuTTY e PSCP, Queste utilità sono disponibili nella <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">pagina di download PuTTY</a>.
 
@@ -154,6 +156,11 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
 	> [AZURE.NOTE] Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
+2. (Facoltativo) Se, quando si creano i file mapper.py e reducer.py, si usa un editor di testo che inserisce CRLF come terminazione di riga oppure non si sa quale terminazione di riga verrà usata dall'editor, convertire le occorrenze di CRLF di mapper.py e reducer.py in LF mediante i seguenti comandi.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. Usare il seguente comando per avviare il processo MapReduce.
 
 		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
@@ -205,4 +212,4 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

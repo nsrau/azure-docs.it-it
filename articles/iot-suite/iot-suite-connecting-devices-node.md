@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite
+# Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto (Node.js)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -62,4 +62,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

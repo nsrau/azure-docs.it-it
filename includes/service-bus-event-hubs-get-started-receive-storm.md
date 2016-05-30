@@ -16,7 +16,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 
 4. In Eclipse creare un nuovo progetto Maven (fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**).
 
-   ![][12]
+	![][12]
 
 5. Selezionare **Usa percorso predefinito dello spazio di lavoro** e quindi fare clic su **Avanti**.
 
@@ -229,5 +229,3 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-
-<!---HONumber=AcomDC_0316_2016-->

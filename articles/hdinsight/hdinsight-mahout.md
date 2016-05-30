@@ -41,7 +41,9 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 ##prerequisiti
 
 - **Un cluster Hadoop basato su Windows in HDInsight**. Per informazioni su come crearne uno, vedere [Introduzione all'utilizzo di Hadoop in HDInsight][getstarted]
-- **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Workstation con Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>Generare raccomandazioni con Windows PowerShell
@@ -170,7 +172,7 @@ La prima colonna rappresenta il valore `userID`. I valori racchiusi tra "[" e "]
 
 ###Visualizzare l'output
 
-Anche se l'output generato risulta appropriato per l'uso in un'applicazione, non è facilmente leggibile. Si può usare il file `moviedb.txt` dal server per risolvere `movieId` in un nome di film, ma prima è necessario scaricarlo dal server insieme al file delle classificazioni usando lo script seguente:
+Anche se l'output generato risulta appropriato per l'uso in un'applicazione, non è facilmente leggibile. Si può usare `moviedb.txt` dal server per risolvere `movieId` in un nome di film, ma prima è necessario scaricarlo dal server insieme al file delle classificazioni usando lo script seguente:
 
     # The HDInsight cluster name.
 	$clusterName = "the cluster name"
@@ -527,4 +529,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

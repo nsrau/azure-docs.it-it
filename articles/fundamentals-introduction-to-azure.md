@@ -304,7 +304,7 @@ L'automazione di Azure è una scelta ottimale per automatizzare le attività man
 
 La creazione e la pubblicazione di Application Programmer Interfaces (API) in Internet costituisce un modo comune di fornire servizi alle applicazioni. Se tali servizi sono rivendibili (ad esempio dati meteorologici), un'organizzazione può consentire ad altre terze parti di accedere, a pagamento, agli stessi servizi. Quando si scala per includere un maggior numero di partner, in genere è necessario ottimizzare e controllare l'accesso. Alcuni partner possono perfino necessitare dei dati in un formato diverso.
 
-La gestione delle API di Azure consente alle organizzazioni di pubblicare in modo semplice API per partner, dipendenti e sviluppatori terzi in modo sicuro e su vasta scala. Fornisce un endpoint dell'API diverso e agisce come proxy per chiamare l'endpoint effettivo, fornendo al contempo servizi quali caching, trasformazione, limitazione, controllo degli accessi e aggregazione delle analisi.
+La gestione delle API di Azure consente alle organizzazioni di pubblicare in modo semplice API per partner, dipendenti e sviluppatori terzi in modo sicuro e su vasta scala. Specifica un endpoint dell'API diverso e agisce come proxy per chiamare l'endpoint effettivo, offrendo al contempo servizi quali memorizzazione nella cache, trasformazione, limitazione delle richieste, controllo degli accessi e aggregazione delle analisi.
 
 **Scenari di Gestione API**
 
@@ -606,4 +606,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

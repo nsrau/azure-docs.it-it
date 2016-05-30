@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
@@ -79,7 +79,8 @@ Per ottenere il campionamento a frequenza fissa sui dati dalle pagine Web, immet
 
 [Altre informazioni sul campionamento](app-insights-sampling.md).
 
-## Filtri
+<a name="filtering"></a>
+## Filtro: ITelemetryProcessor
 
 Questa tecnica offre un controllo più diretto su ciò che viene incluso o escluso dal flusso di telemetria. È possibile usarla insieme al campionamento oppure separatamente.
 
@@ -239,8 +240,8 @@ public void Process(ITelemetry item)
 
 ```
 
-
-## Aggiungere le proprietà
+<a name="add-properties"></a>
+## Aggiungere proprietà: ITelemetryInitializer
 
 Utilizzare gli inizializzatori di telemetria per definire le proprietà globali che vengono inviate con tutti i dati di telemetria; eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
 
@@ -368,6 +369,15 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 È possibile aggiungere tutti gli inizializzatori desiderati.
 
 
+## ITelemetryProcessor e ITelemetryInitializer
+
+Qual è la differenza tra processori di telemetria e inizializzatori di telemetria?
+
+* Alcune funzioni si sovrappongono: entrambi possono essere usati per aggiungere proprietà a dati di telemetria.
+* Gli inizializzatori di telemetria vengono sempre eseguiti prima dei processori di telemetria.
+* I processori di telemetria consentono di sostituire o rimuovere completamente un elemento di telemetria.
+* I processori di telemetria non elaborano dati di telemetria dei contatori delle prestazioni.
+
 ## Documentazione di riferimento
 
 * [Panoramica API](app-insights-api-custom-events-metrics.md)
@@ -409,4 +419,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

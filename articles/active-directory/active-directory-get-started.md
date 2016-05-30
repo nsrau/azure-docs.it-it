@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Introduzione all'uso di Azure AD
@@ -44,4 +44,4 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

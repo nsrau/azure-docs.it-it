@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Creare un'app desktop di Windows
 
-<br>
+
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-native-switcher](../../includes/active-directory-b2c-devquickstarts-native-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C consente di aggiungere funzionalità avanzate di gestione delle identità self-service all'app desktop in pochi brevi passaggi. Questo articolo descrive come creare un'app Windows Presentation Foundation (WPF) .NET "To do list" con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica. L'app includerà anche il supporto per l'iscrizione e l'accesso tramite account di social networking quali Facebook e Google.
@@ -344,4 +344,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

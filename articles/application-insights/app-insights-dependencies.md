@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Diagnosticare i problemi delle dipendenze in Application Insights
@@ -57,6 +57,16 @@ Pagina Web | [Monitoraggio JavaScript](app-insights-javascript.md) (nessuna impo
 Servizio cloud di Azure | [Usare l'attività di avvio](app-insights-cloudservices.md#dependencies) oppure [installare .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 Il monitoraggio dello stato per i server IIS non necessita che si ricompili il progetto di origine con il SDK di Application Insights.
+
+## Mappa delle applicazioni
+
+La mappa delle applicazioni funge da strumento visivo per individuare le dipendenze tra i componenti dell'applicazione.
+
+![Fare clic su Impostazioni > Mappa delle applicazioni](./media/app-insights-dependencies/08.png)
+
+Dalle caselle è possibile passare alla dipendenza pertinente e ad altri grafici.
+
+Fare clic sulla piccola [x] per comprimere un sottoalbero.
 
 ## <a name="diagnosis"></a> Diagnosi dei problemi relativi alle prestazioni delle dipendenze nel server Web
 
@@ -135,9 +145,9 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 ## Ajax
 
-Vedere [Pagine Web](app-insights-javascript.md).
+Vedere [Application Insights per pagine Web](app-insights-javascript.md).
 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

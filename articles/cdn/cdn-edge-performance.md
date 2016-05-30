@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Panoramica
 L'analisi delle prestazioni perimetrali fornisce informazioni granulari sul traffico e sull'utilizzo della larghezza di banda per la rete CDN. Queste informazioni possono essere quindi usate per generare statistiche relative alle tendenze, che consentono di ottenere approfondimenti sul modo in cui gli asset vengono memorizzati nella cache e distribuiti ai client. Ciò consente quindi di definire una strategia per l'ottimizzazione della distribuzione dei contenuti e di determinare quali problemi è necessario affrontare per sfruttare al meglio le capacità della rete CDN. Oltre a migliorare le prestazioni della distribuzione dei dati, sarà quindi possibile ridurre anche i costi relativi alla rete CDN.
 
-> [AZURE.NOTE] L'analisi delle prestazioni perimetrali è una funzionalità del livello Premium della rete CDN. Per un confronto tra le funzionalità del livello Standard e del livello Premium della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
->
-> Tutti i report usano la notazione UTC/GMT quando specificano una data/ora.
+> [AZURE.NOTE] Tutti i report usano la notazione UTC/GMT quando specificano una data/ora.
 
 ## Report e raccolta di log
 
@@ -192,4 +192,4 @@ Errori 5xx | Contiene un grafico a barre che consente di visualizzare le prime 1
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

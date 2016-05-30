@@ -72,7 +72,7 @@ Nel dispositivo può essere presente un solo account aziendale.
 
 Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un account aziendale da Android Account Manager.
 
-1. Nel menu Impostazioni passar**e ad **Account** e scegliere **Aggiungi account**.
+1. Nel menu **Impostazioni** passare ad Account e scegliere **Aggiungi account**.
 2. Seguire i passaggi 2-7 della procedura Aggiunta dell'account aziendale nella schermata** iniziale dell'app per aggiungere un account aziendale.
 
 ### Come verificare la versione installata
@@ -104,7 +104,8 @@ Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un 
 4. Fare clic su **OK** quando viene visualizzato il messaggio "Uscire dall'area di lavoro?".
 5. In questo modo si garantisce l'eliminazione dell'account aziendale dall'area di lavoro.
 
->[AZURE.NOTE> È consigliabile non usare l'opzione Rimuovi account per eliminare un account aziendale perché questa opzione potrebbe non funzionare in alcune versioni precedenti di Android.
+>[AZURE.NOTE]
+È consigliabile non usare l'opzione Rimuovi account per eliminare un account aziendale perché questa opzione potrebbe non funzionare in alcune versioni precedenti di Android.
 
 ##Disinstallazione dell'app
 
@@ -116,4 +117,4 @@ Su un dispositivo Samsung Android, è necessario rimuovere i privilegi di ammini
 
 Se viene visualizzato l'errore relativo all'**archivio delle chiavi**, la schermata di blocco potrebbe non essere configurata con un PIN. Per risolvere il problema, disinstallare l'applicazione Azure Authenticator, configurare un PIN per la schermata di blocco e reinstallare l'app.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

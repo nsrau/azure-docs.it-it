@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/18/2016" 
 	ms.author="byvinyal"/>
 
 #Panoramica approfondita dei piani di Azure App Service#
@@ -86,7 +86,7 @@ Sono disponibili tre modi per ridimensionare un piano:
 
 - Modificare il relativo **piano tariffario**. Un piano con livello **Basic**, ad esempio, può essere convertito in un livello **Standard** o **Premium** e tutte le app associate al piano potranno sfruttare le funzionalità offerte dal nuovo livello di servizio.
 - Modificare la **dimensione dell'istanza** del piano: ad esempio, un piano con livello **Basic** e istanze **piccole** può essere modificato per usare istanze **grandi**. Tutte le app associate al piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dall'istanza di dimensione maggiore.
-- Modificare il numero di **istanze del piano**. Un piano **Standard** con 3 istanze ad esempio può essere aumentato fino a 10 istanze, mentre un piano **Premium** può essere aumentato a 20 istanze. Tutte le app associate a tale piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dal numero di istanze maggiore.
+- Modificare il numero di **istanze del piano**. Ad esempio, un piano **Standard** con 3 istanze può essere aumentato fino a 10 istanze, mentre un piano **Premium** può essere aumentato a 20 istanze, a seconda della disponibilità. Tutte le app associate a tale piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dal numero di istanze maggiore.
 
 È possibile modificare le dimensioni del piano tariffario e delle istanze facendo clic sulla voce **Aumenta prestazioni** in Impostazioni per l'app o per il piano di servizio app. Le modifiche verranno applicate al **Piano di servizio app** e interessano tutte le app ospitate dal piano stesso.
  
@@ -107,4 +107,4 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

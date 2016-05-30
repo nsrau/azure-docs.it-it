@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Domande frequenti su Azure AD Connect
@@ -68,4 +68,4 @@
 
 - Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
