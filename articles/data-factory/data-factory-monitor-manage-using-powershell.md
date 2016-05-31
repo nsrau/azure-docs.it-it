@@ -139,7 +139,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 		  		}
 			}
 
-	Sostituire **servername**, **databasename**, ****username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
+	Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
 
 2.	Eseguire il comando seguente per creare un servizio collegato.
 	

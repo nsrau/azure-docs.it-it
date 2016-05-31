@@ -105,7 +105,7 @@ Per importare l'API Calcolatrice, fare clic su **API** dal menu **Gestione API**
 
 Per configurare l'API Calcolatrice, seguire questa procedura:
 
-1. Fare clic su **Da URL**, immettere ****http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e fare clic sul pulsante di opzione **Swagger**.
+1. Fare clic su **Da URL**, immettere **http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e fare clic sul pulsante di opzione **Swagger**.
 2. Digitare **calc** nella casella di testo **Suffisso URL API Web**.
 3. Fare clic sulla casella **Prodotti (facoltativo)** e scegliere **Starter**.
 4. Fare clic su **Salva** per importare l'API.

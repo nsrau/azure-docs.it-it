@@ -52,7 +52,7 @@ In entrambi i casi è possibile recuperare la stringa di connessione usando il m
 
 ### Configurare la stringa di connessione
 
-Il meccanismo di configurazione dei servizi consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito.
+Il meccanismo di configurazione dei servizi consente di modificare dinamicamente le impostazioni di configurazione dal [portale di Azure classico][] senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (**.csdef**), come illustrato di seguito.
 
 ```
 <ServiceDefinition name="Azure1">

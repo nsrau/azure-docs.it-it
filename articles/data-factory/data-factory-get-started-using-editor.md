@@ -102,7 +102,7 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 
 	![Impostazioni di SQL di Azure dell'editor][image-editor-azure-sql-settings]
 
-2. Sostituire **servername**, **databasename**, ****username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
+2. Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire AzureSqlLinkedService. 
    
 

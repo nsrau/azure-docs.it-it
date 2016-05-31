@@ -28,7 +28,7 @@ Per altri dettagli, vedere [Informazioni su Azure Active Directory](active-direc
 ## Accesso ad Azure e Azure Active Directory
 
 
-****D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure classico (https://manage.windowsazure.com)?**
+**D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure classico (https://manage.windowsazure.com)?**
 
 **A:** Per accedere al portale di Azure classico è necessario che ogni utente abbia le autorizzazioni per una sottoscrizione di Azure. Se si ha una sottoscrizione di Office 365 o Azure AD a pagamento, passare a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) per un passaggio di attivazione da eseguire una sola volta. In caso contrario, sarà necessario attivare una [versione di valutazione di Azure](https://azure.microsoft.com/pricing/free-trial/) completa o una sottoscrizione a pagamento.
 
