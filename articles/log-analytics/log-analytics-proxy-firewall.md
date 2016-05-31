@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -27,7 +27,7 @@ Per connettersi e registrarsi al servizio OMS, Microsoft Monitoring Agent deve a
 
 |**Risorsa agente**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443| 
 |*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net|Porta 443|
@@ -40,8 +40,8 @@ Per connettersi e registrarsi al servizio OMS, Microsoft Monitoring Agent deve a
 
 2. Aprire **Microsoft Monitoring Agent**.
 
-3. Fare clic sulla scheda **Impostazioni proxy**.  
-  ![Scheda Impostazioni proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+3. Fare clic sulla scheda **Impostazioni proxy**.
+![Scheda Impostazioni proxy](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Selezionare **Usa server proxy** e digitare l'URL e il numero di porta, se necessario, in modo analogo all'esempio illustrato. Se il server proxy richiede l'autenticazione, digitare il nome utente e la password per accedere al server proxy.
 
@@ -97,7 +97,7 @@ Di seguito è riportato un elenco di porte e risorse dell'agente:
 
 |**Risorsa agente**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443| 
 |*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/|Porta 443|
@@ -106,10 +106,10 @@ Di seguito è riportato un elenco di porte e risorse del server di gestione:
 
 |**Risorsa del server di gestione**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443|
-|service.systemcenteradvisor.com|Porta 443|
-|scadvisor.accesscontrol.windows.net|Porta 443|
-|scadvisorservice.accesscontrol.windows.net|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443| 
+|service.systemcenteradvisor.com|Porta 443| 
+|scadvisor.accesscontrol.windows.net|Porta 443| 
+|scadvisorservice.accesscontrol.windows.net|Porta 443| 
 |*.blob.core.windows.net|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
@@ -119,9 +119,9 @@ Di seguito è riportato un elenco di porte e risorse per la console OMS e Operat
 
 |**Risorsa per la console di OMS e Operations Manager**|**Porte**|
 |----|----|
-|*.systemcenteradvisor.com|Porte 80 e 443|
+|*.systemcenteradvisor.com|Porte 80 e 443| 
 |*.live.com|Porte 80 e 443|
-|*.microsoftonline.com|Porte 80 e 443|
+|*.microsoftonline.com|Porte 80 e 443| 
 |login.windows.net|Porte 80 e 443|
 
 
@@ -196,5 +196,4 @@ Il computer locale che esegue il ruolo di lavoro ibrido per runbook deve avere a
 - [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni) per aggiungere funzionalità e raccogliere i dati.
 - Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

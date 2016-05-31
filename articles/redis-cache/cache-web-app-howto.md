@@ -18,6 +18,13 @@
 
 # Come creare un'app Web con la cache Redis
 
+> [AZURE.SELECTOR]
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
+- [Node.JS](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 Questa esercitazione illustra come creare e distribuire un'applicazione Web ASP.NET in un'app Web nel servizio app di Azure usando Visual Studio 2015. L'applicazione di esempio mostra un elenco di statistiche del team da un database e illustra i diversi modi in cui è possibile usare la cache Redis di Azure per archiviare e recuperare i dati dalla cache. Al termine dell'esercitazione, si avrà un'app Web in esecuzione che legge e scrive in un database, ottimizzata per la cache Redis di Azure e ospitata in Azure.
 
 Si apprenderà come:
@@ -251,7 +258,7 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
 ## Configurare l'applicazione per l'uso della cache Redis
 
-In questa sezione dell'esercitazione verrà configurata l'applicazione di esempio per archiviare e recuperare le statistiche del team Contoso da un'istanza della cache Redis di Azure Redis usando il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) della cache.
+In questa sezione dell'esercitazione verrà configurata l'applicazione di esempio per archiviare e recuperare le statistiche del team Contoso da un'istanza della cache Redis di Azure usando il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) della cache.
 
 -	[Configurare l'applicazione per l'uso di StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 -	[Aggiornare la classe TeamsController per restituire risultati dalla cache o dal database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -706,7 +713,7 @@ Per visualizzare lo stato della distribuzione, fare clic sull'icona di notifica 
 
 Al termine del provisioning, è possibile pubblicare l'applicazione in Azure da Visual Studio.
 
->[AZURE.NOTE] Eventuali errori durante il processo di provisioning vengono visualizzate nel pannello **Microsoft.Template**. Gli errori comuni sono relativi a un numero eccessivo di server SQL o di piani di hosting del Servizio app gratuito per ogni sottoscrizione. Risolvere eventuali errori e riavviare il processo facendo clic su **Ridistribuisci** nel pannello **Microsoft.Template** o sul pulsante **Distribuisci in Azure** in questa esercitazione.
+>[AZURE.NOTE] Eventuali errori durante il processo di provisioning vengono visualizzati nel pannello **Microsoft.Template**. Gli errori comuni sono relativi a un numero eccessivo di server SQL o di piani di hosting del Servizio app gratuito per ogni sottoscrizione. Risolvere eventuali errori e riavviare il processo facendo clic su **Ridistribuisci** nel pannello **Microsoft.Template** o sul pulsante **Distribuisci in Azure** in questa esercitazione.
 
 ## Pubblicare l'applicazione in Azure
 
@@ -839,4 +846,4 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

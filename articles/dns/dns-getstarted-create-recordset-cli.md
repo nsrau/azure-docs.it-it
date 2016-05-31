@@ -62,8 +62,8 @@ Gli esempi seguenti illustrano come creare un set di record per ogni tipo di rec
 
 ## Passaggi successivi
 
-Per gestire i set di record e i record, vedere [Come creare e gestire record e set di record DNS con il portale di Azure](dns-operations-recordsets-portal.md).
+Per gestire i set di record e i record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando](dns-operations-recordsets-cli.md).
 
 Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

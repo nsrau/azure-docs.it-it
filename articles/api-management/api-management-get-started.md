@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/04/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Gestire la prima API in Gestione API di Azure
@@ -105,7 +105,7 @@ Per importare l'API Calcolatrice, fare clic su **API** dal menu **Gestione API**
 
 Per configurare l'API Calcolatrice, seguire questa procedura:
 
-1. Fare clic su **Da URL**, immettere ****http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e fare clic sul pulsante di opzione **Swagger**.
+1. Fare clic su **Da URL**, immettere **http://calcapi.cloudapp.net/calcapi.json** nella casella di testo **URL documento specifica** e fare clic sul pulsante di opzione **Swagger**.
 2. Digitare **calc** nella casella di testo **Suffisso URL API Web**.
 3. Fare clic sulla casella **Prodotti (facoltativo)** e scegliere **Starter**.
 4. Fare clic su **Salva** per importare l'API.
@@ -245,4 +245,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

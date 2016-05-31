@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -41,17 +41,17 @@ Un’area di lavoro è una risorsa di Azure e rappresenta un contenitore in cui 
 
 Attualmente un'area di lavoro di Log Analytics offre:
 
-- Una posizione geografica per archiviare i dati. 
-- Granularità per la fatturazione 
-- Isolamento dei dati 
+- Una posizione geografica per archiviare i dati.
+- Granularità per la fatturazione
+- Isolamento dei dati
 
 In base alle caratteristiche precedenti, si possono creare più aree di lavoro se:
 
-- Si opera in un'azienda globale ed è necessario che i dati siano archiviati in aree specifiche per motivi di loro sovranità o conformità. 
+- Si opera in un'azienda globale ed è necessario che i dati siano archiviati in aree specifiche per motivi di loro sovranità o conformità.
 - Si usa Azure e si intendono evitare costi di trasferimento dei dati in uscita tramite un'area di lavoro di Log Analytics nella stessa area delle risorse di Azure da essa gestite.
 - Si desidera allocare le spese a reparti o gruppi aziendali diversi in base all'utilizzo. Tramite la creazione di un'area di lavoro per ogni reparto o gruppo aziendale, i rendiconti sulla fatturazione e l’utilizzo di Azure presenteranno gli addebiti separatamente per ogni area di lavoro.
-- Si opera come provider di servizi gestiti e per ogni cliente gestito è necessario mantenere i dati di Log Analytics isolati da altri dati del cliente. 
-- Si gestiscono più clienti e si desidera che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non i dati di altri clienti, reparti o gruppi aziendali. 
+- Si opera come provider di servizi gestiti e per ogni cliente gestito è necessario mantenere i dati di Log Analytics isolati da altri dati del cliente.
+- Si gestiscono più clienti e si desidera che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non i dati di altri clienti, reparti o gruppi aziendali.
 
 Quando si usano agenti per la raccolta dei dati, è possibile configurare ogni agente in modo che faccia riferimento all'area di lavoro richiesta.
 
@@ -246,4 +246,4 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 - [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere i dati.
 - [Configurare le impostazioni di proxy e firewall in Log Analytics](log-analytics-proxy-firewall.md) se l'organizzazione usa un server proxy o un firewall per consentire agli agenti di comunicare con il servizio Log Analytics..
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Dopo aver distribuito l'applicazione Web, è possibile configurare test web per monitorarne la disponibilità e la velocità di risposta. Application Insights invia richieste Web a intervalli regolari da vari punti distribuiti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
@@ -258,6 +261,28 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
     Configurare il firewall per consentire le richieste dagli indirizzi IP nell'elenco riportato alla fine di questo articolo.
 
+* *Non è possibile caricare un test Web in più passi*
+
+    È previsto un limite di dimensioni pari a 300 KB.
+
+    I cicli non sono supportati.
+
+    I riferimenti ad altri test Web non sono supportati.
+
+    Le origini dati non sono supportate.
+
+    
+* *Il test in più passi non viene completato*
+
+    È previsto un limite di 100 richieste per ogni test.
+
+    Il test verrà arrestato se la durata dell'esecuzione è superiore a due minuti.
+
+* *È possibile eseguire un test con certificati client?*
+
+    Questa funzionalità non è supportata.
+
+
 ## <a name="video"></a>Video
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -396,4 +421,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

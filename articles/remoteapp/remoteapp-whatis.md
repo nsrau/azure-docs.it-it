@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/19/2016" 
+	ms.date="05/18/2016" 
 	ms.author="elizapo"/>
 
 # Informazioni su Azure RemoteApp
@@ -80,4 +80,4 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** o **Modifica** per apportare modifiche. Una volta esaminati e approvati, le modifiche e i miglioramenti suggeriti dagli utenti verranno applicati proprio qui.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

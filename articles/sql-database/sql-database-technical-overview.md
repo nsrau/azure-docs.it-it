@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="05/23/2016"
    ms.author="shkurhek"/>
 
 # Informazioni sul database SQL Introduzione al Database SQL
@@ -31,11 +31,11 @@ I database SQL sono disponibile in anteprima per i *livelli di servizio* Basic, 
 
 Per molte aziende e app, la possibilità di creare database e connettere o disconnettere prestazioni del database singolo su richiesta è sufficiente, specialmente se i modelli di utilizzo sono relativamente prevedibili. Ma se si dispone di modelli di utilizzo imprevedibili, può risultare difficile gestire i costi e il modello aziendale.
 
-I [pool elastici](sql-database-elastic-pool.md) nel database SQL consentono di risolvere questo problema. Il concetto è semplice. È possibile allocare delle prestazioni a un pool e pagare le prestazioni collettive dei pool di piuttosto che le prestazioni del database singolo. Non è necessario connettere o disconnettere le prestazioni del database. I database nel pool, chiamati *database elastici*, aumentano e diminuiscono automaticamente per soddisfare la domanda. I database elastici consumano, ma non superano i limiti del pool, pertanto il costo rimane prevedibile anche se l'utilizzo del database non lo è. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare.
+I [pool elastici](sql-database-elastic-pool.md) nel database SQL consentono di risolvere questo problema. Il concetto è semplice. È possibile allocare delle prestazioni a un pool e pagare le prestazioni collettive dei pool di piuttosto che le prestazioni del database singolo. Non è necessario connettere o disconnettere le prestazioni del database. I database nel pool, chiamati *database elastici*, aumentano e diminuiscono automaticamente per soddisfare la domanda. I database elastici consumano, ma non superano i limiti del pool, pertanto il costo rimane prevedibile anche se l'utilizzo del database non lo è. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 In qualsiasi caso-o singolo o elastico-non è vincolante. È combinare mescolare database singoli con pool di database elastici e modificare i livelli di servizio di singoli database e pool per creare progettazioni innovative. Inoltre, con la potenza e la portata di Azure, è possibile combinare e integrare i servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione di app moderne dell'azienda, promuovere l'efficienza in termini di costi e di risorse e sfruttare nuove opportunità commerciali.
 
-Ma come è possibile confrontare le prestazioni relative di database e i pool di database? Come si conosce il giusto arresto quando si connette e si disconnette? La risposta è l'unità di transazione di database (DTU) per singoli database e il valore di DTU di database elastico (eDTU) per i database elastici e i pool di database. Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
+Ma come è possibile confrontare le prestazioni relative di database e i pool di database? Come si conosce il giusto arresto quando si connette e si disconnette? La risposta è l'unità di transazione di database (DTU) per singoli database e il valore di DTU di database elastico (eDTU) per i database elastici e i pool di database. Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md).
 
 ## Mantenere l'applicazione e l’esecuzione dell’azienda
 
@@ -55,8 +55,8 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 - Vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/) per informazioni sui prezzi e per confrontare e calcolare il prezzo di un database singolo e un database elastico.
 - Informazioni sui [pool elastici](sql-database-elastic-pool.md).
 - Per iniziare, [creare il primo database](sql-database-get-started.md).
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-- Creare la prima applicazione in C#, Java, Node. js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
-- Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio di database SQL di Azure](sql-database-index-all-articles.md).
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md).
+- Creare la prima app in C#, Java, Node.js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
+- Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio database SQL di Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

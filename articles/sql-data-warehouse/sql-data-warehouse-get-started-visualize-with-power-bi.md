@@ -13,17 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/18/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualizzare i dati con Power BI
 
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure Machine Learning][]
+
+Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
 > [AZURE.NOTE] Per completare questa esercitazione, è necessario un database SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. In [Introduzione: effettuare il provisioning di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) viene illustrato come crearne uno.
 >
 > Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare i dati di esempio manualmente][].
-
-Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
@@ -85,7 +88,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 Per salvare lo stato in qualsiasi momento, fare clic su **File** e selezionare **Salva**.
 
 ## Passaggi successivi
-Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo][], [caricamento][] o [migrazione][].
+Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo][], [caricamento][] o [migrazione][]. In alternativa, vedere il [sito Web di Power BI][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,9 +109,13 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [sviluppo]: ./sql-data-warehouse-overview-develop.md
 [caricamento]: ./sql-data-warehouse-overview-load.md
 [caricare i dati di esempio manualmente]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[portale di Azure]: https://portal.azure.com/
-[Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!--Other-->
+[portale di Azure]: https://portal.azure.com/
+[sito Web di Power BI]: http://www.powerbi.com/
+
+<!---HONumber=AcomDC_0525_2016-->

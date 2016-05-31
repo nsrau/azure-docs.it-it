@@ -24,9 +24,9 @@ Docker Swarm offre un ambiente per la distribuzione di carichi di lavoro in cont
 
 Prerequisiti per gli esercizi in questo documento:
 
-[Creare un cluster Swarm nel servizio contenitore di Azure](./container-service-deployment.md)
+[Creare un cluster Swarm nel servizio contenitore di Azure](container-service-deployment.md)
 
-[Connettersi a un cluster Swarm nel servizio contenitore di Azure](./container-service-connect.md)
+[Connettersi a un cluster Swarm nel servizio contenitore di Azure](container-service-connect.md)
 
 ## Distribuire un nuovo contenitore
 
@@ -119,4 +119,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 [Altre informazioni su Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

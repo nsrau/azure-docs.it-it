@@ -21,8 +21,8 @@
 # Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio
 
 > [AZURE.SELECTOR]
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
-- [C#](sql-database-connect-query.md)
 - [Excel](sql-database-connect-excel.md)
 
 Questo articolo illustra come connettersi a un database SQL di Azure usando la versione più recente di SQL Server Management Studio (SSMS) ed eseguire una query semplice con istruzioni Transact-SQL (T-SQL).
@@ -56,7 +56,7 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 
 4. Fare clic sul pulsante **Esegui**. Nella schermata seguente viene illustrata una query con esito positivo.
 
-	![Operazione riuscita. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Completamento della procedura. Connettersi a un server di database SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Passaggi successivi
 
@@ -66,4 +66,4 @@ Se non si ha familiarità con T-SQL, vedere [Esercitazione: Scrittura di istruzi
 
 Per iniziare a creare gli utenti del database e gli amministratori degli utenti del database, vedere [Introduzione alla sicurezza del database SQL di Azure](sql-database-get-started-security.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

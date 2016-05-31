@@ -45,7 +45,7 @@ Se si vuole connettere più reti virtuali senza creare una connessione a un perc
 
 ## Prima di iniziare
 
-Prima di iniziare la configurazione, verificare di essere in possesso degli elementi seguenti.
+Prima di iniziare la configurazione, verificare la disponibilità degli elementi seguenti:
 
 - Un dispositivo VPN compatibile e un utente che può configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). Se non si ha familiarità con la configurazione del dispositivo VPN o con gli intervalli di indirizzi IP disponibili nella configurazione di rete locale, sarà necessario coordinarsi con qualcuno in grado di fornire tali dettagli.
 
@@ -56,7 +56,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
 ### <a name="values"></a>Valori di configurazione di esempio per questo esercizio
 
 
-Quando si segue questa procedura come esercizio, è possibile usare i valori della configurazione di esempio.
+Quando si segue questa procedura come esercizio, è possibile usare i valori della configurazione di esempio:
 
 - Nome della rete virtuale: TestVNet1
 - Spazio degli indirizzi: 10.11.0.0/16 e 10.12.0.0/16
@@ -158,4 +158,4 @@ Per verificare la connessione VPN è possibile usare il portale o PowerShell.
 
 - Per informazioni su BGP, vedere la [panoramica di BGP](vpn-gateway-bgp-overview.md) e l'articolo che illustra [come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->
