@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio
@@ -210,9 +210,8 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 	
 		> [AZURE.NOTE]  
 		È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se si riceve un messaggio di errore riguardante il nome della Data Factory durante la pubblicazione, è possibile modificare il nome della data factory (ad esempio, nomeutenteVSTutorialFactory) e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
-		> 
-		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
-	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
+		
+	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**.
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
 	5. Selezionare l'**area** per la data factory. 
 	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. 
@@ -220,16 +219,30 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
 
-Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+Tenere presente quanto segue:
 
-- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
+
+	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
+		È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
 	
-		Get-AzureRmResourceProvider
-- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+			Get-AzureRmResourceProvider
+	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+- 	Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+- 	Per creare istanze di Data Factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
+
+## Riepilogo
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi di alto livello eseguiti in questa esercitazione:
+
+1.	Creare un'istanza di Azure **Data Factory**.
+2.	Creare **servizi collegati**:
+	1. Un servizio collegato di **archiviazione di Azure** per collegare l'account di archiviazione di Azure che contiene i dati di input. 	
+	2. Un servizio collegato di **SQL di Azure** per collegare il database SQL di Azure che contiene i dati di output. 
+3.	Creare **set di dati** che descrivono dati di input e dati di output per le pipeline.
+4.	Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink. 
 
 
 ## Usare Esplora Server per visualizzare le data factory
@@ -248,6 +261,12 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#monitor-pipeline).
 
 ## Vedere anche
-Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate su **Attività di copia** in Azure Data Factory.
+| Argomento | Descrizione |
+| :---- | :---- |
+| [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+| [Pipeline](data-factory-create-pipelines.md) | Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
+| [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
+| [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

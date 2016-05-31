@@ -52,7 +52,7 @@ La tabella seguente descrive le caratteristiche dei livelli di servizio del pool
 
 [AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche di database singolo per il livello in questione. Ad esempio, il pool Basic ha un limite per numero massimo di sessioni per pool di 2400 – 28800, ma un singolo database all'interno di tale pool ha un limite di 300 sessioni (limite per un singolo database Basic come specificato nella sezione precedente).
+Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche di database singolo per il livello in questione. Ad esempio, il pool Basic ha un limite per numero massimo di sessioni per pool di 4800 - 28800. Un singolo database all'interno di tale pool ha un limite di 300 sessioni, ovvero il limite per un singolo database Basic come specificato nella sezione precedente.
 
 ## Informazioni sulle DTU
 
@@ -64,4 +64,4 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 - Informazioni su come [Monitorare, gestire e dimensionare un pool di database elastici](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni di database singoli](sql-database-single-database-monitor.md).
 - Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -160,12 +160,12 @@ Per questo esempio, si userà una ricerca per parola chiave. La ricerca del **Ca
 In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove nome è prodotto e tags è illustrazione o foto.
 
 1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale di **Azure Data Catalog**.
-2. Nella casella **Cerca nel catalogo dati** immettere un **Raggruppamento** come query: (tags:description OR tags:photo).
+2. Nella casella **Cerca nel catalogo dati** immettere una query **Raggruppamento**: (**tags:description OR tags:photo**).
 3. Fare clic sull'icona di ricerca o premere INVIO. Nel **Catalogo dati di Azure** vengono visualizzati gli asset di dati per questa query di ricerca.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
 
-In questo esercizio è stato usato il portale di **Azure Data Catalog** per individuare e visualizzare gli asset di dati di Adventure Works registrati con il catalogo.
+In questo esercizio è stato usato il portale di **Azure Data Catalog** per trovare e visualizzare gli asset di dati di Adventure Works registrati con il catalogo.
 
 <a name="annotating"/>
 ## Esercizio 4: annotazione delle origini dati registrate
@@ -177,7 +177,7 @@ In questo esercizio si usa il portale di **Azure Data Catalog** per annotare gli
 1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale di **Azure Data Catalog**.
 2. Fare clic su **Individua**.
 3. Scegliere uno o più **Asset di dati**. In questo esempio, scegliere **ProductPhoto** e immettere "Foto di prodotti per materiale di marketing".
-4. Immettere una **Descrizione** che consenta ad altri di individuare e comprendere perché e come usare l'asset di dati selezionato. Ad esempio, immettere "Immagini di prodotto". È inoltre possibile aggiungere ulteriori tag e visualizzare le colonne.
+4. Immettere una **Descrizione** che consenta ad altri di trovare l'asset di dati selezionato e di comprendere perché e come usarlo. Ad esempio, immettere "Immagini di prodotto". È inoltre possibile aggiungere ulteriori tag e visualizzare le colonne.
 5. Ora è possibile provare a usare la ricerca e il filtro per individuare gli asset di dati mediante i metadati descrittivi aggiunti al catalogo.
 
     ![](media/data-catalog-get-started/data-catalog-annotate.png)
@@ -262,4 +262,4 @@ In questo esercizio sono state analizzate le funzionalità di gestione di **Azur
 
 In questa esercitazione sono state analizzate le funzionalità di base di **Azure Data Catalog**, compresa la registrazione, l'annotazione, l'individuazione e la gestione di origini dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

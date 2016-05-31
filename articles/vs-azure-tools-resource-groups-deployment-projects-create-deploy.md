@@ -1,27 +1,29 @@
 <properties
-   pageTitle="Creazione e distribuzione di progetti Gruppo di risorse di Azure con Visual Studio | Microsoft Azure"
+   pageTitle="Progetti Gruppo di risorse di Azure con Visual Studio | Microsoft Azure"
    description="Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor="" />
+   manager="timlt"
+   editor="tysonn" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz" />
 
 # Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
 Con Visual Studio e [Azure SDK](https://azure.microsoft.com/downloads/) è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. In alternativa, è possibile definire una macchina virtuale, una rete virtuale e un account di archiviazione e distribuire questa infrastruttura insieme a uno script che viene eseguito nella macchina virtuale. Il progetto di distribuzione **Gruppo di risorse di Azure** consente di distribuire tutte le risorse necessarie in una singola operazione ripetibile. Per altre informazioni sulla distribuzione e sulla gestione delle risorse, vedere [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md).
 
-I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Gestione risorse di Azure, che definiscono le risorse che vengono distribuite in Azure. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Visual Studio consente di modificare questi modelli e offre strumenti utili per semplificare l'utilizzo dei modelli.
+I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Azure Resource Manager, che definiscono le risorse che vengono distribuite in Azure. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Visual Studio consente di modificare questi modelli e offre strumenti utili per semplificare l'utilizzo dei modelli.
 
 In questo argomento verrà eseguita la distribuzione di un'app Web e un database SQL. Questa procedura, tuttavia, è quasi uguale per qualsiasi tipo di risorsa. È possibile distribuire con altrettanta facilità una macchina virtuale e le rispettive risorse. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni.
+
+Questo articolo è stato scritto sulla base di Visual Studio 2015 Update 2 e di Microsoft Azure SDK per .NET 2.9. Se si usa Visual Studio 2013 con Azure SDK 2.9, l'esperienza sarà all'incirca la stessa. È anche possibile usare Azure SDK 2.6 o versione successiva, ma l'esperienza potrà essere diversa da quella illustrata in questo articolo. È consigliabile installare la versione più recente di [Azure SDK](https://azure.microsoft.com/downloads/) prima di iniziare la procedura.
 
 ## Creare un progetto Gruppo di risorse di Azure
 
@@ -29,7 +31,7 @@ In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un 
 
 1. In Visual Studio scegliere **File**, **Nuovo progetto**, scegliere **C#** o **Visual Basic**. Scegliere quindi **Cloud** e infine scegliere il progetto **Gruppo di risorse di Azure**.
 
-    ![Progetto Distribuzione cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796668.png)
+    ![Progetto Distribuzione cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
 1. Scegliere il modello da distribuire in Gestione risorse di Azure. Si noti che sono disponibili molte opzioni diverse in base al tipo di progetto da distribuire. Per questo argomento verrà scelto il modello **App Web e SQL**.
 
@@ -52,9 +54,8 @@ In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un 
     |Deploy-AzureResourceGroup.ps1|Script di PowerShell che richiama i comandi PowerShell per la distribuzione in Gestione risorse di Azure.<br />**Nota** Questo script PowerShell viene usato da Visual Studio per distribuire il modello. Eventuali modifiche apportate allo script influiranno anche sulla distribuzione in Visual Studio. Occorre quindi prestare attenzione.|
     |WebSiteSQLDatabase.json|Modello di Gestione risorse che definisce l'infrastruttura da distribuire in Azure e i parametri che possono essere specificati durante la distribuzione. Definisce anche le dipendenze tra le risorse, in modo che vengano distribuite nell'ordine corretto.|
     |WebSiteSQLDatabase.parameters.json|File di parametri contenente i valori necessari per il modello, ovvero i valori da passare per personalizzare ogni distribuzione.|
-    |AzCopy.exe|Strumento usato dallo script di PowerShell per copiare i file dal percorso di destinazione dell'archivio locale al contenitore dell'account di archiviazione. Questo strumento viene usato solo se si configura il progetto di distribuzione per distribuire il codice insieme al modello.|
 
-    Tutti i progetti di distribuzione di tipo Gruppo di risorse contengono questi quattro file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
+    Tutti i progetti di distribuzione di tipo Gruppo di risorse contengono questi file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
 
 ## Personalizzare il modello di Gestione risorse
 
@@ -82,9 +83,9 @@ Si noti che non è stata aggiunta solo la risorsa, ma anche un parametro per il 
 
 ![visualizzazione della struttura](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Il parametro **WebSitePicturesType** è preimpostato con i tipi consentiti e un tipo predefinito. È possibile usare questi valori o modificarli per il proprio scenario. Se si vuole impedire agli utenti di distribuire un account di archiviazione di tipo **Premium\_LRS** tramite questo modello, è sufficiente rimuoverlo dai tipi consentiti, come illustrato di seguito.
+Il parametro **storageType** è preimpostato con i tipi consentiti e un tipo predefinito. È possibile usare questi valori o modificarli per il proprio scenario. Se si vuole impedire agli utenti di distribuire un account di archiviazione di tipo **Premium\_LRS** tramite questo modello, è sufficiente rimuoverlo dai tipi consentiti, come illustrato di seguito.
 
-    "WebSitePicturesType": {
+    "storageType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -110,15 +111,15 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 
 È ora possibile distribuire il progetto. Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il progetto viene distribuito in un gruppo di risorse di Azure, ovvero un raggruppamento logico di risorse in Azure, ad esempio app Web, database e così via.
 
-1. Dal menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci**, **Nuova distribuzione**.
+1. Dal menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **Nuova distribuzione**.
 
-    ![Voce di menu Distribuisci, Nuova distribuzione](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796672.png)
+    ![Voce di menu Distribuisci, Nuova distribuzione](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
 
     Verrà visualizzata la finestra di dialogo **Distribuisci in gruppo di risorse**.
 
     ![Finestra di dialogo Distribuisci in gruppo di risorse](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 
-1. Nella casella di riepilogo a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella di riepilogo a discesa **Gruppo di risorse** e scegliere **<Create New...>**.
+1. Nella casella di riepilogo a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella di riepilogo a discesa **Gruppo di risorse** e scegliere **Crea nuovo**.
 
     ![Finestra di dialogo Distribuisci in gruppo di risorse](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
 
@@ -130,13 +131,13 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 
     ![Finestra di dialogo Modifica parametri](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    L'opzione **Salva password** indica che le password verranno salvate come testo normale nel file JSON. Questa opzione non è sicura.
+    L'opzione **Salva le password come testo normale nel file dei parametri** non è sicura.
 
-1. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. È possibile visualizzare lo stato di avanzamento della distribuzione nella finestra **Output**. In base alla configurazione, il completamento della distribuzione potrebbe richiedere alcuni minuti. Immettere la password dell'amministratore del database, se richiesta.
+1. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. È possibile visualizzare lo stato di avanzamento della distribuzione nella finestra **Output**. In base alla configurazione, il completamento della distribuzione potrebbe richiedere alcuni minuti. Immettere la password amministratore del database nella console PowerShell quando richiesto. Se l'avanzamento della distribuzione si è bloccato, il motivo potrebbe essere che il processo è in attesa che venga immessa la password nella console PowerShell.
 
     >[AZURE.NOTE] Potrebbe essere necessario installare i cmdlet di Azure PowerShell. Poiché questi cmdlet sono necessari per distribuire i gruppi di risorse di Azure, sarà necessario installarli.
     
-1. Al termine della distribuzione, dovrebbe essere visualizzato un messaggio simile al seguente nella finestra **Output**:
+1. Al termine della distribuzione, nella finestra **Output** verrà visualizzato un messaggio simile al seguente:
 
         ...
         15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
@@ -175,7 +176,7 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
     
     Aggiungendo un riferimento si collega il progetto di app Web al progetto di gruppo di risorse e si impostano automaticamente tre proprietà chiave.
     
-    - In **Additional Properties** è disponibile la posizione di staging del pacchetto di distribuzione Web di cui verrà eseguito il push nell'Archiviazione di Azure. 
+    - In **Additional Properties** è disponibile la posizione di staging del pacchetto di distribuzione Web di cui verrà effettuato il push in Archiviazione di Azure. 
     - In **Include File Path** è disponibile il percorso in cui verrà creato il pacchetto. In **Include Targets** è disponibile il comando che verrà eseguito dalla distribuzione. 
     - Il valore predefinito di **Build;Package** consente alla distribuzione di sviluppare e creare un pacchetto di distribuzione Web (package.zip).  
     
@@ -199,7 +200,7 @@ Al termine della distribuzione è possibile passare al sito e verificare che l'a
 
 ## Passaggi successivi
 
-- Per informazioni sulla gestione delle risorse tramite il portale, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+- Per informazioni sulla gestione delle risorse con il portale, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
 - Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

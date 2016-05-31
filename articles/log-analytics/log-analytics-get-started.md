@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/11/2016"
 	ms.author="banders"/>
 
@@ -35,7 +35,7 @@ Ecco il processo:
 - È necessaria una sottoscrizione di Microsoft Azure a pagamento per usare tutte le funzionalità di Log Analytics. Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio Azure. In alternativa, è possibile creare un account OMS gratuito sul sito Web di [Operations Management Suite](http://microsoft.com/oms) e fare clic su **Prova gratuitamente**.
 - Un'area di lavoro di OMS
 - Ogni computer Windows da cui si vuole raccogliere dati deve eseguire Windows Server 2008 SP1 o versione successiva
-- Accesso del [firewall](log-analytics-proxy-firewall) agli indirizzi del servizio Web OMS
+- Accesso del [firewall](log-analytics-proxy-firewall.md) agli indirizzi del servizio Web OMS
 - Un [server d'inoltro di Log Analytics di OMS](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (gateway) in grado di inoltrare il traffico dai server al servizio OMS se nei computer non è disponibile l'accesso a Internet
 - Se si usa Operations Manager, Log Analytics supporta Operations Manager 2012 SP1 UR6 e versioni successive e Operations Manager 2012 R2 UR2 e versioni successive. Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3. Determinare le modalità di integrazione con OMS.
 - Determinare se i computer hanno accesso diretto a Internet. In caso negativo, richiedono un server gateway per accedere ai siti del servizio Web OMS. Tutti gli accessi avvengono tramite HTTPS.
@@ -131,4 +131,4 @@ Con Operations Management Suite è possibile eseguire ricerche rapide in log di 
 - Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 - Usare i [dashboard](log-analytics-dashboards.md) per salvare e visualizzare le ricerche personalizzate.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

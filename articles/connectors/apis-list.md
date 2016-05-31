@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/29/2016"
+	ms.date="05/19/2016"
 	ms.author="deonhe"/>
 
 # Elenco di connettori gestiti
@@ -27,7 +27,7 @@ Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello d
 
 Selezionare un'icona per informazioni su come usare rapidamente i connettori per la creazione di app in grado di chiamare i servizi corrispondenti. Questi connettori possono essere usati per creare app per la logica, PowerApp e flussi.
 
-|API||||
+|Connettori||||
 |-----------|-----------|-----------|-----------|
 |[![Icona API][blobicon]<br/>**BLOB di Azure**][azureblobdoc]|[![Icona API][bingsearchicon]<br/>**Ricerca di Bing**][bingsearchdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
 |[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Icona API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icona API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icona API][githubicon]<br/>**GitHub**][githubdoc]|
@@ -35,9 +35,8 @@ Selezionare un'icona per informazioni su come usare rapidamente i connettori per
 |[![Icona API][office365icon]<br/>**Office 365**<br/>**Utenti**][office365usersdoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icona API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icona API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|
 |[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icona API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icona API][rssicon]<br/>**RSS**][rssdoc]|[![Icona API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
 |[![Icona API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icona API][servicebusicon]<br/>**Bus di servizio**][servicebusdoc]|[![Icona API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icona API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![Icona API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icona API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icona API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icona API][sqlicon]<br/>**SQL Mashup**][mashupsqldoc]|
-|[![Icona API][trelloicon]<br/>**Trello**][trellodoc]|[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icona API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icona API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icona API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icona API][trelloicon]<br/>**Trello**][trellodoc]|
+[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] Se sono state create app per la logica con lo schema 2014-12-01-preview, si noterà che i connettori di integrazione aziendale, ad esempio quelli per BizTalk, non sono elencati sopra. Siamo consapevoli dell'importanza di queste API e ci stiamo impegnando per renderle disponibili quanto prima. Anche se non sono ancora state specificate date precise per la disponibilità, si tratta di una delle nostre priorità. Nel frattempo è possibile accedere ad [API v1 e API BizTalk dalle app per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Grazie per la comprensione. Non rimane che attendere.
 
@@ -55,12 +54,9 @@ Sono disponibili due tipi di trigger:
 I connettori possono anche essere usati come azioni all'interno delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
 
 
-[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
-[Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md) 
+[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)
 
-<!--API Documentation-->
+<!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connettersi al BLOB di Azure per gestire file nel contenitore BLOB."
 [bingsearchDoc]: ./connectors-create-api-bingsearch.md "Ricerca Bing per web, immagini, notizie e video."
 [boxDoc]: ./connectors-create-api-box.md "Si connette a Box e può caricare, ottenere, eliminare ed elencare file ed eseguire altre attività sui file."
@@ -90,7 +86,6 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Inviare messaggi di posta elettronica migliori."
 [smtpdoc]: ./connectors-create-api-smtp.md "Si connette a un server SMTP e può inviare messaggi di posta elettronica con allegati."
 [sqldoc]: ./connectors-create-api-sqlazure.md "Connettersi al database di SQL Azure. È possibile creare, aggiornare, ottenere ed eliminare le voci in una tabella di database SQL."
-[mashupsqldoc]: ./connectors-create-api-mashupsql.md "Si connette a SQL. È possibile creare, aggiornare, ottenere ed eliminare le voci in una tabella di database SQL."
 [trellodoc]: ./connectors-create-api-trello.md "Trello consente di organizzare visivamente qualsiasi cosa con chiunque in modo flessibile e gratuito."
 [twiliodoc]: ./connectors-create-api-twilio.md "Si connette a Twilio e può inviare e ottenere messaggi, ottenere numeri disponibili, gestendo i numeri di telefono in ingresso e molto altro."
 [twitterdoc]: ./connectors-create-api-twitter.md "Si connette a Twitter e può ottenere le sequenze temporali, pubblicare tweet e molto altro."
@@ -124,11 +119,10 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [slackicon]: ./media/apis-list/slackicon.png
 [smtpicon]: ./media/apis-list/smtpicon.png
 [sqlicon]: ./media/apis-list/sqlicon.png
-[mashupsqlicon]: ./media/apis-list/mashupsqlicon.png
 [trelloicon]: ./media/apis-list/trelloicon.png
 [twilioicon]: ./media/apis-list/twilioicon.png
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->
