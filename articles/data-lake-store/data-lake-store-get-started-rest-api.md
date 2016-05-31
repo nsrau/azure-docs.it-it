@@ -61,7 +61,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] <REDIRECT-URI> deve essere codificato per essere usato in un URL. Quindi, per https://localhost usare `https%3A%2F%2Flocalhost`
+	>[AZURE.NOTE] \<REDIRECT-URI> deve essere codificato per essere usato in un URL. Quindi, per https://localhost usare `https%3A%2F%2Flocalhost`
 
 	Per questa esercitazione, è possibile sostituire i valori segnaposto nell'URL precedente e incollare quest'ultimo nella barra degli indirizzi di un web browser. Si verrà reindirizzati per l'autenticazione tramite l'accesso ad Azure. Dopo aver eseguito correttamente l'accesso, la risposta verrà visualizzata nella barra degli indirizzi del browser. La risposta sarà nel formato seguente:
 		
@@ -76,7 +76,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] In questo caso, <REDIRECT-URI> non deve essere codificato.
+	>[AZURE.NOTE] In questo caso, \<REDIRECT-URI> non deve essere codificato.
 
 3. La risposta è un oggetto JSON che contiene un token di accesso (ad esempio, `"access_token": "<ACCESS_TOKEN>"`) e un token di aggiornamento (ad esempio, `"refresh_token": "<REFRESH_TOKEN>"`). L'applicazione usa il token di accesso quando si accede all'Archivio Azure Data Lake e il token di aggiornamento quando un token di accesso scade per ottenerne un altro.
 
