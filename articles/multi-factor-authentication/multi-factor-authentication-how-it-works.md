@@ -66,7 +66,18 @@ App per dispositivi mobili come secondo fattore|* | * | *
 Chiamata telefonica come secondo fattore|* | * | *
 SMS come secondo fattore|* | * | *
 Password di app per i client che non supportano MFA|* | * | *
-Controllo amministrazione sui metodi di autenticazione| **| *| * Modalità PIN| | | * Avviso di illecito| | | * Report MFA| | | * Bypass monouso| | | * Messaggi di saluto personalizzati per le telefonate| | | * Personalizzazione dell'ID chiamante per le telefonate| | | * Conferma evento| | | * Indirizzi IP attendibili| | | * Sospensione MFA per dispositivi memorizzati (anteprima pubblica)| | | * SDK MFA| | | * MFA per applicazioni locali che utilizzano il server MFA| | | *
+Controllo amministrazione sui metodi di autenticazione| *| *| * 
+Modalità PIN| | | * 
+Avviso di illecito| | | * 
+Report MFA| | | * 
+Bypass monouso| | | * 
+Messaggi di saluto personalizzati per le telefonate| | | * 
+Personalizzazione dell'ID chiamante per le telefonate| | | * 
+Conferma evento| | | * 
+Indirizzi IP attendibili| | | * 
+Sospensione MFA per dispositivi memorizzati (anteprima pubblica)| | | * 
+SDK MFA| | | * 
+MFA per applicazioni locali che utilizzano il server MFA| | | *
 
 
 ##Come ottenere Azure Multi-Factor Authentication

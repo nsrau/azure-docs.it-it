@@ -366,4 +366,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
