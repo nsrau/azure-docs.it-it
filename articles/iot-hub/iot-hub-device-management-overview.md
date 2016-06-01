@@ -94,20 +94,14 @@ Per informazioni sullo stato dei processi che sono stati avviati, è possibile e
 
 ## Implementazione nel dispositivo
 
-Dopo aver descritto i concetti lato server, è ora possibile illustrare come si crea un dispositivo con funzionalità di gestione. La libreria client di Gestione dei dispositivi dell'hub IoT di Azure nel dispositivo fornisce gli elementi necessari per implementare la comunicazione tra il dispositivo e l'hub IoT.
+Dopo aver descritto i concetti lato server, è ora possibile illustrare come si crea un dispositivo fisico gestito. La libreria client di Gestione dei dispositivi dell'hub IoT di Azure consente di gestire i dispositivi IoT con l'hub IoT di Azure. "Gestire" significa anche riavviare, ripristinare le impostazioni predefinite e aggiornare il firmware. Attualmente viene fornita una libreria C indipendente dalla piattaforma, ma presto verrà aggiunto il supporto per altri linguaggi.
 
-La libreria client di Gestione dei dispositivi dell'hub IoT di Azure si basa sullo standard [LWM2M][lnk-lwm2m] e prevede un protocollo di richiesta/risposta basato su CoAP. La libreria include un modello di dispositivo di *oggetti* e *definizioni delle risorse*:
+La libreria client di Gestione dei dispositivi ha due responsabilità principali nella gestione dei dispositivi:
 
--   Gli oggetti descrivono un set di entità funzionali coerenti nel sistema, ad esempio gli aggiornamenti dei dispositivi e del firmware.
--   Le risorse descrivono attributi o azioni incluse in tali oggetti, ad esempio le informazioni sul livello della batteria e l'azione di riavvio.
+- Sincronizzare le proprietà nel dispositivo fisico con il dispositivo gemello corrispondente nell'hub IoT
+- Pianificare i processi del dispositivo inviati dall'hub IoT al dispositivo
 
-Quando si usa la libreria client di Gestione dei dispositivi dell'hub IoT di Azure, è necessario implementare i callback per le operazioni di lettura, scrittura ed esecuzione per ogni risorsa nel dispositivo fisico. La libreria gestisce l'aggiornamento asincrono dell'hub IoT quando vengono modificate le proprietà.
-
-Il diagramma seguente mostra i componenti necessari per l'agente client dell'hub IoT.
-
-![][img-client]
-
-Per altre informazioni sull'implementazione nel dispositivo fisico, vedere [Introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C][lnk-library-c].
+Per altre informazioni su queste responsabilità e sull'implementazione nel dispositivo fisico, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C][lnk-library-c].
 
 ## Passaggi successivi
 
@@ -135,4 +129,4 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

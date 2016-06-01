@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Spostare dati da e verso SQL Server | Data factory di Azure" 
-	description="Informazioni su come spostare i dati da/verso il database di SQL Server locale o in una VM di Azure utilizzando Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Spostare dati da e verso SQL Server | Data factory di Azure"
+	description="Informazioni su come spostare i dati da/verso il database di SQL Server locale o in una VM di Azure utilizzando Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/18/2016" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
 # Spostare i dati da e verso SQL Server locale o in IaaS (VM di Azure) utilizzando Data factory di Azure
@@ -36,7 +36,7 @@ L'esempio seguente mostra:
 
 1.	Un servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
 4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -71,7 +71,7 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
 
 **Set di dati input di SQL Server**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in SQL Server e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+L'esempio presuppone che sia stata creata una tabella "MyTable" in SQL Server e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale. Si noti che è possibile eseguire query su più tabelle all'interno dello stesso database usando un singolo set di dati, ma come typeProperty tableName del set di dati deve essere usata una sola tabella.
 
 Impostando "external" su "true" e specificando i criteri externalData, si comunica al servizio Data factory di Azure che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
@@ -101,7 +101,7 @@ Impostando "external" su "true" e specificando i criteri externalData, si comuni
 **Set di dati di output del BLOB di Azure**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
-	
+
 	{
 	  "name": "AzureBlobOutput",
 	  "properties": {
@@ -206,8 +206,10 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+
 Nell'esempio precedente, la proprietà **sqlReaderQuery** è specificata per SqlSource. L'attività di copia esegue questa query nell'origine del database del server SQL per ottenere i dati. In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri). Si noti che sqlReaderQuery può fare riferimento a più tabelle all'interno del database a cui fa riferimento il set di dati di input, non limitandosi solo alla tabella impostata come typeProperty tableName del set di dati.
- 
+
+
 Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query (selezionare column1, column2 da mytable) da eseguire nel database del server di SQL. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
 
 
@@ -226,7 +228,7 @@ L'esempio seguente mostra:
 L'esempio copia i dati appartenenti a una serie temporale dal BLOB di Azure a una tabella nel database di SQL Server ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 **Servizio collegato di SQL Server**
-	
+
 	{
 	  "Name": "SqlServerLinkedService",
 	  "properties": {
@@ -253,7 +255,7 @@ L'esempio copia i dati appartenenti a una serie temporale dal BLOB di Azure a un
 **Set di dati di input del BLOB di Azure**
 
 I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa parte relativa all'ora dell'ora di inizio. L'impostazione di "external" su "true" comunica al servizio Data factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
-	
+
 	{
 	  "name": "AzureBlobInput",
 	  "properties": {
@@ -316,11 +318,11 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 	    }
 	  }
 	}
-	
+
 **Set di dati output di SQL Server**
 
 L'esempio copia i dati in una tabella denominata "MyTable" in SQL Server. È necessario creare la tabella in SQL Server con lo stesso numero di colonne di quelle contenute nel file con estensione csv del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
-	
+
 	{
 	  "name": "SqlServerOutput",
 	  "properties": {
@@ -394,7 +396,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type | La proprietà type deve essere impostata su **OnPremisesSqlServer**. | Sì |
 | connectionString | Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. | Sì |
 | gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database di SQL Server locale. | Sì |
-| username | Specificare il nome utente se si usa l'autenticazione Windows. | No |
+| username | Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. | No |
 | password | Specificare la password per l'account utente specificato per il nome utente. | No |
 
 È possibile crittografare le credenziali usando il cmdlet **New-AzureRmDataFactoryEncryptValue** e usarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà **EncryptedCredential**):
@@ -404,7 +406,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ### Esempi
 
 **JSON per l'uso dell'Autenticazione di SQL**
-	
+
 	{
 	    "name": "MyOnPremisesSQLDB",
 	    "properties":
@@ -419,16 +421,16 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Se vengono specificati nome utente e password, il gateway li userà per rappresentare l'account utente specificato per la connessione al database di SQL Server locale. In caso contrario, il gateway si connetterà a SQL Server direttamente con il contesto di sicurezza del gateway (l'account di avvio).
 
-	{ 
-	     "Name": " MyOnPremisesSQLDB", 
-	     "Properties": 
-	     { 
-	         "type": "OnPremisesSqlLinkedService", 
-	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;", 
-	         "username": "<username>", 
-	         "password": "<password>", 
-	         "gatewayName": "<gateway name>" 
-	     } 
+	{
+	     "Name": " MyOnPremisesSQLDB",
+	     "Properties":
+	     {
+	         "type": "OnPremisesSqlLinkedService",
+	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+	         "username": "<domain\\username>",
+	         "password": "<password>",
+	         "gatewayName": "<gateway name>"
+	     }
 	}
 
 Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati SQL Server.
@@ -476,35 +478,35 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No | 
+| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No |
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000)
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
 | sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
 | sqlWriterStoredProcedureName | Nome della stored procedure che esegue l'upsert (aggiornamenti/inserimenti) nella tabella di destinazione. | Nome della stored procedure. | No |
-| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
+| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
 | sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
 
 ## Risoluzione dei problemi di connessione
 
 1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare clic con il pulsante destro del mouse su **server** e quindi su **Proprietà**. Selezionare **Connessioni** dall'elenco e **Consenti connessioni remote al server**.
-	
+
 	![Abilitare le connessioni remote](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
-	Per una procedura dettagliata, vedere [Configurare l'opzione di configurazione del server di accesso remoto](https://msdn.microsoft.com/library/ms191464.aspx). 
+	Per una procedura dettagliata, vedere [Configurare l'opzione di configurazione del server remote access](https://msdn.microsoft.com/library/ms191464.aspx).
 2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza desiderata e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/TP facendo clic con il pulsante destro del mouse su **TCP/IP** e scegliendo **Abilita**.
 
 	![Abilitare TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
-	Per informazioni dettagliate e modalità alternative di abilitazione del protocollo TCP/IP, vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx). 
+	Per informazioni dettagliate e modalità alternative di abilitazione del protocollo TCP/IP, vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx).
 3. Nella stessa finestra fare doppio clic su **TCP/IP** per avviare la finestra **Proprietà TCP/IP**.
 4. Passare alla scheda **Indirizzi IP**. Scorrere verso il basso per vedere la sezione **IPAll**. Annotare la **Porta TCP**, il valore predefinito è **1433**.
 5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso tramite questa porta.  
 6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per connettersi a SQL Server con un nome completo. Ad esempio: <machine>.<domain>.corp.<company>.com,1433.
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]
 	Per informazioni dettagliate, vedere [Considerazioni su porte e sicurezza](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations).
 	>   
-	> Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere [Risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+	> Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ## Colonne Identity nel database di destinazione
 In questa sezione viene fornito un esempio per la copia di dati da una tabella di origine senza una colonna identity in una tabella di destinazione con una colonna identity.
@@ -570,11 +572,11 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 	        },
 	        "external": false,
 	        "policy": {}
-	    }	
+	    }
 	}
 
 
-Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario, è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
+Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -609,8 +611,8 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | Decimale | Decimale |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| immagine | Byte | 
-| int | Int32 | 
+| immagine | Byte |
+| int | Int32 |
 | money | Decimale |
 | nchar | String, Char |
 | ntext | String, Char |
@@ -620,7 +622,7 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimale | 
+| smallmoney | Decimale |
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -638,6 +640,6 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Ottimizzazione delle prestazioni  
-Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

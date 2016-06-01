@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -24,6 +24,41 @@ Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nel
 Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
 
 Indipendentemente dalla versione di partenza dell'aggiornamento, è necessario sostituire il file `mobile-engagement-VERSION.jar` con il nuovo file.
+
+##Dalla versione 4.2.0 alla 4.2.1
+
+Questa operazione può essere svolta su qualsiasi versione dell'SDK. Si tratta di un miglioramento della protezione per l'integrazione delle attività di copertura.
+
+È ora necessario aggiungere `exported="false"` a tutte le attività di copertura.
+
+Le attività del servizio di copertura su `AndroidManifest.xml` non devono comparire come segue:
+
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/plain" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/html" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
 
 ##Dalla versione 4.0.0 alla 4.1.0
 
@@ -386,4 +421,4 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
 			}
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

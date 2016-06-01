@@ -163,9 +163,9 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sulla continuità aziendale per database SQL di Azure]: sql-database-business-continuity.md
-[finalizzazione di un database ripristinato]: sql-database-recovered-finalize.md
-[Come installare e configurare Azure PowerShell]: powershell-install-configure.md
+[panoramica sulla continuità aziendale per database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
+[finalizzazione di un database ripristinato]: ../sql-database/sql-database-recovered-finalize.md
+[Come installare e configurare Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Portale di Azure]: https://portal.azure.com/
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -53,7 +53,7 @@ JMS usa l'interfaccia JNDI (Java Naming and Directory Interface) per creare una 
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ Dove **[jndi\_name]** e **[ConnectionURL]** hanno i significati seguenti:
 Il formato di **ConnectionURL** è il seguente:
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Dove **[namespace]**, **[username]** e **[password]** hanno i significati seguenti:
+Dove **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** hanno i significati seguenti:
 
 - **[namespace]**: spazio dei nomi del bus di servizio.
-- **[username]**: nome dell'autorità emittente del bus di servizio.
-- **[password]**: formato con codifica URL della chiave dell'autorità emittente del Bus di servizio.
+- **[SASPolicyName]**: nome del criterio della firma di accesso condiviso relativa alla coda.
+- **[SASPolicyKey]**: chiave del criterio della firma di accesso condiviso relativa alla coda.
 
 > [AZURE.NOTE] è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -339,4 +339,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

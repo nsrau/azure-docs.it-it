@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
+	description="Descrive come integrare l'SDK di Azure Mobile Engagement nelle app Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Uso delle funzionalità avanzate di Azure Mobile Engagement per le app Android
+# Integrazione di Android SDK per Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Windows universale](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Informazioni su tutte le funzionalità avanzate di Azure Mobile Engagement che è possibile integrare nell'app Android.
+Questo documento descrive tutte le opzioni di configurazione e integrazione disponibili per Android SDK per Azure Mobile Engagement.
 
 ## Prerequisiti
 
@@ -53,6 +52,16 @@ Informazioni su tutte le funzionalità avanzate di Azure Mobile Engagement che �
 
 ## Note sulla versione
 
+### 4\.2.2 (05/17/2016)
+
+- Miglioramenti della stabilità.
+
+### 4\.2.1 (05/10/2016)
+
+- Sicurezza: disabilitare l'accesso al file locale di visualizzazione Web.
+- Sicurezza: rimuovere la classe `EngagementPreferenceActivity` che estende la classe `PreferenceActivity` obsoleta e non sicura.
+- Sicurezza: le attività del servizio di copertura vengono ora documentate per l'uso di `exported="false"`. Questo contrassegno può essere usato anche nelle versioni precedenti dell'SDK.
+
 ### 4\.2.0 (11/03/2016)
 
 - L'SDK ora è concesso in licenza con MIT.
@@ -64,4 +73,4 @@ Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagemen
 
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

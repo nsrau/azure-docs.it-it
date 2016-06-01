@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Supporto di più domini per la federazione con Azure AD
@@ -128,7 +128,7 @@ La proprietà IssuerUri nel dominio è stata impostata su https://bmfabrikam.com
 ##Supporto per sottodomini
 A causa della modalità di gestione dei domini in Azure AD, eventuali sottodomini aggiunti erediteranno le impostazioni del dominio padre. La proprietà IssuerUri deve quindi corrispondere a quella degli elementi padre.
 
-Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com. La proprietà IssuerUri per un utente di corp.bmcontoso.com dovrà essere ****http://bmcontoso.com/adfs/services/trust.** La regola standard implementata in precedenza per Azure AD genererà tuttavia un token con emittente ****http://corp.bmcontoso.com/adfs/services/trust.**, che non corrisponderà al valore obbligatorio del dominio. L'autenticazione non riuscirà.
+Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com. La proprietà IssuerUri per un utente di corp.bmcontoso.com dovrà essere **http://bmcontoso.com/adfs/services/trust.** La regola standard implementata in precedenza per Azure AD genererà tuttavia un token con emittente **http://corp.bmcontoso.com/adfs/services/trust.**, che non corrisponderà al valore obbligatorio del dominio. L'autenticazione non riuscirà.
 
 ### Come abilitare il supporto per sottodomini
 Per risolvere questo problema, è necessario che il trust della relying party di AD FS per Microsoft Online venga aggiornato. Per eseguire questa operazione, è necessario configurare una regola attestazioni personalizzata, in modo che vengano rimossi tutti i sottodomini dal suffisso UPN di un utente durante la creazione del valore Issuer personalizzato.
@@ -153,4 +153,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 5.	Fare clic su Ok. Fare clic su Applica. Fare clic su Ok. Chiudere Gestione ADFS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

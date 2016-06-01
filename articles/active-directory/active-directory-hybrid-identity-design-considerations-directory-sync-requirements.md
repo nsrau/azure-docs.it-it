@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti di sincronizzazione delle directory
@@ -68,4 +68,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

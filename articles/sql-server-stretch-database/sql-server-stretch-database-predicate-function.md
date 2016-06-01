@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)
@@ -24,7 +24,7 @@ Se si archiviano dati cronologici in una tabella separata, è possibile configur
 
 Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-In RC3, quando si esegue la procedura guidata Abilitare il database per l'estensione, è possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice basato sulla data nella procedura guidata. Se si vuole utilizzare un predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
+Quando si esegue la procedura guidata Abilitare il database per l'estensione, è possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice basato sulla data nella procedura guidata. Se si vuole utilizzare un predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
 
 -   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare un predicato.
 
@@ -508,4 +508,4 @@ Per controllare il predicato del filtro applicato a una tabella, aprire la vista
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

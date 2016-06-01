@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Gestire le formule dei lab di sviluppo/test per creare macchine virtuali
 
 ## Panoramica
 
-Le formule, ad esempio le [immagini personalizzate](./devtest-lab-create-template.md) e le [immagini Marketplace](./devtest-lab-configure-marketplace-images.md), offrono un meccanismo in grado di velocizzare il provisioning delle macchine virtuali. Una formula è un elenco di valori predefiniti di proprietà usata nei lab di sviluppo/test per creare macchine virtuali. Quando si crea una macchina virtuale da una formula, i valori predefiniti possono essere modificati o usati così come sono.
+Le formule, ad esempio le [immagini personalizzate](./devtest-lab-create-template.md) e le [immagini Marketplace](./devtest-lab-configure-marketplace-images.md), offrono un meccanismo in grado di velocizzare il provisioning delle macchine virtuali. Una formula è un elenco di valori predefiniti di proprietà usati nei lab di sviluppo/test per creare macchine virtuali. Quando si crea una macchina virtuale da una formula, i valori predefiniti possono essere modificati o usati così come sono.
 
 Questo articolo spiega come eseguire le attività seguenti:
 
@@ -34,13 +34,13 @@ Questo articolo spiega come eseguire le attività seguenti:
 ## Creare una nuova formula
 Tutti gli utenti con autorizzazione *Utenti* per i lab di sviluppo/test possono creare macchine virtuali in un lab usando una formula come base. È possibile creare le formule in due modi:
 
-- Da zero: usare quando si vogliono definire tutte le caratteristiche della formula da zero.
-- Da una macchina virtuale di lab già esistente: usare se si vuole creare una formula basata sulle impostazioni di una macchina virtuale esistente.
+- Da zero: quando si vogliono definire tutte le caratteristiche della formula da zero.
+- Da una macchina virtuale di lab già esistente: quando si vuole creare una formula basata sulle impostazioni di una macchina virtuale esistente.
 
 ### Creare una nuova formula da zero
 La procedura seguente consente di creare una nuova formula da zero.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -73,7 +73,7 @@ La procedura seguente consente di creare una nuova formula da zero.
 
     	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Toccare **Crea** per creare la formula. Eseguita la creazione nel portale, la formula viene indicata nel pannello **Lab formulas** (Formule del lab).
+1. Toccare **Crea** per creare la formula. Dopo che è stata creata, la formula è elencata nel pannello **Lab formulas** (Formule del lab).
 
 	![Formula appena creata](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
@@ -82,7 +82,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 
 > [AZURE.NOTE] Solo le macchine virtuali create dopo il 30 marzo 2016 supportano la creazione di una nuova formula da una macchina virtuale di lab.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -94,16 +94,16 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 
 1. Nel pannello **Impostazioni** della macchina virtuale toccare **Crea formula**.
 
-	![Crea formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
+	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. Nel pannello **Crea formula** immettere un **nome** e una **descrizione** per la nuova formula e toccare **OK**. Eseguita la creazione nel portale, la formula viene indicata nel pannello **Lab formulas** (Formule del lab).
+1. Nel pannello **Crea formula** immettere un **nome** e una **descrizione** per la nuova formula e toccare **OK**. Dopo che è stata creata, la formula è elencata nel pannello **Lab formulas** (Formule del lab).
 
 	![Pannello Crea formula](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
 ## Modificare una formula
 Per modificare una formula, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -120,7 +120,7 @@ Per modificare una formula, seguire questa procedura:
 ## Eliminare una formula 
 Per eliminare una formula, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -143,6 +143,6 @@ Per eliminare una formula, seguire questa procedura:
     ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 ## Passaggi successivi
-Dopo aver aggiunto una formula da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab di sviluppo/test](./devtest-lab-add-vm-with-artifacts.md).
+Dopo aver aggiunto una formula da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Report HTTP avanzati nella rete CDN di Microsoft Azure
@@ -22,7 +22,7 @@
 
 Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN.
 
-> [AZURE.NOTE] I report HTTP avanzati sono una funzionalità del piano Premium per la rete CDN. Per un confronto tra le funzionalità del livello Standard e del livello Premium della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Accesso ai report HTTP avanzati
 
@@ -196,4 +196,4 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Analizzare le prestazioni perimetrali](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -70,7 +70,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
 	Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica modello contenente l'elemento item.text.
 
 2. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
-
-<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # Azure Resource Manager SDK per .Net  
@@ -28,7 +28,7 @@ Questa documentazione, anche se non ha lo scopo di descrivere tutti gli aspetti 
 Un progetto di esempio completo, da cui sono tratti tutti i frammenti di codice usati in questo articolo, è scaricabile da [qui](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net).
 
 ## Autenticazione
-L'autenticazione per ARM viene gestita da Azure Active Directory (AD). Per connettersi a un'API, prima di tutto è necessario eseguire l'autenticazione con Azure AD per ricevere un token di autenticazione che è possibile passare a ogni richiesta. Per ottenere questo token, prima è necessario creare una cosiddetta applicazione Azure AD e un'entità servizio che verrà usata per l'accesso. Per istruzioni dettagliate, vedere [Creare un'applicazione e un'entità servizio di Azure AD](./resource-group-create-service-principal-portal.md).
+L'autenticazione per ARM viene gestita da Azure Active Directory (AD). Per connettersi a un'API, prima di tutto è necessario eseguire l'autenticazione con Azure AD per ricevere un token di autenticazione che è possibile passare a ogni richiesta. Per ottenere questo token, prima è necessario creare una cosiddetta applicazione Azure AD e un'entità servizio che verrà usata per l'accesso. Per istruzioni dettagliate vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](resource-group-create-service-principal-portal.md).
 
 Dopo avere creato l'entità servizio, sono necessari:
 * ID client (GUID)
@@ -274,7 +274,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Uso di una distribuzione basata su modelli
-Per istruzioni dettagliate su come distribuire un modello, leggere e seguire l'esercitazione [Distribuire le risorse di Azure usando le librerie .NET e un modello](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests).
+Per istruzioni dettagliate per la distribuzione di un modello leggere ed eseguire l'esercitazione [Distribuire le risorse di Azure usando le librerie .NET e un modello](./virtual-machines/virtual-machines-windows-csharp-template.md).
 
 In breve, distribuire un modello è molto più facile che effettuare il provisioning manuale delle risorse e il codice seguente illustra come farlo puntando agli URI in cui si trovano il modello e un file dei parametri.
 
@@ -298,4 +298,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Linee guida di partizionamento di dati
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 
@@ -564,4 +564,4 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Che cos'è la Ricerca di Azure?]: search/search-what-is-azure-search.md
 [Informazioni sul database SQL]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

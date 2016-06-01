@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="markusvi"/>
 
 
@@ -150,7 +150,7 @@ Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle pr
 
 1. L'oggetto User con una configurazione di attributi specifica continua a ricevere errori di esportazione invece di inserire gli attributi in quarantena. ad esempio:
 
-    a. Un nuovo utente viene creato in Active Directory con UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
+    a. Viene creato un nuovo utente in Active Directory con UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
 
     b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, in cui ProxyAddress è **SMTP:Joe@contoso.com**.
 
@@ -200,4 +200,4 @@ Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle pr
 
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

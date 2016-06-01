@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 
@@ -60,4 +60,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

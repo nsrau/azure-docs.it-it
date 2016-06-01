@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="05/03/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -37,12 +37,15 @@ Se l'asset di output è protetto con crittografia di archiviazione, è necessari
 
 Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-###Metadati di input e output MES
+###Metadati di input e output
 
-I metadati di input dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Quando si codifica un asset di input (o asset) tramite MES, al completamento dell'attività di codifica si ottiene un asset di output. L'asset di output contiene video, audio, anteprime, manifesto e così via a seconda del set di impostazioni di codifica che si usa.
 
-I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: <asset_id>\_metadata.xml (ad esempio 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), dove <asset_id> è il valore AssetId dell'asset di input. Lo schema del file XML dei metadati di input viene descritto [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
+L'asset di output include anche un file contenente i metadati dell'asset di output. Il nome del file XML dei metadati ha il seguente formato: <source_file_name>\_manifest.xml (ad esempio BigBuckBunny\_manifest.xml). Lo schema del file XML dei metadati di output viene descritto [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+
+Se si desidera esaminare uno dei due file di metadati, è possibile creare un localizzatore SAS e scaricare il file nel computer locale. È possibile trovare un esempio su come creare un localizzatore SAS e scaricare un file tramite le estensioni dell'SDK .NET di Servizi multimediali.
 
 ##Scaricare un esempio
 
@@ -147,4 +150,4 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 [Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

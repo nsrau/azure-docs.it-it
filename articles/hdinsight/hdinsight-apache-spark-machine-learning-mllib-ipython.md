@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -170,7 +170,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 1. Ora si determinerà il contenuto del set di dati. Ad esempio, quali sono i diversi valori della colona **results**?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	Verrà visualizzato un output simile al seguente:
@@ -412,4 +412,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

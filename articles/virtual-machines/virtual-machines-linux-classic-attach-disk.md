@@ -19,26 +19,21 @@
 
 # Come collegare un disco dati a una macchina virtuale Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. Vedere come [aggiungere un disco dati tramite il modello di distribuzione Resource Manager](virtual-machines-linux-add-disk.md).
 
-
-È possibile collegare sia dischi vuoti sia dischi contenenti dati. I dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Dopo aver collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
+È possibile collegare sia dischi vuoti sia dischi contenenti dati alle VM di Azure. In entrambi i casi i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Come con l'aggiunta di un disco a un computer Linux, dopo aver collegato il disco, sarà necessario inizializzarlo e formattarlo affinché sia pronto per l'uso. Questo articolo illustra in dettaglio come collegare sia i dischi vuoti sia i dischi contenenti dati alle VM e come inizializzare e formattare successivamente un nuovo disco.
 
 > [AZURE.NOTE] È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati persistenti.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso sarà necessario suddividere in partizioni, formattare e montare tale risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
-## Procedura: Inizializzare un nuovo disco dati in Linux
+## Inizializzare un nuovo disco dati in Linux
 
-È possibile usare le stesse istruzioni per inizializzare più dischi di dati con l'identificatore di dispositivo corretto come illustrato di seguito.
-
-1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Linux][Logon].
-
-
+1. Stabilire una connessione SSH alla VM. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Linux][Logon].
 
 2. In seguito è necessario trovare l'identificatore del dispositivo per inizializzare il disco dati. A questo scopo è possibile procedere in due modi:
 
-	a) Nella finestra di SSH digitare il comando seguente:
+	a) Grep per dispositivi SCSI nei log, come nel comando seguente:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -46,37 +41,34 @@
 
 	L'identificatore dell'ultimo disco dati aggiunto verrà indicato nei messaggi visualizzati.
 
-	![Visualizzare i messaggi relativi al disco](./media/virtual-machines-linux-classic-attach-disk/DiskMessages.png)
+	![Visualizzare i messaggi relativi al disco](./media/virtual-machines-linux-classic-attach-disk/scsidisklog.png)
 
 	OPPURE
 
 	b) Usare il comando `lsscsi` per trovare l'ID dispositivo. `lsscsi` può essere installato da `yum install lsscsi` (su distribuzioni basate su Red Hat) o `apt-get install lsscsi` (su distribuzioni basate su Debian). È possibile trovare il disco che si sta cercando in base al relativo _LUN_ o **numero di unità logica**. Ad esempio, il _LUN_ per i dischi collegati può essere facilmente trovato in `azure vm disk list <virtual-machine>` come:
 
-			~$ azure vm disk list ubuntuVMasm
+			~$ azure vm disk list TestVM
 			info:    Executing command vm disk list
 			+ Fetching disk images
 			+ Getting virtual machines
 			+ Getting VM disks
 			data:    Lun  Size(GB)  Blob-Name                         OS
 			data:    ---  --------  --------------------------------  -----
-			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
-			data:    1    10        test.VHD
-			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			data:         30        TestVM-2645b8030676c8f8.vhd  Linux
+			data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
 			info:    vm disk list command OK
 
 	Confrontare questo esempio con l'output di `lsscsi` per la stessa macchina virtuale di esempio:
 
-			adminuser@ubuntuVMasm:~$ lsscsi
+			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
 			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
 			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
 			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
-			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
-			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
 
 	L'ultimo numero della tupla in ogni riga è il _lun_. Per altre informazioni, vedere `man lsscsi`.
 
-3. Nella finestra di SSH digitare il comando seguente per creare un nuovo dispositivo:
+3. Al prompt dei comandi, digitare il comando seguente per creare un nuovo dispositivo:
 
 		$sudo fdisk /dev/sdc
 
@@ -84,46 +76,48 @@
 4. Quando richiesto, digitare **n** per creare una nuova partizione.
 
 
-	![Creare un nuovo dispositivo](./media/virtual-machines-linux-classic-attach-disk/DiskPartition.png)
+	![Creare un nuovo dispositivo](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 5. Quando richiesto, digitare **p** per impostare la partizione come primaria, digitare **1** per impostarla come prima partizione e quindi premere INVIO per accettare il valore predefinito per il cilindro. In alcuni sistemi, è possibile visualizzare i valori predefiniti del primo e dell'ultimo settore e non del cilindro. È possibile scegliere di accettare questi valori predefiniti.
 
 
-	![Creare la partizione](./media/virtual-machines-linux-classic-attach-disk/DiskCylinder.png)
+	![Creare la partizione](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 
 
 6. Digitare **p** per visualizzare i dettagli relativi al disco da suddividere in partizioni.
 
 
-	![Visualizzare le informazioni sul disco](./media/virtual-machines-linux-classic-attach-disk/DiskInfo.png)
+	![Visualizzare le informazioni sul disco](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 
 
 7. Digitare **w** per scrivere le impostazioni per il disco.
 
 
-	![Scrivere le modifiche sul disco](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
+	![Scrivere le modifiche sul disco](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
 
-8. Creare il file system nella nuova partizione. Aggiungere il numero della partizione (1) all'id del dispositivo. Ad esempio, per creare una partizione ext4 in /dev/sdc1:
+8. È ora possibile creare il file system nella nuova partizione. Aggiungere il numero della partizione all'ID del dispositivo (nell'esempio seguente `/dev/sdc1`). Nell'esempio seguente viene creata una partizione ext4 in /dev/sdc1:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
-	![Creare il file system](./media/virtual-machines-linux-classic-attach-disk/DiskFileSystem.png)
+	![Creare il file system](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
 
 	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso di sola lettura ai file system ext4. Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
 
 
-9. Creare una directory per il montaggio del nuovo file system. Ad esempio, digitare il comando seguente:
+9. Creare una directory per il montaggio del nuovo file system nel modo seguente:
 
 		# sudo mkdir /datadrive
 
 
-10. Digitare il comando seguente per montare l'unità:
+10. È infine possibile montare l'unità, come indicato di seguito:
 
 		# sudo mount /dev/sdc1 /datadrive
 
 	Il disco dati è ora pronto per l'uso come **/datadrive**.
+	
+	![Creare la directory e montare il disco](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
 
 
 11. Aggiungere la nuova unità a /etc/fstab:
@@ -149,7 +143,7 @@
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
-	Oppure, su sistemi basati su SUSE Linux potrebbe essere necessario usare un formato leggermente diverso:
+	In alternativa, su sistemi basati su SUSE Linux, potrebbe essere necessario usare un formato leggermente diverso:
 
 		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
@@ -177,4 +171,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

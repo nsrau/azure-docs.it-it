@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Come disinstallare lo strumento processo di database elastico" 
-	description="Come disinstallare lo strumento processo di database elastico" 
+	pageTitle="Come disinstallare lo strumento processi di database elastico" 
+	description="Come disinstallare lo strumento processi di database elastico" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/17/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Disinstallare i componenti dei processi di database elastici
@@ -62,4 +62,6 @@ Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramic
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

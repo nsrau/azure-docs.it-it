@@ -504,7 +504,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione relativa alla [configurazione del servizio app per usare l'account di accesso di Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile, ma non obbligatorio, che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altri dettagli, vedere il [progetto di avvio rapido iOS per ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile, ma non obbligatorio, che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altri dettagli, vedere il [progetto di avvio rapido iOS per ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
 2. Installare ADAL usando Cocoapods. Modificare il podfile includendo quanto segue e sostituendo **YOUR-PROJECT** con il nome del progetto Xcode:
 
@@ -565,8 +565,8 @@ e il Pod:
 **Swift**:
 
 	// add the following imports to your bridging header:
-	//     #import <ADALiOS/ADAuthenticationContext.h>
-	//     #import <ADALiOS/ADAuthenticationSettings.h>
+	//		#import <ADALiOS/ADAuthenticationContext.h>
+	//		#import <ADALiOS/ADAuthenticationSettings.h>
 
 	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
 		let authority = "INSERT-AUTHORITY-HERE"
@@ -588,6 +588,158 @@ e il Pod:
     		}
 	}
 
+
+## <a name="facebook-sdk"></a>Procedura: Autenticare gli utenti con Facebook SDK for iOS
+
+È possibile usare Facebook SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite Facebook. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Facebook seguendo l'esercitazione [Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook](app-service-mobile-how-to-configure-facebook-authentication.md).
+
+2. Installare Facebook SDK for iOS secondo le indicazioni della documentazione [Facebook SDK for iOS - Getting Started](https://developers.facebook.com/docs/ios/getting-started) (Facebook SDK for iOS: guida introduttiva). Anziché creare una nuova app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente.
+
+    La documentazione di Facebook include codice Objective-C nel delegato dell'app. Se si usa **Swift**, è possibile usare le seguenti traduzioni per AppDelegate.swift:
+  
+		// Add the following import to your bridging header:
+		//		#import <FBSDKCoreKit/FBSDKCoreKit.h>
+		
+		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+			FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+			// Add any custom logic here.
+			return true
+		}
+
+		func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+			let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+			// Add any custom logic here.
+			return handled
+		}
+
+3. Oltre ad aggiungere `FBSDKCoreKit.framework` al progetto, aggiungere nello stesso modo anche un riferimento a `FBSDKLoginKit.framework`.
+
+4. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato.
+
+**Objective-C**:
+
+	#import <FBSDKLoginKit/FBSDKLoginKit.h>
+	#import <FBSDKCoreKit/FBSDKAccessToken.h>
+	// ...
+	- (void) authenticate:(UIViewController*) parent
+	           completion:(void (^) (MSUser*, NSError*)) completionBlock;
+	{	    
+	    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+	    [loginManager
+	     logInWithReadPermissions: @[@"public_profile"]
+	     fromViewController:parent
+	     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+	         if (error) {
+	             completionBlock(nil, error);
+	         } else if (result.isCancelled) {
+	             completionBlock(nil, error);
+	         } else {
+	             NSDictionary *payload = @{
+	                                       @"access_token":result.token.tokenString
+	                                       };
+	             [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
+	         }
+	     }];
+	}
+
+
+**Swift**:
+
+	// Add the following imports to your bridging header:
+	//		#import <FBSDKLoginKit/FBSDKLoginKit.h>
+	//		#import <FBSDKCoreKit/FBSDKAccessToken.h>
+	
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let loginManager = FBSDKLoginManager()
+		loginManager.logInWithReadPermissions(["public_profile"], fromViewController: parent) { (result, error) in
+			if (error != nil) {
+				completion(nil, error)
+			}
+			else if result.isCancelled {
+				completion(nil, error)
+			}
+			else {
+				let payload: [String: String] = ["access_token": result.token.tokenString]
+				client.loginWithProvider("facebook", token: payload, completion: completion)
+			}
+		}
+	}
+
+## <a name="twitter-fabric"></a>Procedura: Autenticare gli utenti con Twitter Fabric for iOS
+
+È possibile usare Fabric for iOS per consentire l'accesso degli utenti all'applicazione tramite Twitter. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Twitter seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
+
+2. Aggiungere Fabric al progetto seguendo le indicazioni della documentazione [Fabric for iOS - Getting Started](https://docs.fabric.io/ios/fabric/getting-started.html) (Fabric for iOS: guida introduttiva) e configurando TwitterKit.
+
+    > [AZURE.NOTE] Per impostazione predefinita, Fabric creerà automaticamente una nuova applicazione Twitter. È possibile modificare questa applicazione registrando la chiave utente e il segreto utente creati in precedenza tramite i frammenti di codice riportati di seguito. In alternativa, è possibile sostituire i valori relativi alla chiave utente e al segreto utente forniti al servizio app con i valori visualizzati nel [dashboard di Fabric](https://www.fabric.io/home). Se si sceglie questa opzione, assicurarsi di impostare l'URL di callback su un valore segnaposto, ad esempio `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+
+	Se si sceglie di usare i segreti creati in precedenza, aggiungere quanto segue al delegato dell'app:
+	
+	**Objective-C**:
+
+		#import <Fabric/Fabric.h>
+		#import <TwitterKit/TwitterKit.h>
+		// ...
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		    [[Twitter sharedInstance] startWithConsumerKey:@"your_key" consumerSecret:@"your_secret"];
+		    [Fabric with:@[[Twitter class]]];
+			// Add any custom logic here.
+		    return YES;
+		}
+		
+	**Swift**:
+	
+		import Fabric
+		import TwitterKit
+		// ...
+		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+			Twitter.sharedInstance().startWithConsumerKey("your_key", consumerSecret: "your_secret")
+			Fabric.with([Twitter.self])
+			// Add any custom logic here.
+			return true
+		}
+	
+3. Aggiungere il codice seguente all'applicazione, in base al linguaggio usato.
+
+**Objective-C**:
+
+	#import <TwitterKit/TwitterKit.h>
+	// ...
+	- (void)authenticate:(UIViewController*)parent completion:(void (^) (MSUser*, NSError*))completionBlock
+	{
+		[[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+			if (session) {
+				NSDictionary *payload = @{
+											@"access_token":session.authToken,
+											@"access_token_secret":session.authTokenSecret
+										};
+				[client loginWithProvider:@"twitter" token:payload completion:completionBlock];
+			} else {
+				completionBlock(nil, error);
+			}
+	    }];
+	}
+
+**Swift**:
+
+	import TwitterKit
+	// ...
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let client = self.table!.client
+		Twitter.sharedInstance().logInWithCompletion { session, error in
+			if (session != nil) {
+				let payload: [String: String] = ["access_token": session!.authToken, "access_token_secret": session!.authTokenSecret]
+				client.loginWithProvider("twitter", token: payload, completion: completion)
+			} else {
+				completion(nil, error)
+			}
+		}
+	}
 
 <!-- Anchors. -->
 
@@ -640,4 +792,4 @@ e il Pod:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

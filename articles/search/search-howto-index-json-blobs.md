@@ -49,7 +49,7 @@ Se necessario, usare i **mapping dei campi** per recuperare le proprietà del do
 
 ## Uso dei mapping dei campi per creare documenti di ricerca 
 
-Ricerca di Azure non può attualmente indicizzare direttamente documenti JSON arbitrari, perché supporta solo tipi di dati primitivi, matrici di stringhe e punti GeoJSON. È tuttavia possibile usare i **mapping dei campi** per selezionare parti del documento JSON e "portarle" nei campi di livello superiore del documento di ricerca. Per informazioni sui concetti di base relativi ai mapping dei campi, vedere [Personalizzazione dell'indicizzatore di Ricerca di Azure](search-indexers-customization.md).
+Ricerca di Azure non può attualmente indicizzare direttamente documenti JSON arbitrari, perché supporta solo tipi di dati primitivi, matrici di stringhe e punti GeoJSON. È tuttavia possibile usare i **mapping dei campi** per selezionare parti del documento JSON e "portarle" nei campi di livello superiore del documento di ricerca. Per informazioni sugli elementi fondamentali del mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
 
 Tornando all'esempio di documento JSON:
 
@@ -127,4 +127,4 @@ Indicizzatore:
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

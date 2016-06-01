@@ -80,21 +80,28 @@ Per le macchine virtuali classiche di Azure Resource Manager, usare l'esempio di
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-Quando si esegue la configurazione tramite PowerShell, è necessario specificare l'ID e la chiave primaria dell'area di lavoro, che sono riportati nella pagina **Impostazioni** del portale di OMS.
+Quando si esegue la configurazione tramite PowerShell, è necessario specificare l'ID e la chiave primaria dell'area di lavoro, che sono riportati nella pagina **Impostazioni** del portale di OMS o sono reperibili mediante PowerShell come mostrato nell'esempio sopra.
 
 ![ID area di lavoro e chiave primaria](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -130,12 +137,15 @@ Syslog|Eventi inviati ai daemon Syslog o Rsyslog
 Attualmente, OMS consente di analizzare:
 
 - Log di IIS da macchine virtuali e ruoli Web
-- Log di eventi di Windows da ruoli Web, ruoli di lavoro e macchine virtuali di Azure in esecuzione un sistema operativo Windows
+- Log di eventi di Windows e log ETW da ruoli Web, ruoli di lavoro e macchine virtuali di Azure in esecuzione in un sistema operativo Windows
 - Syslog da macchine virtuali di Azure che eseguono un sistema operativo Linux
+- Diagnostica scritta nell'archiviazione BLOB in formato json per il gruppo di sicurezza di rete, il gateway applicazione e le risorse KeyVault
 
 I log devono trovarsi nei percorsi seguenti:
 
 - WADWindowsEventLogsTable (Archiviazione tabelle) – Contiene le informazioni dei registri eventi di Windows.
+- WADETWEventTable (archiviazione tabelle) – Contiene informazioni dei registri ETW di Windows.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable (archiviazione tabelle) – Contiene informazioni sugli eventi operativi Service Fabric, di attore e di servizio.
 - wad-iis-logfiles (Archivio BLOB) – Contiene informazioni sui log IIS.
 - LinuxsyslogVer2v0 (Archiviazione tabelle) – Contiene eventi syslog di Linux.
 
@@ -143,7 +153,7 @@ I log devono trovarsi nei percorsi seguenti:
 
 Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare la raccolta di informazioni aggiuntive. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
 
-È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in OMS nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in OMS nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Abilitare Diagnostica di Azure in un ruolo Web per la raccolta di eventi e log IIS
 
@@ -157,7 +167,7 @@ Con Diagnostica di Azure abilitata:
 
 ### Per abilitare la diagnostica
 
-Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare Diagnostica di Azure usando il file di configurazione XML (diagnostics.wadcfg), come illustrato nel [passaggio relativo all'aggiunta del file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e nel [passaggio relativo alla configurazione della diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell'articolo relativo all'abilitazione di Diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
+Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare Diagnostica di Azure usando il file di configurazione XML (diagnostics.wadcfg), come illustrato nel [passaggio 2, relativo all'aggiunta del file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2), e nel [passaggio 3, relativo alla configurazione della diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell'articolo relativo all'abilitazione di Diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -261,6 +271,6 @@ Entro un'ora circa i dati dell'account di archiviazione inizieranno a essere dis
 
 ## Passaggi successivi
 
-- [Configurare le impostazioni del proxy e del firewall in Log Analytics](log-analytics-proxy-firewall.md) se l'organizzazione usa un server proxy o un firewall in modo che gli agenti possano comunicare con il servizio Log Analytics.
+- [Configurare le impostazioni di proxy e firewall in Log Analytics](log-analytics-proxy-firewall.md) se l'organizzazione usa un server proxy o un firewall per consentire agli agenti di comunicare con il servizio Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

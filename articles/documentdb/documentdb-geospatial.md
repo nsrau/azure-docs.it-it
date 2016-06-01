@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/16/2016" 
     ms.author="arramac"/>
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
@@ -181,7 +181,7 @@ Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "quer
 
 ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
-Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote. Controllare i [limiti di DocumentDB](documentdb-limits.md) per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
+Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote.
 
 **Query**
 
@@ -346,4 +346,4 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

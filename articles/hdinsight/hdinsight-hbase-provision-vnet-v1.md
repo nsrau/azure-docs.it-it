@@ -21,9 +21,11 @@
 
 Questo articolo illustra come creare cluster HBase di Azure HDInsight in [Rete virtuale di Azure][1].
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Provisioning di cluster HBase nella rete virtuale di Azure](hdinsight-hbase-provision-vnet.md)
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure classico. Per la creazione di nuovi servizi, Microsoft non consiglia di usare il portale classico. Per una spiegazione dei vantaggi del portale di Azure, vedere [Portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Questo documento include anche informazioni sull'uso di Azure PowerShell. I frammenti di codice indicati si basano su comandi che usano Azure Service Management (ASM) per lavorare con HDInsight e sono __deprecati__. e verranno rimossi dall'1 gennaio 2017.
+>
+>Per una versione di questo documento che usa il portale di Azure insieme a frammenti di codice di PowerShell che impiegano Azure Resource Manager (ARM), vedere le informazioni su come [eseguire il provisioning di cluster HBase in Rete virtuale di Azure](hdinsight-hbase-provision-vnet.md).
 
 Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase. Questo approccio offre i vantaggi seguenti:
 
@@ -434,4 +436,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Dettagli di provisioning per il nuovo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

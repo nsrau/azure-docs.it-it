@@ -217,7 +217,6 @@ linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in 
 
 [adfgetstarted]: data-factory-get-started.md
 [adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
-[adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -229,4 +228,4 @@ linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in 
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

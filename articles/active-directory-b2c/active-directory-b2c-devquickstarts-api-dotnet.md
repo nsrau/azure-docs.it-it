@@ -53,13 +53,15 @@ Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
 ## Scaricare il codice
 
-Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto struttura come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+Il codice per questa esercitazione [è salvato su GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto struttura come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, aprire il file SLN di Visual Studio per iniziare. Il file della soluzione contiene due progetti: `TaskWebApp` e `TaskService`. `TaskWebApp` è un'applicazione Web MVC con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app in cui sono archiviati gli elenchi attività di ogni utente.
 
@@ -87,7 +89,7 @@ Quando l'utente interagisce con `TaskWebApp`, il client invia richieste ad Azure
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Sono anche presenti due elementi `[PolicyAuthorize]` decorator per cui è necessario specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando un utente prova ad accedere a una pagina dell'app che richiede l'autenticazione.
+Sono anche presenti due elementi Decorator `[PolicyAuthorize]` per cui è necessario specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando un utente prova ad accedere a una pagina dell'app che richiede l'autenticazione.
 
 ```C#
 // Controllers\HomeController.cs
@@ -105,7 +107,7 @@ public class TasksController : Controller
 {
 ```
 
-Per informazioni su come un'app Web come `TaskWebApp` usa AD B2C Azure, vedere [Compilare un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Per informazioni sul modo in cui un'app Web come `TaskWebApp` usa AD B2C Azure, vedere [Compilare un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Proteggere l'API
 
@@ -137,7 +139,7 @@ Aprire il file `web.config` nella radice del progetto `TaskService` e sostituire
 ```
 
 ### Aggiungere una classe di avvio OWIN
-Aggiungere al progetto `TaskService` una classe di avvio OWIN denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto, selezionare **Aggiungi**, **Nuovo elemento** e quindi cercare OWIN.
+Aggiungere al progetto `TaskService` una classe di avvio OWIN denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi**, **Nuovo elemento** e quindi cercare OWIN.
 
 
 ```C#
@@ -215,14 +217,14 @@ public IEnumerable<Models.Task> Get()
 
 ## Eseguire l'app di esempio
 
-Infine, compilare ed eseguire sia `TaskWebApp` che `TaskService`. Effettuare l'iscrizione all'app usando un indirizzo di posta elettronica o un nome utente. Creare alcune attività nell'elenco attività dell'utente e osservarne la persistenza nell'API anche dopo l'arresto e il riavvio del client.
+Infine compilare ed eseguire `TaskWebApp` e `TaskService`. Effettuare l'iscrizione all'app usando un indirizzo di posta elettronica o un nome utente. Creare alcune attività nell'elenco attività dell'utente e osservarne la persistenza nell'API anche dopo l'arresto e il riavvio del client.
 
 ## Modificare i criteri
 
-Dopo aver protetto l'API con Azure AD B2C, è possibile provare i criteri dell'app e visualizzarne gli effetti o l'assenza di effetti nell'API. È possibile modificare le attestazioni dell'applicazione nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni aggiunte saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
+Dopo aver protetto l'API con Azure AD B2C, è possibile provare i criteri dell'app e visualizzarne gli effetti o l'assenza di effetti nell'API. È possibile 
 <!--add **identity providers** 
 to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->
+-->modificare le attestazioni dell'applicazione nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni aggiunte saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
 
 <!--
 
@@ -236,4 +238,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

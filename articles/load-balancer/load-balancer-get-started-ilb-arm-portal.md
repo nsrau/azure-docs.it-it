@@ -56,7 +56,7 @@ Configurare un pool back-end:
 
 1. Nel portale di Azure fare clic su **Sfoglia** > **Bilanciamenti del carico**, quindi fare clic sul servizio di bilanciamento del carico creato in precedenza.
 2. Nel pannello **Impostazioni** fare clic su **Pool back-end**. 
-3. Nel pannello **Probe** fare clic su **Aggiungi**.
+3. Nel pannello **Pool di indirizzi back-end** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi pool back-end** digitare un **Nome** per il pool back-end e quindi fare clic su **OK**.
 
 ### Passaggio 2 
@@ -65,7 +65,7 @@ Configurare un probe:
  
 1. Nel portale di Azure fare clic su **Sfoglia** > **Bilanciamenti del carico**, quindi fare clic sul servizio di bilanciamento del carico creato in precedenza.
 2. Nel pannello **Impostazioni** fare clic su **Probe**. 
-3. Nel pannello **Pool di indirizzi back-end** fare clic su **Aggiungi**.
+3. Nel pannello **Probe** fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi probe** digitare un **Nome** per il probe.
 5. In **Protocollo** selezionare **HTTP** (per i siti Web) o **TCP** (per le altre applicazioni basate su TCP).
 6. In **Porta** specificare la porta da usare per accedere al probe.
@@ -97,4 +97,4 @@ Configurare le regole del servizio di bilanciamento del carico:
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

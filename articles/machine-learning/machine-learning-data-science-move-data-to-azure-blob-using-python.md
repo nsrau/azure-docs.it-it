@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
 
-## Introduzione
-Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API Python.
-
-Con l'API Python fornita in Azure SDK, è possibile
+Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API Python. Con l'API Python fornita in Azure SDK, è possibile:
 
 - Creare un contenitore
 - Caricare un BLOB in un contenitore
@@ -40,12 +37,14 @@ Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da 
 
 > [AZURE.NOTE] Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
+
 ## Prerequisiti
 
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e delle chiavi di archiviazione corrispondenti per quell’account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
 - Per configurare una sottoscrizione di Azure, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 - Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+
 
 ## Caricamento di dati BLOB
 
@@ -93,6 +92,7 @@ Il seguente codice di esempio consente di caricare tutti i file (a esclusione de
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
+
 ## Download dei dati dal BLOB
 
 Per scaricare dati da un BLOB, utilizzare i metodi seguenti:
@@ -129,4 +129,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

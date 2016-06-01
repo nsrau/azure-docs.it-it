@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali"
-	description="In questo argomento viene fornita una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali."
-	services="cdn"
+	description="Questo argomento illustra una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali."
+	services="media-services,cdn"
 	documentationCenter=".NET"
 	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
 <tags
-	ms.service="cdn"
+	ms.service="media-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -28,6 +28,8 @@ Per impostazione predefinita, gli endpoint di streaming applicano intestazioni d
 
 Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) per gli endpoint di streaming. Le intestazioni cache-control si applicano nello stesso modo in cui gli endpoint di streaming si applicano agli endpoint di streaming abilitati dalla rete CDN. La rete CDN di Azure utilizza i valori di cache configurati degli endpoint di streaming per definire la durata degli oggetti memorizzati nella cache internamente e inoltre utilizza questo valore per impostare le intestazioni della cache per i recapiti. Quando si utilizzano gli endpoint di streaming abilitati alla rete CDN non è consigliabile impostare i valori della cache piccoli. In tal modo, infatti si verifica una riduzione delle prestazioni e del vantaggio della rete CDN. Non è consentito impostare intestazioni cache inferiori a 600 secondi per gli endpoint di streaming abilitati alla rete CDN.
 
+>[AZURE.IMPORTANT] L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon**. Se si vuole usare la **rete CDN di Azure fornita da Akamai** per Servizi multimediali di Azure, è necessario [configurare manualmente l'endpoint](cdn-create-new-endpoint.md). Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
+
 ##Configurazione delle intestazioni della cache con Servizi multimediali di Azure
 
 È possibile utilizzare il portale di gestione di Azure o le API di Servizi multimediali di Azure per configurare i valori di intestazione della cache.
@@ -42,4 +44,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 2. Se non è presente alcuna configurazione manuale, vengono applicati i valori predefiniti.
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilizzare la chiave privata nell’insieme di credenziali chiave con il modello di Gestione risorse | Microsoft Azure"
+   pageTitle="Chiave privata nell’insieme di credenziali chiave con il modello di Resource Manager | Microsoft Azure"
    description="Viene illustrato come passare una chiave privata da un insieme di credenziali chiave come parametro durante la distribuzione."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Passare valori protetti durante la distribuzione
@@ -103,4 +103,4 @@ Il parametro che accetta la chiave privata deve essere di tipo **securestring**.
 - Per informazioni sull'uso di un insieme di credenziali delle chiavi con una macchina virtuale, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 - Per esempi completi di segreti di riferimento alle chiavi private, vedere [Esempi di insiemi di credenziali chiave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -20,6 +20,25 @@
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
+## Sistema operativo guest di maggio 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-051 | [3155533] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.32, 3.39, 2.51 | 10 maggio 2016 |  
+| MS16-053 | [3156764] | Aggiornamento cumulativo della sicurezza per JScript e VBScript | 2\.51 | 10 maggio 2016 | 
+| MS16-055 | [3156754] | Aggiornamento della sicurezza per il componente grafico Microsoft | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| MS16-057 | [3156987] | Aggiornamento della sicurezza per shell di Windows | 4\.32 | 10 maggio 2016 | 
+| MS16-060 | [3154846] | Aggiornamento della sicurezza per kernel Windows | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| MS16-061 | [3155520] | Aggiornamento della sicurezza a RPC | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| MS16-062 | [3158222] | Aggiornamento della sicurezza per i driver in modalità kernel | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| MS16-065 | [3156757] | Aggiornamento della sicurezza per .NET Framework | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| MS16-067 | [3155784] | Aggiornamento della sicurezza per i driver dell'archiviazione volumi | 4\.32, 3.39 | 10 maggio 2016 | 
+| | [3148851] | Modifiche del fuso orario per la Russia in Windows | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+| | [3133977] | BitLocker non può crittografare le unità a causa di un arresto anomalo del servizio nel processo svchost.exe in Windows 7 o Windows Server 2008 R2 | 2\.51 | 10 maggio 2016 | 
+| | [3133681] | Le macchine virtuali non rispondono all'operazione in SCVMM in Windows Server 2012 R2 | 4\.32 | 10 maggio 2016 | 
+| | [3123245] | L'aggiornamento migliora l'identificazione di esaurimento delle porte in Windows Server 2012 R2 | 4\.32 | 10 maggio 2016 | 
+| | [Disabilitazione di RC4] | Avviso di sicurezza Microsoft: Aggiornamento per la disabilitazione di RC4 | 4\.32, 3.39, 2.51 | 10 maggio 2016 | 
+
 
 ## Sistema operativo guest di aprile 
 
@@ -269,6 +288,23 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+[3155533]: http://support.microsoft.com/kb/3155533
+[3156764]: http://support.microsoft.com/kb/3156764
+[3156754]: http://support.microsoft.com/kb/3156754
+[3156987]: http://support.microsoft.com/kb/3156987
+[3141083]: http://support.microsoft.com/kb/3141083
+[3154846]: http://support.microsoft.com/kb/3154846
+[3155520]: http://support.microsoft.com/kb/3155520
+[3158222]: http://support.microsoft.com/kb/3158222
+[3156757]: http://support.microsoft.com/kb/3156757
+[3155784]: http://support.microsoft.com/kb/3155784
+[3148851]: http://support.microsoft.com/kb/3148851
+[3133977]: http://support.microsoft.com/kb/3133977
+[3133681]: http://support.microsoft.com/kb/3133681
+[3123245]: http://support.microsoft.com/kb/3123245
+[Disabilitazione di RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+
+
 [3148531]: http://support.microsoft.com/kb/3148531
 [3148522]: http://support.microsoft.com/kb/3148522
 [3148541]: http://support.microsoft.com/kb/3148541
@@ -453,4 +489,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

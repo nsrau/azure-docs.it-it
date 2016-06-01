@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/05/2016"
 	ms.author="larryfr"/>
 
-# Sviluppare programmi MapReduce Java per Hadoop in HDInsight
+# Sviluppare programmi MapReduce Java per Hadoop in HDInsight Linux
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
-
-Questo documento illustra l'uso di Apache Maven per creare un'applicazione di MapReduce, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight. Per informazioni sull'utilizzo di un Hadoop basato su Windows nel cluster HDInsight, vedere [Sviluppare programmi MapReduce Java per Hadoop in HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
+Questo documento illustra l'uso di Apache Maven per creare un'applicazione di MapReduce, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight.
 
 ##<a name="prerequisites"></a>Prerequisiti
 
@@ -290,4 +288,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

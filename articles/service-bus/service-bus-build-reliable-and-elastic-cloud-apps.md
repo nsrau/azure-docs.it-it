@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Compilare app cloud affidabili e flessibili con funzionalità di messaggistica 
@@ -39,10 +39,11 @@ La domanda dinamica è un fattore da considerare per le nuove applicazioni. Dall
 
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio di Azure](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Informazioni di riferimento sulle API REST del bus di servizio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Informazioni di riferimento sulle API REST RP del bus di servizio](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## Servizi correlati
 
 - [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

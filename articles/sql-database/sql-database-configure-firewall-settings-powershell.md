@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2016"
-	ms.author="stevestein"/>
+	ms.date="05/09/2016"
+	ms.author="sstein"/>
 
 
 # Procedura: Configurare un firewall del database SQL di Azure con PowerShell
@@ -33,29 +33,31 @@ Il database SQL di Microsoft Azure utilizza le regole del firewall per consentir
 > [AZURE.IMPORTANT] Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md). È necessario aprire alcune porte TCP aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-## Gestire le regole firewall a livello di Server tramite Azure PowerShell
-1. Avviare Azure PowerShell.
-2. Le regole del firewall a livello di server possono essere create, aggiornate ed eliminate tramite Azure PowerShell. 
+[AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
 
-	Per creare una nuova regola del firewall a livello di server, eseguire il cmdlet New-AzureSqlDatabaseServerFirewallRule. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.
- 
-		New-AzureSqlDatabaseServerFirewallRule –StartIPAddress 192.168.1.1 –EndIPAddress 192.168.1.10 –RuleName ContosoFirewallRule –ServerName Contoso
- 
-	Per modificare una regola firewall a livello di server esistente, eseguire il cmdlet Set-AzureSqlDatabaseServerFirewallRule. Nell'esempio seguente viene modificato l'intervallo di indirizzi IP validi per la regola denominata ContosoFirewallRule.
- 
-		Set-AzureSqlDatabaseServerFirewallRule –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName ContosoFirewallRule –ServerName Contoso
+## Creare regole del firewall del server
 
-	Per eliminare una regola del firewall a livello di server esistente, eseguire il cmdlet Remove-AzureSqlDatabaseServerFirewallRule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
+Le regole del firewall a livello di server possono essere create, aggiornate ed eliminate tramite Azure PowerShell.
 
-		Remove-AzureSqlDatabaseServerFirewallRule –RuleName ContosoFirewallRule –ServerName Contoso
+Per creare una nuova regola del firewall a livello di server, eseguire il cmdlet New-AzureRmSqlServerFirewallRule. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.
+ 
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -ServerName 'Contoso' -FirewallRuleName "ContosoFirewallRule" -StartIpAddress '192.168.1.1' -EndIpAddress '192.168.1.10'		
+ 
+Per modificare una regola firewall a livello di server esistente, eseguire il cmdlet Set-AzureSqlDatabaseServerFirewallRule. Nell'esempio seguente viene modificato l'intervallo di indirizzi IP validi per la regola denominata ContosoFirewallRule.
+ 
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+
+Per eliminare una regola del firewall a livello di server esistente, eseguire il cmdlet Remove-AzureSqlDatabaseServerFirewallRule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
+
+    Remove-AzureRmSqlServerFirewallRule –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
 
 ## Gestione delle regole del firewall tramite PowerShell
 
-* [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx)
-* [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx)
-* [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx)
-* [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx)
+* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603860.aspx)
+* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603588.aspx)
+* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603789.aspx)
+* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603586.aspx)
  
 ## Passaggi successivi
 
@@ -68,4 +70,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

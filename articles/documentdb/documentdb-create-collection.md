@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Come creare una raccolta DocumentDB usando il portale di Azure
@@ -44,7 +44,7 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
 	Se si intende creare una raccolta partizionata, andare direttamente al passaggio 7 dato che non è necessario selezionare un piano tariffario.
 
-7. Selezionare una **modalità di partizionamento** per la raccolta, **a singola partizione** o **partizionata**. Una singola partizione ha una capacità di archiviazione riservata di 10 GB e può includere livelli di velocità effettiva da 400 a 10.000 unità richiesta al secondo. Una raccolta partizionata può essere ridimensionata per gestire 250 GB di spazio di archiviazione in più partizioni e può avere livelli di velocità effettiva da 10.100 a 250.000 unità richiesta al secondo.
+7. Selezionare una **modalità di partizionamento** per la raccolta, **a singola partizione** o **partizionata**. Una singola partizione ha una capacità di archiviazione riservata di 10 GB e può includere livelli di velocità effettiva da 400 a 10.000 unità richiesta al secondo. Una raccolta partizionata può essere ridimensionata per gestire 250 GB di spazio di archiviazione in più partizioni e può avere livelli di velocità effettiva da 10.100 a 250.000 unità richiesta al secondo. Per informazioni sulla richiesta di aumenti per queste allocazioni predefinite dopo la creazione di una raccolta, vedere [Richiedere un aumento dei limiti di account DocumentDB](documentdb-increase-limits.md).
 
 8. Selezionare la **velocità effettiva** per la raccolta partizionata. Una unità richiesta (RU) corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni in proposito, vedere l'articolo relativo alle [unità richiesta](documentdb-request-units.md).
 
@@ -87,4 +87,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

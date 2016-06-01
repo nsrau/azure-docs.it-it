@@ -33,7 +33,7 @@ Per inviare commenti o domande, è possibile usare la parte inferiore di questo 
 
 Per la distribuzione è necessario quanto segue:
 
-- **Server di gestione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di gestione. Installare in questo server i componenti di Site Recovery (inclusi il server di configurazione e il server di elaborazione). Per altre informazioni, vedere [Considerazioni relative al server di gestione](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [Prerequisiti locali](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Server di gestione**: una VM che esegue Windows Server 2012 R2 e agisce da server di gestione. Installare in questo server i componenti di Site Recovery (inclusi il server di configurazione e il server di elaborazione). Per altre informazioni, vedere [Considerazioni relative al server di gestione](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [Prerequisiti di origine](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Macchine virtuali IaaS**: le VM di cui si desidera eseguire la migrazione.
 
 ## Passaggi di distribuzione
@@ -61,4 +61,4 @@ Per la distribuzione è necessario quanto segue:
 
 Per altre informazioni sui vari scenari di replica, vedere [Che cos'è Azure Site Recovery](site-recovery-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

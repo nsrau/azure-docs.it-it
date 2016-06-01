@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="02/25/2016"
+    ms.date="05/18/2016"
     ms.author="elizapo" />
 
 # Uso di Microsoft Outlook in Azure RemoteApp
@@ -31,4 +31,4 @@ In Azure RemoteApp, l'uso della ricerca all'interno di Outlook presenta alcune l
 
 Outlook 2016 offre una soluzione al problema con una nuova esperienza di ricerca online nelle cassette postali ospitate su Exchange 2016 (o in Office 365). I risultati della ricerca server vengono analizzati rispetto alla cache locale (OST). In alcuni scenari Outlook può tornare a usare l'indicizzatore della ricerca, ma la maggior parte delle ricerche viene eseguita in modalità online. Se la ricerca nella posta elettronica è molto importante, è consigliabile usare Azure RemoteApp con Outlook 2016.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

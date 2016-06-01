@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # Domande frequenti su ExpressRoute
@@ -149,7 +149,7 @@ Si deve stabilire un circuito ExpressRoute e configurare le route per il peering
 Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e 200 ciascuno per il peering pubblico e il peering Microsoft. Se si abilita la funzionalità Premium di ExpressRoute, sarà possibile aumentare questo valore fino a 10.000 route per il peering privato.
 
 ### Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
-I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering pubblico.
+I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering pubblico e di Microsoft.
 
 ### Cosa succede se si superano i limiti per BGP?
 Le sessioni BGP saranno rimosse. Saranno ripristinate quando il numero di prefissi tornerà sotto il limite consentito.
@@ -245,4 +245,7 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
-<!---HONumber=AcomDC_0427_2016-->
+### È possibile accedere a Dynamics AX tramite una connessione ExpressRoute?
+No, l'operazione non è supportata.
+
+<!---HONumber=AcomDC_0518_2016-->

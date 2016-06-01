@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="04/01/2016"
@@ -52,4 +52,4 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 - Informazioni sulle [linee guida di implementazione](virtual-machines-linux-infrastructure-service-guidelines.md) per progettare una distribuzione personalizzata di sviluppo/test o produzione nei servizi di infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

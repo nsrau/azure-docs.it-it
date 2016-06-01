@@ -59,13 +59,13 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 **Per connettere un'applicazione che supporta SCIM:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome per l'applicazione e quindi fare clic sull'icona del segno di spunta per creare un oggetto app.
 
 ![][2]
 
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
-5.	Nel **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
+5.	Nel campo **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
 6.	Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token di autenticazione (facoltativo)**. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
 7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
 8.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
@@ -108,7 +108,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 1.	Scaricare il pacchetto dell'esempio di codice da [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master).
 2.	Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\\AzureAD-BYOA-Provisioning-Samples.
 3.	In questa cartella avviare la soluzione FileProvisioningAgent in Visual Studio.
-4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti ** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
+4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
 
     Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
 
@@ -125,7 +125,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 **Per registrare l'endpoint SCIM di esempio in Azure AD:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
 ![][2]
@@ -702,4 +702,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

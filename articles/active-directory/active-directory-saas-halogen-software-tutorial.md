@@ -118,7 +118,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: ![Configurare le impostazioni dell'app][10]
  
-     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Halogen Software adottando il modello seguente: **https://global.hgncloud.com/fabrikam/welcome.jsp*
+     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Halogen Software adottando il modello seguente: *https://global.hgncloud.com/fabrikam/welcome.jsp*
 
      b. Fare clic su **Avanti**.
  
@@ -321,4 +321,4 @@ Quando si fa clic sul riquadro Halogen Software nel pannello di accesso, si dovr
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

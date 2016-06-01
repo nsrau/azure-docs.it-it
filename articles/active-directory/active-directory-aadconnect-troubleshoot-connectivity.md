@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="andkjell"/>
 
 # Risolvere i problemi di connettività con Azure AD Connect
@@ -26,9 +26,8 @@ Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il
 
 Prima di tutto è necessario verificare che [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) sia configurato correttamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
-
-
+>[AZURE.NOTE]
+In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
 
 Per il server proxy devono essere aperti anche gli URL necessari. L'elenco ufficiale è documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -38,7 +37,7 @@ Quelle riportate nella tabella seguente sono le impostazioni minime assolutament
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. |
 | **.verisign.com | HTTP/80 | Usata per scaricare gli elenchi di CRL. |
-| *.trust.com | HTTP/80 | Usata per scaricare gli elenchi di CRL per MFA. |
+| *.entrust.com | HTTP/80 | Usata per scaricare gli elenchi di CRL per MFA. |
 | *.windows.net | HTTPS/443 | Usata per accedere ad Azure AD. |
 | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usata per MFA. |
 | *.microsoftonline.com | HTTPS/443 | Usata per configurare la directory di Azure AD e importare/esportare i dati. |
@@ -126,18 +125,54 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
+## Errori di autenticazione
+Questa sezione illustra gli errori che possono essere restituiti da ADAL (la libreria di autenticazione usata da Azure AD Connect) e PowerShell. La spiegazione dell'errore può essere utile per comprendere i passaggi successivi.
+
+### Concessione non valida
+Nome utente o password non validi. Vedere [La password non può essere verificata](#the-password-cannot-be-verified) per altre informazioni.
+
+### Tipo di utente sconosciuto
+Non è possibile trovare o risolvere la directory di Azure AD. Si tenta di accedere con un nome utente in un dominio non verificato?
+
+### Individuazione dell'area di autenticazione utente non riuscita
+Problemi di configurazione di rete o del proxy. Non è possibile raggiungere la rete, vedere [Risolvere i problemi di connettività nell'Installazione guidata](#troubleshoot-connectivity-issues-in-the-installation-wizard)
+
+### Password utente scaduta
+Le credenziali sono scadute. Modificare la password.
+
+### Errore di autorizzazione
+Problema sconosciuto.
+
+### Autenticazione annullata
+La richiesta di autenticazione a più fattori (MFA) è stata annullata.
+
+### Connessione a MS Online
+L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema di autenticazione.
+
+### Ruolo di Azure mancante
+L'autenticazione ha avuto esito positivo. L'utente non è un amministratore globale.
+
+### Privileged Identity Management
+L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
+
+### Informazioni aziendali non disponibili
+L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni aziendali da Azure AD.
+
+### Recupero domini
+L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni sul dominio da Azure AD.
+
 ## Procedure di risoluzione dei problemi per le versioni precedenti.
 L'Assistente per l'accesso è stato ritirato a partire dalle versioni con numero di build 1.1.105.0, rilasciata nel mese di febbraio 2016. Questa sezione e la configurazione non dovrebbero essere più necessarie, ma vengono conservate come riferimento.
 
-Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp mediante [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa operazione può essere eseguita con [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### L'Assistente per l'accesso non è stato configurato correttamente
 Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a raggiungere il proxy o il proxy non consente la richiesta. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
 - Se viene visualizzato questo errore, esaminare la configurazione del proxy in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) e verificare che sia corretta. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- Se il file è corretto, seguire i passaggi in [Verificare la connettività proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
+- Se è corretta, seguire la procedura descritta in [Verificare la connettività proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ## Passaggi successivi
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

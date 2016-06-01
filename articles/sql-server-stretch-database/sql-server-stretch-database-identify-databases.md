@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Identificare database e tabelle per Database Estensione eseguendo l'ottimizzazione guidata Database Estensione
+# Identificare database e tabelle per l'estensione database eseguendo Gestione estensione database
 
-Per identificare i database e le tabelle che sono candidati per il Database Estensione, scaricare Preparazione aggiornamento di SQL Server 2016 ed eseguire l'ottimizzazione guidata Database Estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco.
+Per identificare i database e le tabelle per l'estensione database, scaricare Gestione spazio aggiornamenti di SQL Server 2016 ed eseguire Gestione estensione database. Gestione estensione database consente anche di identificare i problemi di blocco.
 
 ## Scaricare e installare Preparazione aggiornamento
-È possibile scaricare e installare Preparazione aggiornamento da [qui](http://go.microsoft.com/fwlink/?LinkID=613421). Questo strumento non è incluso nei supporti di installazione di SQL Server.
+È possibile scaricare e installare Gestione spazio aggiornamenti da [qui](http://go.microsoft.com/fwlink/?LinkID=613421). Questo strumento non è incluso nei supporti di installazione di SQL Server.
 
 ## Eseguire l'ottimizzazione guidata Database Estensione
 
 1.  Eseguire Preparazione aggiornamento.
 
-2.  Selezionare **Scenari**, quindi selezionare **ESEGUI OTTIMIZZAZIONE GUIDATA DATABASE ESTENSIONE**.
+2.  Selezionare **Scenari**, quindi selezionare **Esegui Gestione estensione database**.
 
-3.  Nel pannello **Esegui ottimizzazione guidata Database Estensione** fare clic su **SELEZIONA DATABASE DA ANALIZZARE**.
+3.  Nel pannello **Esegui Gestione estensione database** fare clic su **Seleziona database da analizzare**.
 
 4.  Nel pannello **Seleziona database** fare clic su **ISTANZA SQL**.
 
@@ -51,7 +51,7 @@ Per identificare i database e le tabelle che sono candidati per il Database Este
 
 3.  Nell'elenco dei problemi di blocco nel pannello **Risultati tabella** selezionare uno dei problemi per visualizzare il pannello **Risultati regola**.
 
-    Il pannello **Risultati regola** descrive il problema selezionato e propone procedure di prevenzione. Implementare i passaggi suggeriti per configurare la tabella selezionata per Database Estensione.
+    Il pannello **Risultati regola** descrive il problema selezionato e propone i passaggi per la prevenzione. Implementare i passaggi suggeriti per configurare la tabella selezionata per Database Estensione.
 
 ## Passaggio successivo
 Abilitare Database Estensione.
@@ -68,4 +68,4 @@ Abilitare Database Estensione.
 
 [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

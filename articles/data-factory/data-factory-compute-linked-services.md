@@ -66,7 +66,7 @@ Il cluster HDInsight crea un **contenitore predefinito** nell'archiviazione BLOB
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà type deve essere impostata su **HDInsightOnDemand**. | Sì
-clusterSize | La dimensione del cluster su richiesta. Specifica il numero di nodi che si desidera per questo cluster su richiesta. | Sì
+clusterSize | Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard\_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro avrà 24 core, ossia 4*4 per nodi del ruolo di lavoro + 2*4 per nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard\_D3. | Sì
 timetolive | Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight su richiesta rimane attivo dopo il completamento di un'attività eseguita se non sono presenti altri processi attivi del cluster.<br/><br/>Ad esempio, se un'esecuzione di attività accetta 6 minuti e timetolive è impostato su 5 minuti, il cluster rimane attivo per altri 5 minuti dopo i 6 minuti di elaborazione dell'attività. Se un'altra attività viene eseguita entro i 6 minuti consentiti, verrà elaborata dal cluster stesso.<br/><br/>La creazione di un cluster HDInsight su richiesta è un'operazione costosa (potrebbe richiedere alcuni minuti), quindi utilizzare questa impostazione per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br/><br/>Se si imposta il valore della proprietà timetolive su 0, il cluster viene eliminato non appena l'attività in elaborazione termina. D'altra parte, se si imposta un valore elevato, il cluster può rimanere inattivo inutilmente causando costi elevati. È quindi importante impostare il valore appropriato in base alle esigenze.<br/><br/>Più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta se il valore della proprietà timetolive è impostato in modo appropriato | Sì
 version | Versione del cluster HDInsight Il valore predefinito è 3.1 per cluster Windows e 3.2 per cluster Linux. | No
 linkedServiceName | L'archivio BLOB che il cluster su richiesta deve utilizzare per l'archiviazione e l'elaborazione dei dati. | Sì
@@ -137,9 +137,9 @@ yarnConfiguration | Specifica i parametri di configurazione Yarn (yarn-site.xml)
 
 Proprietà | Descrizione | Obbligatorio
 :-------- | :----------- | :--------
-headNodeSize | Specifica le dimensioni del nodo head Il valore predefinito: grandi. Vedere la sezione **Specificare le dimensioni dei nodi** illustrata di seguito per informazioni dettagliate. | No
-dataNodeSize | Specifica le dimensioni del nodo dei dati. Il valore predefinito è: grandi | No
-zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è: piccole. | No
+headNodeSize | Specifica le dimensioni del nodo head Il valore predefinito è Standard\_D3. Vedere la sezione **Specificare le dimensioni dei nodi** illustrata di seguito per informazioni dettagliate. | No
+dataNodeSize | Specifica le dimensioni del nodo dei dati. Il valore predefinito è Standard\_D3. | No
+zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è Standard\_D3. | No
  
 #### Specificare le dimensioni dei nodi
 Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
@@ -200,7 +200,7 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
 
 
 - [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Batch di Azure oppure [portale di Azure](../batch/batch-account-create-portal.md)per creare l'account Batch di Azure tramite il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare l’argomento [Utilizzo di Azure PowerShell per gestire l'account Batch di Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md)per creare l'account Azure Batch tramite il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare l’argomento [Utilizzo di Azure PowerShell per gestire l'account Batch di Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 - Cmdlet [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Batch di Azure.
 
 ### Esempio
@@ -297,7 +297,7 @@ subscriptionId | ID sottoscrizione di Azure | No (se non specificata, viene usat
 resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory).
 sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questo valore viene generato automaticamente nell'editor di Data factory. | Sì
 
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Credential operation error: invalid\_grant - AADSTS70002: Error validating credentials. (Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002:Errore durante la convalida delle credenziali). AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
 
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
@@ -339,4 +339,4 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
 
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

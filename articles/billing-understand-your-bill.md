@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina rela
 
 ### Visualizzare o scaricare una fattura per Microsoft Azure:
 
-Nel [portale degli account di Azure](https://account.windowsazure.com/subscriptions) è possibile visualizzare le fatture correnti e scaricare quelle passate.
+Nel [Centro account di Azure](https://account.windowsazure.com/subscriptions) è possibile visualizzare le fatture correnti e scaricare quelle passate.
 
 Per visualizzare o scaricare una fattura:
 
-1. Accedere al [portale degli account](https://account.windowsazure.com/subscriptions) usando l'ID dell'account Microsoft o l'ID dell'account aziendale o dell'istituto di istruzione.
+1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) usando l'ID dell'account Microsoft o l'ID dell'account aziendale o dell'istituto di istruzione.
 
 2. Fare clic sulla sottoscrizione per cui si vogliono visualizzare i dettagli e l'utilizzo.
 
@@ -48,7 +48,7 @@ Per visualizzare o scaricare una fattura:
     ![Riepilogo - cronologia fatturazione -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4. La sezione **Cronologia di fatturazione** include un elenco dei rendiconti per i sei periodi di fatturazione più recenti, oltre al periodo attuale non fatturato. Il rendiconto per il periodo attuale è una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.
+4. La sezione **Cronologia di fatturazione** include un elenco dei rendiconti dei periodi di fatturazione precedenti, oltre al periodo attuale non fatturato. Il rendiconto per il periodo attuale è una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.
 
     ![Riepilogo - cronologia fatturazione 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
@@ -140,7 +140,7 @@ La pagina delle informazioni aggiuntive contiene riferimenti ad altre risorse ut
 ![informazioni aggiuntive](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Uso dettagliato
-Un collegamento nella descrizione inclusa nell'**Uso dettagliato** consente di accedere al portale degli account in cui è possibile visualizzare i dettagli dell'uso per la sottoscrizione. Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si utilizzano. Si noti che nella versione 1 del file con estensione csv non sono presenti dettagli di Azure Resource Manager. Le informazioni di Azure Resource Manager sono reperibili nella versione 2 del file con estensione csv.
+Un collegamento nella descrizione inclusa nell'**Utilizzo dettagliato** consente di accedere al Centro account in cui è possibile visualizzare i dettagli dell'uso relativi alla sottoscrizione. Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si utilizzano. Si noti che nella versione 1 del file con estensione csv non sono presenti dettagli di Azure Resource Manager. Le informazioni di Azure Resource Manager sono reperibili nella versione 2 del file con estensione csv.
 
 ### Informazioni aggiuntive e risorse utili
 Questa sezione contiene collegamenti a semplici domande relative alle dimensioni delle istanze di calcolo e agli addebiti di SQL DB, nonché collegamenti utili per rispondere ad altre domande.
@@ -238,18 +238,19 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 - [Domande frequenti su fatturazione e sottoscrizione di Azure](billing-subscription-faq.md)
 
-- [Gestire il metodo di pagamento](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Come modificare la carta di credito utilizzata per pagare una sottoscrizione di Azure](billing-how-to-change-credit-card.md)
 
-- [Modificare le informazioni di pagamento per una carta di credito esistente](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
-- [Aggiungere una nuova carta di credito come un metodo di pagamento](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
-- [Modificare la carta di credito per l'account di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

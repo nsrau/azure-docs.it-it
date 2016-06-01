@@ -19,16 +19,18 @@
 # Failback di server fisici e macchine virtuali VMware da Azure a VMware con Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
-- [Avanzato](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portale di Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portale di Azure classico](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portale di Azure classico (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
-Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
+
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, leggere [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
 
 ## Panoramica
 
 Questo articolo descrive come eseguire il failback di macchine virtuali VMware e server fisici Windows/Linux da Azure al sito locale dopo aver eseguito la replica dal sito locale ad Azure.
 
->[AZURE.NOTE] Questo articolo descrive uno scenario legacy. Se è stata eseguita la replica ad Azure tramite [queste istruzioni legacy](site-recovery-vmware-to-azure-classic-legacy.md), è consigliabile usare solo le istruzioni in questo articolo. Se si configura la replica mediante la [distribuzione avanzata](site-recovery-vmware-to-azure-classic-legacy.md), seguire le istruzioni in [questo articolo](site-recovery-failback-azure-to-vmware-classic.md) per eseguire il failback.
+>[AZURE.NOTE] Questo articolo descrive uno scenario legacy. Se è stata eseguita la replica ad Azure tramite [queste istruzioni legacy](site-recovery-vmware-to-azure-classic-legacy.md), è consigliabile usare solo le istruzioni in questo articolo. Se si configura la replica tramite la [distribuzione avanzata](site-recovery-vmware-to-azure-classic-legacy.md), seguire le istruzioni in [questo articolo](site-recovery-failback-azure-to-vmware-classic.md) per eseguire il failback.
 
 
 ## Architettura
@@ -426,4 +428,4 @@ Dopo avere completato il failback, è opportuno proteggere ancora le macchine vi
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

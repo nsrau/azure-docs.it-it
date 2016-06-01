@@ -19,9 +19,11 @@
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell - Distribuzione classica
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](site-recovery-vmm-to-azure.md)
+- [Portale di Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - Azure Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portale classico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Panoramica
 
@@ -34,7 +36,7 @@ L’articolo include i prerequisiti per lo scenario e mostra come configurare un
 Nel caso di problemi di configurazione di questo scenario, inviare le proprie domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica.
+> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica.
 
 
 
@@ -447,4 +449,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 [Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

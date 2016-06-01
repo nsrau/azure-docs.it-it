@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/11/2016"
+    ms.date="04/24/2016"
     ms.author="csand;magoedte" />
 
 # Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure
@@ -66,6 +66,102 @@ Fare clic su **OK** nel pannello **Aggiungi una regola di avviso**. La regola di
 
 Se è stato configurato un runbook per un avviso, è possibile disabilitarlo senza rimuovere la configurazione del runbook. In questo modo si può mantenere l'avviso di esecuzione, testare eventualmente alcune regole di avviso e successivamente riabilitare il runbook.
 
+## Creare un runbook che funzioni con un avviso di Azure
+
+Quando si sceglie un runbook nell'ambito di una regola di avviso di Azure, il runbook deve contenere la logica per gestire i dati di avviso che gli vengono passati. Quando un runbook viene configurato in una regola di avviso, viene creato un webhook per il runbook. Il webhook viene usato per avviare il runbook ogni volta che viene attivato l'avviso. La chiamata effettiva per avviare il runbook è una richiesta HTTP POST all'URL del webhook. Il corpo della richiesta POST contiene un oggetto in formato JSON con proprietà utili relative all'avviso. Come mostrato di seguito, i dati di avviso contengono dettagli come subscriptionID, resourceGroupName, resourceName e resourceType.
+
+### Esempio di dati di avviso
+```
+{
+    "WebhookName": "AzureAlertTest",
+    "RequestBody": "{
+	"status":"Activated",
+	"context": {
+		"id":"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest",
+		"name":"AlertTest",
+		"description":"",
+		"condition": {
+			"metricName":"CPU percentage guest OS",
+			"metricUnit":"Percent",
+			"metricValue":"4.26337916666667",
+			"threshold":"1",
+			"windowSize":"60",
+			"timeAggregation":"Average",
+			"operator":"GreaterThan"},
+		"subscriptionId":<subscriptionID> ",
+		"resourceGroupName":"TestResourceGroup",
+		"timestamp":"2016-04-24T23:19:50.1440170Z",
+		"resourceName":"TestVM",
+		"resourceType":"microsoft.compute/virtualmachines",
+		"resourceRegion":"westus",
+		"resourceId":"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM",
+		"portalLink":"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM"
+		},
+	"properties":{}
+	}",
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "<webhookURL>"
+    }
+}
+```
+
+Quando il servizio di webhook di Automazione riceve la richiesta HTTP POST, estrae i dati di avviso e li passa al runbook nel parametro di input runbook WebhookData. Di seguito viene riportato un runbook di esempio che illustra come usare il parametro WebhookData, estrarre i dati di avviso e usarli per gestire le risorse di Azure che hanno attivato l'avviso.
+
+### Runbook di esempio
+
+```
+#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+
+[OutputType("PSAzureOperationResponse")]
+
+param ( [object] $WebhookData )
+
+if ($WebhookData)
+{
+	# Get the data object from WebhookData
+	$WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+
+    # Assure that the alert status is 'Activated' (alert condition went from false to true)
+    # and not 'Resolved' (alert condition went from true to false)
+	if ($WebhookBody.status -eq "Activated")
+    {
+	    # Get the info needed to identify the VM
+	    $AlertContext = [object] $WebhookBody.context
+	    $ResourceName = $AlertContext.resourceName
+	    $ResourceType = $AlertContext.resourceType
+        $ResourceGroupName = $AlertContext.resourceGroupName
+        $SubId = $AlertContext.subscriptionId
+
+	    # Assure that this is the expected resource type
+	    Write-Verbose "ResourceType: $ResourceType"
+	    if ($ResourceType -eq "microsoft.compute/virtualmachines")
+	    {
+		    # This is an ARM (V2) VM
+
+		    # Authenticate to Azure with service principal and certificate
+            $ConnectionAssetName = "AzureRunAsConnection"
+		    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+		    if ($Conn -eq $null) {
+                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
+            }
+		    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+		    Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+
+            # Restart the VM
+		    Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
+	    } else {
+		    Write-Error "$ResourceType is not a supported resource type for this runbook."
+	    }
+    } else {
+        # The alert status was not 'Activated' so no action taken
+		Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
+    }
+} else {
+    Write-Error "This runbook is meant to be started from an Azure alert only."
+}
+```
+
 ## Riepilogo
 
 Quando si configura un avviso in una VM di Azure, è possibile configurare facilmente un runbook di automazione per eseguire automaticamente un'azione di correzione quando viene attivato l'avviso. Per questa versione è possibile scegliere un runbook per riavviare, arrestare o eliminare una macchina virtuale, a seconda dello scenario avviso. Questo è solo l'inizio dell'abilitazione di scenari in cui si controllano le azioni, come notifica, risoluzione dei problemi e correzione, che verranno eseguite automaticamente quando viene attivato un avviso.
@@ -73,7 +169,7 @@ Quando si configura un avviso in una VM di Azure, è possibile configurare facil
 ## Passaggi successivi
 
 - Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md).
-- Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
+- Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual.md).
 - Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati 
 
-## Introduzione
 
 La macchina virtuale Linux per l'analisi scientifica dei dati è un'immagine di macchina virtuale (VM) di Azure pre-installata e configurata con una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. Ecco i componenti software principali:
 
@@ -29,9 +28,9 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è un'immagine di 
 - Riga di comando di Azure per la gestione delle risorse di Azure
 - Database PostgresSQL
 - Strumenti di Machine Learning
-    - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): software di formazione avanzato da Microsoft Research
-    - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
-    - [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che fornisce un'implementazione di albero con boosting rapida e accurata.
+    - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): software di formazione avanzato sviluppato da Microsoft Research
+    - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo
+    - [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata
     - [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende molto semplice la fase introduttiva all'analisi dei dati e all'apprendimento automatico in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R. 
 - Azure SDK in Java, Python, Node.js, Ruby, PHP
 - Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
@@ -63,16 +62,15 @@ Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, 
 Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux per l'analisi scientifica dei dati:
 
 1.	Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata.
-![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+2.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Le sezioni seguenti forniscono gli **input** per ognuno dei **5 passaggi** (elencati in ordine numerico nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
   **a. Informazioni di base**:
 
    - **Name**: nome del server di analisi scientifica dei dati che si sta creando.
-   - **Nome utente**: primo ID di accesso dell'account.
+   - **Nome utente**: primo ID di accesso dell'account
    - **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   - **Sottoscrizione**: se sono disponibili più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. NOTA: è necessario avere privilegi di creazione delle risorse in questa sottoscrizione. 
+   - **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui verrà creata e fatturata la macchina virtuale. NOTA: è necessario avere privilegi di creazione delle risorse in questa sottoscrizione. 
    - **Resource Group**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
    - **Location**: selezionare la posizione del data center più appropriata. In genere è il data center che include la maggior parte dei dati o è più vicino alla località fisica per l'accesso più veloce alla rete.
 
@@ -109,14 +107,14 @@ Dopo aver creato la VM, è possibile accedere tramite SSH con le credenziali del
 Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario eseguire le operazioni seguenti sul client.
 
 1. Scaricare e installare il client X2Go per la piattaforma client [qui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Eseguire il client X2Go e selezionare "*New Session*". Verrà visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti: 
-    * **Scheda Session**:
+2. Eseguire il client X2Go e selezionare "*New Session*" (Nuova sessione). Verrà visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti: 
+    * **Scheda Session** (Sessione):
         - **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
-        - **Login**: nome utente di accesso della VM Linux.
-        - **SSH Port**: lasciare il valore predefinito 22.
-        - **Session Type**: modificare il valore in XFCE. NOTA: la VM Linux attualmente supporta solo l'ambiente desktop XFCE.
-    * **Scheda Media**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli. 
-    * **Shared folders**: se occorre montare directory dai computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM. 
+        - **Login** (Accesso): nome utente di accesso della VM Linux.
+        - **SSH Port** (Porta SSH): lasciare il valore predefinito 22.
+        - **Session Type** (Tipo sessione): modificare il valore in XFCE. NOTA: la VM Linux attualmente supporta solo l'ambiente desktop XFCE.
+    * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli. 
+    * **Shared folders** (Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM. 
 
 Una volta eseguito l'accesso alla VM con il client SSH O il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 
@@ -128,7 +126,7 @@ Eseguire questo comando dal prompt dei comandi nella macchina virtuale per l'ana
 
 Immettere una password complessa quando viene richiesta.
 
-Verrà visualizzato l'hash della password nel formato "sha1:xxxxxx" nell'output. Copiare l'hash della password e sostituire quello esistente nel file di configurazione del notebook disponibile nel percorso **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** con il nome di parametro ***c.NotebookApp.password***. Questo file deve essere modificato come **utente ROOT**.
+Verrà visualizzato l'hash della password nel formato "sha1:xxxxxx" nell'output. Copiare l'hash della password e sostituire quello presente nel file di configurazione del notebook disponibile nel percorso **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** con il nome di parametro ***c.NotebookApp.password***. Questo file deve essere modificato come **utente ROOT**.
 
 È necessario sostituire solo il valore dell’hash esistente all'interno delle virgolette. Le virgolette e il prefisso ***sha1:*** per il valore del parametro devono essere conservati.
 
@@ -163,10 +161,10 @@ Per attivare Python 3.5, eseguire il comando seguente dalla shell:
 
 Python 3.5 viene installato in */anaconda/envs/py35/bin*
 
-A questo punto per richiamare la sessione interattiva di Python, è sufficiente digitare ***python*** nella shell. Se si usa un'interfaccia grafica o è installato X11 Forwarding, è possibile digitare il comando ***spyder*** per avviare l'IDE di Python.
+A questo punto, per richiamare la sessione interattiva di Python è sufficiente digitare ***python*** nella shell. Se si usa un'interfaccia grafica o è installato X11 Forwarding, è possibile digitare il comando ***spyder*** per avviare l'IDE di Python.
 
 ### Notebook Jupyter
-La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Un server notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM tramite SSH o il client X2go è anche possibile visitare [https://localhost:9999/](https://localhost:9999/) per accedere al server Jupyter Notebook.
+La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Un server notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Sul desktop è disponibile un'icona denominata Notebook di Jupyter per avviare il browser per accedere al server notebook. Se si usa la VM tramite SSH o il client X2go, è anche possibile visitare [https://localhost:9999/](https://localhost:9999/) per accedere al server notebook di Jupyter.
 
 >[AZURE.NOTE] Se vengono visualizzati avvisi relativi al certificato, scegliere di continuare.
 
@@ -179,7 +177,7 @@ La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condiv
 
 **VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](http://ess.r-project.org/).
 
-**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit per Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche un **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit per Eclipse sono disponibili nella pagina [Azure Toolkit per Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit per Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit per Eclipse sono disponibili nella pagina [Azure Toolkit per Eclipse](../azure-toolkit-for-eclipse/).
 
 **LaTex** viene installato tramite il pacchetto texlive insieme a un pacchetto di componenti aggiuntivi di Emacs, [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html), che semplifica la creazione di documenti LaTex in Emacs.
 
@@ -203,11 +201,11 @@ Altre informazioni su SQuirreL SQL sono disponibili nel relativo sito Web [SQuir
 
 Anche nel pacchetto driver ODBC per Microsoft SQL Server sono disponibili due strumenti da riga di comando:
 
-**bcp**: questA utilità crea copie bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. L'utilità bcp può essere usata per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati dalle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file di formato creato per la tabella o conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
+**bcp**: questa utilità crea copie bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. L'utilità bcp può essere usata per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati dalle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file di formato creato per la tabella o conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
 Altre informazioni sono disponibili nell'articolo relativo alla [connessione con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, routine di sistema e file script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
+**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
 
 Altre informazioni sono disponibili nell'articolo relativo alla [connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -230,9 +228,9 @@ Per accedere a **Postgres**:
 ### Strumenti di Azure 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la pagina di documentazione sui [Comandi dell'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools/).
+- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la pagina di documentazione sull'[interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools/).
 - **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Storage Explorer dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando ***StorageExplorer***. È necessario essere connessi da un client X2go o avere installato X11 Forwarding. 
-- **Librerie di Azure**: di seguito sono riportate alcune delle librerie installate e disponibili:
+- **Librerie di Azure**: di seguito sono riportate alcune delle librerie installate e disponibili.
 
 - **Python**: le librerie installate correlate ad Azure in Python sono ***azure***, ***azureml***, ***pydocumentdb***, ***pyodbc***. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure DocumentDB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a Microsoft SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere ***pip list*** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
 
@@ -355,8 +353,8 @@ Verrà aperta un'interfaccia grafica con un set di schede. Qui è disponibile un
 ## Passaggi successivi
 Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 
-* Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-più-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il[processo di analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

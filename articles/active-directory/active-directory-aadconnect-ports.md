@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -84,4 +84,4 @@ Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere [la sezione Requisiti dell'agente di Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

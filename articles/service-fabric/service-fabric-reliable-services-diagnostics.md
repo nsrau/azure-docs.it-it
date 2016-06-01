@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="05/17/2016"
    ms.author="alanwar"/>
 
 # Funzionalità di diagnostica per Reliable Services con stato
@@ -44,4 +44,4 @@ L'evento StatefulRunAsyncFailure viene emesso ogni volta che l'attività RunAsyn
 
 L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richiesta di annullamento dell'attività RunAsync richiede più di quattro secondi. L'eccessiva durata di un'operazione di annullamento influisce sulla possibilità di riavviare rapidamente il servizio su un altro nodo. Questo può avere un impatto negativo sulla disponibilità complessiva del servizio.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

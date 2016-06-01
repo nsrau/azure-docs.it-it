@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"/>
 
 # Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia dei dati e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
@@ -69,8 +69,8 @@ Per questa esercitazione occorrono:
 7. Copia l'**ID CLIENT**. Sarà necessario immettere questo valore nel codice in un secondo momento.
 8. Nella sezione delle chiavi, impostare l'elenco a discesa **Seleziona durata** su **1 anno**. La chiave verrà copiata dopo aver salvato come indicato sotto.
 11. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
-12. Lasciare **MOSTRA** impostato su **App Microsoft**, quindi individuare e selezionare **Gestione servizi di Windows Azure** e fare clic sul segno di spunta per continuare.
-13. Nella riga **Gestione servizi di Windows Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a Gestione dei servizi di Azure**.
+12. Lasciare **MOSTRA** impostato su **App Microsoft**, quindi individuare e selezionare **Gestione servizi di Microsoft Azure** e fare clic sul segno di spunta per continuare.
+13. Nella riga **Gestione servizi di Microsoft Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a Gestione dei servizi di Azure**.
 14. Fare clic su **SALVA** nella parte inferiore della pagina.
 15. Dopo aver completato il salvataggio, individuare e copiare il valore della chiave nella sezione **Chiavi**. Sarà necessario immettere questo valore nel codice in un secondo momento. 
 
@@ -689,4 +689,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

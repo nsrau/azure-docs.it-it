@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importazione di spazi dei nomi
 
-Se è necessario importare spazi dei nomi, è possibile farlo come al solito con la clausola `using`.
+Se è necessario importare spazi dei nomi è possibile farlo come al solito con la clausola `using`.
 
 ```csharp
 using System.Net;
@@ -100,8 +100,10 @@ Gli spazi dei nomi seguenti vengono importati automaticamente e sono quindi faco
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -121,7 +123,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting di Funzioni di Azure:
 
-* `mscorlib`,
+* `mscorlib`
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -132,17 +134,19 @@ Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Gli assembly seguenti sono inoltre casi speciali ed è possibile farvi riferimento tramite simplename, ad esempio `#r "AssemblyName"`:
+Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferimento tramite simplename, ad esempio `#r "AssemblyName"`:
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Se è necessario fare riferimento a un assembly privato, è possibile caricare il file di assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`.
+Per fare riferimento a un assembly privato è possibile caricare il file di assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
 
 ## Gestione dei pacchetti
 
-Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* nella cartella della funzione nel file system dell'app di funzione. Ecco un esempio di file*project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0::
+Per usare i pacchetti NuGet in una funzione C# caricare un file *project.json* nella cartella della funzione nel file system dell'app per le funzioni. Ecco un esempio di file *project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0:
 
 ```json
 {
@@ -156,47 +160,17 @@ Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* 
 }
 ```
 
-Quando si carica un file *project.json*, il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"`. Per usare i tipi definiti nei pacchetti NuGet, è sufficiente aggiungere le istruzioni `using` necessarie al file *run.csx*.
+Quando si carica un file *project.json* il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"`. Per usare i tipi definiti nei pacchetti NuGet basta aggiungere le istruzioni `using` necessarie al file *run.csx*.
 
 ### Come caricare un file project.json
 
-Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure. In questo modo è anche possibile accedere ai log in streaming in cui verrà visualizzato l'output di installazione dei pacchetti.
+1. Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure. 
 
-Le app di funzione sono basate sul servizio app, quindi tutte le[opzioni di distribuzione disponibili per le app Web standard](../app-service-web/web-sites-deploy.md) sono disponibili anche per le app di funzione. Ecco alcuni metodi che è possibile usare.
+	In questo modo è anche possibile accedere ai log in streaming in cui verrà visualizzato l'output di installazione dei pacchetti.
 
-#### Per caricare il file project.json usando Visual Studio Online (Monaco)
+2. Per istruzioni sul caricamento di un file project.json vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
 
-1. Nel portale di Funzioni di Azure fare clic su **Impostazioni dell'app di funzione**.
-
-2. In **Impostazioni avanzate** fare clic su **Vai alle impostazioni del servizio app**.
-
-3. Fare clic su **Strumenti**.
-
-4. In **Sviluppo** fare clic su **Visual Studio Online**.
-
-5. Fare clic su **Sì** se l'opzione non è già abilitata, quindi su **Vai**.
-
-6. Una volta completato il caricamento di Visual Studio Online, selezionare il file *project.json* e trascinarlo nella cartella con il nome della funzione.
-
-#### Per caricare il file project.json usando l'endpoint SCM (Kudu) dell'app di funzione
-
-1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Fare clic su **Debug Console > CMD**.
-
-3. Accedere a *D:\\home\\site\\wwwroot<function\_name>*.
-
-4. Trascinare il file *project.json* selezionato nella cartella (nella griglia di file).
-
-#### Per caricare il file project.json usando FTP
-
-1. Per la configurazione dell'FTP, seguire le istruzioni riportate [qui](../app-service-web/web-sites-deploy.md#ftp).
-
-2. Quando si è connessi al sito dell'app di funzione, copiare il file *project.json* in */sito/wwwroot/<function_name>*.
-
-#### Log di installazione del pacchetto 
-
-Dopo aver caricato il file *project.json*, nel log in streaming della funzione verrà visualizzato l'output simile all'esempio seguente:
+3. Dopo il caricamento del file *project.json* il log di streaming della funzione visualizza output simile a quello dell'esempio seguente:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ Dopo aver caricato il file *project.json*, nel log in streaming della funzione v
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Variabili di ambiente
+
+Per ottenere una variabile di ambiente o un valore di impostazione app usare `System.Environment.GetEnvironmentVariable`, come illustrato nell'esempio di codice seguente:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Riutilizzo del codice CSX
@@ -244,9 +237,9 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 * `#load "mylogger.csx"` carica un file che si trova nella cartella della funzione.
 
-* `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una cartella nella cartella della funzione.
+* `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una sottocartella della cartella della funzione.
 
-* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
+* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero subito al di sotto di *wwwroot*.
  
 La direttiva `#load` funziona solo con i file con estensione *csx* (script C# ), non con i file con estensione *cs*.
 
@@ -258,4 +251,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

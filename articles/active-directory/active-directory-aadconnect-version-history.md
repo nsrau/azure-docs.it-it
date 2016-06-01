@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -29,6 +29,22 @@ Di seguito è riportato l'elenco degli argomenti correlati:
 | Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect. |
 | Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade) |
 | Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+
+## 1\.1.180.0
+Data di rilascio: maggio 2016
+
+**Nuove funzionalità:**
+
+- Visualizza avvisi e indicazioni riguardo alla verifica dei domini se la verifica non è stata effettuata prima di eseguire Azure AD Connect.
+- Aggiunto il supporto per [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Aggiunto il supporto per la versione più recente dell'infrastruttura [cloud di Microsoft Azure per enti pubblici](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) con nuovi requisiti URL.
+
+**Problemi risolti e miglioramenti:**
+
+- Aggiunti i filtri all'editor delle regole di sincronizzazione per semplificare il reperimento delle regole.
+- Miglioramento delle prestazioni quando si elimina uno spazio connettore.
+- Risolto un problema che si verificava quando lo stesso oggetto veniva sia eliminato che aggiunto nella stessa esecuzione (elimina/aggiungi).
+- Una regola di sincronizzazione disabilitata non verrà più riabilitata, inclusi oggetti e attributi di aggiornamento del sistema o dello schema della directory.
 
 ## 1\.1.130.0
 Data di rilascio: aprile 2016
@@ -53,7 +69,7 @@ Data di rilascio: febbraio 2016
 
 **Problemi risolti:**
 
-- L'aggiornamento da versioni precedenti non funziona se l'installazione non è stata eseguita nella cartella predefinita **C:\\Programmi**.
+- L'aggiornamento da versioni precedenti non funziona se l'installazione non viene eseguita nella cartella predefinita **C:\\Programmi**.
 - Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione** al termine dell'installazione guidata, una nuova esecuzione dell'installazione guidata non abilita l'utilità di pianificazione.
 - L'utilità di pianificazione non funzionerà come previsto nei server in cui il formato di data/ora non è US-en. `Get-ADSyncScheduler` non potrà restituire gli orari corretti.
 - Se è stata installata una versione precedente di Azure AD Connect con ADFS come opzione di accesso e aggiornamento, non è possibile eseguire nuovamente l'installazione guidata.
@@ -268,4 +284,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

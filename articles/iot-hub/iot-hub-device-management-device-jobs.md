@@ -18,9 +18,12 @@
 
 # Esercitazione: Come usare processi del dispositivo per aggiornare il firmware del dispositivo (anteprima)
 
+[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-jobs-selector.md)]
+
+## Introduzione
 Gestione dei dispositivi dell'hub IoT di Azure consente di interagire con dispositivi fisici tramite processi del dispositivo. Dopo aver identificato i dispositivi gemelli, ovvero la rappresentazione di servizio di un dispositivo fisico, è possibile interagire con il dispositivo fisico corrispondente usando processi del dispositivo. I processi del dispositivo consentono il coordinamento di processi complessi su più dispositivi. Questo processo può includere più passaggi e operazioni di lunga durata.
 
-Al momento esistono sei tipi di processi del dispositivo forniti da Gestione dei dispositivi dell'hub IoT di Azure. Ne verranno aggiunti altri in futuro in base alle esigenze dei clienti:
+Al momento esistono sei tipi di processi del dispositivo forniti da Gestione dei dispositivi dell'hub IoT di Azure. Ne verranno aggiunti altri in futuro in base alle esigenze dei clienti.
 
 - **Aggiornamento del firmware**: aggiorna il firmware, o l'immagine del sistema operativo, nel dispositivo fisico.
 - **Riavvio**: riavvia il dispositivo fisico.
@@ -81,7 +84,7 @@ var jobResponse = await deviceJobClient.ScheduleFirmwareUpdateAsync(Guid.NewGuid
 
 ### Esecuzione di query sulla cronologia processo
 
-Nell'esempio viene visualizzato periodicamente un elenco di dispositivi che eseguono un processo del dispositivo. Al termine di un processo del dispositivo, il dispositivo associato non viene più visualizzato nell'elenco. Nella figura seguente è uno screenshot di **FirmwareUpdate.exe** in esecuzione:
+Nell'esempio viene visualizzato periodicamente un elenco di dispositivi che eseguono un processo del dispositivo. Al termine di un processo del dispositivo, il dispositivo associato non viene più visualizzato nell'elenco. La figura seguente è una schermata di **FirmwareUpdate.exe** in esecuzione:
 
 ![][img-output1]
 
@@ -122,7 +125,7 @@ private static async Task OutputRunningJobs()
 }
 ```
 
-Una volta completato il processo del dispositivo padre, l'esempio genera un elenco di tutti i processi del dispositivo, come illustrato nella figura seguente: Il processo padre viene completato solo dopo il completamento di tutti i processi figlio associati. Nello screenshot seguente il processo padre è l'ultimo processo nell'elenco, che è possibile identificare perché il valore di **ParentJobId** è **''**. Il processo padre include anche il campo **Motivo** impostato su una stringa che indica il risultato di aggregazione della query. In questo caso mostra che l'aggiornamento è riuscito su tutti e 6 i dispositivi.
+Una volta completato il processo del dispositivo padre, l'esempio genera un elenco di tutti i processi del dispositivo, come illustrato nella figura seguente: Il processo padre viene completato solo dopo il completamento di tutti i processi figlio associati. Nella schermata seguente il processo padre è l'ultimo processo nell'elenco e lo si capisce perché il valore di **ParentJobId** è **''**. Il processo padre include anche il campo **Motivo** impostato su una stringa che indica il risultato di aggregazione della query. In questo caso mostra che l'aggiornamento è riuscito su tutti e 6 i dispositivi.
 
 ![][img-output2]
 
@@ -138,7 +141,7 @@ Nelle sezioni precedenti sono illustrati i dettagli di implementazione dell'aggi
 
 La libreria client di Gestione dei dispositivi dell'hub IoT di Azure gestisce la comunicazione tra il dispositivo e il servizio, quindi resta solo da implementare la logica specifica del dispositivo che prevede due parti:
 
-- Implementare il processo di aggiornamento del firmware specifico del dispositivo: richiede di scrivere la logica specifica del dispositivo per scaricare il pacchetto del firmware e applicare l'aggiornamento nei callback appropriati elencati di seguito. Nell'esempio simulato, questo processo viene implementato in [questo esempio][lnk-github-firmware]\:
+- Implementare il processo di aggiornamento del firmware specifico del dispositivo: richiede di scrivere la logica specifica del dispositivo per scaricare il pacchetto del firmware e applicare l'aggiornamento nei callback appropriati elencati di seguito. Nell'esempio simulato questo processo viene implementato in [questo esempio][lnk-github-firmware]\:
 
   ```
   object_firmwareupdate *obj = get_firmwareupdate_object(0);
@@ -175,4 +178,4 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

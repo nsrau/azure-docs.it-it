@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Contenitori, Micro-servizi, Mesos, Azure"/>
+   keywords="Docker, contenitori, Micro-Service, controller di dominio/sistema operativo, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,12 +34,14 @@ Quando si crea un tunnel SSH in Linux o OS X, prima di tutto è necessario indiv
 
 Ora aprire una shell ed eseguire il comando seguente, dove:
 
-**PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per DC/OS usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse.
+**PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per DC/OS usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse. **PATH\_TO\_PRIVATE\_KEY** [FACOLTATIVO] è il percorso della chiave privata che corrisponde alla chiave pubblica specificata durante la creazione del cluster del servizio contenitore. Usare questa opzione con il flag -i.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
+> La porta di connessione SSH è la 2200, non la porta 22 standard.
 
 ## Tunnel DC/OS
 
@@ -48,12 +50,12 @@ Per aprire un tunnel per gli endpoint correlati a DC/OS, eseguire un comando sim
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Ora è possibile accedere agli endpoint correlati a DC/OS da:
 
-- DC/OS: `http://localhost/`
+- Controller di dominio/sistema operativo: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
@@ -66,7 +68,7 @@ Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguent
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 A questo punto è possibile impostare la variabile di ambiente DOCKER\_HOST come indicato di seguito e continuare a usare l'interfaccia della riga di comando di Docker come di consueto.
@@ -90,8 +92,8 @@ Selezionare `SSH` e `Authentication`. Aggiungere il file di chiave privata per l
 ![Configurazione PuTTY 2](media/putty2.png)
 
 Selezionare `Tunnels` e configurare le porte inoltrate seguenti:
-- **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per DC/OS o 2375 per Swarm.
-- **Destination:** usare localhost:80 per DC/OS o localhost:2375 per Swarm.
+- **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per il controller di dominio/sistema operativo o 2375 per Swarm.
+- **Destination:** usare localhost:80 per il controller di dominio/sistema operativo o localhost:2375 per Swarm.
 
 L'esempio seguente è configurato per DC/OS, ma avrà un aspetto simile anche per Docker Swarm.
 
@@ -105,7 +107,7 @@ Al termine, salvare la configurazione di connessione e connettere la sessione Pu
 
 Dopo avere configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato da:
 
-- DC/OS: `http://localhost/`
+- Controller di dominio/sistema operativo: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
@@ -115,6 +117,6 @@ Dopo avere configurato il tunnel per Docker Swarm, è possibile accedere al clus
 
 Distribuire e gestire contenitori con DC/OS o Swarm.
 
-[Utilizzo del servizio contenitore di Azure e DC/OS](./container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](./container-service-docker-swarm.md)
+[Utilizzo del servizio contenitore di Azure e del controller di dominio/sistema operativo](container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

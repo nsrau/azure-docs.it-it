@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Eseguire attività di preparazione e completamento di processi in nodi di calcolo di Azure Batch
 
-I processi di Azure Batch spesso richiedono una forma di installazione prima dell'esecuzione e, analogamente, una sorta di manutenzione post-processo al completamento delle attività del processo. Batch fornisce i meccanismi per tali operazioni di preparazione e manutenzione sotto forma di attività facoltative di *preparazione del processo* e *rilascio del processo*.
+I processi di Azure Batch spesso richiedono che venga eseguito un qualche tipo di installazione prima dell'esecuzione e, analogamente, una sorta di manutenzione post-processo al completamento delle attività del processo. Batch offre i meccanismi per tali operazioni di preparazione e manutenzione sotto forma di attività facoltative di preparazione e rilascio del processo.
 
-Prima dell'esecuzione di qualsiasi attività di un processo, l'attività di preparazione del processo viene eseguita su tutti i nodi di calcolo pianificati per l'esecuzione di attività. Dopo aver completato il processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Sia per le attività di preparazione sia per quelle di rilascio del processo, è possibile specificare una riga di comando da richiamare quando viene eseguita l'attività. Queste attività speciali offrono funzionalità familiari per le attività, quali download di file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di memorizzazione dei file.
+Prima dell'esecuzione di qualsiasi attività di un processo, **l'attività di preparazione del processo** viene eseguita in tutti i nodi di calcolo pianificati per l'esecuzione di attività. Al completamento del processo, viene eseguita **l'attività di rilascio del processo** in ogni nodo del pool che ha eseguito almeno un'attività. Come con le normali attività di Batch, è possibile specificare una riga di comando dell'attività di preparazione o rilascio del processo in modo che venga chiamata all'esecuzione dell'attività. Queste attività speciali offrono funzionalità familiari per le attività, quali download di file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e tempo di conservazione dei file.
 
 Nelle sezioni seguenti viene descritto come usare questi due particolari tipi di attività mediante le classi [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] nell'API [.NET di Batch][api_net].
 
@@ -185,6 +185,5 @@ L'immagine seguente illustra le proprietà dell'attività di preparazione e rila
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
-[2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

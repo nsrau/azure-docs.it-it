@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Copiare i dati tra Archivio Data Lake e un database SQL di Azure tramite Sqoop
@@ -36,6 +36,10 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup). 
 - **Cluster Azure HDInsight** con accesso a un account di Archivio Data Lake. Vedere [Creare un cluster HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Questo articolo presuppone che si abbia un cluster HDInsight Linux con accesso ad Archivio Data Lake.
 - **Database SQL di Azure**. Per istruzioni su come crearne uno, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started.md).
+
+## Apprendimento rapido con i video
+
+[Guardare questo video](https://mix.office.com/watch/1butcdjxmu114) su come copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake con DistCp.
 
 ## Creare tabelle di esempio nel database SQL di Azure
 
@@ -90,7 +94,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 3. Passare alla directory in cui sono disponibili i pacchetti di Sqoop. In genere, questa corrisponde a `/usr/hdp/<version>/sqoop/bin`. 
 
-4. Importare i dati da **Table1** all'account Archivio Data Lake. Usare la sintassi seguente:
+4. Importare i dati da **Table1** all'account di Archivio Data Lake. Usare la sintassi seguente:
 
 		
 		sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -121,7 +125,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 ### Esportare dati da Archivio Data Lake a un database SQL di Azure
 
-6. Esportare i dati dall'account Archivio Data Lake alla tabella vuota, **Table2**, nel database SQL di Azure. Usare la sintassi seguente.
+6. Esportare i dati dall'account di Archivio Data Lake alla tabella vuota, **Table2**, nel database SQL di Azure. Usare la sintassi seguente.
 
 		
 		sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -152,4 +156,4 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -28,7 +28,7 @@ Per entrambi i livelli, è possibile acquistare capacità a incrementi di *unit�
 - Il livello Basic fornisce fino a tre SU per servizio.
 - Il livello Standard fornisce fino a 36 SU per servizio.
 
-È necessario scegliere una combinazione di partizioni e repliche che non superi il limite del livello. Ad esempio, non è possibile ridimensionare il servizio Standard verso l'alto fino a 12 partizioni e 6 repliche, poiché tale operazione richiederebbe 72 unità di ricerca (12 x 6), superando il limite di 36 unità di ricerca per servizio.
+È necessario scegliere una combinazione di partizioni e repliche che non superi il limite del livello. Ad esempio, non è possibile aumentare le prestazioni del servizio Standard fino a 12 partizioni e 6 repliche, poiché tale operazione richiederebbe 72 unità di ricerca (12 x 6), superando il limite di 36 unità di ricerca per servizio.
 
 In genere, la maggior parte delle applicazioni di ricerca tendono a richiedere più repliche che partizioni. Per i dettagli vedere la sezione relativa alla [disponibilità elevata](#HA).
 
@@ -91,10 +91,10 @@ Attualmente, non esiste alcun meccanismo incorporato per il ripristino di emerge
 
 Le **partizioni** forniscono archiviazione e I/O. Un singolo servizio di ricerca può avere un massimo di 12 partizioni. Ogni partizione viene fornita con un limite di 15 milioni di documenti o 25 GB di spazio di archiviazione, a seconda di quale valore si verifica per primo. Se si aggiungono le partizioni, il servizio di ricerca può caricare più documenti. Un servizio con una sola partizione che archivia inizialmente fino a 25 GB di dati, ad esempio, può archiviare a 50 GB quando si aggiunge una seconda partizione al servizio.
 
-Le **repliche** sono copie del motore di ricerca. Ogni singolo servizio di ricerca può avere un massimo di 6 partizioni. Sono necessarie almeno 2 repliche per la disponibilità di lettura (query) e almeno 3 repliche per la disponibilità di lettura e scrittura (query, indicizzazione).
+Le **repliche** sono copie del motore di ricerca. Ogni singolo servizio di ricerca può avere un massimo di 12 repliche. Sono necessarie almeno 2 repliche per la disponibilità di lettura (query) e almeno 3 repliche per la disponibilità di lettura e scrittura (query, indicizzazione).
 
 In ogni replica viene eseguita una copia di ogni indice. Quando si aggiungono le repliche, copie aggiuntive dell'indice vengono portate online per supportare i carichi di lavoro di query maggiori e per bilanciare il carico delle richieste su più repliche. Se si dispone di più indici, ad esempio 6 indici e 3 repliche, ogni replica avrà una copia di tutti i 6 indici.
 
 Si noti che non vengono fornite le stime per query al secondo (QPS), in quanto l'esecuzione di query può variare notevolmente a seconda della complessità della query e dei carichi di lavoro concorrenti. In media, una replica può soddisfare circa 15 QPS, ma la velocità effettiva sarà leggermente superiore o inferiore a seconda della complessità della query (le query con facet sono più complesse) e della latenza di rete. Inoltre, è importante riconoscere che mentre l'aggiunta delle repliche aggiunge in modo definito scalabilità e prestazioni, il risultato finale non è strettamente lineare: l'aggiunta di 3 repliche non garantisce di triplicare la velocità effettiva. La latenza delle query è un indicatore che potrebbe essere necessario per le repliche aggiuntive. Per altre informazioni sulle query al secondo, inclusi gli approcci per la stima delle query al secondo per i carichi di lavoro, vedere [Gestire il servizio di ricerca](search-manage.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

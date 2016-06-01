@@ -9,32 +9,48 @@ Gli aggiornamenti di manutenzione pianificata delle VM a istanza singola avvengo
 
 ## Configurazione a istanza multipla
 È possibile selezionare l'ora della manutenzione pianificata delle VM distribuite in una configurazione di set di disponibilità rimuovendo queste VM dal set di disponibilità corrispondente.
+
 1.	Per le VM in una configurazione a istanza multipla viene inviato un messaggio di posta elettronica sette giorni prima della manutenzione pianificata. Nel messaggio sono inclusi gli ID sottoscrizione e i nomi delle VM a istanza multipla interessate.
-2.	Durante questi sette giorni è possibile scegliere l'ora dell'aggiornamento delle istanze rimuovendo le VM a istanza multipla dell'area interessata dal set di disponibilità. Questa modifica di configurazione comporta un riavvio, dato che la macchina virtuale viene spostata da un host fisico destinato alla manutenzione a un altro host fisico non destinato alla manutenzione. 
-3.	Per rimuovere una VM dal relativo set di disponibilità è possibile usare il portale classico. 
+
+2.	Durante questi sette giorni è possibile scegliere l'ora dell'aggiornamento delle istanze rimuovendo le VM a istanza multipla dell'area interessata dal set di disponibilità. Questa modifica di configurazione comporta un riavvio, dato che la macchina virtuale viene spostata da un host fisico destinato alla manutenzione a un altro host fisico non destinato alla manutenzione.
+
+3.	Per rimuovere una VM dal relativo set di disponibilità è possibile usare il portale classico.
    
-        a.	In the Classic portal, click on the VM and then select “configure.” 
-        
-        b.	Under “settings”, you can see which Availability Set the VM is in.
-        
-    ![Selezione del set di disponibilità](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+    1.	Nel portale classico, fare clic sulla VM, quindi selezionare "configurazione". 
 
-        c.	In the availability set dropdown menu, select “remove from availability set.”
-        
-    ![Rimuovi dal set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselectionconfiguration.png)
+    2.	Nella sezione "impostazioni", è possibile visualizzare il set di disponibilità in cui si trova la VM.
 
-        d.	At the bottom, select “save.” Select “yes” to acknowledge that this action will restart the VM.
+        ![Selezione del set di disponibilità](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+
+    3.	Nel menu a discesa per l'impostazione della disponibilità selezionare "Rimuovi dal set di disponibilità".
+
+        ![Rimuovi dal set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselectionconfiguration.png)
+
+    4.	Nella parte inferiore selezionare "Salva". Selezionare "Sì" per confermare il riavvio della VM tramite questa azione.
+
 4.	Queste VM verranno spostate in host a istanza singola e non verranno aggiornate durante la manutenzione pianificata per le configurazioni di set di disponibilità.
+
 5.	Al termine dell'aggiornamento delle VM dei set di disponibilità in base alla pianificazione descritta nel messaggio di posta elettronica originale, è necessario aggiungere di nuovo le VM ai relativi set di disponibilità. Queste VM verranno nuovamente configurate come macchine virtuali a istanza multipla. Dopo la modifica di configurazione delle VM da istanza singola a istanza multipla è necessario il riavvio. In genere, dopo il completamento di tutti gli aggiornamenti a istanza multipla nell'intero ambiente Azure, viene eseguita la manutenzione delle macchine virtuali a istanza singola.
 
-Si noti che è possibile eseguire questa operazione usando Azure PowerShell: Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
+Si noti che è possibile ottenere questo risultato anche tramite Azure PowerShell:
+
+```
+Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
+```
 
 ## Configurazione a istanza singola
-È possibile selezionare l'ora della manutenzione pianificata delle VM in una configurazione a istanza singola aggiungendo queste VM a set di disponibilità. Procedura dettagliata
+È possibile selezionare l'ora della manutenzione pianificata delle VM in una configurazione a istanza singola aggiungendo queste VM a set di disponibilità.
+
+Procedura dettagliata
+
 1.	Per le VM in una configurazione a istanza singola viene inviato un messaggio di posta elettronica sette giorni prima della manutenzione pianificata. Nel messaggio sono inclusi gli ID sottoscrizione e i nomi delle VM a istanza singola interessate. 
+
 2.	Durante questi sette giorni è possibile scegliere l'ora del riavvio dell'istanza spostando le VM a istanza singola in un set di disponibilità nella stessa area. Questa modifica di configurazione comporta un riavvio, dato che la macchina virtuale viene spostata da un host fisico destinato alla manutenzione a un altro host fisico non destinato alla manutenzione.
+
 3.	Seguire le istruzioni riportate qui per aggiungere VM esistenti a set di disponibilità tramite il portale classico e Azure PowerShell. Vedere l'esempio relativo ad Azure PowerShell nella nota più avanti.
+
 4.	Dopo la riconfigurazione come VM a istanza multipla, le VM vengono escluse dalla manutenzione pianificata per le macchine virtuali a istanza singola.
+
 5.	Al termine dell'aggiornamento delle VM a istanza singola in base alla pianificazione descritta nel messaggio di posta elettronica originale, è possibile rimuovere le VM dai relativi set di disponibilità. Queste VM verranno nuovamente configurate come macchine virtuali a istanza singola.
 
 Si noti che è possibile ottenere questo risultato anche tramite Azure PowerShell:
@@ -48,5 +64,3 @@ Si noti che è possibile ottenere questo risultato anche tramite Azure PowerShel
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
-
-<!---HONumber=AcomDC_0323_2016-->

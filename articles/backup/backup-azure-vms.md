@@ -19,6 +19,11 @@
 
 
 # Eseguire il backup di macchine virtuali di Azure
+
+> [AZURE.SELECTOR]
+- [Eseguire il backup delle macchine virtuali di ARM in Azure ](backup-azure-arm-vms.md)
+- [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md)
+
 Questo articolo include le procedure per eseguire il backup delle macchine virtuali (VM) di Azure.
 
 Prima di poter eseguire il backup di una macchina virtuale di Azure, è necessario occuparsi di alcuni aspetti. Se non è già stato fatto, completare i [prerequisiti](backup-azure-vms-prepare.md) per preparare l'ambiente per il backup delle VM.
@@ -34,14 +39,13 @@ L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi princ
 ## Passaggio 1: Individuare le macchine virtuali di Azure
 Per assicurarsi che prima della registrazione vengano identificate le eventuali nuove macchine virtuali (VM) aggiunte alla sottoscrizione, eseguire il processo di individuazione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
 
-1. Accedere al [portale classico](http://manage.windowsazure.com/).
+1. Accedere al [portale classico](http://manage.windowsazure.com/)
 
-2. Nell'elenco dei servizi di Azure, fare clic su **Servizi di ripristino** per aprire l'elenco degli insiemi di credenziali di Backup e ripristino del sito.
-![Elenco dell'insieme di credenziali aperto](./media/backup-azure-vms/choose-vault-list.png)
+2. Nell'elenco dei servizi di Azure, fare clic su **Servizi di ripristino** per aprire l'elenco degli insiemi di credenziali di Backup e di Site Recovery. ![Elenco dell'insieme di credenziali aperto](./media/backup-azure-vms/choose-vault-list.png)
 
 3. Nell'elenco degli insiemi di credenziali di Backup, selezionare l'insieme di credenziali per eseguire il backup di una macchina virtuale.
 
-    Se si tratta di un nuovo insieme di credenziali nel portale verrà aperta la pagina **Avvio rapido**.
+    Se si tratta di un nuovo insieme di credenziali, verrà aperta la pagina **Avvio rapido** nel portale.
 
     ![Menu Elementi registrati aperto](./media/backup-azure-vms/vault-quick-start.png)
 
@@ -51,12 +55,11 @@ Per assicurarsi che prima della registrazione vengano identificate le eventuali 
 
     ![Menu Elementi registrati aperto](./media/backup-azure-vms/vault-menu.png)
 
-5. Scegliere **Macchina virtuale di Azure** dal menu **Tipo**.
+5. Selezionare **Macchina virtuale di Azure** dal menu **Tipo**.
 
     ![Selezionare il carico di lavoro](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Fare clic su **INDIVIDUA** nella parte inferiore della pagina.
-![Pulsante Individua](./media/backup-azure-vms/discover-button-only.png)
+6. Fare clic su **INDIVIDUA** nella parte inferiore della pagina. ![Pulsante Individua](./media/backup-azure-vms/discover-button-only.png)
 
     Il processo di individuazione può richiedere alcuni minuti mentre le macchine virtuali vengono elencate in formato tabulare. Nella parte inferiore della schermata è presente una notifica che indica che il processo è in esecuzione.
 
@@ -77,8 +80,7 @@ Si registra una macchina virtuale di Azure per associarla al servizio Backup di 
 
     ![Selezionare il carico di lavoro](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Fare clic su **REGISTRA** nella parte inferiore della pagina.
-![Pulsante Registra](./media/backup-azure-vms/register-button-only.png)
+3. Fare clic su **REGISTRA** nella parte inferiore della pagina. ![Pulsante Registra](./media/backup-azure-vms/register-button-only.png)
 
 4. Nel menu di scelta rapida **Registra elementi** selezionare le macchine virtuali da registrare. Se sono presenti due o più macchine virtuali con lo stesso nome, usare il servizio cloud per distinguerle.
 
@@ -94,7 +96,7 @@ Si registra una macchina virtuale di Azure per associarla al servizio Backup di 
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    Al termine dell'operazione, lo stato passerà a *registrato*.
+    Al termine dell'operazione lo stato passa a *Registrato* per riflettere la modifica.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -139,11 +141,11 @@ Gli insiemi di credenziali di Backup di Azure creati dopo maggio 2015 includono 
     - **Criteri di conservazione giornaliera**: i backup eseguiti ogni giorno vengono archiviati per 30 giorni.
     - **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane.
     - **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi.
-    - **Criteri di conservazione annuale**: i backup eseguiti la prima domenica di ogni gennaio vengono conservati per 99 anni.
+    - **Criteri di conservazione annuale**: i backup eseguiti la prima domenica di gennaio di ogni anno vengono conservati per 99 anni.
 
     Viene creato un processo per configurare i criteri di protezione e associare ogni macchina virtuale selezionata a questi criteri.
 
-6. Per visualizzare l'elenco di processi **Configura protezione**, dal menu degli insiemi di credenziali fare clic su **Processi** e selezionare **Configura protezione** dal filtro **Operazione**.
+6. Per visualizzare l'elenco di processi di **configurazione della protezione**, fare clic su **Processi** nel menu degli insiemi di credenziali e selezionare **Configura protezione** nel filtro **Operazione**.
 
     ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
@@ -174,11 +176,11 @@ Dopo la protezione, il numero di macchine virtuali aumenta anche nella pagina di
 I valori nel dashboard vengono aggiornati ogni 24 ore.
 
 ## Risoluzione dei problemi
-In caso di problemi durante il backup della macchina virtuale, vedere l'articolo [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md).
+In caso di problemi durante il backup della macchina virtuale, vedere l'articolo relativo alla [risoluzione dei problemi delle macchine virtuali](backup-azure-vms-troubleshoot.md).
 
 ## Passaggi successivi
 
 - [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

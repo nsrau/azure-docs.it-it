@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/02/2016"
+    ms.date="05/12/2016"
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Per client si intende desktop, dispositivi e così via, usati per connettersi al
 -  In uscita: TCP: 443  
 -  Facoltativo: UDP: 3391 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

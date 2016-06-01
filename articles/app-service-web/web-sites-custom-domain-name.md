@@ -17,12 +17,12 @@
 	ms.date="02/16/2016"
 	ms.author="cephalin"/>
 
-# Configurare un nome di dominio personalizzato nel servizio app di Azure
+# Configurazione di un nome di dominio personalizzato nel servizio app di Azure
 
 > [AZURE.SELECTOR]
-- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
-- [Web Apps with External Domains](web-sites-custom-domain-name.md)
-- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [Acquistare un dominio per App Web](custom-dns-web-site-buydomains-web-app.md)
+- [Applicazioni Web con domini esterni](web-sites-custom-domain-name.md)
+- [App Web con Gestione traffico](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 Quando si crea un'app Web, Azure la assegna a un sottodominio di azurewebsites.net. Ad esempio, se l'app Web è denominata **contoso**, l'URL corrisponderà a **contoso.azurewebsites.net**. Azure assegna anche un indirizzo IP virtuale.
@@ -112,7 +112,7 @@ Si supponga che il nome di dominio personalizzato sia contoso.com. In questo cas
 - **contoso.com** associato a 168.62.48.183.
 - **www.contoso.com** associato a **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns/dns-web-sites-custom-domain).
+>[AZURE.NOTE] È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns/dns-web-sites-custom-domain.md).
 
 <a name="awverify" />
 ## Creare un record awverify (solo record A)
@@ -155,4 +155,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

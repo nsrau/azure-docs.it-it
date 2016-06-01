@@ -78,7 +78,7 @@ Per inoltrare i ping di Gestione traffico dal firewall WAF all'applicazione, è 
 
 ![Website Translations][WebsiteTranslations]
 
-## Protezione del traffico verso l'ambiente del servizio app con i gruppi di risorse di rete##
+## Protezione del traffico verso l'ambiente del servizio app con i gruppi di sicurezza di rete (NSG)##
 Attenersi alla [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md) per informazioni dettagliate sulla limitazione del traffico all'ambiente del servizio app dal firewall WAF usando solo l'indirizzo VIP del servizio cloud. Ecco un comando di Powershell di esempio per eseguire questa attività per la porta TCP 80.
 
 
@@ -99,4 +99,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

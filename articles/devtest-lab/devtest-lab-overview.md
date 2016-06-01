@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Che cos'è il servizio Lab di sviluppo/test | Microsoft Azure"
-	description="Informazioni su come Lab di sviluppo/test può rendere più semplice creare, gestire e monitorare macchine virtuali di Azure"
+	pageTitle="Cos'è Lab di sviluppo/test? | Microsoft Azure"
+	description="Informazioni su come Lab di sviluppo/test può rendere più semplice la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-#Che cos'è Lab di sviluppo e test?
+#Che cosa sono i lab di sviluppo/test?
 
 Gli sviluppatori e i tester stanno cercando di risolvere i ritardi nella creazione e nella gestione dei propri ambienti accedendo al cloud. Azure consente di risolvere il problema dei ritardi di ambiente e consente il self-service all'interno di una nuova struttura conveniente. Tuttavia, gli sviluppatori e i tester necessitano ancora di molto tempo per la configurazione dei propri ambienti autonomi. Inoltre, i decision maker sono incerti su come sfruttare il cloud per ottimizzare i risparmi senza aggiungere una quantità eccessiva di overhead del processo.
 
-Lab di sviluppo e test di Azure è un servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo. È possibile provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux tramite modelli ed elementi riutilizzabili. Consente di integrare facilmente la pipeline di distribuzione in Lab di sviluppo e test per effettuare il provisioning di ambienti su richiesta. Aumentare i propri test di carico tramite il provisioning di più agenti di test e creare ambienti di pre-provisioning per training e demo.
+Lab di sviluppo e test di Azure è un servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo. È possibile provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux tramite modelli ed elementi riutilizzabili. Consente di integrare facilmente la pipeline di distribuzione in lab di sviluppo e test per effettuare il provisioning di ambienti su richiesta. Aumentare i propri test di carico tramite il provisioning di più agenti di test e creare ambienti di pre-provisioning per training e demo.
 
 ##Perché Lab di sviluppo e test?
 
@@ -28,7 +28,7 @@ Lab di sviluppo e test offre i seguenti vantaggi nella creazione, configurazione
 
 ###Servizio autonomo senza preoccupazioni
 
-Lab di sviluppo e test rende più semplice controllare i costi consentendo di impostare criteri nel lab, come numero di macchine virtuali (VM) per ogni utente e il numero di macchine virtuali per ogni lab. Lab di sviluppo e test consente inoltre di creare criteri per arrestare e avviare le macchine virtuali automaticamente.
+Lab di sviluppo e test rende più semplice controllare i costi consentendo di impostare criteri nel lab, come il numero di macchine virtuali (VM) per ogni utente e il numero di macchine virtuali per ogni lab. Lab di sviluppo e test consente inoltre di creare criteri per arrestare e avviare le macchine virtuali automaticamente.
 
 ###Accedere rapidamente a "Pronto per il Test"
 
@@ -58,12 +58,14 @@ Gli **Archivi di elementi** sono archivi git in cui vengono archiviati gli eleme
 
 **Base** è un'immagine di macchina virtuale con tutti gli strumenti e le impostazioni preinstallati e configurati per creare rapidamente una macchina virtuale. È possibile eseguire il provisioning di una macchina virtuale scegliendo una base esistente e aggiungendo un elemento per installare l'agente di test. È quindi possibile salvare la macchina virtuale di cui è stato effettuato il provisioning come base in modo che la base possa essere utilizzata senza la necessità di reinstallare l'agente di test per ogni processo di provisioning della macchina virtuale.
 
+Le **formule**, oltre alle immagini di base, offrono un meccanismo per il provisioning rapido di VM. Una formula è un elenco di valori predefiniti di proprietà usati nei lab di sviluppo/test per creare macchine virtuali. Con le formule, è possibile creare VM con lo stesso insieme di proprietà (come l'immagine base, la dimensione della VM, la rete virtuale e gli elementi), senza il bisogno di specificare tali proprietà ogni volta. Quando si crea una VM da una formula, i valori predefiniti possono essere modificati o usati così come sono.
+
 **Limiti** è un meccanismo per ridurre al minimo gli sprechi nel lab. Ad esempio, è possibile impostare un limite per limitare il numero di macchine virtuali che possono essere create per ogni utente o in un lab.
 
 I **Criteri** consentono di controllare i costi nel lab. Ad esempio, è possibile creare un criterio per arrestare automaticamente le macchine virtuali in base a una pianificazione definita.
 
 ##Passaggi successivi
 
-Per iniziare ad utilizzare Lab di sviluppo e test, seguire l’esercitazione dettagliata [Creare un Lab di sviluppo e test di Azure](devtest-lab-create-lab.md).
+Per iniziare a usare Lab di sviluppo e test, seguire l’esercitazione dettagliata [Creare un lab di sviluppo e test](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

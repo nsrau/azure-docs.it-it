@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Informazioni aggiuntive sulla memorizzazione nella cache
 
-![Logo di Indicazioni su modelli e procedure](media/best-practices-caching/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 La memorizzazione nella cache è una tecnica comune che ha l'obiettivo di migliorare le prestazioni e la scalabilità del sistema. A tale scopo, i dati usati di frequente vengono copiati temporaneamente all'interno di una risorsa di archiviazione rapida vicina all'applicazione. Se questa risorsa di archiviazione rapida dei dati si trova più vicina all'applicazione rispetto all'origine iniziale, la memorizzazione nella cache può migliorare significativamente i tempi di risposta per le applicazioni client fornendo i dati più rapidamente.
 
@@ -934,4 +934,4 @@ Anche il modello seguente potrebbe essere importante per lo scenario quando si i
 - Pagina sulle [transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nel repository di StackExchange.Redis
 - Pagina di [guida al partizionamento dei dati](http://msdn.microsoft.com/library/dn589795.aspx) nel sito Web Microsoft
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

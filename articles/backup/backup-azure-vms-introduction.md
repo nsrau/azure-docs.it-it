@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
@@ -86,6 +86,16 @@ Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia 
 - Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
 - Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup di Azure può non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 
+## Procedure consigliate
+È consigliabile seguire le procedure consigliate durante la configurazione del backup per le macchine virtuali
+
+- Non pianificare di eseguire il backup contemporaneo di più di 4 macchine virtuali classiche dallo stesso servizio cloud. È consigliabile scaglionare le pianificazioni di backup di un'ora, se si vuole configurare più macchine virtuali dallo stesso servizio cloud per il backup. 
+- Non pianificare di eseguire il backup contemporaneo di più di 40 macchine virtuali di Resource Manager.
+- Pianificare i backup durante le ore non di punta per le macchine virtuali in modo che il servizio di backup ottiene gli IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali di backup. 
+- Assicurarsi che in un criterio le macchine virtuali siano distribuite da account di archiviazione diversi. Se il numero totale di dischi archiviati in un account di archiviazione singolo delle VM è superiore a 20, è consigliabile distribuire le VM in pianificazioni di backup diverse per ottenere gli IOPS necessari durante la fase di trasferimento del backup.
+- Non è consigliabile ripristinare la macchina virtuale in esecuzione su archiviazione Premium dello stesso account di archiviazione perché questa operazione può avviare un backup e ridurrà il numero di IOPS disponibili per il backup. 
+- È consigliabile mantenere ogni macchina virtuale Premium su un account di archiviazione Premium diverso per ottenere le migliori prestazioni di backup. 
+
 ## Crittografia dei dati
 
 Il Backup di Azure non crittografa i dati come parte del processo di backup. È tuttavia possibile crittografare i dati all'interno della macchina virtuale e ed eseguire il backup dei dati protetti facilmente (altre informazioni sul [backup dei dati crittografati](backup-azure-vms-encryption.md)).
@@ -121,4 +131,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

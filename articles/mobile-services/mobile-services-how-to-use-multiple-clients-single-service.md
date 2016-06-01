@@ -138,8 +138,6 @@ Lo sviluppo di app native per dispositivi mobili per tutte le principali piattaf
 
 Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per dispositivi mobili con le caratteristiche desiderate dagli utenti, condividendo al tempo stesso un unico codice base, in genere JavaScript. Servizi mobili facilita la creazione e la gestione di un servizio back-end per piattaforme di sviluppo di app multipiattaforma fornendo esercitazioni con guide rapide per le seguenti piattaforme di sviluppo:
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator consente di usare JavaScript per sviluppare una singola app compilata per essere eseguita come nativa su tutte le piattaforme per dispositivi mobili. Questo assicura la creazione di un'interfaccia utente di facile utilizzo, l'accesso a tutte le risorse native del dispositivo e le prestazioni tipiche delle app native. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa ad Appcelerator][Appcelerator].
-
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (una distribuzione del progetto Apache Cordova) è un framework gratuito e open source che consente di usare API Web standardizzate, HTML e JavaScript per sviluppare una singola app eseguibile su dispositivi Android, iOS e Windows. PhoneGap fornisce un'interfaccia utente basata su visualizzazione Web, ma con un'esperienza d'uso avanzata grazie alla possibilità di accesso alle risorse native del dispositivo, ad esempio le notifiche push, l'accelerometro, la fotocamera, gli spazi di archiviazione, la georilevazione e il browser integrato nell'app. Per altre informazioni, vedere l'argomento sull'[esercitazione con guida rapida relativa a PhoneGap][PhoneGap].
 
 	Visual Studio consente ora di realizzare app Cordova multipiattaforma usando l'estensione Multi-Device Hybrid Apps per Visual Studio, un software in versione preliminare. Per altre informazioni, vedere l'[introduzione all'uso di Multi-Device Hybrid Apps con HTML e JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
@@ -167,10 +165,10 @@ Sono disponibili strumenti multipiattaforma che consentono di sviluppare app per
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0518_2016-->

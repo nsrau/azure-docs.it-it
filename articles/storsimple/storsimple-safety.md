@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # Installazione sicura e funzionamento del dispositivo StorSimple
@@ -31,7 +31,7 @@ Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare du
 |![Icona di avviso](./media/storsimple-safety/IC740879.png) **AVVISO!**|Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite.|
 |![Icona di avviso](./media/storsimple-safety/IC740879.png) **ATTENZIONE:**|Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate.|
 |![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**|Indica le informazioni considerate importanti, ma non correlate al rischio.|
-|![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**pericolo di scosse elettriche ** |Voltaggio|
+|![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**pericolo di scosse elettriche** |Voltaggio|
 |![Icona peso elevato](./media/storsimple-safety/IC740883.png)**Pesante**| |
 |![Nessuna icona di parti riparabili dall'utente](./media/storsimple-safety/IC740879.png)**Nessuna parte riparabile dall'utente**|Non accedere a meno che non si sia stati adeguatamente formati.|
 |![Icona di avviso di sicurezza lettura](./media/storsimple-safety/IC740885.png)* * Leggere tutte le istruzioni prima * *| |
@@ -179,4 +179,4 @@ Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono pe
 
 - Per un dispositivo 8600, vedere [Installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Elenco di controllo per la scalabilità
 
-![](media/best-practices-scalability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Progettazione dei servizi
 - **Partizionare il carico di lavoro**. Progettare le diverse parti del processo in modo che siano discrete e scomponibili. Ridurre il più possibile le dimensioni di ogni parte, attenendosi comunque alle solite regole di separazione dei compiti e al principio di responsabilità singola. Questo consente di distribuire le parti in modo da ottimizzare l'uso di ogni unità di calcolo, ad esempio server di database o ruoli. Facilita anche la scalabilità dell'applicazione con l'aggiunta di altre istanze di risorse specifiche. Per altre informazioni, vedere le [indicazioni sul partizionamento delle risorse di calcolo](https://msdn.microsoft.com/library/dn589773.aspx).
@@ -68,4 +68,4 @@
 - **Considerare la possibilità di ridurre al minimo il numero degli account del servizio**. Ad esempio, usare un account specifico per accedere alle risorse o ai servizi che impongono un limite per le connessioni o che vengono eseguiti in modo più efficiente dove vengono mantenute meno connessioni. Questo approccio è comune per i servizi, come ad esempio i database, ma può compromettere la possibilità di controllare accuratamente le operazioni a causa della rappresentazione dell'utente originale.
 - **Effettuare la profilatura delle prestazioni e il testing del carico** durante lo sviluppo come parte delle routine di test e prima del rilascio della versione finale per assicurarsi che l'applicazione venga eseguita e scalata come richiesto. Questo testing deve essere eseguito sullo stesso tipo di hardware disponibile nella piattaforma di produzione e con gli stessi tipi e quantità di dati e carico utente che si riscontreranno in produzione. Per altre informazioni, vedere [Test delle prestazioni di un servizio cloud](vs-azure-tools-performance-profiling-cloud-services.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

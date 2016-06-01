@@ -67,7 +67,7 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 * È anche possibile esaminare singoli punti dati all'origine durante il debug:
  * Se si esegue l'app in modalità di debug in Visual Studio, i punti dati vengono registrati nella finestra di output. 
  * Per visualizzare i punti dati client, aprire il riquadro di debug del browser (in genere F12) e aprire la scheda di rete.
-* Per impostazione predefinita, la velocità dei dati può essere ridotta dal [campionamento adattivo](app-insights-sampling). Ciò significa che, con l'aumento dell'utilizzo dell'app, la velocità dei dati di telemetria non aumenta come previsto.
+* Per impostazione predefinita, la velocità dei dati può essere ridotta dal [campionamento adattivo](app-insights-sampling.md). Ciò significa che, con l'aumento dell'utilizzo dell'app, la velocità dei dati di telemetria non aumenta come previsto.
 
 ### Eccedenza
 
@@ -86,7 +86,7 @@ Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei p
 
 Fare clic sul grafico per altri dettagli o trascinare e fare clic su (+) per visualizzare i dettagli relativi a un intervallo di tempo.
 
-Il grafico mostra il volume di dati in arrivo nel servizio di Application Insights dopo il [campionamento](app-insights-sampling).
+Il grafico mostra il volume di dati in arrivo nel servizio Application Insights dopo il [campionamento](app-insights-sampling.md).
 
 
 ## Velocità dei dati
@@ -148,7 +148,7 @@ Sono disponibili diversi tipi di campionamento. È consigliabile usare il [campi
 
 In alternativa, è possibile impostare il *campionamento per inserimento* nel pannello Quota + prezzi. Questo tipo di campionamento opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce tuttavia il volume mantenuto dal servizio.
 
-![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-sampling/04.png)
+![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene inoltre i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.
 
@@ -173,4 +173,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

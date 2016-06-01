@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Passaggi successivi e come gestire Azure AD Connect
@@ -21,13 +21,6 @@ Di seguito sono riportati argomenti operativi avanzati che permettono di persona
 
 ## Aggiungere altri amministratori di sincronizzazione
 Per impostazione predefinita, solo l'utente che ha eseguito l'installazione e gli amministratori locali possono gestire il motore di sincronizzazione installato. Per fare in modo che altre persone possano accedere al motore di sincronizzazione e gestirlo, trovare il gruppo denominato ADSyncAdmins nel server locale e aggiungere gli utenti desiderati a questo gruppo.
-
-## Configurazione facoltativa nel servizio ADFS
-È possibile personalizzare l’illustrazione e l’immagine del logo per le pagine di accesso ADFS effettuando l’accesso ad ADFS e utilizzando PSH per eseguire questa configurazione.
-
-	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
-
-Per una descrizione completa delle opzioni relative alla configurazione, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
 ## Assegnazione delle licenze agli utenti di Azure AD Premium ed Enterprise Mobility
 
@@ -61,7 +54,7 @@ Se è necessario eseguire un'attività di sincronizzazione, è possibile eseguir
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Per altre informazioni sull'utilità di pianificazione del servizio di sincronizzazione di Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md)
+Per altre informazioni sull'utilità di pianificazione del servizio di sincronizzazione Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md)
 
 
 ## Attività aggiuntive disponibili in Azure AD Connect
@@ -81,4 +74,4 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

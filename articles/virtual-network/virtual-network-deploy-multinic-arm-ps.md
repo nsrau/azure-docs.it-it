@@ -77,6 +77,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		$vmNamePrefix          = "DB"
 		$osDiskPrefix          = "osdiskdb"
 		$dataDiskPrefix        = "datadisk"
+		$diskSize	           = "120"	
 		$nicNamePrefix         = "NICDB"
 		$ipAddressPrefix       = "192.168.2."
 		$numberOfVMs           = 2
@@ -139,12 +140,12 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 
 5. Creare due dischi dati per ciascuna macchina virtuale. Si noti che i dischi dati si trovano nell'account di archiviazione premium creato in precedenza.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+		    $dataDisk2Name = $vmName + "-" + $dataDiskPrefix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
@@ -308,4 +309,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

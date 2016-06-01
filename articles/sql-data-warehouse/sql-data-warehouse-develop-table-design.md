@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Progettazione di tabelle in SQL Data Warehouse #
-SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Archivia i dati in molte posizioni diverse, dette **distribuzioni**. Ogni **distribuzione** è simile a un bucket: archivia un subset univoco dei dati nel data warehouse. Distribuendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse è in grado di offrire un'enorme scalabilità, ben oltre qualsiasi sistema singolo.
+SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Archivia i dati in molte posizioni diverse, dette **distribuzioni**. Ogni **distribuzione** è simile a un bucket: archivia un subset univoco dei dati nel data warehouse. Suddividendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse è in grado di offrire un'enorme scalabilità, ben oltre qualsiasi sistema singolo.
 
 Quando si crea una tabella in SQL Data Warehouse, questa viene in effetti suddivisa tra tutte le distribuzioni.
 
@@ -52,8 +52,10 @@ SQL Data Warehouse supporta i tipi di dati aziendali comuni elencati di seguito:
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
@@ -75,26 +77,17 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
 
-La query include tutti i tipi di dati definiti dall'utente che non sono supportati.
-
-di seguito ci sono alcune alternative che è possibile utilizzare al posto di tipi di dati non supportati.
+La query include tutti i tipi di dati definiti dall'utente che non sono supportati. Di seguito sono riportate alcune alternative che è possibile usare al posto di tipi di dati non supportati.
 
 Invece di:
 
@@ -102,22 +95,22 @@ Invece di:
 - **geography**, usare un tipo varbinary
 - **hierarchyid**, tipo CLR non nativo
 - **image**, **text**, **ntext**, quando è basato su testo, usare varchar/nvarchar (il valore inferiore offre prestazioni migliori)
-- **nvarchar(max)**, usare nvarchar(4000) o un valore inferiore per prestazioni migliori
-- **numeric**, usare decimal.
 - **sql\_variant**, dividere la colonna in più colonne fortemente tipizzate.
-- **sysname**, usare nvarchar(128).
 - **table**, convertire in tabelle temporanee.
 - **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current\_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare BINARY(8) o VARBINARY(8) per i valori di versione di riga NOT NULL o NULL.
-- **varchar(max)**, usare varchar(8000) o un valore inferiore per prestazioni migliori
-- **uniqueidentifier**, usare varbinary(8).
-- **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile
-- **xml**, usare varchar(8000) o un valore inferiore per prestazioni migliori; dividere tra più colonne se necessario
+- **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile.
+- **xml**, usare varchar(max) o un valore inferiore per prestazioni migliori.
+
+Per ottenere prestazioni migliori, invece di:
+
+- **nvarchar(max)**, usare nvarchar(4000) o un valore inferiore per prestazioni migliori
+- **varchar(max)**, usare varchar(8000) o un valore inferiore per prestazioni migliori.
 
 Supporto parziale:
 
 - I vincoli predefiniti supportano solo valori letterali e costanti. Le espressioni o le funzioni non deterministiche, ad esempio `GETDATE()` o `CURRENT_TIMESTAMP`, non sono supportate.
 
-> [AZURE.NOTE] Definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra, non si potranno inserire dati nella tabella. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
+> [AZURE.NOTE] Se si usa Polybase per caricare le tabelle, definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra e caricare righe con BCP, non è ancora possibile usare PolyBase per caricare i dati. Presto verrà ampliato il supporto di PolyBase per righe ampie. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
 
 ## Principi della distribuzione dei dati
 
@@ -201,7 +194,7 @@ La prevedibilità dell'hash è estremamente importante. Significa che l'hash che
 
 Come si vedrà di seguito, la distribuzione hash può essere molto efficace per l'ottimizzazione delle query. Ecco perché viene considerata una forma ottimizzata di distribuzione dei dati.
 
-> [AZURE.NOTE] Tenere presente che l'hash non si basa sul valore dei dati, ma sul tipo dei dati di cui viene eseguito l'hashing.
+> [AZURE.NOTE] Tenere presente L'hash non è solo basato sul valore dei dati. L'hash è una combinazione di valore e tipo di dati.
 
 Di seguito è riportata una tabella con distribuzione hash in base a ProductKey.
 
@@ -228,7 +221,7 @@ WITH
 ## Partizioni della tabella
 Le partizioni della tabella sono supportate e facili da definire.
 
-Esempio di comando `CREATE TABLE` partizionata in SQL Data Warehouse:
+Esempio di comando `CREATE TABLE` partizionato di SQL Data Warehouse:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -254,7 +247,7 @@ WITH
 ;
 ```
 
-Notare che nella definizione non è presente una funzione o uno schema di partizionamento. Questo aspetto viene considerato al momento della creazione della tabella. È sufficiente identificare i punti di delimitazione per la colonna che verrà usata come chiave di partizionamento.
+Notare che nella definizione non è presente una funzione o uno schema di partizionamento. SQL Data Warehouse usa una definizione semplificata delle partizioni, leggermente diversa da SQL Server. È sufficiente identificare i punti di delimitazione per la colonna partizionata.
 
 ## Statistiche
 
@@ -277,33 +270,36 @@ Per generare le statistiche, applicare le indicazioni seguenti:
 >[AZURE.NOTE] In genere SQL Server Data Warehouse si basa solo su `AUTOSTATS` per mantenere aggiornare le statistiche relative alle colonne. Questa non è una procedura consigliata nemmeno per i data warehouse di SQL Server. Gli oggetti `AUTOSTATS` vengono attivati da una frequenza di modifica del 20%, che risulta insufficiente per le tabelle dei fatti di grandi dimensioni che contengono milioni o miliardi di righe. È quindi sempre consigliabile tenere sotto controllo gli aggiornamenti delle statistiche, per assicurarsi che riflettano accuratamente la cardinalità della tabella.
 
 ## Funzionalità non supportate
-SQL Data Warehouse non usa o non supporta le funzionalità seguenti:
+SQL Data Warehouse non usa né supporta le funzionalità seguenti:
 
-- chiavi primarie
-- chiavi esterne
-- vincoli CHECK
-- vincoli UNIQUE
-- indici univoci
-- colonne calcolate
-- colonne di tipo sparse
-- tipi definiti dall'utente
-- viste indicizzate
-- identità
-- sequenze
-- trigger
-- sinonimi
-
+| Funzionalità | Soluzione alternativa |
+| --- | --- |
+| identità | [Assegnazione di chiavi sostitutive] |
+| chiavi primarie | N/D |
+| chiavi esterne | N/D |
+| vincoli CHECK | N/D |
+| vincoli UNIQUE | N/D |
+| indici univoci | N/D |
+| colonne calcolate | N/D |
+| colonne di tipo sparse | N/D |
+| tipi definiti dall'utente | N/D |
+| viste indicizzate | N/D |
+| sequenze | N/D |
+| trigger | N/D |
+| sinonimi | N/D |
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Per altri consigli sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Assegnazione di chiavi sostitutive]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Procedure consigliate per SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Come usare AMQP 1.0 con l'API .NET del bus di servizio
@@ -306,11 +306,11 @@ Le seguenti funzionalità dell'API .NET di Service Bus non sono al momento suppo
 * Rinnovo del blocco della sessione
 * Alcune piccole differenze nel comportamento
 
-Per altre informazioni, vedere la [panoramica di AMQP per il bus di servizio](service-bus-amqp-dotnet.md). In questo argomento è riportato un elenco dettagliato delle API non supportate.
+Per altre informazioni, vedere la [panoramica di AMQP per il bus di servizio](service-bus-amqp-dotnet.md). Questo articolo fornisce un elenco dettagliato delle API non supportate.
 
 ## Riepilogo
 
-In questo argomento è stato illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP1.1.0 e l'API .NET del bus di servizio.
+Questo articolo illustra come accedere alle funzionalità di messaggistica negoziata del bus di servizio (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP 1.0 e l'API .NET del bus di servizio.
 
 È anche possibile usare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui Java, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà grazie all’utilizzo di AMQP 1.0 nel bus di servizio. Per altre informazioni, vedere la [panoramica di AMQP per il bus di servizio](service-bus-amqp-dotnet.md).
 
@@ -322,6 +322,6 @@ Ora che è stata letta una panoramica del bus di servizio e di AMQP con .NET, ve
 * [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
-[portale di Azure classico]: http://manage.windowsazure.com
+[portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

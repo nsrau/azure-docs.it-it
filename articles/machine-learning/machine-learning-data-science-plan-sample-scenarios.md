@@ -3,9 +3,9 @@
 	description="Selezionare gli scenari appropriati per il processo di analisi predittiva avanzata in Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="" />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="msolhab;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="bradsev" />
 
 
 # Scenari per l'analisi avanzata in Azure Machine Learning
 
-In questo articolo vengono descritte le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il Cortana Analytics Process (CAP). Vengono inoltre illustrate le opzioni disponibili nelle sequenze di elaborazione basate su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
+Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con Cortana Analytics Process. Vengono inoltre illustrate le opzioni disponibili nelle sequenze di elaborazione basate su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
 
 L’**albero delle decisioni** per la scelta degli scenari di esempio appropriati per i dati dell’utente e l'obiettivo sono presentati nella sezione precedente.
 
@@ -314,4 +314,4 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

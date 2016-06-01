@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti su Gestione API di Azure
@@ -35,6 +35,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 -	[L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[È possibile configurare un server di autorizzazione OAUth 2.0 con la sicurezza ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[Quale metodo di routing usa Gestione API quando è distribuita in più posizioni geografiche?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[È possibile creare un'istanza del servizio Gestione API usando un modello ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 
 
 
@@ -46,7 +47,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 
 ### Che cosa significa se una funzionalità è disponibile in anteprima?
 
-Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Se si hanno commenti e suggerimenti sulle funzionalità di anteprima, inviarli usando uno dei metodi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team).
+Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per inviare commenti o suggerimenti sulle funzionalità di anteprima, usare uno dei metodi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team).
 
 ### Quali sono le opzioni supportate per proteggere la connessione tra il gateway di Gestione API e i servizi back-end?
 
@@ -71,19 +72,30 @@ Sì, è possibile gestire l'istanza usando l'[API REST di Gestione API](https://
 
 ### Come aggiungere un utente al gruppo di amministratori?
 
-Attualmente, gli amministratori sono limitati agli utenti che eseguono l'accesso come amministratori o coamministratori tramite il portale di Azure classico nella sottoscrizione di Azure che contiene l'istanza di Gestione API. Gli utenti creati nel portale di pubblicazione non possono essere designati come amministratori o aggiunti al gruppo di amministratori.
+Per aggiungere un utente, seguire questa procedura:
+
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com) 
+2. Passare al gruppo di risorse che contiene l'istanza di Gestione API che interessa
+3. Aggiungere l'utente al ruolo "Collaboratore di Gestione Api"
+
+Al termine dell'operazione, il collaboratore appena aggiunto può usare i [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx) di Azure PowerShell per accedere come amministratore:
+
+1. Usare il cmdlet `Login-AzureRmAccount` per accedere
+2. Impostare il contesto per la sottoscrizione che contiene il servizio usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
+3. Ottenere il token SSO usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Copiare e incollare l'URL nel browser per consentire all'utente di accedere al portale di amministrazione
 
 
 ### Perché il criterio da aggiungere non è abilitato nell'editor dei criteri?
 
-Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione relativa all'**uso** del criterio nel [riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione relativa all'**uso** nel [Riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
 ### Come si ottiene il controllo delle versioni API con Gestione API?
 
 -	Gestione API consente di configurare separatamente le API che rappresentano diverse versioni. Ad esempio, si possono configurare `MyAPI v1` e `MyAPI v2` come due API distinte e gli sviluppatori possono scegliere la versione che preferiscono usare.
 -	È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio: `https://my.api`. È quindi possibile configurare un segmento di versione per il modello [Riscrittura URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Si può avere ad esempio un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) di `/resource` e un modello [Riscrittura URL](api-management-howto-add-operations.md#rewrite-url-template) di `/v1/Resource`. In questo modo è possibile modificare il valore del segmento di versione in ogni operazione separatamente.
--	Per mantenere un segmento di versione "predefinito" nell'URL del servizio dell'API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
+-	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
 
 ### Come si configurano più ambienti di API, ad esempio sandbox e produzione?
 
@@ -121,4 +133,8 @@ Per informazioni sulla configurazione di questo scenario, vedere [Uso di ADFS in
 
 Gestione API usa il [metodo di routing del traffico delle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+### È possibile creare un'istanza del servizio Gestione API usando un modello ARM?
+
+Sì, vedere i modelli di avvio rapido del [servizio Gestione API di Azure](http://aka.ms/apimtemplate).
+
+<!---HONumber=AcomDC_0518_2016-->

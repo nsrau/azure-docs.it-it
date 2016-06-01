@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="05/04/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparare l'ambiente per il backup di macchine virtuali di Azure
+
+> [AZURE.SELECTOR]
+- [Preparare il backup di macchine virtuali ARM](backup-azure-arm-vms-prepare.md)
+- [Preparare il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md)
 
 Prima di eseguire il backup di una macchina virtuale (VM) di Azure, devono verificarsi tre condizioni.
 
@@ -26,16 +30,14 @@ Prima di eseguire il backup di una macchina virtuale (VM) di Azure, devono verif
 - Stabilire la connettività di rete tra gli indirizzi Internet pubblici di Azure e gli endpoint di archiviazione di Azure.
 - Installare l'agente di VM sulla VM.
 
-Se queste condizioni sono già presenti nell'ambiente, passare all'[articolo relativo al backup delle VM](backup-azure-vms.md). In caso contrario, continuare a leggere. Questo articolo illustra i passaggi per preparare l'ambiente per eseguire il backup di una VM di Azure.
+Se queste condizioni sono già presenti nell'ambiente, passare all'[articolo relativo al backup delle macchine virtuali](backup-azure-vms.md). In caso contrario, continuare a leggere. Questo articolo illustra i passaggi per preparare l'ambiente per eseguire il backup di una VM di Azure.
 
 
 ## Limitazioni durante il backup e il ripristino di una VM
 
->[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e il modello classico](../resource-manager-deployment-model.md). L'elenco seguente indica le limitazioni quando si distribuisce usando il modello classico.
+>[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). L'elenco seguente indica le limitazioni quando si distribuisce usando il modello classico.
 
-- Il backup di macchine virtuali basate su Azure Resource Manager (IaaS V2) non è attualmente supportato.
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
-- Il backup di macchine virtuali con Archiviazione Premium non è supportato.
 - Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
@@ -43,11 +45,11 @@ Se queste condizioni sono già presenti nell'ambiente, passare all'[articolo rel
 - Il backup di macchine virtuali con il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi:
   - **Linux**: vedere [l'elenco delle distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
-	- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-	- Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create usando il flusso di lavoro di ripristino nell'interfaccia utente non potranno avere queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-		- Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
-		- Macchine virtuali con più indirizzi IP riservati
-		- Macchine virtuali con più schede di rete
+- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create usando il flusso di lavoro di ripristino nell'interfaccia utente non potranno avere queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+    - Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
+    - Macchine virtuali con più indirizzi IP riservati
+    - Macchine virtuali con più schede di rete
 
 ## Creare un insieme di credenziali di backup per una VM
 
@@ -63,15 +65,15 @@ Per creare un insieme di credenziali per il backup:
 
     ![Portale Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] Se la sottoscrizione è stata usata l'ultima volta nel portale classico, è possibile che venga aperta nel portale classico. In questo caso, per creare un insieme di credenziali di backup, fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di backup** > **Creazione rapida** (vedere la figura seguente).
+    >[AZURE.NOTE] Se la sottoscrizione è stata usata l'ultima volta nel portale classico, è possibile che venga aperta nel portale classico. In questo caso, per creare un insieme di credenziali di backup, fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di backup** > **Creazione rapida** (vedere l'immagine seguente).
 
     ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
-3. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+3. Nel campo **Nome** digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
 
 4. In **Region** selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali deve trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere. Se si hanno macchine virtuali in più aree, è necessario creare un insieme di credenziali di backup in ogni area. Per archiviare i dati di backup, non è necessario specificare account di archiviazione perché l'insieme di credenziali per il backup e il servizio Backup di Azure gestiscono questa operazione in modo automatico.
 
-5. In **Sottoscrizione** selezionare la sottoscrizione che si vuole associare all'insieme di credenziali di backup. Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
+5. Nel campo **Sottoscrizione** selezionare la sottoscrizione che si vuole associare all'insieme di credenziali di backup. Sono presenti scelte multiple solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
 
 6. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale.
 
@@ -88,88 +90,116 @@ Per creare un insieme di credenziali per il backup:
 
 ## Connettività di rete
 
-Per funzionare correttamente, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure perché invia i comandi a un endpoint di Archiviazione di Azure (URL HTTP) per gestire gli snapshot della VM. Senza la connettività Internet appropriata, si verificherà il timeout di queste richieste HTTP dalla VM e l'operazione di backup non riuscirà.
+Per gestire gli snapshot di una macchina virtuale, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. Senza la connettività Internet appropriata, si verificherà il timeout delle richieste HTTP della macchina virtuale e l'operazione di backup non verrà eseguita. Se la distribuzione ha restrizioni di accesso, ad esempio, un gruppo di sicurezza di rete (NSG), scegliere una delle opzioni seguenti per specificare un percorso chiaro per il traffico di backup:
 
-### Restrizioni di rete con i gruppi di sicurezza di rete
+- [Aggiungere gli intervalli IP dei data center di Azure all'elenco di elementi consentiti](http://www.microsoft.com/it-IT/download/details.aspx?id=41653): leggere l'articolo per istruzioni su come includere gli indirizzi IP nell'elenco degli elementi consentiti.
+- Distribuire un server proxy HTTP per eseguire il routing del traffico
 
-Se alla distribuzione sono applicate restrizioni di accesso (ad esempio, con un gruppo di sicurezza di rete), è necessario eseguire altri passaggi per assicurarsi che il traffico di backup verso l'insieme di credenziali di backup rimanga inalterato.
-
-Per fornire un percorso per il traffico di backup, è possibile procedere in due modi:
-
-1. Aggiungere all'elenco elementi consentiti gli [intervalli IP dei data center di Azure](http://www.microsoft.com/it-IT/download/details.aspx?id=41653).
-2. Distribuire un proxy HTTP per instradare il traffico.
-
-Il compromesso è tra gestibilità, controllo granulare e costo.
+Quando si decide quale opzione usare, i compromessi sono compresi tra facilità di gestione, controllo granulare e costo.
 
 |Opzione|Vantaggi|Svantaggi:|
 |------|----------|-------------|
-|OPZIONE 1: aggiungere all'elenco elementi consentiti gli intervalli IP| Nessun costo aggiuntivo. <br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br>Fornisce l'accesso a tutto l'ambiente Azure, non solo al servizio di Archiviazione.|
-|OPZIONE 2: proxy HTTP| È consentito il controllo granulare nel proxy sugli URL di archiviazione.<br>Singolo punto di accesso a Internet alle VM.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure.| Costi aggiuntivi per l'esecuzione di una VM con il software proxy.|
+|Aggiungere gli intervalli IP all'elenco elementi consentiti| Nessun costo aggiuntivo. <br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. | Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br><br>Offre accesso a tutto l'ambiente di Azure, non solo al servizio di Archiviazione.|
+|Proxy HTTP| È consentito il controllo granulare nel proxy sugli URL di archiviazione.<br>Singolo punto di accesso a Internet alle VM.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure.| Costi aggiuntivi per l'esecuzione di una VM con il software proxy.|
+
+### Aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti.
+
+Per aggiungere gli intervalli IP dei data center di Azure all'elenco degli elementi consentiti, vedere il [sito Web di Azure](http://www.microsoft.com/it-IT/download/details.aspx?id=41653) per informazioni dettagliate sugli intervalli IP e istruzioni.
 
 ### Uso di un proxy HTTP per i backup delle VM
-Quando si esegue il backup di una VM, i comandi di gestione snapshot vengono inviati dall'estensione di backup ad Archiviazione di Azure con un'API HTTPS. Questo traffico deve essere instradato dall'estensione attraverso il proxy, perché solo il proxy verrà configurato per poter avere accesso a Internet pubblico.
+Quando si esegue il backup di una macchina virtuale, l'estensione di backup nella VM invia i comandi di gestione degli snapshot ad Archiviazione di Azure usando un'API HTTPS. Eseguire il routing del traffico di estensione del backup tramite il proxy HTTP perché è l'unico componente configurato per l'accesso a Internet pubblico.
 
 >[AZURE.NOTE] Non esiste alcuna raccomandazione per il proxy da usare. Assicurarsi di scegliere un proxy compatibile con i passaggi di configurazione descritti di seguito.
 
-Nell'esempio seguente la VM app deve essere configurata per usare la VM proxy per tutto il traffico HTTP associato a Internet pubblico. La VM proxy deve essere configurata per consentire il traffico in ingresso dalle VM nella rete virtuale. Per il gruppo di sicurezza di rete (denominato *NSG-lockdown*), infine, è necessaria una nuova regola di sicurezza che consente il traffico Internet in uscita dalla VM proxy.
+L'immagine dell'esempio seguente visualizza i tre passaggi necessari per usare un proxy HTTP:
+
+- La VM dell'app esegue il routing del traffico HTTP diretto alla rete Internet pubblica attraverso la VM del proxy.
+- La VM del Proxy consente il traffico in entrata da macchine virtuali nella rete virtuale.
+- Il gruppo di sicurezza di rete (NSG) denominato blocco NSF ha bisogno di una regola di sicurezza che consenta il traffico Internet in uscita dalla VM Proxy.
 
 ![Diagramma della distribuzione gruppo di sicurezza di rete con proxy HTTP](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-**A) Consentire le connessioni di rete in uscita:**
+Per usare un proxy HTTP per la comunicazione con la rete Internet pubblica, attenersi alla procedura seguente:
 
-1. Per i computer Windows, eseguire il comando seguente in un prompt dei comandi con privilegi elevati:
+#### Passaggio 1. Configurare le connessioni di rete in uscita
+###### Per macchine Windows
+Questa procedura consente di impostare la configurazione del server proxy per l'account del sistema locale.
 
-    ```
-    netsh winhttp set proxy http://<proxy IP>:<proxy port>
-    ```
-    Questo comando esegue una configurazione proxy a livello di computer e verrà usato per tutto il traffico HTTP/HTTPS in uscita.
+1. Scaricare [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Eseguire il comando seguente dal prompt dei comandi con privilegi elevati,
 
-2. Per i computer Linux, aggiungere la riga seguente al file ```/etc/environment```:
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+    Si apre la finestra di Explorer.
+3. Scegliere Strumenti -> Opzioni Internet -> Connessioni -> Impostazioni LAN.
+4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta. 
+5. Chiudere Internet Explorer.
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
+Questo comando esegue una configurazione proxy a livello di computer e verrà usato per tutto il traffico HTTP/HTTPS in uscita.
+   
+Se è stato installato un server proxy in un account utente corrente (non in un account di sistema locale), usare lo script seguente per applicare le impostazioni a SYSTEMACCOUNT:
 
-  Aggiungere le righe seguenti al file ```/etc/waagent.conf```:
+```
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+```
 
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
+>[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel registro del server proxy, verificare che l'autenticazione sia impostata correttamente.
 
-**B) Consentire le connessioni sul server proxy:**
+######Per macchine Linux 
+
+Aggiungere la riga seguente al file ```/etc/environment```:
+
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
+
+Aggiungere le righe seguenti al file ```/etc/waagent.conf```:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
+
+#### Passaggio 2. Consentire le connessioni in entrata nel server proxy:
 
 1. Aprire Windows Firewall nel server proxy. Il modo più semplice per accedere al firewall consiste nel cercare Windows Firewall con Sicurezza avanzata.
 
     ![Aprire il firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole connessioni in entrata** e fare clic su **Nuova regola**.
+2. Nella finestra di dialogo Windows Firewall fare clic con il pulsante destro del mouse su **Regole connessioni in entrata**, quindi fare clic su **Nuova regola**.
 
     ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. In **Creazione guidata nuova regola connessioni in entrata** scegliere l'opzione **Personalizzata** per **Tipo di regola** e fare clic su **Avanti**.
+
 4. Nella schermata di selezione del **Programma** scegliere **Tutti i programmi** e fare clic su **Avanti**.
 
-5. Nella pagina **Protocollo e porte** immettere le informazioni seguenti e fare clic su **Avanti**:
+5. Nella pagina **Protocollo e porte** specificare le informazioni seguenti e fare clic su **Avanti**:
 
     ![Creare una nuova regola](./media/backup-azure-vms-prepare/firewall-03.png)
 
-    - per *Tipo di protocollo* scegliere *TCP*
-    - per *Porta locale* scegliere *Porte specifiche*, nel campo sottostante specificare la ```<Proxy Port>``` configurata.
-    - per *Porta remota* selezionare *Tutte le porte*
+    - Nel campo *Tipo di protocollo* scegliere *TCP*
+    - Nel campo *Porta locale* scegliere *Porte specifiche* e nel campo sottostante specificare la ```<Proxy Port>``` configurata.
+    - Nel campo *Porta remota* selezionare *Tutte le porte*
 
     Completare la procedura guidata facendo clic su Avanti fino al termine e assegnare un nome a questa regola.
 
-**C) Aggiungere una regola di eccezione al gruppo di sicurezza di rete:**
+#### Passaggio 3. Aggiungere una regola di eccezione al gruppo di sicurezza di rete (NSG):
 
-In un prompt dei comandi Azure PowerShell digitare il comando seguente:
+In un prompt dei comandi di Azure PowerShell digitare il comando seguente:
+
+Il comando aggiunge un'eccezione per il gruppo di sicurezza di rete (NSG). Questa eccezione consente il traffico TCP da qualsiasi porta da 10.0.0.5 a qualsiasi indirizzo Internet sulla porta 80 (HTTP) o 443 (HTTPS). Se è necessario usare una porta specifica nell'area Internet pubblica, assicurarsi di aggiungerla anche a ```-DestinationPortRange```.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
-
-Questo comando aggiunge un'eccezione al gruppo di sicurezza di rete, che consente il traffico TCP da qualsiasi porta da 10.0.0.5 a qualsiasi indirizzo Internet sulla porta 80 (HTTP) o 443 (HTTPS). Se è necessario selezionare una porta specifica in Internet pubblico, assicurarsi di aggiungerla anche a ```-DestinationPortRange```.
 
 *Assicurarsi di sostituire i nomi nell'esempio con quelli appropriati alla distribuzione in uso.*
 
@@ -186,7 +216,7 @@ L'agente VM è già presente nelle VM create dalla raccolta di Azure. Nelle macc
 | --- | --- | --- |
 | Installazione dell'agente di VM | <li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. | <li> Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
 | Aggiornamento dell'agente di VM | L'aggiornamento dell'agente VM è semplice quanto la reinstallazione dei [file binari dell'agente VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente VM. | Seguire le istruzioni sull'[aggiornamento dell'agente VM Linux](../virtual-machines-linux-update-agent.md). <br><br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente VM. |
-| Convalida dell'installazione dell'agente di VM | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella VM di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
+| Convalida dell'installazione dell'agente di VM | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
 
 
 Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -208,4 +238,4 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 - [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

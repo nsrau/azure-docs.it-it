@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di FTP
 Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eliminare i file e altro. L'API di FTP può essere usata da:
 
-- App per la logica
+- App per la logica trattate in questo argomento
+- PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -30,7 +31,7 @@ Con FTP è possibile:
 - Usare un trigger quando un file viene aggiornato.
 - Usare azioni per creare file, ottenerne il contenuto e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile ottenere il contenuto di un file e quindi aggiornare un database SQL. 
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Trigger e azioni
@@ -38,7 +39,7 @@ Per FTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
-<ul><li>Ottiene un file aggiornato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Ottieni contenuto di file</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file</li><li>Ottieni metadati di file tramite percorso</li><li>Ottieni un file aggiornato</li><li>Aggiorna file</li></ul>
+<ul><li>Gets an updated file</li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Gets an updated file</li><li>Update file</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -51,7 +52,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori seguent
 |Nome utente| Sì | Immettere il nome utente per la connessione al server FTP.|
 |Password | Sì | Immettere la password del nome utente.|
 
-Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di FTP in altre app per la logica.
 
@@ -245,6 +246,6 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 ## Passaggi successivi
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

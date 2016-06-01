@@ -22,12 +22,7 @@ Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET
 
 ## Prerequisiti
 
-Questa esercitazione si basa sulla serie di esercitazioni relative alle app per le API:
-
-1. [Creare un'app per le API di Azure](../app-service-dotnet-create-api-app)
-3. [Distribuire un'app per le API di Azure](../app-service-dotnet-deploy-api-app)
-4. [Eseguire il debug di un'app per le API di Azure](../app-service-dotnet-remotely-debug-api-app)
-
+Questa esercitazione si basa su [Creare un'app per le API di Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 ## Creare un'applicazione ASP.NET MVC in Visual Studio
 
@@ -39,11 +34,11 @@ Questa esercitazione si basa sulla serie di esercitazioni relative alle app per 
 
 	![Nuova applicazione ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di applicazione Web appena creato, quindi selezionare **Aggiungi** > **client API REST**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di applicazione Web appena creato e selezionare **Aggiungi** > **Client dell'API REST**.
 
 	![Aggiungere un riferimento a un'app per le API di Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. In **Aggiungi client API REST** selezionare Scarica dall'app per le API di Microsoft Azure e fare clic su Sfoglia. Selezionare l'app per le API a cui si vuole connettersi.
+1. In **Aggiungi il client dell'API REST** selezionare Scarica dall'app per le API di Microsoft Azure e fare clic su Sfoglia. Selezionare l'app per le API a cui ci si vuole connettere.
 
 	![Selezionare un'app per le API esistente](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -89,4 +84,4 @@ Seguire le istruzioni fornite in [Come distribuire un'app Web di Azure](web-site
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

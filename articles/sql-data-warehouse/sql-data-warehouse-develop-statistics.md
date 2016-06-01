@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="05/10/2016"
+   ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Gestire le statistiche in SQL Data Warehouse
  SQL Data Warehouse usa le statistiche per valutare il costo dei diversi modi di eseguire una query distribuita. Se le statistiche sono precise, Query Optimizer può generare piani di query di qualità elevata, che migliorano le prestazioni delle query.
@@ -54,13 +54,50 @@ Dopo avere stabilito come si vogliono eseguire query sui dati, sarà possibile p
 ## Quando aggiornare le statistiche
 È importante includere l'aggiornamento delle statistiche nella routine di gestione del database. Quando la distribuzione dei dati nel database subisce modifiche, è necessario aggiornare le statistiche. In caso contrario, è possibile che le prestazioni delle query non siano ottimali e il lavoro necessario per un'ulteriore risoluzione dei problemi della query sia inutile.
 
-Quando si risolvono i problemi di una query è quindi essenziale verificare prima di tutto se le statistiche sono aggiornate.
+Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne di data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono non aggiornate le statistiche. Al contrario, le statistiche su una colonna di paese in una tabella dei clienti possono non dover essere mai aggiornate, poiché la distribuzione dei valori in genere non cambia. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia, se il data warehouse contiene solo un paese e si importano dati da un nuovo paese, facendo sì che vengano archiviati dati da più paesi, in quel caso si devono sicuramente aggiornare le statistiche sulla colonna del paese.
 
-Questa verifica non può essere basata sulla data di creazione delle statistiche. Un oggetto statistiche aggiornato può essere molto vecchio. È necessario aggiornare le statistiche *quando* vengono apportate modifiche al numero di righe o modifiche materiali alla distribuzione dei valori per una colonna specifica.
+Quando si risolvono i problemi di una query è essenziale verificare prima di tutto se le statistiche sono aggiornate.
 
-Ad esempio, le colonne di data in un data warehouse necessitano solitamente di aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono non aggiornate le statistiche.
+Questa verifica non può essere basata sulla data di creazione dei dati. Un oggetto statistiche aggiornato può essere molto vecchio se non sono state apportate modifiche sostanziali ai dati sottostanti. È necessario aggiornare le statistiche *quando* vengono apportate modifiche sostanziali al numero di righe o modifiche materiali alla distribuzione dei valori per una colonna specifica.
 
-Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e uno nuovo requisito ha come risultato più sessi, sarà decisamente necessario aggiornare le statistiche relative alla colonna del sesso.
+Come riferimento, **SQL Server** (non SQL Data Warehouse) aggiorna automaticamente le statistiche nelle situazioni seguenti:
+
+- Se non si dispone di alcuna riga nella tabella, quando si aggiunge una riga (o delle righe), si ottiene un aggiornamento automatico delle statistiche
+- Quando si aggiungono più di 500 righe in una tabella che inizialmente ha meno di 500 righe (ad esempio, all'inizio ne ha 499 e poi si aggiungono 500 righe per un totale di 999 righe), si ottiene un aggiornamento automatico 
+- Una volta superate le 500 righe è necessario aggiungere altre 500 righe + il 20% delle dimensioni della tabella prima di ottenere un aggiornamento automatico delle statistiche
+
+Poiché non esiste alcun DMV per determinare se i dati all'interno della tabella sono cambiati dall'ultimo aggiornamento delle statistiche, sapere a quando risalgono le statistiche può fornire un quadro della situazione. È possibile usare la query seguente per determinare l'ultimo aggiornamento delle statistiche di ogni tabella.
+
+> [AZURE.NOTE] Si tenga presente che se vi è una modifica sostanziale nella distribuzione dei valori per una determinata colonna, è necessario aggiornare le statistiche a prescindere da quando sono state aggiornate l'ultima volta.
+
+```sql
+SELECT
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
+FROM
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
+WHERE
+    st.[user_created] = 1;
+```
+
+Le colonne di data in un data warehouse, ad esempio, necessitano solitamente di aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono non aggiornate le statistiche. Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e uno nuovo requisito ha come risultato più sessi, sarà decisamente necessario aggiornare le statistiche relative alla colonna del sesso.
 
 Per altre informazioni, vedere [Statistiche][] su MSDN.
 
@@ -461,4 +498,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

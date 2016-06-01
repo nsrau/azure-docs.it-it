@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Rete CDN : Come limitare l'accesso al contenuto in base al paese"
-	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese ** per configurare il servizio per consentire o bloccare l'accesso in base al paese."
+	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese** per configurare il servizio per consentire o bloccare l'accesso in base al paese."
 	services="cdn"
 	documentationCenter=".NET"
 	authors="camsoper"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Limitare l'accesso al contenuto in base al paese
 
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
 Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **filtro di paese** per configurare il servizio per consentire o bloccare l'accesso in base al paese.
 
->[AZURE.NOTE]Una volta impostata la configurazione, verrà applicata a tutti gli endpoint della rete CDN nella sottoscrizione.
+>[AZURE.NOTE]Una volta impostata la configurazione, verrà applicata a tutti gli endpoint della **rete CDN di Azure fornita da Verizon** nella sottoscrizione.
 
 Per informazioni su considerazioni relative alla configurazione di questo tipo di restrizioni, vedere la sezione [Considerazioni](cdn-restrict-access-by-country.md#considerations) alla fine dell'argomento.
 
@@ -65,4 +67,4 @@ La funzionalità di **filtro di paese** utilizza i codici paese per definire i p
 - La configurazione del filtro di paese associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
 - Può essere applicata solo una regola allo stesso percorso relativo (non è possibile creare più filtri di paese che puntano allo stesso percorso relativo). Tuttavia, una cartella potrebbe avere più filtri di paese. Ciò è dovuto alla natura ricorsiva dei filtri di paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

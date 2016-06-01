@@ -14,59 +14,50 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="04/21/2016" 
 	ms.author="betorres"
 />
 
 
 # Abilitazione e uso di Analisi del traffico di ricerca
 
-Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che consente di ottenere visibilità nel servizio di ricerca e informazioni dettagliate sugli utenti e il relativo comportamento. Quando si abilita questa funzionalità, i dati del servizio di ricerca vengono copiati in un account di archiviazione di propria scelta. Questi dati includono i log del servizio di ricerca e le metriche operative aggregate. Quando i dati sono disponibili, è possibile elaborarli e modificarli in qualsiasi modo.
-
+Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che consente di ottenere visibilità nel servizio di ricerca e informazioni dettagliate sugli utenti e il relativo comportamento. Quando si abilita questa funzionalità, i dati del servizio di ricerca vengono copiati in un account di archiviazione di propria scelta. Questi dati includono i registri del servizio di ricerca e le metriche operative aggregate che è possibile elaborare e manipolare per analisi aggiuntive.
 
 ## Come abilitare Analisi del traffico di ricerca
+
+È necessario disporre di un account di archiviazione nella stessa area e sottoscrizione del servizio di ricerca.
+
+> [AZURE.IMPORTANT] Per questo account di archiviazione si applicano le tariffe standard.
+
+Dopo averlo abilitato, i dati inizieranno a passare nell'account di archiviazione entro 5-10 minuti, all'interno dei 2 contenitori BLOB seguenti:
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1\. Tramite il portale
 Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
 
 ![][1]
 
-Selezionare questa opzione e verrà visualizzato un nuovo pannello. Modificare lo stato su **On**, selezionare l'account di Archiviazione di Azure in cui i dati verranno copiati e scegliere i dati che si desidera copiare: log, metriche o entrambi. È consigliabile copiare sia i log che le metriche.
+Selezionare questa opzione e verrà visualizzato un nuovo pannello. Modificare lo stato su **On**, selezionare l'account di Archiviazione di Azure in cui i dati verranno copiati e scegliere i dati che si desidera copiare: log, metriche o entrambi. È consigliabile copiare sia i log che le metriche. È possibile impostare i criteri di conservazione per i dati da 1 a 365 giorni. Se non si desidera applicare criteri di conservazione e conservare i dati per sempre, impostare la conservazione (in giorni) su 0.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] L'account di archiviazione deve essere nella stessa area e nella stessa sottoscrizione del servizio di ricerca.
-> 
-> Per questo account di archiviazione si applicano le tariffe standard.
-
 ### 2\. Tramite PowerShell
 
-È inoltre possibile abilitare questa funzionalità eseguendo il cmdlet di PowerShell seguente.
+Verificare innanzitutto che sia installata la versione più recente dei [cmdlet di Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+
+Cercare quindi gli ID della risorsa per il servizio di ricerca e l'account di archiviazione. È possibile trovarli nel portale in Impostazioni -> Proprietà -> ResourceId.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId**: ```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId**: è possibile trovare questo cmdlet nel portale in Impostazioni -> Proprietà -> ResourceId ```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```
-
-----------
-
-Dopo averlo abilitato, i dati inizieranno a passare nell'account di archiviazione entro 5-10 minuti. È possibile trovare 2 nuovi contenitori nell'archiviazione BLOB:
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## Informazioni sui dati
 
@@ -111,7 +102,8 @@ I BLOB delle metriche contengono i valori aggregati per il servizio di ricerca. 
 
 Metriche disponibili:
 
-- Latenza
+- Latency
+- SearchQueriesPerSecond
 
 ####Schema delle metriche
 
@@ -137,7 +129,7 @@ Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) pe
 
 [Pacchetto di contenuto di Power BI](https://app.powerbi.com/getdata/services/azure-search): consente di creare un dashboard di Power BI e un set di report di Power BI che mostrino automaticamente i dati e forniscano informazioni dettagliate sul servizio di ricerca. Vedere la [pagina della Guida del pacchetto di contenuto](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-search/).
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
@@ -146,17 +138,17 @@ Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) pe
 1. Aprire un nuovo report di Power BI Desktop
 2. Selezionare Recupera dati -> Altro.
 
-	![][4]
+	![][5]
 
 3. Selezionare Archiviazione BLOB di Microsoft Azure e Connetti
 
-	![][5]
+	![][6]
 
 4. Immettere il nome e la chiave dell'account di archiviazione
 5. Selezionare "insight-log-operationlogs" e "insights-metrics-pt1m", quindi fare clic su Modifica
 6. Si aprirà l'editor di Query; assicurarsi che "insight-log-operationlogs" sia selezionato a sinistra. A questo punto aprire l'editor avanzato selezionando Visualizza -> Editor avanzato
 
-	![][6]
+	![][7]
 
 7. Mantenere le prime due righe e sostituire la parte restante con la query seguente:
 
@@ -223,9 +215,10 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

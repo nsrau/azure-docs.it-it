@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
@@ -64,6 +64,8 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 	![Nome di data factory non disponibile][image-data-factory-name-not-available]
 	
 	> [AZURE.NOTE] Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+	> 
+	> Per creare istanze di Data Factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 
 9. Fare clic sull'hub **NOTIFICHE** a sinistra e cercare le notifiche del processo di creazione. Fare clic su **X** per chiudere il pannello **NOTIFICHE**, se è aperto.
 10. Al termine della creazione, il pannello **DATA FACTORY** avrà un aspetto simile al seguente.
@@ -100,12 +102,12 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 
 	![Impostazioni di SQL di Azure dell'editor][image-editor-azure-sql-settings]
 
-2. Sostituire **servername**, **databasename**, ****username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
+2. Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire AzureSqlLinkedService. 
    
 
 ## Creare set di dati
-Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService e AzureSqlLinkedService. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
+Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** ed **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService e AzureSqlLinkedService. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
 
 ### Creare set di dati di input 
 Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **AzureStorageLinkedService**.
@@ -371,16 +373,24 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 
 ## Riepilogo 
-In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato il portale di Azure per creare la data factory, i servizi collegati, le tabelle e una pipeline. Ecco i passaggi di alto livello eseguiti in questa esercitazione:
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato il portale di Azure per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi di alto livello eseguiti in questa esercitazione:
 
-1.	Creare una **data factory** di Azure.
-2.	Creare **servizi collegati** che collegano gli archivi dati e i calcoli (definiti come **servizi collegati**) alla data factory.
-3.	Creare **tabelle** che descrivono dati di input e dati di output per le pipeline.
-4.	Creare **pipeline**. Una pipeline è costituita da una o più attività ed elabora gli input producendo l'output. Impostare il periodo attivo per la pipeline specificando l'ora di **Inizio** e di **Fine** per la pipeline. Il periodo attivo definisce l'intervallo di tempo in cui verranno prodotte sezioni di dati.
+1.	Creare un'istanza di Azure **Data Factory**.
+2.	Creare **servizi collegati**:
+	1. Un servizio collegato di **archiviazione di Azure** per collegare l'account di archiviazione di Azure che contiene i dati di input. 	
+	2. Un servizio collegato di **SQL di Azure** per collegare il database SQL di Azure che contiene i dati di output. 
+3.	Creare **set di dati** che descrivono dati di input e dati di output per le pipeline.
+4.	Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink.  
 
 
 ## Vedere anche
-Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+| Argomento | Descrizione |
+| :---- | :---- |
+| [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+| [Pipeline](data-factory-create-pipelines.md) | Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
+| [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
+| [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -455,4 +465,4 @@ Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

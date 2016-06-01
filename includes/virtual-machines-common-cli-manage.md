@@ -11,7 +11,7 @@ La tabella seguente confronta attività di VM comuni che è possibile eseguire c
 
 Attività | Modalità Gestione dei servizi | Modalità di Gestione risorse
 -------------- | ----------- | -------------------------
-Creare la macchina virtuale di base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Ottenere `image-urn` dal comando `azure vm image list`. Vedere [questo articolo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) per informazioni dettagliate).
+Creare la macchina virtuale di base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Ottenere `image-urn` per immagini più diffuse di Marketplace eseguendo `azure help vm quick-create`. Per gli URN nel formato *publisherName:offer:skus:version*, vedere [questo articolo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) per gli esempi.)
 Creare una macchina virtuale Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Creare un'app Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Elenco delle macchine virtuali | `azure  vm list [options]` | `azure  vm list [options]`
@@ -40,6 +40,5 @@ Ottenere tutte le dimensioni delle macchine virtuali disponibili | Non disponibi
 
 ## Passaggi successivi
 
-* Per altri esempi dell'interfaccia della riga di comando, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione dei servizi di Azure](../articles/virtual-machines-command-line-tools.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+* Per altri esempi dell'interfaccia della riga di comando, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Service Management ](../articles/virtual-machines-command-line-tools.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0420_2016-->

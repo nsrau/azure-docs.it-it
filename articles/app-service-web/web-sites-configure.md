@@ -38,7 +38,7 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 **Versioni del framework**. Impostare le opzioni seguenti se l'app usa uno dei seguenti framework:
 
 - **.NET Framework**: consente di impostare la versione di .NET Framework. 
-- **PHP**: impostare la versione PHP oppure impostare **DISATTIVATO** per disabilitare PHP.
+- **PHP**: impostare la versione PHP oppure scegliere **disattivato** per disabilitare PHP. 
 - **Java**: consente di selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
 - **Python**: consente di selezionare la versione Python oppure impostare **DISATTIVATO** per disabilitare Python.
 
@@ -72,7 +72,7 @@ In questa sezione vengono riportate coppie di nome/valore che verranno caricate 
 
 Stringhe di connessione per le risorse collegate.
 
-Per le app .NET, tali stringhe vengono inserite nelle impostazioni `connectionStrings` della configurazione .NET in fase di esecuzione, sostituendo le voci esistenti in cui la chiave è uguale al nome del database collegato.
+Per le app .NET, tali stringhe di connessione vengono inserite nelle impostazioni `connectionStrings` della configurazione .NET in fase di runtime, sostituendo le voci esistenti in cui la chiave è uguale al nome del database collegato.
 
 Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponibili come variabili di ambiente durante il runtime, con il tipo di connessione come prefisso. I prefissi delle variabili di ambiente sono i seguenti:
 
@@ -177,4 +177,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

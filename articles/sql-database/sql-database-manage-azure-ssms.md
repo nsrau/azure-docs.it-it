@@ -3,8 +3,8 @@
 	description="Informazioni su come usare SQL Server Management Studio per gestire database e server di database SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
 # Gestione di database SQL di Azure tramite SQL Server Management Studio 
@@ -27,7 +27,9 @@
 
 È possibile utilizzare SQL Server Management Studio (SSMS) per amministrare i server logici e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server logico e di un database creati nel database SQL di Azure. Per informazioni su come connettersi ed eseguire una query SELECT semplice, vedere gli articoli relativi alla [creazione del primo database SQL Azure](sql-database-get-started.md) e alla [connessione ed esecuzione di query con SSMS](sql-database-connect-query-ssms.md).
 
-Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS. Per ottenerla, visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS.
+
+> [AZURE.IMPORTANT] Usare sempre la versione più aggiornata di SQL Server Management Studio (SSMS) per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. Le versioni precedenti di SQL Server Management Studio non funzionano correttamente con il database SQL. Visitare [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (Scaricare SQL Server Management Studio) per ottenere una nuova versione.
 
 ## Creazione e gestione dei database SQL di Azure
 
@@ -149,4 +151,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->
