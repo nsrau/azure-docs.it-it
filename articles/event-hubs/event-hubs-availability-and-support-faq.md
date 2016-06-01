@@ -33,7 +33,7 @@ Gli eventi utilizzati da un Hub eventi, nonché le operazioni di gestione e le c
 
 ## Cosa sono le unità elaborate in Hub eventi?
 
-Le unità elaborate in Hub eventi vengono selezionate esplicitamente dall'utente, tramite il portale di Azure classico o l'API di gestione di Hub eventi. Le unità elaborate si applicano a tutti gli Hub eventi in uno spazio dei nomi del Bus di servizio e ogni unità elaborata autorizza lo spazio dei nomi per le funzionalità seguenti:
+Le unità elaborate in Hub eventi vengono selezionate esplicitamente dall'utente, tramite il portale di Azure classico o i modelli di gestione risorse di Hub eventi. Le unità elaborate si applicano a tutti gli Hub eventi in uno spazio dei nomi del Bus di servizio e ogni unità elaborata autorizza lo spazio dei nomi per le funzionalità seguenti:
 
 - Fino a 1 MB al secondo di eventi in ingresso (gli eventi inviati a un Hub eventi), ma non più di 1000 eventi in ingresso, operazioni di gestione o chiamate di controllo API al secondo.
 
@@ -110,4 +110,4 @@ Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

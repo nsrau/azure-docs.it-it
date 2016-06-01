@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Panoramica di App Web"
-	description="Informazioni su App Web del servizio app"
+	pageTitle="Panoramica di App Web | Microsoft Azure"
+	description="Informazioni sul modo in cui il Servizio app di Azure semplifica lo sviluppo e l'hosting di applicazioni Web"
 	services="app-service\web"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,57 +13,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/09/2016"
-	ms.author="jaime.espinosa"/>
+	ms.date="05/16/2016"
+	ms.author="tdykstra"/>
 
+# Panoramica di App Web
 
-#Panoramica di App Web
+*App Web del servizio app* è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. Questa offerta [PaaS (Platform As a Service)](https://en.wikipedia.org/wiki/Platform_as_a_service) di Microsoft Azure consente di concentrarsi sulla logica di business, mentre Azure gestisce l'infrastruttura per l'esecuzione e il ridimensionamento delle app.
 
-Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) è una piattaforma completamente gestita per sviluppatori professionali che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Grazie a questo servizio, sarà possibile creare e distribuire app Web di importanza strategica scalabili in base alle esigenze aziendali tramite il servizio app di Azure.
+Per una panoramica di cinque minuti, guardare il video relativo ad [App Web del servizio app di Azure con Yochay Kiriaty](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/).
 
-È possibile sfruttare la potenza di [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) per usare i linguaggi e i framework che si conoscono meglio e su cui si basa il proprio lavoro, per distribuire velocemente le applicazioni nel cloud di Azure e per migliorare continuamente il codice senza doversi mai più preoccupare delle tematiche legate all'infrastruttura.
+## Informazioni sull'app Web in un servizio app
 
-![Marketplace Web](./media/app-service-web-overview/marketplace.png)
+Un'*app Web* del servizio app è una risorsa di calcolo offerta da Azure per l'hosting di un sito Web o di un'applicazione Web.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+Le risorse di calcolo possono trovarsi in macchine virtuali condivise o dedicate, in base al piano tariffario scelto. Il codice dell'applicazione viene eseguito in una VM gestita, isolata da altri clienti.
 
-## Molto più di semplici siti Web##
+È possibile usare per il codice qualsiasi linguaggio o framework supportato dal [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md), ad esempio ASP.NET, Node.js, Java, PHP o Python. È anche possibile eseguire script che usano [PowerShell e altri linguaggi di scripting](web-sites-create-web-jobs.md#acceptablefiles) in un'app Web.
 
-Le aziende moderne interagiscono con i propri clienti in modi sempre più sofisticati. Imprese di ogni tipo considerano la propria presenza sul Web un aspetto critico della propria attività, nonché un componente principale del proprio business plan. Per adattare questa importanza, le aziende cercano una piattaforma che dovrà fornire loro flessibilità, sicurezza e la scalabilità. Inoltre, richiedono la possibilità di collegarsi al sistema aziendale esistente, di essere in grado di distribuire rapidamente un nuovo codice e di creare istanze in tutto il mondo. Con il servizio app di Azure e le app Web, le organizzazioni sono finalmente in grado di soddisfare i propri clienti in modo rapido ed economico.
+Per esempi di scenari di applicazione tipici per cui è possibile usare le app Web, vedere [Scenari con app Web](https://azure.microsoft.com/documentation/scenarios/web-app/).
 
-## Perché passare al servizio app Web? ##
+## Vantaggi dell'uso di App Web
 
-App Web del servizio app di Azure è una piattaforma completamente gestita che consente di creare, distribuire e ridimensionare app Web aziendali nel giro di pochi secondi. Il servizio consente di concentrarsi sul codice dell'applicazione, lasciando che sia Azure occuparsi dell'infrastruttura per il ridimensionamento e l'esecuzione in sicurezza. App Web offre:
+Ecco alcune funzionalità principali di App Web:
 
-- **Familiarità e rapidità**: è possibile sfruttare le proprie conoscenze esistenti e scrivere codice nel linguaggio, framework e IDE di propria scelta. Con pochi clic è possibile aggiungere il controllo delle versioni, aggiornamenti, single sign-on, broker identità, spazio di memorizzazione isolato e monitoraggio delle prestazioni alle app Web esistenti. Accesso a una raccolta completa da usare come base per accelerare le attività di sviluppo. Produttività degli sviluppatori senza eguali grazie a funzionalità di eccellenza quali integrazione continua, debug live e IDE di Visual Studio leader del settore.
-- **Applicazioni aziendali**: il servizio app Web è stato ideato per creare e ospitare applicazioni di importanza strategica in tutta sicurezza. È possibile creare app aziendali integrate con Active Directory che si connettono in modo sicuro a risorse locali, quindi ospitarle in una piattaforma cloud sicura conforme agli standard ISO, SOC2 e PCI. Il tutto con i vantaggi offerti da contratti di servizio di livello enterprise.
-- **Scalabilità globale**: il servizio app Web è ottimizzato per fornire disponibilità e scalabilità automatica per infrastrutture di data center globali. Le dimensioni delle applicazioni possono essere aumentate o ridotte su richiesta. La disponibilità elevata è fornita sia all'interno che all'esterno delle specifiche aree geografiche. La replica dei dati e l'hosting dei servizi in più aree sono attività semplici e rapide e l'espansione in nuove aree geografiche è ottenibile con un semplice clic del mouse.  
+- **Familiarità e rapidità**: è possibile sfruttare le proprie conoscenze esistenti e scrivere codice nel linguaggio, framework e IDE (Integrated Development Environment) di propria scelta. Per il provisioning di nuove app Web e la distribuzione di codice nelle app Web sono necessari pochi secondi.
 
-## Concetti del servizio app Web ##
+- **Applicazioni aziendali**: il servizio app Web è stato ideato per creare e ospitare applicazioni di importanza strategica in tutta sicurezza. È possibile creare app aziendali integrate con Active Directory che si connettono in modo sicuro a risorse locali, quindi ospitarle in una piattaforma cloud sicura conforme agli standard [ISO](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [SOC](https://www.microsoft.com/TrustCenter/Compliance/SOC) e [PCI](https://www.microsoft.com/TrustCenter/Compliance/pci). Per tutte queste app è disponibile un [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) di livello aziendale.
 
-- **Raccolta app Web**: è possibile scegliere da un elenco in continua crescita di modelli di applicazione esistenti. È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal. Avviare il proprio processo di sviluppo dell’applicazione nel modo migliore sfruttando framework come .NET MVC, Django e CakePHP.
-- **Scalabilità automatica**: il servizio app Web consente di aumentare o scalare orizzontalmente le app in modo rapido, per gestire qualsiasi carico di lavoro proveniente dalla clientela. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica per adattare i server in base al carico o alla pianificazione.
-- **Integrazione continua**: configurare l'integrazione continua e i flussi di lavoro di distribuzione con VSTS, GitHub, TeamCity, Hudson o BitBucket, per compilare, testare e distribuire automaticamente l'app Web dopo ogni archiviazione di codice o test di integrazione eseguito con esito positivo.
-- **Slot di distribuzione**: implementare la [distribuzione di gestione temporanea][Slots] e per verificare il codice in un ambiente pre-produzione identico a quello dell'app Web di produzione nel servizio app di Azure. Una volta soddisfatti, rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio. 
-- **Test in produzione**: portare la pre-distribuzione al livello successivo ed eseguire il test A/B per verificare il nuovo codice con una frazione configurabile del proprio traffico live. 
-- **Webjobs**: eseguire qualsiasi programma o script nelle VM del servizio app Web. È possibile eseguire i processi in modo continuo o in base a una pianificazione e ridimensionarli per essere eseguiti in più VM. Usare [WebJobs SDK][Webjobs] di Azure per eseguire l'integrazione con l'archiviazione o con il bus di servizio di Azure.
-- **Connessioni ibride** - - Accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Scala globale**: il servizio app Web consente di [aumentare le prestazioni](../app-service/app-service-scale.md) o [aumentare il numero di istanze](../azure-portal/insights-how-to-scale.md) in modo rapido, per gestire qualsiasi carico di lavoro proveniente dalla clientela. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica in base al carico o alla pianificazione. L'infrastruttura globale di data center Microsoft esegue l'hosting delle app Web e semplifica la replica di dati e di servizi di hosting in più posizioni.
 
-## Introduzione ##
-Per iniziare con App Web, seguire l'esercitazione [Introduzione alle app Web in Servizio app di Azure][create].
+- **Azure Marketplace**: è possibile scegliere da un [elenco in continua crescita di modelli di applicazione Web](https://azure.microsoft.com/marketplace/). È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal.
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][appservice].
+- **Integrazione continua**: è possibile configurare flussi di lavoro di [integrazione e distribuzione continua](app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. È possibile compilare, eseguire il test e distribuire automaticamente l'app Web a ogni archiviazione corretta del codice o a ogni test di integrazione.
 
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+- **Ambienti di staging e di test**: è possibile implementare una [pre-distribuzione](web-sites-staged-publishing.md) per verificare il codice in un ambiente di pre-produzione identico all'ambiente di produzione. Quando si è pronti, si può rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio.
 
-## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+- **Test in produzione**: è possibile portare la pre-distribuzione al livello successivo ed [eseguire il test A/B](app-service-web-test-in-production-get-start.md) per verificare il nuovo codice con una frazione configurabile del proprio traffico live.
 
-[appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: app-service-web-get-started.md
-[Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
-[Slots]: web-sites-staged-publishing.md
+- **Processi Web**: è possibile [eseguire qualsiasi programma o script](web-sites-create-web-jobs.md) nelle VM di App Web. I processi possono essere eseguiti in modo continuo o in base a una pianificazione oppure possono essere attivati da eventi. Azure [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md) semplifica il codice scritto per l'integrazione con altri servizi di Azure, ad esempio le code di archiviazione, i BLOB, le tabelle e le code e gli argomenti del bus di servizio.
 
- 
+- **Connessioni ibride**: è possibile accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+- **Integrazione con Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app Web. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
+
+Un'app Web può anche sfruttare le funzionalità offerte dalle [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md), ad esempio il supporto CORS, e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md), ad esempio le notifiche push. Analogamente, è possibile usare un'app per le API o un'app per dispositivi mobili per ospitare un'app Web e sfruttare le funzionalità delle app Web, ad esempio la scalabilità automatica e la pre-distribuzione. L'unica differenza tra i tre tipi di app, ovvero per le API, Web e per dispositivi mobili, è costituita dal nome e dall'icona con cui sono contraddistinte nel portale di Azure. Per altre informazioni sui tipi di app nel servizio app, vedere [Panoramica del servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
+
+## Introduzione
+
+Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, seguire l'esercitazione [Distribuire la prima app Web in Azure in 5 minuti](app-service-web-get-started.md). Sarà necessario un account Azure gratuito.
+
+Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
+<!---HONumber=AcomDC_0525_2016-->

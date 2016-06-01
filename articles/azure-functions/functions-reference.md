@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Guida di riferimento per gli sviluppatori di Funzioni di Azure
@@ -80,7 +80,7 @@ Per facilitare i trigger HTTP, è disponibile anche un host Web che è progettat
 L'host di script punta a una cartella che contiene un file di configurazione e una o più funzioni.
 
 ```
-parentFolder (for example, wwwroot)
+parentFolder (for example, wwwroot in a function app)
  | - host.json
  | - mynodefunction
  | | - function.json
@@ -93,19 +93,67 @@ parentFolder (for example, wwwroot)
  | | - run.csx
 ```
 
-Il file *host.json* contiene alcune configurazioni specifiche dell'host di script e si trova nella cartella padre.
+Il file *host.json* contiene alcune configurazioni specifiche dell'host di script e si trova nella cartella padre. Per informazioni sulle impostazioni disponibili vedere [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) nella wiki del repository WebJobs.Script.
 
-Ogni funzione ha una cartella che contiene i file di codice, il file *function.json*, e altre dipendenze.
+Ogni funzione ha una cartella che contiene il o i file di codice, il file *function.json* e altre dipendenze.
 
 Quando si configura un progetto per la distribuzione di funzioni in un'app di funzione in un servizio App di Azure, è possibile considerare questa struttura di cartelle il codice del sito. È possibile usare gli strumenti esistenti come l' integrazione e la distribuzione continue o gli script di distribuzione personalizzata per l'installazione del pacchetto di distribuzione o la transpilazione del codice.
 
+## <a id="fileupdate"></a> Come aggiornare i file delle app per le funzioni
+
+L'editor funzioni incorporato nel portale di Azure consente di aggiornare il file *function.json* e il file di codice di una funzione. Per caricare o aggiornare altri file, ad esempio *package.json* o *project.json* o le relative dipendenze è necessario usare altri metodi di distribuzione.
+
+Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service-web/web-sites-deploy.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni.
+
+#### Per usare Visual Studio Online (Monaco)
+
+1. Nel portale Funzioni di Azure fare clic su **Function app settings** (Impostazioni delle app per le funzioni).
+
+2. Nella sezione **Advanced Settings** (Impostazioni avanzate) fare clic su **Go to App Service Settings** (Vai alle impostazioni del servizio app).
+
+3. Fare clic su **Tools** (Strumenti).
+
+4. In **Develop** (Sviluppo) fare clic su **Visual Studio Online**.
+
+5. Fare clic su **On** (Sì) se l'opzione non è già abilitata, quindi su **Go** (Vai).
+
+	Dopo il caricamento di Visual Studio Online il file *host.json* e le cartelle della funzione vengono visualizzati in *wwwroot*.
+
+6. Aprire i file per modificarli oppure selezionare e trascinare i file dal computer di sviluppo per caricarli.
+
+#### Per usare l'endpoint SCM (Kudu) dell'app per le funzioni
+
+1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Fare clic su **Debug Console (Console debug) > CMD**.
+
+3. Passare a `D:\home\site\wwwroot` per aggiornare *host.json* o a `D:\home\site\wwwroot<function_name>` per aggiornare i file di una funzione.
+
+4. Selezionare e trascinare un file da caricare nella cartella appropriata della griglia di file.
+
+#### Per usare il protocollo FTP
+
+1. Per la configurazione del protocollo FTP seguire le istruzioni riportate [qui](../app-service-web/web-sites-deploy.md#ftp).
+
+2. Una volta stabilita la connessione al sito delle app per le funzioni copiare un file *host.json* aggiornato in `/site/wwwroot` o copiare i file di funzione in `/site/wwwroot/<function_name>`.
+
 ## Esecuzione parallela
 
-Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo sia in grado di elaborare, il runtime chiama la funzione più volte in parallelo. Se un'app di funzione sta usando il [piano di servizio Dynamic](functions-scale.md#dynamic-service-plan), può aumentare automaticamente fino a 10 istanze simultanee. Ogni istanza dell'app di funzione, indipendentemente dal fatto che venga eseguita in un piano di servizio Dynamic o in un normale [piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread. Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app di funzione varia in base alla dimensione della memoria dell'app di funzione.
+Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo sia in grado di elaborare, il runtime chiama la funzione più volte in parallelo. Se un'app per le funzioni sta usando il [piano di servizio Dynamic](functions-scale.md#dynamic-service-plan) il numero di istanze simultanee dell'app può aumentare automaticamente fino a 10. Ogni istanza dell'app per le funzioni, eseguita in un piano di servizio Dynamic o in un normale [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread. Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app di funzione varia in base alla dimensione della memoria dell'app di funzione.
 
 ## Funzioni di Azure - Pulse  
 
-Pulse è un flusso di eventi attivi che visualizza la frequenza con cui viene eseguita la funzione, nonché le operazioni riuscite e gli errori. È anche possibile monitorare il tempo medio di esecuzione. Questa funzionalità verrà dotata di altre funzioni e possibilità di personalizzazione più avanti. È possibile accedere alla pagina **Pulse** dalla scheda relativa al **monitoraggio**.
+Pulse è un flusso di eventi attivi che visualizza la frequenza con cui viene eseguita la funzione, nonché le operazioni riuscite e gli errori. È anche possibile monitorare il tempo medio di esecuzione. Questa funzionalità verrà dotata di altre funzioni e possibilità di personalizzazione più avanti. È possibile accedere alla pagina **Pulse** dalla scheda **Monitoring** (Monitoraggio).
+
+## Repository
+
+Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:
+
+* [Runtime di Funzioni di Azure](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Portale Funzioni di Azure](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Modelli di Funzioni di Azure](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Estensioni Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## Associazioni
 
@@ -124,5 +172,6 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funzioni di Azure: l'evoluzione) sul blog del team del Servizio app di Azure. Storia dello sviluppo di Funzioni di Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

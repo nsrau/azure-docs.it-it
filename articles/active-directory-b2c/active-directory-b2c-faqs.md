@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -98,13 +98,27 @@ Attualmente, Azure AD B2C è ottimizzato solo per l'inglese. Si prevede di imple
 
 No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti anche che la procedura di verifica del dominio personalizzato nella scheda **Domini** del tenant nel portale di Azure classico non eseguirà questa operazione.
 
+### Come si elimina il tenant di Azure AD B2C?
+
+Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
+
+- Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per l'iscrizione ad Azure.
+- Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C.
+- Fare clic sulla scheda **Applicazioni**.
+- Selezionare **Applicazioni di proprietà dell'azienda** nel campo a discesa **Mostra** e fare clic sul segno di spunta.
+- Viene indicata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
+- Passare di nuovo all'estensione di Active Directory e selezionare il tenant di B2C.
+- Nella parte inferiore della pagina fare clic su **Elimina**. Seguire le istruzioni sullo schermo per completare il processo.
+
+Se sono già stati creati **utenti**, **applicazioni** o altri oggetti nel tenant di B2C, sarà necessario eliminarli prima di eseguire i passaggi precedenti.
+
 ### È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite?
 
 No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non fa parte di Enterprise Mobility Suite.
 
 ### Come è possibile segnalare problemi relativi ad Azure AD B2C?
 
-Vedere l'articolo che illustra come [inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
+Vedere l'articolo [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ### Quando sarà disponibile a livello generale Azure AD B2C?
 
@@ -114,4 +128,4 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 È consigliabile rivedere le informazioni relative a [vincoli, restrizioni e limitazioni correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

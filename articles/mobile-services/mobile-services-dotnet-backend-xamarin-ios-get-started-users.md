@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016" 
+	ms.date="05/11/2016" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -115,7 +115,7 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

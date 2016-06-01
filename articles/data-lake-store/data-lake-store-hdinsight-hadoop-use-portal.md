@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
@@ -45,6 +45,12 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	* [Creare una cartella in Archivio Data Lake](data-lake-store-get-started-portal.md#createfolder).
 	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
+## Apprendimento rapido con i video
+
+Guardare i video seguenti per informazioni su come effettuare il provisioning di cluster HDInsight con accesso ad Archivio Data Lake.
+
+* [Creare un cluster HDInsight con accesso ad Archivio Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
+* Una volta configurato il cluster, [accedere ai dati in Archivio Data Lake usando gli script Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
 ## Creare un cluster Azure HDInsight con accesso ad Archivio Azure Data Lake.
 
@@ -127,7 +133,7 @@ Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di te
 
 		SHOW TABLES;
 
-	La scheda **Results** (Risultati) dovrebbe visualizzare quanto segue:
+	La scheda **Results** (Risultati) dovrebbe mostrare quanto segue:
 
 		hivesampletable
 		vehicles
@@ -226,7 +232,7 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 
 ## Usare Archivio Data Lake in una topologia Storm
 
-È possibile usare Archivio Data Lake per scrivere dati da una topologia Storm. Per istruzioni su come ottenere questo scenario, vedere [Usare Archivio Azure Data Lake con Apache Storm in HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+È possibile usare Archivio Data Lake per scrivere dati da una topologia Storm. Per le istruzioni su come ottenere questo scenario, vedere [Usare Archivio Azure Data Lake con Apache Storm in HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Usare Archivio Data Lake con cluster HBase
 
@@ -252,4 +258,4 @@ Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefi
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

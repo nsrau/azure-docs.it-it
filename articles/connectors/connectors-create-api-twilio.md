@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introduzione all'API di Twilio
@@ -47,9 +47,10 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori di Twil
 |Account ID|Sì|Immettere l'ID dell'account Twilio|
 |Access Token|Sì|Immettere Il token di accesso di Twilio|
 
-Per creare un token di accesso, vedere [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity).
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Twilio](../../includes/connectors-create-api-twilio.md)]
 
-Dopo aver creato la connessione, immettere le proprietà di Twilio. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+In mancanza di un token di accesso, vedere [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) per crearne uno.
+
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Twilio in altre app per la logica.
 
@@ -95,7 +96,7 @@ Restituisce un elenco di messaggi associati all'account. ```GET: /Messages.json`
 
 
 ### Invia messaggio
-Invia un nuovo messaggio a un numero di telefono cellulare. ```POST: /Messages.json```
+Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -247,4 +248,4 @@ Invia un nuovo messaggio a un numero di telefono cellulare. ```POST: /Messages.j
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

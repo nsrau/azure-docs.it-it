@@ -34,7 +34,7 @@ Le raccolte Reliable Collections possono essere considerate l'evoluzione natural
 - Asincrone: le API sono asincrone per assicurare che i thread non vengano bloccati durante le operazioni di IO.
 - Transazionali: le API utilizzano l'astrazione delle transazioni per consentire all'utente di gestire facilmente più raccolte Reliable Collections all'interno di un servizio.
 
-Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta per facilitare la definizione della logica relativa allo stato delle applicazioni. La coerenza assoluta è ottenuta assicurando che i commit delle transazioni siano completati solo dopo che l'intera transazione è stata applicata a un quorum di repliche, inclusa quella primaria. Per ottenere una coerenza più debole, le applicazioni possono rinviare un acknowledgement al client/richiedente prima della restituzione del commit asincrono.
+Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta per facilitare la definizione della logica relativa allo stato delle applicazioni. La coerenza assoluta è ottenuta assicurando che i commit delle transazioni siano completati solo dopo che l'intera transazione è stata registrata su un quorum di repliche di maggioranza, inclusa quella primaria. Per ottenere una coerenza più debole, le applicazioni possono rinviare un acknowledgement al client/richiedente prima della restituzione del commit asincrono.
 
 Le API Reliable Collections sono un'evoluzione delle API delle raccolte disponibili nello spazio dei nomi **System.Collections.Concurrent**:
 
@@ -55,7 +55,7 @@ Le raccolte Reliable Collections scelgono automaticamente il livello di isolamen
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
 - **Repeatable Read**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata. Per altre informazioni, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. È come se le istruzioni di una transazione ottenessero uno snapshot dei dati di cui è stato eseguito il commit così come si presentavano al momento dell'avvio della transazione. Per altre informazioni, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresenteranno la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione. La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione. Le modifiche apportate da altre transazioni dopo l'inizio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente. È come se le istruzioni di una transazione ottenessero uno snapshot dei dati di cui è stato eseguito il commit così come si presentavano al momento dell'avvio della transazione. Gli snapshot tra le Reliable Collections sono coerenti. Per altre informazioni, vedere [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Gli oggetti ReliableDictionary e ReliableQueue supportano entrambi il criterio "Read Your Writes". In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
@@ -99,24 +99,28 @@ Lo scenario di deadlock sopra descritto è un perfetto esempio di come il blocco
 
 ## Recommendations
 
-- Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
+- Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetValueAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
 - Eseguire una copia completa dell'oggetto di tipo personalizzato restituito prima di modificarlo. Poiché le strutture e i tipi predefiniti vengono passati per valore, non è necessario eseguirne una copia completa.
 - Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
 - Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
+- Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze sull'implementazione per l'unione dei checkpoint.
+- Per il ripristino di emergenza, è consigliabile usare la funzionalità di backup e ripristino.
 
 Occorre tenere presente i concetti seguenti:
 
 - Il timeout predefinito di tutte le API Reliable Collections è di 4 secondi. La maggior parte degli utenti non deve ignorare questo valore.
 - Il token di annullamento predefinito è `CancellationToken.None` in tutte le API di Reliable Collections.
 - Il parametro di tipo di chiave (*TKey*) per un oggetto ReliableDictionary deve implementare correttamente `GetHashCode()` e `Equals()`. Le chiavi non devono essere modificabili.
-- All'interno di una raccolta le enumerazioni sono coerenti con gli snapshot. Le enumerazioni di più raccolte, tuttavia, non sono coerenti tra le diverse raccolte.
 - Per ottenere una disponibilità elevata per le raccolte Reliable Collections, ogni servizio deve avere almeno un set di repliche di destinazione costituito da un minimo di 3 repliche.
+- Le operazioni di lettura sul secondario possono leggere le versioni che non sono vincolate a un quorum. Ciò significa che una versione dei dati che viene letta da un singolo secondario potrebbe essere elaborata in modo non corretto. Naturalmente, le letture del primario sono sempre stabili: non possono verificarsi elaborazioni non corrette.
 
 ## Passaggi successivi
 
 - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+- [Eseguire il backup e il ripristino di Reliable Services (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
+- [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md) (Configurazione di Reliable State Manager)
 - [Introduzione ai servizi API Web di Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

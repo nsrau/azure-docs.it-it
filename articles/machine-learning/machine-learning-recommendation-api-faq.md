@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="05/18/2016" 
 	ms.author="luisca"/>
 
 #Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
@@ -135,4 +135,4 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

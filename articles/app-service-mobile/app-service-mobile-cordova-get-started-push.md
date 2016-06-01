@@ -197,8 +197,8 @@ Informazioni su come usare gli SDK.
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
 [Hub di notifica di Azure]: ../notification-hubs/notification-hubs-overview.md
-[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

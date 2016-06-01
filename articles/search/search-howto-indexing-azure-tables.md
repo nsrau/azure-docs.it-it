@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/12/2016"
+ms.date="05/12/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure
@@ -29,15 +29,16 @@ Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per a
 
 Un indicizzatore legge i dati da un'origine dati e li carica in un indice di ricerca di destinazione.
 
-Per configurare un indicizzatore di tabelle:
+Per configurare l'indicizzazione delle tabelle:
 
 1. Creare un'origine dati di tipo `azuretable` che faccia riferimento a una tabella e, facoltativamente, a una query in un account di archiviazione di Azure
 	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`
 	- Specificare il nome della tabella usando il parametro `container.name`
 	- Specificare facoltativamente una query usando il parametro `container.query`. Se possibile, usare un filtro sul parametro PartitionKey per ottimizzare le prestazioni. Qualsiasi altra query comporterà un'analisi completa della tabella e il conseguente peggioramento delle prestazioni per tabelle di grandi dimensioni.
-2. Creare l'indicizzatore connettendo l'origine dati a un indice di destinazione esistente (creare l'indice, se necessario)
+2. Creare un indice di ricerca con lo schema corrispondente alle colonne della tabella che si desidera indicizzare. 
+3. Creare l'indicizzatore connettendo l'origine dati all'indice di ricerca.
 
-Di seguito è illustrato un esempio:
+### Creare un'origine dati
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -50,7 +51,27 @@ Di seguito è illustrato un esempio:
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-Creare poi un indicizzatore che faccia riferimento all'origine dati e a un indice di destinazione. Ad esempio:
+Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Creare un indice 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+Per altre informazioni sull'API di creazione di un indice, vedere [Creare un indice](https://msdn.microsoft.com/library/dn798941.aspx)
+
+### Creare un indicizzatore 
+
+Infine creare l'indicizzatore che fa riferimento all'origine dati e all'indice di destinazione. Ad esempio:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -63,7 +84,13 @@ Creare poi un indicizzatore che faccia riferimento all'origine dati e a un indic
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
+Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 Questo è tutto il necessario per un'indicizzazione perfetta.
+
+## Gestione di nomi campo diversi
+
+I nomi campo nell'indice esistente saranno spesso diversi dai nomi proprietà nella tabella. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi proprietà restituiti dalla tabella per i nomi campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
 
 ## Gestione delle chiavi del documento
 
@@ -71,11 +98,7 @@ In Ricerca di Azure la chiave del documento identifica un documento in modo univ
 
 La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sintetico denominato `Key`, vale a dire una concatenazione di valori di chiave di partizione e chiave di riga. Ad esempio, se il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` sarà `PK1RK1`.
 
-> [AZURE.NOTE] Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile gestire i caratteri non validi abilitando l'opzione `base64EncodeKeys` nelle proprietà dell'indicizzatore. In questo caso, si ricordi di codificare le chiavi dei documenti quando le si passa nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) a tale scopo.
-
-## Gestione di nomi campo diversi
-
-I nomi campo nell'indice esistente saranno spesso diversi dai nomi proprietà nella tabella. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi proprietà restituiti dalla tabella per i nomi campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [Personalizzazione dell'indicizzatore di Ricerca di Azure](search-indexers-customization.md).
+> [AZURE.NOTE] Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile risolvere i problemi legati ai caratteri non validi usando la `base64Encode` [funzione del mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction). In questo caso, ricordarsi di usare la codifica Base64 sicura per gli URL quando si passano le chiavi dei documenti nelle chiamate API, ad esempio in una ricerca.
 
 ## Indicizzazione incrementale e rilevamento delle eliminazioni
  
@@ -100,4 +123,4 @@ Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigli
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

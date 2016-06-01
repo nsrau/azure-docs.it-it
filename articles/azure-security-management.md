@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gestione della sicurezza in Azure | Microsoft Azure"
    description="Questo articolo illustra i passaggi per il miglioramento della gestione remota della sicurezza durante l'amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate."
-   services="azure-security, virtual-machines, cloud-services"
+   services="security"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="StevenPo"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Gestione della sicurezza in Azure
@@ -247,4 +247,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="05/16/2016"
 	ms.author="v-livech"/>
 
 # Creare chiavi SSH in Linux e Mac per le VM Linux in Azure
 
-Per creare una chiave pubblica e privata SSH protetta con password è necessario un terminale aperto nella workstation. Una volta disponibili le chiavi SSH, è possibile creare nuove VM con tale chiave per impostazione predefinita oppure aggiungere la chiave pubblica alle VM esistenti usando sia l'interfaccia della riga di comando di Azure che i modelli di Azure.
+Per creare una chiave pubblica e privata SSH protetta con password è necessario un terminale aperto nella workstation. Una volta disponibili le chiavi SSH, è possibile creare nuove VM con tale chiave per impostazione predefinita oppure aggiungere la chiave pubblica alle VM esistenti usando sia l'interfaccia della riga di comando di Azure che i modelli di Azure. Questo consente l'accesso senza password tramite SSH usando il metodo di autenticazione basato su chiavi e password, molto più sicuro.
 
 ## Breve elenco di comandi
 
@@ -64,7 +64,7 @@ $
 
 ## Introduzione
 
-L'uso di chiavi pubbliche e private SSH è il modo più semplice per accedere ai server Linux, ma la [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce anche un modo molto più sicuro per l'accesso alla VM Linux o BSD in Azure rispetto alle password, che sono più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque, ma la chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale. La chiave privata SSH creata avrà una [password sicura](https://www.xkcd.com/936/) per proteggerla. Questa password serve solo per accedere alla chiave SSH privata e **non è** la password dell'account utente. Chiunque sia in possesso di una chiave privata senza password può accedere a qualsiasi server in cui è installata la chiave pubblica. La chiave privata non può essere usata senza la password.
+L'uso di chiavi pubbliche e private SSH è il modo più semplice per accedere ai server Linux, ma la [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce anche un modo molto più sicuro per l'accesso alla VM Linux o BSD in Azure rispetto alle password, che sono più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque, ma la chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale. La chiave privata SSH creata avrà una [password sicura](https://www.xkcd.com/936/) per proteggerla. Questa password serve solo per accedere alla chiave SSH privata e **non è** la password dell'account utente. Quando si aggiunge una password alla chiave SSH, la chiave privata viene crittografata in modo che non sia utilizzabile senza la password per sbloccarla. Se un utente malintenzionato riesce a rubare una chiave privata priva di password, può usarla per accedere ai server in cui è installata la chiave pubblica corrispondente. Una chiave privata protetta da password non può essere usata da utenti malintenzionati e rappresenta un livello di sicurezza aggiuntivo per l'infrastruttura in Azure.
 
 
 Questo articolo consente di creare file delle chiavi nel formato *ssh-rsa*, consigliati per le distribuzioni in Azure Resource Manager e richiesti nel [portale](https://portal.azure.com) per le distribuzioni sia classica che Azure Resource Manager.
@@ -76,7 +76,7 @@ Azure richiede chiavi pubbliche e private nel formato ssh-rsa almeno a 2048 bit.
 
 ## Uso di ssh-keygen
 
-Questo comando crea una coppia di chiavi SSH protette da password tramite RSA a 2048 bit che sarà impostata come commento per identificarla facilmente.
+Questo comando crea una coppia di chiavi SSH crittografate protette da password tramite RSA a 2048 bit che sarà impostata come commento per identificarla facilmente.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -235,4 +235,4 @@ Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chia
 - [Creare una VM Linux protetta usando il portale di Azure](virtual-machines-linux-quick-create-portal.md)
 - [Creare una VM Linux protetta usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -93,7 +93,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di b
 
 Esempi di codice con logica di ripetizione dei tentativi in diversi linguaggi di programmazione sono disponibili in:
 
-- [Esempi di codice di avvio rapido](sql-database-develop-quick-start-client-code-samples.md)
+- [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -418,11 +418,6 @@ Logica di ripetizione dei tentativi per la gestione degli errori temporanei è u
 - [4 - Perseveranza, il segreto di ogni successo: Uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un breve esempio di codice C# che usa EntLib60 nella propria logica di ripetizione dei tentativi è disponibile in:
-
-- [Codice di esempio: Logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
-
-
 > [AZURE.NOTE] Il codice sorgente per EntLib60 è disponibile per il [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) pubblico. Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
@@ -558,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## Passaggi successivi
 
-- Per risolvere altri problemi di connessione del database SQL di Azure, visitare [Risoluzione dei problemi di connessione comuni al database SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Per risolvere altri problemi di connessione del database SQL di Azure, visitare [Risoluzione dei problemi di connessione comuni al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 
 - [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
@@ -93,7 +93,7 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - Flag di traccia
 - Debug di Transact-SQL
 - Trigger: Con ambito Server o trigger di accesso
-- Istruzione USE
+- Istruzione USE: per modificare il contesto del database in un database diverso è necessario creare una nuova connessione al nuovo database.
 
 
 ## Riferimento completo di Transact-SQL
@@ -108,4 +108,4 @@ Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQ
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

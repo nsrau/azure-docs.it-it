@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
@@ -93,4 +93,4 @@ Per altre informazioni sulla progettazione di carichi di lavoro IT per Azure, ve
 
 - Iniziare la configurazione di questo carico di lavoro dalla [Fase 1](virtual-machines-windows-ps-lob-ph1.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

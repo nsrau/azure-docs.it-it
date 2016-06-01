@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="05/18/2016"
    ms.author="v-sharos" />
 
 # Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
@@ -39,7 +39,7 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 - Per le procedure di distribuzione di gestione Snapshot StorSimple, visitare [Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
 
->[AZURE.NOTE]Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
+>[AZURE.NOTE] Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
 
 ## Flussi di lavoro e attività di gestione Snapshot StorSimple
 
@@ -62,4 +62,4 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

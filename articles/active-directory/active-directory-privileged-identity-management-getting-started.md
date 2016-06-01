@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/28/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Introduzione ad Azure AD Privileged Identity Management
@@ -35,16 +35,16 @@ Prima di usare Azure AD Privileged Identity Management è necessario aggiungere 
 6. Selezionare **Aggiungi al dashboard** e quindi fare clic sul pulsante **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
 
 
-Se si è il primo utente a usare Azure AD Privileged Identity Management nella directory, la [procedura guidata relativa alla sicurezza](active-directory-privileged-identity-management-security-wizard.md) descriverà passo passo la procedura di assegnazione iniziale. Al termine della procedura guidata, si diventa il primo **Amministratore della sicurezza** della directory. Solo l'amministratore della sicurezza può accedere a questa applicazione per gestire l'accesso per gli altri amministratori.
+Se si è il primo utente a usare Azure AD Privileged Identity Management nella directory, la [procedura guidata relativa alla sicurezza](active-directory-privileged-identity-management-security-wizard.md) descriverà passo passo la procedura di assegnazione iniziale. Al termine della procedura guidata si diventa automaticamente il primo **Amministratore della sicurezza** e **amministratore del ruolo con privilegi** della directory. Solo un amministratore del ruolo con privilegi può accedere a questa applicazione per gestire l'accesso per gli altri amministratori.
 
-In alternativa, se sono stati assegnati uno o più ruoli da un altro amministratore della sicurezza, sarà possibile scegliere il ruolo da attivare. Se si usa un ruolo di amministratore della sicurezza, è anche possibile scegliere l'opzione **Gestisci le identità**.
+In alternativa, se sono stati assegnati uno o più ruoli da un altro amministratore del ruolo con privilegi, sarà possibile scegliere il ruolo da attivare. Se si usa un ruolo di amministratore del ruolo con privilegi, è anche possibile scegliere l'opzione **Gestisci le identità**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-La panoramica di [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) include informazioni su come gestire l'accesso amministratore nell'organizzazione.
+La [panoramica di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) include informazioni su come gestire l'accesso amministratore nell'organizzazione.
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

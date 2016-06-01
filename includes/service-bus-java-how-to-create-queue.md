@@ -6,27 +6,25 @@ Le code del bus di servizio supportano un modello di comunicazione con **messagg
 
 Le code del bus di servizio sono una tecnologia di carattere generale che può essere usata in numerosi scenari:
 
--   Comunicazione tra ruoli Web e di lavoro in un'applicazione Azure multilivello.
--   Comunicazione tra app locali e app ospitate in Azure in una soluzione ibrida.
--   Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione.
+- Comunicazione tra ruoli Web e di lavoro in un'applicazione Azure multilivello.
+- Comunicazione tra app locali e app ospitate in Azure in una soluzione ibrida.
+- Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione.
 
-L'uso delle code consente la scalabilità orizzontale delle applicazioni e garantisce maggiore resilienza all'architettura.
+L'uso delle code consente di scalare orizzontalmente in modo più semplice le applicazioni e garantisce maggiore resilienza nell'architettura.
 
 ## Creare uno spazio dei nomi del servizio
 
-Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-Per creare uno spazio dei nomi del servizio:
+Per creare uno spazio dei nomi:
 
 1.  Accedere al [portale di Azure classico][].
 
 2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale fare clic su **Crea**. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  Nel riquadro inferiore del portale fare clic su **Crea**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
@@ -42,18 +40,14 @@ Sarà necessario attendere qualche istante affinché venga attivato lo spazio de
 
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere queste credenziali dal portale.
 
-1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.
 
-3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Prendere nota del valore della chiave o copiarlo negli Appunti.
 
   [portale di Azure classico]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
-
-<!---HONumber=AcomDC_0128_2016-->

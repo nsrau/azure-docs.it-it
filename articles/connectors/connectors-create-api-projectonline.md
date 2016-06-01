@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/16/2016"
 ms.author="deonhe"/>
 
 # Introduzione al connettore ProjectOnline
@@ -29,7 +29,7 @@ Il connettore ProjectOnline può essere usato da:
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
-Per iniziare con la creazione di un'app per la logica, vedere l'articolo sulla [creazione di un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare con la creazione di un'app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
@@ -65,7 +65,8 @@ Per creare app per la logica con ProjectOnline, è necessario creare innanzitutt
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Fornire le credenziali ProjectOnline|
-Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in attesa dei trigger descritti in questo articolo.
+
+>[AZURE.INCLUDE [Passaggi per creare una connessione a ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -79,7 +80,7 @@ Quando viene creato un nuovo progetto: attiva un flusso ogni volta che viene cre
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
 #### Risposta
 
@@ -101,7 +102,7 @@ Quando viene creata una nuova risorsa: attiva un nuovo flusso quando viene creat
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
 #### Risposta
 
@@ -123,7 +124,7 @@ Quando viene creata una nuova attività: attiva un flusso quando viene creata un
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
 #### Risposta
 
@@ -145,7 +146,7 @@ Elenco dei progetti: elenca i progetti nel sito del progetto online
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 
 #### Risposta
 
@@ -167,7 +168,7 @@ Crea nuovo progetto: crea un nuovo progetto nel sito del progetto online
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |proj| |sì|body|nessuno|Nuovo progetto da creare|
 
 #### Risposta
@@ -190,7 +191,7 @@ Crea una nuova attività: crea una nuova attività nel progetto
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto a cui aggiungere l'attività|
 |attività| |sì|body|nessuno|Nuova attività da aggiungere al progetto|
 
@@ -214,7 +215,7 @@ Crea una nuova risorsa: crea risorse per l'organizzazione nel sito del progetto 
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |resource| |sì|body|nessuno|Nuova risorsa per l'organizzazione da aggiungere al progetto|
 
 #### Risposta
@@ -237,7 +238,7 @@ Elenca le attività: elenca le attività pubblicate in un progetto
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto per recuperare le attività|
 
 #### Risposta
@@ -260,7 +261,7 @@ Estrae un progetto: consente di estrarre un progetto nel sito
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto a cui aggiungere l'attività|
 
 #### Risposta
@@ -283,7 +284,7 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|nessuno|Url del sito radice del sito del progetto (esempio: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|nessuno|URL del sito radice relativo al sito del progetto, ad esempio: https://sampletenant.sharepoint.com/teams/sampleteam|
 |project\_id|string|yes|path|nessuno|ID univoco del progetto da registrare|
 
 #### Risposta
@@ -523,4 +524,4 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

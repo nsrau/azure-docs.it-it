@@ -19,7 +19,7 @@
 
 # Elenco di controllo della disponibilità
 
-![](media/best-practices-availability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Progettazione di applicazioni
 
@@ -68,4 +68,4 @@
 - **Tenere traccia dello stato dei flussi di lavoro con esecuzione prolungata** e riprovare in caso di errore. I flussi di lavoro con esecuzione prolungata sono spesso costituiti da più passaggi. Assicurarsi che ogni passaggio sia indipendente e possa essere ripetuto per ridurre al minimo le probabilità della necessità di un rollback dell'intero flusso di lavoro o dell'esecuzione di più transazioni di compensazione. Monitorare e gestire lo stato dei flussi di lavoro a esecuzione prolungata implementando un modello come il [modello supervisore dell'agente dell'utilità di pianificazione](https://msdn.microsoft.com/library/dn589780.aspx).
 - **Pianificare il ripristino di emergenza** Verificare che sia disponibile un piano documentato, accettato e completamente testato per il ripristino da qualsiasi tipo di errore che potrebbe rendere indisponibile una parte del sistema principale o tutto. Eseguire regolarmente il test delle procedure e assicurarsi che tutto il personale addetto alle operazioni abbia familiarità con il processo.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

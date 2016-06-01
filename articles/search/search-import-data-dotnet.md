@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="05/23/2016"
     ms.author="brjohnst"/>
 
 # Caricare dati in Ricerca di Azure tramite .NET SDK
@@ -205,4 +205,4 @@ Per questo motivo, è consigliabile usare tipi nullable nelle classi di modelli.
 ## Avanti
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

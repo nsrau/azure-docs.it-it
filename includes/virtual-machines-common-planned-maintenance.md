@@ -59,7 +59,7 @@ Questo evento di manutenzione pianificata influirà sulla disponibilità dell'ap
 
 ## Notifica tramite posta elettronica
 
-Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di una settimana). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell’amministratore e del co-amministratore dell’account forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
+Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di una settimana). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell'amministratore e del co-amministratore forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
 
 <!--Image reference-->
 ![][image1]
@@ -81,6 +81,8 @@ Cina orientale | Cina settentrionale
 Giappone orientale | Giappone occidentale
 Brasile meridionale | Stati Uniti centro-meridionali
 Australia sudorientale | Australia orientale
+India centrale | India meridionale
+India occidentale | India meridionale
 Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia
 
 <!--Anchors-->

@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;fashah;bradsev"/>
+	ms.date="05/10/2016"
+	ms.author="fashah;bradsev"/>
 
 
 # Il Cortana Analytics Process in azione: mediante SQL Server
 
-In questa esercitazione, si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello utilizzando un set di dati disponibili pubblicamente -- il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue il flusso di lavoro del Cortana Analytics Process (CAP).
+In questa esercitazione si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando un set di dati disponibili pubblicamente: il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -716,4 +716,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

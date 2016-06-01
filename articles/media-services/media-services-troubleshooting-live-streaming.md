@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guida alla risoluzione dei problemi relativi allo streaming live" 
+	pageTitle="Guida per la risoluzione dei problemi relativi allo streaming live" 
 	description="In questo argomento sono disponibili suggerimenti per la risoluzione dei problemi relativi allo streaming live." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
  	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
-#Guida alla risoluzione dei problemi relativi allo streaming live 
+#Guida per la risoluzione dei problemi relativi allo streaming live
 
 In questo argomento sono disponibili suggerimenti per la risoluzione di alcuni problemi relativi allo streaming live.
 
@@ -85,4 +85,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

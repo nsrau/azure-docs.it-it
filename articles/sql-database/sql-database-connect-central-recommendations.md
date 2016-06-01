@@ -130,8 +130,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di b
 
 Per esempi di codice che illustrano la logica di ripetizione dei tentativi, vedere:
 
-- [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
-
+- Esempi di codice in: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 
 ### Numeri di errore per gli errori temporanei
 
@@ -161,10 +160,12 @@ Per altre informazioni, vedere:
 Gli argomenti seguenti contengono collegamenti a esempi di codice per diversi linguaggi e tecnologie di driver che è possibile utilizzare per connettersi al database SQL di Azure dal programma client.
 
 
-Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e Mac OS X.
+Vengono forniti vari esempi di codice per i client che eseguono su piattaforma Windows, Linux e Mac.
 
 
-**Esempi generali:** sono disponibili [esempi di codice](sql-database-develop-quick-start-client-code-samples.md) per un'ampia gamma di linguaggi di programmazione, tra cui PHP, Python, Node.js e .NET CSharp. Inoltre, sono forniti esempi per i client che eseguono Windows, Linux e Mac OS X.
+**Esempi generali:** sono disponibili esempi di codice per un'ampia gamma di linguaggi di programmazione, tra cui PHP, Python, Java, Node.js e .NET CSharp. È possibile trovare collegamenti agli esempi di codice in:
+
+- [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 
 
 **Scalabilità elastica:** per informazioni sulla connettività ai database con scalabilità elastica, vedere:
@@ -172,9 +173,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 - [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 - [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**Librerie driver:** per informazioni sulle librerie dei driver di connessione, incluse le versioni consigliate, vedere:
-
-- [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

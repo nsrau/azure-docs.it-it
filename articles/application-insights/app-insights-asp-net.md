@@ -34,6 +34,7 @@ Sarà inoltre possibile analizzare e correlare richieste specifiche, eccezioni e
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 * Visual Studio 2013 Update 3 o versioni successive.
 
+
 ## <a name="ide"></a> Aggiungere Application Insights al progetto in Visual Studio
 
 #### Se è un nuovo progetto...
@@ -62,7 +63,7 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
 ####<a name="land"></a> Cosa fa il comando 'Aggiungi Application Insights'
 
-Il comando esegue le seguenti fasi (che potrebbero invece essere eseguite [manualmente](app-insights-start-monitoring-app-health-usage.md) se si preferisce):
+Il comando esegue le seguenti fasi (che potrebbero invece essere eseguite [manualmente](app-insights-asp-net-manual.md) se si preferisce):
 
 1. Aggiunge il pacchetto NuGet di SDK di Application Insights Web al progetto. In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet.
 2. Crea una risorsa Application Insights nel [portale di Azure][portal]. È qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
@@ -257,4 +258,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

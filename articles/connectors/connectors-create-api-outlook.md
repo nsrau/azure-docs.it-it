@@ -81,6 +81,8 @@ Per creare app per la logica con Outlook.com, è prima necessario creare una **c
 |Token|Sì|Fornisce le credenziali di Outlook.com|
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
 ## Informazioni di riferimento per Outlook.com
@@ -912,4 +914,4 @@ Aggiornamento contatto: aggiorna parzialmente un contatto
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

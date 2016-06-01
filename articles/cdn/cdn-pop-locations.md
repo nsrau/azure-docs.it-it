@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Località POP della rete per la distribuzione di contenuti (rete CDN) di Azure"
-	description="In questo argomento vengono elencate le località POP della rete per la distribuzione di contenuti (rete CDN) di Azure."
+	pageTitle="Località POP della rete CDN di Azure"
+	description="Questo argomento elenca le località POP della rete CDN di Azure."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -12,77 +12,30 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.topic="article"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
-# Località POP della rete per la distribuzione di contenuti (rete CDN) di Azure
+# Località POP della rete CDN di Azure
 
-In questo argomento vengono elencate le località POP (point of presence) correnti della rete CDN di Microsoft Azure.
+Questo argomento elenca le località POP correnti per la **Rete CDN di Azure fornita da Verizon** e la **rete CDN di Azure fornita da Akamai**.
 
-![Località POP della rete CDN](./media/cdn-pop-locations/CDN_POP_locations_update.png)
+>[AZURE.IMPORTANT] Le località POP della ***rete CDN di Azure fornita da Akamai*** non sono indicate singolarmente.
+>
+>I due provider hanno modalità diverse di creazione di infrastrutture della rete CDN. È consigliabile evitare di scegliere quale prodotto CDN di Azure usare basandosi sulla località POP, ma conviene decidere in base alle funzionalità e le prestazioni degli utenti finali. Valutare le prestazioni di entrambi i provider per scegliere il prodotto CDN di Azure più adatto per gli utenti.
+ 
+| Region | Verizon | Akamai |
+|--------|---------|--------|
+| America del Nord | Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />a Boston<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA | **&#x2713;*** |
+| America del Sud | São Paulo, Brasile<br />Rio de Janeiro, Brasile<br />Quito, Ecuador<br />Medellin, Colombia<br/>Buenos Aires, Argentina| **&#x2713;*** | 
+| Europa del Nord e dell'Est| Copenaghen, Danimarca<br />Helsinki, Finlandia<br />Londra, Regno Unito<br />Stoccolma, Svezia<br />Varsavia, Polonia | **&#x2713;*** |
+| Europa occidentale | Amsterdam, Paesi Bassi<br />Francoforte, Germania<br />Parigi, Francia<br />Vienna, Austria | **&#x2713;*** |
+| Europa meridionale | Madrid, Spagna<br />Milano, Italia | **&#x2713;*** |
+| Asia orientale | Tokyo, Giappone<br />Osaka, Giappone<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, Corea del Sud<br />Singapore| **&#x2713;*** |
+| Asia meridionale e centrale | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India | **&#x2713;*** |
+| Medio Oriente/Asia occidentale | Muscat, Oman | **&#x2713;*** |
+| Africa | | **&#x2713;*** |
+| Australia e Nuova Zelanda | Melbourne, Australia<br />Sydney, Australia | **&#x2713;*** |
 
-## America del Nord
-
-- Atlanta
-- Chicago
-- Dallas
-- Philadelphia
-- Los Angeles
-- Miami
-- New York
-- San Jose
-- Seattle
-- Washington DC
-- Boston
-
-## America del Sud
-
-- São Paulo
-- Rio de Janeiro
-- Quito
-- Medellin
-- Buenos Aires
-
-
-## Europa
-
-- Amsterdam
-- Copenhagen
-- Francoforte
-- Helsinki
-- Londra
-- Madrid
-- Milano
-- Parigi
-- Stoccolma
-- Vienna
-- Varsavia
-
-## Asia
-
-- Batam
-- Hong Kong
-- Giacarta
-- Kaohsiung
-- Osaka
-- Seul
-- Singapore
-- Tokyo
-- Bangalore
-- Chennai
-- Delhi
-- Mumbai
-- Mascate
-
-## Australia
-
-- Melbourne
-- Sydney
-
-## Imminente
-
-È possibile che si sia venuti a conoscenza della [collaborazione tra Microsoft e Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). Nei prossimi mesi questa collaborazione verrà usata per aumentare la diffusione della rete CDN di Azure in tutto il mondo.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

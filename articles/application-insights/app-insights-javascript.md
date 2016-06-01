@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # Application Insights per pagine Web
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -89,8 +90,14 @@ I [parametri disponibili](https://github.com/Microsoft/ApplicationInsights-JS/bl
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -204,7 +211,11 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 
 ### Proprietà delle visualizzazioni di pagina
 
-* **Durata della visualizzazione pagina**: tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
+* **Durata della visualizzazione pagina** 
+
+ * Per impostazione predefinita, indica il tempo necessario per caricare la pagina, dalla richiesta del client al caricamento completo, inclusi i file ausiliari ma escludendo le attività asincrone come le chiamate Ajax.
+ * Se si imposta `overridePageViewDuration` nella [configurazione della pagina](#detailed-configuration), indica l'intervallo tra la richiesta del client e l'esecuzione del primo `trackPageView`. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
+ * Se viene impostato il valore `overridePageViewDuration` e viene specificato un argomento Duration nella chiamata `trackPageView()`, verrà usato invece il valore dell'argomento. 
 
 
 ## Conteggi di pagina personalizzati
@@ -238,4 +249,4 @@ Per sapere in che modo gli utenti usano l'app,
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!------HONumber=AcomDC_0224_2016---->
+<!---HONumber=AcomDC_0525_2016-->

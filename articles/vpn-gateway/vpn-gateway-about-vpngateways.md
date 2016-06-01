@@ -27,7 +27,7 @@ Per altre informazioni sui modelli di distribuzione, vedere l'articolo relativo 
 
 ## <a name="gwsub"></a>Subnet gateway
 
-Per configurare un gateway VPN, è necessario prima di tutto creare una subnet del gateway per la rete virtuale. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate GatewaySubnet.
+Per configurare un gateway VPN, è necessario prima di tutto creare una subnet del gateway per la rete virtuale. Per poter funzionare correttamente, la subnet del gateway deve essere denominata *GatewaySubnet*. Questo nome consente ad Azure di sapere che la subnet deve essere usata per il gateway.<BR>Se si usa il portale classico, la subnet del gateway viene automaticamente denominata *Gateway* nell'interfaccia del portale. Questa operazione serve a visualizzare la subnet del gateway solo nel portale classico. In questo caso, la subnet viene effettivamente creata in Azure come *GatewaySubnet* e può essere visualizzata così nel portale di Azure e in PowerShell.
 
 Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a /29 per alcune configurazioni, è consigliabile creare una subnet del gateway di /28 o superiore (/28, /27, /26 e così via).
 
@@ -141,4 +141,4 @@ Per altre informazioni prima di procedere con la pianificazione e la progettazio
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

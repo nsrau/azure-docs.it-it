@@ -279,8 +279,6 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 	2. In **Nome** immettere **FirstDataFactoryUsingVS**. 
 	
 		> [AZURE.IMPORTANT] È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l'errore **Il nome "FirstDataFactoryUsingVS" per la data factory non è disponibile** al momento della pubblicazione, modificare il nome (ad esempio, nomeutenteFirstDataFactoryUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
-		> 
-		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
 	5. Selezionare l'**area** per la data factory. 
@@ -289,16 +287,20 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
 
-Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
+Tenere presente quanto segue:
 
-- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
+
+	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
+		È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
 	
-		Get-AzureRmResourceProvider
-- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+			Get-AzureRmResourceProvider
+	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+- 	Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+- 	Per creare istanze di Data Factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 
  
 ## Monitorare la pipeline
@@ -329,6 +331,7 @@ Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**.
+
 	>[AZURE.IMPORTANT] La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -339,7 +342,7 @@ Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md).
 
-È anche possibile monitorare e gestire l'app per monitorare le pipeline di dati. Per i dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory usando App di monitoraggio](data-factory-monitor-manage-app.md).
+È anche possibile monitorare e gestire l'app per monitorare le pipeline di dati. Per i dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio](data-factory-monitor-manage-app.md).
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
  
@@ -463,8 +466,27 @@ Per pubblicare entità in un progetto di Data factory di Azure usando il file di
 
 Quando si esegue la distribuzione, i valori del file di configurazione vengono usati per impostare i valori per le proprietà nei file JSON per le entità di Data factory (servizi collegati, tabelle o pipeline) prima che le entità vengano distribuite nel servizio Data factory di Azure.
 
+## Riepilogo 
+In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'Editor di Data Factory nel portale di Azure per eseguire questa procedura:
+
+1.	Creare un'istanza di Azure **Data Factory**.
+2.	Creare due **servizi collegati**:
+	1.	Il servizio collegato **Archiviazione di Azure** per collegare l'archivio BLOB di Azure che contiene i file di input/output alla data factory.
+	2.	Il servizio collegato su richiesta **Azure HDInsight** per collegare un cluster Hadoop di HDInsight alla data factory. Azure Data Factory crea un cluster Hadoop di HDInsight JIT per elaborare i dati di input e generare i dati di output. 
+3.	Creare due **set di dati** che descrivono i dati di input e di output per l'attività Hive di HDInsight nella pipeline. 
+4.	Creare una **pipeline** con un'attività **Hive di HDInsight**.  
+
+
 ## Passaggi successivi
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
+## Vedere anche
+| Argomento | Descrizione |
+| :---- | :---- |
+| [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) | Questo articolo fornisce un elenco di attività di trasformazione dei dati (ad esempio, la trasformazione Hive di HDInsight usata in questa esercitazione) supportate da Azure Data Factory. | 
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+| [Pipeline](data-factory-create-pipelines.md) | Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
+| [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
+| [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

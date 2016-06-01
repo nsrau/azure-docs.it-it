@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -41,6 +41,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Gestione API](#api-management-limits)
 - [Servizio app](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Automazione](#automation-limits)
 - [Cache Redis di Azure](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -183,9 +184,9 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
-- Il piano **Gratuito** offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
-- Il piano **Basic (anteprima)** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte. Questo livello, attualmente in anteprima, viene offerto a una tariffa ridotta.
-- Il piano **Standard (S1 e S2)** è per i carichi di lavoro di produzione. Una versione di capacità più grande (**S2**) è disponibile su richiesta (inviare un messaggio di posta elettronica a azuresearch_contact@microsoft.com).
+- **Gratuito**, che offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
+- **Basic (anteprima)** che offre risorse di elaborazione dedicate per i carichi di lavoro di produzione su scala ridotta. Questo livello, attualmente in anteprima, viene offerto a una tariffa ridotta.
+- **Standard (S1 e S2)**, per i carichi di lavoro di produzione. Una versione di capacità più grande (**S2**) è disponibile su richiesta (inviare un messaggio di posta elettronica a azuresearch_contact@microsoft.com).
 
 [AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
@@ -272,6 +273,9 @@ Per informazioni su altri limiti, quali le dimensioni dei documenti, le chiavi, 
 ### Autenticazione a più fattori
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Limiti di automazione
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### Limiti relativi a database SQL
 
 Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).
@@ -284,4 +288,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

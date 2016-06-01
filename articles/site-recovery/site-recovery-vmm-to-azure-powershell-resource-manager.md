@@ -19,9 +19,11 @@
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell e Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](site-recovery-vmm-to-azure.md)
+- [Portale di Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - Azure Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portale classico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Panoramica
@@ -42,7 +44,7 @@ Questo articolo include i prerequisiti per lo scenario e illustra le operazioni 
 
 Nel caso di problemi di configurazione di questo scenario, inviare le proprie domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
 ## Prima di iniziare
 
@@ -67,14 +69,14 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 - Per altre informazioni sulla configurazione dei cloud VMM:
 	- Per altre informazioni sui cloud privati VMM, leggere [Novità del cloud privato con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e [VMM 2012 e i cloud](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Per altre informazioni, vedere [Configurare l'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- Dopo avere definito gli elementi dell'infrastruttura cloud, leggere le informazioni su come creare i cloud privati in [Creazione di un cloud privato in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) e [Procedura dettagliata: Creazione di cloud privati con System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
+	- Dopo avere definito gli elementi dell'infrastruttura cloud, leggere le informazioni su come creare i cloud privati in [Creazione di un cloud privato in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) e [WWalkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954) (Procedura dettagliata: Creazione di cloud privati con System Center 2012 SP1 VMM).
 
 
 ### Prerequisiti di Hyper-V
 
 - I server Hyper-V host devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e disporre degli ultimi aggiornamenti installati.
 - Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se viene usato un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. Ad 
-- Per istruzioni, vedere [Come configurare il Gestore di replica Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
+- Per istruzioni, vedere [How to Configure Hyper-V Replica Broker](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx) (Come configurare il Gestore di replica Hyper).
 - Qualsiasi server o cluster Hyper-V per cui si vuole gestire la protezione deve essere incluso in un cloud VMM.
 
 ### Prerequisiti di mapping di rete
@@ -97,9 +99,9 @@ Altre informazioni sul mapping di rete sono disponibili negli articoli seguenti:
 
 
 ###Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere la [Guida all'installazione e alla configurazione di Azure PowerShell](../powershell-install-configure.md). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
+Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
 
-Per informazioni sui suggerimenti che facilitano l'utilizzo dei cmdlet, ad esempio i valori dei parametri, sugli input e sugli output che vengono in genere gestiti in Azure PowerShell, vedere la [Guida introduttiva ai cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i valori dei parametri, sugli input e sugli output che vengono in genere gestiti in Azure PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## Passaggio 1: impostare la sottoscrizione 
 
@@ -121,7 +123,7 @@ Per informazioni sui suggerimenti che facilitano l'utilizzo dei cmdlet, ad esemp
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Passaggio 2: Creare l'insieme di credenziali di Servizi di ripristino
+## Passaggio 2: Creare l'insieme di credenziali di Servizi di ripristino 
 
 1. Creare un gruppo di risorse di Azure Resource Manager, se non è già disponibile.
 
@@ -131,19 +133,11 @@ Per informazioni sui suggerimenti che facilitano l'utilizzo dei cmdlet, ad esemp
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Passaggio 3: generare una chiave di registrazione dell'insieme di credenziali
+## Passaggio 3: Impostare il contesto dell'insieme di credenziali di Servizi di ripristino
 
-Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scaricato il provider di Azure Site Recovery e averlo installato sul server VMM, si userà questa chiave per registrare il server VMM nell'insieme di credenziali.
+1.  Impostare il contesto dell'insieme eseguendo il comando seguente.
 
-1.	Ottenere il file di impostazione dell'insieme di ottenere e impostare il contesto:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Impostare il contesto dell’insieme di credenziali eseguendo i comandi seguenti:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Passaggio 4: installare il provider di Azure Site Recovery
 
@@ -319,7 +313,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 ### Eseguire un failover non pianificato
 
-1. Avviare il failover pianificato eseguendo il comando seguente:
+1. Avviare il failover non pianificato eseguendo il comando seguente:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -351,4 +345,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 [Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery</a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

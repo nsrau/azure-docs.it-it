@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/10/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # Progettazione di funzionalità in Cortana Analytics Process 
 
-La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento.
+Questo argomento illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Gli esempi utilizzati per illustrare questo processo sono tratti da Azure Machine Learning Studio.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-##Introduzione
+Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio di [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Questo argomento illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
-
-La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP.
+La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento. La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP.
 * **Progettazione di funzionalità**: questo processo prova a creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e ad aumentare le potenzialità predittive dell'algoritmo di apprendimento.
 * **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
@@ -98,4 +95,4 @@ Le funzioni progettate e selezionate migliorano l'efficienza del processo di tra
 Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

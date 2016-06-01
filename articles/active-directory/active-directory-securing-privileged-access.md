@@ -34,15 +34,16 @@ Per aumentare la sicurezza dell'autenticazione degli amministratori, è opportun
 Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice. Offre autenticazione avanzata tramite una gamma di semplici opzioni di verifica, ad esempio una telefonata, un SMS, una notifica dell'app per dispositivi mobili oppure un codice di verifica e token OATH di terze parti.
 
 Per una panoramica del funzionamento di Azure Multi-Factor Authentication, vedere il video seguente.
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
 
-Per informazioni dettagliate, vedere il post di blog relativo all'[autenticazione a più fattori per Office 365 e per Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/).
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
+
+Per altre informazioni, vedere il post del blog relativo all'[autenticazione a più fattori per Office 365 e per Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/).
 
 ## Privilegi con vincoli di tempo
 
 Per alcune organizzazioni, il numero di utenti assegnati a ruoli con privilegi elevati potrebbe essere ritenuto eccessivo. Un utente potrebbe essere stato aggiunto al ruolo per un'attività specifica, ad esempio l'iscrizione a un servizio, ma aver usato tali privilegi raramente in seguito.
 
-Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità sul relativo utilizzo, è possibile vincolare gli utenti all'uso dei privilegi in modalità JIT (Just-In-Time) solo quando devono eseguire un'attività. Per Azure Active Directory e Microsoft Online Services, è possibile usare [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità sul relativo utilizzo, è possibile vincolare gli utenti all'uso dei privilegi in modalità JIT (Just-In-Time) solo quando devono eseguire un'attività. Per Azure Active Directory e Microsoft Online Services è possibile usare [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
 
 
 ![Dashboard di PIM][2]
@@ -50,7 +51,7 @@ Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità sul
 
 ## Rilevamento degli attacchi
 
-[Azure Active Directory Identity Protection](active-directory-identityprotection.d) offre una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione. I criteri basati sul rischio, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da EMS, possono bloccare automaticamente l'utente o proporre suggerimenti, ad esempio la reimpostazione della password e l'imposizione dell'autenticazione a più fattori.
+[Azure Active Directory Identity Protection](active-directory-identityprotection.md) offre una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione. I criteri basati sul rischio, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da EMS, possono bloccare automaticamente l'utente o proporre suggerimenti, ad esempio la reimpostazione della password e l'imposizione dell'autenticazione a più fattori.
 
 ![Azure AD Identity Protection][3]
 
@@ -74,7 +75,7 @@ Per ridurre i rischi della sicurezza, esaminare i ruoli e il modello di delega p
 - Abilitare i [controlli di accesso condizionale](active-directory-conditional-access.md)
 
 
-Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione "Customer responsibilities and roadmap" del documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer). Per altre informazioni sull'utilizzo dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione relativa alla roadmap e alle responsabilità dei clienti nel documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer). Per altre informazioni sull'uso dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -82,4 +83,4 @@ Per altre informazioni su come creare una guida di orientamento alla sicurezza c
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -58,7 +58,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene usata la directory corrente. Per altre informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](1).
 
-4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
+4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg

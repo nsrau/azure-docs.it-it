@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/13/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata il 13/05/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - non modificato)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - non modificato)
+* HDInsight (Windows) 3.1.4.922.2266903 (HDP 2.1.15.0-2374 - non modificato)
+* HDInsight (Windows) 3.2.7.922.2266903 (HDP 2.2.9.1-11)
+* HDInsight (Windows) 3.3.0.922.2266903 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.2.1000.0.7565644 (HDP 2.2.9.1-11)
+* HDInsight (Linux) 3.3.1000.0.7565644 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.4.1000.0.7548380 (HDP 2.4.2.0)
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Aggiornamento della versione di Spark e altre correzioni di bug | Questa versione aggiorna la versione Spark nel cluster HDInsight a 1.6.1 e corregge altri bug| Servizio | Spark| N/D
 
 ## Note sulla versione di HDInsight dell'11/04/2016
 
@@ -31,7 +50,7 @@ Numeri di versione completi per i cluster HDInsight distribuiti con questa versi
 * HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - non modificato)
 * HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
 * HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
-* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* HDInsight (Linux) 3.4.1000.0.7338911 (HDP 2.4.1.1-3)
 * SDK 1.5.8
 
 Questa versione contiene gli aggiornamenti seguenti.
@@ -41,7 +60,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | Problemi di aggiornamento metastore personalizzato per HDI 3.4 | La creazione del cluster non viene eseguita correttamente se si usa un metastore personalizzato già usato in una versione precedente di un altro cluster HDInsight. Ciò è dovuto a un errore nello script di aggiornamento, ora risolto| Creazione del cluster | Tutti | N/D
 | Ripristino a seguito dell'arresto anomalo del sistema Livy | Fornisce resilienza dello stato del processo per qualsiasi processo inviato tramite Livy | Affidabilità | Spark su Linux| N/D
 | Contenuto Jupyter a disponibilità elevata | Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebook | Spark su Linux| N/D
-| Rimozione di hiveContext nei notebook Jupyter | Usare l'oggetto `%%sql` anziché `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Notebook | Cluster Spark su Linux| N/D
+| Rimozione di hiveContext nei notebook Jupyter | Usare magic `%%sql` anziché magic `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Notebook | Cluster Spark su Linux| N/D
 | Rimozione di versioni precedenti di Spark | La versione meno recente Spark 1.3.1 verrà rimossa dal servizio il 31/05 | Servizio | Cluster Spark in Windows | N/D
 
 ## Note sulla versione di HDInsight rilasciata il 29/03/2016
@@ -64,7 +83,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | È stata aggiunta la versione 3.4 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.4 di HDInsight (basata su HDP 2.4) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.4 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti i cluster Linux| N/D
 | HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per altre informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servizio | Hadoop e Spark su Linux| N/D
-| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per altre informazioni vedere l'articolo che offre una [panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
+| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per altre informazioni, vedere la [panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
 | Spark 1.6.0 | I cluster HDInsight 3.4 ora includono Spark 1.6.0| Servizio | Cluster Spark su Linux| N/D
 | Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per altre informazioni, vedere l'articolo sui [kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servizio | Cluster Spark su Linux | N/D
 
@@ -1565,4 +1584,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

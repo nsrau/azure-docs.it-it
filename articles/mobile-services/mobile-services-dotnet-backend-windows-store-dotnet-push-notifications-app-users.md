@@ -62,8 +62,8 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
 
 <!-- URLs. -->
-[Introduzione all'autenticazione]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[Introduzione alle notifiche push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[Introduzione all'autenticazione]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
+[Introduzione alle notifiche push]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

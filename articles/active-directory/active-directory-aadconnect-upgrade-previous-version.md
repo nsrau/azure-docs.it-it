@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente
@@ -34,7 +34,7 @@ Per informazioni, vedere l'articolo relativo alle [autorizzazioni necessarie per
 ## Aggiornamento sul posto
 Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. L'aggiornamento sul posto non è indicato per DirSync o per una soluzione con FIM + Azure AD Connector.
 
-Questo metodo è preferibile se sono presenti un singolo server e meno di 100.000 oggetti. Dopo l'aggiornamento, verranno eseguite un'importazione completa e una sincronizzazione completa. In questo modo, la nuova configurazione verrà applicata a tutti gli oggetti esistenti nel sistema. Questa operazione può richiedere alcune ore, a seconda del numero di oggetti nell'ambito del motore di sincronizzazione. Verrà sospesa la normale sincronizzazione delta pianificata, per impostazione predefinita ogni 30 minuti, mentre continuerà la sincronizzazione delle password. È consigliabile eseguire l'aggiornamento sul posto durante il fine settimana.
+Questo metodo è preferibile se sono presenti un singolo server e meno di 100.000 oggetti. Dopo l'aggiornamento, vengono eseguite un'importazione completa e una sincronizzazione completa se sono state apportate modifiche alle regole di sincronizzazione predefinite. In questo modo, la nuova configurazione verrà applicata a tutti gli oggetti esistenti nel sistema. Questa operazione può richiedere alcune ore, a seconda del numero di oggetti nell'ambito del motore di sincronizzazione. Verrà sospesa la normale sincronizzazione delta pianificata, per impostazione predefinita ogni 30 minuti, mentre continuerà la sincronizzazione delle password. È consigliabile eseguire l'aggiornamento sul posto durante il fine settimana. Se sono state apportate modifiche alla configurazione predefinita con la nuova versione di Azure AD Connect, verrà avviata un'importazione/sincronizzazione differenziale normale.
 
 ![Aggiornamento sul posto](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
@@ -85,4 +85,4 @@ Elementi che devono essere configurati allo stesso modo in entrambi i server:
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

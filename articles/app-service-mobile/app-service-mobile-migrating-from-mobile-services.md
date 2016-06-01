@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
@@ -332,6 +332,33 @@ Se si clona il servizio mobile di cui è stata eseguita la migrazione usando Azu
 
 Risoluzione: Microsoft sta lavorando per risolvere il problema. Se si vuole clonare il sito, effettuare questa operazione tramite il portale.
 
+### Le modifiche a web.config non funzionano
+
+Se si ha un sito ASP.NET, le modifiche al file `Web.config` non funzionano. Il servizio app di Azure compila un file `Web.config` appropriato durante l'avvio per supportare il runtime di Servizi mobili. È possibile eseguire l'override di alcune impostazioni, ad esempio le intestazioni personalizzate, tramite un file di trasformazione XML. Creare un file denominato `applicationHost.xdt`. Questo file deve essere salvato nella directory `D:\home\site` del servizio di Azure. Questa operazione può essere eseguita tramite uno script di distribuzione personalizzato o direttamente tramite Kudu. Di seguito è riportato un documento di esempio:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+Per altre informazioni, consultare la documentazione [XDT transform samples] \(Esempi di trasformazioni XDT) in GitHub.
+
+### Non è possibile aggiungere a Gestione traffico servizi mobili di cui è stata eseguita la migrazione
+
+Quando si crea un profilo di Gestione traffico, non è possibile scegliere direttamente per il profilo un servizio mobile di cui è stata eseguita la migrazione. È necessario usare un "endpoint esterno". L'endpoint esterno può essere aggiunto solo tramite PowerShell. Per altre informazioni, vedere [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) (Endpoint esterni di Gestione traffico di Azure e round robin ponderato tramite PowerShell).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibile sfruttare molte altre funzionalità:
@@ -354,17 +381,17 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi di Servizio app]: https://azure.microsoft.com//pricing/details/app-service/
+[Prezzi di Servizio app]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentazione sulla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [portale di Azure]: https://portal.azure.com
-[area di Azure]: https://azure.microsoft.com//regions/
+[area di Azure]: https://azure.microsoft.com/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
 [distribuzione continua]: ../app-service-web/web-sites-publish-source-control.md
-[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com//blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/it-IT/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -380,5 +407,6 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [slot di staging]: ../app-service-web/web-sites-staged-publishing.md
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
+[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

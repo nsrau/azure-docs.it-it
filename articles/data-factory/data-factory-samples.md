@@ -77,9 +77,9 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 	2. Immettere un **nome** per la data factory.
 	3. Selezionare la **sottoscrizione di Azure** in cui creare la data factory. 
 	4. Selezionare il **gruppo di risorse** per la data factory.
-	5. Selezionare **Stati Uniti occidentali** o **Europa settentrionale** per l'**area**.
+	5. Selezionare **Stati Uniti occidentali**, **Stati Uniti orientali** o **Europa settentrionale** per l'**area**.
 	6. Fare clic su **Avanti**. 
-9. Nella pagina **Configura archivi dati** specificare un **database SQL di Azure** e un **account di archiviazione di Azure** esistenti oppure crearne uno nuovo, quindi scegliere Avanti. 
+9. Nella pagina **Configura archivi dati** specificare un **database SQL di Azure** e un **account di archiviazione di Azure** esistenti oppure crearne di nuovi, quindi scegliere Avanti. 
 10. Nella pagina **Configura calcolo** selezionare le impostazioni predefinite e fare clic su **Avanti**. 
 11. Nella pagina **Riepilogo** esaminare tutte le impostazioni e fare clic su **Avanti**. 
 12. Nella pagina **Stato distribuzione** attendere finché non viene completata la distribuzione e fare clic su **Fine**.
@@ -89,7 +89,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 	![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-21. Nella pagina **Configura data factory** seguire questa procedura:
+21. Nella pagina **Configura data factory** procedere come segue:
 	1. Confermare l'opzione **Usa data factory esistente**.
 	2. Selezionare la stessa **data factory** del modello precedente. 
 	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato. 
@@ -99,4 +99,4 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 Per informazioni dettagliate sull'uso di Visual Studio per creare entità di Data Factory e pubblicarle in Azure, vedere l'articolo relativo alla [creazione della prima data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

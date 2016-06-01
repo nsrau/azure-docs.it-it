@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ In questo argomento vengono riportati i passaggi seguenti.
 
 Una connessione ibrida può essere creata nel portale di Azure usando le app Web **oppure** i servizi BizTalk.
 
-**Per creare connessioni ibride con le app Web**, vedere [Connettere App Web di Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md).
+**Per creare connessioni ibride con le app Web**, vedere [Connettere App Web di Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md). È anche possibile installare Gestione connessione ibrida (HCM, Hybrid Connection Manager) dall'App Web. È il metodo consigliato.
 
 **Per creare connessioni ibride nei servizi BizTalk**:
 
@@ -68,7 +68,7 @@ Per collegare le app per dispositivi mobili di Azure a una connessione ibrida es
 
 ## <a name="InstallHCM"></a>Installare Gestione connessioni ibride nella risorsa locale
 
-Dopo aver creato una connessione ibrida, installare Gestione connessioni ibride nella risorsa locale, disponibile per il download da App Web di Azure o dal servizio BizTalk. Passaggi dei servizi BizTalk:
+Dopo aver creato una connessione ibrida, installare Gestione connessioni ibride nella risorsa locale, disponibile per il download dalle App Web di Azure o dal servizio BizTalk. Passaggi dei servizi BizTalk:
 
 1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk. 
@@ -152,4 +152,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

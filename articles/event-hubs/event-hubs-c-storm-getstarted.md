@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -36,35 +36,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Un account Azure attivo. Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## Creare un hub eventi
-
-1. Accedere al [portale di Azure classico] e fare clic su **NUOVO** nella parte inferiore della schermata.
-
-2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, quindi **Hub eventi** e infine **Creazione rapida**.
-
-	![][1]
-
-3. Digitare un nome per l'hub eventi, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
-
-	![][2]
-
-4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub eventi*-ns**).
-
-	![][3]
-
-5. Fare clic sulla scheda **Hub eventi** nella parte superiore della pagina, quindi selezionare l'hub eventi appena creato.
-
-	![][4]
-
-6. Fare clic sulla scheda **Configura** nella parte superiore della pagina, aggiungere una regola denominata **SendRule** con diritti di *Invio*, aggiungere un'altra regola denominata **ReceiveRule** con diritti di *Ascolto*, quindi fare clic su **Salva**.
-
-	![][5]
-
-7. Nella stessa pagina prendere nota delle chiavi generate per **SendRule** e **ReceiveRule**.
-
-	![][6c]
-
-L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
+[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
@@ -90,18 +62,10 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 - [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
 
 <!-- Images. -->
-[1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
-[2]: ./media/event-hubs-c-storm-getstarted/create-event-hub2.png
-[3]: ./media/event-hubs-c-storm-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-c-storm-getstarted/create-event-hub4.png
-[5]: ./media/event-hubs-c-storm-getstarted/create-event-hub5.png
-[6]: ./media/event-hubs-getstarted/create-event-hub6.png
-[6c]: ./media/event-hubs-c-storm-getstarted/create-event-hub6c.png
-
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
 
@@ -110,4 +74,4 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Analisi dei dati dei sensori con Storm e HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

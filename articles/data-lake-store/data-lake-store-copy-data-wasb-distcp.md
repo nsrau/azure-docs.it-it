@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Usare Distcp per copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake
@@ -28,11 +28,15 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - **Cluster Azure HDInsight** con accesso all'account Archivio Data Lake. Vedere [Creare un cluster HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
 
+## Apprendimento rapido con i video
+
+[Guardare questo video](https://mix.office.com/watch/1liuojvdx6sie) su come copiare dati tra i BLOB di archiviazione di Azure e Archivio Data Lake con DistCp.
+
 ## Usare Distcp da Desktop remoto (cluster Windows) o SSH (cluster Linux)
 
 Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiare i dati da diverse origini in un cluster HDInsight. Se il cluster HDInsight è stato configurato per l'uso di Archivio Data Lake come risorsa di archiviazione aggiuntiva, l'utilità Distcp può essere usata senza modifiche anche per copiare dati in e da un account Archivio Data Lake. Questa sezione illustra come usare l'utilità Distcp.
 
-1. Se si usa un cluster Windows, stabilire una connessione remota a un cluster HDInsight che ha accesso a un account Archivio Data Lake. Per istruzioni, vedere [Connettersi a cluster con RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). Dal desktop del cluster aprire la riga di comando di Hadoop.
+1. Se si usa un cluster Windows, stabilire una connessione remota a un cluster HDInsight che ha accesso a un account Archivio Data Lake. Per le istruzioni, vedere [Connettersi a cluster con RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). Dal desktop del cluster aprire la riga di comando di Hadoop.
 
 	Se si usa un cluster Linux, usare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster). Eseguire i comandi dal prompt SSH.
 
@@ -58,7 +62,7 @@ Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiar
 
 		hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-	I contenuti di **/myfolder** nell'account Archivio Data Lake verranno copiati nella cartella **/example/data/gutenberg/** nel BLOB di archiviazione di Azure.
+	I contenuti di **/myfolder** nell'account di Archivio Data Lake verranno copiati nella cartella **/example/data/gutenberg/** nel BLOB di archiviazione di Azure.
 
 ## Vedere anche
 
@@ -67,4 +71,4 @@ Un cluster HDInsight include l'utilità Distcp, che può essere usata per copiar
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -89,7 +89,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 |---|---|---|
 |Garanzia di ordinamento|**No** <br/><br>Per altre informazioni, vedere la prima nota nella sezione "Informazioni aggiuntive".</br>|**Sì - First In First Out (FIFO)**<br/><br>(tramite l'uso di sessioni di messaggistica)|
 |Garanzia di recapito|**At-Least-Once**|**At-Least-Once**<br/><br/>**At-Most-Once**|
-|Supporto delle transazioni|**No**|**Sì**<br/><br/>(tramite l'uso di transazioni locali)|
+|Supporto per l'operazione atomica|**No**|**Sì**<br/><br/>|
 |Comportamento di ricezione|**Senza blocco**<br/><br/>(completamento immediato in caso di assenza di nuovi messaggi)|**Blocco con/senza timeout**<br/><br/>(disponibilità di polling prolungato o ["tecnica Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Senza blocco**<br/><br/>(solo tramite l'uso dell'API gestita .NET)|
 |API di tipo push|**No**|**Sì**<br/><br/>sessioni API .NET di [OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) e **OnMessage**.|
 |Modalità di ricezione|**Visualizzazione e lease**|**Visualizzazione e blocco**<br/><br/>**Ricezione ed eliminazione**|
@@ -178,7 +178,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Dimensioni massime della coda|**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione)|**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive").|
-|Dimensioni massime del messaggio|**64 KB**<br/><br/>(48 KB quando si usa la codifica **Base64**)<br/><br/>Grazie alla combinazione di code e BLOB, Azure supporta messaggi di grandi dimensioni consentendo di accodare fino a 200 GB per un singolo elemento.|**256 KB**<br/><br/>(inclusi sia l'intestazione sia il corpo, dimensioni massime dell'intestazione: 64 KB)|
+|Dimensioni massime del messaggio|**64 KB**<br/><br/>(48 KB quando si usa la codifica **Base64**)<br/><br/>Grazie alla combinazione di code e BLOB, Azure supporta messaggi di grandi dimensioni consentendo di accodare fino a 200 GB per un singolo elemento.|**256 KB** o **1 MB**<br/><br/>(inclusi sia l'intestazione sia il corpo, dimensioni massime dell'intestazione: 64 KB), <br/><br/>a seconda del [livello di servizio](service-bus-premium-messaging.md).|
 |Durata TTL massima del messaggio|**7 giorni**|**Illimitato**|
 |Numero massimo di code|**Illimitato**|**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato)|
 |Numero massimo di client concorrenti|**Illimitato**|**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP)|
@@ -191,7 +191,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Con le code di Azure, se il contenuto del messaggio non è XML-safe, deve avere la codifica **Base64**. Se per il messaggio non è stata usata la codifica **Base64**, il payload dell'utente può essere fino a 48 KB, anziché 64.
 
-- Con le code del bus di servizio, ogni messaggio archiviato in una coda è costituito da due parti: un'intestazione e un corpo. Le dimensioni totali del messaggio non possono superare i 256 KB.
+- Con le code del bus di servizio, ogni messaggio archiviato in una coda è costituito da due parti: un'intestazione e un corpo. Le dimensioni totali del messaggio non possono superare la dimensione massima del messaggio supportata dal livello di servizio.
 
 - Se le comunicazioni tra client e code del bus di servizio vengono stabilite tramite il protocollo TCP, il numero massimo di connessioni simultanee a una singola coda del bus di servizio è limitato a 100. Questo numero è condiviso tra mittenti e destinatari. Se viene raggiunta questa quota, le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Questo limite non viene imposto ai client tramite cui viene effettuata la connessione alle code mediante l'API basata su REST.
 
@@ -204,14 +204,14 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Protocollo di gestione|**REST su HTTP/HTTPS**|**REST su HTTPS**|
-|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**| 
+|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**|
 |API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
 |C++ nativo|**Sì**|**No**|
 |API Java|**Sì**|**Sì**|
 |API PHP|**Sì**|**Sì**|
 |API Node.js|**Sì**|**Sì**|
 |Supporto metadati arbitrario|**Sì**|**No**|
-|Regole di denominazione delle code|**Lunghezza massima pari a 63 caratteri**<br/><br/>(le lettere del nome di una coda devono essere minuscole)|**Lunghezza massima pari a 260 caratteri**<br/><br/>(nomi di coda tra maiuscole e minuscole)|
+|Regole di denominazione delle code|**Lunghezza massima pari a 63 caratteri**<br/><br/>(le lettere del nome di una coda devono essere minuscole)|**Lunghezza massima pari a 260 caratteri**<br/><br/>(percorsi e nomi di coda con distinzione tra maiuscole e minuscole)|
 |Funzione di recupero della lunghezza della coda|**Sì**<br/><br/>(valore indicativo se i messaggi scadono oltre il TTL senza essere eliminati)|**Sì**<br/><br/>(esatto, valore temporizzato)|
 |Funzione di visualizzazione|**Sì**|**Sì**|
 
@@ -311,8 +311,7 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Uso del servizio di accodamento in Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-
 [portale di Azure classico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

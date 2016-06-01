@@ -18,11 +18,12 @@
 
 9. Per **Località**, assicurarsi che sia visualizzata la località in cui si siano presenti sia il gruppo di risorse che la rete virtuale.
 
-10. È possibile selezionare **Aggiungi al dashboard** se si vuole che il gateway venga visualizzato nel dashboard. Fare clic su **Crea** per avviare la creazione del gateway. Nel dashboard verrà visualizzato il riquadro relativo alla "distribuzione del gateway di rete virtuale". La creazione di un gateway può richiedere fino a 45 minuti. Le attività in background sono numerose. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
+10. È possibile selezionare **Aggiungi al dashboard** se si vuole che il gateway venga visualizzato nel dashboard. Fare clic su **Crea** per iniziare a creare il gateway. Nel dashboard verrà visualizzato il riquadro relativo alla "distribuzione del gateway di rete virtuale". La creazione di un gateway può richiedere fino a 45 minuti. Le attività in background sono numerose. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
 
 	
 	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
 
 11. Dopo la creazione del gateway, è possibile visualizzare l'indirizzo IP assegnato esaminando la rete virtuale nel portale. Il gateway viene visualizzato come un dispositivo connesso. È possibile fare clic sul dispositivo connesso ovvero il gateway di rete virtuale, per visualizzare altre informazioni.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

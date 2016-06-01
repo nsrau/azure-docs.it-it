@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Aggiungere l'API di Twitter a PowerApps Enterprise o alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Twitter con i parametri dell'API REST."
+	pageTitle="Aggiungere il connettore Twitter in PowerApps Enterprise e nelle app per la logica | Microsoft Azure"
+	description="Panoramica del connettore Twitter con i parametri dell'API REST"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/12/2016"
    ms.author="mandia"/>
 
 
-# Introduzione all'API di Twitter
-Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale dell'utente e così via. L'API di Twitter può essere usata da:
+# Introduzione al connettore Twitter
+Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale dell'utente e così via. Il connettore Twitter può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -37,9 +37,9 @@ Con Twitter è possibile:
 - Creare il flusso aziendale in base ai dati ottenuti da Twitter. 
 - Usare i trigger quando c'è un nuovo tweet.
 - Usare le azioni per pubblicare un tweet, cercare tweet e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene visualizzato un nuovo tweet, è possibile pubblicarlo su Facebook.
-- Aggiungere l'API di Twitter a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Twitter a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise,vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,17 +51,17 @@ Trigger | Azioni
 --- | ---
 <ul><li>When a new tweet appears</li></ul>| <ul><li>Post a new tweet</li><li>When a new tweet appears</li><li>Get home timeline</li><li>Get user</li><li>Get user timeline</li><li>Search tweet</li><li>Get followers</li><li>Get my followers</li><li>Get following</li><li>Get my following</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 
 ## Creare una connessione a Twitter
 
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione all'account Twitter.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione all'account Twitter.
 
 1. Accedere all'account Twitter.
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare l'account Twitter. 
 
-Dopo aver creato la connessione immettere le proprietà di Twitter, ad esempio testo tweet. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+>[AZURE.INCLUDE [Passaggi per creare una connessione a Twitter](../../includes/connectors-create-api-twitter.md)]
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Twitter in altre app per la logica.
 
@@ -110,7 +110,7 @@ Attiva un flusso di lavoro quando viene pubblicato un nuovo tweet corrispondente
 
 
 ### Recupera la sequenza temporale principale 
-Recupera i tweet e i retweet più recenti pubblicati dall'utente e dai follower. ```GET: /hometimeline```
+Recupera i tweet e i re-tweet più recenti pubblicati dall'utente e dai follower. ```GET: /hometimeline```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -315,4 +315,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

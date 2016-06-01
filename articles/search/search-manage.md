@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
@@ -58,7 +58,6 @@ Anche se per alcuni servizi sono ammessi i coamministratori, per un servizio di 
 +	Gestione e distribuzione delle chiavi API.
 +	Monitorare l'uso delle risorse
 +	Aumentare o ridurre la quantità di risorse (applicabile solo al servizio di ricerca standard)
-+	Avviare o arrestare il servizio
 +	Impostare i ruoli per il controllo dell'accesso amministrativo
 
 <a id="sub-3"></a>
@@ -108,7 +107,7 @@ In questa anteprima pubblica, il monitoraggio delle risorse è limitato alle inf
 
 Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio di ricerca](search-limits-quotas-capacity.md).
+Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per informazioni dettagliate, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
 
 +	[Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -119,7 +118,7 @@ Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei doc
 <a id="sub-6"></a>
 ## Aumentare o ridurre la quantità di risorse
 
-Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se si è effettuata l'iscrizione alle risorse dedicate usando il [piano tariffario Basic o Standard](search-limits-quotas-capacity.md), fare clic sul riquadro **RIDIMENSIONA** nel dashboard del servizio per regolare il numero di partizioni e di repliche usate dal servizio stesso.
+Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se si esegue l'iscrizione alle risorse dedicate usando il [piano tariffario Basic o Standard](search-limits-quotas-capacity.md), fare clic sul riquadro **RIDIMENSIONA** nel dashboard del servizio per regolare il numero di partizioni e di repliche usate dal servizio stesso.
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie ulteriori azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.
 
@@ -127,7 +126,7 @@ Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunt
 
 ### Aggiungere repliche
 
-L'aumento delle query al secondo o il raggiungimento della disponibilità elevata si ottengono mediante l'aggiunta di repliche. Ogni replica presenta una copia di un indice, pertanto l'aggiunta di un'ulteriore replica si traduce in un indice aggiuntivo che può essere usato per soddisfare le richieste di query. In linea generale, attualmente sono necessarie almeno 3 repliche per la disponibilità elevata. Per informazioni dettagliate vedere l'articolo relativo alla [pianificazione della capacità](search-capacity-planning.md).
+L'aumento delle query al secondo o il raggiungimento della disponibilità elevata si ottengono mediante l'aggiunta di repliche. Ogni replica presenta una copia di un indice, pertanto l'aggiunta di un'ulteriore replica si traduce in un indice aggiuntivo che può essere usato per soddisfare le richieste di query. In linea generale, attualmente sono necessarie almeno 3 repliche per la disponibilità elevata. Per informazioni dettagliate vedere [Pianificazione della capacità in Ricerca di Azure](search-capacity-planning.md).
 
 Un servizio di ricerca con un numero superiore di repliche può eseguire il bilanciamento del carico delle richieste di query su un numero maggiore di indici. Per un determinato volume di query, la velocità effettiva delle query sarà maggiore in presenza di più copie dell'indice disponibili per soddisfare la richiesta. Se si verificano latenze delle query, ci si può aspettare un netto miglioramento delle prestazioni una volta portate online le repliche aggiuntive.
 
@@ -159,15 +158,6 @@ Per pianificare in anticipo le esigenze future, è possibile verificare l'archiv
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
-<a id="sub-7"></a>
-## Avviare o arrestare il servizio
-
-È possibile avviare, arrestare o eliminare il servizio usando i comandi disponibili nel Dashboard servizi.
-
- ![][11]
-
-
-L'arresto o l'avvio del servizio non determinano la sospensione della fatturazione. Per evitare qualsiasi ulteriore addebito relativo al servizio, è necessario che quest'ultimo venga eliminato. Quando il servizio viene rimosso, tutti i dati ad esso associati verranno eliminati.
 
 <a id="sub-8"></a>
 ## Impostare i ruoli per il controllo dell'accesso amministrativo
@@ -194,16 +184,14 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 [Manage the api-keys]: #sub-4
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
-[Start or Stop the Service]: #sub-7
 [Set roles to control administrative access]: #sub-8
 
 <!--Image references-->
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
-[11]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png
 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

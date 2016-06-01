@@ -3,7 +3,7 @@
 	description="Imparare a utilizzare i cmdlet PowerShell di Azure per l'archiviazione di Azure per creare e gestire gli account di archiviazione; lavorare con BLOB, tabelle, code e file. configurare analisi archiviazione di query e creare firme di accesso condiviso."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
@@ -102,16 +102,16 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 	- **$SubscriptionName:** è necessario aggiornare questa variabile con il proprio nome di sottoscrizione. Attenersi a uno dei tre modi seguenti per individuare il nome della sottoscrizione:
 
 		a. In **Windows PowerShell ISE**, fare clic su **File** > **Nuovo** per creare un nuovo file di script. Copiare lo script seguente nel nuovo file di script e fare clic su **Debug** > **Esegui**. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale, quindi visualizza tutte le sottoscrizioni connesse alla sessione PowerShell locale. Prendere nota del nome della sottoscrizione da usare durante questa esercitazione:
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure](https://portal.azure.com), nel menu hub a sinistra fare clic su **Sottoscrizioni**. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
-		
+
 		![Portale di Azure][Image2]
-		  
+
 		c. Per individuare e copiare il nome della sottoscrizione nel [portale di Azure classico](https://manage.windowsazure.com/), scorrere verso il basso e fare clic su **Impostazioni** sul lato sinistro del portale. Fare clic su **Sottoscrizioni** per visualizzare un elenco delle sottoscrizioni. Copiare il nome della sottoscrizione da usare durante l'esecuzione degli script specificati in questa guida.
-		
+
 		![Portale di Azure classico][Image1]
 
 	- **$StorageAccountName:** utilizzare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
@@ -235,8 +235,26 @@ Per altre informazioni su come configurare una stringa di connessione di archivi
 
 Dopo aver configurato il computer e compreso come gestire le sottoscrizioni e gli account di archiviazione di Azure PowerShell, passare alla sezione successiva per informazioni su come gestire i BLOB e gli snapshot BLOB di Azure.
 
+### Come recuperare e rigenerare le chiavi di archiviazione di Azure
+
+Un account di archiviazione di Azure viene fornito con due chiavi. È possibile usare il cmdlet seguente per recuperare le chiavi.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+Usare il cmdlet seguente per recuperare una chiave specifica. I valori validi sono Primary e Secondary.
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+Per rigenerare le chiavi, usare il cmdlet seguente. I valori validi per -KeyType sono "Primary" e "Secondary".
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## Come gestire i BLOB di Azure
-Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx) (Concetti relativi al servizio BLOB).
 
 ### Come creare un contenitore
 Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possibile creare un contenitore privato usando il cmdlet New-AzureStorageContainer:
@@ -247,7 +265,7 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
 > [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
 
 ### Come caricare un BLOB in un contenitore
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Understanding Block Blobs, Append BLobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) (Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine).
 
 Per caricare i BLOB in un contenitore, è possibile usare il cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Per impostazione predefinita, questo comando carica i file locali in un BLOB in blocchi. Per specificare il tipo per il BLOB, è possibile usare il parametro - BlobType.
 
@@ -300,7 +318,7 @@ In questo esempio viene eseguita una copia asincrona. È possibile monitorare lo
 ### Come copiare i BLOB da una posizione secondaria
 È possibile copiare i BLOB da una posizione secondaria di un account abilitato RA-GRS.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -373,7 +391,7 @@ Non ci sono limiti agli snapshot creati per un BLOB. È possibile elencare gli s
 Ora che si è appreso come gestire i BLOB e gli snapshot BLOB con Azure PowerShell, passare alla sezione successiva per informazioni su come gestire tabelle, code e file.
 
 ## Come gestire le tabelle e le entità di tabella di Azure
-Il servizio di archiviazione tabelle di Azure è un archivio dati NoSQL, che è possibile usare per archiviare ed eseguire query su grandi set di dati strutturati non relazionali. I componenti principali del servizio sono tabelle, entità e proprietà. una tabella è una raccolta di entità. Un'entità è un set di proprietà. Ogni entità può avere fino a 252 proprietà, che corrispondono tutte a coppie nome-valore. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione tabelle di Azure. Per informazioni dettagliate, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
+Il servizio di archiviazione tabelle di Azure è un archivio dati NoSQL, che è possibile usare per archiviare ed eseguire query su grandi set di dati strutturati non relazionali. I componenti principali del servizio sono tabelle, entità e proprietà. una tabella è una raccolta di entità. Un'entità è un set di proprietà. Ogni entità può avere fino a 252 proprietà, che corrispondono tutte a coppie nome-valore. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione tabelle di Azure. Per informazioni dettagliate, vedere [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) (Informazioni sul modello di dati del servizio tabelle) e [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
 
 Nelle seguenti sottosezioni verrà spiegato come gestire il servizio di archiviazione tabelle di Azure usando Azure PowerShell. Gli scenari presentati includono **la creazione**, **l’eliminazione**, e **il recupero** **delle tabelle**, nonché **l’aggiunta**, **l'esecuzione di query**, e **l'eliminazione delle entità di tabella**.
 
@@ -592,7 +610,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 ## Come gestire condivisioni file e file di Azure
 L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Microsoft Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API dell'archiviazione file o Azure PowerShell.
 
-Per informazioni dettagliate su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) e [API REST del servizio file](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Per informazioni dettagliate su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) e [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (API REST del servizio file).
 
 ## Come impostare ed eseguire query di Analisi archiviazione
 È possibile utilizzare [Analisi archiviazione di Azure](storage-analytics.md) per raccogliere le metriche per gli account di archiviazione di Azure e per registrare i dati sulle richieste inviate all'account di archiviazione. È possibile usare le metriche di archiviazione per monitorare l'integrità di un account di archiviazione e Registrazione archiviazione per diagnosticare e risolvere i problemi relativi al proprio account di archiviazione. Per impostazione predefinita, le Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il portale di Azure o Windows PowerShell o a livello di codice mediante la libreria del client di archiviazione. La Registrazione archiviazione viene eseguita sul lato server e consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle proprie tabelle, code e BLOB, nonché i motivi per cui le richieste non sono riuscite.
@@ -732,6 +750,5 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/02/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

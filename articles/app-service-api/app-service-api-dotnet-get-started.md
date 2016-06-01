@@ -533,4 +533,4 @@ Quando l'app per le API ASP.NET è in esecuzione nel servizio app di Azure, è p
 
 Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva mostra come [Utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). Le esercitazioni successive della serie illustrano come implementare l'autenticazione e l'autorizzazione.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->

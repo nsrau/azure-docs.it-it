@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="fashah;bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
-## Introduzione
-
-**In questo documento** vengono descritte le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
+Questo argomento descrive le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-Il **menu** seguente collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il processo Cortana Analytics Process (CAP).
+Il **menu** seguente collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante l'esecuzione di Cortana Analytics Process (CAP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,6 +83,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
 > **Ottimizzazione inserimenti BCP** Per ottimizzare gli inserimenti, fare riferimento al seguente articolo ["Linee guida per ottimizzare l'importazione di massa"](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx).
+
 
 ### <a name="insert-tables-bulkquery-parallel"></a>Parallelizzazione delle operazioni di inserimento per uno spostamento dei dati più veloce
 
@@ -160,6 +159,7 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 - Per informazioni dettagliate su SQL Server Data Tools, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - Per informazioni dettagliate sull'importazione/esportazione guidata, vedere [Importazione/esportazione guidata di SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
+
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Spostamento dei dati da SQL Server locale a SQL Server in una VM di Azure
 
 È inoltre possibile utilizzare le strategie di migrazione seguenti:
@@ -224,4 +224,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Quando si registra un'app nel portale di gestione di Azure, vengono creati due o
 - **Oggetto entità servizio**: questo oggetto rappresenta un’istanza dell’app nel tenant di directory. È possibile applicare criteri agli oggetti entità di servizio, inclusa l'assegnazione di autorizzazioni agli oggetti entità servizio che consentono all'app di leggere i dati di directory del tenant. Ogni volta che si modifica l'oggetto applicazione, le modifiche vengono applicate anche all'oggetto entità servizio associato nel tenant.
 
 
-> [AZURE.NOTE]Se l'applicazione è configurata per l'accesso esterno, le modifiche apportate all'oggetto applicazione non vengono riflesse nell’oggetto entità servizio del tenant fino a quando il consumer tenant rimuove l'accesso e lo concede nuovamente.
+> [AZURE.NOTE] Se l'applicazione è configurata per l'accesso esterno, le modifiche apportate all'oggetto applicazione non vengono riflesse nell’oggetto entità servizio del tenant fino a quando il consumer tenant rimuove l'accesso e lo concede nuovamente.
 
 
 
@@ -85,4 +85,4 @@ Proprietà | Descrizione
 
 ##
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

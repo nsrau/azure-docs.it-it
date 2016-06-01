@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestire e monitorare i backup della macchina virtuale di Azure
@@ -42,7 +42,9 @@ Per gestire le macchine virtuali protette:
     ![Processi](./media/backup-azure-manage-vms/backup-job.png)
 
 ## Backup su richiesta di una macchina virtuale
-È possibile eseguire il backup su richiesta di una macchina virtuale dopo averla configurata per la protezione. Se il backup iniziale è in sospeso per la macchina virtuale, il backup su richiesta creerà una copia completa della macchina virtuale nell'insieme di credenziali di backup di Azure. Se il primo backup viene completato, il backup su richiesta invierà solo le modifiche rispetto al backup precedente all'insieme di credenziali di backup di Azure.
+È possibile eseguire il backup su richiesta di una macchina virtuale dopo averla configurata per la protezione. Se il backup iniziale è in sospeso per la macchina virtuale, il backup su richiesta creerà una copia completa della macchina virtuale nell'insieme di credenziali di backup di Azure. Se il primo backup è stato completato, il backup su richiesta invierà all'insieme di credenziali di Backup di Azure solo le modifiche effettuate dopo il backup precedente.
+
+>[AZURE.NOTE] Il periodo di conservazione dei dati di un backup su richiesta è impostato al valore specificato per la conservazione giornaliera nei criteri di conservazione corrispondenti alla macchina virtuale.
 
 Per eseguire un backup su richiesta di una macchina virtuale:
 
@@ -198,62 +200,38 @@ Per visualizzare i log operazioni corrispondenti all'insieme di credenziali per 
     ![Dettagli operazione](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Notifiche di avviso
-Nel portale è possibile ottenere notifiche di avviso personalizzate per i processi. Questo risultato si ottiene definendo le regole di avviso basate su PowerShell negli eventi dei log operativi.
-
-Gli avvisi basati su eventi funzionano in modalità risorse di Azure. Per passare alla modalità risorse di Azure eseguire il cmdlet seguente in modalità comandi con privilegi elevati:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Nel portale è possibile ottenere notifiche di avviso personalizzate per i processi. Questo risultato si ottiene definendo le regole di avviso basate su PowerShell negli eventi dei log operativi. Si raccomanda di usare *PowerShell 1.3.0 o versioni successive*.
 
 Per definire una notifica di avviso personalizzata per gli errori di backup, ecco un comando di esempio:
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**: è possibile ottenere queste informazioni dalla finestra popup Log operazioni come descritto nella sezione precedente. ResourceUri nella finestra popup dei dettagli di un'operazione è il valore di ResourceId da fornire per questo cmdlet.
 
-**EventName**: per gli avvisi relativi ai backup delle VM IaaS i valori supportati sono Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
+**OperationName**: questa proprietà è in questo formato "Microsoft.Backup/backupvault/<EventName>" dove EventName può essere uno dei seguenti eventi: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level**: i valori supportati sono Informational, Error. Per gli avvisi relativi alle azioni non riuscite usare Error, mentre per gli avvisi relativi ai processi riusciti usare Informational.
-
-**OperationName**: sarà nel formato "Microsoft.Backup/backupvault/<EventName>", dove EventName sarà come descritto in precedenza.
-
-**Status**: i valori supportati sono Started, Succeeded e Failed. È consigliabile mantenere Informational come livello per lo stato Succeeded.
-
-**SubStatus**: come Status per le operazioni di backup.
-
-**RuleType**: mantenerlo come *Event* perché gli avvisi relativi ai backup si basano sugli eventi.
+**Status**: i valori supportati sono Started, Succeeded e Failed.
 
 **ResourceGroup**: gruppo di risorse della risorsa in cui viene attivata l'operazione. È possibile ottenere queste informazioni dal valore di ResourceId. Il valore tra i campi */resourceGroups/* e */providers/* nel valore ResourceId è il valore per ResourceGroup.
 
 **Name**: nome della regola di avviso.
 
-**Description**: descrizione facoltativa della regola di avviso.
+**CustomEmail**: specificare l'indirizzo di posta elettronica del cliente a cui si vuole inviare notifiche di avvisi
 
-**CustomEmails**: specificare l'indirizzo di posta elettronica personalizzato a cui inviare la notifica dell'avviso.
-
-**SendToServiceOwners**: questa opzione invia la notifica dell'avviso a tutti gli amministratori e i coamministratori della sottoscrizione.
-
-Ecco come appare un esempio di messaggio di posta elettronica di avviso:
-
-Intestazione di esempio:
-
-![Intestazione dell'avviso](./media/backup-azure-manage-vms/alert-header.png)
-
-Corpo di esempio del messaggio di posta elettronica di avviso:
-
-![Corpo dell'avviso](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners**: questa opzione invia la notifica dell'avviso a tutti gli amministratori e i coamministratori della sottoscrizione. Può essere usato nel cmdlet **New AzureRmAlertRuleEmail**
 
 ### Limitazioni per gli avvisi
 Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 1. Gli avvisi vengono attivati in tutte le macchine virtuali nell'insieme di credenziali per il backup. Non è possibile personalizzare l'impostazione per ricevere avvisi per un set specifico di macchine virtuali in un insieme di credenziali per il backup.
-2. Gli avvisi vengono risolti automaticamente se non esiste un evento corrispondente all'avviso attivato nell'intervallo di durata dell'avviso successivo. Usare il parametro *WindowSize* nel cmdlet Add-AlertRule per impostare la durata di attivazione dell'avviso.
+2. Questa funzionalità è in anteprima. [Altre informazioni](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. Si riceveranno avvisi generati da "alerts-noreply@mail.windowsazure.com". Attualmente non è possibile modificare il mittente del messaggio di posta elettronica. 
 
 ## Passaggi successivi
 
 - [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

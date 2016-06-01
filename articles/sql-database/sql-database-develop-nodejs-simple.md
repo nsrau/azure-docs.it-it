@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connettersi al Database SQL tramite Node.js"
+	pageTitle="Connettersi al database SQL tramite Node.js | Microsoft Azure"
 	description="Presentazione di un esempio di codice Node.js che è possibile usare per connettersi al database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -38,4 +38,4 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 [Modello di verifica della connessione a SQL tramite Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

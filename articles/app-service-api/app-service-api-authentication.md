@@ -22,6 +22,8 @@
 
 ## Panoramica 
 
+> [AZURE.NOTE] Questo argomento verrà trasferito in un unico argomento, [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/app-service-authentication-overview.md), che illustra l'autenticazione e l'autorizzazione per app Web, app per dispositivi mobili e app per le API.
+
 Il servizio app di Azure offre servizi di autenticazione e autorizzazione incorporati che implementano [OAuth 2.0](#oauth) e [OpenID Connect](#oauth). Questo articolo descrive i servizi e le opzioni disponibili per le app per le API nel servizio app di Azure.
 
 Il diagramma seguente illustra alcune caratteristiche chiave dell'autenticazione del servizio app:
@@ -69,7 +71,7 @@ Le opzioni sono selezionabili nel pannello **Autenticazione/Autorizzazione** del
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Per le opzioni 1 e 2 attivare l'**Autenticazione servizio app** e scegliere **Accedi** o **Consenti richiesta (nessuna azione)** nell'elenco a discesa **Azione da eseguire quando la richiesta non è autenticata**. Se si seleziona **Accedi**, è necessario scegliere un provider di autenticazione e configurarlo.
+Per le opzioni 1 e 2 attivare **Autenticazione servizio app** e scegliere **Accedi** o **Consenti richiesta (nessuna azione)** nell'elenco a discesa **Azione da eseguire quando la richiesta non è autenticata**. Se si seleziona **Accedi**, è necessario scegliere un provider di autenticazione e configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -81,7 +83,7 @@ L'autenticazione del servizio app funziona per gli scenari interni, ad esempio p
 
 Per gli scenari da servizio a servizio, proteggere l'app per le API chiamata usando Azure Active Directory e fornire un token AAD di autorizzazione dell'entità servizio durante la chiamata all'app per le API. Per ottenere un token, è possibile fornire l'ID client e il segreto client dell'applicazione AAD. Non è necessario alcun codice speciale di Azure, come quello usato per la gestione del token zumo dei servizi mobili. Un esempio di questo scenario che usa le app per le API ASP.NET è illustrato nell'esercitazione [Autenticazione dell'entità servizio per app per le API](app-service-api-dotnet-service-principal-auth.md).
 
-Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni sull'autenticazione di base in ASP.NET, vedere il blog sui [filtri di autenticazione nell'API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
+Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni sull'autenticazione di base in ASP.NET, vedere [Filtri di autenticazione in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
 L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
@@ -94,7 +96,7 @@ Per informazioni su come gestire l'autenticazione dai client per dispositivi mob
 Per altre informazioni su autenticazione e autorizzazione nel servizio app di Azure, vedere le risorse seguenti:
 
 * [Espansione dell'autenticazione/autorizzazione del servizio App](/blog/announcing-app-service-authentication-authorization/)
-* [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Include i collegamenti per altri provider di autenticazione in alto nella pagina. 
+* [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Include i collegamenti per altri provider di autenticazione nella parte superiore della pagina. 
 
 Per altre informazioni su OAuth 2.0, OpenID Connect e i token Web JSON (JWT), vedere le risorse seguenti.
 
@@ -110,6 +112,6 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 ## Passaggi successivi
 
-Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. La prossima esercitazione della serie introduttiva illustra come implementare l'[autenticazione utente nelle app per le API del servizio app](app-service-api-dotnet-user-principal-auth.md).
+Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. La prossima esercitazione della serie introduttiva illustra come implementare l'[autenticazione utente per le app per le API del servizio app di Azure](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

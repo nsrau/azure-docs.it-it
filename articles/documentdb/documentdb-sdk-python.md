@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/26/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,11 +36,14 @@
 
 ## Note sulla versione
 
+### <a name="1.7.0"/>[1\.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+- Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
+
 ### <a name="1.6.1"/>[1\.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
 - Correzioni di bug relativi al partizionamento lato server per consentire caratteri speciali nel percorso partitionkey.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- [Raccolte partizionate](documentdb-partition-data.md) e [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md) implementati. 
+- Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md). 
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Aggiungi resolver per partizioni hash e a intervalli come supporto per applicazioni di partizionamento orizzontale in più partizioni.
@@ -55,13 +58,13 @@
 - Aggiunge la nuova intestazione "stato di trasformazione dell'indice" a ResourceResponse.
 
 ### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-- Implementa criteri di indicizzazione V2
+- Implementazione del criterio di indicizzazione V2.
 
 ### <a name="1.0.1"/>[1\.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
-- Supporta la connessione proxy
+- Supporto della connessione proxy.
 
 ### <a name="1.0.0"/>[1\.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
-- SDK con disponibilità generale
+- SDK con disponibilità generale.
 
 ## Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
@@ -77,19 +80,20 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.6.1](#1.6.1) | 08 aprile 2016 |---
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |---
-| [1\.5.0](#1.5.0) | 03 gennaio 2016 |---
-| [1\.4.2](#1.4.2) | 06 ottobre 2015 |---
-| [1\.4.1](#1.4.1) | 06 ottobre 2015 |---
-| [1\.2.0](#1.2.0) | 06 agosto 2015 |---
-| [1\.1.0](#1.1.0) | 09 luglio 2015 |---
-| [1\.0.1](#1.0.1) | 25 maggio 2015 |---
-| [1\.0.0](#1.0.0) | 07 aprile 2015 |---
-| 0.9.4-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016
-| 0.9.3-versione non definitiva | 09 dicembre 2014 | 29 febbraio 2016
-| 0.9.2-versione non definitiva | 25 novembre 2014 | 29 febbraio 2016
-| 0.9.1-versione non definitiva | 23 settembre 2014 | 29 febbraio 2016
+| [1\.7.0](#1.7.0) | 26 aprile 2016 |--
+| [1\.6.1](#1.6.1) | 08 aprile 2016 |--
+| [1\.6.0](#1.6.0) | 29 marzo 2016 |--
+| [1\.5.0](#1.5.0) | 03 gennaio 2016 |--
+| [1\.4.2](#1.4.2) | 06 ottobre 2015 |--
+| [1\.4.1](#1.4.1) | 06 ottobre 2015 |--
+| [1\.2.0](#1.2.0) | 06 agosto 2015 |--
+| [1\.1.0](#1.1.0) | 09 luglio 2015 |--
+| [1\.0.1](#1.0.1) | 25 maggio 2015 |--
+| [1\.0.0](#1.0.0) | 07 aprile 2015 |--
+| 0.9.4-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 
+| 0.9.3-versione non definitiva | 09 dicembre 2014 | 29 febbraio 2016 
+| 0.9.2-versione non definitiva | 25 novembre 2014 | 29 febbraio 2016 
+| 0.9.1-versione non definitiva | 23 settembre 2014 | 29 febbraio 2016 
 | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
@@ -99,4 +103,4 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

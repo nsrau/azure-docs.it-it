@@ -34,17 +34,17 @@ Per impostazione predefinita, nel motore di app per la logica si verificherà il
 
 Quando si esegue un passaggio o un'attività a esecuzione prolungata, è prima di tutto necessario assicurarsi che il motore sappia che non si è verificato il timeout. È anche necessario indicare al motore la modalità di comunicazione del completamento dell'attività e infine restituire dati rilevati al motore, in modo che possa continuare con il flusso di lavoro. È possibile completare il processo tramite un'API, seguendo il flusso indicato di seguito. Questa procedura è relativa al punto di vista dell'API personalizzata:
 
-1\. Quando viene ricevuta una richiesta, restituire immediatamente una risposta, prima del completamento del lavoro. Questa risposta sarà di tipo `202 ACCEPTED` e indica al motore che i dati sono stati ricevuti, il payload è stato accettato e l'elaborazione è iniziata. La risposta 202 deve contenere le intestazioni seguenti:
- * Intestazione `location` (obbligatoria): percorso assoluto per l'URL che può essere usato dalle app per la logica per verificare lo stato del processo.
+1. Quando viene ricevuta una richiesta, restituire immediatamente una risposta, prima del completamento del lavoro. Questa risposta sarà di tipo `202 ACCEPTED` e indicherà al motore che i dati sono stati ricevuti, il payload è stato accettato e l'elaborazione è in corso. La risposta 202 deve contenere le intestazioni seguenti: 
+ * Intestazione `location` (obbligatoria): percorso assoluto dell'URL che le app per la logica possono usare per verificare lo stato del processo.
  * `retry-after` (facoltativa, di tipo 20 per impostazione predefinita per le azioni). Corrisponde al numero di secondi di attesa da parte del motore prima del polling dell'URL dell'intestazione del percorso per verificare lo stato.
 
-2\. Quando si verifica lo stato di un processo, eseguire i controlli seguenti:
- * Se il processo è stato completato: restituire una risposta `200 OK`, con il payload della risposta.
- * Se il processo è ancora in fase di elaborazione: restituire un'altra risposta `202 ACCEPTED`, con le stesse intestazioni della risposta iniziale.
+2. Quando si verifica lo stato di un processo, eseguire i controlli seguenti: 
+ * Se il processo è stato completato: restituire una risposta `200 OK` con il payload della risposta.
+ * Se il processo è ancora in fase di elaborazione: restituire un'altra risposta `202 ACCEPTED` con le stesse intestazioni della risposta iniziale.
 
 Questo modello consente di eseguire attività estremamente lunghe con un thread dell'API personalizzata, ma di mantenere attiva una connessione con il motore di app per la logica, in modo che non si verifichi il timeout o la continuazione prima del completamento del lavoro. In caso di aggiunta all'app per la logica, è importante notare che non è necessario apportare alcuna modifica nella definizione per consentire all'app per la logica di continuare a eseguire il polling e verificare lo stato. Quando il motore riceve una risposta 202 ACCEPTED con intestazione di percorso valida, rispetterà il modello asincrono e continuerà a eseguire il polling dell'intestazione del percorso fino alla restituzione di una risposta di tipo diverso da 202.
 
-Un esempio di questo modello è disponibile [qui](https://github.com/jeffhollan/LogicAppsAsyncResponseSample) in GitHub.
+Un esempio di questo modello è disponibile in GitHub [qui](https://github.com/jeffhollan/LogicAppsAsyncResponseSample).
 
 ### Azioni webhook
 
@@ -54,9 +54,9 @@ In corrispondenza di "subscribe", l'app per la logica creerà e registrerà un U
 
 Se l'esecuzione è stata annullata, il motore di app per la logica effettuerà una chiamata all'endpoint "unsubscribe". L'API può quindi annullare la registrazione dell'URL di callback in base alla necessità.
 
-La finestra di progettazione di app per la logica non supporta attualmente l'individuazione di un endpoint di webhook tramite swagger, quindi per usare questo tipo di azione è necessario aggiungere l'azione "Webhook" e specificare l'URL, le intestazioni e il corpo della richiesta. È possibile usare la funzione del flusso di lavoro `@listCallbackUrl()` in uno di questi campi in base alla necessità per passare l'URL di callback.
+La finestra di progettazione di app per la logica non supporta attualmente l'individuazione di un endpoint di webhook tramite swagger, quindi per usare questo tipo di azione è necessario aggiungere l'azione "Webhook" e specificare l'URL, le intestazioni e il corpo della richiesta. Per passare l'URL di callback è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno di questi campi in base alle necessità.
 
-Un esempio del modello webhook è disponibile [qui](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs) in GitHub.
+Un esempio del modello webhook è disponibile in GitHub [qui](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 ## Trigger
 
@@ -66,18 +66,18 @@ Oltre alle azioni, è possibile fare in modo che l'API personalizzata funga da t
 
 Il funzionamento dei trigger di polling è analogo a quello delle azioni asincrone a esecuzione prolungata precedenti. Il motore di app per la logica chiamerà l'endpoint di trigger al termine di un determinato periodo di tempo, che dipende da SKU, pari a 15 secondi per il livello Premium, 1 minuto per il livello Standard e 1 ora per il livello Gratuito.
 
-Se non sono disponibili dati, il trigger restituisce una risposta `202 ACCEPTED`, con un'intestazione `location` e `retry-after`. Per i trigger è tuttavia consigliabile che l'intestazione `location` contenga un parametro di query di tipo `triggerState`. Si tratta di un identificatore che consente all'API di sapere quando è stata attivata l'ultima volta l'app per la logica. Se sono disponibili dati, il trigger restituisce una risposta `200 OK` con il payload del contenuto. Verrà attivata l'app per la logica.
+Se non sono disponibili dati, il trigger restituisce una risposta `202 ACCEPTED` con un'intestazione `location` e `retry-after`. Per i trigger è tuttavia consigliabile che l'intestazione `location` contenga un parametro di query di tipo `triggerState`. Si tratta di un identificatore che consente all'API di sapere quando è stata attivata l'ultima volta l'app per la logica. Se sono disponibili dati, il trigger restituisce una risposta `200 OK` con il payload del contenuto. Verrà attivata l'app per la logica.
 
 Ad esempio, se era in corso il polling per verificare la disponibilità di un file, è possibile creare un trigger di polling che esegua le operazioni seguenti:
 
-* Se è stata ricevuta una richiesta senza triggerState, l'API restituirà un valore `202 ACCEPTED` con intestazione `location` con triggerState pari all'ora corrente e `retry-after` pari a 15.
+* Se è stata ricevuta una richiesta senza triggerState, l'API restituirà un valore `202 ACCEPTED` con un'intestazione `location` con triggerState pari all'ora corrente e `retry-after` pari a 15.
 * Se è stata ricevuta una richiesta con triggerState:
  * Verificare se sono stati aggiunti file dopo DateTime di triggerState. 
-  * Se è presente un file, restituire una risposta `200 OK` con il payload di contenuto, incrementare il triggerState sul valore DateTime del file restituito e impostare `retry-after` su 15.
-  * Se sono presenti più file, è possibile restituire un file alla volta con `200 OK`, incrementare triggerState nell'intestazione `location` e impostare `retry-after` su 0. Ciò consente al motore di sapere che sono disponibili altri dati e di richiedere immediatamente i dati in corrispondenza dell'intestazione `location` specificata.
+  * Se è presente un solo file, restituire una risposta `200 OK` con il payload di contenuto, incrementare triggerState sul valore DateTime del file restituito e impostare `retry-after` su 15.
+  * Se sono presenti più file, è possibile restituire un file alla volta con `200 OK`, incrementare triggerState nell'intestazione `location` e impostare `retry-after` su 0. Ciò consente di informare il motore che sono disponibili altri dati. Il motore li richiederà immediatamente in corrispondenza dell'intestazione `location` specificata.
   * Se non sono disponibili file, restituire una risposta `202 ACCEPTED` e lasciare invariato il valore `location` di triggerState. Impostare `retry-after` su 15.
 
-Un esempio di trigger di polling è disponibile [qui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers) in GitHub.
+Un esempio di trigger di polling è disponibile in GitHub [qui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
 ### Trigger webhook
 
@@ -85,8 +85,8 @@ Il funzionamento dei trigger webhook è analogo a quello delle azioni webhook pr
 
 Se un trigger webhook viene eliminato, ad esempio se viene eliminata interamente l'app per la logica o se si elimina solo il trigger webhook, il motore chiamerà l'URL "unsubscribe" in cui l'API può annullare la registrazione dell'URL di callback e interrompere eventuali processi in base alla necessità.
 
-La finestra di progettazione di app per la logica non supporta attualmente l'individuazione di un trigger webhook tramite swagger, quindi per usare questo tipo di azione è necessario aggiungere il trigger "Webhook" e specificare l'URL, le intestazioni e il corpo della richiesta. È possibile usare la funzione del flusso di lavoro `@listCallbackUrl()` in uno di questi campi in base alla necessità per passare l'URL di callback.
+La finestra di progettazione di app per la logica non supporta attualmente l'individuazione di un trigger webhook tramite swagger, quindi per usare questo tipo di azione è necessario aggiungere il trigger "Webhook" e specificare l'URL, le intestazioni e il corpo della richiesta. Per passare l'URL di callback è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno di questi campi in base alle necessità.
 
-Un esempio di trigger webhook è disponibile [qui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers) in GitHub.
+Un esempio di trigger webhook è disponibile in GitHub [qui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

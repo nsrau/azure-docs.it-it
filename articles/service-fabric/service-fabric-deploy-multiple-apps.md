@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 
@@ -61,7 +61,7 @@ Il passaggio successivo consiste nella creazione di un pacchetto per l'applicazi
 Di seguito è riportata una descrizione dei parametri in uso:
 
 - **/source**: punta alla directory dell'applicazione da includere nel pacchetto.
-- **/target**: definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di destinazione.
+- **/target**: definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di origine.
 - **/appname**: definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione di Service Fabric.
 - **/exe**: definisce il file eseguibile che dovrebbe essere avviato da Service Fabric, in questo caso `node.exe`.
 - **/ma**: definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`. `/ma:'bin/www'` indica allo strumento di creazione di pacchetti di usare `bin/ma` come argomento per Node.exe.
@@ -182,10 +182,10 @@ L'ultimo passaggio consiste nella pubblicazione dell'applicazione nel cluster lo
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'NodeAppType'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
@@ -198,4 +198,4 @@ In questa esercitazione si è appreso come distribuire facilmente due applicazio
 
 - Informazioni su come [creare manualmente un pacchetto di un'applicazione guest](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure" 
+	pageTitle="Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure | Microsoft Azure" 
 	description="Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="sdanie"/>
 
 # Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -191,4 +191,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

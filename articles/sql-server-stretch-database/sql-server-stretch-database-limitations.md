@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limitazioni della superficie di attacco e problemi di blocco per Database Estensione | Microsoft Azure"
-	description="Informazioni sui problemi di blocco che è necessario risolvere prima di abilitare Database Estensione."
+	pageTitle="Limitazioni di Estensione database | Microsoft Azure"
+	description="Informazioni sulle limitazioni di Estensione database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,61 +13,73 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Limitazioni della superficie di attacco e problemi di blocco per Database Estensione
+# Limitazioni di Estensione database
 
-Informazioni sui problemi di blocco che è necessario risolvere prima di abilitare Database Estensione.
+Informazioni sulle limitazioni per le tabelle abilitate per Estensione e sulle limitazioni che attualmente impediscono l'abilitazione di Estensione su una tabella.
 
-## <a name="Limitations"></a>Problemi di blocco
-Nella versione di anteprima corrente di SQL Server 2016, gli elementi seguenti rendono una tabella non idonea per l'estensione.
+##  <a name="Caveats"></a>Limitazioni per le tabelle abilitate per Estensione
 
-**Proprietà tabella**
--   Più di 1.023 colonne
+Le tabelle abilitate per Estensione presentano le limitazioni seguenti.
 
--   Più di 998 indici
+### Vincoli
 
--   Tabelle contenenti dati FILESTREAM
+-   L'univocità non viene applicata per i vincoli UNIQUE e i vincoli PRIMARY KEY in una tabella di Azure che contiene i dati migrati.
 
--   FileTable
+### Operazioni DML
 
--   Tabelle replicate
+-   Non è possibile AGGIORNARE o ELIMINARE righe in una tabella abilitata per Estensione o da una vista che include tali tabelle.
 
--   Tabelle che usano Change Tracking o Change Data Capture
+-   Non è possibile INSERIRE righe in una tabella abilitata per Estensione su un server collegato.
+
+### Indici
+
+-   Non è possibile creare un indice per una vista che include tabelle abilitate per l'estensione.
+
+-   I filtri sugli indici di SQL Server non vengono propagati alla tabella remota.
+
+##  <a name="Limitations"></a> Limitazioni che attualmente impediscono l'abilitazione dell'Estensione per una tabella
+
+Attualmente, i seguenti elementi impediscono l'abilitazione dell'Estensione per una tabella.
+
+### Proprietà tabella
+
+-   Tabelle che includono più di 1.023 colonne o più di 998 indici
+
+-   FileTable o tabelle contenenti dati FILESTREAM
+
+-   Tabelle replicate o che usano le funzionalità Rilevamento modifiche o Change Data Capture
 
 -   Tabelle con ottimizzazione per la memoria
 
-**Tipi di dati e proprietà delle colonne**
+### Tipi di dati
+
+-   text, ntext e image
+
 -   timestamp
 
 -   sql\_variant
 
 -   XML
 
--   geometry
+-   Tipi di dati CLR tra cui i tipi geometry, geography, hierarchyid e tipi CLR definiti dall'utente
 
--   geography
+### Tipi di colonna
 
--   hierarchyid
-
--   Tipi CLR definiti dall'utente
-
-**Tipi di colonna**
 -   COLUMN\_SET
 
 -   Colonne calcolate
 
-**Vincoli**
--   Vincoli CHECK
+### Vincoli
 
--   Vincoli predefiniti
+-   Vincoli predefiniti e vincoli CHECK
 
--   Vincoli di chiave esterna che fanno riferimento alla tabella
+-   Vincoli di chiave esterna che fanno riferimento alla tabella. In una relazione padre-figlio (ad esempio Order e Order\_Detail), è possibile abilitare Estensione per la tabella figlio (Order\_Detail) ma non per la tabella padre (Order).
 
-    La tabella in cui non è possibile abilitare l'estensione database è la tabella a cui fa riferimento un vincolo FOREIGN KEY. In una relazione padre-figlio, ad esempio Orders e Order Details, si tratta della tabella padre (Orders).
+### Indici
 
-**Indici**
 -   Indici full-text
 
 -   Indici XML
@@ -76,29 +88,12 @@ Nella versione di anteprima corrente di SQL Server 2016, gli elementi seguenti r
 
 -   Viste indicizzate che fanno riferimento alla tabella
 
-## <a name="Caveats"></a>Limitazioni e avvertenze per le tabelle con estensione abilitata
-Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estensione abilitata hanno le limitazioni seguenti.
-
--   L'univocità non viene applicata per i vincoli UNIQUE e i vincoli PRIMARY KEY in una tabella abilitata per l'estensione.
-
--   Non è possibile eseguire le operazioni UPDATE o DELETE in una tabella abilitata per l'estensione.
-
--   Non è possibile eseguire l'operazione INSERT in remoto in una tabella abilitata per l'estensione su un server collegato.
-
--   Non è possibile usare la replica con una tabella abilitata per l'estensione.
-
--   Non è possibile creare un indice per una vista che include tabelle abilitate per l'estensione.
-
--   Non è possibile eseguire aggiornamenti o eliminazioni da una vista che include tabelle abilitate per l'estensione. È possibile tuttavia eseguire inserimenti in una vista che include tabelle abilitate per l'estensione.
-
--   I filtri sugli indici non vengono propagati alla tabella remota.
-
 ## Vedere anche
 
 [Identificare database e tabelle per Database Estensione eseguendo l'ottimizzazione guidata Database Estensione](sql-server-stretch-database-identify-databases.md)
 
 [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md)
 
-[Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
+[Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

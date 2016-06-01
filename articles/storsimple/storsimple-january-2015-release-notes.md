@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos" />
 
 
@@ -26,7 +26,7 @@ Questo aggiornamento non modifica la versione del software del dispositivo rispe
 
 Esaminare le seguenti informazioni contenute nelle note sulla versione per l'aggiornamento di gennaio 2015.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT]  
 >
 >- Questo aggiornamento non è disponibile tramite Windows Update e non può essere installato come gli altri aggiornamenti. Il dispositivo non riceverà questo aggiornamento neanche se gli aggiornamenti sono stati applicati tramite il portale di Azure classico. Questo aggiornamento verrà applicato solo ai dispositivi virtuali creati dopo il 20 gennaio 2015. 
 > 
@@ -78,4 +78,4 @@ Questa versione contiene un'immagine aggiornata per il dispositivo virtuale. Di 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

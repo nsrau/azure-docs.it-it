@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter="na"
    authors="stevestein"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="sstein" />
 
 # Domande frequenti sul ritiro dell'edizione Web e Business
@@ -68,4 +68,4 @@ I database SQL di Azure Basic, Standard e Premium vengono fatturati su base orar
 
 [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

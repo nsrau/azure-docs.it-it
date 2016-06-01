@@ -6,14 +6,14 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # Distribuire un eseguibile guest in Service Fabric
@@ -34,7 +34,7 @@ Questo articolo illustra i passaggi di base per creare il pacchetto di un esegui
 
 ## Breve panoramica dei file manifesto dell'applicazione e del servizio
 
-Prima di esaminare i dettagli della distribuzione di un eseguibile guest, è utile comprendere il modello di creazione del pacchetto e di distribuzione di Service Fabric. Il modello di creazione del pacchetto e di distribuzione dell'infrastruttura di servizi si basa principalmente su due file:
+Prima di esaminare i dettagli della distribuzione di un eseguibile guest, è utile comprendere il modello di creazione del pacchetto e di distribuzione di Service Fabric. Il modello di distribuzione del pacchetto di Service Fabric si basa principalmente su due file XML: l'applicazione e i manifesti del servizio. La definizione dello schema per i file ApplicationManifest.xml e ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 
 * **Manifesto dell'applicazione**
@@ -44,67 +44,15 @@ Prima di esaminare i dettagli della distribuzione di un eseguibile guest, è uti
   Nell’ambito di Service Fabric un'applicazione è "l'unità aggiornabile". Un'applicazione può essere aggiornata come una singola unità in cui i potenziali errori (e i potenziali ripristini) vengono gestiti nella piattaforma in modo da garantire che il processo di aggiornamento abbia un esito completamente positivo o in caso contrario, che non lasci l'applicazione in uno stato sconosciuto/instabile.
 
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
-      <ConfigOverrides />
-    </ServiceManifestImport>
-
-    <DefaultServices>
-      <Service Name="actor2">
-        <StatelessService ServiceTypeName="actor2Type">
-          <SingletonPartition />
-        </StatelessService>
-      </Service>
-    </DefaultServices>
-
-  </ApplicationManifest>
-  ```
-
 * **Manifesto del servizio**
 
   Il manifesto del servizio descrive i componenti di un servizio. Include dati, come ad esempio nome e tipo di servizio (informazioni che Service Fabric usa per gestire il servizio), il relativo codice, componenti di dati e di configurazione più alcuni parametri aggiuntivi usati per configurare il servizio una volta distribuito.
 
   Non verranno esaminati tutti i diversi parametri disponibili nel manifesto del servizio, ma verrà esaminata la sotto-categoria necessaria ad eseguire un eseguibile guest in Service Fabric.
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
 
-    <CodePackage Name="Code" Version="1.0.0.0">
-      <EntryPoint>
-        <ExeHost>
-          <Program>actor2.exe</Program>
-        </ExeHost>
-      </EntryPoint>
-    </CodePackage>
-
-    <ConfigPackage Name="Config" Version="1.0.0.0" />
-
-    <Resources>
-      <Endpoints>
-        <Endpoint Name="ServiceEndpoint" />
-      </Endpoints>
-    </Resources>
-  </ServiceManifest>
-  ```
-
-## Struttura del file del pacchetto dell’applicazione
-Per distribuire un'applicazione utilizzando, ad esempio, i powershell cmdlet, l'applicazione deve seguire una struttura di directory predefinita.
+## Struttura del file del pacchetto dell'applicazione
+Per distribuire un'applicazione nell'infrastruttura di servizi, l'applicazione deve seguire una struttura di directory predefinita. Di seguito è riportato un esempio di tale struttura.
 
 ```
 |-- ApplicationPackage
@@ -300,10 +248,10 @@ L'ultimo passaggio consiste nel distribuire l'applicazione. Lo script di PowerSh
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -324,11 +272,11 @@ Si tratta di una configurazione utile per applicazioni front-end (ad esempio: un
 
 In Esplora infrastruttura di servizi identificare il nodo in cui è in esecuzione il servizio. In questo esempio è in esecuzione in Node1:
 
-![Nodo in cui è in esecuzione il servizio](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![Nodo in cui è in esecuzione il servizio](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 Se si passa al nodo e si accede all'applicazione, verranno visualizzate le informazioni essenziali sul nodo, incluso il percorso sul disco.
 
-![Percorso sul disco](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![Percorso sul disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 Se si passa alla directory tramite Esplora server è possibile trovare la directory di lavoro e la cartella dei log del servizio, come illustrato di seguito.
 
@@ -338,8 +286,8 @@ Se si passa alla directory tramite Esplora server è possibile trovare la direct
 ## Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
 
-- [Esempio per la creazione del pacchetto e la distribuzione di un eseguibile guest in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
+- [Esempio per la creazione del pacchetto e la distribuzione di un eseguibile guest in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
 - [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

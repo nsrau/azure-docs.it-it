@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Elenco di compatibilità di federazione di Azure AD
@@ -320,4 +320,4 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Per altre informazioni, vedere l'articolo sulla [configurazione dell'accesso Single Sign-On in AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

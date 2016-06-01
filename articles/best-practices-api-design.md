@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,10 +19,7 @@
 
 # Linee guida per la progettazione di un’API
 
-![](media/best-practices-api-design/pnp-logo.png)
-
-Alcuni argomenti di queste linee guida sono in fase di definizione e possono cambiare in futuro. I commenti degli utenti saranno molto apprezzati.
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 
@@ -522,4 +519,4 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 - La [guida di riferimento dettagliata relativa a RESTful ](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
 - L’[elenco di controllo delle API Web](https://mathieu.fenniak.net/the-api-checklist/) contiene un utile elenco di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

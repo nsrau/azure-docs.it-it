@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Panoramica delle transazioni di database elastico con il database SQL di Azure"
+   pageTitle="Transazioni distribuite in database cloud"
    description="Panoramica delle transazioni di database elastico con il database SQL di Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="sidneyh"/>
 
 <tags
@@ -16,7 +16,7 @@
    ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Panoramica delle transazioni di database elastico con il database SQL di Azure
+# Transazioni distribuite in database cloud
 
 Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni estese a più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con la familiare esperienza di programmazione usando le classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
@@ -149,6 +149,7 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 * Sono supportate solo le transazioni tra database nel database SQL. Altri provider di risorse [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e database al di fuori del database SQL non possono partecipare alle transazioni di database elastico. Ciò significa che le transazioni di database elastico non possono estendersi in locale al database SQL Server e al database SQL di Azure. Per le transazioni distribuite in locale, continuare a usare MSDTC. 
 * Sono supportate solo le transazioni coordinate tramite client da un'applicazione .NET. Il supporto sul lato server per T-SQL, ad esempio BEGIN DISTRIBUTED TRANSACTION, è pianificato, ma non ancora disponibile. 
 * Sono supportati solo i database nel database SQL di Azure V12.
+* Le transazioni tra i servizi WCF non sono supportate. Ad esempio, si dispone di un metodo del servizio WCF che esegue una transazione. Se si racchiude la chiamata all'interno di un ambito della transazione, essa avrà esito negativo come eccezione [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## Altre informazioni
 
@@ -157,4 +158,4 @@ Se ancora non si usano le funzionalità del database elastico per le applicazion
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

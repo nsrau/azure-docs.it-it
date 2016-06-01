@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS
@@ -24,7 +24,6 @@ Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da 
 
 [AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## Introduzione
 
 Dopo che i clienti hanno spostato i dati locali sul cloud, potranno accedere ai dati da qualsiasi servizio di Azure, per sfruttare le capacità complete della famiglia di tecnologie Azure. È ad esempio possibile usare i dati in Azure Machine Learning o in un cluster HDInsight.
 
@@ -88,4 +87,4 @@ Si noti che il Feature Pack di SSIS consente la gestione di flussi più compless
 - Per eseguire uno script Hive in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).
 - Per eseguire uno script Pig in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

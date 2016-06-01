@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Personalizzare l'interfaccia utente di Azure AD B2C
@@ -198,6 +198,61 @@ Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per e
 
 Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
 
+### Pagina di iscrizione o accesso unificata
+
+Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti finali, che possono usare provider di identità social come Facebook o Google+ o account locali.
+
+```HTML
+
+<div id="api" data-name="Unified">
+        <div class="social" role="form">
+               <div class="intro">
+                       <h2>Sign in with your social account</h2>
+               </div>
+               <div class="options">
+                       <div><button class="accountButton firstButton" id="MicrosoftAccountExchange" tabindex="1">msa</button></div>
+                       <div><button class="accountButton" id="FacebookExchange" tabindex="1">fb</button></div>
+               </div>
+        </div>
+        <div class="divider">
+               <h2>OR</h2>
+        </div>
+        <div class="localAccount" role="form">
+               <div class="intro">
+                       <h2>Sign in with your existing account</h2>
+               </div>
+               <div class="error pageLevel" aria-hidden="true" style="display: none;">
+                       <p role="alert"></p>
+               </div>
+               <div class="entry">
+                       <div class="entry-item">
+                               <label for="logonIdentifier">Email Address</label> 
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="email" id="logonIdentifier" name="LogonIdentifier" pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="LogonIdentifier" value="" tabindex="1">
+                       </div>
+                       <div class="entry-item">
+                               <div class="password-label"> <label for="password">Password</label><a id="forgotPassword" tabindex="2">Forgot your password?</a></div>
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="password" id="password" name="Password" placeholder="Password" tabindex="1">
+                       </div>
+                       <div class="working"></div>
+                       <div class="buttons"> <button id="next" tabindex="1">Sign in</button> </div>
+               </div>
+               <div class="divider">
+                       <h2>OR</h2>
+               </div>
+               <div class="create">
+                       <p>Don't have an account?<a id="createAccount" tabindex="1">Sign up now</a> </p>
+               </div>
+        </div>
+</div>
+
+```
+
 ### Pagina di autenticazione a più fattori
 
 In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso.
@@ -266,7 +321,7 @@ In questa pagina gli utenti possono verificare il proprio numero di telefono (tr
 Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia utente della pagina, fare riferimento alle procedure consigliate seguenti:
 
 - Non copiare il contenuto predefinito di Azure AD B2C né provare a modificarlo. È preferibile creare il contenuto HTML5 da zero e usare il contenuto predefinito come riferimento.
-- Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare il [forum](http://feedback.azure.com/forums/169401-azure-active-directory) per richiedere nuove funzionalità.
+- Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory) per richiedere nuove funzionalità.
 - Versioni di browser supportate:
 	- Internet Explorer 11
 	- Internet Explorer 10
@@ -277,4 +332,4 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

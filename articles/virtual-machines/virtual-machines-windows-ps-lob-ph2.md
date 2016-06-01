@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -197,4 +197,4 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 - Seguire la [Fase 3](virtual-machines-windows-ps-lob-ph3.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

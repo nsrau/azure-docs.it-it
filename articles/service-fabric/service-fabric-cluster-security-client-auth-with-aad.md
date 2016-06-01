@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="seanmck"/>
 
 # ANTEPRIMA: Creare un cluster di Service Fabric usando Azure Active Directory per l'autenticazione client
@@ -33,9 +33,13 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 
 >[AZURE.NOTE] Questi passaggi devono essere eseguiti *prima* di creare il cluster. Nei casi in cui gli script prevedono endpoint e nomi dei cluster è quindi necessario usare i valori pianificati anziché valori già creati.
 
-1. [Scaricare gli script][sf-aad-ps-script-download] ed estrarli prima di procedere.
+1. [Scaricare gli script][sf-aad-ps-script-download] sul computer.
 
-2. Eseguire `SetupApplications.ps1`, fornendo TenantId, ClusterName e WebApplicationReplyUrl come parametri. Ad esempio:
+2. Fare clic con il pulsante destro del mouse sul file con estensione zip, scegliere **Proprietà**, quindi selezionare la casella di controllo **Sblocca**.
+
+3. Estrarre il file con estensione zip.
+
+4. Eseguire `SetupApplications.ps1`, fornendo i parametri TenantId, ClusterName e WebApplicationReplyUrl. Ad esempio:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -93,7 +97,7 @@ Dopo aver creato le applicazioni per rappresentare il cluster, è necessario ass
 
     ![Assegnare utenti ai ruoli][assign-users-to-roles-dialog]
 
->[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
+>[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## Connettersi al cluster
 
@@ -135,9 +139,9 @@ Come accade in Visual Studio, anche in PowerShell viene visualizzata una finestr
 
 Durante l'autenticazione da un client nativo, ad esempio Visual Studio o PowerShell, potrebbe essere visualizzato un messaggio di errore simile al seguente:
 
-*L'indirizzo di risposta http://localhost/ non corrisponde all'indirizzo di risposta configurato per l'applicazione &lt;GUID dell'applicazione client del cluster&gt;*
+*L'indirizzo di risposta http://localhost/ non corrisponde all'indirizzo di risposta configurato per l'applicazione &lt;GUID dell'applicazione client del &lt;cluster*
 
-Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di reindirizzamento alla definizione dell'applicazione client del cluster in AAD, oltre all'indirizzo 'urn:ietf:wg:oauth:2.0:oob' che è già presente.
+Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di reindirizzamento alla definizione dell'applicazione client del cluster in AAD, oltre all'indirizzo "urn:ietf:wg:oauth:2.0:oob" che è già presente.
 
 ## Passaggi successivi
 
@@ -156,4 +160,4 @@ Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di re
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

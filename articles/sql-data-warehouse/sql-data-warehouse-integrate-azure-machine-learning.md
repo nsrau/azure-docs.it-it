@@ -3,7 +3,7 @@
    description="Suggerimenti per l'uso di Azure Machine Learning con Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Usare Azure Machine Learning con SQL Data Warehouse
 
@@ -43,7 +43,7 @@ Cercare il modulo Reader nella tavolozza dei set di dati e moduli a sinistra del
 Selezionare il modulo Reader e compilare il riquadro delle proprietà.
 
 1. Selezionare il database SQL di Azure in Data Source.
-2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure classico][].
+2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure][].
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ Cercare il modulo Writer nella tavolozza dei set di dati e moduli a sinistra del
 Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 
 1. Selezionare il database SQL di Azure in Data Destination.
-2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure classico][].
+2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure][].
 3. Database name: digitare il nome del database nel server specificato.
 4. Server user account name: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
 5. Server user account password: fornire la password per l'account utente specificato.
@@ -136,12 +136,12 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
 [esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-create-experiment/
 [Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/it-IT/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
-[portale di Azure classico]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

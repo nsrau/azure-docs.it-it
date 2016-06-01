@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestire Analisi Data Lake di Azure tramite il portale di Azure
@@ -167,7 +167,7 @@ Analisi Data Lake usa il controllo degli accessi in base al ruolo con Azure Acti
 |Collaboratore|Consente di accedere al portale, nonché inviare e monitorare processi. Per poter inviare processi, tuttavia, un collaboratore deve disporre anche dell'autorizzazione di lettura o scrittura per gli account di Archivio Data Lake.|
 |Sviluppatore Analisi Data Lake | Gli utenti possono inviare processi e monitorare tutti i processi, ma possono annullare solo i processi personali. Non possono gestire il proprio account, ovvero aggiungere utenti, modificare autorizzazioni o eliminare l'account. Per poter eseguire processi, devono disporre dell'accesso in lettura o scrittura per gli account di Archivio Data Lake | 
 |Lettore|Consente di visualizzare tutti gli elementi, ma senza apportare alcuna modifica.|  
-|Utente DevTest Lab|Consente di visualizzare tutti gli elementi, nonché connettere, avviare, riavviare e arrestare macchine virtuali.|  
+|Utente DevTest Labs|Consente di visualizzare tutti gli elementi, nonché connettere, avviare, riavviare e arrestare macchine virtuali.|  
 |Amministratore accessi utente|Consente di gestire gli accessi utente alle risorse di Azure.|  
 
 Per informazioni sulla creazione di utenti e gruppi di sicurezza di Azure Active Directory , vedere [Informazioni su Azure Active Directory](../active-directory/active-directory-whatis.md).
@@ -293,4 +293,4 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

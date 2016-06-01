@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurare una rete virtuale per un lab di sviluppo/test | Microsoft Azure"
-	description="Informazioni su come configurare una rete virtuale esistente e una subnet e utilizzarle in una VM"
+	pageTitle="Configurare una rete virtuale per un lab | Microsoft Azure"
+	description="Informazioni su come configurare una rete virtuale esistente e una subnet e utilizzarle in una VM con lab di sviluppo/test"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Configurare una rete virtuale per un lab di sviluppo/test
+# Configurare una rete virtuale per un lab
 
 ## Panoramica
 
-Come illustrato nell'articolo [Aggiungere una VM con elementi a un lab di sviluppo e test di Azure](devtest-lab-add-vm-with-artifacts.md), quando si crea una VM in un lab, è possibile specificare una rete virtuale configurata (e una subnet) per la macchina virtuale. Questo potrebbe essere utile, ad esempio, per accedere alle risorse di rete aziendali dalle VM utilizzando la rete virtuale impostata con ExpressRoute o VPN da sito a sito. Le sezioni seguenti illustrano come aggiungere la rete virtuale esistente alle impostazioni della rete virtuale del lab in modo che sia disponibile al momento della creazione delle VM.
+Come illustrato nell'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md), quando si crea una VM in un lab, è possibile specificare una rete virtuale configurata (e una subnet) per la macchina virtuale. Questo potrebbe essere utile, ad esempio, per accedere alle risorse di rete aziendali dalle VM utilizzando la rete virtuale impostata con ExpressRoute o VPN da sito a sito. Le sezioni seguenti illustrano come aggiungere la rete virtuale esistente alle impostazioni della rete virtuale del lab in modo che sia disponibile al momento della creazione delle VM.
 
-## Configurare una rete virtuale per un lab di sviluppo/test con il portale di Azure
-I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esistente (e una subnet) a un lab di sviluppo/test in modo che sia disponibile al momento della creazione di una VM nel lab.
+## Configurare una rete virtuale per un lab con il portale di Azure
+I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esistente (e una subnet) a un lab in modo che sia disponibile al momento della creazione di una VM nel lab.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -63,10 +63,10 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Toccare **Salva**.
 
-1. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una nuova VM. Questa operazione è esemplificata nell'articolo [Aggiungere una VM con elementi a un lab di sviluppo e test di Azure](devtest-lab-add-vm-with-artifacts.md).
+1. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una nuova VM. Questa operazione è esemplificata nell'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
 ## Passaggi successivi
 
-Dopo aver aggiunto le reti virtuali desiderate al lab, il passaggio successivo consiste nell'[aggiungere una VM a un lab di sviluppo/test di Azure](devtest-lab-add-vm-with-artifacts.md).
+Dopo aver aggiunto le reti virtuali desiderate al lab, il passaggio successivo consiste nell'[aggiungere una VM a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

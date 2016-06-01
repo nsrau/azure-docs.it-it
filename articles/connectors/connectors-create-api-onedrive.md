@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introduzione all'API di OneDrive
@@ -59,7 +59,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere all'account OneDrive.
 2. Consentire alle app per la logica di connettersi e usare OneDrive. 
 
-Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+>[AZURE.INCLUDE [Passaggi per creare una connessione a OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
@@ -129,7 +129,7 @@ Recupera i metadati di un file in OneDrive tramite percorso. ```GET: /datasets/d
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera i contenuti di un file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -147,7 +147,7 @@ Recupera i contenuti di un file in OneDrive tramite percorso. ```GET: /datasets/
 
 
 ### Recupera contenuto di file tramite ID
-Recupera i contenuti di un file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

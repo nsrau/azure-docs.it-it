@@ -39,7 +39,7 @@ Vedere la sezione relativa ai prerequisiti di [Uso di Azure PowerShell con Gesti
 	
 ## Gestire account
 
-Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Viene infatti richiesto il pagamento solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ###Creare account
 
@@ -71,7 +71,7 @@ Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporr
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-È inoltre possibile usare un modello di Gruppo di risorse di Azure. Un modello per la creazione di un account di Data Lake Analytics e dell'account di Data Lake Store dipendente è descritto nell'[appendice A](#appendix-a). Salvare il modello in un file con estensione JSON e quindi usare il seguente script di PowerShell per chiamarlo:
+È inoltre possibile usare un modello di Gruppo di risorse di Azure. Un modello per la creazione di un account Analisi Data Lake e dell'account Archivio Data Lake dipendente è descritto nell'[appendice A](#appendix-a). Salvare il modello in un file con estensione JSON e quindi usare il seguente script di PowerShell per chiamarlo:
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -132,7 +132,7 @@ Il cmdlet restituirà **True** oppure **False**.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-L'eliminazione di un account di Analytics non comporta l'eliminazione dell'account di archiviazione dipendente di Data Lake. Nell'esempio seguente vengono eliminati l'account di Data Lake Analytics e l'account di Data Lake Store predefinito
+L'eliminazione di un account Data Lake Analytics non comporta l'eliminazione dell'account di archiviazione dipendente di Data Lake. Nell'esempio seguente vengono eliminati l'account di Data Lake Analytics e l'account di Data Lake Store predefinito
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -315,7 +315,7 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
 
 Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
-Un servizio di Data Lake Analtyics può includere i seguenti componenti:
+Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
 - Account di Azure Data Lake Analytics
 - Account di archiviazione predefinito obbligatorio di Azure Data Lake
@@ -326,7 +326,7 @@ Un servizio di Data Lake Analtyics può includere i seguenti componenti:
 
 ![Account e archiviazione di Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-Un account di Data Lake Analytics e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure. Il gruppo ARM può tuttavia trovarsi in un data center diverso.
+Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure, mentre il gruppo ARM può trovarsi anche in un data center diverso.
 
 ##Vedere anche 
 
@@ -392,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 	  }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

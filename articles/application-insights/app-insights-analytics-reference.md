@@ -543,7 +543,7 @@ Illustra come l'operatore `range` possa essere usato per creare una piccola tabe
 Cerca di raggruppare record simili. Per ogni gruppo, l'operatore restituisce l'oggetto `Pattern` che descrive meglio il gruppo e l'oggetto `Count` dei record del gruppo.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Sintassi**
 
@@ -844,7 +844,7 @@ Trovare il valore più basso di ogni metrica, con timestamp e altri dati:
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -980,7 +980,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1004,7 +1004,7 @@ Restituisce una matrice `dynamic` (JSON) del set di valori distinct che *Expr* i
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 Vedere anche l'[operatore `mvexpand`](#mvexpand-operator) per la funzione opposta.
 
@@ -1052,7 +1052,7 @@ Calcolare contemporaneamente più percentili per nomi richiesta diversi:
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 I risultati mostrano che per la richiesta /Events/Index, il 5 % delle richieste riceve una risposta in meno di 2,44,s, la metà di esse in 3,52 s, mentre il 5 % risulta più lento di 6,85 s.
 
@@ -1288,16 +1288,16 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | 
-| * | Moltiplica | 
-| / | Dividi | 
-| % | Modulo | 
-|| 
-|`<` |Minore 
-|`<=`|Minore o uguale a 
-|`>` |Maggiore 
-|`>=`|Maggiore o uguale a 
-|`<>`|Non uguale a 
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a
+|`>` |Maggiore
+|`>=`|Maggiore o uguale a
+|`<>`|Non uguale a
 |`!=`|Non uguale a
 
 
@@ -1911,7 +1911,7 @@ Converte una stringa in lettere maiuscole.
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indicizzazione:** indicizzare matrici e oggetti come in JavaScript:
 
@@ -1943,7 +1943,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** per trovare tutti i percorsi in un oggetto complesso:
@@ -1953,7 +1953,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** per trovare lo schema minimo che ammette tutti i valori dell'espressione nella tabella:
 
@@ -2233,4 +2233,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

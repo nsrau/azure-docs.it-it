@@ -60,7 +60,7 @@ L'attività di copia esegue la copia dei dati da un set di dati di input (**orig
 L'attività di copia offre le funzionalità seguenti:
 
 ### <a name="global"></a>Spostamento dei dati disponibile a livello globale
-Anche se Data factory di Azure è disponibile solo negli Stati Uniti occidentali e in Europa settentrionale, il servizio su cui si basa l'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
+Anche se Azure Data Factory è disponibile solo negli Stati Uniti occidentali, negli Stati Uniti orientali e in Europa settentrionale, il servizio su cui si basa l'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
 
 Il **Gateway di gestione dati** o **Azure Data Factory** esegue lo spostamento dei dati in base alla posizione degli archivi dati di origine e destinazione in un'operazione di copia. Per informazioni dettagliate, vedere la tabella seguente:
 
@@ -195,4 +195,4 @@ Fare clic sul pulsante **Sfoglia** per il **File o cartella**, passare a una di 
 
 ![Uso di variabili personalizzate](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

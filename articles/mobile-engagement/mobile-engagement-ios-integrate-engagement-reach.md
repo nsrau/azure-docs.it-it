@@ -86,7 +86,7 @@ Per attivare questa funzionalità, è necessario preparare l'applicazione all'us
 
 ### Preparare l'applicazione per le notifiche push Apple
 
-Consultare questo articolo: Come preparare l'applicazione per le notifiche push Apple.
+Seguire la procedura in: [How to Prepare your Application for Apple Push Notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) (Come preparare l'applicazione per le notifiche push Apple)
 
 ### Aggiungere il codice del client adeguato
 
@@ -416,4 +416,4 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 
 	@end
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

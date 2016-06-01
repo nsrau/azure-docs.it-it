@@ -24,13 +24,13 @@
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Visualizzazione dello stato dell'estensione
-I modelli di Azure Resource Manager possono essere eseguiti da Azure Powershell. Una volta che il modello viene eseguito, è possibile visualizzare lo stato dell'estensione da Esplora risorse di Azure o dagli strumenti da riga di comando.
+I modelli di Azure Resource Manager possono essere eseguiti da Azure PowerShell. Una volta che il modello viene eseguito, è possibile visualizzare lo stato dell'estensione da Esplora risorse di Azure o dagli strumenti da riga di comando.
 
 Di seguito è fornito un esempio:
 
-Azure Powershell:
+Azure PowerShell:
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Di seguito è riportato l'output di esempio:
 
@@ -64,10 +64,10 @@ Di seguito è riportato l'output di esempio:
 Se si eseguono gli script nella macchina virtuale usando l'estensione script personalizzato, è possibile riscontrare in alcuni casi un errore in cui la creazione della macchina virtuale è riuscita, ma lo script ha avuto esito negativo. In queste condizioni, il metodo consigliato per risolvere il problema consiste nel rimuovere l'estensione e eseguire nuovamente il modello. Nota: In futuro, questa funzionalità potrebbe essere migliorata in modo da eliminare la necessità di disinstallazione dell'estensione.
 
 
-#### Rimuovere l'estensione da Azure Powershell
+#### Rimuovere l'estensione da Azure PowerShell
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

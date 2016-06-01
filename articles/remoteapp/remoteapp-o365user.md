@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/08/2016" 
+    ms.date="05/13/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Seguire le istruzioni descritte in [Modificare il tenant di Azure Active Directo
 
 A questo punto la sottoscrizione di Azure RemoteApp è associata a Office 365 Azure AD; è possibile utilizzare gli account utente di Office 365 esistenti con Azure RemoteApp!
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

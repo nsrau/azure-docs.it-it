@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -23,11 +23,12 @@ Questo argomento illustra la selezione della funzione e fornisce esempi del rela
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Introduzione
 
 Questo argomento illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
-La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP. * **Progettazione di funzionalità**: questo processo tenta di creare funzionalità aggiuntive rilevanti da funzionalità esistenti non elaborate nei dati e di aumentare l'efficacia predittiva per l'algoritmo di apprendimento. * **Selezione delle caratteristiche**: questo processo consente di selezionare il subset chiave di funzionalità di dati originali nel tentativo di ridurre la dimensionalità del problema di formazione.
+La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP.
+* **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
+* **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
 In genere **la progettazione di funzioni** viene applicata innanzitutto per generare altre funzioni e quindi viene eseguito il passaggio di **selezione delle funzioni** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 
@@ -73,4 +74,4 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

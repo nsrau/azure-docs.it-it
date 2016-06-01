@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 # Analizzare i log del sito Web usando una libreria personalizzata con HDInsight Spark basato su Linux (anteprima)
@@ -244,4 +244,4 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

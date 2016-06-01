@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Ripristinare una macchina virtuale in una nuova dai backup archiviati in un insi
 
 1. Nella schermata per la **selezione di un'istanza di ripristino** specificare i dettagli del percorso in cui ripristinare la macchina virtuale.
 
-  - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Se si prevede di sostituire una macchina virtuale esistente con lo stesso nome, eliminare prima la macchina virtuale esistente e i relativi dischi dati, quindi ripristinare i dati da Backup di Azure.
+  - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Non è supportata la sovrascrittura di macchine virtuali esistenti. 
   - Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
 
         Qualunque nome di servizio cloud selezionato deve essere univoco a livello globale. In genere, il nome del servizio cloud viene associato a un URL pubblico nel formato [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già stato usato. Se si sceglie di creare un nuovo servizio cloud, a questo viene assegnato lo stesso nome della macchina virtuale. In tal caso, il nome della macchina virtuale deve essere sufficientemente univoco da poter essere applicato al servizio cloud associato.
@@ -101,6 +101,12 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](virtual-machines-set-up-endpoints) per la macchina virtuale nel portale di Azure.
+
+## Backup per le macchine virtuali ripristinate
+Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.
+
+## Ripristino di una macchina virtuale durante un'emergenza del data center di Azure
+Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni, è necessario selezionare un account di archiviazione presente nel data center associato; il resto del processo di ripristino rimane lo stesso. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata.
 
 ## Ripristino delle macchine virtuali del controller di dominio
 L'esecuzione del backup delle macchine virtuali del controller di dominio (DC) è uno scenario supportato da Backup di Azure. Tuttavia è necessario prestare attenzione ad alcuni aspetti durante il processo di ripristino. L'esperienza di ripristino è notevolmente diversa per le macchine virtuali del controller di dominio in una configurazione con un singolo controller di dominio rispetto a quella per le macchine virtuali in una configurazione con più controller di dominio.
@@ -149,4 +155,4 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

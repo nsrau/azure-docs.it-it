@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Panoramica degli esempi per il bus di servizio | Microsoft Azure"
-   description="Suddivide gli esempi relativi al bus di servizio in categorie e fornisce una descrizione e un collegamento a ognuno di essi."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Panoramica degli esempi per il bus di servizio | Microsoft Azure"
+    description="Suddivide gli esempi relativi al bus di servizio in categorie e fornisce una descrizione e un collegamento a ognuno di essi."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Esempi relativi al bus di servizio
 
 Gli esempi relativi al bus di servizio illustrano come usare le funzionalità principali del [bus di servizio](https://azure.microsoft.com/services/service-bus/) (servizio cloud) e del [bus di servizio per Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
 >[AZURE.NOTE] Gli esempi relativi al bus di servizio non vengono installati con l'SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>
+>In aggiunta,[qui](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) è disponibile un set aggiornato di esempi di messaggi del bus di servizio (in questo articolo non viene descritta la scrittura degli stessi). [Qui](https://github.com/Azure-Samples/azure-servicebus-relay-samples) è possibile trovare esempi di inoltro.
 
 ## Messaggistica negoziata del bus di servizio
 
@@ -132,4 +134,4 @@ Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 - [Architettura del bus di servizio](service-bus-architecture.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

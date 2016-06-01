@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Linee guida per i processi in background
 
-![Logo di Patterns and Practices](media/best-practices-background-jobs/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Panoramica
 
@@ -321,4 +320,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

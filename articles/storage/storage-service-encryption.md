@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/11/2016"
 	ms.author="robinsh"/>
 
 # Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)
@@ -35,9 +35,9 @@ Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o dis
 
 ![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)
 
-##Disponibilità
+##Availability
 
-Si noti che questa funzionalità è attualmente disponibile in Asia orientale per l'Archiviazione Standard e in Giappone orientale per l'Archiviazione Premium. Questo documento verrà aggiornato nel corso della distribuzione della funzionalità in altre aree.
+Si noti che questa funzionalità è attualmente disponibile in Asia orientale ed Europa occidentale per l'Archiviazione Standard e in Giappone orientale per l'Archiviazione Premium. Questo documento verrà aggiornato nel corso della distribuzione della funzionalità in altre aree.
 
 ##Scenari di crittografia
 
@@ -215,7 +215,7 @@ R: Quando è stato creato l'account di archiviazione? Durante la fase di antepri
 
 **D: L'anteprima di Crittografia del servizio di archiviazione è disponibile solo in aree specifiche?**
 
-R: L'anteprima di Crittografia del servizio di archiviazione è disponibile in Asia orientale per l'Archiviazione Standard e in Giappone orientale per l'Archiviazione Premium. Questo documento verrà aggiornato nel corso della distribuzione di questa funzionalità in altre aree nei prossimi mesi.
+R: L'anteprima di Crittografia del servizio di archiviazione è disponibile in Asia orientale ed Europa occidentale per l'Archiviazione Standard e in Giappone orientale per l'Archiviazione Premium. Questo documento verrà aggiornato nel corso della distribuzione di questa funzionalità in altre aree nei prossimi mesi.
 
 **D: Chi si può contattare per ottenere assistenza in caso di problemi o per inviare commenti e suggerimenti?**
 
@@ -225,4 +225,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

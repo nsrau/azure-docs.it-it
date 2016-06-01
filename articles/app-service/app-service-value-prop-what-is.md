@@ -20,7 +20,7 @@
 # Informazioni sul servizio app di Azure
 Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma interamente gestita con funzionalità avanzate, ad esempio l'integrazione di DevOps, l'integrazione continua con Visual Studio Team Services e GitHub, il supporto per la gestione temporanea e la produzione e l'applicazione automatica delle patch.
 
-Il servizio app di Azure è un singolo servizio che include tutte le funzionalità di Siti Web di Azure, Servizi mobili di Azure e Servizi BizTalk di Azure. Funzioni di Azure è un esempio di aggiunte in corso al servizio app su cui si basa la prossima generazione di applicazioni.
+Il servizio app di Azure è un singolo servizio che riunisce tutte le funzionalità esistenti di Siti Web di Azure, Servizi mobili di Azure e Servizi BizTalk di Azure e aggiunge inoltre nuove funzionalità. [Altre informazioni](https://azure.microsoft.com/documentation/services/app-service/) sulla relazione tra il servizio app e tali servizi esistenti.
 
 ## Perché un servizio app?
 Incentrato sullo sviluppo rapido di app Web e mobili e sull'automazione dei processi aziendali, il servizio app di Azure offre un set integrato di funzionalità di livello enterprise in una singola soluzione di sviluppo e gestione che offre i vantaggi seguenti:
@@ -44,7 +44,6 @@ Il servizio app consente di creare i tipi di app seguenti in una singola esperie
 - [**Web Apps**](../app-service-web/app-service-web-overview.md): creazione e distribuzione rapida di app Web di importanza strategica scalabili in base alle esigenze aziendali.
 - [**App per dispositivi mobili**](../app-service-mobile/app-service-mobile-value-prop.md): coinvolgimento di dipendenti, partner e clienti con qualsiasi dispositivo e in qualsiasi momento.
 - [**App per le API**](../app-service-api/app-service-api-apps-why-best-platform.md): creare e utilizzare facilmente le API per il cloud.
-- [**App per le funzioni**](../azure-functions/functions-overview.md): creare funzioni leggere che rispondono a eventi in Azure, in locale e nei provider SaaS.
 - [**App per la logica**](../app-service-logic/app-service-logic-what-are-logic-apps.md): automazione dell'accesso e dell'uso dei dati nei cloud senza necessità di scrivere codice.
 
 Come singolo servizio integrato il servizio app semplifica la combinazione dei tipi di app descritti sopra in un'unica soluzione e consente di creare facilmente app che hanno come destinazione client Web e mobili, usando lo stesso back-end e ottenendo l'integrazione con sistemi locali, nonché con servizi diffusi come Office 365 e salesforce.com.
@@ -60,4 +59,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

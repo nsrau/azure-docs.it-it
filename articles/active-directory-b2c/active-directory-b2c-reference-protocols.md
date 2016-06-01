@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Anteprima AD B2C Azure: Protocolli di autenticazione
@@ -70,4 +70,4 @@ Per esaminare alcuni esempi di richieste, è possibile iniziare con una delle es
 - Usare nomi utente e password per ottenere i token con il flusso di credenziali del proprietario della risorsa di OAuth 2.0 (presto disponibile).
 - Ottenere i token in un'API Web con il flusso On-Behalf-Of di OAuth 2.0 (presto disponibile).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

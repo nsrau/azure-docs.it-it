@@ -31,7 +31,9 @@ Informazioni su come creare cluster HDInsight tramite Azure PowerShell. Azure Po
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
 - sottoscrizione Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Azure PowerShell. Vedere [Installare Azure PowerShell 1.0](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- Azure PowerShell.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 
@@ -130,12 +132,12 @@ Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure 
 
 ## Creare cluster tramite un modello di Gestione risorse di Azure
 
-È possibile usare Azure PowerShell per distribuire un modello di Gestione risorse di Azure che crea un cluster HDInsight. Vedere [Chiamare i modelli tramite Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
+È possibile usare Azure PowerShell per distribuire un modello di Gestione risorse di Azure che crea un cluster HDInsight. Vedere le informazioni su come [chiamare modelli tramite Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
 
 ##Personalizzare i cluster
 
 - Vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-- Vedere [Personalizzare cluster HDInsight basati su Windows tramite Azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+- Vedere l'articolo su come [personalizzare cluster HDInsight basati su Windows tramite un'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 
 ##Passaggi successivi
@@ -156,4 +158,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

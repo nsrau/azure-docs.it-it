@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/19/2016"
+     ms.date="05/23/2016"
      ms.author="dobett"/>
 
 # Che cos'è Azure IoT Suite?
@@ -74,4 +74,4 @@ Dopo aver individuato cosa è possibile fare con IoT Suite e quali sono i compon
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

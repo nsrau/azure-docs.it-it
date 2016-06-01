@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/11/2016" 
+	 ms.date="05/24/2016" 
 	 ms.author="casoper"/>
 
 # Uso della rete CDN di Azure  
@@ -25,7 +25,7 @@ Questo argomento descrive in dettaglio l'abilitazione della rete CDN di Azure cr
 
 Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint della rete CDN. Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
 
-> [AZURE.NOTE] Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
+> [AZURE.NOTE] Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a otto profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
 >
 > I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si vuole usare una combinazione di piani tariffari della rete CDN di Azure, è necessario avere più profili CDN.
 
@@ -97,4 +97,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

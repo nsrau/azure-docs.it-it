@@ -20,7 +20,7 @@
 # Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure
 
 
-Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse.
+Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse. I ruoli personalizzati vengono archiviati in un tenant di Azure AD e possono essere condivisi tra tutte le sottoscrizioni che usano tale tenant come directory di Azure AD per la sottoscrizione.
 
 Ecco un esempio di ruolo personalizzato, che consente il monitoraggio e il riavvio di macchine virtuali:
 
@@ -99,4 +99,4 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Ruoli predefiniti](role-based-access-built-in-roles.md): ottenere informazioni dettagliate sui ruoli predefiniti del Controllo degli accessi in base al ruolo.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

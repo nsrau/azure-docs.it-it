@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="05/13/2016"
     ms.author="elizapo" />
 
 # Uso del reindirizzamento in Azure RemoteApp
@@ -104,4 +104,4 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 8. Fare clic su **OK**.  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

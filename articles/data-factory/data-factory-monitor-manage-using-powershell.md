@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell
@@ -75,9 +75,22 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
-	È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore analogo a **Il nome "ADFTutorialDataFactoryPSH" per la data factory non è disponibile**, cambiare il nome, ad esempio, nomeutenteADFTutorialDataFactoryPSH. Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+	
+Tenere presente quanto segue:
+ 
+- È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore analogo a **Il nome "ADFTutorialDataFactoryPSH" per la data factory non è disponibile**, cambiare il nome, ad esempio, nomeutenteADFTutorialDataFactoryPSH. Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+- Per creare istanze di Data Factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
+- Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
 
-	> [AZURE.NOTE] Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+		
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+		È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
+	
+			Get-AzureRmResourceProvider
+	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
 
 ## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere una risorsa di archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale che include dati di input o archivia dati di output per una pipeline di Data factory. Un servizio di calcolo è un servizio che elabora dati di input e produce dati di output.
@@ -126,7 +139,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 		  		}
 			}
 
-	Sostituire **servername**, **databasename**, ****username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
+	Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
 
 2.	Eseguire il comando seguente per creare un servizio collegato.
 	
@@ -424,8 +437,25 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 
 Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 
+## Riepilogo
+In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi di alto livello eseguiti in questa esercitazione:
+
+1.	Creare un'istanza di Azure **Data Factory**.
+2.	Creare **servizi collegati**:
+	1. Un servizio collegato di **archiviazione di Azure** per collegare l'account di archiviazione di Azure che contiene i dati di input. 	
+	2. Un servizio collegato di **SQL di Azure** per collegare il database SQL di Azure che contiene i dati di output. 
+3.	Creare **set di dati** che descrivono dati di input e dati di output per le pipeline.
+4.	Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink. 
+
 ## Vedere anche
-Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+| Argomento | Descrizione |
+| :---- | :---- |
+| [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+| [Pipeline](data-factory-create-pipelines.md) | Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
+| [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
+| [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
+
 
 
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -446,4 +476,4 @@ Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

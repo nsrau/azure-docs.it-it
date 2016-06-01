@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -71,67 +71,9 @@ Dopo avere configurato il gruppo di risorse, è possibile che si voglia visualiz
 
 2. È possibile acquisire familiarità con la sintassi del modello esaminando il codice JSON (JavaScript Object Notation) che rappresenta la soluzione.
 
-Il portale consente di generare un modello che rappresenta lo stato corrente del gruppo di risorse oppure di recuperare il modello usato per una distribuzione specifica. Entrambe le opzioni sono illustrate in questo argomento.
-
-L'esportazione del modello per un gruppo di risorse risulta utile quando si apportano modifiche a un gruppo di risorse ed è necessario recuperare la rappresentazione JSON del rispettivo stato corrente. Il modello generato, tuttavia, contiene solo un numero minimo di parametri e nessuna variabile. La maggior parte dei valori del modello è hardcoded. Prima di distribuire il modello generato, è possibile che si voglia convertire altri valori in parametri, per potere personalizzare la distribuzione per diversi ambienti.
-
-L'esportazione del modello per una distribuzione specifica è utile quando è necessario visualizzare il modello effettivo usato per distribuire le risorse. Il modello includerà tutte le variabili e tutti i parametri definiti per la distribuzione originale. Se, tuttavia, un utente dell'organizzazione ha modificato il gruppo di risorse in modo diverso da quanto definito nel modello, questo modello non rappresenterà lo stato corrente del gruppo di risorse.
-
 > [AZURE.NOTE] La funzionalità di esportazione del modello è disponibile in anteprima e non tutti i tipi di risorse supportano attualmente l'esportazione di un modello. Quando si prova a esportare un modello, è possibile che venga visualizzato un errore che indica che alcune risorse non sono state esportate. Se necessario, è possibile definire manualmente queste risorse nel modello dopo averlo scaricato.
 
-### Esportare il modello per un gruppo di risorse
-
-Dal pannello del gruppo di risorse è possibile esportare il modello che rappresenta lo stato attuale del gruppo di risorse.
-
-Per visualizzare il modello per un gruppo di risorse, selezionare **Esporta modello**.
-
-![esportare un gruppo di risorse](./media/resource-group-portal/export-resource-group.png)
-
-Azure Resource Manager genera automaticamente quattro file:
-
-1. Modello che definisce l'infrastruttura per la soluzione
-
-2. File dei parametri che può essere usato per passare i valori durante la distribuzione
-
-3. File di script di Azure PowerShell che può essere eseguito per distribuire il modello
-
-4. File di script dell'interfaccia della riga di comando di Azure che può essere eseguito per distribuire il modello
-
-Esaminare prima di tutto il modello che rappresenta il gruppo di risorse corrente.
-
-![visualizzare il modello](./media/resource-group-portal/show-rg-template.png)
-
-Nella sezione **resources** vengono visualizzate le definizioni per la risorsa da distribuire.
-
-Nel file dei parametri è possibile salvare i valori dei parametri da passare durante la distribuzione.
-
-![visualizzare i parametri](./media/resource-group-portal/show-parameters.png)
-
-È disponibile un file di script per la distribuzione del modello tramite Azure PowerShell.
-
-![visualizzare Azure PowerShell](./media/resource-group-portal/show-powershell.png)
-
-È anche disponibile un file di script per la distribuzione del modello tramite l'interfaccia della riga di comando di Azure.
-
-![visualizzare l'interfaccia della riga di comando di Azure](./media/resource-group-portal/show-cli.png)
-
-Il portale offre tre opzioni per l'utilizzo di questo modello. Per ridistribuire subito il modello, selezionare **Distribuisci**. Per scaricare localmente tutti i file, selezionare **Download**. Per salvare i file nell'account di Azure per un uso successivo tramite il portale, selezionare **Salva modello**.
-
-### Scaricare il modello da una distribuzione
-
-Nel pannello del gruppo di risorse è possibile visualizzare la data e lo stato dell'ultima distribuzione per questo gruppo di risorse. Se si seleziona il collegamento, viene visualizzata la cronologia delle distribuzioni per il gruppo.
-
-![ultima distribuzione](./media/resource-group-portal/last-deployment.png)
-
-Se si seleziona una distribuzione dalla cronologia, vengono visualizzate informazioni dettagliate su tale distribuzione. Ogni volta che si distribuiscono risorse, Azure Resource Manager salva in modo permanente il modello usato. È possibile recuperare il modello effettivo usato per la distribuzione selezionando **Visualizza modello**.
-
-![esportare il modello](./media/resource-group-portal/export-template.png)
-
-Verrà visualizzato il modello usato per questa distribuzione. Contiene tutti i parametri e le variabili definiti.
-
-![visualizzare il modello](./media/resource-group-portal/show-template.png)
-
-Come indicato in precedenza, è possibile che questa non sia una rappresentazione completa del gruppo di risorse. Se sono state aggiunte o eliminate risorse all'esterno di questa distribuzione, le azioni non vengono riflesse nel modello. È possibile visualizzare il modello, il file dei parametri e i file di script, come illustrato nella sezione precedente. È anche possibile ridistribuire, scaricare o salvare il modello, come illustrato nella sezione precedente.
+Per istruzioni dettagliate vedere [Esportare il modello di Azure Resource Manager dalle risorse esistenti](../resource-manager-export-template/).
 
 ## Gestire il gruppo di risorse
 
@@ -155,7 +97,7 @@ Trascinare il riquadro necessario negli spazi disponibili.
 
 ![trascinare un riquadro](./media/resource-group-portal/drag-tile.png)
 
-Dopo aver selezionato **Fatto** nella parte superiore del portale, la nuova vista farà parte del pannello.
+Dopo aver selezionato **Fatto** nella parte superiore del portale la nuova vista farà parte del pannello.
 
 ![mostrare un riquadro](./media/resource-group-portal/show-lens.png)
 
@@ -183,7 +125,7 @@ Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le r
 
 ## Distribuire un modello salvato
 
-Se è stato salvato un modello nell'account, è possibile visualizzarlo in seguito selezionando **Sfoglia** e **Modelli**.
+Se è stato salvato un modello nell'account, sarà possibile visualizzarlo in seguito selezionando **Sfoglia** e **Modelli**.
 
 ![esplorare i modelli](./media/resource-group-portal/browse-templates.png)
 
@@ -230,7 +172,7 @@ E una suddivisione dei costi in base al tipo di risorsa.
 
 ## Controllo di accesso per i dashboard di Azure
 
-L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure. Per integrare facilmente i dashboard nell'ecosistema, tutti quelli pubblicati vengono implementati come risorse di Azure. Da un punto di vista del controllo di accesso, i dashboard non sono diversi da una macchina virtuale o da un account di archiviazione.
+L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure. Per integrare facilmente i dashboard nell'ecosistema, tutti quelli pubblicati vengono implementati come risorse di Azure. Da un punto di vista del controllo di accesso, i dashboard non sono diversi da una macchina virtuale o da un account di archiviazione.
 
 Di seguito è fornito un esempio. Si supponga di avere una sottoscrizione di Azure e che a diversi membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione. Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio per risolvere un problema, ma non pubblicarle nel server. Hanno comunque la possibilità di creare una copia privata del dashboard per se stessi.
 
@@ -238,7 +180,7 @@ Si noti che i singoli riquadri del dashboard applicano requisiti di controllo di
 
 ## Passaggi successivi
 
-- Per visualizzare i log di controllo, vedere [Operazioni di controllo con Azure Resource Manager](../resource-group-audit.md).
-- Per risolvere gli errori della distribuzione, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Per visualizzare i log di controllo vedere [Operazioni di controllo con Azure Resource Manager](../resource-group-audit.md).
+- Per risolvere gli errori di distribuzione vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,7 +3,7 @@
 	description="Informazioni su come assegnare punteggi a modelli di apprendimento salvati in BLOB di Archiviazione di Azure (WASB)."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Assegnare punteggi a modelli di apprendimento automatico compilati con Spark 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-
-## Introduzione
-
 Questo argomento descrive come caricare modelli di apprendimento automatico compilati con MLlib di Spark e archiviati in BLOB di Archiviazione di Azure (WASB) e come assegnare loro un punteggio con set di dati archiviati in WASB. Illustra come pre-elaborare i dati di input, come trasformare le funzionalità con le funzioni di codifica e indicizzazione nel toolkit MLlib e come creare un oggetto dati punto etichettato da usare come input per l'assegnazione dei punteggi con i modelli di apprendimento automatico. I modelli usati per l'assegnazione dei punteggi includono la regressione lineare, la regressione logistica, le foreste casuali e gli alberi con boosting a gradienti.
 
 
 ## Prerequisiti
 
-1. Per iniziare questa procedura dettagliata è necessario avere a disposizione un account Azure e un cluster HDInsight Spark. Per tali requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da un notebook di Jupyter nel cluster Spark, vedere la [panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-model-consumption.ipynb** che contiene gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+1. Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per informazioni sui requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da notebook di Jupyter nel cluster Spark, vedere l'articolo [Panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. È anche necessario creare i modelli di apprendimento automatico per l'assegnazione dei punteggi. A tale scopo, vedere l'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
@@ -36,7 +33,7 @@ Questo argomento descrive come caricare modelli di apprendimento automatico comp
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
-## Impostare Spark e i percorsi di directory ai dati e ai modelli archiviati 
+## Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
 
 Spark può eseguire operazioni di lettura e scrittura in BLOB di Archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
 
@@ -49,7 +46,11 @@ I modelli vengono salvati in: "wasb:///user/remoteuser/NYCTaxi/Models". Se quest
 
 I risultati con punteggio vengono salvati in: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". Se il percorso della cartella non è corretto, i risultati non vengono salvati nella cartella.
 
->AZURE.NOTE: è possibile copiare e incollare i percorsi dei file nei segnaposto in questo codice dall'output dell'ultima cella del notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb**.
+
+>[AZURE.NOTE] È possibile incollare i percorsi dei file nei segnaposto di questo codice dopo averli copiati dall'output dell'ultima cella del notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb**.
+
+
+Ecco il codice per impostare i percorsi di directory:
 
 	# LOCATION OF DATA TO BE SCORED (TEST DATA)
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
@@ -76,10 +77,10 @@ I risultati con punteggio vengono salvati in: "wasb:///user/remoteuser/NYCTaxi/S
 
 **OUTPUT:**
 
-datetime.datetime(2016, 4, 19, 17, 21, 28, 379845)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
-### Importare le librerie necessarie e impostare il contesto Spark 
+### Importare le librerie
 
 Impostare il contesto Spark e importare le librerie necessarie usando il codice seguente.
 
@@ -88,6 +89,8 @@ Impostare il contesto Spark e importare le librerie necessarie usando il codice 
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
+	import matplotlib
+	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -95,24 +98,29 @@ Impostare il contesto Spark e importare le librerie necessarie usando il codice 
 	from numpy import array
 	import numpy as np
 	import datetime
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
 
-**OUTPUT:**
 
-4
+### Contesto di Spark preimpostato e magic di PySpark
+
+I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto preimpostato e pertanto non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, poiché sono disponibili per impostazione predefinita. Questi contesti sono:
+
+- sc per Spark 
+- sqlContext per Hive
+
+Il kernel PySpark offre alcuni "magic" predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
+
+- **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
+- **%%sql -o <variable name>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+ 
+
+Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti chiamati con %% (ad esempio %%local) da essi forniti, vedere [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark Linux su HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Inserire i dati e creare un frame di dati pulito
 
 Questa sezione contiene il codice per una serie di attività necessarie per inserire i dati per l'assegnazione dei punteggi. Leggere un campione unito in join pari allo 0,1% del file TSV relativo alle corse e alle tariffe dei taxi, formattare i dati e creare un frame di dati pulito.
 
-I file relativi alle corse e alle tariffe dei taxi sono stati uniti in join seguendo la procedura illustrata nell'articolo relativo a [Cortana Analytics Process in esecuzione: con cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+I file relativi alle corse e alle tariffe dei taxi sono stati uniti in join seguendo la procedura illustrata nell'articolo [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -174,7 +182,7 @@ I file relativi alle corse e alle tariffe dei taxi sono stati uniti in join segu
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 15,36 secondi.
+Tempo impiegato per eseguire questa cella: 46,37 secondi.
 
 
 ## Preparare i dati per l'assegnazione dei punteggi in Spark 
@@ -183,7 +191,7 @@ Questa sezione illustra come indicizzare, codificare e ridimensionare le caratte
 
 ### Trasformazione di funzionalità: indicizzare e codificare funzionalità categoriche per l'inserimento in modelli per l'assegnazione dei punteggi 
 
-Questa sezione illustra come indicizzare i dati categorici con `StringIndexer` e codificare le funzionalità con `OneHotEncoder` per l'inserimento nei modelli.
+Questa sezione illustra come indicizzare dati categorici con `StringIndexer` e codificare funzionalità con `OneHotEncoder` per l'inserimento nei modelli.
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) esegue la codifica di una colonna stringa di etichette in una colonna di indici etichetta. Gli indici sono ordinati in base alla frequenza delle etichette.
 
@@ -195,7 +203,7 @@ Questa sezione illustra come indicizzare i dati categorici con `StringIndexer` e
 	timestart = datetime.datetime.now()
 	
 	# LOAD PYSPARK LIBRARIES
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
@@ -249,7 +257,7 @@ Questa sezione illustra come indicizzare i dati categorici con `StringIndexer` e
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 4,88 secondi.
+Tempo impiegato per eseguire questa cella: 5,37 secondi.
 
 
 ### Creare oggetti RDD con matrici di funzionalità per l'inserimento in modelli
@@ -326,7 +334,7 @@ Contiene anche codice che mostra come ridimensionare i dati con `StandardScalar`
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 9,94 secondi.
+Tempo impiegato per eseguire questa cella: 11,72 secondi.
 
 
 ## Assegnare punteggi con il modello di regressione logistica e salvare l'output in BLOB
@@ -360,7 +368,7 @@ Il codice riportato in questa sezione illustra come caricare un modello di regre
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 32,46 secondi.
+Tempo impiegato per eseguire questa cella: 19,22 secondi.
 
 
 ## Assegnare punteggi a un modello di regressione lineare
@@ -395,7 +403,7 @@ Il codice riportato in questa sezione illustra come caricare un modello di regre
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 25,00 secondi.
+Tempo impiegato per eseguire questa cella: 16,63 secondi.
 
 
 ## Assegnare punteggi a modelli di foresta casuale per la classificazione e la regressione
@@ -443,7 +451,7 @@ Le [foreste casuali](http://spark.apache.org/docs/latest/mllib-ensembles.html#Ra
 
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 52,2 secondi.
+Tempo impiegato per eseguire questa cella: 31,07 secondi.
 
 
 ## Assegnare punteggi a modelli di alberi con boosting a gradienti per la classificazione e la regressione
@@ -463,7 +471,7 @@ Gli [alberi con boosting a gradienti](http://spark.apache.org/docs/latest/ml-cla
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
@@ -496,7 +504,8 @@ Gli [alberi con boosting a gradienti](http://spark.apache.org/docs/latest/ml-cla
 	
 **OUTPUT:**
 
-Tempo impiegato per eseguire questa cella: 27,73 secondi.
+Tempo impiegato per eseguire questa cella: 14,6 secondi.
+
 
 ## Pulire gli oggetti dalla memoria e stampare i percorsi di file con punteggio
 
@@ -520,27 +529,29 @@ Tempo impiegato per eseguire questa cella: 27,73 secondi.
 
 **OUTPUT:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-04-1917\_22\_36.354603.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-04-1917\_23\_06.083178
+linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-04-1917\_23\_33.994108.txt
+randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-04-1917\_24\_00.352683.txt
+randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-04-1917\_24\_21.465683.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_32.371641.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
 
 
 
 ## Utilizzare i modelli Spark da un'interfaccia Web
 
-Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota usando Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
+Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota mediante Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
 Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
->AZURE.NOTE: le chiavi di accesso necessarie sono reperibili nel portale dell'account di archiviazione associato al cluster Spark.
+
+>[AZURE.NOTE] Le chiavi di accesso necessarie sono reperibili nel portale dell'account di archiviazione associato al cluster Spark.
+
 
 Dopo aver eseguito il caricamento in questo percorso, lo script viene eseguito all'interno del cluster Spark in un contesto distribuito. Carica il modello ed esegue previsioni sui file di input in base al modello.
 
@@ -553,7 +564,9 @@ Dopo aver eseguito il caricamento in questo percorso, lo script viene eseguito a
 
 Con una semplice chiamata HTTPS con autenticazione di base è possibile usare qualsiasi linguaggio nel sistema remoto per richiamare il processo Spark tramite Livy.
 
->AZURE.NOTE: potrebbe essere preferibile usare la libreria di richieste Python quando si esegue la chiamata HTTP, ma attualmente non è installata per impostazione predefinita in Funzioni di Azure. Vengono quindi usate altre librerie HTTP.
+
+>[AZURE.NOTE] Potrebbe essere preferibile usare la libreria di richieste Python quando si esegue la chiamata HTTP, ma attualmente non è installata per impostazione predefinita in Funzioni di Azure. Vengono quindi usate altre librerie HTTP.
+
 
 Di seguito è riportato il codice Python per la chiamata HTTP:
 
@@ -582,14 +595,19 @@ Di seguito è riportato il codice Python per la chiamata HTTP:
 	conn.close()
 
 
-È anche possibile aggiungere questo codice Python a [Funzioni di Azure](../functions/) per attivare l'invio di un processo Spark che assegna punteggi a un BLOB in base a vari eventi, ad esempio timer, creazione o aggiornamento di un BLOB.
+È anche possibile aggiungere questo codice Python a [Funzioni di Azure](https://azure.microsoft.com/documentation/services/functions/) per attivare l'invio di un processo Spark che assegna punteggi a un BLOB in base a vari eventi, ad esempio timer, creazione o aggiornamento di un BLOB.
 
-Se si preferisce non ricorrere al codice, usare le [app per la logica di Azure](../app-service/logic/) per richiamare l'assegnazione di punteggi in batch di Spark. A tale scopo, specificare un'azione HTTP nella **finestra di progettazione di app per la logica** e impostarne i parametri.
+Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](https://azure.microsoft.com/documentation/services/app-service/logic/) per richiamare l'assegnazione di punteggi in batch di Spark. A tale scopo, specificare un'azione HTTP nell'**area di progettazione delle app per la logica** e impostarne i parametri.
 
 - Nel portale di Azure creare una nuova app per la logica selezionando **+Nuovo** -> **Web e dispositivi mobili** -> **App per la logica**. 
-- Immettere il nome dell'app per la logica e del piano di servizio app per visualizzare la **finestra di progettazione di app per la logica**.
+- Immettere il nome dell'app per la logica e del piano di servizio app per visualizzare l'**area di progettazione delle app per la logica**.
 - Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Passaggi successivi 
+
+**Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
+
+<!---HONumber=AcomDC_0518_2016-->

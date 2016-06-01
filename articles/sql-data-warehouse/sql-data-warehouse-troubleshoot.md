@@ -13,62 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Risoluzione dei problemi
 Il seguente argomento fornisce un elenco di alcuni dei problemi più comuni che i clienti riscontrano con SQL Data Warehouse di Azure.
 
 ## Connettività
-La connessione all’ SQL Data Warehouse di Azure può avere esito negativo per due motivi:
+I problemi di connettività più comuni comprendono:
 
 - Le regole del firewall non sono impostate
 - Si utilizzano strumenti/protocolli non supportati
 
 ### Regole del firewall
-I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti possano accedere ai database. I firewall sono sicuri per impostazione predefinita, pertanto che è necessario consentire l'accesso al proprio indirizzo IP prima di potersi connettere.
-
-Per configurare il firewall per l'accesso, attenersi alla procedura riportata nella sezione [Configurare l’accesso al firewall del server per l'indirizzo IP del client][] della pagina [Provisioning][].
+I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti accedano a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere. Per configurare il firewall per l'accesso, attenersi alla procedura riportata in [Configurare l'accesso al firewall del server per l'indirizzo IP del client][] nella [Procedura di configurazione del provisioning][].
 
 ### Si utilizzano strumenti/protocolli non supportati
-SQL Data Warehouse supporta gli ambienti di sviluppo [Visual Studio 2013/2015][] e la connettività client [SQL Server Native Client 10/11 (ODBC)][].
-
-Vedere le pagine [Connetti][] per altre informazioni..
+SQL Data Warehouse consiglia di usare [Visual Studio 2013 o 2015][] per eseguire query sui dati. Per la connettività client, si consigliano [SQL Server Native Client 10/11 (ODBC)][]. SQL Server Management Studio (SSMS) non è ancora supportato e laddove funziona in modo parziale, l'albero Esplora oggetti non funziona con SQL Data Warehouse e la query può funzionare dopo aver ignorato alcuni messaggi di errore.
 
 ## Prestazioni di query
 
+Esistono diverse operazioni semplici che è possibile eseguire nella progettazione del database per assicurarsi di ottenere prestazioni ottimali delle query da SQL Data Warehouse. Si può iniziare a capire la qualità delle prestazioni delle query leggendo l'articolo su come [imparare a monitorare le query][]. A volte la soluzione per far sì che si esegua una query più velocemente è quella di aggiungere semplicemente una maggiore potenza di calcolo alle query [ridimensionando SQL Datawarehouse][]. Per trovare un maggior numero di queste ottimizzazioni in un'unica posizione, consultare l'articolo [Procedure consigliate per SQL Data Warehouse][].
+
+Di seguito sono riportate alcune delle cause più comuni dei problemi riscontrati nelle prestazioni delle query.
+
 ### Statistiche
 
-Le [statistiche][] sono oggetti che includono informazioni sull'intervallo e sulla frequenza di valori in una colonna di database. Il motore di query usa queste statistiche per ottimizzare l'esecuzione e migliorare le prestazioni delle query. A differenza di SQL Server o SQL DB, SQL Data Warehouse non crea o aggiorna automaticamente le statistiche. Le statistiche vanno gestite manualmente in tutte le tabelle.
+Le [statistiche][] sulle tabelle includono informazioni sull'intervallo e sulla frequenza di valori in una colonna di database o in una combinazione di colonne. Il motore di query usa queste statistiche per ottimizzare l'esecuzione e migliorare le prestazioni delle query. A differenza di SQL Server o SQL DB, SQL Data Warehouse non crea o aggiorna automaticamente le statistiche. Le statistiche vanno gestite manualmente in tutte le tabelle. Per informazioni su come gestire le statistiche e identificare le tabelle che richiedono le statistiche, consultare l'articolo [Gestire le statistiche in SQL Data Warehouse][].
 
-È possibile usare la query seguente per determinare l'ultimo aggiornamento delle statistiche di ogni tabella.
+### Progettazione della tabella
 
-```sql
-SELECT
-    sm.[name] AS [schema_name],
-    tb.[name] AS [table_name],
-    co.[name] AS [stats_column_name],
-    st.[name] AS [stats_name],
-    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
-FROM
-    sys.objects ob
-    JOIN sys.stats st
-        ON  ob.[object_id] = st.[object_id]
-    JOIN sys.stats_columns sc    
-        ON  st.[stats_id] = sc.[stats_id]
-        AND st.[object_id] = sc.[object_id]
-    JOIN sys.columns co    
-        ON  sc.[column_id] = co.[column_id]
-        AND sc.[object_id] = co.[object_id]
-    JOIN sys.types  ty    
-        ON  co.[user_type_id] = ty.[user_type_id]
-    JOIN sys.tables tb    
-        ON  co.[object_id] = tb.[object_id]
-    JOIN sys.schemas sm    
-        ON  tb.[schema_id] = sm.[schema_id]
-WHERE
-    st.[user_created] = 1;
-```
+Una delle scelte più importanti da fare in SQL Data Warehouse è [la scelta della chiave di distribuzione hash giusta per la tabella][] e la [progettazione della tabella][]. Quando ci si sposta dal riquadro di introduzione a quello per ottenere prestazioni più veloci da SQL Data Warehouse, assicurarsi di capire i concetti illustrati in questi articoli.
 
 ### Qualità del segmento columnstore cluster
 
@@ -97,7 +72,9 @@ CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compu
 GROUP BY 
     n.nbr_nodes, s.name, t.name
 HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
+    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
+
 ORDER BY 
     s.name, t.name
 ```
@@ -123,39 +100,30 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
 ```
 
-
 Le linee guida per la classe di risorse minima per i caricamenti in una tabella CCI prevedono l'uso di xlargerc per DW100-DW300, largerc per DW400-DW600 e mediumrc per DW1000 o valori superiori. Queste indicazioni sono consigliabili per la maggior parte dei carichi di lavoro. L'obiettivo è quello di garantire a ogni operazione di compilazione dell'indice una quantità di memoria pari o superiore a 400 MB. Tuttavia le linee guida non sono valide per tutte le situazioni. La memoria necessaria per ottimizzare un indice columnstore dipende dai dati caricati e in particolare dalle dimensioni delle righe. Le tabelle con righe più strette richiedono meno memoria, mentre le tabelle con righe più larghe richiedono più memoria. Per fare delle prove, è possibile usare la query del passaggio 1 e verificare se si ottengono indici columnstore ottimali con allocazioni di memoria inferiori. A livello minimo, ogni gruppo di righe deve contenere in media oltre 100.000 righe. Un valore superiore a 500.000 è ancora migliore. Il valore massimo è pari a 1 milione di righe per gruppo. Per informazioni dettagliate sulla gestione delle classi e della concorrenza delle risorse, vedere il collegamento in basso.
 
 
-### Principali concetti relativi alle prestazioni
-
-Per comprendere più facilmente alcuni ulteriori concetti importanti sulle prestazioni e la scalabilità, fare riferimento agli articoli seguenti:
-
-- [Prestazioni e scalabilità][]
-- [Modello di concorrenza][]
-- [Progettazione di tabelle][]
-- [Scegliere una chiave di distribuzione hash per la tabella][]
-
 ## Passaggi successivi
-Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, vedere l'articolo di [panoramica sullo sviluppo][].
+Consultare l'articolo sulle [Procedure consigliate per SQL Data Warehouse][] per altre informazioni su come ottimizzare la soluzione SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[Prestazioni e scalabilità]: sql-data-warehouse-performance-scale.md
-[Modello di concorrenza]: sql-data-warehouse-develop-concurrency.md
-[Progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
-[Scegliere una chiave di distribuzione hash per la tabella]: sql-data-warehouse-develop-hash-distribution-key
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
-[Provisioning]: sql-data-warehouse-get-started-provision.md
-[Configurare l’accesso al firewall del server per l'indirizzo IP del client]: sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
-[Visual Studio 2013/2015]: sql-data-warehouse-get-started-connect.md
-[Connetti]: sql-data-warehouse-get-started-connect.md
-[statistiche]: sql-data-warehouse-develop-statistics.md
+[ridimensionando SQL Datawarehouse]: ./sql-data-warehouse-overview-scalability.md
+[progettazione della tabella]: ./sql-data-warehouse-develop-table-design.md
+[la scelta della chiave di distribuzione hash giusta per la tabella]: ./sql-data-warehouse-develop-hash-distribution-key
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[imparare a monitorare le query]: ./sql-data-warehouse-manage-monitor.md
+[Gestire le statistiche in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
+[Procedura di configurazione del provisioning]: ./sql-data-warehouse-get-started-provision.md
+[Configurare l'accesso al firewall del server per l'indirizzo IP del client]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
+[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[statistiche]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->
