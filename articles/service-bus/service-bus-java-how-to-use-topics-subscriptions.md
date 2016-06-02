@@ -239,7 +239,7 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
   [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.com/
+  [portale di Azure classico]: http://manage.windowsazure.com/
   [Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

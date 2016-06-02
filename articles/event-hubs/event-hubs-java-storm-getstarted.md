@@ -64,7 +64,7 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
 
