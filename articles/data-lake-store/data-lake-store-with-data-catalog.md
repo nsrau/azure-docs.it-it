@@ -28,9 +28,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 
-- **Account di Archivio Azure Data Lake**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, viene creato un account di Archivio Data Lake denominato **datacatalogstore**.
+- **Account Archivio Azure Data Lake**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, viene creato un account Archivio Data Lake denominato **datacatalogstore**.
 
-	Dopo aver creato l'account, caricare un set di dati di esempio. Per questa esercitazione, caricare tutti i file con estensione csv nella cartella **AmbulanceData** del [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). È possibile usare vari tipi di client, ad esempio [Esplora archivi di Azure](http://storageexplorer.com/), per caricare i dati in un contenitore BLOB.
+	Dopo aver creato l'account, caricare un set di dati di esempio. Per questa esercitazione, caricare tutti i file con estensione csv nella cartella **AmbulanceData** del [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). È possibile usare vari tipi di client, ad esempio [Azure Storage Explorer](http://storageexplorer.com/), per caricare i dati in un contenitore BLOB.
 
 - **Azure Data Catalog**. È necessario che per l'organizzazione sia già stato creato un catalogo di Azure Data Catalog. Per ogni organizzazione è consentito un solo catalogo.
 
@@ -54,7 +54,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 	![Selezione di un'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezione di un'origine dati")
 
-6. Nella pagina successiva fornire il nome dell'account Archivio Data Lake che si vuole registrare nel catalogo dati. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
+6. Nella pagina successiva fornire il nome dell'account Archivio Data Lake che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
 
 	![Connessione a un'origine dati](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connessione a un'origine dati")
 
@@ -64,7 +64,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 	b. La casella **Oggetti disponibili** elenca i file e le cartelle sotto la cartella **AmbulanceData**.
 
-	c. La casella **Oggetti da registrare** elenca i file e le cartelle che si vuole registrare in Azure Data Catalog.
+	c. La casella **Oggetti da registrare** elenca i file e le cartelle che si vogliono registrare in Azure Data Catalog.
 
 	![Visualizzazione della struttura dei dati](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visualizzazione della struttura dei dati")
 
