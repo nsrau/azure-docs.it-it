@@ -21,10 +21,12 @@ La durata Time-to-Live o TTL specifica per quanto tempo ogni record viene memori
 
 #### Set di record con caratteri jolly
 
-DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly). I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
+DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly). I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.  
 
-Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
+Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
 
 #### Set di record CNAME
 
 I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Ad esempio, non è possibile creare contemporaneamente un record CNAME con il nome relativo "www" e un record A con il nome relativo '"www". Dal momento che il vertice della zona (name = ‘@’) contiene sempre i set di record NS e SOA creati quando viene creata la zona, ciò significa che non è possibile creare un set di record CNAME al vertice della zona. Questi vincoli sono causati dagli standard DNS, non sono limitazioni di DNS di Azure.
+
+
