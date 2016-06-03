@@ -235,7 +235,7 @@ Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, sarà ne
 
 - www.msftncsi.com
 - *.Microsoft.com
-- windowsazure.com
+- *windowsazure.com
 - *.microsoftonline.com
 - *.windows.net
 
