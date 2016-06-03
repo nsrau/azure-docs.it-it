@@ -102,4 +102,4 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere il [per
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
 [percorso di formazione]: https://azure.microsoft.com/it-IT/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
