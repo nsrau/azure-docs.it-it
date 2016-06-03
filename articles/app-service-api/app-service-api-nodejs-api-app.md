@@ -318,4 +318,4 @@ Ora che il recapito continuo è stato associato, è possibile apportare modifich
 
 A questo punto è stata creata e distribuita la prima app per le API usando Node.js. L'esercitazione successiva mostra come [Utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). Le esercitazioni successive della serie illustrano come implementare l'autenticazione e l'autorizzazione.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
