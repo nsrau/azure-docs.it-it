@@ -36,8 +36,7 @@ Selezionare un'icona per informazioni su come usare rapidamente i connettori per
 |[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icona API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icona API][rssicon]<br/>**RSS**][rssdoc]|[![Icona API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
 |[![Icona API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icona API][servicebusicon]<br/>**Bus di servizio**][servicebusdoc]|[![Icona API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icona API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
 |[![Icona API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icona API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icona API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icona API][trelloicon]<br/>**Trello**][trellodoc]|
-[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]
-|[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
+[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] Se sono state create app per la logica con lo schema 2014-12-01-preview, si noterà che i connettori di integrazione aziendale, ad esempio quelli per BizTalk, non sono elencati sopra. Siamo consapevoli dell'importanza di queste API e ci stiamo impegnando per renderle disponibili quanto prima. Anche se non sono ancora state specificate date precise per la disponibilità, si tratta di una delle nostre priorità. Nel frattempo è possibile accedere ad [API v1 e API BizTalk dalle app per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Grazie per la comprensione. Non rimane che attendere.
 
