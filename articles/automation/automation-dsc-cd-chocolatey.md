@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/24/2016"
    ms.author="golive"/>
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
@@ -171,7 +171,7 @@ Ogni volta che una versione passa il controllo di qualità e viene approvata per
 
 ## Note
 
-Questo esempio di utilizzo inizia con una VM da un'immagine generica di Windows 2012 R2 disponibile nella Raccolta di Azure. È possibile iniziare da qualsiasi immagine archiviata e quindi usarla come base per procedere alla modifica con la configurazione DSC. Tuttavia, la modifica della configurazione basata su un'immagine è molto più complessa rispetto all'aggiornamento in modo dinamico della configurazione mediante DSC.
+Questo esempio di utilizzo inizia con una VM da un'immagine generica di Windows 2012 R2 disponibile nella Raccolta di Azure. È possibile iniziare da qualsiasi immagine archiviata e usarla come base per modificare la configurazione di DSC. La modifica della configurazione basata su un'immagine è tuttavia molto più complessa rispetto all'aggiornamento dinamico della configurazione mediante DSC.
 
 Non è necessario usare un modello ARM e l'estensione VM per usare questa tecnica con le proprie VM. Inoltre, le VM non devono trovarsi necessariamente in Azure per la gestione della distribuzione continua. È solo necessario che Chocolatey sia installato e che Gestione configurazione locale sia configurato nella VM perché riconosca la posizione del server di pull.
 
@@ -185,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

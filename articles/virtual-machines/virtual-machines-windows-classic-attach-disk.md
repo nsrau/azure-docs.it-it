@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/17/2016"
 	ms.author="cynthn"/>
 
 # Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
@@ -23,17 +23,16 @@
 
 Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
 
-È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non utilizzare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, il disco temporaneo fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-windows-about-disks-vhds.md).
 
-## Video con la procedura dettagliata
+## Procedura dettagliata video
 
-Di seguito è riportata una procedura dettagliata dei passaggi in questa esercitazione.
+Di seguito è riportata una [procedura video dettagliata](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) dei passaggi di questa esercitazione.
 
-[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
+## Inizializzare il disco
 
 1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
 
@@ -61,4 +60,4 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

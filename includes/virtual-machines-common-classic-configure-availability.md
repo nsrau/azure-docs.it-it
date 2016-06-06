@@ -5,7 +5,7 @@ Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali dura
 
 Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applicazione, è buona norma usare sia set di disponibilità sia endpoint con carico bilanciato. Per informazioni sugli endpoint con bilanciamento del carico, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure][].
 
-Nel modello di distribuzione classico, è possibile inserire le macchine virtuali in un set di disponibilità usando una di queste due opzioni:
+È possibile aggiungere le macchine virtuali in un set di disponibilità usando una di queste due opzioni:
 
 - [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente][]. Quindi, aggiungere le nuove macchine virtuali al set.
 - [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità][].
@@ -14,57 +14,55 @@ Nel modello di distribuzione classico, è possibile inserire le macchine virtual
 
 ## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente.##
 
-A tale scopo, è possibile usare il Portale di Azure classico o i comandi di Azure PowerShell.
+A tale scopo, è possibile usare il portale di Azure o i comandi di Azure PowerShell.
 
-Usare il portale di Azure classico.
+Per usare il Portale di Azure:
 
-1. Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
+1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 
-2. Sulla barra dei comandi fare clic su **Nuovo**.
+2. Nel menu Hub fare clic su **+ Nuovo**, quindi su **Macchina virtuale**.
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
 
-3. Fare clic su **Virtual Machine**, quindi su **From Gallery**.
+3. Selezionare l'immagine della macchina virtuale del Marketplace che si desidera usare. È possibile scegliere di creare una macchina virtuale Linux o Windows.
 
-4. Usare le prime due schermate per selezionare un'immagine, un nome utente e una password e così via. Per informazioni dettagliate, vedere [Creazione di una macchina virtuale che esegue Windows][].
+4. Per la macchina virtuale selezionata, verificare che il modello di distribuzione sia impostato su **Classico**, quindi fare clic su **Crea**
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
 
-5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Eseguire le operazioni seguenti:
+5. Immettere il nome della macchina virtuale, il nome utente e la password (per computer Windows) o la chiave pubblica SSH (per i computer Linux).
 
-	1. Scegliere il nome del servizio cloud appropriato. Non modificare l'impostazione **Crea un nuovo servizio cloud** (a meno che non si stia aggiungendo una nuova macchina virtuale a un servizio cloud per la macchina virtuale esistente). Quindi, sotto **Nome DNS del servizio cloud**, digitare un nome. Il nome DNS diventa parte dell'URI usato per contattare la macchina virtuale. Il servizio cloud agisce da gruppo di comunicazione e isolamento. Tutte le macchine virtuali nello stesso servizio cloud possono comunicare tra loro, essere impostate per il bilanciamento del carico e inserite nello stesso set di disponibilità.
+6. Scegliere le dimensioni della VM, quindi fare clic su **Seleziona** per continuare.
 
-	2. In **Regione/Gruppo di affinità/Rete virtuale** specificare una rete virtuale se si pianifica di usarne una. **Importante**: se si vuole che una macchina virtuale usi una rete virtuale, è necessario aggiungerla alla rete virtuale quando si crea la macchina virtuale. Non è possibile aggiungere la macchina virtuale a una rete virtuale dopo averla creata. Per altre informazioni, vedere [Panoramica di Rete virtuale][].
+7. Scegliere **Configurazione facoltativa > Set di disponibilità**, quindi selezionare il set di disponibilità che si desidera aggiungere alla macchina virtuale.
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png)
 
-	3. Creare il set di disponibilità. In **Set di disponibilità**, non modificare l'impostazione **Crea set di disponibilità**. Quindi, digitare un nome per il set.
+8. Verificare le impostazioni di configurazione. Al termine dell'operazione, scegliere **Crea**.
 
-	4. Creare gli endpoint predefiniti e, se necessario, aggiungere altri endpoint. È inoltre possibile aggiungere gli endpoint in un secondo momento.
-
-	![Creare un set di disponibilità per una nuova macchina virtuale](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
-
-6. Nella quarta schermata scegliere le estensioni da installare. Le estensioni forniscono funzionalità che facilitano la gestione della macchina virtuale, ad esempio l'esecuzione di un programma antimalware o la reimpostazione delle password. Per informazioni dettagliate, vedere [Agente VM ed estensioni VM di Azure](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
-
-7.	Fare clic sulla freccia per creare la macchina virtuale e il set di disponibilità.
-
-	Nel dashboard della nuova macchina virtuale è possibile fare clic su **Configure** per verificare che la macchina virtuale appartenga al nuovo set di disponibilità.
+9. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Macchine virtuali** nel menu Hub.
 
 Per usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.##
 
-Nel Portale di Azure classico è possibile aggiungere macchine virtuali esistenti a un set di disponibilità esistente oppure crearne una nuova. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
+Nel Portale di Azure è possibile aggiungere le macchine virtuali classiche a un set di disponibilità esistente oppure creare un set nuovo per le macchine. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
 
-1. Accedere al Portale di Azure classico se questa operazione non è già stata eseguita.
+1. Accedere al Portale di Azure, se questa operazione non è già stata eseguita.
 
-2. Nella barra dei comandi fare clic su **Macchine virtuali**.
+2. Fare clic su **Macchine virtuali (classico)** nel menu Hub.
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 
-3. Nell'elenco delle macchine virtuali fare clic sul nome di quelle che si vuole aggiungere al set.
+3. Nell'elenco delle macchine virtuali selezionare il nome della macchina virtuale che si desidera aggiungere al set.
 
-4. Nelle schede sotto il nome della macchina virtuale fare clic su **Configura**.
+4. Scegliere **Set di disponibilità** dalle **Impostazioni** della macchina virtuale.
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
 
-5. Nella sezione Impostazioni cercare **Set di disponibilità**. Eseguire una di queste operazioni:
-
-	R. Scegliere **Crea set di disponibilità** e quindi digitare un nome per il set.
-
-	B. Scegliere **Seleziona set di disponibilità** e quindi scegliere un set dall'elenco.
-
-	![Creare un set di disponibilità per una macchina virtuale esistente](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
+5. Selezionare il set di disponibilità che si desidera aggiungere alla macchina virtuale. La macchina virtuale deve appartenere allo stesso servizio cloud del set di disponibilità.
+    
+    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
 
 6. Fare clic su **Save**.
 
@@ -85,8 +83,8 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Bilanciamento del carico per i servizi di infrastruttura di Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
 [Gestione della disponibilità delle macchine virtuali]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Creazione di una macchina virtuale che esegue Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Panoramica di Rete virtuale]: ../articles/virtual-network/virtual-networks-overview.md
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
 [Articoli sulle macchine virtuali classiche]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

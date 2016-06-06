@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Panoramica dell'architettura di Cluster Resource Manager
@@ -23,7 +23,7 @@ Per gestire le risorse del cluster, Cluster Resource Manager deve disporre di va
 A complicare il quadro si aggiunge il fatto che i proprietari e gli operatori del cluster talvolta non sono anche autori del servizio, o almeno sono le stesse persone ma con ruoli diversi. Quando si sviluppa il servizio, ad esempio, si conoscono solo alcune informazioni su cosa è necessario in termini di risorse e sulla modalità di distribuzione ideale dei diversi componenti, ma nel ruolo della persona che gestisce un evento imprevisto del sito live per tale servizio in produzione è richiesto un lavoro diverso, con strumenti diversi. Inoltre, né il cluster né i servizi stessi sono configurati staticamente: il numero di nodi nel cluster può aumentare e ridursi, i nodi di dimensioni diverse lasciano e rientrano nel cluster e i servizi possono modificare la loro allocazione delle risorse ed essere creati e rimossi. Gli aggiornamenti o altre operazioni di gestione possono passare tramite il cluster, con il rischio costante di errore.
 
 ## Componenti di Cluster Resource Manager e flusso dei dati
-Resource manager dovrà conoscere molti aspetti generali sul cluster stesso, così come i requisiti di determinati servizi. A tale scopo, in Service Fabric, entrambi gli agenti del Resource Manager sono eseguiti su nodi individuali per aggregare informazioni sull'utilizzo di risorse locali ed è previsto un servizio Resource Manager centralizzato, a tolleranza di errore, che aggrega tutte le informazioni sui servizi e il cluster e risponde ai cambiamenti sulla base della configurazione dello stato desiderato del cluster e del servizio. La tolleranza di errore viene ottenuta attraverso lo stesso meccanismo adottato per i servizi, vale a dire la replica dello stato del servizio per un certo numero di repliche (in genere 7).
+Resource manager dovrà conoscere molti aspetti generali sul cluster stesso, così come i requisiti di determinati servizi. A tale scopo, in Service Fabric, entrambi gli agenti di Resource Manager sono eseguiti su nodi individuali per aggregare informazioni sull'utilizzo delle risorse locali. Inoltre, un servizio Resource Manager centralizzato a tolleranza di errore aggrega tutte le informazioni sui servizi e il cluster e risponde ai cambiamenti sulla base della configurazione dello stato desiderato del cluster e del servizio. La tolleranza di errore viene ottenuta attraverso lo stesso meccanismo adottato per i servizi, vale a dire la replica dello stato del servizio per un certo numero di repliche (in genere 7).
 
 ![Architettura di Resource Balancer][Image1]
 
@@ -39,4 +39,4 @@ Vedere il diagramma successivo e ciò che avviene nell'esempio. Si supponga che 
 [Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

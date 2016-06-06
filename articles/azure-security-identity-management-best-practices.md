@@ -1,19 +1,19 @@
 <properties
    pageTitle="Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure | Microsoft Azure"
    description="Questo articolo illustra una serie di procedure consigliate per il controllo di accesso e la gestione delle identità usando le funzionalità integrate di Azure."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 # Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
@@ -38,7 +38,7 @@ Procedure consigliate per la sicurezza con il controllo di accesso e la gestione
 - Abilitare il Single Sign-On (SSO)
 - Distribuire la gestione delle password
 - Applicare l'autenticazione a più fattori (MFA) per gli utenti
-- Usare il controllo degli accessi in base al ruolo 
+- Usare il controllo degli accessi in base al ruolo
 - Controllare i percorsi di creazione delle risorse con Resource Manager
 - Guidare gli sviluppatori nell'utilizzo delle funzionalità di identità per app SaaS
 - Monitorare attivamente le attività sospette
@@ -88,28 +88,28 @@ Ad esempio: è possibile applicare Azure MFA per gli utenti e configurarlo per l
 
 In alternativa, le organizzazioni che vogliono mantenere in locale tutto il controllo dell'autenticazione possono usare il [server Microsoft Azure Multi-Factor Authentication](./multi-factor-authentication/multi-factor-authentication-get-started-server.md), detto anche MFA locale. Questo metodo consentirà comunque di applicare l'autenticazione a più fattori, mantenendo il server MFA in locale.
 
-Per altre informazioni su Azure MFA, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](./multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+Per altre informazioni sull'autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](./multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Usare il controllo degli accessi in base al ruolo
- 
+
 Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Il controllo degli accessi in base al ruolo di Azure consente di assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. L'ambito di un'assegnazione di ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa.
- 
+
 È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](./active-directory/role-based-access-built-in-roles.md) in Azure per assegnare privilegi agli utenti. È consigliabile usare il ruolo *Collaboratore Account di archiviazione* per gli operatori cloud che devono gestire account di archiviazione e il ruolo *Collaboratore Account di archiviazione classico* per gestire gli account di archiviazione della versione classica. Per quanto riguarda gli operatori cloud che devono gestire le macchine virtuali e l'account di archiviazione, è consigliabile aggiungerli al ruolo *Collaboratore Macchina virtuale*.
 
 Le organizzazioni che non applicano il controllo di accesso ai dati con funzionalità come il controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario agli utenti. Questo può comportare la compromissione dei dati perché gli utenti potrebbero avere accesso a tipi di dati, come importanti dati aziendali, a cui non dovrebbero accedere.
- 
+
 Per altre informazioni in proposito, vedere l'articolo relativo al [controllo degli accessi in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Controllare i percorsi di creazione delle risorse con Resource Manager
 
 Permettere agli operatori cloud di eseguire attività senza infrangere convenzioni necessarie per la gestione delle risorse dell'organizzazione è molto importante. Per controllare i percorsi in cui le risorse vengono create, è consigliabile impostarli come hardcoded a livello dell'organizzazione.
- 
+
 A tale scopo, l'organizzazione può creare criteri di sicurezza con definizioni che descrivono le risorse o le azioni negate in modo specifico. Le definizioni dei criteri vengono assegnate all'ambito desiderato, ad esempio la sottoscrizione, un gruppo di risorse o una singola risorsa.
 
 > [AZURE.NOTE] Questo metodo non equivale al controllo degli accessi in base al ruolo, ma lo usa per autenticare gli utenti che hanno i privilegi necessari per creare tali risorse.
 
 È possibile usare [Azure Resource Manager](resource-group-overview.md) per creare criteri personalizzati anche per scenari in cui l'organizzazione vuole consentire solo le operazioni associate al centro di costo appropriato. In caso contrario, la richiesta viene negata.
- 
+
 Le organizzazioni che non controllano le modalità di creazione delle risorse sono più soggette a un uso improprio del servizio da parte degli utenti, che potrebbero creare più risorse del necessario. La protezione avanzata del processo di creazione delle risorse è un passaggio importante per la protezione di uno scenario multi-tenant.
 
 Per altre informazioni sulla creazione di criteri con Azure Resource Manager, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
@@ -134,4 +134,4 @@ Azure AD Identity Protection è invece un sistema di monitoraggio attivo che con
 
 Le organizzazioni che non monitorano attivamente i sistemi di identità sono esposti al rischio di compromissione delle credenziali utente. Se l'organizzazione non è a conoscenza dello svolgimento di attività sospette con tali credenziali, non potrà attenuare questo tipo di minaccia. Per altre informazioni in merito, vedere [Azure Active Directory Identity Protection](./active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Importare ed esportare dati in Cache Redis di Azure
@@ -26,7 +26,7 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 
 ## Importazione
 
-È possibile usare l'importazione per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione in qualsiasi cloud o ambiente, compresi i server Redis in esecuzione in Linux, Windows o in qualsiasi provider di cloud tra cui Amazon Web Services. L'importazione dei dati costituisce una soluzione semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB da Archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
+È possibile usare l'importazione per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione in qualsiasi cloud o ambiente, compresi i server Redis in esecuzione in Linux, Windows o in qualsiasi provider di cloud tra cui Amazon Web Services. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB da Archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
 
 >[AZURE.NOTE] Prima di avviare l'operazione di importazione, assicurarsi che il file o i file di database Redis (RDB) siano caricati nei BLOB di pagine in Archiviazione di Azure, nella stessa area e nella stessa sottoscrizione dell'istanza di Cache Redis di Azure. Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md). Se il file RDB è stato esportato con la funzionalità [Esportazione di Cache Redis di Azure](#export), è già archiviato in un BLOB di pagine ed è pronto per l'importazione.
 
@@ -59,7 +59,7 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 
 ## Esportazione
 
-L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o in un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella VM che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
+L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella VM che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
 
 1. Per esportare il contenuto corrente della cache nell'archivio, [passare alla cache](cache-configure.md#configure-redis-cache-settings) nel Portale di Azure e fare clic su **Esporta dati** nel pannello **Impostazioni** dell'istanza della cache.
 
@@ -94,6 +94,7 @@ Questa sezione contiene le domande frequenti relative alla funzionalità Importa
 -	[È possibile importare dati da qualsiasi server Redis?](#can-i-import-data-from-any-redis-server)
 -	[La cache sarà disponibile durante un'operazione di Importazione/Esportazione?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[È possibile usare Importazione/Esportazione con il cluster Redis?](#can-i-use-importexport-with-redis-cluster)
+-	[Come funziona Importazione/Esportazione con un'impostazione databases personalizzata?](#how-does-importexport-work-with-a-custom-databases-setting)
 -	[Quali sono le differenze tra la funzionalità Importazione/Esportazione e la persistenza di Redis?](#how-is-importexport-different-from-redis-persistence)
 -	[È possibile automatizzare la funzionalità Importazione/Esportazione con PowerShell, l'interfaccia della riga di comando o altri client di gestione?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 -	[Durante l'operazione di Importazione/Esportazione è stato ricevuto un errore di timeout. Da cosa dipende il problema?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
@@ -116,7 +117,16 @@ Sì. Oltre a importare i dati esportati da istanze di Cache Redis di Azure, è p
 
 ### È possibile usare Importazione/Esportazione con il cluster Redis?
 
-Sì. È inoltre possibile usare questa funzionalità tra una cache di cluster e una non di cluster. Dal momento che il cluster Redis supporta solo il database 0, non è possibile importare dati archiviati in un database diverso da 0. Quando si importano dati della cache di cluster, le chiavi vengono ridistribuite tra le partizioni del cluster.
+Sì. È inoltre possibile usare questa funzionalità tra una cache di cluster e una non di cluster. Poiché il Cluster Redis [supporta solo database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), i dati nei database diversi da 0 non verranno importati. Quando si importano dati della cache di cluster, le chiavi vengono ridistribuite tra le partizioni del cluster.
+
+### Come funziona Importazione/Esportazione con un'impostazione databases personalizzata?
+
+Alcuni piani tariffari hanno [limiti di databases](cache-configure.md#databases) diversi, quindi esistono alcune considerazioni da tenere presente durante l'importazione se si è configurato un valore personalizzato per l'impostazione `databases` durante la creazione della cache.
+
+-	Quando si esegue l'importazione in un piano tariffario con un limite di `databases` più basso del piano da cui è stata eseguita l'esportazione:
+	-	Se si usa il numero predefinito di `databases` che è 16 per tutti i piani tariffari, non viene perso alcun dato.
+	-	Se si usa un numero personalizzato di `databases` compreso nei limiti per il piano in cui si esegue l'importazione, non viene perso alcun dato.
+	-	Se i dati esportati contenevano dati in un database che superano i limiti per il nuovo piano, i dati dei database più elevati non vengono importati.
 
 ### Quali sono le differenze tra la funzionalità Importazione/Esportazione e la persistenza di Redis?
 
@@ -158,4 +168,4 @@ La funzionalità Importazione/Esportazione funziona solo con file RDB archiviati
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

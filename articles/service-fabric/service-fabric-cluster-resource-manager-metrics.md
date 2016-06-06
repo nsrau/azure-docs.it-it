@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Le metriche sono il termine generico usato in Service Fabric per le risorse rilevanti per i servizi. In genere, una metrica è un qualsiasi elemento che si vuole gestire in termini di risorsa, per gestire le prestazioni dei servizi.
 
-In tutti gli esempi precedenti si fa implicitamente riferimento alle metriche. La memoria, il disco, l'utilizzo della CPU sono tutti esempi di metriche. In questo caso si tratta di metriche fisiche, ovvero risorse che corrispondono a risorse fisiche sul nodo e che devono essere gestite. Le metriche possono anche essere metriche logiche, ad esempio "MyWorkQueueDepth", ovvero possono essere definite dall'applicazione e corrispondenti a un livello di utilizzo della risorsa. In questo caso, tuttavia, l'applicazione non è effettivamente consapevole della metrica o non sa come misurarla.
+In tutti gli esempi precedenti si fa implicitamente riferimento alle metriche. La memoria, il disco, l'utilizzo della CPU sono tutti esempi di metriche. In questo caso si tratta di metriche fisiche, ovvero risorse che corrispondono a risorse fisiche sul nodo e che devono essere gestite. Le metriche possono anche essere metriche logiche, ad esempio "MyWorkQueueDepth", ovvero possono essere definite dall'applicazione e corrispondenti a un livello di utilizzo della risorsa. In questo caso, tuttavia, l'applicazione non è effettivamente consapevole della metrica o non sa come misurarla. La maggior parte delle metriche usate sono in realtà metriche logiche. I motivi sono molti, ma il più comune è che oggi molti dei clienti scrivono i servizi in codice gestito e dall'interno di un'istanza di servizio senza stato o un oggetto di replica di servizio con stato è effettivamente molto difficile misurare e segnalare l'utilizzo delle risorse fisiche effettive. La complessità della generazione di report sulle metriche è un altro motivo per il quale sono disponibili alcune metriche predefinite.
 
 ## Metriche predefinite
-Si supponga di volere semplicemente iniziare e di non sapere quali risorse verranno utilizzate o addirittura quali risorse risulteranno rilevanti. Si procede quindi all'implementazione e alla creazione dei servizi senza specificare metriche. Questo approccio non presenta problemi. Le metriche verranno selezionate automaticamente. Le metriche predefinite usate attualmente se l'utente non specifica alcuna metrica sono PrimaryCount, ReplicaCount e Count, quest'ultima piuttosto vaga. La tabella seguente illustra il carico verificato per ogni metrica per impostazione predefinita:
+Si supponga di volere semplicemente iniziare e di non sapere quali risorse verranno utilizzate o addirittura quali risorse risulteranno rilevanti. Si procede quindi all'implementazione e alla creazione dei servizi senza specificare metriche. Questo approccio non presenta problemi. Le metriche verranno selezionate automaticamente. Le metriche predefinite usate attualmente se l'utente non specifica alcuna metrica sono PrimaryCount, ReplicaCount e Count, quest'ultima piuttosto vaga. La tabella seguente descrive il carico associato per ogni metrica a ogni oggetto di servizio:
 
 | Metrica | Carico di istanza senza stato |	Carico secondario con stato |	Carico primario con stato |
 |--------|--------------------------|-------------------------|-----------------------|
@@ -42,14 +42,16 @@ Come si può notare nell'esempio:
 
 Si tratta di una situazione abbastanza valida.
 
-Se però si esamina attentamente la situazione, ci si domanda quale sia la probabilità che tutti gli elementi primari dei diversi servizi presentino effettivamente lo stesso carico in un momento specifico. Ci si domanda anche quale sia la possibilità che il carico per un determinato servizio risulti costante nel tempo. Questa possibilità è effettivamente abbastanza bassa per qualsiasi carico di lavoro importante.
+È particolarmente efficace fino a quando non si prende in considerazione l'effettiva probabilità che lo schema di partizionamento scelto produca un utilizzo perfettamente bilanciato da parte di tutte le partizioni nel tempo. Qual è poi la probabilità che il carico per un determinato servizio risulti costante nel tempo o invariato? Le probabilità sono molto basse per qualunque carico di lavoro significativo, quindi è opportuno prendere in considerazione metriche personalizzate se si vuole ottenere il massimo dal cluster.
 
-È realisticamente possibile procedere all'esecuzione con le metriche predefinite o almeno con alcune metriche personalizzate statiche, ma questo approccio comporta in genere un utilizzo del cluster inferiore al desiderato, perché la creazione di report non è adattiva. Nei casi peggiore, è possibile che si ottengano nodi sovrapianificati, che provocano problemi di prestazioni. Le metriche personalizzate e i report sui carichi dinamici consentono di ottenere risultati migliori. Le sezioni seguenti illustrano quindi le metriche personalizzate e i carichi dinamici.
+È realisticamente possibile procedere all'esecuzione con le metriche predefinite o almeno con alcune metriche personalizzate statiche, ma questo approccio comporta in genere un utilizzo del cluster inferiore al desiderato, perché la creazione di report non è adattiva. Nei casi peggiore, è possibile che si ottengano nodi sovrapianificati, che provocano problemi di prestazioni. Le metriche personalizzate e i report sui carichi dinamici consentono di ottenere risultati migliori.
+
+Le sezioni seguenti illustrano quindi le metriche personalizzate e i carichi dinamici.
 
 ## Metriche personalizzate
-Come accennato in precedenza, è possibile usare metriche fisiche e logiche e definire metriche personalizzate. L'esecuzione di queste operazioni è molto semplice. È sufficiente configurare la metrica e il carico iniziale predefinito durante la creazione del servizio. Qualsiasi set di metriche e di valori predefiniti può essere configurato in base a singole istanze del servizio durante la creazione del servizio.
+Come accennato in precedenza è possibile usare metriche fisiche e logiche e definire metriche personalizzate. In che modo? È piuttosto semplice. È sufficiente configurare la metrica e il carico iniziale predefinito durante la creazione del servizio. Qualsiasi set di metriche e di valori predefiniti può essere configurato in base a singole istanze del servizio durante la creazione del servizio.
 
-Si noti che quando si inizia a definire le metriche personalizzate è necessario aggiungere esplicitamente le metriche predefinite, se si vuole usarle per il bilanciamento del servizio. È infatti necessario comprendere la relazione tra le metriche predefinite e le metriche personalizzate. È ad esempio possibile che si attribuisca maggiore importanza all'utilizzo della memoria rispetto alla distribuzione primaria o che si vogliano combinare alcune metriche con le metriche predefinite.
+Si noti che quando si inizia a definire le metriche personalizzate è necessario aggiungere esplicitamente le metriche predefinite, se si vuole usarle per il bilanciamento del servizio. È infatti necessario comprendere la relazione tra le metriche predefinite e le metriche personalizzate. È ad esempio possibile che si attribuisca maggiore importanza all'utilizzo della memoria o alla profondità della coda di lavoro rispetto alla distribuzione primaria.
 
 Si supponga che si voglia configurare un servizio che fornisce report su una metrica denominata "Memory", in aggiunta alle metriche predefinite. Nel caso della memoria, si supponga di avere eseguito alcune misurazioni di base e che sia stato rilevato che normalmente per una replica primaria del servizio sono necessari 20 MB di memoria, mentre per le repliche secondarie dello stesso servizio saranno necessari 5 MB. Si è consapevoli del fatto che la memoria è la metrica più importante in termini di gestione delle prestazioni del servizio specifico, ma si vuole comunque che le repliche primarie siano bilanciate, in modo che la perdita di nodi o domini di errore non renda inattivo un numero troppo elevato di repliche primarie. Le impostazioni predefinite risultano appropriate per tutti gli altri aspetti.
 
@@ -59,25 +61,25 @@ Codice:
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
-ServiceLoadMetricDescription memoryMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription memoryMetric = new StatefulServiceLoadMetricDescription();
 memoryMetric.Name = "MemoryInMb";
 memoryMetric.PrimaryDefaultLoad = 20;
 memoryMetric.SecondaryDefaultLoad = 5;
 memoryMetric.Weight = ServiceLoadMetricWeight.High;
 
-ServiceLoadMetricDescription primaryCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription primaryCountMetric = new StatefulServiceLoadMetricDescription();
 primaryCountMetric.Name = "PrimaryCount";
 primaryCountMetric.PrimaryDefaultLoad = 1;
 primaryCountMetric.SecondaryDefaultLoad = 0;
 primaryCountMetric.Weight = ServiceLoadMetricWeight.Medium;
 
-ServiceLoadMetricDescription replicaCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription replicaCountMetric = new StatefulServiceLoadMetricDescription();
 replicaCountMetric.Name = "ReplicaCount";
 replicaCountMetric.PrimaryDefaultLoad = 1;
 replicaCountMetric.SecondaryDefaultLoad = 1;
 replicaCountMetric.Weight = ServiceLoadMetricWeight.Low;
 
-ServiceLoadMetricDescription totalCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription totalCountMetric = new StatefulServiceLoadMetricDescription();
 totalCountMetric.Name = "Count";
 totalCountMetric.PrimaryDefaultLoad = 1;
 totalCountMetric.SecondaryDefaultLoad = 1;
@@ -102,15 +104,15 @@ Si noti che se si vogliono usare solo le metriche predefinite, non è necessario
 È stato illustrato come definire le metriche personalizzate, quindi è ora possibile esaminare le diverse proprietà possibili per le metriche. Verrà esaminato in modo dettagliato il significato delle proprietà. Una metrica può attualmente avere quattro proprietà diverse:
 
 -	Nome della metrica: corrisponde al nome della metrica. Si tratta di un identificatore univoco per la metrica nel cluster dal punto di vista di Resource Manager.
--	PrimaryDefaultLoad: quantità predefinita di carico che il servizio eserciterà per la metrica come replica primaria.
--	SecondaryDefaultLoad: quantità predefinita di carico che il servizio eserciterà per la metrica come replica secondaria.
+-	PrimaryDefaultLoad: carico predefinito che il servizio eserciterà per la metrica come replica primaria
+-	SecondaryDefaultLoad: carico predefinito che il servizio eserciterà per la metrica come replica secondaria
 -	Peso: indica la rilevanza della metrica rispetto alle altre metriche configurate per il servizio.
 
 ## Load
 Il carico è un concetto generale che indica la quantità di una metrica specifica utilizzata da un'istanza del servizio o da una replica in un nodo specifico.
 
 ## Carico predefinito
-Il carico predefinito corrisponde alla quantità di carico che Resource Manager deve presupporre venga utilizzata da ogni istanza del servizio o replica del servizio, fino a quando non riceve eventuali aggiornamenti dalle istanze del servizio o dalle repliche effettive. Per i servizi più semplici, si tratta di una definizione statica che non viene mai aggiornata dinamicamente e che verrà quindi usata per la durata del servizio. Questo approccio è ottimale per la pianificazione della capacità semplice, perché corrisponde alle operazioni consuete, ovvero dedicare determinate risorse a determinati carichi di lavoro. Il vantaggio è però costituito dal fatto che almeno ora si adotta un approccio basato su microservizi, in cui le risorse non sono effettivamente assegnate in modo statico a carichi di lavoro specifici e gli utenti non vengono coinvolti nel processo decisionale.
+Il carico predefinito corrisponde al carico che Cluster Resource Manager deve presupporre venga usato da ogni istanza o replica del servizio, fino a quando non riceve eventuali aggiornamenti dalle effettive istanze o dalle repliche del servizio. Per i servizi più semplici, si tratta di una definizione statica che non viene mai aggiornata dinamicamente e che verrà quindi usata per la durata del servizio. Questo approccio è ottimale per la pianificazione della capacità semplice, perché corrisponde alle operazioni consuete, ovvero dedicare determinate risorse a determinati carichi di lavoro. Il vantaggio è però costituito dal fatto che almeno ora si adotta un approccio basato su microservizi, in cui le risorse non sono effettivamente assegnate in modo statico a carichi di lavoro specifici e gli utenti non vengono coinvolti nel processo decisionale.
 
 Si consente ai servizi con stato di specificare il carico predefinito per le repliche primarie e secondarie. Realisticamente, per molti servizi questi valori sono diversi a causa dei diversi carichi di lavoro eseguiti dalle repliche primarie e dalle repliche secondarie. Poiché le repliche primarie gestiscono in genere operazioni di lettura e scrittura, oltre alla maggior parte delle operazioni di calcolo, il carico predefinito per una replica primaria è maggiore rispetto a quello delle repliche secondarie.
 
@@ -185,15 +187,15 @@ Nel secondo esempio le repliche sono state distribuite in base al bilanciamento 
 Prendendo in considerazione i pesi delle metriche, il bilanciamento globale viene calcolato in base alla media dei pesi delle metriche. Un servizio viene bilanciato rispetto ai pesi definiti specifici per le metriche.
 
 ## Passaggi successivi
-- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili di Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
-- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, leggere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
-- Partire dall'inizio e leggere l'[Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, leggere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
+- Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

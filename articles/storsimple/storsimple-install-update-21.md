@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Installare l'aggiornamento 2.1 nel dispositivo StorSimple
@@ -42,7 +42,7 @@ Se si sta applicando l'aggiornamento 2 o una versione successiva (compreso l'agg
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2.1 della serie 8000 di StorSimple (6.3.9600.17704)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. 
+12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2.1 della serie 8000 di StorSimple (6.3.9600.17705)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. 
 
 	Se si sta eseguendo l'aggiornamento da una versione precedente all'aggiornamento 2, è possibile vedere che sono disponibili anche gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti.
 
@@ -78,25 +78,27 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 #### Scaricare gli aggiornamenti per un dispositivo che esegue il software di aggiornamento 2
 
-Se il dispositivo esegue l'aggiornamento 2, è necessario scaricare e installare gli hotfix seguenti nell'ordine indicato:
+**Se il dispositivo esegue l'aggiornamento 2**, è necessario scaricare e installare gli hotfix seguenti nell'ordine indicato:
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3162954 | Aggiornamento software | Normale | ~ 45 min. |
+| 1\. | KB3162954 | Aggiornamento software &#42; | Normale | ~ 45 min. |
 | 2\. | KB3146621 | Pacchetto iSCSI | Normale | ~ 20 min. |
 | 3\. | KB3103616 | Pacchetto WMI | Normale | ~ 12 min. |
 
 
+ & #42; *Si noti che l'aggiornamento del software è costituito da due file binari: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. L'aggiornamento software del dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve essere installato prima dell'agente Cis ed Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+
 #### Scaricare gli aggiornamenti per un dispositivo che esegue il software di pre-aggiornamento 2
 
-Se il dispositivo sta eseguendo le versioni 0,2, 0,3, 1.0 e 1.1, è necessario scaricare e installare l'aggiornamento del driver e del firmware LSI. Questo aggiornamento è già installato se si esegue l'aggiornamento 1.2 o 2.
+**Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0 e 1.1**, è necessario scaricare e installare l'aggiornamento del driver e del firmware LSI. Questo aggiornamento è già installato se si esegue l'aggiornamento 1.2 o 2.
  
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
 | 4\. | KB3121900 | Driver e firmware LSI | Normale | ~ 20 min. |
 
 
-<br></br> Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0, 1.1 e 1.2, è necessario scaricare e installare Spaceport e le correzioni Storport. Sono già installati se si sta eseguendo l'aggiornamento o 2.
+<br></br> **Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0, 1.1 e 1.2**, è necessario scaricare e installare Spaceport e la correzione Storport. Sono già installati se si sta eseguendo l'aggiornamento o 2.
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -105,7 +107,7 @@ Se il dispositivo sta eseguendo le versioni 0,2, 0,3, 1.0 e 1.1, è necessario s
 
 
 
-<br></br> Può essere necessario anche installare gli aggiornamenti del firmware del disco. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion`. Se si stanno eseguendo queste versioni del firmware: `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08` non è quindi necessario installare questi aggiornamenti.
+<br></br> Può essere necessario anche installare gli aggiornamenti del firmware del disco. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion`. Se si stanno eseguendo le versioni del firmware `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08` non è quindi necessario installare questi aggiornamenti.
 
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
@@ -130,4 +132,4 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 Altre informazioni sulla [versione dell'aggiornamento 2.1](storsimple-update21-release-notes.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

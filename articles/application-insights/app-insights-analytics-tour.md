@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/20/2016" 
 	ms.author="awills"/>
 
 
@@ -103,16 +103,16 @@ Usare [`project`](app-insights-analytics-reference.md#project-operator) per sele
 
     requests 
     | top 10 by timestamp desc 
-    | project timestamp, 
-               timeOfDay = floor(timestamp % 1d, 1s), 
-               name, 
-               response = resultCode
+    | project  
+            name, 
+            response = resultCode,
+            timestamp, 
+            ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![risultato](./media/app-insights-analytics-tour/270.png)
 
-Nell'espressione scalare:
-
+* I [nomi di colonna](app-insights-analytics-reference.md#names) possono includere spazi o simboli se sono racchiusi tra parentesi quadre, ad esempio: `['...']` o `["..."]`
 * `%` è il consueto operatore modulo. 
 * `1d` (la cifra uno seguita da "d") è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonda un'ora per difetto al secondo più vicino.
@@ -123,7 +123,7 @@ Le [espressioni](app-insights-analytics-reference.md#scalars) possono includere 
 
 ## [Extend](app-insights-analytics-reference.md#extend-operator): calcolare le colonne
 
-Per aggiungere colonne a quelle esistenti, usare [`extend`](app-insights-analytics-reference.md#extend-operator):
+Per aggiungere colonne a quelle già esistenti, usare [`extend`](app-insights-analytics-reference.md#extend-operator):
 
 ```AIQL
 
@@ -151,7 +151,7 @@ Se si vogliono mantenere tutte le colonne esistenti, [`extend`](app-insights-ana
 
 ## Proprietà e misure personalizzate
 
-Se l'applicazione associa a eventi [dimensioni (proprietà) personalizzate e misure personalizzate](app-insights-api-custom-events-metrics.md#properties), queste saranno visibili negli oggetti `customDimensions` e `customMeasurements`.
+Se l'applicazione associa agli eventi [dimensioni (proprietà) personalizzate e misure personalizzate](app-insights-api-custom-events-metrics.md#properties), queste saranno visibili negli oggetti `customDimensions` e `customMeasurements`.
 
 
 Ad esempio, se l'applicazione include:
@@ -175,10 +175,10 @@ Per estrarre questi valori in Dati di analisi:
 
 ``` 
 
-> [AZURE.NOTE] In [Esplora metriche](app-insights-metrics-explorer.md) tutte le misurazioni personalizzate associate a qualsiasi tipo di telemetria vengono visualizzate insieme nel pannello delle metriche, con le metriche inviate usando `TrackMetric()`. In Dati di analisi, invece, le misure personalizzate sono ancora associate al tipo di telemetria su cui sono state rilevate e le metriche vengono visualizzate all'interno del proprio flusso `metrics`.
+> [AZURE.NOTE] In [Esplora metriche](app-insights-metrics-explorer.md) tutte le misurazioni personalizzate associate a qualsiasi tipo di telemetria vengono visualizzate insieme nel pannello delle metriche, con le metriche inviate usando `TrackMetric()`. In Analisi, invece, le misure personalizzate sono ancora associate al tipo di telemetria su cui sono state rilevate e le metriche vengono visualizzate all'interno del proprio flusso `metrics`.
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregare gruppi di righe
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): consente di aggregare gruppi di righe
 
 `Summarize` applica una *funzione di aggregazione* specificata a gruppi di righe.
 
@@ -197,7 +197,7 @@ Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene 
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Si noti che si sta usando la funzione `bin` (detta anche `floor`). Se si usasse solo `by timestamp`, ogni riga di input finirebbe in un piccolo gruppo distinto. Per i valori scalari continui, ad esempio ore o numeri, è necessario suddividere l'intervallo continuo in un numero gestibile di valori discreti. Il modo più semplice per eseguire questa operazione è tramite `bin`, che è in realtà la nota funzione `floor` per l'arrotondamento per difetto.
+Si noti che si sta usando la funzione `bin`, detta anche `floor`. Se si usasse solo `by timestamp`, ogni riga di input finirebbe in un piccolo gruppo distinto. Per i valori scalari continui, come le ore o i numeri, è necessario suddividere l'intervallo continuo in un numero gestibile di valori discreti. Il modo più semplice per eseguire questa operazione è usare `bin`, che è in realtà la nota funzione `floor` per l'arrotondamento per difetto.
 
 È possibile usare la stessa tecnica per ridurre gli intervalli di stringhe:
 
@@ -318,7 +318,7 @@ Usare più valori in una clausola `summarize by` per creare una riga distinta pe
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Per visualizzare più righe in un grafico, fare clic su **Split by** e selezionare una colonna.
+Per visualizzare più righe in un grafico, fare clic su **Split by** (Dividi) e selezionare una colonna.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -469,4 +469,4 @@ Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le p
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

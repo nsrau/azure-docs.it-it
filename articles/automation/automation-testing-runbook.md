@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Test di un runbook in Automazione di Azure"
+	pageTitle="Test di un runbook in Automazione di Azure | Microsoft Azure"
 	description="Prima di pubblicare un runbook in automazione di Azure, è possibile eseguirne il test per assicurarsi che funzioni come previsto. In questo articolo viene descritto come verificare un runbook e visualizzarne l'output."
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="magoedte;bwren" />
 
 # Test di un runbook in Automazione di Azure
@@ -27,32 +27,20 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 
 È possibile usare qualsiasi [tipo di runbook](automation-runbook-types.md) nel portale di Azure.
 
-1. Aprire la versione bozza del runbook in [editor testuale](automation-editing-a-runbook#Portal) o [editor grafico](automation-graphical-authoring-intro.md).
+1. Aprire la versione bozza del runbook in [editor testuale](automation-editing-a-runbook.md#Portal) o [editor grafico](automation-graphical-authoring-intro.md).
 2. Far clic sul pulsante **Test** per aprire il pannello del Test.
 3. Se il runbook dispone di parametri, essi verranno elencati nel pannello sinistro in cui è possibile fornire valori da utilizzare per il test.
-4. Se si desidera eseguire il test su un [Ruolo di lavoro ibrido per runbook](automation-hybrid), allora modificare le **Impostazioni di esecuzione** in **Ruolo di lavoro ibrido** e selezionare il nome del gruppo di destinazione. In caso contrario, mantenere l'impostazione predefinita **Azure** per eseguire il test nel cloud.
+4. Se si desidera eseguire il test su un [Ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md), allora modificare le **Impostazioni di esecuzione** in **Ruolo di lavoro ibrido** e selezionare il nome del gruppo di destinazione. In caso contrario, mantenere l'impostazione predefinita **Azure** per eseguire il test nel cloud.
 5. Fare clic sul pulsante **Start** per avviare il test.
 6. Se il runbook è [Flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o [Grafico](automation-runbook-types.md#graphical-runbooks), è possibile arrestarlo o sospenderlo, mentre viene testato utilizzando i pulsanti sotto il pannello di Output. Quando si sospende il runbook, esso completa l'attività corrente prima di essere sospeso. Una volta che il runbook viene sospeso, è possibile arrestarlo o riavviarlo.
 7. Esaminare l'output dal runbook nel pannello di output.
 
 
+## Passaggi successivi
 
-## Per testare un runbook nel portale di Azure
+- Per informazioni su come creare o importare un runbook, vedere [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
+- Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
+- Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
+- Per altre informazioni sulla configurazione dei runbok per restituire messaggi di stato ed errori e per conoscere le operazioni consigliate, vedere [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-È possibile utilizzare solo i [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) nel portale di Azure.
-
-
-1. [Aprire la versione bozza del runbook](automation-edit-textual-runbook.md#to-edit-a-runbook-with-the-azure-portal).
-2. Scegliere il pulsante **Test** per avviare il test. Se il runbook dispone di parametri, si riceverà una finestra di dialogo per fornire i valori da utilizzare per il test.
-6. È possibile arrestare o sospendere il runbook mentre viene testato utilizzando i pulsanti presenti sotto il pannello di Output. Quando si sospende il runbook, esso completa l'attività corrente prima di essere sospeso. Una volta che il runbook viene sospeso, è possibile arrestarlo o riavviarlo.
-7. Esaminare l'output dal runbook nel pannello di output.
-
-
-## Articoli correlati
-
-- [Creazione o importazione di un runbook in automazione di Azure](automation-creating-importing-runbook.md)
-- [Runbook grafici in Automazione di Azure](automation-graphical-authoring-intro.md)
-- [Modifica dei runbook testuali di automazione di Azure](automation-edit-textual-runbook.md)
-- [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
-
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

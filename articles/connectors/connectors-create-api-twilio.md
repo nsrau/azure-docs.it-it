@@ -1,10 +1,10 @@
 <properties
-pageTitle="Aggiungere l'API di Twilio alle app per la logica | Microsoft Azure"
-description="Panoramica dell'API di Twilio con i parametri dell'API REST."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Aggiungere il connettore Twilio alle app per la logica | Microsoft Azure"
+description="Panoramica del connettore Twilio con i parametri dell'API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Introduzione all'API di Twilio
+# Introduzione al connettore Twilio
 
 Connettersi a Twilio per inviare e ricevere messaggi SMS, MMS e IP globali.
 
@@ -31,16 +31,16 @@ Con Twilio è possibile:
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
-L'API di Twilio include le azioni seguenti. Non sono disponibili trigger.
+Il connettore Twilio include le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
 |Nessuno| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a Twilio
-Quando si aggiunge questa API alle app per la logica, immettere i valori di Twilio seguenti:
+Quando si aggiunge questo connettore alle app per la logica, immettere i valori di Twilio seguenti:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
@@ -248,4 +248,4 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

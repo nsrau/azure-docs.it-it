@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
@@ -29,20 +29,20 @@ Azure AD Connect è il successore di DirSync e Azure AD Sync. La soluzione combi
 
 ## Pianificazione della deprecazione
 
-|Data | Commento |
-| --- | --- |
-| 13 aprile 2016 | Annuncio della deprecazione dei servizi di sincronizzazione di Azure Active Directory ("DirSync") e Microsoft Azure Active Directory Sync ("Azure AD Sync"). |
-| 13 aprile 2017 | Termine del supporto. I clienti non potranno più aprire un caso di supporto senza prima eseguire l'aggiornamento ad Azure AD Connect. |
+Data | Commento
+ --- | ---
+13 aprile 2016 | Annuncio della deprecazione dei servizi di sincronizzazione di Azure Active Directory ("DirSync") e Microsoft Azure Active Directory Sync ("Azure AD Sync").
+13 aprile 2017 | Termine del supporto. I clienti non potranno più aprire un caso di supporto senza prima eseguire l'aggiornamento ad Azure AD Connect.
 
 ## Come eseguire la transizione ad Azure AD Connect
 Se si utilizza DirSync, è possibile eseguire l'aggiornamento in due modi: aggiornamento sul posto e distribuzione in parallelo. L'aggiornamento sul posto è consigliato per la maggior parte dei clienti e se si dispone di un sistema operativo recente con meno di 50.000 oggetti. In altri casi è consigliabile eseguire una distribuzione in parallelo in cui la configurazione di DirSync viene trasferita su un nuovo server che esegue Azure AD Connect.
 
 Se si utilizza Azure AD Sync è consigliabile un aggiornamento sul posto. Se si desidera, è possibile installare un nuovo server Azure AD Connect in parallelo ed eseguire una migrazione di tipo swing dal server Azure AD Sync ad Azure AD Connect.
 
-| Soluzione | Scenario |
-| ----- | ----- |
-| [Aggiornamento da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Se è presente un server DirSync esistente già in esecuzione.</li>
-| [Aggiornamento da Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>Se si esegue l'aggiornamento da Azure AD Sync.</li>
+Soluzione | Scenario
+----- | -----
+[Aggiornamento da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Se è presente un server DirSync esistente già in esecuzione.</li>
+[Aggiornamento da Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>Se si esegue l'aggiornamento da Azure AD Sync.</li>
 
 Per istruzioni su come eseguire un aggiornamento sul posto da DirSync ad Azure AD Connect, vedere questo video di Channel 9:
 
@@ -61,4 +61,4 @@ Per istruzioni su come eseguire un aggiornamento sul posto da DirSync ad Azure A
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/20/2016"
 	ms.author="danlep"/>
 
@@ -234,4 +234,4 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 * Per informazioni sull'uso di Azure Resource Manager con Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 * Per informazioni sull'uso di Azure Resource Manager dal portale di Azure, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

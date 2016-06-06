@@ -3,8 +3,8 @@
 	description="Come usare il plug-in Apache Cordova per le app per dispositivi mobili di Azure"
 	services="app-service\mobile"
 	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/23/2016"
+	ms.author="ggailey"/>
 
 # Come usare la libreria client Apache Cordova per le app per dispositivi mobili di Azure
 
@@ -127,7 +127,7 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [portale di Azure]: https://portal.azure.com
 [esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [prima app Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -135,6 +135,6 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

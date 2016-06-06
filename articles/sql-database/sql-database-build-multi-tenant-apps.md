@@ -21,7 +21,7 @@
 
 ## Sfruttare i pool elastici per compilare app multi-tenant più efficienti
 
-Gli sviluppatori di SaaS che scrivono app multi-tenant e gestiscono vari clienti si trovano spesso a dover trovare un equilibrio tra vari compromessi a livello di prestazioni, gestione e sicurezza per i clienti. Con i pool di database elastici del database SQL non è più necessario scendere a compromessi di questo tipo. Questi pool permettono di gestire e monitorare app multi-tenant e di trarre vantaggio dall'isolamento di un cliente per ogni database.
+Gli sviluppatori di SaaS che scrivono app multi-tenant e gestiscono vari clienti si trovano spesso a dover trovare un equilibrio tra vari compromessi a livello di prestazioni, gestione e sicurezza per i clienti. Con i pool di database elastici del database SQL non è più necessario scendere a compromessi di questo tipo. Questi pool permettono di gestire e monitorare app multi-tenant e di ottenere i vantaggi legati all'isolamento di un cliente per database. Vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -47,22 +47,22 @@ I pool Basic, Standard e Premium offrono un'ampia gamma di prestazioni, risorse 
 
 Oltre ai pool elastici, sono disponibili funzionalità del database SQL che permettono di gestire le attività operative in più database:
 
-**Eseguire query tra database e creare report.** Le [query su database elastico](sql-database-elastic-query-overview.md) permettono di eseguire query o report tra database nei pool elastici e di accedere simultaneamente ai dati remoti archiviati in diversi database del pool.
+** Eseguire query tra database e creare report. ** Le [query su database elastico](sql-database-elastic-query-overview.md) permettono di eseguire query o report tra database nel pool elastico e di accedere simultaneamente ai dati remoti archiviati in diversi database del pool.
 
-** Eseguire transazioni tra database.** Le [transazioni di database elastico](sql-database-elastic-transactions-overview.md) permettono di eseguire operazioni e transazioni che comprendono più database nei database SQL, ad esempio durante l'elaborazione di transazioni finanziarie tra database o quando si aggiornano gli ordini e l'inventario in un database.
+** Eseguire transazioni tra database. ** Le [transazioni di database elastico](sql-database-elastic-transactions-overview.md) permettono di eseguire operazioni e transazioni che comprendono più database nei database SQL, ad esempio durante l'elaborazione di transazioni finanziarie tra database o quando si aggiornano gli ordini e l'inventario in un database.
 
-**Eseguire le stesse operazioni in più database.** I [processi di database elastico](sql-database-elastic-jobs-overview.md) eseguono operazioni amministrative come la ricompilazione degli indici o l'aggiornamento degli schemi in ogni database del pool elastico.
+** Eseguire le stesse operazioni in più database. ** I [processi di database elastico](sql-database-elastic-jobs-overview.md) eseguono operazioni amministrative come la ricompilazione degli indici o l'aggiornamento degli schemi in ogni database del pool elastico.
 
 Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
 ## Passaggi successivi
 
-Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
+Creare una [sottoscrizione di Azure gratuita](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
 
 ## Altre informazioni
 
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
  
-Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
+Vedere la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

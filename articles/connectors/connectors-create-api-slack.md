@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usare l'API di Slack nelle app per la logica | Microsoft Azure"
-description="Introduzione all'uso dell'API di Slack (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Usare il connettore Slack nelle app per la logica | Microsoft Azure"
+description="Introduzione all'uso del connettore Slack (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di Slack
+# Introduzione al connettore Slack
 
 Slack è uno strumento di comunicazione del team, che riunisce tutte le comunicazioni del team in un'unica posizione immediatamente disponibile e individuabile in qualsiasi luogo.
 
@@ -42,7 +42,7 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 |--- | ---|
 |PostMessage|Pubblicare un messaggio in un canale specificato.|
 ## Creare una connessione a Slack
-Per usare l'API di Slack, creare prima una **connessione**, quindi specificare i dettagli di queste proprietà:
+Per usare il connettore Slack, creare prima una **connessione**, quindi specificare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
@@ -55,13 +55,10 @@ Seguire questa procedura per accedere a Slack e completare la configurazione del
 3. Selezionare **Add an action** ![Configurare Slack][1]  
 4. Immettere Slack nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Slack nel nome
 5. Selezionare **Slack - Post message**
-6. Selezionare **Sign in to Slack**:
-![Configurare Slack][2]
+6. Selezionare **Sign in to Slack**: ![Configurare Slack][2]
 7. Specificare le credenziali di Slack per accedere e autorizzare l'applicazione ![Configurare Slack][3]  
-8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica:
-![Configurare Slack][5] 
-9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Get all messages**. Aggiungere altri trigger e azioni necessari.
-![Configurare Slack][6]
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica: ![Configurare Slack][5] 
+9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Get all messages**. Aggiungere altri trigger e azioni necessari. ![Configurare Slack][6]
 10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
 
@@ -484,4 +481,4 @@ Nessuna delle proprietà è obbligatoria.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

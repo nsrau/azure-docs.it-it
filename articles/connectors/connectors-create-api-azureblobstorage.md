@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di archiviazione BLOB di Azure alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di archiviazione BLOB di Azure con i parametri dell'API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore di archiviazione BLOB di Azure alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore di archiviazione BLOB di Azure con i parametri dell'API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di archiviazione BLOB di Azure
-Connettersi a un BLOB di Azure per gestire file in un contenitore BLOB, ad esempio la creazione, l'eliminazione di file e così via. L'API di archiviazione BLOB di Azure può essere usata da:
+# Introduzione al connettore di archiviazione BLOB di Azure
+Connettersi a un BLOB di Azure per gestire file in un contenitore BLOB, ad esempio la creazione, l'eliminazione di file e così via. Il connettore di archiviazione BLOB di Azure può essere usato da:
 
 - App per la logica 
 
@@ -38,17 +38,13 @@ L'archiviazione BLOB di Azure include le azioni seguenti. Non sono disponibili t
 | --- | --- |
 | Nessuno. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li></ul> |
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione al BLOB di Azure
-Quando si aggiunge questa API alle app per la logica, immettere i valori di account di archiviazione seguenti:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-|Nome dell'account di archiviazione di Azure | sì | Nome dell'account di archiviazione BLOB|
-|Chiave di accesso dell'account di archiviazione di Azure | sì | Chiave di accesso dell'account di archiviazione BLOB|
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione all'archiviazione BLOB di Azure](../../includes/connectors-create-api-azureblobstorage.md)]
 
-Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nome file o percorso cartella. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di BLOB in altre app per la logica.
  
@@ -57,7 +53,7 @@ Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nom
 Si applica alla versione 1.0.
 
 ### Crea file
-Carica un file locale nell'archivio BLOB di Azure. ```POST: /datasets/default/files```
+Carica un file locale nell'archiviazione BLOB di Azure. ```POST: /datasets/default/files```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -72,7 +68,7 @@ Carica un file locale nell'archivio BLOB di Azure. ```POST: /datasets/default/fi
 |default|Operazione non riuscita.|
 
 ### Copia file
-Copia un file nell'archivio BLOB di Azure. ```POST: /datasets/default/copyFile```
+Copia un file nell'archiviazione BLOB di Azure. ```POST: /datasets/default/copyFile```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -88,7 +84,7 @@ Copia un file nell'archivio BLOB di Azure. ```POST: /datasets/default/copyFile``
 
 
 ### Elimina file
-Elimina un file dall'archivio BLOB di Azure. ```DELETE: /datasets/default/files/{id}```
+Elimina un file dall'archiviazione BLOB di Azure. ```DELETE: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -102,7 +98,7 @@ Elimina un file dall'archivio BLOB di Azure. ```DELETE: /datasets/default/files/
 
 
 ### Estrai archivio in una cartella
-Estrae un file di archivio in una cartella dell'archivio BLOB di Azure, ad esempio con estensione zip. ```POST: /datasets/default/ExtractFolderV2```
+Estrae un file di archivio in una cartella dell'archiviazione BLOB di Azure, ad esempio con estensione zip. ```POST: /datasets/default/ExtractFolderV2```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -118,7 +114,7 @@ Estrae un file di archivio in una cartella dell'archivio BLOB di Azure, ad esemp
 
 
 ### Ottieni contenuto di file
-Recupera i contenuti dei file dall'archivio BLOB di Azure tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera i contenuti dei file dall'archiviazione BLOB di Azure tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -132,7 +128,7 @@ Recupera i contenuti dei file dall'archivio BLOB di Azure tramite ID. ```GET: /d
 
 
 ### Ottieni contenuto di file tramite percorso
-Recupera i contenuti dei file dall'archivio BLOB di Azure tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera i contenuti dei file dall'archiviazione BLOB di Azure tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -146,7 +142,7 @@ Recupera i contenuti dei file dall'archivio BLOB di Azure tramite percorso. ```G
 
 
 ### Ottieni metadati di file
-Recupera i metadati dei file dall'archivio BLOB di Azure tramite l'ID del file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file dall'archiviazione BLOB di Azure tramite l'ID del file. ```GET: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -160,7 +156,7 @@ Recupera i metadati dei file dall'archivio BLOB di Azure tramite l'ID del file. 
 
 
 ### Ottieni metadati di file tramite percorso
-Recupera i metadati dei file dall'archivio BLOB di Azure tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file dall'archiviazione BLOB di Azure tramite il percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -174,7 +170,7 @@ Recupera i metadati dei file dall'archivio BLOB di Azure tramite il percorso. ``
 
 
 ### Aggiorna file
-Aggiorna un file locale nell'archivio BLOB di Azure. ```PUT: /datasets/default/files/{id}```
+Aggiorna un file locale nell'archiviazione BLOB di Azure. ```PUT: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -234,4 +230,4 @@ Aggiorna un file locale nell'archivio BLOB di Azure. ```PUT: /datasets/default/f
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

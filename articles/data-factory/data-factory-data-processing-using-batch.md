@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Orchestrazione di HPC e dati con Azure Batch e Data factory"
-    description="Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch."
+    pageTitle="Orchestrazione di HPC e dati con Azure Batch e Data Factory"
+    description="Descrive come elaborare elevate quantità di dati in una pipeline di Azure Data Factory usando la funzionalità di elaborazione parallela di Azure Batch."
     services="data-factory"
     documentationCenter=""
     authors="spelluru"
@@ -15,17 +15,17 @@
     ms.topic="article"
     ms.date="04/26/2016"
     ms.author="spelluru"/>
-# Orchestrazione di HPC e dati con Azure Batch e Data factory
+# Orchestrazione di HPC e dati con Azure Batch e Data Factory
 
 Questa è una soluzione di esempio che consente di spostare ed elaborare automaticamente set di dati di grandi dimensioni. La soluzione, end-to-end e comprensiva di architettura e codice, è basata su due servizi di Azure. Azure Batch offre HPC come servizio per configurare tutti i computer necessari e per pianificare e coordinare il lavoro. Azure Data Factory, integrato con Batch, semplifica l'orchestrazione dello spostamento dei dati. È possibile specificare spostamenti regolari dei dati per operazioni ETL, elaborare i dati e spostare i risultati in una risorsa di archiviazione permanente.
 
 L'architettura è adatta a molti scenari, ad esempio la modellazione dei rischi per le organizzazioni di servizi finanziari, l'elaborazione e il rendering di immagini e l'analisi genomica.
 
-Prima di eseguire la soluzione di esempio, vedere la documentazione di [Azure Batch](../batch/batch-api-basics.md) e [Data factory](data-factory-introduction.md) se non si ha familiarità con questi servizi.
+Prima di eseguire la soluzione di esempio, vedere la documentazione di [Azure Batch](../batch/batch-api-basics.md) e [Data Factory](data-factory-introduction.md) se non si ha familiarità con questi servizi.
 
 ## Diagramma dell'architettura
 
-Il diagramma illustra 1) in che modo Data factory orchestra l'elaborazione e lo spostamento dei dati e 2) in che modo Azure Batch elabora i dati in modalità parallela. Scaricare e stampare il diagramma per riferimento, 11 x 17 pollici o formato A3: [Orchestrazione di HPC e dati con Azure Batch e Data factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+Il diagramma illustra 1) in che modo Data Factory orchestra l'elaborazione e lo spostamento dei dati e 2) in che modo Azure Batch elabora i dati in modalità parallela. Scaricare e stampare il diagramma per riferimento, 11 x 17 pollici o formato A3: [Orchestrazione di HPC e dati con Azure Batch e Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
 ![Diagramma dell'HPC come servizio](./media/data-factory-data-processing-using-batch/image1.png)
 
@@ -33,23 +33,23 @@ Questi sono i passaggi di base del processo. La soluzione include il codice e le
 
 1.  Configurare Azure Batch con un pool di nodi di calcolo (macchine virtuali). È possibile specificare il numero di nodi e le dimensioni di ogni nodo.
 
-2.  Creare un'istanza di Data factory di Azure configurata con le entità che rappresentano l'archivio BLOB di Azure, il servizio di calcolo di Azure Batch, i dati di input/output e una pipeline o un flusso di lavoro con attività per lo spostamento e la trasformazione dei dati.
+2.  Creare un'istanza di Data Factory di Azure configurata con le entità che rappresentano l'archivio BLOB di Azure, il servizio di calcolo di Azure Batch, i dati di input/output e una pipeline o un flusso di lavoro con attività per lo spostamento e la trasformazione dei dati.
 
-3.  La pipeline di Data factory include un'attività .NET personalizzata, configurata per l'esecuzione nel pool di nodi di Azure Batch.
+3.  La pipeline di Data Factory include un'attività .NET personalizzata, configurata per l'esecuzione nel pool di nodi di Azure Batch.
 
 4.  Archiviare grandi quantità di dati di input come BLOB nell'archiviazione di Azure. I dati vengono divisi in sezioni logiche, in genere in base al tempo.
 
-5.  Data factory copia i dati che saranno elaborati in parallelo nella località secondaria.
+5.  Data Factory copia i dati che saranno elaborati in parallelo nella località secondaria.
 
-6.  Data factory esegue l'attività personalizzata usando il pool allocato da Batch. Data factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nell'archiviazione di Azure.
+6.  Data Factory esegue l'attività personalizzata usando il pool allocato da Batch. Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nell'archiviazione di Azure.
 
-7.  Una volta ottenuti tutti i risultati, Data factory li sposta in una terza località per la distribuzione tramite un'app o per un'ulteriore elaborazione con altri strumenti.
+7.  Una volta ottenuti tutti i risultati, Data Factory li sposta in una terza località per la distribuzione tramite un'app o per un'ulteriore elaborazione con altri strumenti.
 
 ## Soluzione di architettura
 
 La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce il numero in file di output.
 
-**Tempo**: se si ha familiarità con Azure Data factory e Batch e sono stati completati i prerequisiti, si stima che il completamento di questa soluzione richieda 1-2 ore.
+**Tempo**: se si ha familiarità con Azure Data Factory e Batch e sono stati completati i prerequisiti, si stima che il completamento di questa soluzione richieda 1-2 ore.
 
 ## Prerequisiti
 
@@ -59,14 +59,14 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 3.  Creare un **account di Azure Batch** tramite il [portale di Azure](http://manage.windowsazure.com/). Vedere [Creare e gestire un account Azure Batch nel portale di Azure](../batch/batch-account-create-portal.md). Annotare il nome e la chiave dell'account Azure Batch. È anche possibile usare il cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) per creare un account Azure Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Azure Batch](../batch/batch-powershell-cmdlets-get-started.md).
 
-    Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Azure Batch indirettamente tramite una pipeline di Data factory di Azure.
+    Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Azure Batch indirettamente tramite una pipeline di Azure Data Factory.
 
 4.  Creare un **pool di Azure Batch** con almeno 2 nodi di calcolo.
 	1.  Nel menu a sinistra del [portale di Azure](https://portal.azure.com) fare clic su **Sfoglia** e quindi su **Account Batch**. 
 	2. Selezionare il proprio account Azure Batch per aprire il pannello **Account Batch**. 
 	3. Fare clic sul riquadro **Pool**.
 	4. Nel pannello **pool** fare clic sul pulsante Aggiungi nella barra degli strumenti per aggiungere un pool.
-		1. Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data factory. 
+		1. Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data Factory. 
 		2. Specificare **Windows Server 2012 R2** per l'impostazione Famiglia di sistemi operativi.
 		3. Selezionare un **piano tariffario per il nodo**. 
 		3. Immettere **2** come valore per l'impostazione **Pool dedicati di destinazione**.
@@ -95,11 +95,11 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 	3.  Creare un altro contenitore denominato: **customactivitycontainer**. Si caricherà il file ZIP dell'attività personalizzata in questo contenitore.
 
-6.  **Microsoft Visual Studio 2012 o versione successiva**, per creare l'attività Batch personalizzata da usare nella soluzione Data factory.
+6.  **Microsoft Visual Studio 2012 o versione successiva**, per creare l'attività Batch personalizzata da usare nella soluzione Data Factory.
 
 ## Passaggi generali per creare la soluzione
 
-1.  Creare un'attività personalizzata da usare nella soluzione Data factory. L'attività personalizzata contiene la logica di elaborazione dei dati.
+1.  Creare un'attività personalizzata da usare nella soluzione Data Factory. L'attività personalizzata contiene la logica di elaborazione dei dati.
 
     1.  In Visual Studio (o in un editor di codice a scelta) creare un progetto della libreria di classi .NET, aggiungere il codice per l'elaborazione dei dati di input e compilare il progetto.
 
@@ -111,7 +111,7 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 2.  Creare una data factory di Azure che usa l'attività personalizzata:
 
-    1.  Creare un'istanza di Data factory di Azure.
+    1.  Creare un'istanza di Azure Data Factory.
 
     2.  Creare servizi collegati.
 
@@ -135,9 +135,9 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 ## Creare l'attività personalizzata
 
-L'attività personalizzata di Data factory è il fulcro della soluzione di esempio. La soluzione di esempio usa Azure Batch per eseguire l'attività personalizzata. Per informazioni di base su come sviluppare attività personalizzate e usarle in una pipeline di Data factory di Azure, vedere [Usare attività personalizzate in una pipeline di Data factory di Azure](data-factory-use-custom-activities.md).
+L'attività personalizzata di Data Factory è il fulcro della soluzione di esempio. La soluzione di esempio usa Azure Batch per eseguire l'attività personalizzata. Per informazioni di base su come sviluppare attività personalizzate e usarle in una pipeline di Azure Data Factory, vedere [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
 
-Per creare un'attività personalizzata .NET da usare in una pipeline di Data factory di Azure, è necessario creare un progetto della **libreria di classi .NET** con una classe che implementa l'interfaccia **IDotNetActivity**. Questa interfaccia ha un solo metodo, **Execute**. Questa è la firma del metodo:
+Per creare un'attività personalizzata .NET da usare in una pipeline di Azure Data Factory, è necessario creare un progetto della **libreria di classi .NET** con una classe che implementa l'interfaccia **IDotNetActivity**. Questa interfaccia ha un solo metodo, **Execute**. Questa è la firma del metodo:
 
 	public IDictionary<string, string> Execute(
 	            IEnumerable<LinkedService> linkedServices,
@@ -466,7 +466,7 @@ Ad esempio, rilasciare un file, file.txt, con il contenuto seguente in ognuna de
 
 	test custom activity Microsoft test custom activity Microsoft
 
-Ogni cartella di input corrisponde a una sezione in Data factory di Azure, anche se la cartella contiene 2 o più file. Quando ogni sezione viene elaborata dalla pipeline, l'attività personalizzata esegue l'iterazione di tutti i BLOB nella cartella di input per tale sezione.
+Ogni cartella di input corrisponde a una sezione in Azure Data Factory, anche se la cartella contiene 2 o più file. Quando ogni sezione viene elaborata dalla pipeline, l'attività personalizzata esegue l'iterazione di tutti i BLOB nella cartella di input per tale sezione.
 
 Verranno visualizzati cinque file di output con lo stesso contenuto. Ad esempio, il file di output generato dall'elaborazione del file nella cartella 2015-11-16-00 avrà il contenuto seguente:
 
@@ -493,9 +493,9 @@ La procedura dettagliata seguente fornisce dettagli aggiuntivi.
 
     2.  Fare clic su **Dati e analisi** nel pannello **Nuovo**.
 
-    3.  Fare clic su **Data factory** nel pannello **Analisi dei dati**.
+    3.  Fare clic su **Data Factory** nel pannello **Analisi dei dati**.
 
-2.  Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
+2.  Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
 
 3.  Fare clic su **NOME DEL GRUPPO DI RISORSE** e selezionare un gruppo di risorse esistente o crearne uno nuovo.
 
@@ -515,7 +515,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 #### Creare il servizio collegato Archiviazione di Azure
 
-1.  Fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **CustomActivityFactory**. Verrà avviato l'editor di Data factory.
+1.  Fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **CustomActivityFactory**. Verrà avviato l'editor di Data Factory.
 
 2.  Fare clic su **Nuovo archivio dati** sulla barra dei comandi e scegliere **Archiviazione di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure.
 
@@ -529,7 +529,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 #### Creare il servizio collegato Azure Batch
 
-In questo passaggio si creerà un servizio collegato per l'account **Azure Batch** che verrà usato per eseguire l'attività personalizzata di Data factory.
+In questo passaggio si creerà un servizio collegato per l'account **Azure Batch** che verrà usato per eseguire l'attività personalizzata di Data Factory.
 
 1.  Fare clic su **Nuovo calcolo** sul barra dei comandi e scegliere **Azure Batch**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Azure Batch.
 
@@ -561,7 +561,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 #### Creare set di dati di input
 
-1.  Nell'**Editor** per la Data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
+1.  Nell'**Editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
 
 2.  Sostituire il codice JSON nel riquadro a destra con il frammento JSON seguente.
 
@@ -650,7 +650,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 In questo passaggio si creerà un altro set di dati di tipo AzureBlob per rappresentare i dati di output.
 
-1.  Nell'**Editor** per la Data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
+1.  Nell'**Editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
 
 2.  Sostituire il codice JSON nel riquadro a destra con il frammento JSON seguente.
 
@@ -702,7 +702,7 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 > [AZURE.IMPORTANT] Prima di creare la pipeline, caricare il **file.txt** nelle cartelle di input nel contenitore BLOB, se ancora non è stato fatto. La proprietà **isPaused** è impostata su false nello script JSON della pipeline, quindi la pipeline verrà eseguita immediatamente non appena sarà trascorsa la data di **inizio**.
 
-1.  Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo.
+1.  Nell'editor di Data Factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo.
 
 2.  Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente.
 
@@ -754,19 +754,19 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 	-   **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di \<spazio dei nomi\>.\<nomeclasse\> nel codice.
+	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di <spazio dei nomi>.<nomeclasse> nel codice.
 
 	-   **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato lo stesso account di archiviazione di Azure.
 
-	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: \<contenitoreperlozip\>/\<nomedellozip.zip\>.
+	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: <contenitoreperlozip>/<nomedellozip.zip>.
 
 	-   L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
 
-	-   La proprietà **linkedServiceName** dell'attività personalizzata punta ad **AzureBatchLinkedService** per indicare a Data factory di Azure che l'attività personalizzata deve essere eseguita in Azure Batch.
+	-   La proprietà **linkedServiceName** dell'attività personalizzata punta ad **AzureBatchLinkedService** per indicare ad Azure Data Factory che l'attività personalizzata deve essere eseguita in Azure Batch.
 
 	-   L'impostazione **concurrency** è importante. Se si usa il valore predefinito 1, le sezioni vengono elaborate una dopo l'altra, anche se sono disponibili 2 o più nodi di calcolo nel pool di Azure Batch. In questo modo non si sfrutterà la funzionalità di elaborazione parallela di Azure Batch. Se si imposta **concurrency** su un valore superiore, ad esempio 2, potranno essere elaborate contemporaneamente 2 sezioni (corrispondenti a 2 attività in Azure Batch), utilizzando in questo caso entrambe le VM nel pool di Azure Batch. Impostare quindi correttamente la proprietà concurrency.
 
-	-   Per impostazione predefinita, viene eseguita solo un'attività (sezione) in una VM in qualsiasi momento. Questo avviene perché, per impostazione predefinita, il **numero massimo di attività per ogni VM** è impostato su 1 per un pool di Azure Batch. Come parte dei prerequisiti è stato creato un pool con questa proprietà impostata su 2, per poter eseguire contemporaneamente due sezioni di Data factory in una VM.
+	-   Per impostazione predefinita, viene eseguita solo un'attività (sezione) in una VM in qualsiasi momento. Questo avviene perché, per impostazione predefinita, il **numero massimo di attività per ogni VM** è impostato su 1 per un pool di Azure Batch. Come parte dei prerequisiti è stato creato un pool con questa proprietà impostata su 2, per poter eseguire contemporaneamente due sezioni di Data Factory in una VM.
 
 
 	-   La proprietà **isPaused** è impostata su false per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su true per sospendere la pipeline e reimpostarla su false per riavviare la pipeline.
@@ -779,7 +779,7 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di input. Iniziare testando la pipeline con un file per una cartella di input.
 
-1.  Nel pannello Data factory del portale di Azure fare clic su **Diagramma**.
+1.  Nel pannello Data Factory del portale di Azure fare clic su **Diagramma**.
 
     ![](./media/data-factory-data-processing-using-batch/image10.png)
 
@@ -797,7 +797,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Usare [Azure Batch Explorer](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) per visualizzare le **attività** associate alle **sezioni** e vedere in quale VM viene eseguita ogni sezione. Si noterà che viene creato un processo con il nome **adf-<nomepool>**. Questo processo avrà un'attività per ogni sezione. In questo esempio ci sono 5 sezioni, quindi 5 attività in Azure Batch. Con la proprietà **concurrency** impostata su **5** nello script JSON della pipeline in Data factory di Azure e il **numero massimo di attività per ogni VM** impostato su **2** nel pool di Azure Batch con **2** VM, le attività sono state eseguite molto velocemente. Vedere l'ora in **Created**.
+6.  Usare [Azure Batch Explorer](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) per visualizzare le **attività** associate alle **sezioni** e vedere in quale VM viene eseguita ogni sezione. Si noterà che viene creato un processo con il nome **adf-<nomepool>**. Questo processo avrà un'attività per ogni sezione. In questo esempio ci sono 5 sezioni, quindi 5 attività in Azure Batch. Con la proprietà **concurrency** impostata su **5** nello script JSON della pipeline in Azure Data Factory e il **numero massimo di attività per ogni VM** impostato su **2** nel pool di Azure Batch con **2** VM, le attività sono state eseguite molto velocemente. Vedere l'ora in **Created**.
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
 
@@ -834,7 +834,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 
     **Nota:** se il file di output 2015-11-16-01.txt non è stato eliminato prima di provare con 5 file di input, si vedrà una riga della precedente esecuzione della sezione e cinque righe dell'esecuzione attuale della sezione. Per impostazione predefinita, il contenuto viene aggiunto ai file di output, se esiste già.
 
-### Eseguire il debug della pipeline
+## Eseguire il debug della pipeline
 
 Il debug è costituito da alcune tecniche di base:
 
@@ -876,11 +876,14 @@ Il debug è costituito da alcune tecniche di base:
 
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
-    **Nota:** verrà visualizzato un **contenitore** nell'archivio BLOB di Azure denominato **adfjobs**. Questo contenitore non viene eliminato automaticamente, ma è possibile farlo senza problemi dopo aver completato il test della soluzione. Analogamente, la soluzione Data factory crea un **processo** di Azure Batch denominato **adf-<ID pool/nome>:job-0000000001**. Dopo aver eseguito il test della soluzione, è possibile eliminare questo processo se necessario.
+    **Nota:** verrà visualizzato un **contenitore** nell'archivio BLOB di Azure denominato **adfjobs**. Questo contenitore non viene eliminato automaticamente, ma è possibile farlo senza problemi dopo aver completato il test della soluzione. Analogamente, la soluzione Data Factory crea un **processo** di Azure Batch denominato **adf-<ID pool/nome>:job-0000000001**. Dopo aver eseguito il test della soluzione, è possibile eliminare questo processo se necessario.
+7. L'attività personalizzata non usa il file **app.config** del pacchetto. Di conseguenza, se il codice legge qualsiasi stringa di connessione dal file di configurazione, l'attività non funzionerà in fase di esecuzione. La procedura consigliata quando si usa Azure Batch è inserire tutte le chiavi private in un **insieme di credenziali delle chiavi di Azure**, usare un'entità servizio basata su certificato per proteggere l'insieme di credenziali e distribuire il certificato al pool di Azure Batch. L'attività personalizzata .NET può quindi accedere alle chiavi private dall'insieme di credenziali delle chiavi in fase di esecuzione. Si tratta di una soluzione generica e scalabile per qualsiasi tipo di chiave privata, non solo per una stringa di connessione.
+
+	Esiste una soluzione più semplice, ma non consigliata: è possibile creare un nuovo **servizio collegato SQL Azure** con le impostazioni della stringa di connessione, creare un set di dati che usa il servizio collegato e concatenare tale set di dati come set di dati di input fittizio all'attività .NET personalizzata. È quindi possibile accedere alla stringa di connessione del servizio collegato nel codice dell'attività personalizzata, che dovrebbe funzionare correttamente in fase di esecuzione.
 
 ### Estendere l'esempio
 
-È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Data factory di Azure e Azure Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
+È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Azure Data Factory e Azure Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
 
 1.  Aggiungere le sottocartelle seguenti nella cartella **inputfolder**: 2015-11-16-05, 2015-11-16-06, 07-201-11-16, 2011-11-16-08, 09-2015-11-16 e inserirvi i file di input. Modificare l'ora di fine per la pipeline da 2015-11-16T05.00.00Z in 2015-11-16T10.00.00Z. Nel **Vista diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è Ready, controllare i file di output in outputfolder.
 
@@ -915,13 +918,13 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
 ## Riferimenti
 
--   [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/)
+-   [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-    -   [Introduzione al servizio Data factory di Azure](data-factory-introduction.md)
+    -   [Introduzione al servizio Azure Data Factory](data-factory-introduction.md)
 
-    -   [Introduzione a Data factory di Azure](data-factory-build-your-first-pipeline.md)
+    -   [Introduzione ad Azure Data Factory](data-factory-build-your-first-pipeline.md)
 
-    -   [Usare attività personalizzate in una pipeline di Data factory di Azure](data-factory-use-custom-activities.md)
+    -   [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md)
 
 -   [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
@@ -937,4 +940,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

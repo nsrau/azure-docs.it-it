@@ -116,12 +116,14 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
 * Domande e problemi:
  * [Risoluzione dei problemi][qna]
- * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
+ * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bug:
  * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggerimenti:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+* Blog:
+ * [Blog di Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
 
 ## Video
@@ -155,4 +157,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

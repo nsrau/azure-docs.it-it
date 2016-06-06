@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Topologie per Azure AD Connect
@@ -21,16 +21,16 @@ L'obiettivo di questo argomento consiste nell'illustrare le diverse topologie lo
 
 Legenda per le immagini del documento:
 
-| Descrizione | Icona |
-|-----|-----|
-| Foresta locale di Active Directory | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory con importazione con filtri | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Server di sincronizzazione di Azure AD Connect | ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| Server di sincronizzazione di Azure AD Connect in "Modalità di gestione temporanea" | ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync con FIM2010 o MIM2016 | ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Dettagli relativi al server di sincronizzazione di Azure AD Connect |![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Directory di Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Scenario non supportato | ![Non supportato](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Descrizione | Icona
+-----|-----
+Foresta locale di Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory con importazione con filtri| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Server di sincronizzazione di Azure AD Connect| ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+Server di sincronizzazione di Azure AD Connect in "Modalità di gestione temporanea"| ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync con FIM2010 o MIM2016| ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Dettagli relativi al server di sincronizzazione di Azure AD Connect| ![Sincronizzazione](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Directory di Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Scenario non supportato | ![Non supportato](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Foresta singola, singola directory di Azure AD
@@ -116,10 +116,10 @@ In questo scenario una o più **foreste risorse** considerano attendibili tutte 
 ## Considerazioni su Office 365 e sulle topologie
 Alcuni carichi di lavoro di Office 365 prevedono determinate restrizioni per le topologie supportate. Se si prevede di farne uso, vedere l'argomento relativo alle topologie supportate per il carico di lavoro.
 
-| Carico di lavoro | |
-| --------- | --------- |
-| Exchange Online |	Se sono presenti più organizzazioni di Exchange locali, ovvero Exchange è stato distribuito in più di una foresta, sarà necessario usare Exchange 2013 SP1 o versione successiva. Informazioni dettagliate sono disponibili nella pagina [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/it-IT/library/jj873754.aspx) |
-| Skype for Business Online | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Informazioni dettagliate per le topologie supportate sono disponibili nella pagina [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/it-IT/library/dn933910.aspx) |
+Carico di lavoro |  
+--------- | ---------
+Exchange Online | Se sono presenti più organizzazioni di Exchange locali, ovvero Exchange è stato distribuito in più di una foresta, sarà necessario usare Exchange 2013 SP1 o versione successiva. Informazioni dettagliate sono disponibili nella pagina [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
+Skype for Business Online | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Informazioni dettagliate per le topologie supportate sono disponibili nella pagina [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
 
 ## Server di gestione temporanea
 ![Server di gestione temporanea](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -135,9 +135,9 @@ Per avere a disposizione più backup in data center diversi è possibile avere p
 ## Più directory di Azure AD
 È consigliabile che in Azure AD sia presente una singola directory per un'organizzazione. Prima di valutare l'uso di più directory di Azure AD, esaminare gli scenari comuni illustrati in questi argomenti, che consentono di usare una singola directory.
 
-| Argomento | |
-| --------- | --------- |
-| Delega mediante le unità amministrative | [Gestione delle unità amministrative in Azure AD](active-directory-administrative-units-management.md)
+Argomento |  
+--------- | ---------
+Delega mediante le unità amministrative | [Gestione delle unità amministrative in Azure AD](active-directory-administrative-units-management.md)
 
 ![Più foreste, più directory](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
@@ -261,4 +261,4 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

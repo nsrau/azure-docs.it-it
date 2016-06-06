@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Aggiungere l'API di Google Drive a PowerApps o app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Google Drive con i parametri dell'API REST."
-	services=""
+    pageTitle="Aggiungere il connettore Google Drive a PowerApps o alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Google Drive con i parametri dell'API REST."
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di Google Drive
-Connettersi a Google Drive per creare file, recuperare righe e così via. L'API di Google Drive può essere usata da:
+# Introduzione all'API Google Drive
+Connettersi a Google Drive per creare file, recuperare righe e così via. Il connettore Google Drive può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -32,9 +32,9 @@ Con Google Drive è possibile:
 
 - Creare il flusso aziendale in base ai dati ottenuti dalla ricerca. 
 - Usare azioni per cercare immagini, notizie e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. È ad esempio possibile cercare un video e quindi usare Twitter per pubblicarlo in un feed Twitter.
-- Aggiungere l'API di Google Drive a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Google Drive a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,15 +46,14 @@ Trigger | Azioni
 --- | ---
 Nessuno | <ul><li>Crea file</li><li>Inserisci riga</li><li>Copia file</li><li>Elimina file</li><li>Elimina riga</li><li>Estrai archivio in una cartella </li><li>Ottieni contenuto di file tramite ID</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file tramite ID</li><li>Ottieni metadati di file tramite percorso</li><li>Ottieni riga</li><li>Aggiorna file</li><li>Aggiorna riga</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 
 ## Creare una connessione a Google Drive
 
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Google Drive.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Google Drive.
 
-1. Accedere all'account Google Drive.
-2. Consentire alle app per la logica di connettersi e usare Google Drive. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Google Drive](../../includes/connectors-create-api-googledrive.md)]
 
 Dopo aver creato la connessione immettere le proprietà di Google Drive, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
@@ -356,4 +355,4 @@ Tornare all'[elenco di API](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

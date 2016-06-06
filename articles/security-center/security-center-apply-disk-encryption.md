@@ -41,7 +41,7 @@ Per crittografare le macchine virtuali di Azure che in base al Centro sicurezza 
 
 L'articolo [Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) illustrerà la procedura. Questo articolo presuppone l'uso di Windows 10 nel computer client da cui si esegue la configurazione di crittografia dischi.
 
-L'installazione dei prerequisiti e la configurazione della crittografia per le macchine virtuali di Azure possono essere eseguite in diversi modi. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni sugli altri approcci, vedere [Azure Disk Encryption](../azure-security-disk-encryption.md).
+L'installazione dei prerequisiti e la configurazione della crittografia per le macchine virtuali di Azure possono essere eseguite in diversi modi. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni su altri approcci, vedere [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md).
 
 
 
@@ -51,7 +51,7 @@ In questo documento è stato illustrato come implementare la raccomandazione "Ap
 
 - [Crittografia e gestione delle chiavi con l'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 minuti 39 secondi): informazioni su come usare la gestione della crittografia dischi per le VM IaaS e l'insieme di credenziali delle chiavi di Azure per proteggere e salvaguardare i dati.
 - [Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) (documento): informazioni su come crittografare le macchine virtuali di Azure.
-- [Azure disk encryption](../azure-security-disk-encryption.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
+- [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
@@ -67,4 +67,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

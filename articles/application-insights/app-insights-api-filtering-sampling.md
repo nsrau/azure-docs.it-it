@@ -3,7 +3,7 @@
 	description="Scrivere plug-in per l'SDK per filtrare, campionare o aggiungere proprietà ai dati prima che la telemetria venga inviata al portale di Application Insights." 
 	services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
+	authors="beckylino" 
 	manager="douge"/>
  
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="awills"/>
+	ms.date="05/19/2016" 
+	ms.author="borooji"/>
 
 # Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -30,13 +30,10 @@ Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 
 Prima di iniziare:
 
-* Installare nell'app [Application Insights SDK](app-insights-asp-net.md), Installare manualmente i pacchetti NuGet e selezionare la versione *preliminare* più recente.
-* Provare l'[API Application Insights](app-insights-api-custom-events-metrics.md). 
+* Installare [Application Insights SDK per ASP.NET v2](app-insights-asp-net.md) nell'app. 
 
 
 ## Campionamento
-
-*Questa funzionalità è nella versione beta.*
 
 Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
 
@@ -92,7 +89,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 ### Creare un processore di telemetria
 
-1. Aggiornamento di Application Insights SDK alla versione più recente (2.0.0 Beta 2 o versione successiva). Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
+1. Verificare che la versione di Application Insights SDK usata nel progetto sia 2.0.0 o successiva. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni di Visual Studio e scegliere Gestisci pacchetti NuGet. In Gestione pacchetti NuGet selezionare Microsoft.ApplicationInsights.Web.
 
 1. Per creare un filtro, implementare ITelemetryProcessor, un altro punto di estendibilità come il modulo di telemetria, l'inizializzatore di telemetria e il canale di telemetria.
 
@@ -239,6 +236,11 @@ public void Process(ITelemetry item)
 }
 
 ```
+
+#### Diagnosticare i problemi di dipendenza
+
+[Questo blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descrive un progetto per la diagnosi dei problemi di dipendenza basata sull'invio automatico di normali ping alle dipendenze.
+
 
 <a name="add-properties"></a>
 ## Aggiungere proprietà: ITelemetryInitializer
@@ -419,4 +421,4 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

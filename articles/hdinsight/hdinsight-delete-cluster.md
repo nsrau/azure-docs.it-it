@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/07/2016"
+ms.date="05/20/2016"
 ms.author="larryfr"/>
 
 #Come eliminare un cluster HDInsight
@@ -34,8 +34,6 @@ La fatturazione del cluster HDInsight è calcolata al minuto, inizia dopo che il
 
 ##Azure PowerShell
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 Da un prompt di PowerShell, usare il comando seguente per eliminare il cluster:
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
@@ -44,12 +42,10 @@ Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
 ##Interfaccia della riga di comando di Azure
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 Da un prompt, usare il comando seguente per eliminare il cluster:
 
     azure hdinsight cluster delete CLUSTERNAME
     
 Sostituire __CLUSTERNAME__ con il nome del cluster HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

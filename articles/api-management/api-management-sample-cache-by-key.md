@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/19/2016"
+	ms.date="05/25/2016"
 	ms.author="v-darmi"/>
 
 # Memorizzazione nella cache personalizzata in Gestione API di Azure
@@ -245,4 +245,4 @@ La libertà di usare la cache di Gestione API di Azure per archiviare qualsiasi 
 ## Passaggi successivi
 Se questi criteri hanno permesso di abilitare altri scenari o se si vuole realizzare scenari non ancora disponibili, è possibile lasciare i propri commenti e suggerimenti nel thread Disqus di questo argomento.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

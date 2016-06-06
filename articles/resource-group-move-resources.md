@@ -32,7 +32,7 @@ Non è possibile modificare il percorso della risorsa. Lo spostamento di una ris
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
 1. Il servizio deve supportare lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui [servizi che supportano lo spostamento di risorse](#services-that-support-move).
-2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indicherà che **la sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services/#resource-providers-and-types).
+2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indicherà che **la sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Se si usa Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
 4. Prima di spostare un'app del Servizio app è consigliabile leggere [Limitazioni del servizio app](#app-service-limitations).
 5. Prima di spostare risorse distribuite con il modello classico è consigliabile leggere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
@@ -48,6 +48,7 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - RETE CDN
 - Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
 - Data factory
+- DNS
 - DocumentDB
 - Cluster HDInsight
 - Insieme di credenziali di chiave
@@ -57,9 +58,9 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Cache Redis
 - Utilità di pianificazione
 - Search
-- Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
+- Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
-- Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
+- Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 
 ## Servizi che supportano parzialmente lo spostamento
 
@@ -75,7 +76,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 - Express Route
 - Archiviazione
 - Macchine virtuali
-- Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
+- Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 
 ## Limitazioni del servizio app
 
@@ -88,8 +89,8 @@ Se il gruppo di risorse originale include anche una risorsa Application Insights
 
 Se ad esempio il gruppo di risorse contiene:
 
-- **web-a** associata con **plan-a** e **app-insights-a**
-- **web-b** associata con **plan-b** e **app-insights-b**
+- **web-a** che è associata a **plan-a** e **app-insights-a**
+- **web-b** associata a **plan-b** e **app-insights-b**
 
 Le opzioni possibili sono:
 
@@ -108,14 +109,14 @@ Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servi
 
 Per ottenere questo risultato è necessario eseguire due operazioni di spostamento distinte nell'ordine che segue:
 
-1. Spostare **web-a** a **plan-group**
-2. Spostare **web-a** e **plan-a** a **combined-group**.
+1. Spostare **web-a** in **plan-group**
+2. Spostare **web-a** e **plan-a** in **combined-group**.
 
 ## Limitazioni della distribuzione classica
 
 Le opzioni per lo spostamento delle risorse distribuite con il modello classico variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
-Quando si spostano risorse da un gruppo di risorse a un altro **nella stessa sottoscrizione** sono valide le restrizioni seguenti:
+Quando si spostano risorse da un gruppo di risorse a un altro **nella stessa sottoscrizione**, sono valide le restrizioni seguenti:
 
 - Le reti virtuali (classiche) non possono essere spostate.
 - Le macchine virtuali (classiche) devono essere spostate con il servizio cloud. 
@@ -169,7 +170,7 @@ Per spostare in un nuovo gruppo risorse distribuite con il modello classico è p
 
 ![Spostare le risorse classiche](./media/resource-group-move-resources/edit-rg-icon.png)
 
-Selezionare le risorse da spostare tenendo presenti le [limitazioni della distribuzione classica](#classic-deployment-limitations). Selezionare **OK** per avviare lo spostamento.
+Selezionare le risorse da spostare tenendo presenti le [Limitazioni della distribuzione classica](#classic-deployment-limitations). Selezionare **OK** per avviare lo spostamento.
 
  ![Selezionare le risorse classiche](./media/resource-group-move-resources/select-classic-resources.png)
  
@@ -266,9 +267,9 @@ con il seguente corpo della richiesta:
 
 
 ## Passaggi successivi
-- Per informazioni sui cmdlet PowerShell per la gestione della sottoscrizione vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
-- Per informazioni sull'interfaccia della riga di comando di Azure per la gestione della sottoscrizione vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](xplat-cli-azure-resource-manager.md).
-- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per gestire le risorse](./azure-portal/resource-group-portal.md).
-- Per informazioni sull'organizzazione logica delle risorse vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
+- Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
+- Per informazioni sull'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

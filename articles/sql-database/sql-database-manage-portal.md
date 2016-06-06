@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestire i database SQL di Azure tramite il portale di Azure classico"
-	description="Informazioni su come utilizzare il portale di Azure classico per gestire un database relazionale nel cloud tramite il portale di Azure classico."
+	pageTitle="Gestire database SQL di Azure mediante il portale di Azure"
+	description="Informazioni su come usare il portale di Azure per gestire un database relazionale nel cloud tramite il portale di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
 
 - [Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

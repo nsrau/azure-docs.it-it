@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure (GoDaddy)"
-	description="Informazioni su come usare un nome di dominio di GoDaddy con App Web di Azure"
+	description="Informazioni su come usare un nome di dominio di GoDaddy con le app Web di Azure"
 	services="app-service"
 	documentationCenter=""
 	authors="erikre"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure (acquistato direttamente da GoDaddy)
 
@@ -34,7 +34,7 @@ Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio per
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 <a name="bkmk_configurecname"></a>
-## Aggiungere un record DNS per il dominio personalizzato
+## Aggiunta di un record DNS per il dominio personalizzato
 
 Per associare il dominio personalizzato a un'app Web nel servizio app, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti da GoDaddy. Per individuare gli strumenti DNS per GoDaddy.com, attenersi alla procedura seguente
 
@@ -54,11 +54,11 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 4. Per aggiungere un record, è necessario innanzitutto selezionare un tipo di record.
 
-	![selezionare il tipo di record](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
+	![select record type](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
 
 	Quindi, è necessario specificare l'**Host** (il dominio o il sottodominio personalizzato) e l'opzione **Punta a**.
 
-	![aggiungere un record di zona](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
+	![add zone record](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
 	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su ****@**** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** sull'indirizzo IP dell'app Web di Azure.
 
@@ -72,7 +72,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Fine** per salvare le modifiche.
 
 <a name="enabledomain"></a>
-## Abilitare il nome del dominio nell'app Web
+## Abilitazione del nome del dominio nell'app Web
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
@@ -81,4 +81,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0525_2016-->

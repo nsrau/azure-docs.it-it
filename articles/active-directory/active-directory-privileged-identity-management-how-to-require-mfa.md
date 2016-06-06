@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Come richiedere l'autenticazione MFA in Azure AD Privileged Identity Management
@@ -26,7 +26,7 @@
 
 ## Richiedere l'MFA in Azure AD Privileged Identity Management
 
-Quando si gestiscono le identità in PIM come amministratore della sicurezza, è possibile che vengano visualizzati avvisi che consigliano l'autenticazione MFA per gli account con privilegi. Fare clic sull'avviso di sicurezza nel dashboard di PIM. Verrà visualizzato un nuovo pannello con un elenco degli account amministratore che devono richiedere l'autenticazione MFA. È possibile richiedere l'autenticazione MFA selezionando più ruoli e quindi facendo clic sul pulsante **Correggi** oppure è possibile fare clic sui puntini di sospensione accanto ai singoli ruoli e quindi fare clic sul pulsante **Correggi**.
+Quando si gestiscono le identità in PIM come amministratore dei ruoli con privilegi, è possibile che vengano visualizzati avvisi che consigliano l'autenticazione MFA per gli account con privilegi. Fare clic sull'avviso di sicurezza nel dashboard di PIM. Verrà visualizzato un nuovo pannello con un elenco degli account amministratore che devono richiedere l'autenticazione MFA. È possibile richiedere l'autenticazione MFA selezionando più ruoli e quindi facendo clic sul pulsante **Correggi** oppure è possibile fare clic sui puntini di sospensione accanto ai singoli ruoli e quindi fare clic sul pulsante **Correggi**.
 
 > [AZURE.IMPORTANT] Poiché gli account Microsoft, ad esempio @outlook.com, @live.com oppure @hotmail.com, non sono attualmente supportati per la registrazione per Azure MFA, non saranno consentiti come amministratori temporanei per ruoli con privilegi elevati. Se gli utenti devono continuare a gestire i carichi di lavoro usando un account Microsoft, convertirli in amministratori permanenti per il momento.
 
@@ -45,4 +45,4 @@ In alternativa, se gli utenti eseguono l'autenticazione in locale, è possibile 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/25/2016"
    ms.author="seanmck"/>
 
 # Ripristino di emergenza in Azure Service Fabric
@@ -38,7 +38,7 @@ Per impostazione predefinita, le VM nel cluster vengono distribuite uniformement
 
 ### Distribuzione geografica
 
-Esistono attualmente 22 aree di Azure in tutto il mondo, più altre 5 già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
+Esistono attualmente [25 aree di Azure in tutto il mondo][azure-regions], più diverse altre già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
 
 ## Gestione degli errori
 
@@ -56,9 +56,9 @@ Di solito il cluster continua a funzionare fintanto che la maggioranza dei nodi 
 
 #### Perdita del quorum
 
-Se la maggioranza delle repliche della partizione di un servizio con stato si blocca, la partizione passerà a uno stato di "perdita del quorum". A quel punto, Service Fabric bloccherà le operazioni di scrittura sulla partizione per garantire che la partizione rimanga coerente e affidabile. È stato scelto infatti di accettare un periodo di indisponibilità per fare in modo che ai client non venga comunicato che i dati sono stati salvati se in realtà non è così. Tenere presente che, se è stato scelto di consentire le letture dalle repliche secondarie per il servizio con stato, sarà possibile continuare a eseguire le operazioni di lettura in questo stato. Una partizione mantiene lo stato di perdita del quorum finché un numero sufficiente di repliche non ritorna disponibile oppure fino a quando l'amministratore del cluster costringe il sistema a proseguire con l'[API Repair-ServiceFabricPartition](repair-partition-ps). Lo svolgimento di quest'operazione quando la replica primaria è inattiva comporta la perdita dei dati.
+Se la maggioranza delle repliche della partizione di un servizio con stato si blocca, la partizione passerà a uno stato di "perdita del quorum". A quel punto, Service Fabric bloccherà le operazioni di scrittura sulla partizione per garantire che la partizione rimanga coerente e affidabile. È stato scelto infatti di accettare un periodo di indisponibilità per fare in modo che ai client non venga comunicato che i dati sono stati salvati se in realtà non è così. Tenere presente che, se è stato scelto di consentire le letture dalle repliche secondarie per il servizio con stato, sarà possibile continuare a eseguire le operazioni di lettura in questo stato. Una partizione rimane in uno stato di perdita del quorum finché non torna disponibile un numero sufficiente di repliche oppure fino a quando l'amministratore del cluster non forza il sistema a proseguire con l'[API Repair-ServiceFabricPartition][repair-partition-ps]. Lo svolgimento di quest'operazione quando la replica primaria è inattiva comporta la perdita dei dati.
 
-Anche i servizi di sistema possono subire la perdita del quorum, con un impatto commisurato al servizio in questione. Ad esempio, la perdita del quorum nel servizio di denominazione incide sulla risoluzione dei nomi, mentre la perdita del quorum nel servizio di gestione failover bloccherà la creazione e i failover di nuovi servizi. Diversamente dai propri servizi, il tentativo di ripristinare i servizi di sistema *non* è consigliato. È preferibile attendere invece che le repliche tornino disponibili.
+Anche i servizi di sistema possono subire la perdita del quorum, con un impatto commisurato al servizio in questione. Ad esempio, la perdita del quorum nel servizio di denominazione incide sulla risoluzione dei nomi, mentre la perdita del quorum nel servizio di gestione failover bloccherà la creazione e i failover di nuovi servizi. Si noti che, a differenza dei propri servizi, *non* è consigliabile provare a ripristinare i servizi di sistema. È preferibile attendere invece che le repliche tornino disponibili.
 
 #### Riduzione del rischio di perdita del quorum
 
@@ -68,11 +68,11 @@ Considerare i seguenti esempi presupponendo di aver configurato i servizi impost
 
 ### Interruzioni o distruzione del data center
 
-In rari casi, il data center fisico può essere temporaneamente non disponibile a causa di un'interruzione dell'alimentazione o della perdita di connettività di rete. In questi casi, probabilmente anche i cluster e le applicazioni di Service Fabric non saranno disponibili, ma i dati verranno conservati. Per i cluster in esecuzione in Azure, è possibile visualizzare gli aggiornamenti sulle interruzioni nella [pagina Stato di Azure](azure-status-dashboard).
+In rari casi, il data center fisico può essere temporaneamente non disponibile a causa di un'interruzione dell'alimentazione o della perdita di connettività di rete. In questi casi, probabilmente anche i cluster e le applicazioni di Service Fabric non saranno disponibili, ma i dati verranno conservati. Per i cluster in esecuzione in Azure, è possibile visualizzare gli aggiornamenti sulle interruzioni del servizio nella [pagina Stato di Azure][azure-status-dashboard].
 
 Nell'evento estremamente improbabile che un intero data center fisico venga distrutto, tutti i cluster di Service Fabric che contiene andranno perduti, insieme al relativo stato.
 
-Per evitare questa eventualità, è di fondamentale importanza eseguire periodicamente [il backup dello stato](service-fabric-reliable-services-backup-restore.md) in un archivio con ridondanza geografica per garantire la possibilità di ripristino. La frequenza del backup dipende dall'obiettivo del punto di ripristino (RPO). Anche se la funzionalità di backup e ripristino non è ancora stata completamente implementata, è necessario implementare un gestore per l'evento `OnDataLoss` in modo da poterlo registrare quando si verifica nel seguente modo:
+Per evitare questa eventualità, è di fondamentale importanza eseguire periodicamente il [backup dello stato](service-fabric-reliable-services-backup-restore.md) in un archivio con ridondanza geografica per garantire la possibilità di ripristino. La frequenza del backup dipende dall'obiettivo del punto di ripristino (RPO). Anche se la funzionalità di backup e ripristino non è ancora stata implementata completamente, è necessario implementare un gestore per l'evento `OnDataLoss` per poter eseguire la registrazione in caso di necessità, come riportato di seguito:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -82,7 +82,6 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
->[AZURE.NOTE] La funzionalità di backup e ripristino al momento è disponibile solo per le API di Reliable Services. La funzionalità di backup e ripristino di Reliable Actors sarà disponibile in una versione futura.
 
 ### Errori software e altre cause di perdita dei dati
 
@@ -90,22 +89,23 @@ Tra le cause di perdita dei dati, gli errori di codice nei servizi, gli errori u
 
 ## Passaggi successivi
 
-- Simulazione di diversi errori con il [framework di testabilità](service-fabric-testability-overview.md)
+- Informazioni su come simulare diversi errori con il [framework di verificabilità](service-fabric-testability-overview.md).
 - Lettura di altre risorse sul ripristino di emergenza e sulla disponibilità elevata. Microsoft ha pubblicato molti documenti su questi argomenti. Sebbene alcuni di questi documenti si riferiscano a tecniche specifiche da applicare in altri prodotti, contengono anche molte procedure consigliate generali valide anche per Service Fabric:
- - [Elenco di controllo della disponibilità](azure-availability-checklist)
- - [Esercitazione nel ripristino di emergenza](disaster-recovery-drill)
- - [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](dr-ha-guide)
+ - [Elenco di controllo della disponibilità](../best-practices-availability-checklist.md)
+ - [Esercitazione nel ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure][dr-ha-guide]
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/it-IT/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.microsoft.com/it-IT/status/
-[azure-availability-checklist]: https://azure.microsoft.com/it-IT/documentation/articles/best-practices-availability-checklist/
-[disaster-recovery-drill]: https://azure.microsoft.com/it-IT/documentation/articles/sql-database-disaster-recovery-drills/
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

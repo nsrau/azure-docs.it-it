@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Distribuire il servizio StorSimple Manager per l'array virtuale StorSimple
@@ -38,7 +38,7 @@ Nella pagina StorSimple Manager è possibile eseguire queste attività comuni:
 - Ottenere la chiave di registrazione del servizio
 - Rigenerare la chiave di registrazione del servizio
 
-Questa esercitazione descrive come eseguire queste attività.
+Questa esercitazione descrive come eseguire queste attività. Le informazioni contenute in questo articolo si applicano solo all'array virtuale StorSimple. Per altre informazioni su StorSimple serie 8000, andare a [Distribuire il servizio StorSimple Manager](storsimple-manage-service.md).
 
 ## Creare un servizio
 
@@ -51,6 +51,8 @@ Usare l'opzione **Creazione rapida** per creare un servizio StorSimple Manager s
 È inoltre possibile scegliere di generare un account di archiviazione predefinito al momento della creazione del servizio.
 
 Un singolo servizio può gestire più dispositivi, ma un dispositivo non può estendersi a più servizi. Una grande azienda può avere più istanze del servizio da usare con diverse sottoscrizioni, organizzazioni o anche percorsi di distribuzione.
+
+> [AZURE.NOTE] Per gestire dispositivi StorSimple serie 8000 e dispositivi array virtuale StorSimple sono necessarie istanze separate del servizio StorSimple Manager.
 
 Per creare un servizio, attenersi alla procedura seguente.
 
@@ -74,7 +76,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 
 ## Ottenere la chiave di registrazione del servizio
 
-Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple. Per registrare il primo dispositivo StorSimple, è necessaria la chiave di registrazione del servizio. Per registrare altri dispositivi con un servizio StorSimple esistente, sono necessarie la chiave di registrazione e la chiave DEK del servizio (che viene generata durante la registrazione sul primo dispositivo). Per altre informazioni sulla chiave di crittografia del servizio dati, vedere l'articolo relativo al [recupero della chiave di crittografia dei dati del servizio dall'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple. Per registrare il primo dispositivo StorSimple, è necessaria la chiave di registrazione del servizio. Per registrare altri dispositivi con un servizio StorSimple esistente, sono necessarie la chiave di registrazione e la chiave DEK del servizio (che viene generata durante la registrazione sul primo dispositivo). Per altre informazioni sulla chiave di crittografia del servizio dati, vedere [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) dall'interfaccia utente Web locale.
 
 Per ottenere la chiave di registrazione del servizio, attenersi alla procedura seguente.
 
@@ -111,4 +113,4 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

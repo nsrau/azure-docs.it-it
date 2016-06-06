@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Funzionalità del servizio di sincronizzazione Azure AD Connect
@@ -33,23 +33,23 @@ Molte di queste impostazioni possono essere modificate solo da Azure AD Connect.
 
 Di seguito sono riportate le impostazioni che possono essere configurate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Commento |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Consente di mettere in quarantena un attributo se è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Consente l'aggiunta di oggetti a userPrincipalName oltre all'indirizzo SMTP primario. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName per gli utenti gestiti/con licenza (non federati). |
+DirSyncFeature | Commento
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Consente di mettere in quarantena un attributo se è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Consente l'aggiunta di oggetti a userPrincipalName oltre all'indirizzo SMTP primario.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Consente al motore di sincronizzazione di aggiornare l'attributo userPrincipalName per gli utenti gestiti/con licenza (non federati).
 
 Una volta abilitata una funzionalità, non potrà essere disabilitata di nuovo.
 
 Le impostazioni seguenti sono configurate da Azure AD Connect e non possono essere modificate da `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Commento |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect: abilitazione del writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Servizio di sincronizzazione Azure AD Connect: estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [Anteprima: Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | Attualmente non è supportata. |
+DirSyncFeature | Commento
+--- | ---
+DeviceWriteback | [Azure AD Connect: abilitazione del writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Servizio di sincronizzazione Azure AD Connect: estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [Anteprima: Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | Attualmente non è supportata.
 
 ## Resilienza degli attributi duplicati
 Invece di causare un errore di provisioning degli oggetti con nomi UPN o proxyAddress duplicati, l'attributo duplicato viene "messo in quarantena" e, se necessario, viene assegnato un valore temporaneo. Una volta risolto il conflitto, l'UPN temporaneo verrà corretto automaticamente con il valore appropriato. Questo comportamento può essere abilitato per UPN e proxyAddress separatamente. Per altre informazioni, vedere [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
@@ -100,4 +100,4 @@ Queste impostazioni saranno abilitate per tutte le directory di Azure AD in futu
 
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di FTP alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di FTP con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore FTP alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore FTP con i parametri dell'API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di FTP
-Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eliminare i file e altro. L'API di FTP può essere usata da:
+# Introduzione al connettore FTP
+Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eliminare i file e altro. Il connettore FTP può essere usato da:
 
 - App per la logica trattate in questo argomento
 - PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
@@ -41,16 +41,12 @@ Trigger | Azioni
 --- | ---
 <ul><li>Gets an updated file</li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Gets an updated file</li><li>Update file</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a FTP
-Quando si aggiunge questa API alle app per la logica, immettere i valori seguenti:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-|Server Address| Sì | Immettere il nome di dominio completo (FQDN) o l'indirizzo IP del server FTP.|
-|Nome utente| Sì | Immettere il nome utente per la connessione al server FTP.|
-|Password | Sì | Immettere la password del nome utente.|
+
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a FTP](../../includes/connectors-create-api-ftp.md)]
 
 Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -246,6 +242,6 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 ## Passaggi successivi
 
-[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

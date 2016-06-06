@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: configurare come file server
@@ -104,7 +104,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	1.  Fornire l'**URL proxy Web** in questo formato: *http://&lt;host-IP address or FDQN&gt;:Port number*. Notare che gli URL HTTPS non sono supportati.
 
-	2.  Specificare **Autenticazione** come **Basic**, **NTLM** o **Nessuna**.
+	2.  Specificare **Autenticazione** come **Basic** o **Nessuna**.
 
 	3.  Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
 
@@ -116,19 +116,19 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	Nella pagina **Impostazioni ora**:
 
-	1.  Nell'elenco a discesa, selezionare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
+	1.  Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
 
-	2.  Specificare un **server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
+	2.  Specificare un **Primary NTP server** (Server NTP primario) per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
 
-	3.  Facoltativamente, specificare un **server NTP secondario** per il dispositivo.
+	3.  Facoltativamente, specificare un **Secondary NTP server** (Server NTP secondario) per il dispositivo.
 
 	4.  Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 
 1.  Configurare le impostazioni del cloud per il dispositivo. In questo passaggio, viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio StorSimple Manager.
 
-    1.  Immettere la **chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
+    1.  Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
 
-    2.  Se questo è il primo dispositivo che si registra con questo servizio, ignorare questo passaggio e andare al passaggio successivo. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2.  Se questo è il primo dispositivo che si registra con questo servizio, ignorare questo passaggio e andare al passaggio successivo. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3.  Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -147,7 +147,7 @@ Per completare la configurazione dispositivo del dispositivo StorSimple, è nece
 
 -   Scegliere le impostazioni di crittografia per i dati inviati al cloud.
 
-Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/) per completare l'installazione richiesta del dispositivo.
+Eseguire la procedura seguente nel [portale di Azure classico](https://manage.windowsazure.com/) per completare l'installazione richiesta del dispositivo.
 
 #### Per completare l'installazione minima del dispositivo
 
@@ -155,11 +155,11 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 2.  Fare clic su **installazione dispositivo completata** per avviare la configurazione guidata del dispositivo.
 
-3.  Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base**, eseguire le seguenti operazioni:
+3.  Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base** eseguire le seguenti operazioni:
 
-	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
+	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi elementi** per scegliere un account da una sottoscrizione diversa.
 
-	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia di archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
+	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
 
 	3.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
@@ -176,7 +176,7 @@ Le impostazioni vengono così aggiornate. Se le impostazioni sono state aggiorna
 
 ## Passaggio 3: Aggiungere una condivisione
 
-Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/) per creare una condivisione.
+Eseguire la procedura seguente nel [portale di Azure classico](https://manage.windowsazure.com/) per creare una condivisione.
 
 #### Per creare una condivisione
 
@@ -190,7 +190,7 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
     2.  (Facoltativo) Fornire una descrizione per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
 
-    3.  Selezionare un tipo di utilizzo per la condivisione. Il tipo di utilizzo può essere **A livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Aggiunto in locale** per la condivisione. Per tutti gli altri dati, selezionare una condivisione **A livelli**.
+    3.  Selezionare un tipo di utilizzo per la condivisione. Il tipo di utilizzo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale**. Per tutti gli altri dati, selezionare una **Condivisione a livelli**.
 
 	Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning e può essere creata molto velocemente. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
 
@@ -200,7 +200,7 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 1.  Fare clic sull'icona freccia ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) per passare alla pagina successiva.
 
-1.  Nella pagina **Impostazioni aggiuntive**, assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti in formato *<john@contoso.com>*. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificare le autorizzazioni con Esplora risorse.
+1.  Nella pagina **Impostazioni aggiuntive**, assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato *<john@contoso.com>*. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificare le autorizzazioni con Esplora risorse.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
@@ -230,6 +230,6 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 ## Passaggi successivi
 
-Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

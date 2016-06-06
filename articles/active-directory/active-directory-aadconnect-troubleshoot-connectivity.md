@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 # Risolvere i problemi di connettività con Azure AD Connect
@@ -33,17 +33,17 @@ Per il server proxy devono essere aperti anche gli URL necessari. L'elenco uffic
 
 Quelle riportate nella tabella seguente sono le impostazioni minime assolutamente indispensabili per potersi connettere ad Azure AD. L'elenco non include le funzionalità facoltative, ad esempio il writeback delle password o Azure AD Connect Health. Le impostazioni documentate di seguito sono finalizzate alla risoluzione dei problemi relativi alla configurazione iniziale.
 
-| URL | Porta | Descrizione |
-| ---- | ---- | ---- |
-| mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. |
-| **.verisign.com | HTTP/80 | Usata per scaricare gli elenchi di CRL. |
-| *.entrust.com | HTTP/80 | Usata per scaricare gli elenchi di CRL per MFA. |
-| *.windows.net | HTTPS/443 | Usata per accedere ad Azure AD. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usata per MFA. |
-| *.microsoftonline.com | HTTPS/443 | Usata per configurare la directory di Azure AD e importare/esportare i dati. |
+URL | Porta | Descrizione
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL.
+*.verisign.com | HTTP/80 | Usate per scaricare gli elenchi di CRL.
+*.entrust.com | HTTP/80 | Usato per scaricare gli elenchi di CRL per MFA.
+*.windows.net | HTTPS/443 | Usato per accedere ad Azure AD.
+secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usato per MFA.
+*.microsoftonline.com | HTTPS/443 | Usato per configurare la directory di Azure AD e i dati di importazione/esportazione.
 
 ## Errori nella procedura guidata
-L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Le configurazioni che si apportano al proxy vengono riflesse globalmente nel computer, quindi se si verifica un problema, questo si manifesterà probabilmente già nella pagina **Connessione ad Azure AD** della procedura guidata.
+L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Le configurazioni impostate per il proxy hanno effetto a livello globale per il computer, quindi se si verifica un problema, questo si manifesterà probabilmente già nella pagina **Connessione ad Azure AD** della procedura guidata.
 
 Ecco gli errori più comuni che vengono visualizzati nell'Installazione guidata.
 
@@ -51,43 +51,43 @@ Ecco gli errori più comuni che vengono visualizzati nell'Installazione guidata.
 Questo errore viene visualizzato quando la procedura guidata non riesce a raggiungere il proxy. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - Se viene visualizzato questo errore, verificare che [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) sia stato configurato correttamente.
-- Se il file è corretto, seguire i passaggi in [Verificare la connettività proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
+- Se il file è corretto, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ### L'endpoint MFA non è raggiungibile
-Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale ha abilitato il servizio MFA. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Questo errore viene visualizzato se l'endpoint ****https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale ha abilitato l'autenticazione MFA. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Se viene visualizzato questo errore, verificare che l'endpoint secure.aadcdn.microsoftonline-p.com sia stato aggiunto al proxy.
 
 ### La password non può essere verificata
-Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo messaggio: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
+Se l'Installazione guidata riesce a connettersi ad Azure AD ma non è possibile verificare la password, viene visualizzato questo messaggio: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
 - È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a https://login.microsoftonline.com da un computer diverso dal server Azure AD Connect e verificare che l'account sia utilizzabile.
 
 ### Verificare la connettività del proxy
-Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, si useranno alcuni comandi di PowerShell per vedere se il proxy consente o meno le richieste Web. A un prompt dei comandi di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata è per https://login.microsoftonline.com e funziona anch'essa, ma la risposta dell'altro URI è più veloce.
+Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, si useranno alcuni comandi di PowerShell per vedere se il proxy consente o meno le richieste Web. Al prompt di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata è per https://login.microsoftonline.com e funziona, ma la risposta dell'altro URI è più veloce.
 
 PowerShell userà la configurazione presente in machine.config per contattare il proxy. Le impostazioni in winhttp/netsh non dovranno influire su questi cmdlet.
 
-Se il proxy è configurato correttamente, viene visualizzato uno stato operazione riuscita: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+Se il proxy è configurato correttamente, viene visualizzato lo stato corrispondente alla riuscita dell'operazione: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Se viene visualizzato **Impossibile connettersi al server remoto**, PowerShell sta provando a effettuare una chiamata diretta senza usare il proxy oppure il DNS non è configurato correttamente. Verificare che il file **machine.config** sia configurato correttamente. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
+Se viene visualizzato il messaggio **Impossibile effettuare la connessione al server remoto**, PowerShell sta provando a effettuare una chiamata diretta senza usare il proxy oppure il DNS non è configurato correttamente. Verificare che il file **machine.config** sia configurato correttamente. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Errore | Testo dell'errore | Commento |
-| ---- | ---- | ---- |
-| 403 | Accesso negato | Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
-| 407 | Autenticazione proxy obbligatoria | Il server proxy ha richiesto l'accesso, che non è stato fornito. Se il server proxy richiede l'autenticazione, assicurarsi di averla configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio. |
+Errore | Testo dell'errore | Commento
+---- | ---- | ---- |
+403 | Accesso negato | Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti.
+407 | Autenticazione proxy obbligatoria | Il server proxy ha richiesto l'accesso, che non è stato fornito. Se il server proxy richiede l'autenticazione, assicurarsi di averla configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio.
 
 ## Modello di comunicazione tra Azure AD Connect e Azure AD
 Se sono stati eseguiti tutti i passaggi precedenti e ancora non è possibile connettersi, si può iniziare a esaminare i log di rete. Questa sezione documenta un normale modello di connettività riuscita. Sono elencati anche alcuni diversivi comuni che possono essere ignorati durante la lettura dei log di rete.
 
-- Saranno eseguite chiamate a https://dc.services.visualstudio.com. Non è necessario che questo URL sia aperto nel proxy perché l'installazione riesca e le chiamate possono essere ignorate.
+- Verranno eseguite chiamate a https://dc.services.visualstudio.com. Non è necessario che questo URL sia aperto nel proxy perché l'installazione riesca e le chiamate possono essere ignorate.
 - Si noterà che la risoluzione DNS elenca gli host effettivi per lo spazio dei nomi DNS nsatc.net e altri spazi dei nomi non in microsoftonline.com. Tuttavia, non saranno eseguite richieste di servizi Web su nomi di server effettivi e non sarà necessario aggiungerli al proxy.
 - Gli endpoint adminwebservice e provisioningapi, riportati di seguito nei log, sono endpoint di individuazione, quindi servono per trovare l'endpoint effettivo da usare e sono diversi a seconda dell'area.
 
 ### Log del proxy di riferimento
-Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidata dalla quale è stato rilevato. Le voci duplicate per lo stesso endpoint sono state rimosse. Può essere usato come riferimento per i propri log del proxy e di rete. Gli endpoint effettivi possono essere diversi nel proprio ambiente, in particolare quelli riportati in *corsivo*.
+Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidata dalla quale è stato rilevato. Le voci duplicate per lo stesso endpoint sono state rimosse. Può essere usato come riferimento per i propri log del proxy e di rete. Gli endpoint effettivi possono essere diversi nell'ambiente in uso, in particolare quelli riportati in *corsivo*.
 
 **Connessione ad Azure AD**
 
@@ -129,13 +129,13 @@ Time | URL
 Questa sezione illustra gli errori che possono essere restituiti da ADAL (la libreria di autenticazione usata da Azure AD Connect) e PowerShell. La spiegazione dell'errore può essere utile per comprendere i passaggi successivi.
 
 ### Concessione non valida
-Nome utente o password non validi. Vedere [La password non può essere verificata](#the-password-cannot-be-verified) per altre informazioni.
+Nome utente o password non validi. Per altre informazioni, vedere [La password non può essere verificata](#the-password-cannot-be-verified).
 
 ### Tipo di utente sconosciuto
 Non è possibile trovare o risolvere la directory di Azure AD. Si tenta di accedere con un nome utente in un dominio non verificato?
 
 ### Individuazione dell'area di autenticazione utente non riuscita
-Problemi di configurazione di rete o del proxy. Non è possibile raggiungere la rete, vedere [Risolvere i problemi di connettività nell'Installazione guidata](#troubleshoot-connectivity-issues-in-the-installation-wizard)
+Problemi di configurazione di rete o del proxy. Non è possibile raggiungere la rete. Vedere [Risolvere i problemi di connettività nell'Installazione guidata](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### Password utente scaduta
 Le credenziali sono scadute. Modificare la password.
@@ -170,9 +170,9 @@ Per consentire il funzionamento dell'Assistente per l'accesso, è necessario con
 Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a raggiungere il proxy o il proxy non consente la richiesta. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
 - Se viene visualizzato questo errore, esaminare la configurazione del proxy in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) e verificare che sia corretta. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- Se è corretta, seguire la procedura descritta in [Verificare la connettività proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
+- Se è corretta, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

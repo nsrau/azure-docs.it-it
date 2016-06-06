@@ -203,7 +203,7 @@ Se si ha familiarità con Gestione IIS, è possibile usarlo per generare un cert
 
 	> [AZURE.NOTE] Durante il processo di esportazione, accertarsi di aver selezionato l'opzione <strong>Sì, esporta la chiave privata</strong>. La chiave privata verrà inclusa nel certificato esportato.
 
-	> [AZURE.NOTE] Durate il processo di esportazione, accertarsi di aver selezionato le opzioni **Includi tutti i certificati nel percorso di certificazione** ed **Esporta tutte le proprietà estese**. Eventuali certificati intermedi verranno inclusi nel certificato esportato.
+	> Durate il processo di esportazione, accertarsi di aver selezionato le opzioni **Includi tutti i certificati nel percorso di certificazione** ed **Esporta tutte le proprietà estese**. Eventuali certificati intermedi verranno inclusi nel certificato esportato.
 
 <a name="bkmk_subjectaltname"></a>
 ### Ottenere un certificato SubjectAltName tramite OpenSSL
@@ -392,7 +392,7 @@ In alcuni casi si potrebbe desiderare di ottenere un certificato per fini di tes
 <a name="bkmk_standardmode"></a>
 ## 2\. Configurare un piano tariffario Standard o Premium
 
-L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i piani tariffari **Standard** e **Premium** nel servizio app di Azure. Per passare al livello **Standard** per il piano del servizio app, eseguire la procedura seguente.
+L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i piani tariffari **Standard** e **Premium** nel Servizio app di Azure. Per passare al livello **Standard** per il piano del servizio app, eseguire la procedura seguente.
 
 > [AZURE.NOTE] Prima di cambiare il livello di un'app da **Gratuito** a **Standard**, è necessario rimuovere i limiti di spesa applicati per la sottoscrizione o si rischia che l'app risulti non disponibile se si raggiungono i limiti prima del termine del periodo di fatturazione. Per altre informazioni sulla modalità condivisa e il livello **Standard**, vedere [Dettagli prezzi][pricing].
 
@@ -455,7 +455,9 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 >
 > 2. Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
 
-> [AZURE.NOTE] Se si aggiunge un **SSL basato su IP** a una app Web che già dispone di un'**associazione SNI** con un certificato diverso, non appena IP SSL viene abilitato per l'app Web, il nome host del sito viene riassegnato a quell'indirizzo IP, in modo che se il record CNAME di un altro nome host viene puntato al nome host di quel sito, riceverà traffico anche sull'indirizzo IP SSL. In questi casi è stata creata un'altra voce DNS: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; è il nome dell'app Web del Servizio app di Azure. È quindi necessario modificare i record DNS che puntano al nome usato nell'associazione SNI in modo che punti invece a sni.&lt;nameofyourWebApp&gt;.azurewebsites.net.
+<br> Se si aggiunge un **SSL basato su IP** a un'app Web che già dispone di un'**associazione SNI** con un certificato diverso, non appena IP SSL viene abilitato per l'app Web, il nome host del sito viene riassegnato a quell'indirizzo IP, in modo che se il record CNAME di un altro nome host viene puntato al nome host di quel sito, riceverà traffico anche sull'indirizzo IP SSL.
+
+In questi casi è stata creata un'altra voce DNS: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; è il nome dell'app Web del Servizio app di Azure. È quindi necessario modificare i record DNS che puntano al nome usato nell'associazione SNI in modo che punti invece a sni.&lt;nameofyourWebApp&gt;.azurewebsites.net.
 
 A questo punto dovrebbe essere possibile passare all'app usando `HTTPS://` anziché `HTTP://` per verificare che il certificato sia stato configurato correttamente.
 
@@ -523,7 +525,7 @@ Per recuperare e modificare il file autogenerato dall'app, usare i seguenti pass
 
 		Il file web.config per le applicazioni Java che usano Apache Tomcat non contiene una sezione **&lt;rewrite>**, per cui è necessario aggiungere la sezione **&lt;rewrite>** dell'esempio alla sezione **&lt;system.webServer>**.
 
-4. Ridistribuire il progetto (incluso il file web.config aggiornato) in Azure
+4. Inserirlo nuovamente nella cartella /site/wwwroot
 
 Dopo aver distribuito un file web.config con una regola di riscrittura per forzare HTTPS, la regola viene applicata immediatamente e tutte le richieste vengono reindirizzate a HTTPS.
 
@@ -564,3 +566,5 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
+
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,32 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
-#Usare Sqoop con Hadoop in HDInsight (Windows)
+#Usare Sqoop con Hadoop in HDInsight
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 Informazioni su come usare Sqoop in HDInsight per effettuare importazioni ed esportazioni tra un cluster HDInsight e un database SQL di Azure o un database di SQL Server.
-
-> [AZURE.NOTE] La procedura illustrata in questo articolo può essere usata con un cluster HDInsight basato su Windows o su Linux, ma funziona solo se eseguita da un client Windows.
->
-> Se si usa un client Linux, OS X o Unix e un server HDInsight basato su Linux, vedere [Usare Sqoop con Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md).
 
 Benché Hadoop rappresenti una scelta ottimale per l'elaborazione di dati non strutturati e semistrutturati, ad esempio log e file, potrebbe essere necessario elaborare anche dati strutturati archiviati in database relazionali.
 
 [Sqoop][sqoop-user-guide-1.4.4] è uno strumento progettato per il trasferimento di dati tra cluster Hadoop e database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS. In questa esercitazione si userà un database SQL Server per il database relazionale.
 
 Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
-
-###Prerequisiti
-
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
-
-- **Workstation con Azure PowerShell**.
-
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Informazioni sullo scenario
 
@@ -80,7 +68,7 @@ Questa sezione spiega come creare un cluster e gli schemi del database SQL per e
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Il modello ARM è disponibile in un contenitore BLOB pubblico, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     Il modello di Azure Resource Manager chiama un pacchetto bacpac per distribuire gli schemi della tabella nel database SQL. Anche il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
     
@@ -89,14 +77,14 @@ Questa sezione spiega come creare un cluster e gli schemi del database SQL per e
     
 2. Nel pannello Parametri immettere le informazioni seguenti:
 
-    - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
-    - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
-    - **Nome utente e password SSH**.
-    - **Nome utente e password di accesso al server di database SQL**.
+    - **ClusterName** (NomeCluster): immettere un nome per il cluster Hadoop che verrà creato.
+    - **Cluster login name and password** (Nome utente e password di accesso del cluster): il nome dell'account di accesso predefinito è admin.
+    - **SSH user name and password** (Nome utente e password SSH).
+    - **SQL database server login name and password** (Nome utente e password di accesso al server di database SQL).
 
     I valori seguenti sono hardcoded nella sezione relativa alle variabili:
     
-    |Nome dell'account di archiviazione predefinito|<CluterName>archivio|
+    |Nome dell'account di archiviazione predefinito|<CluterName>store|
     |----------------------------|-----------------|
     |Nome server del database SQL di Azure|<ClusterName>dbserver|
     |Nome del database SQL di Azure|<ClusterName>db|
@@ -129,7 +117,7 @@ Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL d
 
         * Quando si usa SQL Server in una macchina virtuale di Azure, sarà possibile usare qualsiasi configurazione di rete virtuale a condizione che la macchina virtuale sulla quale è ospitato SQL Server sia un membro della stessa rete virtuale di HDInsight.
 
-    * Per creare un cluster HDInsight in una rete virtuale, vedere l'articolo su come [creare cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md)
+    * Per creare un cluster HDInsight in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md)
 
     > [AZURE.NOTE] SQL Server deve sempre consentire l'autenticazione. Per la procedura descritta in questo articolo è necessario usare un account di accesso di SQL Server.
 
@@ -211,7 +199,7 @@ L'esempio di PowerShell esegue questa procedura:
 	> [AZURE.NOTE] Ad eccezione delle informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure e per SQL Server. La procedura è stata verificata con la configurazione seguente:
 	>
 	> * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale che connette il cluster HDInsight a un SQL Server in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](../vpn-gateway/vpn-gateway-point-to-site-create.md).
-	> * **Azure HDInsight 3.1**: per la creazione di un cluster in una rete virtuale, vedere l'articolo su come [creare cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
+	> * **Azure HDInsight 3.1**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
 	> * **SQL Server 2014**: configurato per consentire l'autenticazione SQL e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
 
 7. Esportare una tabella Hive nel database SQL di Azure.
@@ -405,9 +393,9 @@ L'esempio di PowerShell esegue questa procedura:
 		-Type Standard_LRS
 	
 	# Create the default Blob container
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
 									-ResourceGroupName $resourceGroupName `
-									-Name $defaultStorageAccountName |  %{ $_.Key1 }
+									-Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
 										-StorageAccountName $defaultStorageAccountName `
 										-StorageAccountKey $defaultStorageAccountKey 
@@ -635,4 +623,4 @@ L'esempio di PowerShell esegue questa procedura:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/16/2016" 
 	ms.author="raymondl;garye"/>
 
 #Usare i parametri del servizio Web di Azure Machine Learning
@@ -91,4 +91,4 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0525_2016-->

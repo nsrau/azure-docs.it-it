@@ -22,7 +22,7 @@ L'amministratore può avere la necessità di bloccare una sottoscrizione, una ri
 
 Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull’impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo di accesso in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
-Quando si applica un blocco a un ambito padre, tutte le risorse figlio ereditano lo stesso blocco.
+Quando si applica un blocco a un ambito padre, tutte le risorse figlio ereditano lo stesso blocco. Il blocco più restrittivo nell'ereditarietà ha la precedenza.
 
 ## Chi può creare o eliminare i blocchi nell'organizzazione
 
@@ -30,21 +30,21 @@ Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle a
 
 ## Creazione di un blocco tramite il portale
 
-Nel pannello Impostazioni della risorsa, del gruppo di risorse o della sottoscrizione che si vuole bloccare, selezionare **Blocchi**.
+1. Nel pannello Impostazioni della risorsa, del gruppo di risorse o della sottoscrizione che si vuole bloccare, selezionare **Blocchi**.
 
-![Selezionare un blocco](./media/resource-group-lock-resources/select-lock.png)
+      ![Selezionare un blocco](./media/resource-group-lock-resources/select-lock.png)
 
-Per aggiungere un blocco, selezionare **Aggiungi**. Se invece si vuole creare un blocco a un livello padre che verrà ereditato dalla risorsa attualmente selezionata, selezionare l'elemento padre (ad esempio la sottoscrizione visualizzata di seguito).
+2. Per aggiungere un blocco, selezionare **Aggiungi**. Se invece si vuole creare un blocco a un livello padre che verrà ereditato dalla risorsa attualmente selezionata, selezionare l'elemento padre (ad esempio la sottoscrizione visualizzata di seguito).
 
-![Aggiungere un blocco](./media/resource-group-lock-resources/add-lock.png)
+      ![Aggiungere un blocco](./media/resource-group-lock-resources/add-lock.png)
 
-Assegnare un nome e un livello al blocco. Facoltativamente è possibile aggiungere note che descrivono il motivo per cui è necessario il blocco.
+3. Assegnare un nome e un livello al blocco. Facoltativamente è possibile aggiungere note che descrivono il motivo per cui è necessario il blocco.
 
-![Impostare un blocco](./media/resource-group-lock-resources/set-lock.png)
+      ![Impostare un blocco](./media/resource-group-lock-resources/set-lock.png)
 
-Per eliminare il blocco, selezionare i puntini di sospensione e quindi **Elimina** tra le opzioni disponibili.
+4. Per eliminare il blocco, selezionare i puntini di sospensione e quindi **Elimina** tra le opzioni disponibili.
 
-![Eliminare un blocco](./media/resource-group-lock-resources/delete-lock.png)
+      ![Eliminare un blocco](./media/resource-group-lock-resources/delete-lock.png)
 
 ## Creazione di un blocco in un modello
 
@@ -108,4 +108,4 @@ Azure Powershell fornisce altri comandi per la gestione dei blocchi, ad esempio 
 - Per modificare il gruppo di risorse in cui si trova una risorsa, vedere [Spostamento delle risorse in un nuovo gruppo di risorse](resource-group-move-resources.md).
 - È possibile applicare restrizioni e convenzioni all’interno della sottoscrizione con criteri personalizzati. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -22,13 +22,59 @@
 
 Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Java e utilizzano [Azure SDK for Java][]. Gli scenari presentati includono **creazione di code**, **invio e ricezione di messaggi**, nonché **eliminazione di code**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
+## Informazioni sulle code del bus di servizio
+
+Le code del bus di servizio supportano un modello di comunicazione con **messaggistica negoziata**. Quando si usano le code, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite una coda, che agisce da intermediario (broker). Un producer di messaggi (mittente) invia un messaggio alla coda e quindi prosegue con la relativa elaborazione. In modo asincrono, il consumer di messaggi (ricevitore) recupera il messaggio dalla coda e lo elabora. Il producer non deve attendere la risposta del consumer per continuare a elaborare e inviare ulteriori messaggi. Le code consentono un recapito dei messaggi di tipo **FIFO (First In, First Out)** a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
+
+![Concetti relativi alle code](./media/service-bus-java-how-to-use-queues/sb-queues-08.png)
+
+Le code del bus di servizio sono una tecnologia di carattere generale che può essere usata in numerosi scenari:
+
+- Comunicazione tra ruoli Web e di lavoro in un'applicazione Azure multilivello.
+- Comunicazione tra app locali e app ospitate in Azure in una soluzione ibrida.
+- Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione.
+
+L'uso delle code consente di scalare orizzontalmente in modo più semplice le applicazioni e garantisce maggiore resilienza nell'architettura.
+
+## Creare uno spazio dei nomi del servizio
+
+Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+
+Per creare uno spazio dei nomi:
+
+1.  Accedere al [portale di Azure classico][].
+
+2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
+
+3.  Nel riquadro inferiore del portale fare clic su **Crea**. ![](./media/service-bus-java-how-to-use-queues/sb-queues-03.png)
+
+4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![](./media/service-bus-java-how-to-use-queues/sb-queues-04.png)
+
+5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
+
+	IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+
+6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+
+Sarà necessario attendere qualche istante affinché venga attivato lo spazio dei nomi creato che verrà quindi visualizzato nel portale di Azure. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
+
+## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
+
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere queste credenziali dal portale.
+
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![](./media/service-bus-java-how-to-use-queues/sb-queues-13.png)
+
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato.
+
+3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi. ![](./media/service-bus-java-how-to-use-queues/sb-queues-14.png)
+
+4.  Prendere nota del valore della chiave o copiarlo negli Appunti.
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
 Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
 
@@ -92,7 +138,7 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione ottiene 
         System.exit(-1);
     }
 
-I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. Gli oggetti [BrokeredMessage][] includono un insieme di proprietà standard, ad esempio [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx), un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di [BrokeredMessage][]. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java.IO.InputStream**.
+I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. [Gli oggetti ][]BrokeredMessage[ includono un insieme di proprietà standard, ad esempio ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)Label[ e ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)TimeToLive, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di [BrokeredMessage][]. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java.IO.InputStream**.
 
 L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto `TestQueue` **MessageSender** ottenuto nel frammento di codice precedente.
 
@@ -106,7 +152,7 @@ L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto `T
          service.sendQueueMessage("TestQueue", message);
     }
 
-Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB.
+Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB.
 
 ## Ricevere messaggi da una coda
 
@@ -190,5 +236,6 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
   [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Gli oggetti ]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

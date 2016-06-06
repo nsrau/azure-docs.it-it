@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -28,18 +28,18 @@ L'installazione guidata di Azure AD Connect offre due percorsi diversi:
 ## Documentazione correlata
 Se non è stata letta la documentazione in [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md), la tabella seguente fornisce collegamenti ad argomenti correlati.
 
-| Argomento | |
-| --------- | --------- |
-| Eseguire l'installazione mediante le impostazioni rapide | [Installazione rapida di Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
-| Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+Argomento |  
+--------- | ---------
+Eseguire l'installazione mediante le impostazioni rapide | [Installazione rapida di Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 ## Installazione mediante le impostazioni rapide
 Nell'installazione guidata mediante le impostazioni rapide vengono richieste le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory, in modo che l'istanza locale di Active Directory possa essere configurata con le autorizzazioni richieste per Azure AD Connect. Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory vengono usate per reimpostare la password per l'account usato da DirSync. Saranno necessarie anche le credenziali di amministratore globale di Azure AD.
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |-------------
 N/D|Utente che esegue l'installazione guidata| Amministratore del server locale| <li>Creazione dell'account locale che verrà usato come [account del servizio del motore di sincronizzazione](#azure-ad-connect-sync-service-account).
 Connessione ad Azure AD| Credenziali di directory di Azure AD | Ruolo di amministratore in Azure AD | <li>Abilitazione della sincronizzazione nella directory di Azure AD.</li> <li>Creazione dell'[account Azure AD](#azure-ad-service-account) che verrà usato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li>
 Connessione ad AD DS | Credenziali Active Directory locali | Membro del gruppo Enterprise Admins (EA) in Active Directory| <li>Creazione di un [account](#active-directory-account) in Active Directory e concessione delle relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li>
@@ -53,17 +53,17 @@ Queste credenziali vengono usate solo durante l'installazione e non dopo il comp
 ### Autorizzazioni per gli account creati di Servizi di dominio Active Directory per le impostazioni rapide
 L'[account](#active-directory-account) creato per la lettura e la scrittura in Servizi di dominio Active Directory avrà le autorizzazioni seguenti se creato tramite impostazioni rapide:
 
-| Autorizzazione | Usato per |
-| ---- | ---- |
-| <li>Replica delle modifiche della directory</li><li>Replica di tutte le modifiche della directory | Sincronizzazione delle password |
-| Lettura/scrittura di tutte le proprietà - Utente | Importazione ed Exchange ibrido |
-| Lettura/scrittura di tutte le proprietà - iNetOrgPerson | Importazione ed Exchange ibrido |
-| Lettura/scrittura di tutte le proprietà - Gruppo | Importazione ed Exchange ibrido |
-| Lettura/scrittura di tutte le proprietà - Contatto | Importazione ed Exchange ibrido |
-| Reimpostazione delle password | Preparazione per l'abilitazione del writeback delle password |
+Autorizzazione | Usato per
+---- | ----
+<li>Replica modifiche directory</li><li>Replica modifiche directory - Tutto | Sincronizzazione delle password
+Lettura/scrittura di tutte le proprietà - Utente | Importazione ed Exchange ibrido
+Lettura/scrittura di tutte le proprietà - iNetOrgPerson | Importazione ed Exchange ibrido
+Lettura/scrittura di tutte le proprietà - Gruppo | Importazione ed Exchange ibrido
+Lettura/scrittura di tutte le proprietà - Contatto | Importazione ed Exchange ibrido
+Reimpostazione delle password | Preparazione per l'abilitazione del writeback delle password
 
 ## Installazione mediante le impostazioni personalizzate
-Quando si usano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory deve essere creato prima dell'installazione. Per informazioni sulle autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account).
+Quando si usano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory deve essere creato prima dell'installazione. Per le autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account).
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo
 ------------- | ------------- |------------- |-------------
@@ -81,22 +81,22 @@ Quando si installa Azure AD Connect, l'account specificato nella pagina **Connes
 
 Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate. Se si dispone di più domini, le autorizzazioni devono essere concesse per tutti i domini nella foresta. Se queste funzionalità non vengono abilitate, saranno sufficienti le autorizzazioni dell'**utente di dominio** predefinite.
 
-| Funzionalità | Autorizzazioni |
-| ------ | ------ |
-| Sincronizzazione delle password | <li>Replica delle modifiche della directory</li> <li>Replica di tutte le modifiche della directory |
-| Distribuzione ibrida di Exchange | Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
-| Writeback delle password | Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) per gli utenti. |
-| Writeback dei dispositivi | Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).|
-| Writeback dei gruppi | Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo nell'unità organizzativa in cui devono trovarsi i gruppi di distribuzione.|
+Funzionalità | Autorizzazioni
+------ | ------
+Sincronizzazione delle password | <li>Replica delle modifiche della directory</li> <li>Replica di tutte le modifiche della directory
+Distribuzione ibrida di Exchange | Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti.
+Writeback delle password | Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) per gli utenti.
+Writeback dei dispositivi | Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+Writeback dei gruppi | Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo nell'unità organizzativa in cui devono trovarsi i gruppi di distribuzione.
 
 ## Aggiornare
 Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è necessario avere le autorizzazioni seguenti:
 
-| Entità | Autorizzazioni necessarie | Usato per |
-| ---- | ---- | ---- |
-| Utente che esegue l'installazione guidata | Amministratore del server locale | Aggiornare i file binari. |
-| Utente che esegue l'installazione guidata | Membro di ADSyncAdmins | Apportare modifiche alle regole di sincronizzazione e ad altre configurazioni. |
-| Utente che esegue l'installazione guidata | Se si utilizza un server SQL completo: DBO (o simile) del database del motore di sincronizzazione | Apportare modifiche a livello di database, ad esempio l'aggiornamento di tabelle con nuove colonne. |
+Entità | Autorizzazioni necessarie | Usato per
+---- | ---- | ----
+Utente che esegue l'installazione guidata | Amministratore del server locale | Aggiornare i file binari.
+Utente che esegue l'installazione guidata | Membro di ADSyncAdmins | Apportare modifiche alle regole di sincronizzazione e ad altre configurazioni.
+Utente che esegue l'installazione guidata | Se si utilizza un server SQL completo: DBO (o simile) del database del motore di sincronizzazione | Apportare modifiche a livello di database, ad esempio l'aggiornamento di tabelle con nuove colonne.
 
 ## Altre informazioni sugli account creati
 
@@ -107,7 +107,7 @@ Se si usano le impostazioni rapide, verrà creato un account in Active Directory
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Account del servizio di sincronizzazione Azure AD Connect
-Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD\_** deve trovarsi nel dominio.
+Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account, preceduto da **AAD\_**, viene usato per l'esecuzione del servizio effettivo di sincronizzazione. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD\_** deve trovarsi nel dominio.
 
 ![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

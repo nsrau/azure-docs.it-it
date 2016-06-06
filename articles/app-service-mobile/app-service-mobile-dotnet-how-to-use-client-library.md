@@ -78,13 +78,13 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 * [Eliminazione dei dati](#deleting)
 * [Risoluzione dei conflitti e concorrenza ottimistica](#optimisticconcurrency)
 * [Associazione a un'interfaccia utente di Windows](#binding)
+* [Modifica delle dimensioni di pagina](#pagesize)
 
 ###<a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 
 Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable] su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Questo è il modello tipizzato di serializzazione. Viene supportato anche un modello di serializzazione non tipizzato. Quanto segue consente di [creare un riferimento a una tabella non tipizzata]\:
 
@@ -109,8 +109,7 @@ Questa sezione descrive come eseguire query nel back-end di App per dispositivi 
 
 Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione [Where] applica un predicato di filtro di riga alla query sulla tabella.
 
-	// This query filters out completed TodoItems and
-	// items without a timestamp.
+	// This query filters out completed TodoItems and items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -129,8 +128,7 @@ La funzione passata al metodo `Where` può avere un numero di condizioni arbitra
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false
-		    && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
 	   .ToListAsync();
 
 Viene convertita in una query SQL da un SDK del server simile al seguente:
@@ -151,7 +149,7 @@ Questa query può anche essere suddivisa in più clausole:
 
 I due metodi si equivalgono e possono essere utilizzati in modo intercambiabile. La prima opzione, che prevede la concatenazione di più predicati in una query, è più compatta ed è consigliata.
 
-La clausola `Where` supporta operazioni che vengono convertite nel subset OData. Sono inclusi gli operatori relazionali (==, !=, <, <=, >, >=), gli operatori aritmetici (+, -, /, *, %), l'approssimazione dei numeri (Math.Floor, Math.Ceiling), funzioni di stringa (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), proprietà relative alla data (Year, Month, Day, Hour, Minute, Second), proprietà di accesso di un oggetto ed espressioni che combinano tutti questi elementi. Per determinare gli elementi supportati dall'SDK del server, consultare la [documentazione di OData v3].
+La clausola `Where` supporta operazioni che vengono convertite nel subset OData. Sono inclusi gli operatori relazionali (==, !=, <, <=, >, >=), gli operatori aritmetici (+, -, /, *, %), l'approssimazione dei numeri (Math.Floor, Math.Ceiling), funzioni di stringa (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), proprietà relative alla data (Year, Month, Day, Hour, Minute, Second), proprietà di accesso di un oggetto ed espressioni che combinano tutti questi elementi. Per determinare gli elementi supportati dall'SDK del server, vedere la [documentazione di OData v3].
 
 ###<a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
@@ -279,7 +277,7 @@ Il codice seguente illustra come usare il metodo [UpdateAsync] per aggiornare un
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati, è possibile usare [Json.NET] come illustrato di seguito:
+Per inserire dati non tipizzati, è possibile usare [Json.NET] come indicato di seguito:
 
 	JObject jo = new JObject();
 	jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
@@ -287,7 +285,7 @@ Per inserire dati non tipizzati, è possibile usare [Json.NET] come illustrato d
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 
-Quando si effettua un aggiornamento è necessario specificare un campo `id`. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere il campo `id` dal risultato della chiamata `InsertAsync`. Quando si tenta di aggiornare un elemento senza specificare il valore `id`, viene generato un `ArgumentException`.
+Quando si esegue un aggiornamento è necessario specificare un campo `id`. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere il campo `id` dal risultato della chiamata `InsertAsync`. Quando si tenta di aggiornare un elemento senza specificare il valore `id`, viene generato un `ArgumentException`.
 
 ###<a name="deleting"></a>Procedura: Eliminare dati in un back-end di App per dispositivi mobili
 
@@ -332,7 +330,7 @@ Le applicazioni che usano tabelle non tipizzate abilitano la concorrenza ottimis
 	//Enable optimistic concurrency by retrieving version
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
-Oltre ad attivare la concorrenza ottimistica, è necessario individuare l'eccezione `MobileServicePreconditionFailedException<T>` nel codice quando si esegue una chiamata a [UpdateAsync]. Risolvere il conflitto applicando il corretto `version` al record aggiornato ed eseguire una chiamata a [UpdateAsync] con il record risolto. Il codice seguente illustra come risolvere un conflitto di scrittura, qualora venga rilevato.
+Oltre ad abilitare la concorrenza ottimistica, è necessario individuare l'eccezione `MobileServicePreconditionFailedException<T>` nel codice quando si esegue una chiamata a [UpdateAsync]. Risolvere il conflitto applicando il corretto `version` al record aggiornato ed eseguire una chiamata a [UpdateAsync] con il record risolto. Il codice seguente illustra come risolvere un conflitto di scrittura, qualora venga rilevato.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -388,11 +386,11 @@ Oltre ad attivare la concorrenza ottimistica, è necessario individuare l'eccezi
 	    await msgDialog.ShowAsync();
 	}
 
-Per altre informazioni, vedere l'argomento [Sincronizzazione di dati offline in App per dispositivi mobili di Azure].
+Per altre informazioni, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 ###<a name="binding"></a>Procedura: Associare dati di App per dispositivi mobili a un'interfaccia utente Windows
 
-Questa sezione illustra come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente in un'app Windows. È possibile eseguire il codice di esempio seguente per associare l'origine dell'elenco a una query degli elementi non completati in `todoTable` e visualizzarli in un elenco molto semplice. [MobileServiceCollection] crea una raccolta di associazione compatibile con le app per dispositivi mobili.
+Questa sezione illustra come visualizzare gli oggetti dati restituiti usando elementi dell'interfaccia utente in un'app Windows. È possibile eseguire il codice di esempio riportato di seguito per associare l'origine dell'elenco a una query degli elementi non completati in `todoTable` e visualizzare i dati in un elenco molto semplice. [MobileServiceCollection] crea una raccolta di associazione compatibile con le app per dispositivi mobili.
 
 	// This query filters out completed TodoItems.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
@@ -406,7 +404,7 @@ Questa sezione illustra come visualizzare gli oggetti dati restituiti usando ele
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Alcuni controlli del runtime gestito supportano un'interfaccia denominata [ISupportIncrementalLoading]. Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows universale è disponibile un supporto incorporato tramite [MobileServiceIncrementalLoadingCollection] che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows, seguire questa procedura:
+Alcuni controlli del runtime gestito supportano un'interfaccia denominata [ISupportIncrementalLoading]. Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows universale è disponibile un supporto incorporato tramite [MobileServiceIncrementalLoadingCollection], che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows, seguire questa procedura:
 
     MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
     items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
@@ -422,6 +420,17 @@ Per usare la nuova raccolta in app di Windows Phone 8 e "Silverlight", usare i m
 Quando si usa la raccolta creata tramite la chiamata a `ToCollectionAsync` o `ToCollection`, si ottiene una raccolta che può essere associata ai controlli dell'interfaccia utente. Questa raccolta supporta il paging, ossia consente a un controllo di chiedere e ottenere dalla raccolta di "caricare più elementi". A quel punto, il codice utente non è coinvolto e il controllo avvierà il flusso. Poiché tuttavia la raccolta carica dati dalla rete, si suppone che talvolta il caricamento avrà esito negativo. Per gestire tali errori, è possibile eseguire l'override del metodo `OnException` in `MobileServiceIncrementalLoadingCollection` per gestire le eccezioni derivanti da chiamate a `LoadMoreItemsAsync` eseguite dai controlli.
 
 Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri visualizzarne solo alcuni nel controllo. È possibile seguire le indicazioni riportate nella sezione "[Selezionare colonne specifiche](#selecting)" precedente per scegliere specifiche colonne da visualizzare nell'interfaccia utente.
+
+###<a name="pagesize"></a>Modifica delle dimensioni di pagina
+
+Per impostazione predefinita, App mobili di Azure restituisce un massimo di 50 elementi per ogni richiesta. È possibile modificare questa impostazione aumentando sia le dimensioni massime della pagina sul server, sia le dimensioni di pagina richieste sul lato client. Per aumentare le dimensioni di pagina richieste, usare un overload di `PullAsync` che consenta di specificare `PullOptions`:
+
+    PullOptions pullOptions = new PullOptions
+		{
+			MaxPageSize = 100
+		};
+
+Se le dimensioni di pagina sono impostate in modo da essere uguali a o maggiori di 100 all'interno del server, verranno restituiti al massimo 100 elementi in ogni richiesta.
 
 ##<a name="#customapi"></a>Usare un'API personalizzata
 
@@ -471,7 +480,7 @@ Dopo aver eseguito la registrazione del provider di identità, chiamare MobileSe
 
 Se si usa un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider] con il nome del provider.
 
-In un flusso server, il servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione del servizio app una volta eseguito correttamente l'accesso con il provider di identità. [LoginAsync method] restituisce [MobileServiceUser], che fornisce sia il valore [UserId] dell'utente autenticato sia [MobileServiceAuthenticationToken] come token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
+In un flusso server, il servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione del servizio app una volta eseguito correttamente l'accesso con il provider di identità. Il metodo LoginAsync restituisce [MobileServiceUser] con cui si ottiene sia il valore [UserId] dell'utente autenticato, sia [MobileServiceAuthenticationToken] come token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
 
 ###<a name="client-flow"></a>Flusso client
 
@@ -512,7 +521,7 @@ Nella forma più semplice, è possibile utilizzare il flusso client come illustr
 
 ####Accesso singolo utilizzando un account Microsoft con Live SDK
 
-Per poter autenticare gli utenti, è necessario registrare l'app presso il centro per sviluppatori degli account Microsoft. È quindi necessario connettere questa registrazione al back-end dell'app per i dispositivi mobili. Completare i passaggi nell'argomento [Registrare un'app per l'uso delle credenziali d'accesso di un account Microsoft] per creare una registrazione di account Microsoft e connettersi al back-end dell'app per i dispositivi mobili. Se si dispone di entrambe le versioni dell'app (Windows Store e Windows Phone 8/Silverlight), registrare prima la versione di Windows Store.
+Per poter autenticare gli utenti, è necessario registrare l'app presso il centro per sviluppatori degli account Microsoft. È quindi necessario connettere questa registrazione al back-end dell'app per i dispositivi mobili. Completare i passaggi nell'argomento [Registrare un'app per l'uso delle credenziali d'accesso di un account Microsoft] per creare una registrazione di account Microsoft e connettersi al back-end dell'app per dispositivi mobili. Se si dispone di entrambe le versioni dell'app (Windows Store e Windows Phone 8/Silverlight), registrare prima la versione di Windows Store.
 
 Il codice seguente esegue l'autenticazione usando Live SDK e usa il token restituito per effettuare l'accesso al back-end dell'app per i dispositivi mobili.
 
@@ -563,7 +572,7 @@ Il codice seguente esegue l'autenticazione usando Live SDK e usa il token restit
         }
     }
 
-Consultare la documentazione per altre informazioni su [Windows Live SDK].
+Per altre informazioni su [Windows Live SDK], vedere la documentazione.
 
 ###<a name="caching"></a>Memorizzazione nella cache del token di autenticazione
 In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault], le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
@@ -610,7 +619,7 @@ Nel caso delle app per Windows Phone, è possibile crittografare i dati e memori
 
 * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
 
-* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili, disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
 
 * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
 
@@ -737,7 +746,7 @@ Per ottenere questo valore:
 1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**.
 2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione** e quindi fare clic su **Riserva**.
 3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali** fare clic sulla registrazione dell'app appena creata.
+4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali ** fare clic sulla registrazione dell'app appena creata.
 5. Fare clic su **Gestione dell’app** > **Identità dell’app**, e poi scorrere fino a trovare il **SID pacchetto**.
 
 In molti casi il SID pacchetto questo viene considerato come un URI e sarà necessario usare _ms-app: / /_ come schema. Prendere nota della versione del SID pacchetto formato tramite la concatenazione di questo valore come prefisso.
@@ -789,7 +798,7 @@ Per inviare notifiche usando questi modelli registrati, vedere le [API degli hub
 
 ###<a name="errors"></a>Procedura: Gestire gli errori
 
-Quando si verifica un errore nel back-end, il client SDK genererà `MobileServiceInvalidOperationException`. Nell'esempio seguente viene illustrato come gestire un'eccezione che viene restituita dal back-end:
+Quando si verifica un errore nel back-end, il client SDK genera `MobileServiceInvalidOperationException`. Nell'esempio seguente viene illustrato come gestire un'eccezione che viene restituita dal back-end:
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -806,7 +815,7 @@ Quando si verifica un errore nel back-end, il client SDK genererà `MobileServic
 		}
 	}
 
-Un altro esempio di gestione delle condizioni di errore è disponibile nell'[esempio di file per le app per dispositivi mobili] - l'esempio [LoggingHandler] fornisce un gestore dei delegati di registrazione (vedere sotto) per registrare le richieste inoltrate al back-end. Ciò consente di eseguire il debug di applicazioni Xamarin in modo semplice anziché basarsi su Fiddler.
+Per un altro tipo di gestione delle condizioni di errore, vedere l'[esempio di file per le app per dispositivi mobili]\: [LoggingHandler] rende disponibile un gestore dei delegati di registrazione (vedere sotto) per registrare le richieste inoltrate al back-end. Ciò consente di eseguire il debug di applicazioni Xamarin in modo semplice anziché basarsi su Fiddler.
 
 ###<a name="headers"></a>Procedura: Personalizzare le intestazioni delle richieste
 
@@ -860,7 +869,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [How to use the Node.js backend SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 [How to: Define a table controller]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
 [Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
-[Sincronizzazione di dati offline in App per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
+[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Registrare un'app per l'uso delle credenziali d'accesso di un account Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [configurazione del servizio app per usare l'account di accesso di Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
@@ -913,4 +922,4 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [SymbolSource]: http://www.symbolsource.org/
 [istruzioni di SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -148,7 +148,10 @@ La versione per Windows dell'applicazione **iothub\_client\_sample\_ampq** inclu
 
 Questa soluzione contiene un singolo progetto. Occorre notare che in questa soluzione sono installati quattro pacchetti NuGet:
 
-  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.uamqp
 
 Il pacchetto **Microsoft.Azure.C.SharedUtility** è sempre necessario quando si usa l'SDK. Poiché questo esempio si basa su AMQP, è necessario includere i pacchetti **Microsoft.Azure.uamqp** e **Microsoft.Azure.IoTHub.AmqpTransport**. Sono disponibili pacchetti equivalenti per HTTP e MQTT. L'esempio usa la libreria **IoTHubClient**, quindi è necessario includere il pacchetto **Microsoft.Azure.IoTHub.IoTHubClient** nella soluzione.
 
@@ -158,7 +161,7 @@ Questa applicazione di esempio sarà usata per illustrare i requisiti per l'uso 
 
 ### Inizializzazione della libreria
 
-> [AZURE.NOTE] Prima di iniziare a usare le librerie, è necessario eseguire alcune operazioni di inizializzazione specifiche della piattaforma. Ad esempio, se si prevede di usare AMQPS in Linux è necessario inizializzare la libreria OpenSSL. Negli esempi del [repository GitHub](https://github.com/Azure/azure-iot-sdks) viene chiamata la funzione di utilità **platform\_init** all'avvio del client e la funzione **platform\_deinit** prima dell'uscita. Queste funzioni sono dichiarate nel file di intestazione "platform.h". È necessario esaminare le definizioni di queste funzioni per la piattaforma di destinazione nel [repository](https://github.com/Azure/azure-iot-sdks) per determinare se è necessario includere un codice di inizializzazione della piattaforma nel client.
+> [AZURE.NOTE] Prima di iniziare a usare le librerie, è necessario eseguire alcune operazioni di inizializzazione specifiche della piattaforma. Ad esempio, se si prevede di usare AMQPS in Linux è necessario inizializzare la libreria OpenSSL. Negli esempi del [repository GitHub](https://github.com/Azure/azure-iot-sdks) viene chiamata la funzione di utilità **platform\_init** all'avvio del client e la funzione **platform\_deinit** prima dell'uscita. Queste funzioni sono dichiarate nel file di intestazione "platform.h". Esaminare le definizioni di queste funzioni per la piattaforma di destinazione nel [repository](https://github.com/Azure/azure-iot-sdks) per determinare se è necessario includere un codice di inizializzazione della piattaforma nel client.
 
 Per iniziare a lavorare con le librerie, è necessario allocare prima di tutto un handle del client per l'hub IoT:
 
@@ -260,7 +263,11 @@ Nella cartella **serializer** all'interno del repository azure-iot-sdks è dispo
 
 Come con l'esempio precedente, questo include diversi pacchetti NuGet:
 
-  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.IoTHub.Serializer
+- Microsoft.Azure.uamqp
 
 La maggior parte di questi pacchetti è stata illustrata nell'esempio precedente, ma **Microsoft.Azure.IoTHub.Serializer** è nuovo. È necessario quando si usa la libreria **serializer**.
 
@@ -464,4 +471,4 @@ Questo articolo descrive le nozioni di base relative all'uso delle librerie in *
 
 Per informazioni su come usare le capacità di gestione dei dispositivi nell'**SDK per dispositivi Azure IoT per C**, vedere l'[introduzione alla libreria di gestione dispositivi hub IoT di Azure per C](iot-hub-device-management-library.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

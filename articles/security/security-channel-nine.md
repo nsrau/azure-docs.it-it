@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sicurezza di Azure su Channel 9 | Microsoft Azure"
+   pageTitle="Video sulla sicurezza di Azure su Channel 9 | Microsoft Azure"
    description="L'articolo offre un elenco dettagliato delle presentazioni sulla sicurezza di Azure su Channel 9. Channel 9 è una community che mette in contatto chi crea i prodotti con chi li usa."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
-# Sicurezza di Azure su Channel 9
+# Video sulla sicurezza di Azure su Channel 9
 
 [Channel 9](https://channel9.msdn.com/) è una community in cui chi crea i prodotti viene presentato e messo in contatto con chi li usa.
 
@@ -45,6 +45,7 @@ Partecipando alla sessione, è possibile visualizzare la piattaforma di sicurezz
 Nel video Jack Richins insegna a [Scott](https://channel9.msdn.com/Niners/Glucose) come crittografare facilmente i database SQL Server nelle istanze delle macchine virtuali di Azure. L'operazione è più facile di quanto si pensi.
 
 Contenuto del video:
+
 - Informazioni sulla crittografia e SQL Server
 - Informazioni su Data Protection API, sulle chiavi master e sui certificati
 - Uso dei comandi SQL per creare la chiave master e i certificati e per crittografare il database
@@ -67,4 +68,4 @@ In questo video Narayan Annamalai, Senior Program Manager, insegna a Scott come 
 
 In questo video Amit Bapat presenta a Scott l'insieme di credenziali delle chiavi di Azure. Con l'insieme di credenziali delle chiavi di Azure è possibile crittografare chiavi e dati segreti, ad esempio le password, tramite chiavi archiviate in moduli di protezione hardware. La gestione dei segreti per Microsoft Azure è basata su cloud e hardware.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

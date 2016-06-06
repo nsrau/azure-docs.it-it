@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare l'archiviazione BLOB da Ruby | Microsoft Azure"
+	pageTitle="Come usare l'archiviazione BLOB (archiviazione di oggetti) da Ruby | Microsoft Azure"
 	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
 	services="storage"
 	documentationCenter="ruby"
@@ -23,6 +23,8 @@
 
 ## Panoramica
 
+L'archiviazione BLOB di Azure è un servizio che archivia dati non strutturati nel cloud come oggetti/BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
+
 Questa guida illustra scenari comuni relativi all'uso dell'archiviazione BLOB. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **caricamento, visualizzazione dell'elenco, download** ed **eliminazione** di BLOB.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -31,7 +33,7 @@ Questa guida illustra scenari comuni relativi all'uso dell'archiviazione BLOB. G
 
 ## Creare un'applicazione Ruby
 
-Creare un'applicazione Ruby. Per istruzioni, vedere l'articolo relativo all'[applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Creare un'applicazione Ruby. Per istruzioni, vedere [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -155,4 +157,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

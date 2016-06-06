@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come importare la definizione di un'API con le operazioni in Gestione API di Azure
@@ -95,4 +95,4 @@ Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e conf
 [Come creare le API]: api-management-howto-create-apis.md
 [Come configurare le impostazioni API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

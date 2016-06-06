@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare l'archiviazione BLOB da Python | Microsoft Azure"
+	pageTitle="Come usare l'archiviazione BLOB (archiviazione degli oggetti) da Python | Microsoft Azure"
 	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
 	services="storage"
 	documentationCenter="python"
@@ -22,7 +22,9 @@
 
 ## Panoramica
 
-In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB. Gli esempi sono scritti in Python e utilizzano [Microsoft Azure Storage SDK per Python]. Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB.
+L'archiviazione BLOB di Azure è un servizio che archivia dati non strutturati nel cloud come oggetti/BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
+
+In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB. Gli esempi sono scritti in Python e usano [SDK di Archiviazione di Microsoft Azure per Python]. Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +42,7 @@ Il codice seguente crea un oggetto **BlockBlobService** usando il nome e la chia
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Nell’esempio di codice seguente è possibile usare un oggetto **BlockBlobService** per creare il contenitore, se non esiste.
+Nell'esempio di codice seguente è possibile usare un oggetto **BlockBlobService** per creare il contenitore, se non esiste.
 
 	block_blob_service.create_container('mycontainer')
 
@@ -124,5 +126,6 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
+[SDK di Archiviazione di Microsoft Azure per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

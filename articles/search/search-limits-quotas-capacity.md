@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/28/2016"
+	ms.date="05/19/2016"
 	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
@@ -59,4 +59,4 @@ Anche se nella pagina relativa ai prezzi e nel grafico sui [Limiti dei livelli](
 
 Al livello Standard è possibile stimare in modo più preciso il numero di query al secondo, perché si ha il controllo di un numero maggiore di parametri. Per indicazioni su come calcolare il numero di query al secondo per i carichi di lavoro, vedere la sezione relativa alle procedure consigliate in [Gestire la soluzione di ricerca](search-manage.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

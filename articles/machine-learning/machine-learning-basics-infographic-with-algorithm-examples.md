@@ -20,17 +20,17 @@
 
 # Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi
 
-Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per identificare gli algoritmi comuni impiegati per rispondere a domande frequenti di Machine Learning. Alcuni collegamenti a esempi di algoritmi aiutano i principianti di Machine Learning a capire quali algoritmi usare e per quale scopo gli algoritmi sono impiegati.
+Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning. Vengono illustrati gli algoritmi comuni usati per rispondere a domande frequenti di Machine Learning. Esempi di algoritmi aiutano i principianti di Machine Learning a capire quali algoritmi usare e per quale scopo gli algoritmi sono impiegati.
 
-## Algoritmi diffusi sono disponibili in Machine Learning Studio
+## Algoritmi diffusi in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con un gran numero di algoritmi di Machine Learning, che è possibile usare per risolvere i problemi di analisi predittiva. L'infografica scaricabile riportata di seguito illustra come i quattro tipi di algoritmi di Machine Learning, ovvero **regressione**, **rilevamento di anomalie**, **clustering** e **classificazione**, possono essere usati per rispondere alle domande di Machine Learning.
+[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. L'infografica mostra le famiglie più conosciute di algoritmi: **regressione**, **rilevamento anomalie**, **clustering** e **classificazione**.
 
-La [galleria Cortana Intelligence](https://gallery.cortanaintelligence.com/) contiene molti esempi che illustrano come questi algoritmi possono essere applicati in soluzioni reali. I collegamenti presenti nell'infografica portano a esempi di ogni algoritmo.
+[Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) illustra come questi algoritmi possono essere applicati in numerose soluzioni reali. Seguire i collegamenti nell'infografica per visualizzare gli esempi pratici.
 
-## Scaricare l'infografica delle nozioni fondamentali di Machine Learning
+## Scaricare l'infografica con esempi di algoritmi
 
-**[Download: Infografica delle nozioni fondamentali di Machine Learning con collegamenti a esempi di algoritmi](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Download: Infografica delle nozioni fondamentali di Machine Learning con collegamenti a esempi di algoritmi (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infografica: Nozioni fondamentali di Machine Learning con esempi di algoritmi. Algoritmi più diffusi. Machine Learning per principianti.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
@@ -52,4 +52,4 @@ La [galleria Cortana Intelligence](https://gallery.cortanaintelligence.com/) con
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

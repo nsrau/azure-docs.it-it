@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con il portale | Microsoft Azure"
-   description="Questa sezione descrive come usare il portale di Azure per rilevare e correggere i problemi relativi alla distribuzione di Gestione risorse."
+   pageTitle="Visualizzare le operazioni di distribuzione con il portale | Microsoft Azure"
+   description="Questo articolo descrive come usare il portale di Azure per rilevare gli errori di distribuzione di Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure
+# Visualizzare le operazioni di distribuzione con il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Portale](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Se è stato riscontrato un errore durante la distribuzione di risorse in Azure, è necessario risolvere la causa dell'errore. Il portale di Azure offre un'interfaccia che consente di individuare facilmente gli errori e determinare potenziali correzioni.
+Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. Il portale di Azure offre un'interfaccia che consente di individuare facilmente gli errori e determinare potenziali correzioni.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -101,4 +101,4 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 - Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 - Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic LDAP
@@ -36,12 +36,12 @@ Determinate operazioni e gli elementi dello schema, ad esempio quelli necessari 
 
 A livello generale, le funzionalità seguenti sono supportate dalla versione corrente del connettore:
 
-| Funzionalità | Supporto |
-| --- | --- |
-| Origine dati connessa | Il connettore è supportato con i server LDAP v3 (conforme a RFC 4510). È stato testato con quanto segue: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogo globale Microsoft Active Directory</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (in precedenza Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Importanti directory non supportate:** <li>Servizi di dominio Microsoft Active Directory (AD DS) [usare invece il connettore Active Directory incorporato]</li><li>Oracle Internet Directory (OID)</li> |
-| Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione dei gruppi</li><li>Gestione delle password</li> |
-| Operazioni |Le operazioni seguenti sono supportate in tutte le directory LDAP: <li>Importazione completa</li><li>Esportazione</li>le operazioni seguenti sono supportate solo in directory specificate:<li>Importazione Delta</li><li>Impostazione password, modifica password</li> |
-| Schema | <li>Lo schema viene rilevato dallo schema LDAP (RFC3673 e RFC4512/4.2)</li><li>Supporta classi strutturali, classi ausiliarie e la classe di oggetti extensibleObject (RFC4512/4.3)</li>
+Funzionalità | Supporto
+--- | --- |
+Origine dati connessa | Il connettore è supportato con i server LDAP v3 (conforme a RFC 4510). È stato testato con quanto segue: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogo globale Microsoft Active Directory</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (in precedenza Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Importanti directory non supportate:** <li>Servizi di dominio Microsoft Active Directory (AD DS) [usare invece il connettore Active Directory incorporato]</li><li>Oracle Internet Directory (OID)</li>
+Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione dei gruppi</li><li>Gestione delle password</li>
+Operazioni |Le operazioni seguenti sono supportate in tutte le directory LDAP: <li>Importazione completa</li><li>Esportazione</li>le operazioni seguenti sono supportate solo in directory specificate:<li>Importazione Delta</li><li>Impostazione password, modifica password</li>
+Schema | <li>Lo schema viene rilevato dallo schema LDAP (RFC3673 e RFC4512/4.2)</li><li>Supporta classi strutturali, classi ausiliarie e la classe di oggetti extensibleObject (RFC4512/4.3)</li>
 
 ### Supporto per l'importazione delta e la gestione delle password
 
@@ -205,19 +205,19 @@ Il DN del log delle modifiche è il contesto dei nomi usato dal log delle modifi
 
 Di seguito è riportato un elenco di DN del log delle modifiche predefiniti:
 
-| Directory | Log delle modifiche delta |
-| --- | --- |
-| Microsoft AD LDS e Catalogo globale Active Directory | Rilevato automaticamente. USNChanged. |
-| Apache Directory Server | Non disponibile. |
-| Directory 389 | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
-| IBM Tivoli DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
-| Isode Directory | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
-| Novell/NetIQ eDirectory | Non disponibile. TimeStamp. Il connettore userà data/ora dell'ultimo aggiornamento per ottenere i record aggiunti e aggiornati. |
-| Open DJ/DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
-| Open LDAP | Log di accesso. Valore predefinito da usare: **cn=accesslog** |
-| Oracle DSEE | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
-| RadiantOne VDS | Directory virtuale. Dipende dalla directory connessa a VDS. |
-| Sun One Directory Server | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
+Directory | Log delle modifiche delta
+--- | ---
+Microsoft AD LDS e Catalogo globale Active Directory | Rilevato automaticamente. USNChanged.
+Apache Directory Server | Non disponibile.
+Directory 389 | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
+IBM Tivoli DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
+Isode Directory | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
+Novell/NetIQ eDirectory | Non disponibile. TimeStamp. Il connettore userà data/ora dell'ultimo aggiornamento per ottenere i record aggiunti e aggiornati.
+Open DJ/DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
+Open LDAP | Log di accesso. Valore predefinito da usare: **cn=accesslog**
+Oracle DSEE | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
+RadiantOne VDS | Directory virtuale. Dipende dalla directory connessa a VDS.
+Sun One Directory Server | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
 
 L'attributo password è il nome dell'attributo che il connettore dovrà usare per impostare la password nelle operazioni di modifica e impostazione della password. Per impostazione predefinita il valore è **userPassword**, ma può essere modificato se necessario per un particolare sistema LDAP.
 
@@ -249,19 +249,19 @@ Questa pagina ha sempre un valore preconfigurato e non può essere modificato. S
 
 Di seguito è riportato un elenco di server LDAP e l' ancoraggio usato:
 
-| Directory | Attributo di ancoraggio |
-| --- | --- |
-| Microsoft AD LDS e Catalogo globale Active Directory | objectGUID |
-| 389 Directory Server | dn |
-| Apache Directory | dn |
-| IBM Tivoli DS | dn |
-| Isode Directory | dn |
-| Novell/NetIQ eDirectory | GUID |
-| Open DJ/DS | dn |
-| Open LDAP | dn |
-| Oracle ODSEE | dn |
-| RadiantOne VDS | dn |
-| Sun One Directory Server | dn |
+Directory | Attributo di ancoraggio
+--- | ---
+Microsoft AD LDS e Catalogo globale Active Directory | objectGUID
+389 Directory Server | dn
+Apache Directory | dn
+IBM Tivoli DS | dn
+Isode Directory | dn
+Novell/NetIQ eDirectory | GUID
+Open DJ/DS | dn
+Open LDAP | dn
+Oracle ODSEE | dn
+RadiantOne VDS | dn
+Sun One Directory Server | dn
 
 ## Altre note
 
@@ -279,4 +279,4 @@ Per le directory con un log delle modifiche delta basato su data/ora, è consigl
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

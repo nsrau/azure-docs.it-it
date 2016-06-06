@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="05/20/2016"
     ms.author="elizapo" />
 
 # Novità di Azure RemoteApp
@@ -21,11 +21,9 @@ Microsoft è costantemente impegnata a migliorare Azure RemoteApp in base ai com
 
 |Funzionalità|Aprile-giugno 2016|Luglio-settembre 2016|
 |-----------|-------|-------|
-|Azure RemoteApp è disponibile sia nel [portale di Azure classico](http://manage.windowsazure.com) sia nel [portale di Azure](https://portal.azure.com) |X | |
-|Anteprima dell'applicazione Windows 10 Universal con Continuum per Azure RemoteApp|X| |
-|Possibilità di pubblicare le singole applicazioni per utenti specifici - **Anteprima privata** ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
-|Pacchetto MSI ridistribuibile di Windows client ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
-|Client basati su HTML5 per RemoteApp di Azure| |X|
+|Azure RemoteApp è disponibile sia nel [portale di Azure classico](http://manage.windowsazure.com) sia nel [portale di Azure](https://portal.azure.com) - Anteprima privata|X | |
+|Possibilità di pubblicare le singole applicazioni per utenti specifici - Anteprima privata ([commenti e suggerimenti](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Pacchetto MSI ridistribuibile di Windows client ([feedback](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - Anteprima privata| X| |
 |Supporto per Gestione risorse di Azure||X|
 |Supporto delle risorse di Azure versione 2| |X|
 |Provider di soluzioni cloud (CSP)||X|
@@ -35,6 +33,8 @@ Microsoft è costantemente impegnata a migliorare Azure RemoteApp in base ai com
 
 Altri miglioramenti aggiunti all'inizio dell'anno:
 
+- Client basati su HTML5 per RemoteApp di Azure
+- Anteprima dell'applicazione Windows 10 Universal con Continuum per Azure RemoteApp
 - Distribuire a una rete virtuale senza aggiungere un dominio (connessione di una raccolta cloud alle macchine virtuali di Azure)
 - Riutilizzare una rete virtuale esistente per una raccolta ibrida di RemoteApp (abilita anche ExpressRoute)
 - ExpressRoute
@@ -47,4 +47,4 @@ Altri miglioramenti aggiunti all'inizio dell'anno:
 - Disponibilità nei data center australiani
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

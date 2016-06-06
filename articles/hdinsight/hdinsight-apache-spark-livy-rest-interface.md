@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/24/2016"
 	ms.author="nitinme"/>
 
 
 # Inviare processi Spark in modalità remota a un cluster di HDInsight Spark basato su Linux mediante Livy (anteprima)
 
-Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per l'invio di processi in modalità remota a un cluster Spark da qualsiasi posizione. Per informazioni dettagliate, vedere [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per l'invio di processi in modalità remota a un cluster Spark. Per informazioni dettagliate, vedere [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark. Questo articolo parla dell'uso di Livy per inviare processi batch. La sintassi seguente usa Curl per eseguire chiamate REST all'endpoint Livy.
 
@@ -69,6 +69,14 @@ Prima di inviare un processo batch, è necessario caricare il file con estension
 **Esempio**:
 
 	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
+
+## Livy e la disponibilità elevata
+
+Livy fornisce disponibilità elevata per i processi Spark in esecuzione nel cluster. Ecco alcuni esempi:
+
+* Se il servizio Livy diventa inattivo dopo l'invio di un processo in modalità remota a un cluster Spark, il processo rimane in esecuzione in background. Quando Livy ritorna attivo, ripristina lo stato del processo e crea un report.
+
+* I notebook di Jupyter per HDInsight sono basati su Livy in back-end. Se un notebook è in esecuzione in un processo Spark e il servizio Livy viene riavviato, il notebook continuerà a eseguire le celle del codice.
 
 ## Mostra un esempio
 
@@ -165,7 +173,7 @@ Eseguire i passaggi seguenti.
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -189,4 +197,4 @@ Eseguire i passaggi seguenti.
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

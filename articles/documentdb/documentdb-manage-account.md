@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Come gestire un account DocumentDB
@@ -38,11 +38,11 @@ Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di
 
 ### Visualizzare e copiare una chiave di accesso nel portale di Azure
 
-1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
+1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
+2.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
 
-3.      Nel pannello **Keys** fare clic sul pulsante **Copy** a destra della chiave da copiare.
+3.      Nel pannello **Keys** fare clic sul pulsante **Copy** a destra della chiave da copiare.
 
   ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
 
@@ -54,17 +54,17 @@ Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di
 
 Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e si rigenerano le chiavi, si perderanno le connessioni, a meno che non si registrino le chiavi. I passaggi seguenti illustrano il processo necessario per la registrazione delle chiavi.
 
-1.      Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account DocumentDB.
+1.      Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account DocumentDB.
 
-2.      Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
+2.      Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
 
-3.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
+3.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
 
-4.      Nel pannello **Keys** fare clic sul comando **Regenerate Primary** e quindi su **OK** per confermare che si vuole generare una nuova chiave.
+4.      Nel pannello **Keys** fare clic sul comando **Regenerate Primary** e quindi su **OK** per confermare che si vuole generare una nuova chiave.
 
-5.      Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa 5 minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.
+5.      Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa 5 minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.
 
-6.      Rigenerare la chiave di accesso secondaria.
+6.      Rigenerare la chiave di accesso secondaria.
 
 *Si noti che potrebbero trascorrere diversi minuti prima che una chiave appena generata possa essere usata per accedere all'account DocumentDB.*
 
@@ -83,17 +83,17 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 ### Per specificare la coerenza predefinita per un account DocumentDB
 
-1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
+1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nel pannello dell'account, se il pannello delle **impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
+2.      Nel pannello dell'account, se il pannello delle **impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
 
-3.      Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
+3.      Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
 
 ![Sessione coerenza predefinita](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
-4.      Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
+4.      Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
-5.      L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di Azure.
+5.      L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di Azure.
 
 *Si noti che potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.*
 
@@ -102,13 +102,13 @@ Per rimuovere un account DocumentDB non più in uso dal portale di Azure, utiliz
 
 ![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
 
-1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare. 
+1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare. 
 
-2.      Nel pannello dell'**account DocumentDB** fare clic sul comando **Elimina**.
+2.      Nel pannello dell'**account DocumentDB** fare clic sul comando **Elimina**.
 
-3.      Nel pannello di conferma risultante, digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
+3.      Nel pannello di conferma risultante, digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
 
-4.      Fare clic sul pulsante **Elimina** nel pannello di conferma.
+4.      Fare clic sul pulsante **Elimina** nel pannello di conferma.
 
 ## <a id="next"></a>Passaggi successivi
 
@@ -116,4 +116,4 @@ Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft
 
 Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="05/24/2016"
     ms.author="alkohli" />
 
 # Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
@@ -163,12 +163,7 @@ Utilizzare la tabella seguente per determinare se il modulo controller EBOD funz
 
 |Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Modulo controller OK | ACCESO | SPENTO | - |
-| Errore modulo controller | SPENTO | ACCESO | - |
-| Connessione porta hosta esterna assente | - | - | SPENTO |
-| Connessione porta host esterna – nessuna attività | - | - | ACCESO |
-| Connessione porta host esterna - attività | - | - | Intermittente |
-| Errore metadati modulo controller | Intermittente | - | - |
+| Modulo controller OK | ACCESO | SPENTO | - | | Errore modulo controller | SPENTO | ACCESO | - | | Connessione porta hosta esterna assente | - | - | SPENTO | | Connessione porta host esterna – nessuna attività | - | - | ACCESO | | Connessione porta host esterna - attività | - | - | Intermittente | | Errore metadati modulo controller | Intermittente | - | - |
 
 ## Indicatori LED unità disco per lo chassis principale e lo chassis EBOD
 
@@ -262,6 +257,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!----HONumber=AcomDC_0323_2016-->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

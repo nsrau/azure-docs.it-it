@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic SQL
@@ -34,12 +34,12 @@ Il connettore Generic SQL consente di integrare il servizio di sincronizzazione 
 
 A livello generale, le funzionalità seguenti sono supportate dalla versione corrente del connettore:
 
-| Funzionalità | Supporto |
-| --- | --- |
-| Origine dati connessa | Il connettore è supportato con tutti i driver ODBC a 64 bit. È stato testato con quanto segue: <li>Microsoft SQL Server e SQL Azure</li><li>IBM DB2 10. x</li><li>IBM DB2 9</li><li>Oracle 10 & 11g</li><li>MySQL 5. x</li>
-| Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione delle password</li> |
-| Operazioni | <li>Importazione completa e delta, esportazione</li><li>Per l'esportazione: aggiunta, eliminazione, aggiornamento e sostituzione</li><li>Impostazione di password, modifica di password</li>
-| Schema | <li>Individuazione dinamica di oggetti e attributi</li>
+Funzionalità | Supporto
+--- | ---
+Origine dati connessa | Il connettore è supportato con tutti i driver ODBC a 64 bit. È stato testato con quanto segue: <li>Microsoft SQL Server e SQL Azure</li><li>IBM DB2 10. x</li><li>IBM DB2 9</li><li>Oracle 10 & 11g</li><li>MySQL 5. x</li>
+Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione delle password</li>
+Operazioni | <li>Importazione completa e delta, esportazione</li><li>Per l'esportazione: aggiunta, eliminazione, aggiornamento e sostituzione</li><li>Impostazione di password, modifica di password</li>
+Schema | <li>Individuazione dinamica di oggetti e attributi</li>
 
 ### Prerequisiti
 
@@ -297,4 +297,4 @@ Se l'utente sceglie l'opzione SQL query, l'esportazione richiede 3 diverse query
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->
