@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Spostare i dati da e verso il file system | Data factory di Azure" 
-	description="Informazioni su come spostare i dati da e verso il file system locale usando Data factory di Azure" 
+	pageTitle="Spostare i dati da e verso il file system | Azure Data Factory" 
+	description="Informazioni su come spostare i dati da e verso il file system locale usando Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,11 +16,11 @@
 	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
-# Spostare i dati da e nel file system locale usando Data factory di Azure
+# Spostare i dati da e nel file system locale usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in una data factory per spostare dati da e verso un file system locale. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Data factory supporta la connessione da e verso il file system locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento dei dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway.
+Data Factory supporta la connessione da e verso il file system locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento dei dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway.
 
 > [AZURE.NOTE] 
 Tranne il Gateway di gestione dati, non è necessario installare altri file binari per la comunicazione da e verso il file system locale.
@@ -36,9 +36,9 @@ Eseguire i due passaggi seguenti per usare una condivisione di file Linux con il
  
 ## Esempio: Copiare i dati da un file system locale a un BLOB di Azure
 
-Questo esempio illustra come copiare dati da un file system locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+Questo esempio illustra come copiare dati da un file system locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
  
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -83,7 +83,7 @@ Per l'host, è possibile specificare **Local** o **localhost** se la condivision
 
 I dati vengono prelevati da un nuovo file ogni ora e il percorso e il nome file riflettono la data e l'ora specifiche con granularità oraria.
 
-Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory di Azure che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Azure Data Factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 
 	{
 	  "name": "OnpremisesFileSystemInput",
@@ -294,7 +294,7 @@ Per l'host, è possibile specificare **Local** o **localhost** se la condivision
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in SQL Azure e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
 
-Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data Factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 
 	{
 	  "name": "AzureSqlInput",
@@ -440,7 +440,7 @@ host | Nome host del server. Usare ' \\ ' come carattere di escape, come illustr
 userid | Specificare l'ID dell'utente che ha accesso al server | No (se si sceglie encryptedCredential)
 password | Specificare la password per l'utente (userid) | No (se si sceglie encryptedCredential) 
 encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureRmDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService | No (se si sceglie di specificare ID utente e password in testo normale)
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database del file server locale | Sì
+gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi al database del file server locale | Sì
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati file system locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
@@ -484,9 +484,9 @@ Proprietà | Descrizione | Obbligatorio
 folderPath | Percorso della cartella. Esempio: myfolder<br/><br/>Usare il carattere di escape '\\' per i caratteri speciali nella stringa. Ad esempio, per folder\\subfolder specificare folder\\\subfolder e per d:\\samplefolder specificare d:\\\samplefolder.<br/><br/>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi di cartella basati su data e ora di inizio/fine delle sezioni. | Sì
 fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato avrà il formato seguente: <br/><br/>Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
-Format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà **type** in format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per i dettagli vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat) e [Specifica di JsonFormat](#specifying-jsonformat). Se si vuole eseguire un **copia binaria invariata**, non specificare il formato nei data set di origine e di destinazione. | No
+Format | Sono supportati i tipi di formato seguenti: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. È necessario impostare la proprietà **type** nell'area format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per informazioni dettagliate, vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat), [Specifica di JsonFormat](#specifying-jsonformat) e [Specifica di OrcFormat](#specifying-orcformat). Se si vuole eseguire un **copia binaria invariata**, non specificare il formato nei data set di origine e di destinazione. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*.log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Nota**: fileFilter è applicabile a un set di dati di input FileShare | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Optimal** e **Fastest**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2**. I livelli supportati sono: **Optimal** e **Fastest**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat** o **OrcFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 > [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
 
@@ -494,7 +494,7 @@ fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di f
 
 Come indicato sopra, partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata.
 
-Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
+Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
 
 #### Esempio 1.
 
@@ -535,7 +535,7 @@ Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione, ovvero il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si troveranno nel primo livello della cartella di destinazione. Il nome dei file di destinazione verrà generato automaticamente. | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. In altri termini, il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si troveranno nel primo livello della cartella di destinazione. Il nome dei file di destinazione verrà generato automaticamente. | No |
 
 ### esempi ricorsivi e copyBehavior
 In questa sezione viene descritto il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
@@ -555,7 +555,7 @@ false | mergeFiles | Per una cartella di origine Cartella1 con la struttura segu
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Ottimizzazione delle prestazioni  
-Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
 
 
@@ -564,4 +564,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

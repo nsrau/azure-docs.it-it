@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Criteri di posizionamento per i servizi di Service Fabric
-Esistono numerose e diverse regole aggiuntive di cui potrebbe essere necessario tener conto in caso di cluster di Service Fabric distribuito su una vasta area geografica, ad esempio tra più centri dati o aree di Azure oppure in caso di ambiente distribuito su più aree di controllo geopolitico (o altre circostanze in cui sono previsti limiti legali o politici). Molte di queste potrebbero essere configurate tramite le proprietà dei nodi e i vincoli di posizionamento (descritti in precedenza), ma alcune sono più complesse. In ogni caso, sono previste queste scelte rapide. Proprio come i vincoli di posizionamento, i criteri di posizionamento possono essere configurati in base al servizio.
+Esistono numerose e diverse regole aggiuntive di cui potrebbe essere necessario tener conto in caso di cluster di Service Fabric distribuito su una vasta area geografica, ad esempio tra più data center o aree di Azure oppure in caso di ambiente distribuito su più aree di controllo geopolitico, altre circostanze in cui sono previsti limiti legali o politici oppure distanze hanno un impatto effettivo su prestazioni e latenza. Molte di queste regole possono essere configurate tramite le proprietà dei nodi e i vincoli di posizionamento, ma alcune sono più complesse. Sono in ogni caso disponibili queste soluzioni rapide. Proprio come i vincoli di posizionamento, i criteri di posizionamento possono essere configurati in base all'istanza del servizio.
 
 ## Specifica di domini non validi
 Il criterio di posizionamento InvalidDomain consente di specificare che un particolare dominio di errore non è valido per il carico di lavoro interessato. Questo criterio garantisce che un particolare servizio non sia mai eseguito in una determinata area, ad esempio per motivi geopolitici o criteri aziendali. È possibile specificare più domini non validi
@@ -98,4 +98,4 @@ Dunque è possibile utilizzare queste configurazioni per i servizi in un cluster
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

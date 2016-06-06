@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Raccolta, conservazione e archiviazione di dati in Application Insights 
@@ -27,7 +27,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 * È improbabile che i moduli di telemetria standard che seguono un comportamento predefinito possano inviare dati sensibili al servizio. I dati di telemetria riguardano metriche di carico, prestazioni e utilizzo, report di eccezioni e altri dati di diagnostica. I principali dati utente visibili nei report di diagnostica sono URL, ma l'app non deve in ogni caso inserire dati sensibili in testo normale in un URL.
 * È possibile scrivere codice che invia dati di telemetria personalizzati aggiuntivi per agevolare la diagnostica e il monitoraggio dell'utilizzo. Questa flessibilità è un'eccellente funzionalità di Application Insights. Sarebbe possibile, per errore, scrivere il codice in modo che includa dati personali e altri dati sensibili. Pertanto, se l'applicazione utilizza questo tipo di dati, è consigliabile applicare processi di revisione efficaci a tutto il codice creato.
 * Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser. 
-* I dati vengono archiviati nei server di [Microsoft Azure](http://azure.com) negli Stati Uniti. Azure offre [processi di sicurezza efficaci e soddisfa una vasta gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. I dati sono crittografati durante il transito, anche se non lo sono nel server.
+* I dati vengono archiviati nei server di [Microsoft Azure](http://azure.com) negli Stati Uniti. L'app può essere eseguita ovunque. Azure offre [processi di sicurezza efficaci e soddisfa una vasta gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. I dati sono crittografati durante il transito, anche se non lo sono nel server.
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
 
@@ -94,9 +94,7 @@ Questo sarebbe possibile scrivendo un [plug-in del processore di telemetria](app
 
 ## Per quanto tempo vengono conservati i dati? 
 
-Dipende dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/).
-
-I punti dati non elaborati, ovvero gli elementi ispezionabili nella ricerca diagnostica, vengono conservati per un periodo di 7 giorni. Se si desidera mantenere i dati più lungo, è possibile usare l'[esportazione continua](app-insights-export-telemetry.md) per copiarli in un account di archiviazione.
+I punti dati non elaborati, ovvero elementi di dati ispezionabili nella ricerca diagnostica, vengono conservati per un periodo di 7 giorni. Per conservare i dati più a lungo, è possibile usare l'[esportazione continua](app-insights-export-telemetry.md) per copiarli in un account di archiviazione.
 
 I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 90 giorni.
 
@@ -119,6 +117,10 @@ Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 #### È possibile archiviarli altrove, ad esempio in Europa? 
 
 * Attualmente no. 
+
+#### Significa che l'app deve essere ospitata negli Stati Uniti?
+
+* No. L'applicazione può essere eseguita ovunque, nel proprio host locale o nel Cloud.
 
 ## Quanto sono sicuri i dati?  
 
@@ -191,7 +193,7 @@ Gli SDK sono diversi per le piattaforme specifiche e sono disponibili vari compo
 Azione | Classi di dati raccolte (vedere la tabella seguente)
 ---|---
 [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
-[Installare Monitoraggio dello stato su IIS][redfield]<br/>[Aggiungere l'estensione AI a una VM di Azure o a un'app Web][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Installare Status Monitor su IIS][redfield].|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Aggiungere Application Insights SDK a un'app Web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Aggiungere SDK a un'app di Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
@@ -254,7 +256,6 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md
@@ -267,4 +268,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

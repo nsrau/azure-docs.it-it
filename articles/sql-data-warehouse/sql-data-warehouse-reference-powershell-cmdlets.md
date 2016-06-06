@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="05/18/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse
 
-Molte attività di amministrazione di SQL Data Warehouse possono essere gestite tramite i cmdlet di Azure PowerShell o le API REST. Di seguito sono riportati alcuni esempi su come usare i comandi di PowerShell per automatizzare le attività comuni in SQL Data Warehouse. In alternativa, per un elenco delle API REST per l'automazione di queste attività, vedere [Operazioni per i database SQL di Azure][].
+Molte attività di amministrazione di SQL Data Warehouse possono essere gestite tramite i cmdlet di Azure PowerShell o le API REST. Di seguito sono riportati alcuni esempi su come usare i comandi di PowerShell per automatizzare le attività comuni in SQL Data Warehouse. Per altri esempi, vedere [Gestire le operazioni di scalabilità per Azure SQL Data Warehouse (REST)][].
 
 > [AZURE.NOTE]  Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0.3 o successiva. È possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
 
@@ -56,7 +56,7 @@ Fa riprendere le operazioni di un database denominato "Database02" ospitato su u
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Come variazione, questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". L'oggetto recuperato viene inviato tramite pipe a [Resume-AzureRmSqlDatabase][].
+Come variazione, questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". Invia tramite pipe l'oggetto recuperato a [Resume-AzureRmSqlDatabase][].
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -87,15 +87,16 @@ Per altri esempi di PowerShell, vedere:
 - [Ripristinare da snapshot][]
 - [Eseguire il ripristino geografico da snapshot][]
 
-Per un elenco di tutte le attività che possono essere automatizzate tramite PowerShell, vedere [Azure SQL Database Cmdlets][] (Cmdlet del database SQL di Azure).
+Per un elenco di tutte le attività che possono essere automatizzate tramite PowerShell, vedere [Azure SQL Database Cmdlets][] \(Cmdlet del database SQL di Azure). Per un elenco di attività che possono essere automatizzate con REST, vedere [Operazioni per i database SQL di Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Come installare e configurare Azure PowerShell]: powershell-install-configure.md
-[Creare SQL Data Warehouse con PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
-[Ripristinare da snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Eseguire il ripristino geografico da snapshot]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
+[Creare SQL Data Warehouse con PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Ripristinare da snapshot]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Eseguire il ripristino geografico da snapshot]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Gestire le operazioni di scalabilità per Azure SQL Data Warehouse (REST)]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -106,7 +107,7 @@ Per un elenco di tutte le attività che possono essere automatizzate tramite Pow
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
@@ -115,4 +116,4 @@ Per un elenco di tutte le attività che possono essere automatizzate tramite Pow
 <!--Other Web references-->
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

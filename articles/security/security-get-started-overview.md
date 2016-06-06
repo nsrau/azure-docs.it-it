@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introduzione alla sicurezza di Azure | Microsoft Azure"
+   pageTitle="Panoramica della sicurezza in Azure | Microsoft Azure"
    description="Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# Introduzione - Panoramica
+# Panoramica della sicurezza in Azure
 
 Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure. Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Centro protezione di Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
@@ -30,6 +30,7 @@ Sul lato sinistro della pagina verrà visualizzato un insieme di categorie di ar
 Ogni categoria sarà introdotta da un articolo contenente un riepilogo delle funzionalità offerte da Azure in termini di sicurezza per la categoria specifica. Gli articoli introduttivi consentono di comprendere i prodotti, i servizi e le funzionalità disponibili in Azure che è possibile usare per migliorare la sicurezza delle distribuzioni. Gli articoli introduttivi contengono numerosi collegamenti a contenuti tecnici per ottenere maggiori informazioni sugli argomenti e sulla relativa implementazione.
 
 Il sito di informazioni sulla sicurezza di Azure attualmente include le categorie seguenti:
+
 - Risorse
 - Sicurezza di rete
 - Sicurezza di archiviazione
@@ -45,4 +46,4 @@ Il sito di informazioni sulla sicurezza di Azure attualmente include le categori
 
 I commenti e i suggerimenti degli utenti sono molto apprezzati. Segnalare se sono presenti categorie che si vuole aggiungere al sito o se sono presenti articoli che si vuole aggiungere a una categoria esistente. A tale scopo, usare la sezione dei commenti riportata di seguito o scrivere all'indirizzo [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com). I suggerimenti ricevuti verranno incorporati nelle progettazioni future.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

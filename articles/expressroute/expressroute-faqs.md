@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -248,4 +248,4 @@ Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se Exp
 ### È possibile accedere a Dynamics AX tramite una connessione ExpressRoute?
 No, l'operazione non è supportata.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

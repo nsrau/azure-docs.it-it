@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/18/16-->
+<!--author=alkohli last changed: 05/19/16-->
 
 #### Scaricare gli hotfix
 
@@ -95,9 +95,9 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
 
     Dovrebbero essere visualizzate le seguenti versioni:
 
-    - HcsSoftwareVersion: 6.3.9600.17704
-    - CisAgentVersion: 1.0.9299.0
-    - MdsAgentVersion: 330.0.4698.13
+    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `CisAgentVersion: 1.0.9299.0`
+    - `MdsAgentVersion: 30.0.4698.16` 
 
 	Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
 
@@ -184,7 +184,7 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17704
+    	Software Version: 6.3.9600.17705
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
@@ -238,3 +238,5 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
     `Exit-HcsMaintenanceMode`
 
 1. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Sul portale potrebbe non essere visualizzata l’installazione degli aggiornamenti di modalità manutenzione per 24 ore.
+
+<!---HONumber=AcomDC_0525_2016-->

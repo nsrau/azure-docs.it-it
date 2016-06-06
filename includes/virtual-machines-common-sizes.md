@@ -5,7 +5,7 @@ Le dimensioni standard sono costituite da più serie: A, D, DS, G e GS. Si tenga
 
 *   Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-*   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+*   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
 *   Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 
@@ -45,12 +45,12 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-15v2](#standard-tier-dsv2-series) |210-250* |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series)	|225 *|
+|[D1-14](#standard-tier-d-series)	|160 |
+|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[DS1-14](#standard-tier-ds-series)	|160 |
+|[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
+|[G1-5](#standard-tier-g-series)	|180 - 240 *|
 |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
@@ -193,5 +193,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Altre informazioni sulle [istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-performance Computing (HPC).
 
-
-
+<!---HONumber=AcomDC_0525_2016-->

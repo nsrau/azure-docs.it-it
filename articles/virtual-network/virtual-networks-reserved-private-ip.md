@@ -92,11 +92,11 @@ Per aggiungere un indirizzo IP interno statico alla macchina virtuale creata usa
 
 ## Passaggi successivi
 
-[IP riservato](virtual-networks-reserved-public-ip)
+[IP riservato](virtual-networks-reserved-public-ip.md)
 
-[IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip)
+[IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

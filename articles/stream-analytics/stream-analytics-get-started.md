@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/20/2016"
 	ms.author="jeffstok" />
 
 
@@ -59,8 +59,14 @@ Per creare un hub eventi:
 
 Microsoft ha fornito un'applicazione client per generare i metadati di esempio relativi alle chiamate in ingresso ed eseguirne il push nell’hub eventi. Attenersi alla procedura seguente per configurare questa applicazione.
 
-1.	Scaricare il [file TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+1.	Scaricare il [file TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) Decomprimerlo in una directory.
+
+    **Nota**: Windows può bloccare il file con estensione zip scaricato. Fare clic con il pulsante destro del mouse sul file e selezionare Proprietà. Se viene visualizzato il messaggio "Il file proviene da un altro computer. Per facilitare la protezione del computer, potrebbe essere bloccato.", selezionare quindi la casella "Sblocca" e scegliere Applica sul file con estensione zip.
+
 2.	Sostituire i valori di Microsoft.ServiceBus.ConnectionString e di EventHubName in **telcodatagen.exe.config** con la stringa di connessione e il nome dell'hub eventi.
+
+    **Nota**: la stringa di connessione copiata dal portale di Azure posiziona il nome della connessione alla fine. Rimuovere ";EntityPath=<value>" dal campo "add key=".
+
 3.	Avviare l’applicazione. L'utilizzo è il seguente:
 
    telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
@@ -129,7 +135,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni per l’elaborazione in tempo reale. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/dn834998.aspx). Questa esercitazione consente di creare e testare diverse query sul flusso in tempo reale dei dati chiamata.
 
 #### Facoltativo: dati di input di esempio
-Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione. È anche disponibile un file [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
+Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione e viene anche fornito un file [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
 
 1.	Selezionare l'input dell'hub eventi e fare clic su **Dati di esempio** nella parte inferiore della pagina.
 2.	Nella finestra di dialogo visualizzata specificare un valore per **Ora di inizio** da cui iniziare a raccogliere dati e un valore per **Durata** per la quantità di dati aggiuntivi da utilizzare.
@@ -149,7 +155,7 @@ Se si desidera archiviare ogni evento, è possibile utilizzare una query passthr
 	> Assicurarsi che il nome dell'origine di input corrisponda al nome dell'input specificato precedentemente.
 
 3.	Fare clic su **Test** nell'editor di query.
-4.	Fornire un file di test, che può essere un file creato con la procedura precedente oppure il file [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Fornire un file di test, che può essere sia un file creato tramite la procedura precedente che [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Fare clic sul segno di spunta e vedere i risultati visualizzati sotto la definizione della query.
 
 	![Risultati della definizione della query](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -259,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/12/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
 
@@ -315,4 +315,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

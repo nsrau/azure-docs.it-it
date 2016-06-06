@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -93,7 +93,7 @@ Aggiungere l'istruzione `using` seguente all'inizio del file `CalcInput.cs`.
         public int b;
     }
 
-Fare clic con il pulsante destro del mouse su **Controller** in **Esplora soluzioni ** e scegliere **Aggiungi**->**Controller**. Scegliere **Web API 2 Controller - Empty** e fare clic su **Aggiungi**. Digitare **CalcController** come nome del controller e fare clic su **Aggiungi**.
+Fare clic con il pulsante destro del mouse su **Controller** in **Esplora soluzioni** e scegliere **Aggiungi**->**Controller**. Scegliere **Web API 2 Controller - Empty** e fare clic su **Aggiungi**. Digitare **CalcController** come nome del controller e fare clic su **Aggiungi**.
 
 ![Aggiungi controller][api-management-add-controller]
 
@@ -237,9 +237,9 @@ Scegliere **Applicazione Web e/o API Web**, immettere un nome e fare clic sulla 
 
 ![Nuova applicazione][api-management-aad-new-application-devportal-1]
 
-Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato ****https://contoso5.portal.azure-api.net/signin **.
+Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato **https://contoso5.portal.azure-api.net/signin **.
 
-Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati ****https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
+Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati **https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
 
 ![Nuova applicazione][api-management-aad-new-application-devportal-2]
 
@@ -309,7 +309,7 @@ Fare clic sull'icona di ricerca digitare **APIM** nella casella Che inizia con, 
 
 ![Aggiungere autorizzazioni][api-management-aad-add-app-permissions]
 
-Fare clic su **Autorizzazioni delegate** per **APIMAADDemo**, selezionare la casella **Accedi a APIMAADDemo ** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
+Fare clic su **Autorizzazioni delegate** per **APIMAADDemo**, selezionare la casella **Accedi a APIMAADDemo** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-delegated-permissions]
 
@@ -362,7 +362,7 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 
 ## Passaggi successivi
 -	Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
--	Per altri metodi di protezione del servizio back-end, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e [Come configurare connessioni VPN o ExpressRoute](api-management-howto-setup-vpn).
+-	Per altri metodi di protezione del servizio back-end, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e [Come configurare connessioni VPN o ExpressRoute](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -413,4 +413,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 [Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

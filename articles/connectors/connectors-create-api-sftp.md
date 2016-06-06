@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di SFTP alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di SFTP con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore SFTP alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore SFTP con i parametri dell'API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di SFTP
-Connettersi a un server SFTP per gestire i file. È possibile eseguire diverse attività sul server SFTP, ad esempio caricare file, eliminarli e così via. L'API di SFTP può essere usata da:
+# Introduzione al connettore SFTP 
+Connettersi a un server SFTP per gestire i file. È possibile eseguire diverse attività sul server SFTP, ad esempio caricare file, eliminarli e così via. Il connettore SFTP può essere usato da:
 
 - App per la logica
 
@@ -34,17 +34,17 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 
 
 ## Trigger e azioni
-Per l'API di SFTP sono disponibili i trigger e le azioni seguenti:
+Per il connettore SFTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
 <ul><li>Quando un file viene creato o modificato </li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai in una cartella</li><li>Ottieni contenuto di file</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file</li><li>Ottieni metadati di file tramite</li><li>Aggiorna file</li><li>Quando un file viene creato o modificato </li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 
 ## Creare una connessione a SFTP
-Quando si aggiunge questa API alle app per la logica, immettere i valori seguenti:
+Quando si aggiunge questo connettore alle app per la logica, immettere i valori seguenti:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
@@ -53,7 +53,11 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori seguent
 |Password | Sì | Immettere la password del nome utente.|
 |SSH Server Host Key Finger Print | Sì | Immettere l'ID digitale della chiave host pubblica per il server SSH. <br/><br/>In genere, la chiave viene fornita dall'amministratore del server. Per ottenere l'ID digitale della chiave è inoltre possibile usare gli strumenti ```WinSCP``` o ```ssh-keygen-g3 -F```. | 
 
-Dopo aver creato la connessione immettere le proprietà di SFTP, ad esempio il percorso del file o della cartella. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
+Di seguito è riportata una procedura dettagliata dei passaggi per la creazione della connessione:
+
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a SFTP](../../includes/connectors-create-api-sftp.md)]
+
+Dopo aver creato la connessione immettere le proprietà di SFTP, ad esempio il percorso del file o della cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di SFTP in altre app per la logica.
 
@@ -250,4 +254,4 @@ Attiva un flusso quando un file viene modificato in SFTP. ```GET: /datasets/defa
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

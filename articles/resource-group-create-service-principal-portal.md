@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare un'applicazione e un'entità servizio di Active Directory nel portale | Microsoft Azure"
+   pageTitle="Creare un'applicazione di Active Directory nel portale | Microsoft Azure"
    description="Descrive come creare una nuova applicazione ed entità servizio di Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,39 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
+# Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse
 
-## Panoramica
-Quando si ha un processo automatico o un'applicazione che deve accedere alle risorse o modificarle, è possibile usare il portale classico per creare un'applicazione Active Directory. È possibile eseguire l'applicazione nella propria identità o con l'identità dell'utente connesso dell'applicazione. Questi due metodi di autenticazione delle applicazioni vengono definiti come interattivo (l'utente esegue l'accesso) e non interattivo (l'app fornisce le proprie credenziali). In modalità non interattiva è necessario assegnare un ruolo con l'autorizzazione corretta all'identità per l'applicazione. Se l'app viene eseguita automaticamente, ad esempio un processo back-end, è necessario usare l'autenticazione non interattiva.
+Quando un processo automatico o un'applicazione devono accedere alle risorse o modificarle, è necessario configurare un'applicazione di Active Directory cui assegnare le autorizzazioni richieste. Questo argomento illustra come eseguire questa procedura tramite il portale. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory e quindi passare al portale di Azure per assegnare un ruolo all'applicazione.
 
-Questo argomento spiega come creare una nuova applicazione usando il portale classico. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory. È possibile usare il portale per assegnare l'applicazione a un ruolo.
+Sono disponibili due opzioni di autenticazione per l'applicazione di Active Directory:
 
-È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di PowerShell o dell'interfaccia della riga di comando con l'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
+1. Creare un ID e una chiave di autenticazione per l'applicazione, quindi specificare tali credenziali quando viene eseguita l'applicazione. Usare questa opzione per i processi automatizzati che vengono eseguiti senza interazione dell'utente.
+2. Consentire agli utenti di accedere ad Azure tramite l'applicazione e quindi usare quelle credenziali per accedere alle risorse per conto dell'utente. Usare questa opzione per le applicazioni eseguite dagli utenti.
 
-## Concetti
-1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altri dettagli, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
-2. Applicazione AD: record di directory in Active Directory che identifica un'applicazione. 
-3. Entità servizio: istanza dell'applicazione a cui è possibile applicare ruoli di controllo di accesso.
+Per una spiegazione dei concetti di Active Directory, vedere [Oggetti applicazione e oggetti entità servizio](./active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Per una spiegazione più dettagliata delle applicazioni e delle entità servizio, vedere [Oggetti applicazione e Oggetti entità servizio](active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](active-directory/active-directory-authentication-scenarios.md).
+Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 
-
-## Creare l'applicazione
-
-Per le applicazioni interattive e non interattiva, è necessario creare e configurare l'applicazione Active Directory.
+## Creare un'applicazione di Active Directory
 
 1. Accedere all'account di Azure tramite il [portale classico](https://manage.windowsazure.com/).
 
 2. Selezionare **Active Directory** dal riquadro di sinistra.
 
-     ![selezionare Active Directory][1]
+     ![selezionare Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
-3. Selezionare la directory da usare per la creazione della nuova applicazione. Per le risorse nella sottoscrizione, è possibile assegnare l'accesso solo alle entità servizio nella stessa directory della sottoscrizione. In genere, si preferisce creare l'applicazione nella directory in cui si trova la sottoscrizione.
+3. Selezionare il tipo di Active Directory che si vuole usare per creare la nuova applicazione. Se è disponibile più di un tipo di Active Directory, in genere si preferisce creare l'applicazione nella directory in cui si trova la sottoscrizione. È possibile concedere l'accesso alle risorse nella sottoscrizione solo per le applicazioni presenti nella stessa directory della sottoscrizione.
 
-     ![scegliere la directory][2]
+     ![scegliere la directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
     Se è necessario trovare la directory per la sottoscrizione, selezionare **Impostazioni** e cercare il nome della directory.
    
@@ -53,41 +47,61 @@ Per le applicazioni interattive e non interattiva, è necessario creare e config
 
 3. Per visualizzare le applicazioni nella directory, fare clic su **Applicazioni**.
 
-     ![visualizzare le applicazioni][11]
+     ![visualizzare le applicazioni](./media/resource-group-create-service-principal-portal/view-applications.png)
 
 4. Se non è stata creata un'applicazione in questa directory, dovrebbe essere visualizzata un'immagine simile a questa riportata di seguito. Fare clic su **AGGIUNGI APPLICAZIONE**
 
-     ![aggiungere un'applicazione][6]
+     ![aggiungere un'applicazione](./media/resource-group-create-service-principal-portal/create-application.png)
 
      In alternativa, fare clic su **Aggiungi** nel riquadro inferiore.
 
-     ![aggiungere][12]
+     ![aggiungere](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. Selezionare il tipo di applicazione da creare. Per questa esercitazione non verrà usata un'applicazione della raccolta.
+5. Selezionare il tipo di applicazione da creare. Per questa esercitazione, selezionare **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-     ![nuova applicazione][10]
+     ![nuova applicazione](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Immettere il nome dell'applicazione e selezionare il tipo di applicazione da usare. Selezionare il tipo di applicazione da creare. Per questa esercitazione, creare un'**APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante Avanti.
+6. Specificare un nome per l'applicazione e selezionare il tipo di applicazione che si vuole creare. Per questa esercitazione, creare un'**APPLICAZIONE WEB O UN'API WEB** e fare clic sul pulsante per continuare. Se si seleziona **APPLICAZIONE CLIENT NATIVA**, i rimanenti passaggi di questo articolo non corrisponderanno a quanto verrà visualizzato per l'utente.
 
-     ![assegnare un nome all'applicazione][9]
+     ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione. L'univocità o l'esistenza dell'endpoint non viene convalidata. Se si era selezionato **Applicazione client nativa** per il tipo di applicazione, si dovrà fornire un valore per **URI di reindirizzamento**. Fare clic su **Completa** per creare l'applicazione AAD.
+7. Compilare le proprietà per l'app. Per **URL ACCESSO**, specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione.
 
-     ![proprietà dell'applicazione][4]
+     ![proprietà dell'applicazione](./media/resource-group-create-service-principal-portal/app-properties.png)
 
 L'applicazione è stata creata.
 
-## Ottenere l'ID client e l'ID tenant
+## Ottenere l'ID client e la chiave di autenticazione
 
-Quando si accede a livello di codice all'applicazione, è necessario l'ID dell'applicazione. Selezionare la scheda **Configura** e copiare il valore di **ID CLIENT**.
+Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicazione. Se l'applicazione viene eseguita con le proprie credenziali, è necessaria anche una chiave di autenticazione.
+
+1. Fare clic sulla scheda **Configura** per configurare la password dell'applicazione.
+
+     ![configura applicazione](./media/resource-group-create-service-principal-portal/application-configure.png)
+
+2. Copiare l'**ID CLIENT**.
   
-   ![id client][5]
+     ![id client](./media/resource-group-create-service-principal-portal/client-id.png)
 
-In alcuni casi, è necessario passare l'id tenant con la richiesta di autenticazione. Per le app Web e le app per le API, è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
+3. Se l'applicazione viene eseguita con le proprie credenziali, scorrere fino alla sezione **Chiavi** e selezionare la durata della validità della password.
+
+     ![chiavi](./media/resource-group-create-service-principal-portal/create-key.png)
+
+4. Selezionare **Salva** per creare la chiave.
+
+     ![salvare](./media/resource-group-create-service-principal-portal/save-icon.png)
+
+     Viene visualizzata la chiave salvata, che è possibile copiare. Non si sarà in grado di recuperare la chiave in un secondo momento,quindi la si dovrebbe copiare ora.
+
+     ![chiave salvata](./media/resource-group-create-service-principal-portal/save-key.png)
+
+## Ottenere l'ID tenant
+
+Quando si esegue l'accesso a livello di codice, è necessario specificare l'ID tenant con la richiesta di autenticazione. Per le App Web e le app per le API Web, è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
-Gli endpoint non sono disponibili per le applicazioni client native. È invece possibile recuperare l'ID tenant usando PowerShell:
+È anche possibile recuperare l'ID tenant usando PowerShell:
 
     Get-AzureRmSubscription
 
@@ -95,44 +109,19 @@ Oppure l'interfaccia della riga di comando di Azure:
 
     azure account show --json
 
-## Crea una chiave di autenticazione
-
-Se l'applicazione verrà eseguita con le proprie credenziali, è necessario creare una chiave per l'applicazione.
-
-1. Fare clic sulla scheda **Configura** per configurare la password dell'applicazione.
-
-     ![configura applicazione][3]
-
-2. Scorrere fino alla sezione **Chiavi** e selezionare la durata della validità della password.
-
-     ![chiavi][7]
-
-3. Selezionare **Salva** per creare la chiave.
-
-     ![salvare][13]
-
-     Viene visualizzata la chiave salvata, che è possibile copiare. Non si sarà in grado di recuperare la chiave in un secondo momento,quindi la si dovrebbe copiare ora.
-
-     ![chiave salvata][8]
-
-A questo punto, l'applicazione è pronta e l'entità servizio è stata creata nel tenant. Quando si accede come entità servizio, assicurarsi di usare:
-
-* **ID CLIENT**: come nome utente.
-* **CHIAVE**: come password.
-
 ## Impostare autorizzazioni delegate
 
 Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessario concedere all'applicazione l'autorizzazione delegata per accedere alle altre applicazioni. Eseguire questa operazione nella sezione **Autorizzazioni per altre applicazioni** della scheda **Configura**. Per impostazione predefinita, un'autorizzazione delegata è già abilitata per Azure Active Directory. Lasciare questa autorizzazione delegata invariata.
 
 1. Selezionare **Aggiungi applicazione**.
 
-2. Nell'elenco selezionare **API di gestione del servizio Microsoft Azure**.
+2. Nell'elenco selezionare **API di gestione del servizio Microsoft Azure**. Quindi, fare clic sull'icona di completamento.
 
       ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Aggiungere l'autorizzazione delegata **Accedi a gestione del servizio Azure (anteprima)** all'API Gestione dei servizi.
+3. In Autorizzazioni delegate scegliere l'elenco a discesa e selezionare **Access Azure Service Management as organization** (Accedi alla gestione dei servizi Azure come organizzazione).
 
-       ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
+      ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
 4. Salvare la modifica.
 
@@ -144,7 +133,11 @@ Se gli utenti da altre directory di Azure Active Directory possono fornire il co
 
 ## Assegnare l'applicazione al ruolo
 
-Se l'applicazione non è in esecuzione con l'identità dell'utente connesso, è necessario assegnare l'applicazione a un ruolo per concedere le autorizzazioni per l'esecuzione di azioni. Per assegnare l'applicazione a un ruolo, passare dal portale classico al [portale di Azure](https://portal.azure.com). È necessario decidere quale ruolo aggiungere all'applicazione e indicare l'ambito del ruolo. Per informazioni sui ruoli disponibili, vedere [RBAC: Ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione è in grado di leggere il gruppo di risorse e le risorse in esso contenute.
+Se l'applicazione viene eseguita con le proprie credenziali, è necessario assegnare l'applicazione a un ruolo. È necessario decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [RBAC: Ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md).
+
+È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione è in grado di leggere il gruppo di risorse e le risorse in esso contenute.
+
+1. Per assegnare l'applicazione a un ruolo, passare dal portale classico al [portale di Azure](https://portal.azure.com).
 
 1. Nel portale passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per questo argomento è possibile passare a un gruppo di risorse e nel relativo pannello selezionare l'icona **Accesso**.
 
@@ -174,73 +167,20 @@ Per ulteriori informazioni sull'assegnazione di utenti e applicazioni a ruoli tr
 
 ## Ottenere token di accesso nel codice
 
-Se si usa .NET, è possibile recuperare il token di accesso per l'applicazione con il codice seguente.
+L'applicazione di Active Directory ora è configurata per accedere alle risorse. Nell'applicazione è possibile specificare le credenziali e ricevere un token di accesso. Usare questo token di accesso per le richieste per accedere alle risorse.
 
-È prima necessario installare la libreria di autenticazione di Active Directory nel progetto di Visual Studio. Il modo più semplice per eseguire questa operazione è usare il pacchetto NuGet. Aprire la Console di Gestione pacchetti e digitare i comandi seguenti.
+A questo punto è possibile eseguire l'accesso a livello di codice dell'applicazione.
 
-    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+- Per esempi di .NET, vedere [Azure Resource Manager SDK per .NET](resource-manager-net-sdk.md).
+- Per esempi di Java, vedere [Azure Resource Manager SDK per Java](resource-manager-java-sdk.md).
+- Per esempi di Python, vedere [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Autenticazione gestione risorse per Python).
+- Per esempi di REST, vedere [API REST di Resource Manager](resource-manager-rest-api.md).
 
-Per accedere con l'ID client e il segreto, usare il metodo seguente per recuperare il token.
-
-    public static string GetAccessToken()
-    {
-        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
-
-        if (result == null) {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
-        }
-
-        string token = result.AccessToken;
-
-        return token;
-    }
-
-Per accedere per conto dell'utente, usare il metodo seguente per recuperare il token.
-
-    public static string GetAcessToken()
-    {
-        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
-
-        if (result == null) {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
-        }
-
-        string token = result.AccessToken;
-
-        return token;
-    }
-
-È possibile passare il token nell'intestazione della richiesta con il codice seguente:
-
-    string token = GetAcessToken();
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
-
+Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Passaggi successivi
 
 - Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).  
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Per altre informazioni sull'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure con applicazioni ed entità servizio di Active Directory, incluso l'uso di un certificato per l'autenticazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
-- Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 
-
-<!-- Images. -->
-[1]: ./media/resource-group-create-service-principal-portal/active-directory.png
-[2]: ./media/resource-group-create-service-principal-portal/active-directory-details.png
-[3]: ./media/resource-group-create-service-principal-portal/application-configure.png
-[4]: ./media/resource-group-create-service-principal-portal/app-properties.png
-[5]: ./media/resource-group-create-service-principal-portal/client-id.png
-[6]: ./media/resource-group-create-service-principal-portal/create-application.png
-[7]: ./media/resource-group-create-service-principal-portal/create-key.png
-[8]: ./media/resource-group-create-service-principal-portal/save-key.png
-[9]: ./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png
-[10]: ./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png
-[11]: ./media/resource-group-create-service-principal-portal/view-applications.png
-[12]: ./media/resource-group-create-service-principal-portal/add-icon.png
-[13]: ./media/resource-group-create-service-principal-portal/save-icon.png
-
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

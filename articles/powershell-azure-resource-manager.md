@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/11/2016" 
 	ms.author="tomfitz"/>
 
@@ -380,4 +380,4 @@ Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -163,6 +163,27 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+## Variabili di ambiente
+
+Per ottenere una variabile di ambiente o un valore dell'impostazione dell'app, usare `process.env`, come illustrato nell'esempio di codice seguente:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
+```
+
 ## Supporto di TypeScript/CoffeeScript
 
 Non è ancora disponibile il supporto diretto per la compilazione automatica di TypeScript/CoffeeScript tramite il runtime, quindi queste operazioni devono essere tutte gestite all'esterno del runtime al momento della distribuzione.
@@ -175,4 +196,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

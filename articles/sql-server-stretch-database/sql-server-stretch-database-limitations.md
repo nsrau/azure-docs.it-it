@@ -30,7 +30,7 @@ Le tabelle abilitate per Estensione presentano le limitazioni seguenti.
 
 ### Operazioni DML
 
--   Non è possibile AGGIORNARE o ELIMINARE righe in una tabella abilitata per Estensione o da una vista che include tali tabelle.
+-   Non è possibile eseguire UPDATE o DELETE sulle righe che sono state migrate o sulle righe che potrebbero essere migrate in una tabella abilitata per Estensione o in una vista che include tabelle di questo tipo.
 
 -   Non è possibile INSERIRE righe in una tabella abilitata per Estensione su un server collegato.
 
@@ -96,4 +96,4 @@ Attualmente, i seguenti elementi impediscono l'abilitazione dell'Estensione per 
 
 [Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

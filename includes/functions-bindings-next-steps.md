@@ -1,1 +1,3 @@
-For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md)
+Per informazioni sulle altre associazioni e sugli altri trigger per le Funzioni di Azure, vedere [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](../articles/azure-functions/functions-triggers-bindings.md)
+
+<!---HONumber=AcomDC_0525_2016-->

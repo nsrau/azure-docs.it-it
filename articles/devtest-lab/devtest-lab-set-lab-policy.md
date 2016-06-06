@@ -44,13 +44,13 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 	- [Allowed VM Sizes](#set-allowed-vm-sizes) - Selezionare l'elenco delle dimensioni consentite per le macchine virtuali nel lab. Un utente può creare macchine virtuali solo da questo elenco.
 
-	- [Maximum VMs per user](#set-maximum-vms-per-user) (Numero massimo di VM per utente) - Specifica il numero massimo di VM che è possibile creare per un lab, oltre al numero massimo di macchine virtuali che possono essere create da un utente.
+	- [Numero massimo di VM per utente](#set-maximum-vms-per-user): specificare il numero massimo di VM che possono essere create da un utente.
 
-	- [Total VMs allowed](#set-total-vms-allowed) (VM totali consentite) - Specifica il numero massimo di VM che è possibile creare per un lab, oltre al numero massimo di macchine virtuali che possono essere create da un utente.
+	- [Numero totale di VM consentite](#set-total-vms-allowed): specificare il numero massimo di VM che possono essere create per un lab.
 
-	- [Auto shutdown](#set-auto-shutdown) - Specificare a che ora le macchine virtuali del lab corrente devono arrestarsi.
+	- [Arresto automatico](#set-auto-shutdown): specificare il momento in cui le VM del lab corrente si arrestano automaticamente.
 
-	- [Auto start](#set-auto-start) (Avvio automatico) - Specifica l'ora in cui le macchine virtuali del lab corrente devono arrestarsi.
+	- [Avvio automatico](#set-auto-start): specificare il momento in cui le VM del lab corrente si avviano automaticamente.
 
 ## Impostare le dimensioni consentite per le macchine virtuali
 
@@ -135,4 +135,4 @@ Dopo avere definito e applicato i diversi criteri per le VM per il lab, è possi
 - [Configurare immagini del Marketplace](./devtest-lab-configure-marketplace-images.md) - Lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
 - [Creare una VM in un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova macchina virtuale da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

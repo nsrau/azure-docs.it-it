@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Spostare dati da archivi dati ODBC | Data factory di Azure" 
-	description="Informazioni su come spostare dati da archivi dati ODBC con Data factory di Azure." 
+	pageTitle="Spostare dati da archivi dati ODBC | Azure Data Factory" 
+	description="Informazioni su come spostare dati da archivi dati ODBC con Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +16,14 @@
 	ms.date="04/13/2016" 
 	ms.author="spelluru"/>
 
-# Spostare dati da archivi dati ODBC con Data factory di Azure
+# Spostare dati da archivi dati ODBC con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un archivio dati ODBC locale a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Data factory supporta attualmente solo lo spostamento di dati da un archivio dati ODBC ad altri archivi dati, ma non da altri archivi dati a un archivio dati ODBC locale.
+Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati ODBC ad altri archivi dati, ma non da altri archivi dati a un archivio dati ODBC locale.
 
 
 ## Abilitazione della connettività
-Il servizio Data factory supporta la connessione a origini ODBC locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a un archivio dati ODBC anche se è ospitato in una macchina virtuale IaaS di Azure.
+Il servizio Data Factory supporta la connessione a origini ODBC locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a un archivio dati ODBC anche se è ospitato in una macchina virtuale IaaS di Azure.
 
 Anche se è possibile installare il gateway nello stesso computer locale o macchina virtuale di Azure dell'archivio dati ODBC, è consigliabile installarlo in un diverso computer o macchina virtuale IaaS di Azure per evitare conflitti di risorse e per ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer l'archivio dati ODBC.
 
@@ -33,9 +33,9 @@ Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC 
 
 ## Esempio: Copiare dati da un archivio dati ODBC al BLOB di Azure
 
-Questo esempio illustra come copiare dati da un archivio dati ODBC all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+Questo esempio illustra come copiare dati da un archivio dati ODBC all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
  
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -81,7 +81,7 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in un archivio dati ODBC e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
 
-Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data Factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 	
 	{
 	    "name": "ODBCDataSet",
@@ -229,7 +229,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: anonima e di base. | Sì | 
 | username | Specificare il nome utente se si usa l'autenticazione di base. | No | 
 | password | Specificare la password per l'account utente specificato per il nome utente. | No | 
-| gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'archivio dati ODBC. | Sì |
+| gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. | Sì |
 
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un archivio dati ODBC locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
@@ -352,9 +352,20 @@ Prima di usare l'archivio GE Historian in una soluzione Data Factory, verificare
 
 Leggere l'articolo dall'inizio per una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine in un'operazione di copia.
 
-[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+## Risoluzione dei problemi di connettività
+Usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati** per risolvere i problemi di connessione.
+
+1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come indicato nell'immagine seguente. 
+
+	![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
+2. Passare alla scheda **Diagnostica**.
+
+	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. Selezionare il **tipo** di dati archiviati (servizio collegato). 
+4. Specificare l'**autenticazione** e immettere le **credenziali** o immettere la **stringa di connessione** per la connessione all'archivio dati. 
+5. Fare clic su **Test connessione** per testare la connessione all'archivio dati. 
 
 ## Ottimizzazione delle prestazioni  
-Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

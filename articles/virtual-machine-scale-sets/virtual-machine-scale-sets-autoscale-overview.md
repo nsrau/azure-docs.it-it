@@ -21,7 +21,7 @@
 
 Il ridimensionamento automatico delle macchine virtuali in un set di scalabilità consiste nella creazione o nell'eliminazione di macchine nel set in base alle esigenze di un'applicazione per soddisfare i requisiti a livello di prestazioni e dei contratti di servizio. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo efficace.
 
-Il ridimensionamento automatico è un processo automatico che semplifica il sovraccarico di gestione. Riducendo il sovraccarico, le attività di monitoraggio continuo delle prestazioni del sistema, nonché l'assunzione di decisioni sull'aggiunta o la rimozione di risorse non sono necessarie. Il ridimensionamento è un processo elastico. Rende possibile il provisioning di più risorse con l'aumento del carico del sistema, ma con la riduzione della domanda consente di deallocare le risorse per ridurre i costi, mantenendo comunque un livello di prestazioni adeguato, e soddisfare i contratti di servizio.
+Il ridimensionamento automatico è un processo automatico che semplifica il sovraccarico di gestione tramite attività di monitoraggio continuo delle prestazioni del sistema, nonché tramite l'assunzione di decisioni sull'aggiunta o la rimozione di risorse non necessarie. Il ridimensionamento è un processo elastico. Rende possibile il provisioning di più risorse con l'aumento del carico del sistema, ma con la riduzione della domanda consente di deallocare le risorse per ridurre i costi, mantenendo comunque un livello di prestazioni adeguato, e soddisfare i contratti di servizio.
 
 Configurare il ridimensionamento automatico di un set di scalabilità tramite un modello di Azure Resource Manager, usando Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -209,4 +209,4 @@ Dopo un periodo di attesa di cinque minuti, se il numero medio di thread nelle m
 1. Introduzione alla creazione del primo set di scalabilità usando le informazioni disponibili nell'articolo che illustra come [creare un set di scalabilità di macchine virtuali Windows](virtual-machine-scale-sets-windows-create.md).
 2. Per un esempio di come creare un set di scalabilità configurando il ridimensionamento automatico, vedere l'articolo che illustra come [ridimensionare automaticamente set di scalabilità di macchine virtuali Windows](virtual-machine-scale-sets-windows-autoscale.md) o [ridimensionare automaticamente set di scalabilità di macchine virtuali Linux](virtual-machine-scale-sets-linux-autoscale.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

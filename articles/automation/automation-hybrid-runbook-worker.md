@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="05/20/2016"
    ms.author="bwren" />
 
 # Funzionalità Hybrid Runbook Workers di Automazione di Azure
@@ -31,7 +31,7 @@ Grazie a tale funzionalità, è possibile designare uno o più computer del data
 
 Non sono previsti requisiti di firewall in ingresso per supportare Hybrid Runbook Workers. L'agente nel computer locale avvia tutte le comunicazioni con Automazione di Azure nel cloud. Quando un runbook viene avviato, Automazione di Azure crea un'istruzione che viene recuperata dall'agente, che esegue quindi il pull del runbook e di tutti i parametri prima dell'esecuzione, oltre a recuperare da Automazione di Azure gli eventuali [asset](http://msdn.microsoft.com/library/dn939988.aspx) usati dal runbook.
 
->[AZURE.NOTE] Il ruolo di lavoro ibrido per runbook attualmente non supporta le [Configurazioni DSC](automation-dsc-overview.md).
+>[AZURE.NOTE] La compilazione delle [Configurazioni DSC](automation-dsc-overview.md) in Automation DSC nei ruoli di lavoro ibridi per runbook attualmente non è supportata.
 
 ## Gruppi di computer di lavoro runbook ibridi
 
@@ -57,6 +57,8 @@ Requisiti di firewall:
 
 - Il computer locale che esegue il ruolo di lavoro ibrido per runbook deve avere accesso in uscita a *. cloudapp.net sulle porte 443, 9354 e da 30000 a 30199.
 
+>[AZURE.NOTE] Non è consigliabile installare la funzionalità ruolo di lavoro ibrido per runbook in un controller di dominio nel proprio ambiente.
+
 ## Installazione di Hybrid Runbook Workers
 La procedura riportata di seguito descrive come installare e configurare il ruolo di lavoro ibrido per runbook. Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
 
@@ -81,7 +83,7 @@ Quando si aggiunge un agente a Operations Management Suite, la soluzione di auto
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
 	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
-	Import-Module HybridRegistration.psd1
+	Import-Module .\HybridRegistration.psd1
 
 
 Eseguire quindi il cmdlet **Add-HybridRunbookWorker** con la sintassi seguente:
@@ -127,7 +129,7 @@ I runbook eseguiti in un ruolo di lavoro ibrido per runbook non possono usare lo
 
 Per impostazione predefinita, i runbook vengono eseguiti nel contesto dell'account di sistema locale nel computer locale, quindi devono autenticarsi per le risorse a cui accederanno.
 
-Nel runbook è possibile usare gli asset di tipo [Credenziale](http://msdn.microsoft.com/library/dn940015.aspx) e [Certificato](http://msdn.microsoft.com/library/dn940013.aspx) con cmdlet che consentono di specificare le credenziali in modo da poter eseguire l'autenticazione per risorse diverse. L'esempio seguente illustra una parte di un runbook che riavvia un computer. Recupera le credenziali da un asset di tipo credenziale e il nome del computer da un asset di tipo variabile e quindi usa questi valori con il cmdlet Restart-Computer.
+Nel proprio runbook è possibile usare gli asset di tipo [Credenziale](http://msdn.microsoft.com/library/dn940015.aspx) e [Certificato](http://msdn.microsoft.com/library/dn940013.aspx) con cmdlet che consentono di specificare le credenziali in modo da poter eseguire l'autenticazione per risorse diverse. L'esempio seguente illustra una parte di un runbook che riavvia un computer. Recupera le credenziali da un asset di tipo credenziale e il nome del computer da un asset di tipo variabile e quindi usa questi valori con il cmdlet Restart-Computer.
 
 	$Cred = Get-AutomationCredential "MyCredential"
 	$Computer = Get-AutomationVariable "ComputerName"
@@ -169,7 +171,7 @@ L'[output e i messaggi di runbook](automation-runbook-output-and-messages.md) ve
 
 I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes.
 
-Se i runbook non vengono completati correttamente e il riepilogo del processo visualizza lo stato **Sospeso**, vedere l'articolo sulla risoluzione dei problemi [Ruolo di lavoro ibrido per runbook: un processo runbook termina con lo stato Sospeso](automation-troubleshooting-hrw-runbook-terminates-suspended.md).
+Se i runbook non vengono completati correttamente e il riepilogo del processo visualizza lo stato **Sospeso**, vedere l'articolo sulla risoluzione dei problemi [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md) (Ruolo di lavoro ibrido per runbook: un processo runbook termina con lo stato Sospeso).
 
 ## Relazione con Service Management Automation
 
@@ -193,4 +195,4 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

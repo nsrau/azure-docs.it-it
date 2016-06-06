@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di Office 365 Users a PowerApps Enterprise o alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Office 365 Users con i parametri dell'API REST"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="Aggiungere il connettore Office 365 Users a PowerApps Enterprise o alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Office 365 Users con i parametri dell'API REST"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di Office 365 Users
+# Introduzione al connettore Office 365 Users
 
-Connettersi a Office 365 Users per ottenere profili, cercare utenti e altro ancora. L'API di Office 365 Users può essere usata da:
+Connettersi a Office 365 Users per ottenere profili, cercare utenti e altro ancora. Il connettore Office 365 Users può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -37,29 +37,28 @@ Con Office 365 Users è possibile:
 
 - Creare il flusso aziendale in base ai dati ottenuti da Office 365 Users. 
 - Usare azioni per ottenere i dipendenti diretti, il profilo utente di un manager e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, ottenere i dipendenti diretti di una persona e quindi sfruttare queste informazioni per aggiornare un database SQL Azure. 
-- Aggiungere l'API di Office 365 Users in PowerApps Enterprise in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Office 365 Users a PowerApps Enterprise. in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
-Nell'API di Office 365 Users sono disponibili le azioni seguenti. Non sono disponibili trigger.
+Nel connettore Office 365 Users sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
 |Nessuno | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
 
-Tutte le API supportano dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 
 ## Creare una connessione a Office 365 Users
 
-Quando si aggiunge questa API alle app per la logica, è necessario accedere all'account Office 365 Users e consentire alle app per la logica di connettersi all'account.
+Quando si aggiunge questo connettore alle app per la logica, è necessario accedere all'account Office 365 Users e consentire alle app per la logica di connettersi all'account.
 
-1. Accedere all'account Office 365 Users.
-2. Consentire alle app per la logica di connettersi e di usare l'account Office 365. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 
 Dopo aver creato la connessione, immettere le proprietà di Office 365 Users, ad esempio l'ID utente. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -204,4 +203,4 @@ Tornare all'[elenco di API](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

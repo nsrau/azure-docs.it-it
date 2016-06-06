@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/11/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Distribuire lo snap-in di StorSimple Snapshot Manager
@@ -259,4 +259,4 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 - Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

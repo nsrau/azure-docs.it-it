@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di Facebook alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Facebook con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore Facebook alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Facebook con i parametri dell'API REST."
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di Facebook
-Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via. L'API di Facebook può essere usata da:
+# Introduzione al connettore Facebook
+Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via. Il connettore Facebook può essere usato da:
 
 - App per la logica trattate in questo argomento
 - PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
@@ -35,16 +35,16 @@ Con Facebook è possibile:
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
-L'API di Facebook include i trigger e le azioni seguenti.
+Il connettore Facebook include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
 | <ul><li>When there is a new post on my timeline</li></ul> |<ul><li>Get feed from my timeline</li><li>Post to my timeline</li><li>When there is a new post on my timeline</li><li>Get page feed</li><li>Get user timeline</li><li>Post to page</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a Facebook
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica a connettersi a Facebook.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Facebook.
 
 1. Accedere al proprio account Facebook
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Facebook. 
@@ -436,4 +436,4 @@ I membri di questi gruppi hanno più probabilità di vedere questo post, gli alt
 
 [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

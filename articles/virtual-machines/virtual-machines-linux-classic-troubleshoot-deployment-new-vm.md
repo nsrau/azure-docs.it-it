@@ -13,7 +13,7 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="support-article"
   ms.date="05/06/2016"
   ms.author="cjiang"/>
 
@@ -81,4 +81,4 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 - Creare la nuova VM nella nuova rete virtuale.
 - [Connettere la rete virtuale esistente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) alla nuova rete virtuale. Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale a livello di area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) e quindi creare la nuova VM.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

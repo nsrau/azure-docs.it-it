@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Come ridimensionare Cache Redis di Azure
@@ -115,6 +115,7 @@ Nell'elenco seguente sono riportate le risposte alle domande poste comunemente s
 -	[Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[Come funziona il ridimensionamento?](#how-does-scaling-work)
 -	[Durante il ridimensionamento i dati nella cache andranno persi?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[L'impostazione databases personalizzata viene modificata durante il ridimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[La cache rimarrà disponibile durante il ridimensionamento?](#will-my-cache-be-available-during-scaling)
 -	[Operazioni non supportate](#operations-that-are-not-supported)
 -	[Quanto tempo richiede il ridimensionamento?](#how-long-does-scaling-take)
@@ -124,7 +125,7 @@ Nell'elenco seguente sono riportate le risposte alle domande poste comunemente s
 ### È possibile eseguire un ridimensionamento verso, da o in una cache Premium?
 
 -	Non è possibile passare da una cache **Premium** a un piano tariffario **Basic** o **Standard**.
--	È possibile passare da piano tariffario della cache **Premium** a un altro.
+-	È possibile scalare dal piano tariffario di una cache **Premium** a un altro.
 -	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario prima passare da **Basic** a **Standard** con un'operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 -	Se è stato abilitato il clustering durante la creazione della cache **Premium**, è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size). Attualmente non è possibile abilitare il clustering in una cache esistente che è stata creata senza clustering.
 
@@ -136,30 +137,39 @@ No, il nome della cache e le chiavi restano invariati durante un'operazione di r
 
 ### Come funziona il ridimensionamento?
 
--	Quando viene ridimensionata, una cache **Basic** viene arrestata e viene eseguito il provisioning di una nuova cache in base alla nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
--	Quando si passa da una cache **Basic** a una **Standard**, viene eseguito il provisioning di una cache di replica e i dati vengono copiati dalla cache principale a quella di replica. Durante il processo di ridimensionamento, la cache rimane disponibile.
--	Quando si ridimensiona una cache **Standard** passando a una dimensione maggiore o a una cache **Premium**, una delle repliche viene arrestata, ne viene rieseguito il provisioning in base alla nuova dimensione e i dati vengono trasferiti. Viene quindi eseguito il failover dell'altra replica e successivamente ne viene rieseguito il provisioning, in modo analogo a quanto accade in caso di errore di uno dei nodi della cache.
+-	Quando viene ridimensionata una cache **Basic**, essa viene chiusa e viene eseguito il provisioning di una nuova cache utilizzando la nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
+-	Quando una cache **Basic** viene scalata in una cache **Standard**, viene eseguito il provisioning di una cache di replica e i dati vengono copiati dalla cache principale alla cache di replica. Durante il processo di ridimensionamento, la cache rimane disponibile.
+-	Quando si ridimensiona una cache **Standard** passando a una dimensione maggiore o a una cache **Premium**, una delle repliche viene arrestata, ne viene rieffettuato il provisioning in base alla nuova dimensione e i dati vengono trasferiti. Viene quindi eseguito il failover dell'altra replica e successivamente ne viene rieffettuato il provisioning, in modo analogo a quanto accade in caso di errore di uno dei nodi della cache.
 
 ### Durante il ridimensionamento i dati nella cache andranno persi?
 
--	Quando si modifica la dimensione di una cache **Basic**, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
--	Quando si passa da una cache **Basic** a una cache **Standard**, in genere i dati nella cache vengono mantenuti.
+-	Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
+-	Quando una cache **Basic** viene ridimensionata in una cache**Standard**, generalmente i dati nella cache vengono mantenuti.
 -	Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache). 
 
+### L'impostazione databases personalizzata viene modificata durante il ridimensionamento?
+
+Alcuni piani tariffari hanno [limiti di databases](cache-configure.md#databases) diversi, quindi esistono alcune considerazioni da tenere presente durante il passaggio a un piano inferiore se si è configurato un valore personalizzato per l'impostazione `databases` durante la creazione della cache.
+
+-	Quando si passa a piano tariffario con un limite di `databases` inferiore di quello del piano corrente:
+	-	Se si usa il numero predefinito di `databases` che è 16 per tutti i piani tariffari, non viene perso alcun dato.
+	-	Se si usa un numero personalizzato di `databases` compreso nei limiti per il piano a cui si passa, questa impostazione di `databases` viene mantenuta e non viene perso alcun dato.
+	-	Se si usa un numero personalizzato di `databases` che supera i limiti del nuovo piano, l'impostazione di `databases` viene ridotta ai limiti del nuovo piano e tutti i dati nei database rimossi vengono persi.
+-	Quando si passa a un piano tariffario con un limite di `databases` uguale o superiore a quello del piano corrente, l'impostazione di `databases` viene mantenuta e non viene perso alcun dato.
 
 Si noti che mentre le cache Standard e Premium dispongono di un contratto di servizio pari al 99,9% di disponibilità, non esiste un contratto di servizio per la perdita dei dati.
 
 ### La cache rimarrà disponibile durante il ridimensionamento?
 
 -	Le cache **Standard** e **Premium** rimangono disponibili durante l'operazione di ridimensionamento.
--	Le cache **Basic** sono offline durante la configurazione di una dimensione diversa, ma rimangono disponibili durante il passaggio da **Basic** a **Standard**.
+-	Le cache **Basic** sono offline durante le operazioni di ridimensionamento a una dimensione diversa, ma rimangono disponibili quando si esegue il ridimensionamento da una cache **Basic** a una **Standard**.
 
 ### Operazioni non supportate
 
 -	Non è possibile passare da un piano tariffario superiore a uno inferiore.
     -    Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
     -    Non è possibile passare da una cache **Standard** a una cache **Basic**.
--	È possibile passare da una cache **Basic** a una cache **Standard**, ma non modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+-	È possibile scalare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
 -	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 -	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 
@@ -171,7 +181,7 @@ Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati
 
 ### Come è possibile stabilire quando il ridimensionamento è completato?
 
-Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completato, lo stato della cache passa a **In esecuzione**.
+Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
 
 ### Perché questa funzionalità è in anteprima?
 
@@ -189,4 +199,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

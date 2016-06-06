@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Pianificazione ed esecuzione con Data Factory" 
-	description="Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure." 
+	description="Informazioni sugli aspetti di pianificazione ed esecuzione del modello applicativo di Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,9 +16,9 @@
 	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
-# Pianificazione ed esecuzione con Data factory
+# Pianificazione ed esecuzione con Data Factory
   
-Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. L'articolo si basa sulle informazioni fornite negli articoli relativi alla [creazione di pipeline](data-factory-create-pipelines.md) e alla [creazione di set di dati](data-factory-create-datasets.md) e presuppone la conoscenza dei concetti di base dei modello applicativo di Data factory: attività, pipeline, servizi collegati e set di dati.
+Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Azure Data Factory. L'articolo si basa sulle informazioni fornite negli articoli relativi alla [creazione di pipeline](data-factory-create-pipelines.md) e alla [creazione di set di dati](data-factory-create-datasets.md) e presuppone la conoscenza dei concetti di base dei modello applicativo di Data Factory: attività, pipeline, servizi collegati e set di dati.
 
 ## Pianificazione delle attività
 
@@ -33,15 +33,17 @@ La sezione **scheduler** del file JSON dell'attività consente di specificare un
 
 Come illustrato in precedenza, se si specifica una pianificazione per l'attività vengono create finestre a cascata costituite da serie di intervalli temporali di dimensioni fisse, contigue e non sovrapposte. Queste finestre logiche a cascata per l'attività vengono denominate **finestre attività**.
  
-Per l'esecuzione di finestre attività in corso, è possibile accedere all'intervallo di tempo associato alla finestra attività con le variabili di sistema **WindowStart** e **WindowEnd** nel file JSON dell'attività. Queste variabili, in realtà, possono essere usate per vari scopi nel file JSON dell'attività e negli script associati all'attività, ad esempio per selezionare dati da set di dati di input o output che rappresentano dati in serie temporale.
+Per l'esecuzione di finestre attività in corso, è possibile accedere all'intervallo di tempo associato alla finestra attività con le variabili di sistema [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) e [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) nel file JSON dell'attività. Queste variabili, in realtà, possono essere usate per vari scopi nel file JSON dell'attività e negli script associati all'attività, ad esempio per selezionare dati da set di dati di input o output che rappresentano dati in serie temporale.
 
-La proprietà **scheduler** supporta le stesse proprietà secondarie della proprietà **availability** in un set di dati. Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine della finestra attività, vedere l'articolo sulla [disponibilità dei set di dati](data-factory-create-datasets.md#Availability).
+La proprietà **scheduler** supporta le stesse proprietà secondarie della proprietà **availability** in un set di dati. Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine della finestra attività, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability).
+
+In questo momento la specifica delle proprietà dell'utilità di pianificazione per un'attività è facoltativa. Se si specificano le proprietà, queste devono corrispondere alla cadenza indicata nella definizione del set di dati di output. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input.
 
 ## Set di dati in serie temporale e sezioni di dati
 
 I dati in serie temporale sono costituiti da una sequenza continua di punti dati generalmente composta da misure successive effettuate in un intervallo di tempo. Esempi comuni di dati in serie temporale possono essere i dati di un sensore, i dati di telemetria di un'applicazione e così via.
 
-Con Data factory di Azure è possibile elaborare i dati in serie temporale in modalità batch mediante esecuzioni di attività. In genere, vengono definite cadenze ricorrenti con cui vengono ricevuti i dati di input e devono essere prodotti i dati di output. La cadenza viene modellata specificando la sezione **availability** del set di dati, come indicato di seguito.
+Con Azure Data Factory è possibile elaborare i dati in serie temporale in modalità batch mediante esecuzioni di attività. In genere, vengono definite cadenze ricorrenti con cui vengono ricevuti i dati di input e devono essere prodotti i dati di output. La cadenza viene modellata specificando la sezione **availability** del set di dati, come indicato di seguito.
 
     "availability": {
       "frequency": "Hour",
@@ -52,9 +54,11 @@ Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nom
 
 ![Utilità di pianificazione della disponibilità](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Il diagramma sopra riportato illustra le sezioni di dati orarie per i set di dati di input e di output. Il diagramma, in particolare, mostra tre sezioni di input pronte per l'elaborazione e l'esecuzione di attività 10-11 AM in corso, che danno luogo alla sezione di output 10-11 AM.
+Il diagramma sopra riportato illustra le sezioni di dati orarie per i set di dati di input e di output. Il diagramma mostra tre sezioni di input pronte per l'elaborazione e l'esecuzione di attività 10-11 AM in corso, che danno luogo alla sezione di output 11-11 AM.
 
-È possibile accedere all'intervallo di tempo associato alla sezione in fase di produzione usando le variabili **SliceStart** e **SliceEnd** nel set di dati JSON.
+È possibile accedere all'intervallo di tempo associato alla sezione in fase di produzione usando le variabili [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables) nel set di dati JSON.
+
+La data factory richiede attualmente che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella disponibilità del set di dati di output. In questo modo, il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd verrà sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
 
 Per altre informazioni sulle diverse proprietà disponibili per la sezione di disponibilità, fare riferimento all'articolo sulla [creazione di set di dati](data-factory-create-datasets.md).
 
@@ -220,11 +224,11 @@ L'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md) ha in
  
 Per il periodo attivo della pipeline è possibile impostare una data di inizio nel passato e la data factory calcolerà automaticamente (recuperando le informazioni) tutte le sezioni di dati nel passato e ne inizierà l'elaborazione.
 
-Le sezioni di dati così recuperate potranno essere configurate per essere eseguite in parallelo. A questo scopo, è necessario impostare la proprietà della concorrenza nella sezione **policy** del file JSON dell'attività, come illustrato nell'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
+Le sezioni di dati così recuperate potranno essere configurate per essere eseguite in parallelo. A questo scopo, è necessario impostare la proprietà **concurrency** nella sezione **policy** del file JSON dell'attività, come illustrato nell'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
 
 ## Nuova esecuzione di sezioni di dati non riuscite e monitoraggio automatico delle dipendenze di dati
 
-È possibile monitorare l'esecuzione delle sezioni in modalità grafica. Per informazioni dettagliate, vedere l'argomento relativo al [monitoraggio e alla gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
+È possibile monitorare l'esecuzione delle sezioni in modalità grafica. Per informazioni dettagliate, vedere **Monitorare e gestire le pipeline** [di Azure Data Factory](data-factory-monitor-manage-pipelines.md) o [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 Si consideri l'esempio seguente che mostra due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
@@ -235,9 +239,9 @@ Si consideri l'esempio seguente che mostra due attività. Activity1 produce un s
 Il diagramma precedente mostra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per **Dataset2**. La data factory monitorizza automaticamente le dipendenze per il set di dati in serie temporale e, di conseguenza, sospende l'avvio dell'esecuzione di attività per la sezione a valle 9-10 AM.
 
 
-Gli strumenti di monitoraggio e gestione della data factory consentono inoltre di analizzare i log di diagnostica relativi alla sezione e individuare facilmente la causa principale del problema per permetterne la risoluzione. Dopo aver risolto il problema, è possibile anche avviare facilmente l'esecuzione di attività per generare la sezione non riuscita. Per altre informazioni su come avviare nuove esecuzioni o comprendere le transizioni di stato per le sezioni di dati, vedere l'articolo sul [monitoraggio e la gestione](data-factory-monitor-manage-pipelines.md).
+Gli strumenti di monitoraggio e gestione della data factory consentono inoltre di analizzare i log di diagnostica relativi alla sezione e individuare facilmente la causa principale del problema per permetterne la risoluzione. Dopo aver risolto il problema, è possibile anche avviare facilmente l'esecuzione di attività per generare la sezione non riuscita. Per altre informazioni su come avviare nuove esecuzioni o comprendere le transizioni di stato per le sezioni di dati, vedere **Monitorare e gestire le pipeline** [di Azure Data Factory](data-factory-monitor-manage-pipelines.md) o [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
-Quando, dopo aver avviato la nuova esecuzione, la sezione 9-10AM del dataset2 è pronta, la data factory avvierà l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale, come illustrato nel diagramma seguente.
+Quando, dopo aver avviato la nuova esecuzione della sezione, la sezione 9-10 AM del dataset2 è pronta, la data factory avvierà l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale, come illustrato nel diagramma seguente.
 
 ![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -411,7 +415,7 @@ Si consideri ora un altro scenario in cui si suppone che un'attività Hive elabo
  
 L'approccio semplice applicato fino a ora, in cui la data factory determina automaticamente le sezioni di input da elaborare identificando le sezioni di dati di input allineate al periodo di tempo delle sezioni di dati di output, non funziona più.
 
-È necessario definire un nuovo approccio per ogni esecuzione di attività in cui la data factory possa usare la sezione di dati dell'ultima settimana per il set di dati di input settimanale. A questo scopo, è possibile avvalersi delle funzioni di Data factory di Azure, come illustrato di seguito.
+È necessario definire un nuovo approccio per ogni esecuzione di attività in cui la data factory possa usare la sezione di dati dell'ultima settimana per il set di dati di input settimanale. A questo scopo, è possibile avvalersi delle funzioni di Azure Data Factory, come illustrato di seguito.
 
 **Input1: archivio BLOB di Azure**
 
@@ -584,11 +588,11 @@ In questi casi, al termine del processo di esecuzione, lo stato della sezione di
    
 Se una sezione di dati è stata correttamente generata ma non ha superato il processo di convalida, le esecuzioni di attività per le sezioni a valle dipendenti dalla sezione non riuscita non vengono elaborate.
 
-In [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md) vengono descritti i vari stati disponibili per le sezioni di dati della data factory.
+In [Monitorare e gestire le pipeline di Azure Data Factory](data-factory-monitor-manage-pipelines.md) vengono descritti i vari stati disponibili per le sezioni di dati della data factory.
 
 ## Dati esterni
 
-Se un set di dati viene contrassegnato come esterno (come illustrato nel file JSON seguente), significa che non è stato generato con Data factory di Azure. In questo caso, al criterio del set di dati è possibile applicare un set di parametri aggiuntivo che definisce i criteri di convalida e ripetizione per il set di dati. Per una descrizione di tutte le proprietà, vedere [Creazione di pipeline](data-factory-create-pipelines.md).
+Se un set di dati viene contrassegnato come esterno (come illustrato nel file JSON seguente), significa che non è stato generato con Azure Data Factory. In questo caso, al criterio del set di dati è possibile applicare un set di parametri aggiuntivo che definisce i criteri di convalida e ripetizione per il set di dati. Per una descrizione di tutte le proprietà, vedere [Creazione di pipeline](data-factory-create-pipelines.md).
 
 Analogamente ai set di dati prodotti dalla data factory, è necessario che le sezioni di dati per i dati esterni siano pronte prima che le sezioni dipendenti possano essere elaborate.
 
@@ -622,7 +626,7 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
 
 ## Pipeline monouso
-È possibile creare e pianificare una pipeline in modo da eseguirla periodicamente (ogni ora, ogni giorno e così via) tra le ore di inizio e di fine specificate nella definizione della pipeline. Vedere [Pianificazione delle attività](#scheduling-and-execution) per informazioni dettagliate. È anche possibile creare una pipeline che viene eseguita una sola volta. A tale scopo, impostare la proprietà **pipelineMode** nella definizione della pipeline su **onetime** come illustrato nell'esempio di JSON seguente. Il valore predefinito per questa proprietà è **scheduled**.
+È possibile creare e pianificare una pipeline in modo da eseguirla periodicamente (ogni ora, ogni giorno e così via) tra le ore di inizio e di fine specificate nella definizione della pipeline. Per informazioni dettagliate, vedere [Pianificazione delle attività](#scheduling-and-execution). È anche possibile creare una pipeline che viene eseguita una sola volta. A tale scopo, impostare la proprietà **pipelineMode** nella definizione della pipeline su **onetime** come illustrato nell'esempio JSON seguente. Il valore predefinito per questa proprietà è **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -698,4 +702,4 @@ Tenere presente quanto segue:
 
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

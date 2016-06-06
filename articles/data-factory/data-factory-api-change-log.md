@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Data Factory - Log delle modifiche dell'API .NET | Microsoft Azure" 
-	description="Vengono descritte le modifiche rilevanti, le aggiunte di funzionalità, le correzioni di bug e così via in una versione specifica dell'API .NET per la Data Factory di Azure." 
+	pageTitle="Data Factory: log delle modifiche dell'API .NET | Microsoft Azure" 
+	description="Vengono descritte le modifiche rilevanti, le aggiunte di funzionalità, le correzioni di bug e così via in una versione specifica dell'API .NET per Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,8 +16,23 @@
 	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
-# Data factory di Azure: Log delle modifiche dell'API .NET 
-In questo articolo vengono fornite informazioni sulle modifiche apportate all'SDK di Data factory di Azure in una versione specifica. La versione più recente del pacchetto NuGet per Data factory di Azure è disponibile [qui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+# Azure Data Factory: log delle modifiche dell'API .NET 
+In questo articolo vengono fornite informazioni sulle modifiche apportate all'SDK di Azure Data Factory in una versione specifica. La versione più recente del pacchetto NuGet per Azure Data Factory è disponibile [qui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Versione 4.7.0
+Data di rilascio: 20/05/2016
+
+### Aggiunte di funzionalità
+* Aggiunti i nuovi tipi StorageFormat e [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) per la copia dei file in formato ORC (Optimized Row Columnar).
+* Aggiunte le proprietà [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) e PolyBaseSettings a SqlDWSink.
+    * Abilita l'uso di PolyBase per la copia di dati in SQL Data Warehouse.
+
+## Versione 4.6.1
+Data di rilascio: 26/04/2016
+
+### Correzioni di bug
+* Corregge la richiesta HTTP relativa all'elenco delle finestre attività.
+    * Rimuove il nome del gruppo di risorse e quello della data factory dal payload della richiesta.
 
 ## Versione 4.6.0
 Data di rilascio: 14/04/2016
@@ -30,7 +45,7 @@ Data di rilascio: 14/04/2016
 	- [Set di dati](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 - Le proprietà seguenti sono state aggiunte a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
 	- [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-- Aggiunti i nuovi tipi [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) e [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) tipo per definire i set di dati i cui dati sono in formato JSON. 
+- Aggiunti i nuovi tipi [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) e [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) per definire i set di dati con dati in formato JSON. 
 
 ## Versione 4.5.0
 Data di rilascio: 24/02/2016
@@ -149,4 +164,4 @@ Data di rilascio: 02/10/2015
 
 - Ora è supportata l'esecuzione di stored procedure su origini di database SQL di Azure e SQL Data Warehouse di Azure come parte dell'attività di copia. Per garantire tale supporto, le classi [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) dispongono delle seguenti proprietà: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Vedere gli articoli [Database SQL di Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL Data Warehouse di Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) su Azure.com per informazioni dettagliate su queste proprietà.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

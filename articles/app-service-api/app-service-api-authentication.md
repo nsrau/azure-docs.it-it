@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/23/2016"
 	ms.author="tdykstra"/>
 
 # Autenticazione e autorizzazione per app per le API nel servizio app di Azure
@@ -114,4 +114,4 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. La prossima esercitazione della serie introduttiva illustra come implementare l'[autenticazione utente per le app per le API del servizio app di Azure](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

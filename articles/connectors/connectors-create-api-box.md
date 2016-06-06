@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di Box alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Box con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore Box alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Box con i parametri dell'API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di Box
-Connettersi a Box per creare ed eliminare file e così via. L'API di Box può essere usata da:
+# Introduzione al connettore Box
+Connettersi a Box per creare ed eliminare file e così via. Il connettore Box può essere usato da:
 
 - App per la logica trattate in questo argomento
 - PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
@@ -40,13 +40,12 @@ Box include i trigger e le azioni seguenti.
 | --- | --- |
 |<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a Box
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Box.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Box.
 
-1. Accedere all'account Box.
-2. Selezionare **Authorize** (Autorizza) e consentire alle app per la logica di connettersi e usare Box. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Box](../../includes/connectors-create-api-box.md)]
 
 Dopo aver creato la connessione, immettere le proprietà di Box. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -72,7 +71,7 @@ Carica un file in Box. ```POST: /datasets/default/files```
 
 
 ### Quando un file viene creato
-Attiva un flusso quando viene creato un nuovo file in una cartella di Box ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando viene creato un nuovo file in una cartella di Box. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -261,6 +260,6 @@ Attiva un flusso quando viene modificato un file in una cartella di Box. ```GET:
 
 ## Passaggi successivi
 
-[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

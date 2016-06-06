@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/19/2016"
 	ms.author="genemi"/>
 
 
@@ -54,6 +54,23 @@ Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano c
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Per informazioni sul piccolo set di funzionalità non ancora supportate nel database SQL, fare clic [qui](sql-database-transact-sql-information.md).
+
+
+### Livello di compatibilità 130
+
+
+> [AZURE.IMPORTANT] A partire da **giugno 2016**, i *nuovi* database creati con la versione 12 del database SQL di Azure hanno un livello di compatibilità che parte da 130, corrispondente a Microsoft SQL Server 2016 GA.
+> 
+> Se si preferisce, naturalmente è possibile anche usare `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`.
+> 
+> Per i database creati prima di giugno 2016 il livello di compatibilità non cambia in seguito a questa modifica del valore predefinito. Questo vale anche per i database aggiornati dalla versione 11 alla versione 12.
+
+
+
+Per una spiegazione di come confrontare la versione più recente con il livello di compatibilità precedente delle query più importanti, vedere:
+
+- [Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure](sql-database-compatibility-level-query-performance-130.md)
+
 
 
 ## Più prestazioni Premium, nuovi livelli di prestazioni
@@ -166,4 +183,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

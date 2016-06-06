@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
@@ -50,7 +50,7 @@ Correzione:
 + Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. 
 + Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
 + [Aggiungere Application Insights a un nuovo progetto](app-insights-asp-net.md): in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere "Aggiungi Application Insights".
-+ Se il problema continua a verificarsi, seguire la [procedura manuale](app-insights-start-monitoring-app-health-usage.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
++ Se il problema continua a verificarsi, seguire la [procedura manuale](app-insights-asp-net-manual.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
 
 ## <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 
@@ -205,4 +205,4 @@ Le dimensioni relative alla città, all'area, al paese e alla regione vengono de
 
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

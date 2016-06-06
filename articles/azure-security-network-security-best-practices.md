@@ -1,19 +1,19 @@
 <properties
    pageTitle="Procedure consigliate per la sicurezza della rete di Azure | Microsoft Azure"
    description="Questo articolo fornisce una serie di procedure consigliate per la sicurezza di rete usando le funzionalità integrate di Azure."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="swadhwa"
    editor="TomShinder"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
+   ms.date="05/23/2016"
    ms.author="TomSh"/>
 
 # Procedure consigliate per la sicurezza della rete di Azure
@@ -21,7 +21,7 @@
 Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto di rete virtuale che consente di connettere le schede di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra i dispositivi abilitati per la rete. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
 
 In questo articolo verrà illustrato un insieme di procedure consigliate per la sicurezza della rete di Azure, derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
- 
+
 Per ogni procedura consigliata verrà illustrato:
 
 - Qual è la procedura consigliata
@@ -34,16 +34,16 @@ Il presente articolo sulle procedure consigliate per la sicurezza della rete di 
 
 Le procedure consigliate per la sicurezza della rete di Azure discusse in questo articolo includono:
 
-- Segmentare logicamente le subnet 
-- Controllare il comportamento di routing 
-- Abilitare il tunneling forzato 
-- Usare i dispositivi di rete virtuale 
+- Segmentare logicamente le subnet
+- Controllare il comportamento di routing
+- Abilitare il tunneling forzato
+- Usare i dispositivi di rete virtuale
 - Distribuire reti perimetrali per la suddivisione in zone di sicurezza
 - Evitare l'esposizione a Internet con collegamenti WAN dedicati
-- Ottimizzare il tempo di attività e le prestazioni 
+- Ottimizzare il tempo di attività e le prestazioni
 - Usare il bilanciamento del carico globale
 - Disabilitare l'accesso RDP alle macchine virtuali di Azure
-- Abilitare il Centro sicurezza di Azure 
+- Abilitare il Centro sicurezza di Azure
 - Estendere il data center in Azure
 
 
@@ -77,7 +77,7 @@ Nonostante le route di sistema predefinite siano utili per molti scenari di dist
 
 Altre informazioni sulle route definite dall'utente e su come configurarle sono disponibili nell'articolo [Cosa sono le route definite dall'utente e l'inoltro IP](./virtual-network/virtual-networks-udr-overview.md).
 
-## Abilitare il tunneling forzato 
+## Abilitare il tunneling forzato
 
 Per comprendere meglio il tunneling forzato, è utile comprendere cosa si intende per "split tunneling". L'esempio più comune di split tunneling è visibile nelle connessioni VPN. Si supponga di stabilire una connessione VPN da una camera d'albergo alla propria rete aziendale. Questa connessione consente di connettersi alle risorse nella rete aziendale e tutte le comunicazioni alle risorse nella rete aziendale passano attraverso il tunnel VPN.
 
@@ -94,7 +94,7 @@ Per altre informazioni sul tunneling forzato e su come abilitarlo, leggere l'art
 Nonostante i gruppi di sicurezza di rete e il routing definito dall'utente possano fornire un certo grado di sicurezza di rete ai livelli di rete e di trasporto del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), vi saranno situazioni in cui si vorrà oppure sarà necessario abilitare la protezione di alto livello dello stack. In tali situazioni, è consigliabile distribuire i dispositivi di sicurezza di rete virtuale forniti dai partner di Azure.
 
 I dispositivi di sicurezza di rete di Azure possono offrire livelli di sicurezza notevolmente migliorati rispetto a quanto offerto dai controlli a livello di rete. Tra le funzionalità di sicurezza di rete fornite da dispositivi di sicurezza di rete virtuale sono incluse le seguenti:
- 
+
 - Funzionalità di firewall
 - Rilevamento intrusione/Prevenzione intrusioni
 - Gestione vulnerabilità
@@ -110,7 +110,7 @@ Per informazioni su quali dispositivi di sicurezza della rete virtuale di Azure 
 
 ##Distribuire reti perimetrali per la suddivisione in zone di sicurezza
 Una "rete perimetrale" è un segmento di rete fisica o logica che è progettato per fornire un ulteriore livello di sicurezza tra le risorse e Internet. Lo scopo della rete perimetrale è inserire i dispositivi di controllo di accesso di rete specializzati al margine della rete perimetrale in modo che sia consentito solo il traffico desiderato oltre il dispositivo di sicurezza di rete e nella rete virtuale di Azure.
- 
+
 Le reti perimetrali sono utili perché permettono di concentrare le operazioni di gestione, monitoraggio, registrazione e creazione di report del controllo di accesso alla rete sui dispositivi al margine della rete virtuale di Azure. In questo caso, in genere si abilitano la prevenzione DDoS, i sistemi di rilevamento intrusione/prevenzione intrusioni (IDS/IPS), le regole e i criteri dei firewall, il filtro Web, il software antimalware per la rete e molto altro. I dispositivi di sicurezza di rete sono posizionati tra Internet e la rete virtuale di Azure e hanno un'interfaccia su entrambe le reti.
 
 Nonostante questa sia la progettazione di base di una rete perimetrale, esistono molte diverse progettazioni di rete perimetrale, come ad esempio back to back, tri-homed, multihomed e altre.
@@ -135,7 +135,7 @@ Se si richiede un livello di sicurezza o prestazioni eccezionale per le connessi
 
 Per altre informazioni sul funzionamento di Azure ExpressRoute e sulla relativa distribuzione, leggere l'articolo [Panoramica tecnica relativa a ExpressRoute](./expressroute/expressroute-introduction.md).
 
-## Ottimizzare il tempo di attività e le prestazioni 
+## Ottimizzare il tempo di attività e le prestazioni
 La triade di riservatezza, integrità e disponibilità rappresenta il modello di sicurezza più influente del momento, realizzato nel principio CIA (Confidentiality, Integrity & Availability). La riservatezza riguarda la crittografia e la privacy, l'integrità consiste nell'assicurarsi che i dati non vengano modificati da personale non autorizzato e la disponibilità consiste nell'assicurarsi che gli utenti autorizzati riescano ad accedere alle informazioni per cui sono autorizzati. La carenza in una di queste aree rappresenta una potenziale violazione della sicurezza.
 
 La disponibilità può essere considerata come una questione di tempi di attività e di prestazioni. Se un servizio non è attivo, non è possibile accedere alle informazioni. Se le prestazioni sono talmente insufficienti da rendere i dati inutilizzabili, sarà quindi possibile considerare che i dati non siano accessibili. Di conseguenza, dal punto di vista della sicurezza, è necessario fare del proprio meglio per assicurarsi che i servizi offrano sempre prestazioni e tempi di attività ottimali. Uno dei metodi più diffusi ed efficaci per migliorare le prestazioni e la disponibilità consiste nel ricorrere al bilanciamento del carico. Il bilanciamento del carico è un metodo di distribuzione del traffico di rete tra server che fanno parte di un servizio. Ad esempio, se dei server Web front-end fanno parte del servizio, è possibile usare il bilanciamento del carico per distribuire il traffico tra più server Web front-end.
@@ -150,7 +150,7 @@ Questa distribuzione del traffico aumenta la disponibilità perché se uno dei s
 
 ## Bilanciamento del carico basato su HTTP
 Il bilanciamento del carico basato su HTTP consente di decidere a quale server inviare le connessioni che usano le caratteristiche del protocollo HTTP. Azure offre un servizio di bilanciamento del carico HTTP il cui nome è Gateway applicazione.
- 
+
 È consigliabile usare Gateway applicazione di Azure nei casi seguenti:
 
 - Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end, ad esempio applicazioni carrello e server di posta Web.
@@ -161,9 +161,9 @@ Per altre informazioni sul funzionamento di Gateway applicazione di Azure e su c
 
 ## Bilanciamento del carico esterno
 Il bilanciamento del carico esterno si verifica quando le connessioni in ingresso da Internet hanno un carico bilanciato tra i server che si trovano in una rete virtuale di Azure. Il servizio di bilanciamento del carico esterno di Azure può fornire questa funzionalità ed è consigliabile usarla quando non sono necessarie sessioni permanenti o l'offload SSL.
- 
+
 A differenza del servizio di bilanciamento del carico basato su HTTP, il bilanciamento del carico esterno usa informazioni livello di rete e trasporto del modello di rete OSI per decidere su quali server bilanciare il carico della connessione.
- 
+
 È consigliabile usare il bilanciamento del carico esterno ogni volta che le [applicazioni senza stato](http://whatis.techtarget.com/definition/stateless-app) accettano le richieste in ingresso da Internet.
 
 Per altre informazioni sul funzionamento del servizio di bilanciamento del carico esterno di Azure e su come è possibile distribuirlo, leggere l'articolo [Introduzione su come creare un servizio di bilanciamento del carico per Internet in Azure Resource Manager](./load-balancer/load-balancer-get-started-internet-arm-ps.md).
@@ -179,11 +179,11 @@ Per altre informazioni sul servizio di funzionamento del bilanciamento del caric
 Il cloud computing pubblico rende possibile distribuire applicazioni distribuite a livello globale con componenti situati nei data center di tutto il mondo. Ciò è possibile in Microsoft Azure a causa della presenza del data center globale di Azure. A differenza delle tecnologie di bilanciamento del carico menzionate in precedenza, il bilanciamento del carico globale consente di rendere i servizi disponibili anche quando gli interi data center potrebbero non essere disponibili.
 
 È possibile ottenere questo tipo di bilanciamento del carico globale in Azure sfruttando [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/). Gestione traffico rende possibile bilanciare il carico delle connessioni ai servizi in base alla posizione dell'utente.
- 
+
 Ad esempio, se l'utente effettua una richiesta al servizio dall'Unione Europea, la connessione viene indirizzata ai servizi che si trovano in un data center dell'Unione europea. Questa parte bilanciamento del carico globale di Gestione traffico consente di migliorare le prestazioni perché la connessione al data center più vicino è più veloce rispetto alla connessione ai data center più lontani.
 
 Relativamente alla disponibilità, il bilanciamento del carico globale garantisce che il servizio sia disponibile anche se un intero data center dovesse diventare disponibili.
- 
+
 Ad esempio, se un data center di Azure dovesse non essere più disponibile a causa di motivi ambientali o di interruzioni del servizio (ad esempio guasti della rete regionale), le connessioni al servizio verranno reindirizzate al più vicino data center online. Il bilanciamento del carico globale viene effettuato grazie all'uso dei criteri DNS che è possibile creare in Gestione traffico.
 
 È consigliabile usare Gestione traffico per qualsiasi soluzione cloud sviluppata il cui ambito sia ampiamente distribuito tra più aree e che richieda il massimo livello di tempo di attività possibile.
@@ -209,7 +209,7 @@ Una [VPN da sito a sito](./vpn-gateway/vpn-gateway-site-to-site-create.md) conne
 
 È anche possibile usare un collegamento WAN dedicato per fornire funzionalità simili alla VPN da sito a sito. Le differenze principali sono le seguenti: 1. Il collegamento WAN dedicato non deve attraversare Internet 2. I collegamenti WAN dedicati sono in genere più stabili e ad alte prestazioni. Azure offre una soluzione di collegamento WAN dedicata sotto forma di [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Abilitare il Centro sicurezza di Azure 
+## Abilitare il Centro sicurezza di Azure
 Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacce offrendo visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 Il Centro sicurezza di Azure aiuta a ottimizzare e monitorare la sicurezza di rete offrendo:
@@ -226,9 +226,9 @@ Per altre informazioni sul Centro sicurezza di Azure e su come abilitarlo per le
 Molte organizzazioni IT di classe enterprise mirano a espandersi nel cloud piuttosto che aumentare le dimensioni dei data center locali. Questa espansione rappresenta un'estensione dell'infrastruttura IT esistente nel cloud pubblico. Grazie all'uso di più opzioni di connettività cross-premise è possibile gestire le reti virtuali di Azure semplicemente come un'altra subnet nella propria infrastruttura di rete locale.
 
 È tuttavia necessario affrontare prima una serie di problemi di pianificazione e progettazione. Ciò è particolarmente importante nell'area della sicurezza di rete. Uno dei modi migliori per comprendere come avvicinarsi a una simile progettazione è guardare un esempio.
- 
+
 Microsoft ha creato il [Diagramma dell'architettura di riferimento delle estensioni del data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e materiale collaterale per comprendere quale aspetto avrebbe un'estensione del data center. In tal modo, si avrà un esempio di implementazione di riferimento da consultare per pianificare e progettare un'estensione del data center aziendale sicura nel cloud. È consigliabile rivedere questo documento per farsi un'idea dei componenti principali di una soluzione sicura.
 
 Per altre informazioni su come estendere in modo sicuro il data center in Azure, guardare il video su come [estendere il data center in Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -26,7 +26,7 @@ Il servizio app usa identità federate, in cui un provider di identità di terze
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-- [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
+- [Aggiungere l'autenticazione all'app iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 - [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
 - [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 
@@ -102,7 +102,7 @@ Il servizio app passa alcune informazioni utente all'applicazione usando intesta
 
 Il codice scritto in qualsiasi linguaggio o framework può ottenere le informazioni necessarie da queste intestazioni. Per le app ASP.NET 4.6, i valori appropriati per **ClaimsPrincipal** vengono impostati automaticamente.
 
-L'applicazione può anche ottenere altri dettagli sull'utente tramite una richiesta HTTP GET sull'endpoint `/.auth/me` dell'applicazione. Un token valido incluso nella richiesta restituirà un payload JSON con informazioni dettagliate sul provider in uso, il token del provider sottostante e altre informazioni utente. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info).
+L'applicazione può anche ottenere altri dettagli sull'utente tramite una richiesta HTTP GET sull'endpoint `/.auth/me` dell'applicazione. Un token valido incluso nella richiesta restituirà un payload JSON con informazioni dettagliate sul provider in uso, il token del provider sottostante e altre informazioni utente. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentazione e risorse aggiuntive
 
@@ -174,8 +174,8 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

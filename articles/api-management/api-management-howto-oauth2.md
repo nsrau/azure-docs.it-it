@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure
@@ -160,4 +160,4 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

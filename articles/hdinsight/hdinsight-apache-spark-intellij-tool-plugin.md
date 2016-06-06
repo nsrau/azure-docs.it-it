@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016" 
+	ms.date="05/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -216,6 +216,34 @@ Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è
 
 4. Salvare le modifiche. L'applicazione dovrebbe ora essere compatibile con il plug-in dello strumento HDInsight. È possibile verificarlo facendo clic con il pulsante destro del mouse sul nome del progetto in Project Explorer. Nel menu a comparsa viene ora visualizzata l'opzione **Submit Spark Application to HDInsight**.
 
+
+## Risoluzione dei problemi
+
+### Errore relativo all'uso di dimensioni heap maggiori nell'esecuzione locale
+
+Se in Spark 1.6 si usa un SDK per Java a 32 bit durante l'esecuzione locale, è possibile riscontrare gli errori seguenti:
+
+    Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
+    	at org.apache.spark.memory.UnifiedMemoryManager$.getMaxMemory(UnifiedMemoryManager.scala:193)
+    	at org.apache.spark.memory.UnifiedMemoryManager$.apply(UnifiedMemoryManager.scala:175)
+    	at org.apache.spark.SparkEnv$.create(SparkEnv.scala:354)
+    	at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:193)
+    	at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:288)
+    	at org.apache.spark.SparkContext.<init>(SparkContext.scala:457)
+    	at LogQuery$.main(LogQuery.scala:53)
+    	at LogQuery.main(LogQuery.scala)
+    	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    	at java.lang.reflect.Method.invoke(Method.java:606)
+    	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+Questi errori si verificano perché le dimensioni dell'heap non sono sufficientemente grandi per l'esecuzione di Spark, poiché Spark richiede almeno 471 MB. Per altre informazioni dettagliate, vedere [SPARK 12081](https://issues.apache.org/jira/browse/SPARK-12081). Una soluzione semplice consiste nell'uso di un SDK per Java a 64 bit. È anche possibile modificare le impostazioni JVM in IntelliJ aggiungendo le opzioni seguenti:
+
+    -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
+
+![Risultato dell'esecuzione locale dell'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
 ## Commenti e suggerimenti e problemi noti
 
 Anche se è previsto il supporto della visualizzazione diretta degli output di Spark in futuro, questa funzionalità non è al momento disponibile.
@@ -253,4 +281,4 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

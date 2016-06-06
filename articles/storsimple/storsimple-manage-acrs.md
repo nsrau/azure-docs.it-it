@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
@@ -95,4 +95,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

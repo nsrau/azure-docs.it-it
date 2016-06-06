@@ -12,16 +12,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/22/2016" 
+    ms.date="05/19/2016" 
     ms.author="jeedes" />
 
 
 #Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox.  
-Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce.  
-Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox. Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce. Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -104,23 +102,33 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Impostazioni Single Sign-On")
 
-    1.  Selezionare **Abilitato SAML**.
-    2.  Fare clic su **New**.
+    a. Selezionare **Abilitato SAML**.
+    
+    b. Fare clic su **New**.
 
 9.  Nella sezione Impostazioni SAML Single Sign-On, eseguire la procedura seguente:
 
     ![Impostazioni SAML Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "Impostazioni SAML Single Sign-On")
 
-    1.  Nella casella di testo Nome digitare il nome della configurazione (ad esempio: *SPSSOWAAD\_Test*).
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione**.
-    3.  Nella casella di testo **ID entità** digitare ****https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
-	4.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
-    5.  In **Tipo di identità SAML** selezionare **L'asserzione contiene l'ID federazione dell'oggetto utente**.
-    6.  In **Percorso identità SAML** selezionare **L’identità è nell’elemento NameIdentifier dell’istruzione Subject**.
-    7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL accesso provider di identità**.
-    8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione provider di identità**.
-    9.  In **Binding richiesta avviato da provider di servizi** selezionare **HTTP POST**.
-    10. Fare clic su **Save**.
+    a. Nella casella di testo Nome digitare il nome della configurazione (ad esempio: *SPSSOWAAD\_Test*).
+    
+    b. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione**.
+    
+    c. Nella casella di testo **ID entità** digitare **https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
+    
+    d. Per caricare il certificato scaricato, fare clic su **Sfoglia**.
+    
+    e. In **Tipo di identità SAML** selezionare **L'asserzione contiene l'ID federazione dell'oggetto utente**.
+    
+    f. In **Percorso identità SAML** selezionare **L’identità è nell’elemento NameIdentifier dell’istruzione Subject**.
+    
+    g. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di accesso provider identità**.
+    
+    h. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL di disconnessione provider identità**.
+    
+    i. In **Binding richiesta avviato da provider di servizi** selezionare **HTTP POST**.
+    
+    j. Fare clic su **Save**.
 
 10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -167,7 +175,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 6.  Aprire il messaggio di posta elettronica e copiare il valore del token di sicurezza.
 
-7.  Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure classico fare clic su **Configura provisioning utente** per aprire la finestra di dialogo **Configura provisioning utente**.
+7.  Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure classico fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
 
     ![Configurare il provisioning utente.](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configurare il provisioning utente.")
 
@@ -175,15 +183,15 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
     ![Sandbox Salesforce](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Sandbox Salesforce")
 
-    1.  Nella casella di testo **Nome utente amministratore Salesforce Sandbox** digitare un nome account di Salesforce Sandbox con il profilo **Amministratore di sistema** assegnato in Salesforce.com.
+    a. Nella casella di testo **Nome utente amministratore Salesforce Sandbox** digitare un nome account di Salesforce Sandbox con il profilo **Amministratore di sistema** assegnato in Salesforce.com.
 
-    2.  Nella casella di testo **Password amministratore Salesforce Sandbox** digitare la password per questo account.
+    b. Nella casella di testo **Password amministratore Salesforce Sandbox** digitare la password per questo account.
 
-    3.  Nella casella di testo **Token di sicurezza utente** incollare il valore del token di sicurezza.
+    c. Nella casella di testo **Token di sicurezza utente** incollare il valore del token di sicurezza.
 
-    4.  Fare clic su **Convalida** per verificare la configurazione.
+    d. Fare clic su **Convalida** per verificare la configurazione.
 
-    5.  Fare clic sul pulsante **Avanti** per aprire la pagina **Conferma**.
+    e. Fare clic sul pulsante **Avanti** per aprire la pagina **Conferma**.
 
 9.  Nella pagina **Conferma** fare clic su **Completa** per salvare la configurazione.
 ##Assegnazione degli utenti
@@ -206,4 +214,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

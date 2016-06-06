@@ -13,7 +13,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="support-article"
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
@@ -24,4 +24,4 @@ Quando si crea una VM, si riavviano VM arrestate (deallocate) o si ridimensiona 
 
 [AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

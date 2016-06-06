@@ -52,11 +52,8 @@ Il connettore RSS può essere usato come azione e include trigger. Tutti i conne
 
 
 ## Creare una connessione a RSS
-Per creare app per la logica con RSS, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Yammer](../../includes/connectors-create-api-rss.md)]
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -135,4 +132,4 @@ Elenco di tutti gli elementi del feed RSS: ottiene tutti gli elementi del feed R
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

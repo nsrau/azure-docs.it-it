@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come gestire gli account utente in Gestione API di Azure
@@ -110,4 +110,4 @@ Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed ef
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Configurare modelli di posta elettronica]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

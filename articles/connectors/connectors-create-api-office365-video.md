@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usare l'API di Office 365 Video nelle app per la logica | Microsoft Azure"
-description="Introduzione all'uso dell'API di Office 365 Video (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Usare il connettore Office 365 Video nelle app per la logica | Microsoft Azure"
+description="Introduzione all'uso del connettore Office 365 Video (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,38 +14,37 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/23/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di Office 365 Video
-Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. L'API di Office 365 Video può essere usata da:
+# Introduzione al connettore Office 365 Video
+Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. Il connettore Office 365 Video può essere usato da:
 
 - App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Questa API non è supportata da alcuna versione precedente dello schema.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Questo connettore non è supportato da alcuna versione precedente dello schema.
 
 Con Office 365 Video è possibile:
 
 - Creare un flusso aziendale basato sui dati ottenuti da Office 365 Video. 
-- Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile usare l'API di ricerca di Bing per cercare video di Office 365 e quindi usare l'API di Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook. 
+- Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile usare il connettore di ricerca di Bing per cercare video di Office 365 e quindi usare il connettore Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook. 
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 
-Nell'API di Office 365 Video sono disponibili le azioni seguenti. Non sono disponibili trigger.
+Nel connettore Office 365 Video sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
 | Nessuno | <ul><li>Controlla stato portale video</li><li>Ottieni tutti i canali visualizzabili</li><li>Ottieni l'URL di riproduzione del manifesto di Servizi multimediali di Azure per un video</li><li>Ottieni il token di connessione per poter accedere a un video da decrittografare</li><li>Ottieni informazioni su un particolare video di Office 365</li><li>Elenca tutti i video di Office 365 presenti in un canale</li></ul>
 
-Tutte le API supportano dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
-## Creare una connessione all'API di Office 365 Video
-Quando si aggiunge questa API alle app per la logica, è necessario accedere all'account Office 365 Video e consentire alle app per la logica di connettersi all'account.
+## Creare una connessione al connettore Office 365 Video
+Quando si aggiunge questo connettore alle app per la logica, è necessario accedere all'account Office 365 Video e consentire alle app per la logica di connettersi all'account.
 
-1. Accedere all'account Office 365 Video.
-2. Consentire alle app per la logica di connettersi e di usare l'account Office 365. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 
 Dopo aver creato la connessione, immettere le proprietà di Office 365 Video, ad esempio, il nome del tenant o l'ID canale. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -221,4 +220,4 @@ Ottiene il token di connessione per poter accedere a un video da decrittografare
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

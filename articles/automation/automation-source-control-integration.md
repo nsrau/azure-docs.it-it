@@ -4,7 +4,7 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
+    manager="jwhit"
     editor="tysonn" />    
 <tags 
     ms.service="automation"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/23/2016"
+    ms.date="05/23/2016"
     ms.author="magoedte;sngun" />
 
 # Integrazione del controllo del codice sorgente in Automazione di Azure
@@ -161,4 +161,4 @@ Per altre informazioni sull'integrazione del controllo del codice sorgente, vede
 - [Scelta del sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 - [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook usando Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

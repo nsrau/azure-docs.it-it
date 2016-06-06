@@ -43,6 +43,9 @@ La tabella seguente illustra i codici di errore SQL per errori di perdita della 
 
 ### Errori di connessione del database ed errori temporanei più comuni
 
+L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quando si verificano carichi di lavoro intensi nel servizio del database SQL. Questo comportamento dinamico potrebbe causare la perdita della connessione del programma client al database SQL. Questo tipo di errore è chiamato *errore temporaneo*.
+
+Se il programma client dispone di logica di ripetizione dei tentativi, è possibile provare a ristabilire una connessione dopo aver dato all’errore temporaneo del tempo per correggere stesso. È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
 
 Gli errori temporanei solitamente si manifestano sotto forma di uno dei messaggi di errore seguenti dei programmi client:
 
@@ -54,13 +57,13 @@ Gli errori temporanei solitamente si manifestano sotto forma di uno dei messaggi
 
 - System.Data.Entity.Core.EntityCommandExecutionException: errore durante l'esecuzione della definizione del comando. Per altre informazioni, vedere l'eccezione interna. ---> System.Data.SqlClient.SqlException: si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider di sessione, errore: 19 - impossibile usare la connessione fisica)
 
-Gli errori temporanei richiedono che il programma client esegua la *logica di ripetizione* impostata per ritentare l'operazione. Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
-
+Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
 - [Azioni per la risoluzione di errori di connessione e di errori temporanei nel database SQL](sql-database-connectivity-issues.md)
 
+Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Codici di errore degli errori temporanei
 
@@ -169,7 +172,7 @@ Argomenti correlati:
 | 40873 | EX\_USER | Il numero di database (%d) e DTU min per ogni database (%d) non può superare le DTU del pool elastico (%d). | Numero di database nel pool elastico; DTU minime per database; DTU del pool elastico. | Tentativo di specificare un numero minimo di DTU per i database nel pool elastico che supera le DTU del pool elastico. | Provare ad aumentare le DTU del pool elastico o a diminuire il numero minimo di DTU per ogni database oppure ridurre il numero di database nel pool elastico. |
 | 40877 | EX\_USER | Impossibile eliminare un pool elastico, a meno che non contenga alcun database. | Nessuno | Il pool elastico contiene uno o più database e pertanto non può essere eliminato. | Rimuovere i database dal pool elastico per eliminarlo. |
 | 40881 | EX\_USER | Il pool elastico '%.* ls' ha raggiunto il numero massimo di database. Il numero massimo di database per il pool elastico non può superare (%d) per un pool elastico con DTU (%d). | Nome del pool elastico; numero massimo di database di pool elastico; DTU per pool di risorse. | Tentativo di creare o aggiungere database al pool elastico quando viene raggiunto il numero massimo di database nel pool elastico. | Provare ad aumentare le DTU del pool elastico se possibile, per aumentare il limite di database o rimuovere i database dal pool elastico. |
-| 40889 | EX\_USER | Il limitedi DTU o risorse di archiviazione per il pool elastico '%.*ls' non può essere ridotto dal momento che non si fornisce spazio di archiviazione sufficiente per i database. | Nome del pool elastico. | Tentativo di ridurre il limite di archiviazione del pool elastico sotto il relativo utilizzo dell'archiviazione. | Provare a ridurre l'utilizzo dell'archiviazione dei singoli database nel pool elastico o rimuovere i database dal pool per ridurre le DTU o il limite di archiviazione. |
+| 40889 | EX\_USER | Il limite di DTU o risorse di archiviazione per il pool elastico '%.*ls' non può essere ridotto dal momento che non si fornisce spazio di archiviazione sufficiente per i database. | Nome del pool elastico. | Tentativo di ridurre il limite di archiviazione del pool elastico sotto il relativo utilizzo dell'archiviazione. | Provare a ridurre l'utilizzo dell'archiviazione dei singoli database nel pool elastico o rimuovere i database dal pool per ridurre le DTU o il limite di archiviazione. |
 | 40891 | EX\_USER | Il numero minimo di DTU per ogni database (%d) non può superare il numero massimo di DTU per ogni database (%d). | Numero minimo di DTU per database; numero massimo di DTU per database. | Tentativo di impostare un numero minimo di DTU per ogni database superiore al numero massimo di DTU per ogni database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | TBD | EX\_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare la dimensione massima consentita per il livello di servizio del pool elastico '%.* ls'. | Livello di servizio del pool elastico | La dimensione massima per il database supera la dimensione massima consentita per il livello di servizio del pool elastico. | Impostare la dimensione massima del database entro i limiti della dimensione massima consentita per il livello di servizio del pool elastico. |
 
@@ -253,4 +256,4 @@ La tabella seguente elenca tutti gli errori generali che non rientrano nelle cat
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

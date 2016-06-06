@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/19/2016"
     ms.author="markvi;liviodlc"/>
 
 #Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
@@ -181,4 +181,4 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 - [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli" />
 
 
@@ -108,7 +108,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1. Fornire l'**URL proxy Web** in questo formato: *http://host-IP address* o *FDQN:Port number*. Notare che gli URL HTTPS non sono supportati.
 
-    2. Specificare **Autenticazione** come **Basic**, **NTLM** o **Nessuna**.
+    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
 
     3. Se si usa l'autenticazione, è necessario fornire anche **Nome utente** e **Password**.
 
@@ -120,11 +120,11 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     Nella pagina **Impostazioni ora**:
 
-    1. Nell'elenco a discesa selezionare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
+    1. Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
 
-    2. Specificare un **server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
+    2. Specificare un **Primary NTP server** (Server NTP primario) per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
 
-    3. Facoltativamente, specificare un **server NTP secondario** per il dispositivo.
+    3. Facoltativamente, specificare un **Secondary NTP server** (Server NTP secondario) per il dispositivo.
 
     4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 
@@ -132,7 +132,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se questo non è il primo dispositivo che si registra con tale servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, vedere l'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, vedere l'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -162,9 +162,9 @@ Eseguire i passaggi seguenti nel portale di Azure classico per completare l'inst
 
     ![Configurazione guidata del dispositivo](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. Nella pagina **Impostazioni di base** della configurazione guidata del dispositivo eseguire le operazioni seguenti:
+3. Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base** eseguire le seguenti operazioni:
 
-   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione, è possibile selezionare un account di archiviazione esistente nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
+   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione, è possibile selezionare un account di archiviazione esistente nell'elenco a discesa o specificare **Aggiungi elementi** per scegliere un account da una sottoscrizione diversa.
 
    2. Definire le impostazioni di crittografia per tutti i dati inattivi da inviare al cloud. (StorSimple usa la crittografia AES-256.) Per crittografare i dati, selezionare la casella di controllo **Abilitare la crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla.
 
@@ -190,7 +190,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
     2. Fornire una descrizione per il volume. La descrizione consente di identificare i proprietari del volume.
 
-    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo può essere **Volume a livelli** o **Volume aggiunto in locale**. L'impostazione predefinita è **Volume a livelli**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
+    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo è disponibile come **Volume a livelli** o **Volume aggiunto in locale**. L'impostazione predefinita è **Volume a livelli**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
 
         Per un volume aggiunto in locale viene eseguito il thick provisioning per garantire che i dati primari nel volume rimangano nel dispositivo e non si spostino sul cloud. Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning di un volume delle dimensioni richieste. La creazione di un volume aggiunto in locale può comportare la distribuzione dei dati esistenti dal dispositivo al cloud, aumentando il tempo necessario per la creazione del volume. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
@@ -284,7 +284,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## Passaggi successivi
 
-Informazioni su come usare l'interfaccia utente Web locale per amministrare l'[array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -303,4 +303,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

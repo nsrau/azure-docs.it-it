@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con l'API REST | Microsoft Azure"
-   description="Illustra come usare l'API REST di Azure Resource Manager per rilevare e correggere i problemi relativi alla distribuzione di Resource Manager."
+   pageTitle="Visualizzare le operazioni di distribuzione con l'API REST | Microsoft Azure"
+   description="Questo articolo descrive come usare l'API REST di Azure Resource Manager per rilevare i problemi relativi alla distribuzione di Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con l'API REST di Azure Resource Manager
+# Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portale](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Se è stato riscontrato un errore durante la distribuzione di risorse in Azure, è necessario risolvere la causa dell'errore. L'API REST fornisce operazioni che consentono di trovare gli errori e determinare le possibili soluzioni.
+Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. L'API REST fornisce operazioni che consentono di trovare gli errori e determinare le possibili soluzioni.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -113,4 +113,4 @@ Se è stato riscontrato un errore durante la distribuzione di risorse in Azure, 
 - Per altre informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 - Per convalidare la distribuzione prima dell'esecuzione, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

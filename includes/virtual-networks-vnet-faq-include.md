@@ -183,7 +183,7 @@ Sì. È possibile distribuire qualsiasi distributore di Linux supportato da Azur
 
 ### È possibile riservare un indirizzo IP interno per una macchina virtuale che verrà creata in un secondo momento?
 
-No, non è possibile riservare un indirizzo IP interno. Se è disponibile un indirizzo IP interno verrà assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP. Tale macchina virtuale potrebbe o non potrebbe essere l’unica a cui si vuole che l'indirizzo IP interno venga assegnato. È possibile, tuttavia, modificare l'indirizzo IP interno di una macchina virtuale già creata con qualsiasi indirizzo IP interno disponibile.
+No, non è possibile riservare un indirizzo IP interno. Se è disponibile un indirizzo IP interno, quest'ultimo verrà assegnato a una VM o a un'istanza del ruolo dal server DHCP. Tale macchina virtuale potrebbe o non potrebbe essere l’unica a cui si vuole che l'indirizzo IP interno venga assegnato. È possibile, tuttavia, modificare l'indirizzo IP interno di una macchina virtuale già creata con qualsiasi indirizzo IP interno disponibile.
 
 ### Gli indirizzi IP interni vengono modificati per le macchine virtuali in una rete virtuale?
 
@@ -270,4 +270,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

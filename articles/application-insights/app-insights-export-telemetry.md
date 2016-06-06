@@ -117,7 +117,7 @@ Where
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
 
-Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi valori, ad esempio, mostrano un tempo di 10 ms per inviare una richiesta dal browser, 30 ms per riceverla e 1,8 s per elaborare la pagina nel browser:
+Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi valori, ad esempio, indicano un tempo di 1 ms per inviare una richiesta dal browser, 3 ms per riceverla e 1,8 s per elaborare la pagina nel browser:
 
 	"sendRequest": {"value": 10000.0},
 	"receiveRequest": {"value": 30000.0},
@@ -229,4 +229,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/23/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig mediante PowerShell
@@ -58,7 +58,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get credentials for the admin/HTTPs account
-        $creds=Get-Credential
+        $creds = Get-Credential
 
         #Specify the cluster name
         $clusterName = "CLUSTERNAME"
@@ -66,12 +66,11 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container = $clusterInfo.DefaultStorageContainer
+        $storageAccountKey = (Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
 
         #Store the Pig Latin into $QueryString
         $QueryString =  @"
@@ -117,7 +116,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         } else {
             # Something went wrong, display error output
             # Print the output of the Pig job.
-            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Write-Host "Display the standard error output ..." -ForegroundColor Green
             Get-AzureRmHDInsightJobOutput `
                 -Clustername $clusterName `
                 -JobId $pigJob.JobId `
@@ -128,7 +127,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
                 -DisplayOutputType StandardError
         }
 
-2. Quindi, aprire un nuovo prompt dei comandi di Azure PowerShell. Passare al percorso del file **pigjob.ps1**, quindi usare il seguente comando per eseguire lo script:
+2. Aprire un nuovo prompt dei comandi di Windows PowerShell. Passare al percorso del file **pigjob.ps1**, quindi usare il seguente comando per eseguire lo script:
 
 		.\pigjob.ps1
         
@@ -151,7 +150,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **pigjob.ps1**, salvare il file, quindi eseguirlo nuovamente.
 
 	# Print the output of the Pig job.
-	Write-Host "Display the standard output ..." -ForegroundColor Green
+	Write-Host "Display the standard error output ..." -ForegroundColor Green
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
@@ -179,4 +178,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

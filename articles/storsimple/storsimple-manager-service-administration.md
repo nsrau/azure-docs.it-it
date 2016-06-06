@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
@@ -57,11 +57,11 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-|Dispositivi →|Monitoraggio|
-|Catalogo di backup|Contenitori di volume →|Volumi|
-|Configura (servizio)|Criteri di backup||
-|Processi|Configura (dispositivo)|
-|Avvisi|Manutenzione|
+||Dispositivi →|Monitoraggio|
+||Catalogo di backup|Contenitori di volume →|Volumi|
+||Configura (servizio)|Criteri di backup||
+||Processi|Configura (dispositivo)|
+||Avvisi|Manutenzione|
 
 ![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
 
@@ -114,4 +114,4 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0525_2016-->

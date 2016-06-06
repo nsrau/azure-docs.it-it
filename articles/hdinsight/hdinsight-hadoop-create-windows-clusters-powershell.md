@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite Azure PowerShell
@@ -96,9 +96,9 @@ Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure 
         -Type Standard_GRS `
         -Location $location
 
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $defaultStorageContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
@@ -158,4 +158,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

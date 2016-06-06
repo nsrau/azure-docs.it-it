@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usare l'API di SharePoint Online nelle app per la logica o di PowerApps| Microsoft Azure"
-description="Introduzione all'uso dell'API di SharePoint Online del Servizio app di Azure nelle app per la logica e nelle app di PowerApps."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Usare il connettore SharePoint Online nelle app per la logica o di PowerApps| Microsoft Azure"
+description="Introduzione all'uso del connettore SharePoint Online del Servizio app di Azure nelle app per la logica e nelle app di PowerApps."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/26/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di SharePoint Online
+# Introduzione al connettore SharePoint Online 
 
-Il provider di connessione di SharePoint fornisce un'API da usare con gli elenchi di SharePoint.
+Il connettore SharePoint consente di utilizzare gli elenchi in SharePoint.
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
@@ -32,9 +32,9 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 
 ## Informazioni su trigger e azioni
 
-L'API di SharePoint include trigger e può essere usata come azione. Tutte le API supportano i dati nei formati JSON e XML.
+Il connettore SharePoint può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
 
-Nell'API di SharePoint sono disponibili le azioni e/o i trigger seguenti:
+Nel connettore SharePoint sono disponibili le azioni e/o i trigger seguenti:
 
 ### Azioni di SharePoint
 È possibile eseguire queste azioni:
@@ -66,24 +66,21 @@ Nell'API di SharePoint sono disponibili le azioni e/o i trigger seguenti:
 
 
 ## Creare una connessione a SharePoint
-Per usare l'API SharePoint, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
+Per usare il connettore SharePoint, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Fornire le credenziali di SharePoint|
 
-Per connettersi a **SharePoint Online**, è necessario indicare la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare l'API di SharePoint Online nella propria app per la logica.
+Per connettersi a **SharePoint Online**, è necessario indicare la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare il connettore SharePoint Online nella propria app per la logica.
 
 Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
 
-1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome:
-![Configurare SharePoint][1]  
+1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]  
 2. Selezionare **SharePoint Online - When a file is created**   
-3. Selezionare **Sign in to SharePoint Online**:
-![Configurare SharePoint][2]    
+3. Selezionare **Sign in to SharePoint Online**: ![Configurare SharePoint][2]    
 4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint ![Configurare SharePoint][3]     
-5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** di SharePoint.
-![Configurare SharePoint][4]  
+5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** di SharePoint. ![Configurare SharePoint][4]  
 6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.   
 7. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.  
 
@@ -704,4 +701,4 @@ Nessuna delle proprietà è obbligatoria.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

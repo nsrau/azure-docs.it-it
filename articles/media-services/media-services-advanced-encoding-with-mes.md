@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2016"    
+	ms.date="05/19/2016"    
 	ms.author="juliako"/>
 
 
@@ -236,6 +236,20 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		}
 
 
+##Supporto per le dimensioni relative
+
+Quando si generano anteprime, non è sempre necessario specificare la larghezza e l'altezza dell'output in pixel. È possibile specificare questi valori sotto forma di percentuali nell'intervallo [1%, …, 100%].
+
+###Set di impostazioni JSON 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###Set di impostazioni XML
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>Generare anteprime
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile prendere una delle impostazioni predefinite MES documentate [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
@@ -444,9 +458,9 @@ Si applicano le considerazioni seguenti:
 
 ##<a id="trim_video"></a>Tagliare un video (ritaglio)
 
-Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ridurre o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ridurre o ritagliare un asset acquisito o archiviato da un flusso live. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
+Per tagliare i video, è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
  
 ###<a id="json"></a>Set di impostazioni JSON
 	
@@ -570,7 +584,7 @@ Per tagliare i video è possibile prendere un set di impostazioni MES documentat
 
 ###Set di impostazioni XML
 	
-Per tagliare i video è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
+Per tagliare i video, è possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -849,7 +863,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
 
-È possibile prendere un set di impostazioni MES documento [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+È possibile prendere un set di impostazioni MES documentato [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
 
 ###Set di impostazioni JSON
 
@@ -1072,4 +1086,4 @@ Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si v
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

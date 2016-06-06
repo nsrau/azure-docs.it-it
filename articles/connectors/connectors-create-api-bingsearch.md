@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Aggiungere l'API di ricerca di Bing a PowerApps o app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di ricerca di Bing con i parametri dell'API REST."
-	services=""
+    pageTitle="Aggiungere il connettore di ricerca di Bing a PowerApps o alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore di ricerca di Bing con i parametri dell'API REST."
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di ricerca di Bing 
-Connettersi alla funzionalità di ricerca di Bing per cercare notizie, video e così via. L'API di ricerca di Bing può essere usata da:
+# Introduzione al connettore di ricerca di Bing 
+Connettersi alla funzionalità di ricerca di Bing per cercare notizie, video e così via. Il connettore di ricerca di Bing può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -33,9 +33,9 @@ Con la ricerca di Bing è possibile:
 
 - Creare il flusso aziendale in base ai dati ottenuti dalla ricerca. 
 - Usare azioni per cercare immagini, notizie e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. È ad esempio possibile cercare un video e quindi usare Twitter per pubblicarlo in un feed Twitter.
-- Aggiungere l'API di ricerca di Bing a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore di ricerca di Bing a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,7 +46,7 @@ Trigger | Azioni
 --- | ---
 Nessuno | <ul><li>Cerca siti Web</li><li>Cerca video</li><li>Cerca immagini</li><li>Cerca notizie</li><li>Cerca risultati correlati</li><li>Cerca suggerimenti ortografici</li><li>Cerca tutto</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 
 ## Riferimento all'API REST di Swagger
@@ -298,4 +298,4 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 
 Tornare all'[elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

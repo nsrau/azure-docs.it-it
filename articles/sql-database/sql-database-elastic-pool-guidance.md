@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/07/2016"
+	ms.date="05/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@ Valutare se l'uso di un pool di database elastici può risultare conveniente in 
 
 ## Un pool elastico di database.
 
-Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Clienti diversi, tuttavia, hanno spesso modelli di utilizzo differenti e non prevedibili. Per questo motivo, è difficile stabilire a priori i requisiti di risorse di ogni singolo utente di database. Di conseguenza, per garantire una velocità effettiva notevole e tempi di risposta rapidi, uno sviluppatore potrebbe effettuare un overprovisioning delle risorse con un considerevole aumento dei costi. In alternativa, lo sviluppatore può ridurre i costi rischiando una riduzione delle prestazioni a discapito dei clienti.
+Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Clienti diversi, tuttavia, hanno spesso modelli di utilizzo differenti e non prevedibili. Per questo motivo, è difficile stabilire a priori i requisiti di risorse di ogni singolo utente di database. Di conseguenza, per garantire una velocità effettiva notevole e tempi di risposta rapidi, uno sviluppatore potrebbe effettuare un overprovisioning delle risorse con un considerevole aumento dei costi. In alternativa, lo sviluppatore può ridurre i costi rischiando una riduzione delle prestazioni a discapito dei clienti. Per altre informazioni sui modelli di progettazione per le applicazioni SaaS mediante pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 I pool elastici nel database SQL di Azure consentono agli sviluppatori di SaaS di ottimizzare i costi per un gruppo di database all'interno di un budget definito, garantendo allo stesso tempo prestazioni elastiche per ogni database. I pool consentono agli sviluppatori di acquistare unità di transazione di database elastico (eDTU) per un pool condiviso da più database, per supportare periodi di utilizzo imprevisti da parte dei singoli database. Il requisito di eDTU di un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di eDTU disponibile per il pool dipende dal budget dello sviluppatore. I pool consentono allo sviluppatore di ragionare sull'impatto del budget sulle prestazioni e viceversa per il pool. Lo sviluppatore aggiunge semplicemente database al pool, imposta il limite minimo e massimo di eDTU per i database e quindi imposta il numero di eDTU del pool in base al budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
 ## Quando prendere in considerazione un pool
@@ -95,9 +95,9 @@ La dimensione ottimale per un pool dipende dalle eDTU di aggregazione e dalle ri
 
 Per le dimensioni disponibili vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-Database SQL valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di database SQL esistente e consiglia una configurazione appropriata del pool nel portale di Azure. Oltre alle raccomandazioni, una funzionalità incorporata stima l'utilizzo di eDTU per un gruppo personalizzato di database del server. Ciò consente di eseguire un'analisi di simulazione tramite l'aggiunta interattiva di database al pool e la relativa rimozione in modo da ottenere un'analisi di utilizzo delle risorse e suggerimenti di ridimensionamento prima di eseguire il commit delle modifiche. Per le procedure, vedere [Monitorare, gestire e dimensionare un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
+Database SQL valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di database SQL esistente e consiglia una configurazione appropriata del pool nel portale di Azure. Oltre alle raccomandazioni, una funzionalità incorporata stima l'utilizzo di eDTU per un gruppo personalizzato di database del server. Ciò consente di eseguire un'analisi di simulazione tramite l'aggiunta interattiva di database al pool e la relativa rimozione in modo da ottenere un'analisi di utilizzo delle risorse e suggerimenti di ridimensionamento prima di eseguire il commit delle modifiche. Per le procedure, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
 
-Per valutazioni più flessibili sull'uso delle risorse che consentano stime di ridimensionamento ad hoc per i server precedenti alla versione 12, nonché stime di ridimensionamento per i database in server diversi, vedere [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md).
+Per valutazioni più flessibili sull'uso delle risorse che consentano stime di ridimensionamento ad hoc per i server precedenti la versione 12, nonché stime di ridimensionamento per i database in server diversi, vedere [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md).
 
 | Funzionalità | Funzionalità del portale|	Script di PowerShell|
 |:---------------|:----------|:----------|
@@ -116,7 +116,7 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 
 2.	Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione. Per i limiti di archiviazione del pool in base alla dimensione del pool espressa in eDTU, vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Considerare la stima eDTU maggiore tra il Passaggio 1 e il Passaggio 2.
-4.	Visitare la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la più piccola dimensione di pool espressa in eDTU che sia maggiore della stima ottenuta al passaggio 3.
+4.	Vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool in eDTU più piccola, che sia maggiore della stima del Passaggio 3.
 5.	Confrontare il prezzo di pool dal Passaggio 5 con il prezzo dell'utilizzo di livelli di prestazioni appropriati per database singoli.
 
 
@@ -131,4 +131,4 @@ Non tutti i database singoli sono candidati ottimali per i pool. Database con mo
 - [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 - [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -24,11 +24,11 @@ Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni r
 
 Di seguito è riportato l'elenco degli argomenti correlati:
 
-| Argomento | |
-| --------- | --------- |
-| Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect. |
-| Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade) |
-| Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Argomento |  
+--------- | --------- |
+Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
+Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
+Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.180.0
 Data di rilascio: maggio 2016
@@ -37,7 +37,7 @@ Data di rilascio: maggio 2016
 
 - Visualizza avvisi e indicazioni riguardo alla verifica dei domini se la verifica non è stata effettuata prima di eseguire Azure AD Connect.
 - Aggiunto il supporto per [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
-- Aggiunto il supporto per la versione più recente dell'infrastruttura [cloud di Microsoft Azure per enti pubblici](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) con nuovi requisiti URL.
+- Aggiunto il supporto per la versione più recente dell'infrastruttura [cloud di Microsoft Azure per enti pubblici](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) con nuovi requisiti per gli URL.
 
 **Problemi risolti e miglioramenti:**
 
@@ -51,9 +51,9 @@ Data di rilascio: aprile 2016
 
 **Nuove funzionalità:**
 
-- Aggiunto il supporto per gli attributi multivalore alle [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Aggiunto il supporto per gli attributi multivalore alle [estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 - Aggiunto il supporto per altre varianti di configurazione dell'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) da considerare idonee per l'aggiornamento.
-- Aggiunta di alcuni cmdlet per l'[utilità di pianificazione personalizzata](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
+- Aggiunti alcuni cmdlet per l'[utilità di pianificazione personalizzata](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1\.1.119.0
 Data di rilascio: marzo 2016
@@ -70,7 +70,7 @@ Data di rilascio: febbraio 2016
 **Problemi risolti:**
 
 - L'aggiornamento da versioni precedenti non funziona se l'installazione non viene eseguita nella cartella predefinita **C:\\Programmi**.
-- Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione** al termine dell'installazione guidata, una nuova esecuzione dell'installazione guidata non abilita l'utilità di pianificazione.
+- Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione** al termine dell'Installazione guidata, una nuova esecuzione dell'Installazione guidata non abiliterà l'utilità di pianificazione.
 - L'utilità di pianificazione non funzionerà come previsto nei server in cui il formato di data/ora non è US-en. `Get-ADSyncScheduler` non potrà restituire gli orari corretti.
 - Se è stata installata una versione precedente di Azure AD Connect con ADFS come opzione di accesso e aggiornamento, non è possibile eseguire nuovamente l'installazione guidata.
 
@@ -84,12 +84,12 @@ Data di rilascio: febbraio 2016
     - Se si usa l'autenticazione MFA, è necessario impostare il proxy in modo che consenta il traffico per https://secure.aadcdn.microsoftonline-p.com.
     - Per il corretto funzionamento dell'autenticazione MFA, è necessario aggiungere https://secure.aadcdn.microsoftonline-p.com all'elenco di siti attendibili.
 - Possibilità di modificare il metodo di accesso dell'utente dopo l'installazione iniziale.
-- Possibilità di usare i [filtri basati su dominio e unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) nell'installazione guidata. Ciò consente anche la connessione a foreste in cui non sono disponibili tutti i domini.
+- Possibilità di usare i [filtri basati su dominio e unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) nell'Installazione guidata. Ciò consente anche la connessione a foreste in cui non sono disponibili tutti i domini.
 - L'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) è incorporata nel motore di sincronizzazione.
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
 - [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
@@ -284,4 +284,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

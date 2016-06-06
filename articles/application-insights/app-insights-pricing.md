@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -35,7 +35,6 @@ La scelta dei prezzi di schema riguarda:
 
 * [Quota mensile](#monthly-quota) - la quantità di dati di telemetria che è possibile analizzare ogni mese.
 * [Velocità dati](#data-rate) - la velocità massima, in cui è possibile elaborare i dati dall'applicazione.
-* [Memorizzazione](#data-retention) - come dati lunghi vengono mantenuti nel portale di Application Insights per la visualizzazione.
 * [Esportazione continua](#continuous-export) - se è possibile esportare dati in altri strumenti e servizi.
 
 Questi limiti vengono impostati separatamente per ogni risorsa Application Insights.
@@ -86,7 +85,7 @@ Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei p
 
 Fare clic sul grafico per altri dettagli o trascinare e fare clic su (+) per visualizzare i dettagli relativi a un intervallo di tempo.
 
-Il grafico mostra il volume di dati in arrivo nel servizio Application Insights dopo il [campionamento](app-insights-sampling.md).
+Il grafico indica il volume di dati in arrivo nel servizio Application Insights dopo il [campionamento](app-insights-sampling.md).
 
 
 ## Velocità dei dati
@@ -98,8 +97,6 @@ Esistono tre bucket che vengono conteggiati separatamente:
 * [Chiamate TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [log acquisiti](app-insights-asp-net-trace-logs.md).
 * [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti al secondo.
 * Tutti gli altri dati di telemetria (visualizzazioni pagina, sessioni, richieste, dipendenze, metrica, eventi personalizzati, risultati dei test Web).
-
-
 
 
 
@@ -120,29 +117,14 @@ In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà 
 Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 
 * Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca.
-* [Limitare il numero di chiamate Ajax che possono essere segnalate](app-insights-javascript.md#detailed-configuration) in ogni visualizzazione della pagina o disattivare la creazione di report Ajax.
+* [Limitare il numero di chiamate Ajax che possono essere segnalate](app-insights-javascript.md#detailed-configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 * Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
-### Limiti del nome
-
-1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le [metriche e nomi di proprietà][api] sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
-2.	Le [proprietà][apiproperties] possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
-3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
-
-## Conservazione dei dati
-
-Il livello di prezzo determina quanto tempo viene mantenuti i dati sul retro del portale e pertanto su quanto è possibile impostare intervalli di tempo.
-
-
-* I punti dati non elaborati, ovvero le istanze ispezionabili nella ricerca diagnostica, vengono conservati per 7 giorni.
-* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per 90 giorni.
-
-
 ## Campionamento
 
-Il [campionamento](app-insights-sampling.md) consente di ridurre il volume dei dati di telemetria conservati dall'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. Il campionamento permette di evitare il superamento della quota mensile.
+Il [campionamento](app-insights-sampling.md) consente di ridurre la frequenza con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. Il campionamento permette di evitare il superamento della quota mensile.
 
 Sono disponibili diversi tipi di campionamento. È consigliabile usare il [campionamento adattivo](app-insights-sampling.md) che si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Il campionamento viene eseguito nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. È possibile usarlo se il framework dell'app Web è .NET. Installare quindi l'ultima versione (beta) dell'SDK.
 
@@ -159,6 +141,15 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
 ![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)
 
+
+
+## Limiti del nome
+
+1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le [metriche e nomi di proprietà][api] sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
+2.	Le [proprietà][apiproperties] possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
+3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
+
+
 ## Riepilogo dei limiti
 
 [AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
@@ -173,4 +164,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

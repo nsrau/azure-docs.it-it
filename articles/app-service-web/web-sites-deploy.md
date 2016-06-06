@@ -126,9 +126,9 @@ Nel [portale di Azure](https://portal.azure.com) è possibile configurare la dis
 * [Pubblicazione in App Web da qualsiasi repository Git/Hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
 
 ## Distribuire tramite un IDE
-Se si usa già [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) con un [Azure SDK](https://azure.microsoft.com/downloads/) o altri gruppi di IDE come [Xcode](https://developer.apple.com/xcode/) ed [Eclipse](https://www.eclipse.org), è possibile eseguire la distribuzione in Azure direttamente dall'interno dell'IDE. Questa opzione è ideale per un singolo sviluppatore.
+Se si usa già [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) con un [Azure SDK](https://azure.microsoft.com/downloads/) o altri gruppi di IDE come [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org) e [IntelliJ IDEA](https://www.jetbrains.com/idea/), è possibile eseguire la distribuzione in Azure direttamente dall'interno dell'IDE. Questa opzione è ideale per un singolo sviluppatore.
 
-Visual Studio supporta tutti e tre i processi di distribuzione(FTP, Git e Distribuzione Web) secondo le preferenze dell'utente, mentre altri IDE possono eseguire la distribuzione al servizio app se includono l'integrazione con FTP o Git. Vedere [Panoramica dei processi di distribuzione](#overview).
+Visual Studio supporta tutti e tre i processi di distribuzione (FTP, Git e Distribuzione Web) secondo le preferenze dell'utente, mentre altri IDE possono eseguire la distribuzione al servizio app se includono l'integrazione con FTP o Git. Vedere [Panoramica della distribuzione nel servizio app di Azure](#overview).
 
 Ecco i vantaggi della distribuzione con un IDE:
 
@@ -154,6 +154,14 @@ Ecco gli svantaggi della distribuzione con un IDE:
 * [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in App Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Come creare e distribuire un Progetto Applicazione Web MVC ASP.NET con un database SQL utilizzando Visual Studio, Distribuzione Web e Migrazioni Code First di Entity Framework.
 * [Distribuzione Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco. Sono state aggiunte alcune funzionalità di distribuzione di Azure dal momento in cui è stata creata l'esercitazione. Tuttavia, le note aggiunte successivamente descrivono gli elementi mancanti.
 * Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto per Git è integrato, pertanto non è più necessario installare un plug-in.
+
+###<a name="aztk"></a>Come distribuire usando i toolkit di Azure per Eclipse e IntelliJ IDEA
+
+Microsoft consente la distribuzione di App Web in Azure direttamente da Eclipse e IntelliJ tramite il [toolkit di Azure per Eclipse](../azure-toolkit-for-eclipse.md) e il [toolkit di Azure per IntelliJ](../azure-toolkit-for-intellij.md). Le esercitazioni seguenti illustrano i passaggi coinvolti nella distribuzione di una semplice App Web "Hello World" in Azure mediante l'IDE:
+
+*  [Creare un'App Web Hello World per Azure in Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md) Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare e distribuire un'App Web Hello World per Azure.
+*  [Creare un'App Web Hello World per Azure in IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md). Questa esercitazione descrive come usare il toolkit di Azure per IntelliJ per creare e distribuire un'App Web Hello World per Azure.
+
 
 ## <a name="automate"></a>Automatizzare la distribuzione con strumenti da riga di comando
 
@@ -219,11 +227,11 @@ Per ulteriori informazioni, vedere la risorsa seguente:
 
 In alcuni scenari potrebbe essere necessario passare facilmente da una versione temporanea a una versione di produzione dell'app e viceversa. Per ulteriori informazioni, vedere [Distribuzione temporanea su App Web](web-sites-staged-publishing.md).
 
-La definizione di un piano di backup e ripristino è una parte importante di un flusso di distribuzione. Per informazioni sulle funzionalità di backup e ripristino del servizio app, vedere [Backup di app Web](web-sites-backup.md).
+La definizione di un piano di backup e ripristino è una parte importante di un flusso di distribuzione. Per informazioni sulla funzionalità di backup e ripristino del servizio app, vedere [Eseguire il backup di un'App Web nel servizio app di Azure](web-sites-backup.md).
 
-Per informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alla distribuzione del servizio app, vedere [Controllo degli accessi in base al ruolo e pubblicazione di app Web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
+Per informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alla distribuzione del servizio app, vedere [Controllo degli accessi in base al ruolo e pubblicazione di App Web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
 
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

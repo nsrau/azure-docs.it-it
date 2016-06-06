@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 
-Il primo utente che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione deve essere un amministratore globale. Tuttavia, poiché non hanno accesso a PIM per impostazione predefinita, gli altri amministratori globali non possono gestire le assegnazioni temporanee. Per concedere l'accesso a PIM, il primo utente può assegnare gli altri utenti al ruolo di amministratore della sicurezza. Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
+Il primo utente che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione deve essere un amministratore globale. Tuttavia, poiché non hanno accesso a PIM per impostazione predefinita, gli altri amministratori globali non possono gestire le assegnazioni temporanee. Per concedere l'accesso a PIM, il primo utente può assegnare gli altri al ruolo di amministratore dei ruoli con privilegi. Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
 
 > [AZURE.NOTE] Per la gestione di Azure AD PIM è necessario Azure Multi-Factor Authentication. Poiché gli account Microsoft non possono effettuare la registrazione per Azure MFA, gli utenti che eseguono l'accesso con un account Microsoft non possono accedere a Azure AD PIM.
 
-Assicurarsi che siano sempre presenti almeno due utenti per il ruolo di amministratore della sicurezza per l'eventualità in cui un utente venga bloccato o ne venga eliminato l'account
+Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei ruoli con privilegi, per l'eventualità in cui uno di questi venga bloccato o il suo account venga eliminato.
 
 ## Concedere a un altro utente l'accesso per la gestione di PIM
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'app **Azure AD Privileged Identity Management** nel dashboard.
-2. Selezionare il ruolo **Amministratore della sicurezza**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
+2. Selezionare il ruolo di **amministratore dei ruoli con privilegi**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
 3. Fare clic su **Aggiungi**. Verrà visualizzato il pannello della procedura guidata. Il ruolo sarà già selezionato.
 4. Fare clic su **Selezionare gli utenti**. Verrà aperto il pannello dell'elenco utenti.
 5. Immettere il nome dell'utente nel campo di ricerca. Se l'utente è incluso nella directory, l'account verrà visualizzato durante la digitazione.
@@ -41,9 +41,9 @@ Assicurarsi che siano sempre presenti almeno due utenti per il ruolo di amminist
 
 ## Rimuovere i diritti di accesso di un altro utente per la gestione di PIM
 
-Prima di rimuovere un utente dal ruolo di amministratore della sicurezza, assicurarsi che siano sempre presenti due utenti assegnati al ruolo.
+Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi, assicurarsi che siano sempre presenti due utenti assegnati al ruolo.
 
-1. Nel dashboard di PIM fare clic sul ruolo **Amministratore della sicurezza**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
+1. Nel dashboard di PIM fare clic sul ruolo di **amministratore dei ruoli con privilegi**. Verrà visualizzato l'elenco degli utenti attualmente assegnati al ruolo.
 2. Selezionare l'utente nell'elenco degli utenti.
 3. Fare clic su **Rimuovi**. Verrà visualizzato un messaggio di richiesta di conferma.
 4. Fare clic su **Sì** per rimuovere il ruolo dall'utente.
@@ -52,4 +52,4 @@ Prima di rimuovere un utente dal ruolo di amministratore della sicurezza, assicu
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

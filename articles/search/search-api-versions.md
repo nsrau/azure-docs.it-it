@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Versioni API in Ricerca di Azure
@@ -69,4 +69,4 @@ Per .NET SDK: le linee guida per la migrazione del codice sono disponibili nell'
 
 Con disponibilità a livello generale si intende che Ricerca di Azure è ora soggetta al contratto di servizio (SLA). Il contratto di servizio è reperibile in [Contratto di Servizio per Ricerca](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

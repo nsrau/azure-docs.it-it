@@ -87,9 +87,9 @@ Ora che sono state sperimentate alcune query con i dati di esempio, è possibile
 [migrazione del codice]: ./sql-data-warehouse-migrate-code.md
 [create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [installare bcp]: ./sql-data-warehouse-load-with-bcp.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [script di esempio Adventure Works per SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="stbaro"/>
 
 #Unità richiesta in DocumentDB
@@ -178,6 +178,9 @@ Per altre informazioni sulla velocità effettiva riservata con Azure DocumentDB,
 
 Per altre informazioni su DocumentDB, vedere la [documentazione](https://azure.microsoft.com/documentation/services/documentdb/) relativa ad Azure DocumentDB.
 
+Per informazioni sulle attività iniziali relative al test delle prestazioni e della scalabilità con DocumentDB, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
+
+
 [1]: ./media/documentdb-request-units/queryexplorer.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

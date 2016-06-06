@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
 # Panoramica su gestione e monitoraggio della sicurezza di Azure
@@ -46,6 +46,7 @@ Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 Il controllo degli accessi in base al ruolo consente la gestione specifica degli accessi per le risorse di Azure. L'uso del controllo degli accessi in base al ruolo consente di concedere agli utenti solo il livello di accesso necessario per le attività che devono svolgere. Il controllo degli accessi in base al ruolo consente anche di assicurarsi che gli utenti non abbiano più accesso alle risorse nel cloud quando lasciano l'organizzazione.
 
 Altre informazioni:
+
 - [Blog del team di Active Directory sul controllo degli accessi in base al ruolo](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
 - [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
@@ -60,6 +61,7 @@ Viene anche garantita una stretta integrazione dei prodotti Trend [Deep Security
 Anche Symantec Endpoint Protection (SEP) è supportato in Azure. Attraverso l'integrazione nel portale, i clienti hanno la possibilità di specificare che prevedono di usare SEP all'interno di una macchina virtuale. SEP può essere installato in una nuova macchina virtuale tramite il portale di Azure o in una macchina virtuale esistente tramite PowerShell.
 
 Altre informazioni:
+
 - [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../azure-security-antimalware.md)
 - [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
@@ -71,6 +73,7 @@ Altre informazioni:
 Azure Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. MFA consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice. Offre autenticazione avanzata tramite una gamma di opzioni di verifica, ad esempio una telefonata, un SMS, una notifica dell'app per dispositivi mobili o un codice di verifica e token OATH di terze parti.
 
 Altre informazioni:
+
 - [Autenticazione a più fattori](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 - [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Come funziona Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
@@ -80,6 +83,7 @@ Altre informazioni:
 Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
 Altre informazioni:
+
 - [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## Gateway di rete virtuale
@@ -87,7 +91,8 @@ Altre informazioni:
 I gateway VPN, anche detti gateway di rete virtuale di Azure, vengono usati per inviare traffico di rete tra reti virtuali e percorsi locali. Vengono inoltre usati per inviare il traffico tra più reti virtuali in Azure. I gateway VPN offrono connettività cross-premise sicura tra Azure e l'infrastruttura locale.
 
 Altre informazioni:
-- [Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md): informazioni sugli elementi correlati a un gateway VPN
+
+- [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 - [Panoramica della sicurezza di rete di Azure](security-network-overview.md)
 
 ## Privileged Identity Management
@@ -97,6 +102,7 @@ In alcuni casi gli utenti hanno la necessità di eseguire operazioni con privile
 Privileged Identity Management introduce il concetto di amministratore temporaneo per un ruolo, detto anche accesso amministrativo "Just-In-Time", ovvero un utente che deve completare un processo di attivazione per il ruolo assegnato. Il processo di attivazione cambia l'assegnazione dell'utente a un ruolo in Azure AD da inattiva ad attiva per un periodo di tempo specificato, ad esempio otto ore.
 
 Altre informazioni:
+
 - [Gestione identità con privilegi di Azure AD](../active-directory/active-directory-privileged-identity-management-configure.md)
 - [Introduzione ad Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
 
@@ -107,6 +113,7 @@ Azure Active Directory (AD) Identity Protection offre una visualizzazione consol
 Tramite l'invio di notifiche e la visualizzazione delle correzioni consigliate, Identity Protection consente di ridurre i rischi in tempo reale. Identity Protection calcola la gravità dei rischi per l'utente e consente di configurare criteri basati sul rischio per proteggere automaticamente l'accesso all'applicazione da future minacce.
 
 Altre informazioni:
+
 - [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
 - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
@@ -115,14 +122,16 @@ Altre informazioni:
 Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacce offrendo visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 Il Centro sicurezza di Azure consente di ottimizzare e monitorare la sicurezza di delle risorse di Azure tramite le funzionalità seguenti:
+
 - La possibilità di definire i criteri per le risorse delle sottoscrizioni di Azure in base alle esigenze di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
 - Il monitoraggio dello stato della rete, delle applicazioni e delle macchine virtuali di Azure.
 - La visualizzazione di un elenco degli avvisi di sicurezza con priorità, inclusi gli avvisi relativi alle soluzioni dei partner integrate, nonché le informazioni che è necessario esaminare rapidamente e le indicazioni su come risolvere un attacco.
 
 Altre informazioni:
+
 - [Introduzione al Centro sicurezza di Azure](../security-center/security-center-intro.md)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

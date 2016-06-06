@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Errori comuni nella distribuzione di Azure | Microsoft Azure"
+   pageTitle="Risolvere errori comuni durante la distribuzione di risorse in Azure | Microsoft Azure"
    description="Descrive come risolvere gli errori più comuni durante la distribuzione con Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
-   tags=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"/>
@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
 # Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
-Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Per informazioni sulla risoluzione dei problemi di distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi di distribuzione di gruppi di risorse](resource-manager-troubleshoot-deployments-portal.md).
-
-Alcuni errori possono essere evitati convalidando il modello e i parametri prima della distribuzione. Per esempi di convalida del modello, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Si presuppone che sia stato visualizzato un messaggio che descrive l'errore. Per altri dettagli sulla causa della distribuzione non riuscita, vedere l'articolo [sulle operazioni di distribuzione](resource-manager-troubleshoot-deployments-portal.md).
 
 ## Risorsa o modello non valido
 
@@ -223,7 +221,11 @@ Per registrare un provider, vedere [Registrare una sottoscrizione con un provide
 
 ## Errori dell'estensione script personalizzata
 
-Se si verifica un errore dell'estensione script personalizzata durante la distribuzione di una macchina virtuale, vedere gli articoli relativi alla [risoluzione di problemi relativi a errori dell'estensione di macchina virtuale Windows di Azure ](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) o alla [risoluzione di problemi relativi a errori dell'estensione di macchina virtuale Linux di Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
+Se si verifica un errore dell'estensione script personalizzata durante la distribuzione di una macchina virtuale, vedere [Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure ](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) o [Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
+
+## Errori di provisioning e di allocazione delle macchine virtuali
+
+Se si sta tentando di distribuire una macchina virtuale e si verificano errori di provisioning dell'immagine del sistema operativo o di allocazione, vedere [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Windows in Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md).
 
 ## Comprendere quando una distribuzione è pronta 
 
@@ -233,7 +235,9 @@ Per impedire che Azure segnali lo stato di completamento della distribuzione, tu
 
 ## Passaggi successivi
 
-- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Azure Resource Manager](resource-group-audit.md).
-- Per altre informazioni sulle azioni che permettono di determinare gli errori durante una distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi delle distribuzioni di gruppi di risorse](resource-manager-troubleshoot-deployments-portal.md).
+- Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Per risolvere errori di Remote Desktop Protocol in una macchina virtuale basata su Windows, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Per risolvere errori di Secure Shell in una macchina virtuale basata su Linux, vedere [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

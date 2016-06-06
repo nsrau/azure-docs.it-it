@@ -40,12 +40,16 @@ Successivamente, è necessario creare un'app nella directory B2C. In questo modo
 
 ## Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare i criteri per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare i criteri per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
-- Scegliere l'**iscrizione tramite ID utente** o l'**iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
-- Scegliere il **Nome visualizzato** e altri attributi per l'iscrizione nei criteri di iscrizione.
-- Scegliere l'attestazione **Nome visualizzato** come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ogni criterio dopo averlo creato. I nomi dei criteri saranno necessari in un secondo momento.
+>[AZURE.NOTE] Azure AD B2C supporta anche criteri di registrazione o accesso combinati non illustrati in questa esercitazione. I criteri di registrazione o accesso sono illustrati in [questa esercitazione equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+
+Durante la creazione dei tre criteri, assicurarsi di:
+
+- Scegliere **User ID sign-up** (Registrazione tramite ID utente) o **Email sign-up** (Registrazione tramite indirizzo di posta elettronica) nel pannello dei provider di identità.
+- Scegliere **Display name** (Nome visualizzato) e altri attributi per la registrazione nei criteri di registrazione.
+- Scegliere l'attestazione di **Display name** (Nome visualizzato) come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+- Copiare il **nome** di ogni criterio dopo averlo creato. I nomi dei criteri saranno necessari in un secondo momento.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -53,13 +57,15 @@ Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
 ## Scaricare il codice e configurare l'autenticazione
 
-Il codice per questo esempio è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare il progetto struttura come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+Il codice per questo esempio è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare la struttura di progetto come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-L'esempio completato è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'esempio completato è [disponibile anche come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, aprire il file SLN di Visual Studio per iniziare.
 
@@ -95,7 +101,7 @@ Aprire quindi il file `web.config` nella radice del progetto e immettere i valor
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Aggiungere al progetto una classe di avvio OWIN denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto, selezionare **Aggiungi**, **Nuovo elemento** e quindi cercare "OWIN". Modificare la dichiarazione di classe in `public partial class Startup`. Parte di questa classe è stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a `ConfigureAuth(...)`, in cui viene configurata l'autenticazione per l'app.
+Aggiungere al progetto una classe di avvio OWIN denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi**, **Nuovo elemento** e quindi cercare "OWIN". Modificare la dichiarazione di classe in `public partial class Startup`. Parte di questa classe è stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a `ConfigureAuth(...)`, in cui viene configurata l'autenticazione per l'app.
 
 ```C#
 // Startup.cs
@@ -175,7 +181,7 @@ public partial class Startup
 ## Inviare richieste di autenticazione ad Azure AD
 L'app è ora configurata correttamente per comunicare con Azure AD B2C usando il protocollo di autenticazione OpenID Connect. OWIN ha gestito tutti dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione della sessione utente. A questo punto, non resta che avviare ogni flusso utente.
 
-Quando un utente seleziona **Iscrizione**, **Accesso** o **Modifica profilo** nell'app Web, l'azione associata viene richiamata in `Controllers\AccountController.cs`. In ogni caso, è possibile usare i metodi OWIN predefiniti per attivare i criteri corretti:
+Quando un utente seleziona **Sign up** (Registrazione), **Sign in** (Accesso) o **Edit profile** (Modifica profilo) nell'app Web, l'azione associata viene richiamata in `Controllers\AccountController.cs`. In ogni caso, è possibile usare i metodi OWIN predefiniti per attivare i criteri corretti:
 
 ```C#
 // Controllers\AccountController.cs
@@ -310,7 +316,7 @@ A questo punto e possibile compilare ed eseguire l'app. Effettuare l'iscrizione 
 
 ## Aggiungere i provider di identità per i social network
 
-Attualmente, l'app supporta solo l'iscrizione e l'accesso dell'utente tramite **account locali**. Si tratta di account archiviati nella directory B2C che usano un nome utente e una password. Con Azure AD B2C, è possibile aggiungere il supporto per altri **provider di identità**, o IdP, senza modificare il codice.
+Attualmente l'app supporta solo la registrazione e l'accesso dell'utente tramite **account locali**. Si tratta di account archiviati nella directory B2C che usano un nome utente e una password. Tramite Azure AD B2C è possibile aggiungere il supporto per altri **provider di identità** (IDP) senza modificare il codice.
 
 Per aggiungere provider di identità per i social media all'applicazione, seguire le istruzioni dettagliate fornite in questi articoli. Per ogni provider di identità che si vuole supportare, è necessario registrare un'applicazione nel relativo sistema e ottenere un ID client.
 
@@ -319,11 +325,11 @@ Per aggiungere provider di identità per i social media all'applicazione, seguir
 - [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
 - [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
 
-Dopo aver aggiunto i provider di identità alla propria directory B2C, è necessario modificare ognuno dei tre criteri per includere i nuovi provider di identità, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md). Dopo aver salvato i criteri, eseguire nuovamente l'app. I nuovi provider di identità dovrebbero essere stati aggiunti tra le opzioni di accesso e iscrizione in ognuna delle esperienze per l'identità.
+Dopo aver aggiunto i provider di identità alla directory B2C, è necessario modificare ognuno dei tre criteri per includere i nuovi provider di identità, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md). Dopo aver salvato i criteri, eseguire nuovamente l'app. I nuovi provider di identità dovrebbero essere stati aggiunti tra le opzioni di accesso e iscrizione in ognuna delle esperienze per l'identità.
 
 Provare a usare i criteri e osservare gli effetti sull'app di esempio. Aggiungere o rimuovere provider di identità, manipolare le attestazioni dell'applicazione o modificare gli attributi per l'iscrizione. Fare delle prove fino a quando non è chiaro il modo in cui criteri, richieste di autenticazione e OWIN sono collegati tra loro.
 
-Come riferimento viene fornito l'esempio completato, senza i valori di configurazione, [come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). È anche possibile clonarlo da GitHub:
+Come riferimento viene fornito l'esempio completato, senza i valori di configurazione, [come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). È anche possibile clonarlo da GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -341,4 +347,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

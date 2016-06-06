@@ -142,6 +142,8 @@ Se si vuole contribuire al progetto WebJobs.SDK, saranno necessari tutti i prere
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	All'inizio del progetto di WebHost viene visualizzata una pagina del browser vuota in quanto manca il contenuto per l'URL di base del progetto. Per informazioni sugli URL da usare per le funzioni di trigger HTTP, vedere la sezione [Chiavi API per trigger HTTP](#apikeys).
+
 ## Visualizzazione dell'output della funzione
 
 Passare al dashboard per l'app di funzione per visualizzare le chiamate di funzione e il rispettivo output di log.
@@ -150,17 +152,17 @@ Il dashboard è disponibile all'URL seguente:
 
 	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
 
-La pagina **Funzioni** mostra un elenco di funzioni eseguite e un elenco di chiamate di funzione.
+La pagina **Functions** (Funzioni) visualizza un elenco di funzioni eseguite e un elenco di chiamate di funzione.
 
 ![Dettagli della chiamata](./media/functions-run-local/invocationdetail.png)
 
-Fare clic su una chiamata per visualizzare la pagina **Dettagli della chiamata**, che indica quando è stata attivata la funzione, il tempo di esecuzione approssimativo e il completamento corretto. Fare clic sul pulsante **Attiva/Disattiva output** per visualizzare i log scritti dal codice della funzione.
+Fare clic su una chiamata per visualizzare la pagina **Invocation Details** (Dettagli chiamata), che indica quando è stata attivata la funzione, il tempo di esecuzione approssimativo e il completamento corretto. Fare clic sul pulsante **Toggle Output** (Attiva/Disattiva output) per visualizzare i log scritti dal codice della funzione.
 
 ![Dettagli della chiamata](./media/functions-run-local/invocationdetail.png)
 
 ## <a id="apikeys"></a> Chiavi API per trigger HTTP
 
-Per eseguire una funzione HTTP o WebHook, sarà necessaria una chiave API, a meno che non si includa `"authLevel": "anonymous"` nel file *function.json*.
+Per eseguire una funzione HTTP o WebHook, è necessaria una chiave API, a meno che non si includa `"authLevel": "anonymous"` nel file *function.json*.
 
 Ad esempio, se la chiave API è `12345`, è possibile attivare la funzione *HttpTrigger* con l'URL seguente quando il progetto WebJobs.Script.WebHost è in esecuzione.
 
@@ -191,7 +193,7 @@ La proprietà `masterKey` archivia una chiave che risulta utile in alcuni scenar
  
 ### Chiavi API applicabili alle singole funzioni
 
-I file denominati *{nome funzione}.json* contengono la chiave API per una funzione specifica. Ad esempio, il contenuto JSON di esempio seguente in *App\_Data/secrets/HttpTrigger.json* imposta la chiave API per la funzione `HttpTrigger`.
+I file denominati *{nome funzione}.json* contengono la chiave API per una funzione specifica. Ad esempio, il contenuto JSON seguente in *App\_Data/secrets/HttpTrigger.json* imposta la chiave API per la funzione `HttpTrigger`.
 
 ```json
 {
@@ -199,11 +201,15 @@ I file denominati *{nome funzione}.json* contengono la chiave API per una funzio
 }
 ```
 
+## Uso dei riferimenti al pacchetto NuGet nelle funzioni  
+
+Data la modalità dell'elaborazione attuale dei riferimenti NuGet, è importante intervenire sul file *project.json* quando l'host è in esecuzione. L'host monitora infatti le modifiche al file e avvia un'operazione di ripristino quando ne rileva. Il percorso deve anche contenere *NuGet.exe* (versione consigliata 3.3.0) oppure è necessario aver configurato una variabile di ambiente denominata AzureWebJobs\_NuGetPath con il percorso *NuGet.exe*.
+
 ## Risoluzione dei problemi
 
 Le modifiche alle variabili di ambiente apportate quando Visual Studio è in esecuzione non vengono rilevate automaticamente. Se è stata aggiunta o modificata una variabile di ambiente dopo l'avvio di Visual Studio, chiudere Visual Studio e riavviarlo per assicurarsi che vengano rilevati i valori correnti.
 
-Quando si esegue il debug, è possibile ottenere altre informazioni sulle eccezioni selezionando l'opzione relativa alle **Eccezioni Common Language Runtime** nella finestra **Impostazioni eccezione**. Per aprire la finestra, premere CTRL-ALT-E.
+Quando si esegue il debug, è possibile ottenere altre informazioni sulle eccezioni selezionando l'opzione relativa alle **eccezioni Common Language Runtime** nella finestra **Impostazioni eccezione**. Per aprire la finestra, premere CTRL-ALT-E.
 
 Per ottenere altre informazioni sulle eccezioni durante il debug, è anche possibile impostare un punto di interruzione nel blocco `catch` del ciclo principale per l'host di script, disponibile nel progetto WebJobs.Script, in *Host/ScriptHostManager.cs* nel metodo `RunAndBlock`.
 
@@ -216,4 +222,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

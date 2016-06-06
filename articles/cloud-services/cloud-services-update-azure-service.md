@@ -47,17 +47,19 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 |---|---|---|---|
 |Versione del sistema operativo|Sì|Sì|Sì
 |Livello di attendibilità .NET|Sì|Sì|Sì|
-|Dimensione macchina virtuale|Sì*|Sì|Sì|
-|Impostazioni di archiviazione locali|Solo aumento*|Sì|Sì|
+|Dimensioni macchina virtuale<sup>1</sup>|Sì<sup>2</sup>|Sì|Sì|
+|Impostazioni di archiviazione locali|Solo aumento<sup>2</sup>|Sì|Sì|
 |Aggiungere o rimuovere ruoli in un servizio|Sì|Sì|Sì|
 |Numero di istanze di un particolare ruolo|Sì|Sì|Sì|
-|Numero o tipo di endpoint per un servizio|Sì*|No|Sì|
+|Numero o tipo di endpoint per un servizio|Sì<sup>2</sup>|No|Sì|
 |Nomi e i valori delle impostazioni di configurazione|Sì|Sì|Sì|
 |Valori (ma non nomi) delle impostazioni di configurazione|Sì|Sì|Sì|
 |Aggiungere nuovi certificati|Sì|Sì|Sì|
 |Modificare i certificati esistenti|Sì|Sì|Sì|
 |Distribuire nuovo codice|Sì|Sì|Sì|
-*Richiede Azure SDK 1.5 o versioni successive.
+<sup>1</sup>Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
+
+<sup>2</sup>Richiede Azure SDK 1.5 o versioni successive.
 
 > [AZURE.WARNING] La modifica della dimensione di una macchina virtuale eliminerà i dati locali.
 
@@ -180,4 +182,4 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 ## Passaggi successivi
 [Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

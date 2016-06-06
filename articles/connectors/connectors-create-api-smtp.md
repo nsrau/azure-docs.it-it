@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di SMTP alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di SMTP con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore SMTP alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore SMTP con i parametri dell'API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di SMTP
-Connettersi a un server SMTP per inviare messaggi di posta elettronica. L'API di SMTP può essere usata da:
+# Introduzione al connettore SMTP
+Connettersi a un server SMTP per inviare messaggi di posta elettronica. Il connettore SMTP può essere usato da:
 
 - App per la logica trattate in questo argomento
 - PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
@@ -33,22 +33,17 @@ Con SMTP è possibile:
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
-Per l'API SMTP sono disponibili le azioni seguenti. Non sono disponibili trigger.
+Per il connettore SMTP sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 |Trigger | Azioni|
 |--- | ---|
 |Nessuno | Send email|
 
-Tutte le API supportano dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a SMTP
-Quando si aggiunge questa API alle app per la logica, immettere i valori seguenti:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-| Nome server SMTP | Sì | Immettere il nome di dominio completo (FQDN) o l'indirizzo IP del server SMTP.|
-| Nome utente |Sì |Immettere il nome utente per la connessione al server SMTP. |
-| Password | Sì|Immettere la password del nome utente. |
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a SMTP](../../includes/connectors-create-api-smtp.md)]
 
 Dopo aver creato la connessione, immettere le proprietà di SMTP, ad esempio i valori To e CC. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -93,6 +88,6 @@ Invia un messaggio di posta elettronica a uno o più destinatari. ```POST: /Send
 
 
 ## Passaggi successivi
-[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

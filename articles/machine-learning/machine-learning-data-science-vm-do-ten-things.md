@@ -910,4 +910,4 @@ Sono stati inclusi in un pacchetto diversi strumenti che permettono di soddisfar
 ## Riepilogo
 Queste sono solo alcune delle attività che è possibile eseguire nella macchina virtuale per l'analisi scientifica dei dati di Microsoft. Ce ne sono molte altre che è possibile eseguire per renderla un ambiente di analisi efficace.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

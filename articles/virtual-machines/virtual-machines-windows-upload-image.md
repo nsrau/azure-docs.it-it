@@ -3,7 +3,7 @@
 	description="Informazioni su come caricare un'immagine di macchina virtuale Windows da usare con il modello di distribuzione Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager
 
@@ -261,4 +261,4 @@ La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.az
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere l'articolo relativo a come [gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

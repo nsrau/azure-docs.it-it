@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usare l'API del bus di servizio di Azure nelle app per la logica | Microsoft Azure"
-description="Introduzione all'uso dell'API del bus di servizio di Azure (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Usare il connettore del bus di servizio di Azure nelle app per la logica | Microsoft Azure"
+description="Introduzione all'uso del connettore del bus di servizio di Azure (connettore) nelle app per la logica del Servizio app di Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/23/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API del bus di servizio di Azure
+# Introduzione al connettore del bus di servizio di Azure 
 
 Connettersi al bus di servizio di Azure per inviare e ricevere messaggi. È possibile eseguire varie azioni, ad esempio inviare alla coda, inviare all'argomento, ricevere dalla coda, ricevere dalla sottoscrizione, e così via.
 
@@ -31,9 +31,9 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 
 ## Informazioni su trigger e azioni
 
-L'API del bus di servizio di Azure include trigger e può essere usata come azione. Tutte le API supportano dati nei formati JSON e XML.
+Il connettore del bus di servizio di Azure include trigger e può essere usato come azione. Tutti i connettori supportano dati nei formati JSON e XML.
 
- Nell'API del bus di servizio di Azure sono disponibili le azioni e/o i trigger seguenti:
+ Nel connettore del bus di servizio di Azure sono disponibili le azioni e/o i trigger seguenti:
 
 ### Azioni del bus di servizio di Azure
 È possibile eseguire queste azioni:
@@ -51,24 +51,9 @@ L'API del bus di servizio di Azure include trigger e può essere usata come azio
 
 
 ## Creare una connessione al bus di servizio di Azure
-Per usare l'API del bus di servizio di Azure, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
+Per usare il connettore del bus di servizio di Azure, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-|ConnectionString|Sì|Fornire una stringa di connessione per il bus di servizio di Azure|  
-
-Seguire questi passaggi per creare una **connessione** del bus di servizio che sarà poi usato nell'app per la logica:
-
-1. Selezionare **Recurrence**
-2. Selezionare una **frequenza** e immettere un **intervallo** ![Configurare il Bus di servizio][1] 
-3. Selezionare **Add an action** ![Configurare il Bus di servizio][2]   
-4. Immettere **Service Bus** nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Service Bus nel nome
-5. Selezionare **Service Bus - Send message** ![Configurare il Bus di servizio][3]
-7. Specificare un nome e una stringa di connessione in **Connection name** e **Connection string**e quindi selezionare **Create connection**:
-![Configurare il Bus di servizio][4]
-7. Dopo aver creato la connessione, verrà visualizzata la finestra di dialogo **Send message**. Immettere tutte le informazioni necessarie per l'invio di un messaggio.
-![Configurare il Bus di servizio][5]
-8. Selezionare il pulsante **Salva** nel menu in alto per salvare i dati.    
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione al bus di servizio](../../includes/connectors-create-api-servicebus.md)]
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -160,11 +145,4 @@ ContentTransferEncoding
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
-[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png
-[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
-[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
-[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
-[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

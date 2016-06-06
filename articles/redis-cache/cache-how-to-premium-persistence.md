@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Come configurare la persistenza dei dati per una Cache Redis di Azure Premium
@@ -73,21 +73,33 @@ Una volta trascorso l'intervallo di frequenza di backup, viene avviato il backup
 
 Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sulla persistenza di Cache Redis di Azure.
 
-## È possibile abilitare la persistenza per una cache creata in precedenza?
+-	[È possibile abilitare la persistenza per una cache creata in precedenza?](#can-i-enable-persistence-on-a-previously-created-cache)
+-	[È possibile modificare la frequenza di backup dopo aver creato la cache?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
+-	[Perché trascorrono più di 60 minuti tra i backup se è stata impostata una frequenza di backup di 60 minuti?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+-	[Cosa accade ai backup precedenti quando viene eseguito un nuovo backup?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
+-	[Cosa accade se si è passati a una dimensione diversa e viene ripristinato un backup creato prima dell'operazione di ridimensionamento?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+
+### È possibile abilitare la persistenza per una cache creata in precedenza?
 
 Sì, la persistenza di Redis può essere configurata sia al momento della creazione della cache che nelle cache premium esistenti.
 
-## È possibile modificare la frequenza di backup dopo aver creato la cache?
+### È possibile modificare la frequenza di backup dopo aver creato la cache?
 
 Sì, è possibile modificare la frequenza di backup nel pannello **Persistenza dei dati di Redis**. Per istruzioni, vedere [Configurare la persistenza di Redis](#configure-redis-persistence).
 
-## Perché trascorrono più di 60 minuti tra i backup se è stata impostata una frequenza di backup di 60 minuti?
+### Perché trascorrono più di 60 minuti tra i backup se è stata impostata una frequenza di backup di 60 minuti?
 
 L'intervallo di frequenza di backup inizia solo dopo il corretto completamento del processo di backup precedente. Se la frequenza di backup è 60 minuti e per il corretto completamento del processo di backup sono richiesti 15 minuti, il backup successivo verrà avviato solo 75 minuti dopo l'ora di inizio del backup precedente.
 
-## Cosa accade ai backup precedenti quando viene eseguito un nuovo backup?
+### Cosa accade ai backup precedenti quando viene eseguito un nuovo backup?
 
 Ad eccezione di quello più recente, tutti i backup vengono eliminati automaticamente. L'eliminazione potrebbe non avvenire immediatamente, ma i backup meno recenti non vengono mantenuti per un tempo illimitato.
+
+### Cosa accade se si è passati a una dimensione diversa e viene ripristinato un backup creato prima dell'operazione di ridimensionamento?
+
+-	Se si è passati a una dimensione maggiore, non ci sono conseguenze.
+-	Se si è passati a una dimensione minore e si ha un'impostazione [databases](cache-configure.md#databases) personalizzata maggiore del [limite di databases](cache-configure.md#databases) per la nuova dimensione, i dati in tali database non verranno ripristinati. Per altre informazioni, vedere [L'impostazione databases personalizzata viene modificata durante il ridimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
+-	Se si è passati a una dimensione minore che non è abbastanza grande per contenere tutti i dati del backup più recente, le chiavi verranno rimosse durante il processo di ripristino, in genere usando il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ## Passaggi successivi
 Informazioni su come utilizzare altre funzionalità di cache premium.
@@ -107,4 +119,4 @@ Informazioni su come utilizzare altre funzionalità di cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

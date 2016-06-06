@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Come gestire le impostazioni di attivazione del ruolo in Azure AD Privileged Identity Management
 
-Un amministratore della sicurezza può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di un ruolo temporaneo.
+Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di un ruolo temporaneo.
 
 ## Gestire le impostazioni di attivazione del ruolo
 
@@ -32,7 +32,8 @@ Un amministratore della sicurezza può personalizzare Azure AD Privileged Identi
 8. Fare clic su **Save**.
 
 Non è possibile disabilitare la Multi-Factor Authentication per ruoli con privilegi elevati per Azure AD e Office365, inclusi i seguenti:
-- Amministratore globale  
+- Amministratore globale
+- Amministratore dei ruoli con privilegi   
 - Amministratore account utente  
 - Ruolo con autorizzazioni di scrittura nella directory  
 - Supporto partner - Livello 1  
@@ -53,4 +54,4 @@ Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richie
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

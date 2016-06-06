@@ -58,13 +58,15 @@ Si noti che questo articolo non illustra come usare i criteri appena creati. Per
 
 ## Scaricare il codice
 
-Il codice per questa esercitazione [è disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare il progetto struttura come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+Il codice per questa esercitazione [è disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare la struttura di progetto come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è [disponibile anche come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, aprire il file SLN di Visual Studio per iniziare. Si noti che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è un'app Web Windows Presentation Foundation (WPF) front-end con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app in cui sono archiviati gli elenchi attività di ogni utente.
 
@@ -88,11 +90,11 @@ Quando `TaskService` riceve una richiesta da `TaskWebApp`, verifica la presenza 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-In questo articolo non verranno illustrati i dettagli della protezione di `TaskService`. Per informazioni sull'autenticazione sicura delle richieste da parte di un'API Web tramite Azure AD B2C, consultare l'[articolo di introduzione all'API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Questo articolo non illustra i dettagli della protezione di `TaskService`. Per informazioni sull'autenticazione sicura delle richieste da parte di un'API Web tramite Azure AD B2C, vedere l'[articolo di introduzione all'API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## Configurare l'app Web TaskWebApp
 
-Perché `TaskWebApp` possa comunicare con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nel progetto `TaskWebApp` aprire il file `web.config` nella radice del progetto e sostituire i valori nella sezione `<appSettings>`. Questi valori verranno usati nell'app Web.
+Perché `TaskWebApp` possa comunicare con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nel progetto `TaskWebApp` aprire il file `web.config` nella radice del progetto e sostituire i valori nella sezione `<appSettings>`: Questi valori verranno usati nell'app Web.
 
 ```
 <appSettings>
@@ -114,7 +116,7 @@ Perché `TaskWebApp` possa comunicare con Azure AD B2C, è necessario fornire al
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Sono anche presenti due elementi Decorator `[PolicyAuthorize]` per cui è necessario specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando un utente prova ad accedere a una pagina dell'app che richiede l'autenticazione.
+Sono anche presenti due elementi Decorator `[PolicyAuthorize]` che richiedono di specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando un utente prova ad accedere a una pagina dell'app che richiede l'autenticazione.
 
 ```C#
 // Controllers\HomeController.cs
@@ -134,11 +136,11 @@ public class TasksController : Controller
 
 ## Ottenere i token di accesso e chiamare le API dell'attività
 
-Questa sezione illustra come completare uno scambio di token OAuth 2.0 in un'app Web usando le librerie e i framework Microsoft. Se non si ha familiarità con i codici di autorizzazione e i token di accesso, vedere il [riferimento al protocollo OpenID Connect](active-directory-b2c-reference-protocols.md) per altre informazioni.
+Questa sezione illustra come completare uno scambio di token OAuth 2.0 in un'app Web usando le librerie e i framework Microsoft. Se non si ha familiarità con i codici di autorizzazione e i token di accesso, vedere [Anteprima AD B2C Azure: Protocolli di autenticazione](active-directory-b2c-reference-protocols.md) per altre informazioni.
 
 ### Ottenere un codice di autorizzazione
 
-Il primo passaggio della chiamata dell'API Web `TaskService` prevede l'autenticazione dell'utente e la ricezione di un codice di autorizzazione da Azure AD. È possibile ricevere un codice di autorizzazione da Azure AD al termine della corretta esecuzione di tutti i criteri, inclusi i criteri di accesso, iscrizione e modifica del profilo.
+Il primo passaggio della chiamata dell'API Web di `TaskService` prevede l'autenticazione dell'utente e la ricezione di un codice di autorizzazione da Azure AD. È possibile ricevere un codice di autorizzazione da Azure AD al termine della corretta esecuzione di tutti i criteri, inclusi i criteri di accesso, iscrizione e modifica del profilo.
 
 Per iniziare, installare il middleware OWIN OpenID Connect tramite la console di Gestione pacchetti di Visual Studio. Usare OWIN per inviare le richieste di autenticazione ad Azure AD e gestire le risposte:
 
@@ -216,7 +218,7 @@ L'app Web è ora configurata per autenticare gli utenti tramite la directory B2C
 
 Ogni volta che le app Web .NET devono ottenere token di accesso da Azure AD, è possibile usare Active Directory Authentication Library (ADAL). Non è necessario usare ADAL per questo processo, ma tenere presente che questa libreria consente di gestire diverse attività, ad esempio l'invio di messaggi di autenticazione OAuth 2.0, la memorizzazione nella cache e l'aggiornamento di token.
 
-Per prima cosa, installare ADAL nel progetto `TaskWebApp` tramite la console di Gestione pacchetti:
+Per prima cosa installare ADAL nel progetto `TaskWebApp` tramite la console di Gestione pacchetti:
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
@@ -388,4 +390,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

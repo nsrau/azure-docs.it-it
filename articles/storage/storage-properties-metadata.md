@@ -1,21 +1,20 @@
-
 <properties
-  pageTitle="Impostare e recuperare proprietà e metadati per gli oggetti in Archiviazione di Azure | Microsoft Azure"
-  description="Archiviare i metadati personalizzati per oggetti di archiviazione di Azure, impostare e recuperare le proprietà di sistema."
-  services="storage"
-  documentationCenter=""
-  authors="tamram"
-  manager="carmonm"
-  editor="tysonn"/>
+	pageTitle="Impostare e recuperare proprietà e metadati per gli oggetti in Archiviazione di Azure | Microsoft Azure"
+	description="Archiviare i metadati personalizzati per oggetti di archiviazione di Azure, impostare e recuperare le proprietà di sistema."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-  ms.service="storage"
-  ms.workload="storage"
-  ms.tgt_pltfrm="na"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="02/20/2016"
-  ms.author="tamram"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/23/2016"
+	ms.author="tamram"/>
 
 # Impostare e recuperare proprietà e metadati #
 
@@ -98,4 +97,4 @@ Per recuperare i metadati, chiamare il metodo **FetchAttributes** sul BLOB o sul
 - [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

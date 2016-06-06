@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/23/2016"
 	ms.author="emgerner"/>
 
 # Come usare l'archiviazione file di Azure da Python
@@ -55,7 +55,7 @@ Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel fi
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
         'myshare',
-				None, # We want to create this blob in the root directory, so we specify None for the directory_name
+        None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
@@ -100,4 +100,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione file, v
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->
