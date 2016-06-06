@@ -127,7 +127,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 2. Aprire un browser e passare all'URL seguente.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	Verrà visualizzata la pagina predefinita dell'app Web, come illustrato di seguito.
 

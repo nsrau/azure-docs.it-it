@@ -93,7 +93,7 @@ Aggiungere l'istruzione `using` seguente all'inizio del file `CalcInput.cs`.
         public int b;
     }
 
-Fare clic con il pulsante destro del mouse su **Controller** in **Esplora soluzioni ** e scegliere **Aggiungi**->**Controller**. Scegliere **Web API 2 Controller - Empty** e fare clic su **Aggiungi**. Digitare **CalcController** come nome del controller e fare clic su **Aggiungi**.
+Fare clic con il pulsante destro del mouse su **Controller** in **Esplora soluzioni** e scegliere **Aggiungi**->**Controller**. Scegliere **Web API 2 Controller - Empty** e fare clic su **Aggiungi**. Digitare **CalcController** come nome del controller e fare clic su **Aggiungi**.
 
 ![Aggiungi controller][api-management-add-controller]
 
@@ -237,9 +237,9 @@ Scegliere **Applicazione Web e/o API Web**, immettere un nome e fare clic sulla 
 
 ![Nuova applicazione][api-management-aad-new-application-devportal-1]
 
-Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato ****https://contoso5.portal.azure-api.net/signin **.
+Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato **https://contoso5.portal.azure-api.net/signin **.
 
-Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati ****https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
+Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati **https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
 
 ![Nuova applicazione][api-management-aad-new-application-devportal-2]
 
@@ -309,7 +309,7 @@ Fare clic sull'icona di ricerca digitare **APIM** nella casella Che inizia con, 
 
 ![Aggiungere autorizzazioni][api-management-aad-add-app-permissions]
 
-Fare clic su **Autorizzazioni delegate** per **APIMAADDemo**, selezionare la casella **Accedi a APIMAADDemo ** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
+Fare clic su **Autorizzazioni delegate** per **APIMAADDemo**, selezionare la casella **Accedi a APIMAADDemo** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-delegated-permissions]
 

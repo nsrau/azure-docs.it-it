@@ -54,7 +54,7 @@ Questo errore viene visualizzato quando la procedura guidata non riesce a raggiu
 - Se il file è corretto, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ### L'endpoint MFA non è raggiungibile
-Questo errore viene visualizzato se l'endpoint ****https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale ha abilitato l'autenticazione MFA. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale ha abilitato l'autenticazione MFA. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Se viene visualizzato questo errore, verificare che l'endpoint secure.aadcdn.microsoftonline-p.com sia stato aggiunto al proxy.
 

@@ -376,7 +376,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 	>  
 	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il Portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 5. Per il livello di prestazioni per l'account di archiviazione specificare **Premium**.
 

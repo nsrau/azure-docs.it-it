@@ -52,7 +52,7 @@ MSDN è attualmente il forum primario su Servizi multimediali di Azure.
 
 ## Contattare il team
 
-L'indirizzo di posta elettronica principale per Servizi multimediali di Azure è: ****mediaservices@microsoft.com**.
+L'indirizzo di posta elettronica principale per Servizi multimediali di Azure è: **mediaservices@microsoft.com**.
 
 La tabella seguente elenca l'indirizzo di posta elettronica dei team secondari per ogni funzionalità:
 

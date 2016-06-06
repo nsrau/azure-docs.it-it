@@ -87,7 +87,7 @@ Per altri esempi di PowerShell, vedere:
 - [Ripristinare da snapshot][]
 - [Eseguire il ripristino geografico da snapshot][]
 
-Per un elenco di tutte le attività che possono essere automatizzate tramite PowerShell, vedere [Azure SQL Database Cmdlets][] (Cmdlet del database SQL di Azure). Per un elenco di attività che possono essere automatizzate con REST, vedere [Operazioni per i database SQL di Azure][].
+Per un elenco di tutte le attività che possono essere automatizzate tramite PowerShell, vedere [Azure SQL Database Cmdlets][] \(Cmdlet del database SQL di Azure). Per un elenco di attività che possono essere automatizzate con REST, vedere [Operazioni per i database SQL di Azure][].
 
 <!--Image references-->
 

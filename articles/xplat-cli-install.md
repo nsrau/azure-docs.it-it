@@ -47,7 +47,7 @@ Sono disponibili anche i pacchetti di programmi di installazione seguenti:
 
 * [Windows installer][windows-installer]
 
-* [File tar per Linux][linux-installer] (richiede Node.js e npm), installare eseguendo `sudo npm install -g <path to downloaded tar file>`
+* [File tar per Linux][linux-installer] \(richiede Node.js e npm), installare eseguendo `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Usare un contenitore Docker

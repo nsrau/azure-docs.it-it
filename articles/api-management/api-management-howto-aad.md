@@ -50,7 +50,7 @@ Immettere un nome per l'applicazione, selezionare **Applicazione Web e/o API Web
 
 Per **URL accesso**, copiare l'**URL di reindirizzamento** dalla sezione **Azure Active Directory** della scheda **Identità esterne** nel portale di pubblicazione e rimuovere il suffisso **-aad** alla fine dell'URL. In questo esempio, l'**URL accesso** è `https://aad03.portal.current.int-azure-api.net/signin`.
 
-In **URL ID app** immettere il dominio predefinito un dominio personalizzato per Azure Active Directory e aggiungervi una stringa univoca. Nel seguente esempio il dominio predefinito di ****https://contoso5api.onmicrosoft.com**viene utilizzato con il suffisso **/api** specificato.
+In **URL ID app** immettere il dominio predefinito un dominio personalizzato per Azure Active Directory e aggiungervi una stringa univoca. Nel seguente esempio il dominio predefinito di **https://contoso5api.onmicrosoft.com**viene utilizzato con il suffisso **/api** specificato.
 
 ![Proprietà della nuova applicazione Azure Active Directory][api-management-new-aad-application-2]
 

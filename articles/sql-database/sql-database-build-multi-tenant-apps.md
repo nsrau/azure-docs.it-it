@@ -47,9 +47,9 @@ I pool Basic, Standard e Premium offrono un'ampia gamma di prestazioni, risorse 
 
 Oltre ai pool elastici, sono disponibili funzionalità del database SQL che permettono di gestire le attività operative in più database:
 
-** Eseguire query tra database e creare report. ** Le [query su database elastico](sql-database-elastic-query-overview.md) permettono di eseguire query o report tra database nel pool elastico e di accedere simultaneamente ai dati remoti archiviati in diversi database del pool.
+**Eseguire query tra database e creare report.** Le [query su database elastico](sql-database-elastic-query-overview.md) permettono di eseguire query o report tra database nel pool elastico e di accedere simultaneamente ai dati remoti archiviati in diversi database del pool.
 
-** Eseguire transazioni tra database. ** Le [transazioni di database elastico](sql-database-elastic-transactions-overview.md) permettono di eseguire operazioni e transazioni che comprendono più database nei database SQL, ad esempio durante l'elaborazione di transazioni finanziarie tra database o quando si aggiornano gli ordini e l'inventario in un database.
+**Eseguire transazioni tra database.** Le [transazioni di database elastico](sql-database-elastic-transactions-overview.md) permettono di eseguire operazioni e transazioni che comprendono più database nei database SQL, ad esempio durante l'elaborazione di transazioni finanziarie tra database o quando si aggiornano gli ordini e l'inventario in un database.
 
 ** Eseguire le stesse operazioni in più database. ** I [processi di database elastico](sql-database-elastic-jobs-overview.md) eseguono operazioni amministrative come la ricompilazione degli indici o l'aggiornamento degli schemi in ogni database del pool elastico.
 

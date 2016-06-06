@@ -211,7 +211,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Passaggi successivi
 
-- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo [How to compile and run a simple MS-MPI program][msmpi_howto] (Come compilare ed eseguire un semplice programma MS-MPI), nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
+- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo [How to compile and run a simple MS-MPI program][msmpi_howto] \(Come compilare ed eseguire un semplice programma MS-MPI), nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
 
 - Per informazioni aggiornate su MS-MPI, vedere la pagina relativa a [Microsoft MPI][msmpi_msdn] in MSDN.
 

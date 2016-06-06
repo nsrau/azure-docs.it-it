@@ -85,7 +85,7 @@ Eseguire la procedura seguente per modificare un modello di larghezza di banda.
 2. Nella finestra di dialogo **Aggiungi/modifica modello di larghezza di banda**:
 
    1. Dall'elenco a discesa **Modello**, selezionare un modello di larghezza di banda che si desidera modificare.
-   2. Completare le modifiche. È possibile modificare qualsiasi impostazione esistente.
+   2. Completare le modifiche. (È possibile modificare qualsiasi impostazione esistente.)
    3. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Nella pagina Configura del servizio, il modello modificato viene visualizzato nell'elenco relativo ai modelli di larghezza di banda.
 
 3. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina. Fare clic su **Sì**, quando viene richiesta la conferma.

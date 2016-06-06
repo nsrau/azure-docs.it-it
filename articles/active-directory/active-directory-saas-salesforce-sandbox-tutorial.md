@@ -114,7 +114,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     
     b. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione**.
     
-    c. Nella casella di testo **ID entità** digitare ****https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
+    c. Nella casella di testo **ID entità** digitare **https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
     
     d. Per caricare il certificato scaricato, fare clic su **Sfoglia**.
     

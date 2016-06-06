@@ -245,7 +245,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 
 **Per scaricare i dati relativi ai voli**
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
 2. Selezionare i valori seguenti nella pagina:
 
 	<table border="1">

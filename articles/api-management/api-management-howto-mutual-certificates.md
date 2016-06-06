@@ -129,7 +129,7 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
 [Entità certificato dell'API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1

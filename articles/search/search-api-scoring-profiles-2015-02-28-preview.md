@@ -280,7 +280,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 `boostingDuration` è un attributo della funzione freshness. Consente di impostare un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Ad esempio, per aumentare la priorità di una linea di prodotti o una marca per un periodo promozionale di 10 giorni, è necessario specificare tale periodo come "P10D" per questi documenti. O per migliorare gli eventi previsti per la settimana successiva specificare "-P7D".
 
-Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: `[-]P[nD][T[nH][nM][nS]]`.
+Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: `][-]P\[nD]\[T\[nH]\[nM]\[nS]\]]`.
 
 La tabella seguente fornisce alcuni esempi.
 
