@@ -24,8 +24,6 @@
 
 Questa esercitazione end-to-end mostra come usare il portale di Azure per effettuare il provisioning di una macchina virtuale che esegue SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 La raccolta di macchine virtuali (VM) di Azure include numerose immagini che contengono Microsoft SQL Server. Sono sufficienti pochi clic per selezionare una delle immagini di VM di SQL dalla raccolta ed effettuarne il provisioning nell'ambiente Azure.
 
 In questa esercitazione si apprenderà come:
@@ -49,7 +47,7 @@ In questa esercitazione si apprenderà come:
 
 	![Pannello Macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
 
-1. In **Server di database** fare clic su **SQL Server**. Potrebbe essere necessario scorrere verso il basso per trovare **Server database**. Esaminare i modelli di SQL Server disponibili.
+1. In **Server database** fare clic su **SQL Server**. Potrebbe essere necessario scorrere verso il basso per trovare **Server database**. Esaminare i modelli di SQL Server disponibili.
 
 	![Immagini SQL della raccolta di macchine virtuali](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
 
@@ -71,7 +69,7 @@ Sono disponibili cinque pannelli per la configurazione di una macchina virtuale 
 | **Riepilogo** | [Esaminare il riepilogo](#5-review-the-summary) |
 
 ## 1\. Configurare le impostazioni di base
-Nel pannello **Informazioni di base** specificare le informazioni seguenti:
+Nel pannello **Nozioni di base** specificare le informazioni seguenti:
 
 * Immettere un **Nome** univoco per la macchina virtuale.
 * Specificare un **Nome utente** per l'account amministratore locale nella macchina virtuale. Questo account viene aggiunto anche al ruolo predefinito del server **sysadmin** di SQL Server.
@@ -91,16 +89,16 @@ Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nel
 
 ![Opzioni per le dimensioni di VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Per carichi di lavoro di produzione, è consigliabile selezionare dimensioni della macchina virtuale che supportino l'[Archiviazione Premium](../storage/storage-premium-storage.md). Se questo livello di prestazioni non è necessario, usare il pulsante **Visualizza tutto** per visualizzare tutte le opzioni relative alle dimensioni della macchina virtuale. Ad esempio, è possibile usare dimensioni di macchine virtuali minori per un ambiente di sviluppo o di test.
+Per carichi di lavoro di produzione, è consigliabile selezionare dimensioni della macchina virtuale che supportino [Archiviazione Premium](../storage/storage-premium-storage.md). Se questo livello di prestazioni non è necessario, usare il pulsante **Visualizza tutto** per visualizzare tutte le opzioni relative alle dimensioni della macchina virtuale. Ad esempio, è possibile usare dimensioni di macchine virtuali minori per un ambiente di sviluppo o di test.
 
 >[AZURE.NOTE] Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md). Per considerazioni sulle dimensioni della macchina virtuale di SQL Server, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
-Scegliere le dimensioni della macchina virtuale, quindi fare clic su **Seleziona**.
+Scegliere le dimensioni della macchina virtuale e quindi fare clic su **Seleziona**.
 
 ## 3\. Configurare le funzionalità facoltative
 Nel pannello **Impostazioni** configurare l'archiviazione di Azure, la rete e il monitoraggio per la macchina virtuale.
 
-- In **Archiviazione** specificare un **Tipo di disco** Standard o Premium (SSD). Archiviazione Premium è l'impostazione consigliata per i carichi di lavoro di produzione.
+- In **Archiviazione** specificare un **Tipo di disco**, ad esempio Standard o Premium (unità SSD). Archiviazione Premium è l'impostazione consigliata per i carichi di lavoro di produzione.
 
 >[AZURE.NOTE] Se si seleziona l'opzione Premium (SSD) per dimensioni della macchina virtuale che non supportano l'Archiviazione Premium, le dimensioni della macchina virtuale vengono modificate automaticamente.
 
@@ -151,7 +149,7 @@ Se è necessaria l'autenticazione di SQL Server, fare clic su **Abilita** in **A
 
 >[AZURE.NOTE] Se si prevede di accedere a SQL Server tramite Internet, ovvero l'opzione di connettività Pubblica, è necessario abilitare l'autenticazione di SQL in questa area. L'accesso pubblico a SQL Server richiede l'uso dell'autenticazione di SQL.
 
-Se si abilita l'Autenticazione di SQL Server, specificare un **Nome di accesso** e una **Password**. Questo nome utente viene configurato come account di accesso dell'Autenticazione di SQL Server e membro del ruolo predefinito del server **sysadmin**. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](http://msdn.microsoft.com/library/ms144284.aspx).
+Se si abilita l'Autenticazione di SQL Server, specificare un **Nome di accesso** e una **Password**. Questo nome utente viene configurato come account di accesso di Autenticazione di SQL Server e membro del ruolo predefinito del server **sysadmin**. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](http://msdn.microsoft.com/library/ms144284.aspx).
 
 Se non si abilita l'autenticazione di SQL Server, è possibile usare l'account amministratore locale nella macchina virtuale per connettersi all'istanza di SQL Server.
 
@@ -208,12 +206,12 @@ La tabella seguente include l'elenco dei parametri necessari per configurare l'i
 | **Segreto dell'entità**|Nome dell'entità servizio di Azure Active Directory. È detto anche Segreto client. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nome credenziali**|**Nome della credenziale**: l'integrazione di AKV crea una credenziale all'interno di SQL Server, consentendo alla macchina virtuale di avere accesso all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale.| mycred1|
 
-Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure ](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 Al termine della configurazione delle impostazioni di SQL Server, fare clic su **OK**.
 
 ## 5\. Esaminare il riepilogo
-Nel pannello **Riepilogo** esaminare il riepilogo e fare clic su **OK** per creare SQL Server, il gruppo di risorse e le risorse, in base a quanto specificato per questa VM.
+Nel pannello **Riepilogo** esaminare i dati e fare clic su **OK** per creare SQL Server, il gruppo di risorse e le risorse, in base a quanto specificato per questa VM.
 
 È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
 
@@ -225,12 +223,12 @@ Seguire questa procedura per connettersi alla macchina virtuale con Desktop remo
 
 1. Dopo la creazione della macchina virtuale di Azure, l'icona per la VM viene visualizzata nel dashboard di Azure. È possibile trovarla anche esplorando le macchine virtuali esistenti. Fare clic sulla nuova macchina virtuale di SQL. I relativi dettagli vengono visualizzati nel pannello **Macchina virtuale**.
 1. Nella parte superiore del pannello **Macchina virtuale** fare clic su **Connetti**.
-1. Il browser scarica un file RDP per la macchina virtuale. Aprire del file RDP. ![Desktop remoto per VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
+1. Il browser scarica un file RDP per la macchina virtuale. Aprire il file RDP. ![Desktop remoto per VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
 1. La Connessione Desktop remoto invia una notifica che indica che l'autore della connessione remota non può essere identificato. Fare clic su **Connetti** per continuare.
 1. Nella finestra di dialogo **Protezione di Windows**, fare clic su **Usa un altro account**.
-1. In **Nome utente** immettere il **<nome utente>**, dove <user name> è il nome utente specificato durante la configurazione della VM. È necessario aggiungere una barra rovesciata iniziale prima del nome.
-1. Immettere la **Password** configurata in precedenza per questa VM, quindi fare clic su **OK** per connettersi.
-1. Se un'altra finestra di dialogo di **Connessione Desktop remoto** richiede se si vuole effettuare la connessione, fare clic su **Sì**.
+1. In **Nome utente** digitare il **<nome utente>**, dove <user name> è il nome utente specificato durante la configurazione della VM. È necessario aggiungere una barra rovesciata iniziale prima del nome.
+1. Digitare la **Password** configurata in precedenza per questa VM, quindi fare clic su **OK** per connettersi.
+1. Se un'altra finestra di dialogo di **Connessione Desktop remoto** richiede se si vuole stabilire la connessione, fare clic su **Sì**.
 
 Dopo essersi connessi alla macchina virtuale di SQL Server, è possibile avviare SQL Server Management Studio e connettersi con l'autenticazione di Windows usando le credenziali di amministratore locale. Se è stata abilitata l'autenticazione di SQL Server, è anche possibile connettersi con l'Autenticazione SQL usando l'account di accesso e la password di SQL configurati durante il provisioning.
 
@@ -251,4 +249,4 @@ Per altre informazioni sull'uso di SQL Server in Azure, vedere [Panoramica di SQ
 
 Per una panoramica su SQL Server in Macchine virtuali di Azure, guardare il video sulla [VM di Azure come piattaforma ottimale per SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

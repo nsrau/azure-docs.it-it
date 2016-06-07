@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/02/2016"
+     ms.date="05/25/2016"
      ms.author="dobett"/>
 
 # Esercitazione: Introduzione alle soluzioni preconfigurate
@@ -254,4 +254,4 @@ Ora che è stata compilata una soluzione preconfigurata funzionante, è possibil
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

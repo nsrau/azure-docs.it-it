@@ -18,27 +18,23 @@
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
 
-## Panoramica
-
-Il servizio app include il supporto predefinito per la condivisione di risorse tra le origini (CORS), che consente ai client JavaScript di eseguire chiamate tra domini ospitati in app per le API, app Web o app per dispositivi mobili. Questa funzionalità del servizio app consente di sfruttare i vantaggi della condivisione CORS senza scrivere codice nell'API.
-
-[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) è un protocollo Internet che consente di effettuare chiamate API da JavaScript a un dominio diverso da quello da cui il browser ha caricato JavaScript. Senza CORS è possibile effettuare una chiamata da una pagina Web contoso.com a un endpoint API contoso.com, ma non a un endpoint di fabrikam.com.
+Il servizio app include il supporto predefinito per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), che consente ai client JavaScript di eseguire chiamate tra domini ospitati in app per le API. Il servizio app consente di configurate l'accesso CORS all'API senza scrivere codice nell'API.
 
 Questo articolo contiene due sezioni:
 
 * La sezione [Come configurare CORS nel servizio app di Azure](#corsconfig) illustra in linea generale come configurare CORS per qualsiasi app per le API, app Web o app per dispositivi mobili. La sezione si applica allo stesso modo a tutti i framework supportati dal servizio app, inclusi .NET, Node.js e Java. 
 
-* A partire dalla sezione [Proseguimento dell'esercitazione introduttiva su .NET](#tutorialstart) l'articolo è un'esercitazione che illustra il supporto di CORS basandosi su quanto è stato fatto in [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](app-service-api-dotnet-get-started.md).
+* A partire dalla sezione [Proseguimento dell'esercitazione introduttiva su .NET](#tutorialstart) l'articolo è un'esercitazione che illustra il supporto di CORS basandosi su quanto è stato fatto nella [prima esercitazione introduttiva alle app per le API](app-service-api-dotnet-get-started.md).
 
-## <a id="corsconfig"></a> Come configurare CORS nel servizio app di Azure
+## <a id="corsconfig"></a>Come configurare CORS nel servizio app di Azure
 
-È possibile configurare CORS nel portale di Azure o tramite gli strumenti di [Azure Resource Manager](../resource-group-overview.md).
+È possibile configurare CORS nel portale di Azure o usando gli strumenti di [Azure Resource Manager](../resource-group-overview.md).
 
 #### Configurare CORS nel portale di Azure
 
 8. Nel browser passare al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic su **Servizi app** e quindi sul nome dell'app per le API.
+2. Fare clic su **Servizi app** e quindi sul nome app per le API.
 
 	![Selezionare un'app per le API nel portale](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
@@ -72,7 +68,7 @@ Per un esempio di un modello di Azure Resource Manager che imposta la proprietà
 
 ## <a id="tutorialstart"></a> Proseguimento dell'esercitazione introduttiva su .NET
 
-Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, è stata completata la serie. Per indicazioni su altre informazioni relative alle app per le api, vedere la sezione [Passaggi successivi](#next-steps).
+Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, è stata completata la serie. Per indicazioni su altre informazioni relative alle app per le API, vedere la sezione [Passaggi successivi](#next-steps).
 
 Il resto di questo articolo è una continuazione della serie introduttiva su .NET e si presuppone che sia stata completata correttamente [la prima esercitazione](app-service-api-dotnet-get-started.md).
 
@@ -104,7 +100,7 @@ Nell'[applicazione di esempio ToDoList](https://github.com/Azure-Samples/app-ser
 
 ### Creare una nuova app Web per il progetto ToDoListAngular
 
-La procedura per creare una nuova app Web e per distribuirvi un progetto è simile a quella illustrata nella prima esercitazione di questa serie. L'unica differenza è che il tipo di app è **App Web** anziché **App per le API**.
+La procedura per creare una nuova app Web del servizio app e per distribuirvi un progetto è simile a quella illustrata per la [creazione e la distribuzione di un'app per le API nella prima esercitazione di questa serie](app-service-api-dotnet-get-started.md#createapiapp). L'unica differenza è che il tipo di app è **App Web** anziché **App per le API**. Per gli screenshot delle finestre di dialogo, vedere
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListAngular e quindi scegliere **Pubblica**.
 
@@ -190,8 +186,8 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è simi
 
 ## Configurare CORS per l'app per le API di livello intermedio
 
-In questa sezione si configura l'app per le API ToDoListAPI per consentire le chiamate JavaScript dall'app Web creata per il progetto ToDoListAngular.
- 
+In questa sezione si configura l'impostazione CORS in Azure per l'app per le API ToDoListAPI di livello intermedio. Questa impostazione consentirà all'app per le API di livello intermedio di ricevere le chiamate JavaScript dall'app Web creata per il progetto ToDoListAngular.
+
 8. Nel browser passare al [portale di Azure](https://portal.azure.com/).
 
 2. Fare clic su **Servizi app** e quindi fare clic sull'app per le API ToDoListAPI (livello intermedio).
@@ -273,14 +269,15 @@ Se si usa Gestione API di Azure con un'app per le API, configurare CORS in Gesti
  
 ## Risoluzione dei problemi
 
-Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informa che non è necessaria alcuna installazione.
+In caso di problemi nel corso dell'esercitazione, ecco alcune idee per risolverli.
 
-Se dopo aver impostato un URL nel pannello CORS del portale si continua a ricevere errori CORS, accertarsi che siano state apportate le giuste modifiche nei punti appropriati. Ad esempio:
+* Verificare di usare la versione più recente di [Azure SDK per .NET per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
-* Verificare che il protocollo sia stato immesso correttamente, ovvero `https` anziché `http`, e assicurarsi di usare `https` per eseguire l'app Web front-end.
+* Verificare che di avere immesso `https` nell'impostazione CORS e verificare di usare `https` per eseguire l'app Web front-end.
+
 * Verificare che le impostazioni CORS siano state immesse nell'app per le API di livello intermedio anziché nell'app Web front-end.
 
-Se si sta configurando CORS nel codice dell'applicazione e nel servizio app di Azure, si noti che l'impostazione CORS del servizio app sovrascrive ogni altra cosa nel codice dell'applicazione.
+* Se si sta configurando CORS nel codice dell'applicazione e nel servizio app di Azure, si noti che l'impostazione CORS del servizio app sovrascrive ogni altra cosa nel codice dell'applicazione.
 
 Per altre informazioni sulle funzionalità di Visual Studio che semplificano la risoluzione dei problemi, vedere [Risoluzione dei problemi delle app del Servizio app di Azure in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -288,4 +285,4 @@ Per altre informazioni sulle funzionalità di Visual Studio che semplificano la 
 
 In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Per altre informazioni sulle app per le API, vedere l'[introduzione all'autenticazione nel servizio app](../app-service/app-service-authentication-overview.md), quindi passare all'esercitazione sull'[autenticazione utente per le app per le API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

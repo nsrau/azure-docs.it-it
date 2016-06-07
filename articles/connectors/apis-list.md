@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Elenco di connettori gestiti da Microsoft | Servizio app di Microsoft Azure"
+	pageTitle="Elenco di connettori gestiti da Microsoft da usare nelle app per la logica di Microsoft Azure | Servizio app di Microsoft Azure"
 	description="Ottenere un elenco completo dei connettori gestiti da Microsoft che è possibile usare per creare app per la logica nel servizio app di Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
 # Elenco di connettori gestiti
@@ -29,16 +29,16 @@ Selezionare un'icona per informazioni su come usare rapidamente i connettori per
 
 |Connettori||||
 |-----------|-----------|-----------|-----------|
-|[![Icona API][blobicon]<br/>**BLOB di Azure**][azureblobdoc]|[![Icona API][bingsearchicon]<br/>**Ricerca di Bing**][bingsearchdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
-|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Icona API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icona API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icona API][githubicon]<br/>**GitHub**][githubdoc]|
-[![Icona API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|[![Icona API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icona API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|
-|[![Icona API][office365icon]<br/>**Office 365**<br/>**Utenti**][office365usersdoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icona API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icona API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|
-|[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icona API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icona API][rssicon]<br/>**RSS**][rssdoc]|[![Icona API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
-|[![Icona API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icona API][servicebusicon]<br/>**Bus di servizio**][servicebusdoc]|[![Icona API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icona API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![Icona API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icona API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icona API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icona API][trelloicon]<br/>**Trello**][trellodoc]|
-[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icona API][blobicon]<br/>**BLOB di Azure**][azureblobdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icona API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icona API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icona API][githubicon]<br/>**GitHub**][githubdoc]|[![Icona API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
+|[![Icona API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icona API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Utenti**][office365usersdoc]|
+|[![Icona API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icona API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icona API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![Icona API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icona API][rssicon]<br/>**RSS**][rssdoc]|[![Icona API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icona API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
+|[![Icona API][servicebusicon]<br/>**Bus di servizio**][servicebusdoc]|[![Icona API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icona API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icona API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Icona API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icona API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icona API][trelloicon]<br/>**Trello**][trellodoc]|[![Icona API][twilioicon]<br/>**Twilio**][twiliodoc]|
+|[![Icona API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icona API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icona API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Se sono state create app per la logica con lo schema 2014-12-01-preview, si noterà che i connettori di integrazione aziendale, ad esempio quelli per BizTalk, non sono elencati sopra. Siamo consapevoli dell'importanza di queste API e ci stiamo impegnando per renderle disponibili quanto prima. Anche se non sono ancora state specificate date precise per la disponibilità, si tratta di una delle nostre priorità. Nel frattempo è possibile accedere ad [API v1 e API BizTalk dalle app per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Grazie per la comprensione. Non rimane che attendere.
+> [AZURE.NOTE] Se sono state create app per la logica con lo schema 2014-12-01-preview, si noterà che i connettori di integrazione aziendale, ad esempio quelli per BizTalk, non sono elencati sopra. Siamo consapevoli dell'importanza di queste API e ci stiamo impegnando per renderle disponibili quanto prima. Anche se non sono ancora state specificate date precise per la disponibilità, si tratta di una delle nostre priorità. Nel frattempo è possibile accedere alle [API v1 e alle API BizTalk dalle app per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Grazie per la comprensione. Non rimane che attendere.
 
 
 ### Connettori come trigger
@@ -128,4 +128,4 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

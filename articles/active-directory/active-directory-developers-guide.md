@@ -99,16 +99,15 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 ### Protocolli di autenticazione
 
-- [Informazioni di riferimento sul protocollo SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): il protocollo SAML 2.0 consente alle applicazioni di fornire agli utenti un'esperienza di accesso Single Sign-On.
+- [Protocolli di autenticazione di Azure Active Directory](active-directory-protocols.md): informazioni sui diversi protocolli di autenticazione e autorizzazione supportati da Azure Active Directory.
 
+- [Informazioni di riferimento sul protocollo SAML 2.0](active-directory-saml-protocol-reference.md): il protocollo SAML 2.0 consente alle applicazioni di fornire agli utenti un'esperienza di accesso Single Sign-On.
 
-- [Informazioni di riferimento sul protocollo OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): il protocollo OAuth 2.0 consente di autorizzare l'accesso alle applicazioni Web e alle API Web nel tenant di Azure Active Directory.
+- [Informazioni di riferimento sul protocollo OAuth 2.0](active-directory-protocols-oauth-code.md): il protocollo OAuth 2.0 consente di autorizzare l'accesso alle applicazioni Web e alle API Web nel tenant di Azure Active Directory.
 
+- [Informazioni di riferimento sul protocollo OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): il protocollo OpenID Connect 1.0 estende OAuth 2.0 per l'uso come protocollo di autenticazione.
 
-- [Informazioni di riferimento sul protocollo OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): il protocollo OpenID Connect 1.0 estende OAuth 2.0 per l'uso come protocollo di autenticazione.
-
-
-- [Informazioni di riferimento sul protocollo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): protocollo WS-Federation 1.2, come indicato nella specifica Web Services Federation versione 1.2.
+- [Protocollo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supporta WS-Federation 1.2, come indicato nella specifica Web Services Federation versione 1.2.
 
 - [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md): questa guida illustra come valutare le attestazioni nei token SAML 2.0 e JWT (JSON Web Token).
 
@@ -140,4 +139,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

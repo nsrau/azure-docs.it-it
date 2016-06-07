@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare un ticket di supporto per SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Come creare un ticket di supporto per SQL Data Warehouse | Microsoft Azure"
    description="Come creare un ticket di supporto per SQL Data Warehouse di Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/29/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
-# Creare un ticket di supporto per SQL Data Warehouse
- Questo articolo illustra come creare un ticket di supporto per SQL Data Warehouse.
+# Come creare un ticket di supporto per SQL Data Warehouse
+ 
+Nel caso di problemi con SQL Data Warehouse, creare un ticket di supporto per ottenere assistenza dal team di progettazione.
 
-
-## Come creare un ticket di supporto
+## Creare un ticket di supporto
 
 1. Aprire il [portale di Azure][].
+
 2. Nella schermata iniziale fare clic sul riquadro **Guida e supporto tecnico**.
 
     ![Guida e supporto tecnico](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -45,10 +46,11 @@
 
 7. Selezionare il proprio **piano di supporto**.
 
-    - Il supporto per problemi relativi a fatturazione e gestione della sottoscrizione è disponibile per tutti i livelli.
-    - Il supporto per problemi in garanzia viene garantito per i livelli Developer, Standard, Pro Direct e Premier. I problemi in garanzia si verificano quando i clienti usano Azure ed è ragionevolmente probabile che il problema sia provocato da Microsoft.
-    - Servizi di mentoring e di consulenza per sviluppatori sono disponibili solo per i livelli di supporto Professional Direct e Premier.
-    - Per altre informazioni sul supporto di Azure, inclusi l'ambito, i tempi di risposta, i prezzi e così via, vedere [Piani di supporto per Azure][].
+    - Il supporto per problemi correlati a **fatturazione e gestione delle sottoscrizioni** è disponibile per tutti i livelli.
+    - Il supporto **in garanzia** viene fornito tramite il supporto tecnico Premier o Developer, Standard o Pro Direct. I problemi **in garanzia** si verificano quando i clienti usano Azure ed è ragionevolmente probabile che il problema sia provocato da Microsoft.
+    - Servizi di **consulenza** e **mentoring per sviluppatori** sono disponibili solo per i livelli di supporto tecnico Premier e Professional Direct.
+    
+    Per altre informazioni sui vari piani di supporto, inclusi l'ambito, i tempi di risposta, i prezzi e così via, vedere [Supporto di Azure per i clienti][]. Per domande frequenti sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure][].
 
     ![Piano di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
@@ -69,19 +71,22 @@
 11. Fare clic su **Crea** per inviare la richiesta di supporto.
 
 
-## Passaggi successivi
+## Monitorare un ticket di supporto
+
 Dopo avere inviato la richiesta di supporto, si verrà contattati dal team di supporto di Azure. Per controllare i dettagli e lo stato della richiesta, fare clic su **Gestisci richieste di supporto** nel dashboard.
 
 ![Controlla stato](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-È anche possibile connettersi alla community di SQL Data Warehouse usando il tag azure-sqldw su [Stack Overflow][] o il [forum MSDN su SQL Data Warehouse di Azure][].
+## Altre risorse
+
+È anche possibile connettersi alla community di SQL Data Warehouse in [Stack Overflow][] o nel [forum MSDN su Azure SQL Data Warehouse][].
 
 <!-- External links -->
-
 [portale di Azure]: https://portal.azure.com/
-[Piani di supporto per Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Supporto di Azure per i clienti]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Domande frequenti sul supporto di Azure]: https://azure.microsoft.com/support/faq/
 [portale online Microsoft Premier]: https://premier.microsoft.com/
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
-[forum MSDN su SQL Data Warehouse di Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
+[forum MSDN su Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

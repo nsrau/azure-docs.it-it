@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="05/26/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 
 **Nota:** l'annuncio delle route predefinite interromperà l'attivazione della licenza di Windows e di altre macchine virtuali. Per risolvere questo problema, seguire le istruzioni fornite [qui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
-## Supporto per le community BGP (presto disponibile)
+## Supporto per le community BGP
 
 
 Questa sezione fornisce una panoramica che illustra come vengono usate le community BGP con ExpressRoute. Microsoft annuncerà le route nei percorsi per il peering pubblico e il peering Microsoft con route contrassegnate con i valori della community appropriati. I motivi per questa operazione e i dettagli sui valori della community sono descritti di seguito. Microsoft, tuttavia, non rispetterà eventuali valori della community contrassegnati in base a route annunciate a Microsoft.
@@ -116,7 +116,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering pubblico e per il peering Microsoft. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono, a loro volta, determinare esperienze di connettività non ottimali a vari servizi.
 
-Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il peering Microsoft con i valori della community BGP appropriati indicanti l'area in cui sono ospitati i prefissi. Per prendere le decisioni di routing appropriate e offrire un servizio di routing ottimale ai client, fare riferimento ai valori della community.
+Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il peering Microsoft con i valori della community BGP appropriati indicanti l'area in cui sono ospitati i prefissi. Per prendere le decisioni di routing appropriate e offrire un [servizio di routing ottimale ai clienti](expressroute-optimize-routing.md), è possibile usare i valori di Community.
 
 | **Area geopolitica** | **Area di Microsoft Azure** | **Valore della community BGP** |
 |---|---|---|
@@ -163,10 +163,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | **CRM Online** | 12076:5040 |
 | **Altri servizi di Office 365** | 12076:5100 |
 
-
-### Modifica delle preferenze di routing
-
-Microsoft non riconosce eventuali valori della community BGP impostati dall'utente. È necessario configurare una coppia di sessioni BGP per peering per assicurarsi che i requisiti per il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) siano soddisfatti. È tuttavia possibile configurare la propria rete in modo che preferisca un collegamento anziché un altro usando le tecniche di modifica delle route BGP standard. È possibile applicare preferenze locali BGP diverse a ogni collegamento per preferire un collegamento dalla propria rete a Microsoft a un altro. È possibile far precedere il percorso AS agli annunci delle route per influenzare il flusso del traffico da Microsoft alla propria rete.
+>[AZURE.NOTE] Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
 
 ## Passaggi successivi
 
@@ -176,4 +173,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

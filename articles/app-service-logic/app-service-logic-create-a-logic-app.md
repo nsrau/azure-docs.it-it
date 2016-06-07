@@ -20,8 +20,8 @@
 
 | Riferimento rapido |
 | --------------- |
-| [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
+| [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
+| [Documentazione del connettore delle app per la logica](../connectors/apis-list.md) |
 | [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
 
 Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cassetta postale.
@@ -67,4 +67,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Azure portal]: https://portal.azure.com
 [Usare le funzionalità delle app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

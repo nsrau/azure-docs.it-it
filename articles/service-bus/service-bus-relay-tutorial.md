@@ -94,7 +94,7 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 	string Echo(string text);
 	```
 
-1. Direttamente dopo la definizione dell'interfaccia `IEchoContract` dichiarare un canale che eredita dalle interfacce `IEchoChannel` e `IClientChannel`, come illustrato di seguito:
+1. Direttamente dopo la definizione dell'interfaccia `IEchoContract` dichiarare un canale che eredita dalle interfacce `IEchoContract` e `IClientChannel`, come illustrato di seguito:
 
 	```
     public interface IEchoChannel : IEchoContract, IClientChannel { }
@@ -783,4 +783,4 @@ Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

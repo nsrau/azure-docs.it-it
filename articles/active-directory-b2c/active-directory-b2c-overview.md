@@ -63,4 +63,8 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - Vedere le [Domande frequenti su Azure Active Directory B2C](active-directory-b2c-faqs.md).
 - [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+## Ottenere aggiornamenti della sicurezza per i prodotti
+
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->

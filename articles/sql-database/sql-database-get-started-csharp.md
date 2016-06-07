@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,12 +14,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="03/24/2016"
+   ms.date="05/26/2016"
    ms.author="sstein"/>
 
-# Prova del database SQL: usare C&#x23; per creare un database SQL con la libreria di database SQL per .NET
+# Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET
 
-**Database singolo**
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-get-started.md)
@@ -44,10 +43,10 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 ## Installare le librerie richieste
 
-Per configurare un database SQL con C#, ottenere le librerie di gestione necessarie installando i pacchetti seguenti tramite la [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Per configurare un database SQL con C#, ottenere le librerie di gestione necessarie installando i pacchetti seguenti tramite la [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -268,8 +267,8 @@ L'esempio seguente consente di creare un gruppo di risorse, un server, una regol
 
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -457,4 +456,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->
