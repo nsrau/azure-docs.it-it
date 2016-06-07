@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/26/2016"
    ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
 
-Il Catalogo di dati di Microsoft Azure è un servizio cloud completamente gestito che funge da un sistema di registrazione e sistema di individuazione per origini dati aziendali. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di trovare, interpretare e usare le origini dati, nonché di condividere le proprie conoscenze per creare e supportare una community e una cultura dei dati.
+Azure Data Catalog è un servizio cloud completamente gestito che consente agli utenti di trovare le origini dati necessarie e ottenere informazioni su di esse e alle organizzazioni di ottenere il massimo dagli investimenti esistenti. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di trovare le origini dati, ottenere informazioni su di esse e di utilizzarle. Data Catalog include un modello di crowdsourcing di metadati e annotazioni e consente a tutti gli utenti di contribuire con le proprie conoscenze per creare una community e una cultura di dati.
 
-## Descrizione del problema - panoramica e motivazione
+## Difficoltà di individuazione per i consumer di dati
 
 Tradizionalmente, individuazione di origini dati aziendali è stato un processo organico basato su conoscenze specifiche. Questo presenta numerose sfide per le aziende che desiderano ottenere il massimo dalle loro risorse di informazioni.
 
@@ -30,7 +30,9 @@ Tradizionalmente, individuazione di origini dati aziendali è stato un processo 
 -	Se un utente ha delle domande su un asset di informazioni, deve individuare l'esperto o il team responsabile dei dati e coinvolgere tali esperti offline. Non è disponibile alcuna connessione esplicita tra i dati e gli esperti sul relativo uso.
 -  A meno che un utente sia in grado di comprendere il processo per richiedere l'accesso all'origine dati, l’individuazione dell'origine dati e della relativa documentazione non gli consente comunque di accedere ai dati necessari.
 
-Mentre si trovano ad affrontare queste sfide consumer di dati, gli utenti responsabili per la produzione e Gestione risorse di informazioni ad affrontare sfide di proprie.
+## Difficoltà di individuazione per i produttori di dati
+
+Mentre i consumer di dati si trovano ad affrontare queste difficoltà, gli utenti responsabili della produzione e gestione delle risorse di informazioni affrontano difficoltà proprie.
 
 -	L'annotazione di origini dati con metadati descrittivi è spesso un lavoro perso; le applicazioni client in genere ignorano descrizioni archiviate nell'origine dati.
 -	La creazione di documentazione per le origini dati è spesso un lavoro perso; sincronizzazione documentazione con l'origine dati è una responsabilità in corso e gli utenti non dispongono di attendibilità nella documentazione come viene spesso considerata viene aggiornato.
@@ -40,74 +42,36 @@ La procedura di creazione e gestione della documentazione relativa a un'origine 
 
 Queste sfide presentano un ostacolo significativo per le aziende che desiderano incoraggiare e promuovere l'uso e la comprensione dei dati aziendali.
 
-## Descrizione del servizio
+## Il contributo di Azure Data Catalog
 
-Data Catalog è progettato per risolvere questi problemi e consentire alle aziende di ottenere il massimo dai propri asset di informazione esistenti, rendendoli facilmente individuabili e comprensibili agli utenti che necessitano dei dati gestiti da tali asset.
+Data Catalog è progettato per risolvere questi problemi e consentire alle aziende di ottenere il massimo dai propri asset di informazioni esistenti. Data Catalog rende le origini dati facilmente individuabili e comprensibili per gli utenti che necessitano dei dati gestiti.
 
-Data Catalog fornisce un servizio basato sul cloud in cui le origini dati possono essere registrate. I dati rimangono nella posizione esistente, ma una copia dei metadati, insieme a un riferimento al percorso di origine dati, viene aggiunta a Data Catalog. Questi metadati sono indicizzati anche per rendere facilmente individuabile ogni singola origine dati tramite ricerca e per renderla comprensibile agli utenti che la trovano.
+Data Catalog fornisce un servizio basato sul cloud in cui le origini dati possono essere registrate. I dati rimangono nella posizione esistente, ma una copia dei metadati viene aggiunta a Data Catalog insieme a un riferimento al percorso dell'origine dati. Questi metadati sono indicizzati anche per rendere facilmente individuabile ogni singola origine dati tramite ricerca e per renderla comprensibile agli utenti che la trovano.
 
-Una volta registrata un'origine dati, i metadati possono essere arricchiti, dall'utente che ha eseguito la registrazione o da altri utenti nell'organizzazione. Tutti gli utenti possono annotare un'origine dati, fornendo descrizioni, tag o altri metadati, come ad esempio la documentazione e i processi per richiedere l’accesso all’origine dati. Questi metadati descrittivi integrano i metadati strutturali (ad esempio i nomi delle colonne e tipi di dati) registrato dall'origine dati, per semplificare l'individuazione e comprenderne.
+Una volta registrata un'origine dati, i metadati possono essere arricchiti, dall'utente che ha eseguito la registrazione o da altri utenti nell'organizzazione. Tutti gli utenti possono annotare un'origine dati, fornendo descrizioni, tag o altri metadati, come ad esempio la documentazione e i processi per richiedere l’accesso all’origine dati. Questi metadati descrittivi integrano i metadati strutturali, ad esempio i nomi delle colonne e tipi di dati, registrati dall'origine dati.
 
 Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo scopo principale di registrazione delle origini. Quando gli utenti aziendali devono usare dati per le proprie attività (business intelligence, sviluppo di applicazioni, analisi scientifica dei dati o qualsiasi altra attività in cui sono richiesti dati corretti) possono usare Data Catalog per trovare rapidamente dati che soddisfino le proprie esigenze, comprenderli e valutare la loro idoneità allo scopo e usarli aprendo l'origine dati in uno strumento di propria scelta. Allo stesso tempo, Data Catalog consente agli utenti di contribuire al catalogo, assegnando tag, documentando e annotando le origini dati che sono già state registrate e registrando nuove origini dati che possono essere individuate, comprese e utilizzate dalla community di utenti del catalogo.
 
 ![Funzionalità di Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Registrare le origini dati
+## Introduzione a Data Catalog
 
-La registrazione dell'origine dati viene eseguita usando lo strumento di registrazione di origine dati di Data Catalog. Questa applicazione può essere scaricata dal portale di Data Catalog.
+Per un'introduzione a Data Catalog, visitare il sito[www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
-Il processo di registrazione prevede tre passaggi di base:
+Una guida introduttiva è disponibile [qui](data-catalog-get-started.md).
 
-1.	Connettersi a un'origine dati - l'utente specifica il percorso di origine dati e le credenziali per connettersi all'origine dati, ad esempio un'istanza di SQL Server.
-2.	Selezionare gli oggetti da registrare: l'utente seleziona gli oggetti nel percorso specificato che devono essere registrati con Data Catalog. Potrebbe trattarsi di un set completo di tabelle in tutti i database nel server o un sottoinsieme di tabelle e viste specificamente selezionato.
-3.	Completare la registrazione: l'utente completa il processo e lo strumento di registrazione di origine dati consente di estrarre i metadati strutturali dall'origine dati e invia tali metadati al servizio cloud di Data Catalog.
+## Altre informazioni su Data Catalog
 
-> [AZURE.NOTE] Per visualizzare un elenco dei tipi di origine dati e di asset supportati da Data Catalog, vedere: [Origini dati supportate da Azure Data Catalog](data-catalog-dsr.md).
+Per altre informazioni sulle funzionalità di Data Catalog, vedere:
 
+* [Come registrare le origini dati](data-catalog-how-to-register.md)
+* [Come individuare le origini dati](data-catalog-how-to-discover.md)
+* [Come annotare le origini dati](data-catalog-how-to-annotate.md)
+* [Come documentare le origini dati](data-catalog-how-to-documentation.md)
+* [Come connettersi a origini dati](data-catalog-how-to-connect.md)
+* [Come usare Big Data](data-catalog-how-to-big-data.md)
+* [Come gestire gli asset di dati](data-catalog-how-to-manage.md)
+* [Come configurare il glossario aziendale](data-catalog-how-to-business-glossary.md)
+* [Domande frequenti](data-catalog-frequently-asked-questions.md)
 
-> [AZURE.IMPORTANT]Se si registra un'origine dati in Data Catalog, non vengono copiati i dati dall'origine dati, a meno che non si selezioni "Includi anteprima" nello strumento di registrazione di origine dati. Registrazione copia i metadati dell'origine dati, non i dati. Esempi di metadati includono i nomi delle tabelle e altri oggetti origine dati, insieme ai tipi di dati e i nomi delle colonne e altri attributi di origine dati. I metadati includono anche il percorso dell'origine dati, in modo che gli utenti che trovano l'origine dati usando Data Catalog possano connettersi all'origine dati. Se si seleziona "Includi anteprima", lo strumento di registrazione di origine dati copierà in Data Catalog anche un piccolo set di record che verrà visualizzato dagli utenti che individuano l'origine dati nel portale di Data Catalog.
-
-## Arricchire i metadati dell'origine dati
-
-Una volta completata la registrazione, le origini dati possono essere individuate e usate, ma il vero valore di Data Catalog risiede nel fatto di poter avere metadati aziendali descrittivi nell'ambito della stessa esperienza dei metadati strutturali estratti dall'origine dati. Questi metadati aggiuntivi offrono tre vantaggi significativi:
-
-- Le origini dei dati registrati sono più facilmente individuabili. I metadati forniti dall'utente vengono aggiunti all'indice di ricerca di Data Catalog. Ciò consente agli utenti di individuare i dati utilizzando i termini ed i concetti che non possono essere presenti nell'origine dati. Ad esempio, se una tabella di database che contiene i dati dei clienti è denominata "tbl\_c45", fornire un nome descrittivo di "Customer" renderà più facilmente individuabili dagli utenti alla ricerca di dati dei clienti. Analogamente, fornendo una descrizione che include i nomi dei processi che utilizzano i dati, dashboard o rapporti semplificherà l'origine dati per gli utenti che utilizzano tali elementi a valle come i termini di ricerca per trovare.
-- Le origini dei dati registrati sono più facilmente comprensibile una volta individuati. I metadati forniti dall'utente vengono presentati a tutti gli utenti di Data Catalog che visualizzano l'origine dati con annotazioni, il che fornisce informazioni e contesto aggiuntivi. La maggior parte delle origini dati in genere non includono descrizioni significative o la documentazione e quelli che riguardano spesso i destinatari di sviluppatore tecnici DBA o database. Aggiungendo alle origini dati in Data Catalog tag e descrizioni appropriate al gruppo di destinatari, gli utenti garantiscono che chi individua i dati possa comprenderne i dettagli e l'uso previsto.
-- Gli amministratori di Data Catalog possono definire un vocabolario aziendale comune usando il glossario aziendale di Data Catalog. I termini del glossario possono quindi essere usati per contrassegnare gli asset di dati registrati e fornire così maggiore contesto e significato. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md)
-- Ogni origine dati registrata può includere informazioni di accesso richieste, in modo che gli utenti possano facilmente comprendere e seguire processi esistenti per richiedere l'accesso all'origine dati e ai relativi dati.
-
-> [AZURE.NOTE] Ogni utente di Data Catalog può aggiungere tag e descrizioni per gli asset di dati e i relativi attributi. Data Catalog terrà traccia del valore e dell'origine di ogni annotazione e visualizzerà l'utente che l'ha aggiunta. Questo approccio crowdsourcing ai metadati garantisce che tutti gli utenti con un punto di vista sui dati e il relativo utilizzo possono condividere le risorse e i pareri con la community di utenti nel suo complesso.
-
-## Esplorare, individuare e comprendere
-
-L'obiettivo della registrazione e dell'arricchimento delle origini dati in Data Catalog è quello di permettere che vengano individuate, comprese e usate dagli utenti dell'organizzazione. Il portale di Data Catalog è lo strumento principale per questo processo.
-
-Il portale di Data Catalog fornisce due meccanismi principali per l'individuazione e l'esplorazione dei dati: la ricerca e i filtri.
-
-Per eseguire la ricerca di origini dati in Data Catalog, è sufficiente immettere un termine di ricerca nella casella di ricerca nel portale di Data Catalog. Il portale verrà visualizzato un riquadro per ogni origine dati registrato che corrisponde al termine di ricerca; le sezioni conterrà il nome, descrizione e tag assegnati all'origine dati, insieme ad altre informazioni di alto livello.
-
-Per filtrare il contenuto di Data Catalog, selezionare semplicemente uno o più filtri presentati nel portale di Data Catalog. Questo limita le sezioni verranno visualizzate nel portale solo a quelli corrispondenti ai criteri di filtro specificato. È possibile filtrare le origini dati senza eseguire ricerche oppure è possibile filtrare i risultati di una ricerca.
-
-Per visualizzare informazioni più complete per un'origine dati e comprendere se è appropriato per l'attività in questione, semplicemente fare clic sull'icona dell'origine dati. il riquadro proprietà verrà visualizzato e conterrà tutti i relativi metadati.
-
-Nella parte superiore del riquadro proprietà sarà pulsanti aggiuntivi:
-
-1.	Anteprima: Selezionando questo pulsante verrà visualizzato un insieme statico di record dall'origine dati di anteprima se anteprima è stata selezionata durante la registrazione dell'origine dati.
-2.	Schema: selezionando questo pulsante viene visualizzato lo schema per l'origine dati, inclusi i nomi delle colonne e i tipi di dati, e i metadati a livello di colonna in Data Catalog.
-
-> [AZURE.NOTE] È importante ricordare che l’esperienza**Discover** può essere un punto d’accesso all’esperienza**Enrich**e non solo all’esperienza**Consume**. L'approccio basato sul crowdsourcing di Data Catalog consente a tutti gli utenti che individuano un'origine dati registrata di condividere il proprio parere sui dati e non solo di usarli.
-
-## Rimuovere i metadati dell'origine dati
-
-Dopo la registrazione di un'origine dati, a volte può essere necessario rimuovere il riferimento all'origine dati da Data Catalog. Modifica dei requisiti aziendali o al sistema di origine verranno ritirati possono essere. Indipendentemente dal motivo, Data Catalog facilita la rimozione delle origini dati che avviene selezionando semplicemente l'opzione per eliminarli in modo che non possano più essere individuati e utilizzati.
-
-> [AZURE.IMPORTANT] L'eliminazione di un'origine dati da Data Catalog elimina solo i metadati archiviati nel servizio Data Catalog. L'origine dati non viene alterata in alcun modo.
-
-## Utilizzare origini dati
-
-L'obiettivo principale dell'individuazione dati è trovare i dati necessari e usarli nello strumento dati desiderato. L'esperienza di utilizzo dei dati in Data Catalog consente di sfruttare i vantaggi di questa funzionalità in due modi.
-
-1.	Per le applicazioni client che sono supportate direttamente da Data Catalog, gli utenti possono fare clic sul menu **Apri in** nel riquadro dell'origine dati disponibile nel portale. L'applicazione client verrà quindi avviata con una connessione all'origine dati selezionata.
-2.	Per tutte le applicazioni client, gli utenti possono utilizzare le informazioni di connessione visualizzate nel riquadro proprietà per un'origine dati selezionata. Queste informazioni sono inclusi tutti i dettagli, quali nome del server, nome del database e nome dell'oggetto, necessari per connettersi ai dati e possono essere copiate in esperienza di connessione dello strumento client. Se sono stati forniti i dettagli di accesso richiesti per un'origine dati, verranno visualizzati accanto ai dettagli della connessione.
-
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

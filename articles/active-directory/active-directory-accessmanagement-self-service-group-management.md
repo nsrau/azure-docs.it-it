@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 # Configurazione di Azure Active Directory per la gestione self-service dei gruppi
@@ -23,9 +23,7 @@ La funzionalità di gestione self-service dei gruppi consente agli utenti di cre
 
 La gestione self-service dei gruppi comprende attualmente due scenari principali, ovvero gestione delegata e gestione self-service.
 
-
 - **Gestione delegata dei gruppi**: un esempio è costituito da un amministratore gestisce l'accesso a un'applicazione SaaS usata dall'azienda. In questo caso la gestione dei diritti di accesso diventa più onerosa e pertanto l'amministratore chiede al titolare dell'organizzazione di creare un nuovo gruppo. L'amministratore assegna l'accesso per l'applicazione a un nuovo gruppo creato dal titolare dell'azienda e inserisce in questo gruppo tutte le persone che hanno accesso all'applicazione. Il titolare dell'azienda può quindi aggiungere altri utenti e per tali utenti viene automaticamente eseguito il provisioning nell'applicazione. Il titolare dell'organizzazione non deve attendere che l'amministratore esegua questa operazione, ma può gestire personalmente l'accesso degli utenti. L'amministratore può eseguire la stessa operazione per un assistente amministrativo di un diverso gruppo aziendale in modo che sia il titolare dell'azienda che l'assistente amministrativo possano gestire l'accesso per i propri utenti senza interferenze. L'amministratore può comunque visualizzare tutti gli utenti che hanno accesso all'applicazione e, se necessario, revocare i diritti di accesso.
-
 
 - **Gestione self-service dei gruppi**: un esempio di questo scenario è costituito da due utenti che hanno siti di SharePoint Online configurati in modo indipendente, ma che vogliono concedere l'uno al team dell'altro l'accesso al rispettivo sito. A questo scopo, possono creare un gruppo in Azure AD e ognuno di essi seleziona in SharePoint Online lo stesso gruppo per consentire l'accesso ai propri siti. Se un utente desidera accedere, effettua la richiesta dal pannello di accesso e dopo aver ottenuto l'approvazione potrà accedere automaticamente a entrambi i siti di SharePoint Online. Successivamente uno degli utenti decide che tutti gli utenti che accedono al proprio sito devono poter accedere anche a una particolare applicazione SaaS. Potrà chiedere all'amministratore di tale applicazione di concedere i diritti di accesso per tale applicazione al proprio sito. A questo punto, tutte le richieste approvate garantiranno l'accesso ai due siti di SharePoint Online e anche all'applicazione SaaS.
 
@@ -51,4 +49,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

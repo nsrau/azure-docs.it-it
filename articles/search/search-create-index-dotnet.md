@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="brjohnst"/>
 
 # Creare un indice di Ricerca di Azure con .NET SDK
@@ -123,4 +123,4 @@ serviceClient.Indexes.Delete("hotels");
 ## Avanti
 Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md), in modo che si possa iniziare a eseguire ricerche nei dati.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

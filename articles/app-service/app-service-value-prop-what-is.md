@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Informazioni sul servizio app di Azure" 
-	description="Perché il servizio app di Azure è la piattaforma migliore per lo sviluppo di app Web e mobili." 
-	keywords="servizio App, servizio app di azure, servizio app di costo, scalabilità, scalabile, distribuzione app, distribuzione app di azure"
+	pageTitle="Che cos'è il servizio app di Azure | Microsoft Azure" 
+	description="Informazioni su come il servizio app di Azure consente di sviluppare, distribuire e gestire app Web e per dispositivi mobili." 
+	keywords="servizio app, servizio app di Azure, costo servizio app, scalabilità, scalabile, distribuzione app, distribuzione app di Azure, PaaS, piattaforma distribuita come servizio"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -14,49 +14,74 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/05/2016" 
+	ms.date="05/25/2016" 
 	ms.author="omark"/>
 
 # Informazioni sul servizio app di Azure
-Il servizio app di Azure è l'unico servizio cloud che integra tutto il necessario per creare in modo semplice e rapido app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Creato per gli sviluppatori, il servizio app è una piattaforma interamente gestita con funzionalità avanzate, ad esempio l'integrazione di DevOps, l'integrazione continua con Visual Studio Team Services e GitHub, il supporto per la gestione temporanea e la produzione e l'applicazione automatica delle patch.
 
-Il servizio app di Azure è un singolo servizio che riunisce tutte le funzionalità esistenti di Siti Web di Azure, Servizi mobili di Azure e Servizi BizTalk di Azure e aggiunge inoltre nuove funzionalità. [Altre informazioni](https://azure.microsoft.com/documentation/services/app-service/) sulla relazione tra il servizio app e tali servizi esistenti.
+Il *servizio app* è un'offerta di [piattaforma distribuita come servizio](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) di Microsoft Azure che consente di creare app Web e per dispositivi mobili per qualsiasi piattaforma o dispositivo. È davvero facile facilmente le app con soluzioni SaaS (ad esempio, Office 365, Dynamics CRM, Salesforce, Twilio), connettersi con applicazioni locali (ad esempio, SAP, Oracle, Siebel) e automatizzare i processi aziendali soddisfacendo al tempo stesso severe esigenze di sicurezza, affidabilità e scalabilità.
 
-## Perché un servizio app?
-Incentrato sullo sviluppo rapido di app Web e mobili e sull'automazione dei processi aziendali, il servizio app di Azure offre un set integrato di funzionalità di livello enterprise in una singola soluzione di sviluppo e gestione che offre i vantaggi seguenti:
+Il servizio app include le funzionalità Web e per dispositivi mobili prima fornite separatamente come Siti Web di Azure e Servizi mobili di Azure. Include anche nuove funzionalità per l'automazione dei processi aziendali e l'hosting di API cloud.
 
-- **Creazione rapida app Web e per dispositivi mobili**: creazione, distribuzione e gestione rapida di applicazioni Web e per dispositivi mobili per dipendenti o clienti che usano un singolo back-end. Uso delle competenze esistenti sui linguaggi: .NET, Java, NodeJS, PHP o Python. Possibilità di accelerare lo sviluppo grazie all'accesso a una raccolta completa di API, connettori e logica, disponibile in Azure Marketplace.
+## Tipi di app nel servizio app
 
-- **Possibilità di connettersi a qualsiasi servizio e sbloccare i dati**: connessione dell'app Web o per dispositivi mobili a sistemi aziendali o SaaS in pochi minuti grazie ai connettori predefiniti. È possibile scegliere tra oltre 50 connettori per sistemi aziendali quali SAP, Siebel e Oracle, servizi aziendali SaaS più diffusi, quali Salesforce e Office 365 e i servizi Internet più comuni, come Facebook, Twitter e Dropbox.
+Il servizio app offre i tipi di app seguenti per eseguire il codice dell'applicazione o i processi del flusso di lavoro.
 
-- **Integrazione semplificata**: è possibile integrare dati tra cloud diversi e automatizzare i processi aziendali nel giro di pochi minuti, grazie a una progettazione visiva semplice e intuitiva. Integrare facilmente la logica in qualsiasi app Web o per dispositivi mobili con le API REST standard. È possibile ottenere un livello avanzato di integrazione di applicazioni aziendali (EAI, Enterprise Application Integration), realizzare soluzioni B2B mediante EDI, criteri aziendali (motore regole) e molto altro ancora, sulla base della piattaforma BizTalk, leader nel settore.
+- [**App Web**](../app-service-web/app-service-web-overview.md): per l'hosting di siti Web e applicazioni Web.
 
-- **Produttività degli sviluppatori senza precedenti**: la soluzione è ottimizzata per DevOps, con supporto per l'integrazione continua per Visual Studio Team Services e GitHub e consente di concentrarsi sul miglioramento rapido delle app senza doversi preoccupare di tematiche legate all'infrastruttura. Distribuire aggiornamenti delle app con funzionalità predefinite di staging, rollback e test nell'ambiente di produzione.
-
-- **Soluzione di livello aziendale**: massima tranquillità, grazie a funzionalità di gestione e sicurezza di livello aziendale. Amministrazione delegata e basata sui ruoli; protezione e gestione sicura dei dati scambiati dalle app per dispositivi mobili; protezione degli asset grazie alla funzionalità di backup e ripristino predefinita. Totale serenità: il servizio app è conforme allo standard PCI. Controllo completo grazie ad ambienti dedicati e alla possibilità di distribuire in cloud sia pubblici che privati. Tutti i vantaggi derivanti da 25 anni di esperienza di Microsoft nel settore e contratto di servizio Microsoft di classe enterprise.
-
-##Concetti del servizio app
-I seguenti concetti di base illustrano cosa è possibile ottenere con il servizio app.
-
-### Tipi di app
-Il servizio app consente di creare i tipi di app seguenti in una singola esperienza di sviluppo:
-
-- [**Web Apps**](../app-service-web/app-service-web-overview.md): creazione e distribuzione rapida di app Web di importanza strategica scalabili in base alle esigenze aziendali.
-- [**App per dispositivi mobili**](../app-service-mobile/app-service-mobile-value-prop.md): coinvolgimento di dipendenti, partner e clienti con qualsiasi dispositivo e in qualsiasi momento.
-- [**App per le API**](../app-service-api/app-service-api-apps-why-best-platform.md): creare e utilizzare facilmente le API per il cloud.
-- [**App per la logica**](../app-service-logic/app-service-logic-what-are-logic-apps.md): automazione dell'accesso e dell'uso dei dati nei cloud senza necessità di scrivere codice.
-
-Come singolo servizio integrato il servizio app semplifica la combinazione dei tipi di app descritti sopra in un'unica soluzione e consente di creare facilmente app che hanno come destinazione client Web e mobili, usando lo stesso back-end e ottenendo l'integrazione con sistemi locali, nonché con servizi diffusi come Office 365 e salesforce.com.
-
-### Piani di servizio app
-I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app supportano alcuni livelli di prezzo, (ad esempio modalità gratuita, condivisa, base, standard e premium), con ciascun livello che presenta funzionalità proprie. È possibile modificare rapidamente il tipo di piano di servizio in cui è ospitata una determinata app senza alcun tempo di inattività. [Informazioni sui piani di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-##Introduzione al servizio app
-Perché non provarlo? È possibile renderlo operativo in pochi secondi.
-
-Per l'impostazione del servizio app di Azure è sufficiente selezionare un linguaggio.
-
-[Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
+- [**App per dispositivi mobili**](../app-service-mobile/app-service-mobile-value-prop.md): per l'hosting di back-end di app per dispositivi mobili.
+   
+- [**App per le API**](../app-service-api/app-service-api-apps-why-best-platform.md): per l'hosting di API cloud.
  
+- [**App per la logica**](../app-service-logic/app-service-logic-what-are-logic-apps.md): per l'automazione dell'accesso e dell'uso dei dati nei cloud senza necessità di scrivere codice.
 
-<!---HONumber=AcomDC_0525_2016-->
+Come singolo servizio integrato, il servizio app consente di costituire facilmente un'unica soluzione con più tipi di app.
+
+## Piani e ambienti di servizio app
+
+I [piani di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md) rappresentano le risorse di calcolo in cui vengono eseguite le app. Con piani tariffari più bassi, le app vengono eseguite in macchine virtuali condivise. Con piani più alti, le app vengono eseguite in VM dedicate. È possibile scegliere tra diverse dimensioni di VM e cambiare il piano tariffario senza tempi di inattività. Se sono necessari maggiore scalabilità e isolamento rete, è possibile eseguire le app in un [ambiente di servizio app](../app-service-web/app-service-app-service-environment-intro.md).
+
+## Perché usare il servizio app?
+
+Ecco alcune caratteristiche e funzionalità chiave del servizio app:
+
+- **Piattaforma completamente gestita**: applicazione automatica di patch del sistema operativo e del framework, supporto predefinito per il backup e il ripristino di emergenza. 
+
+- **Possibilità di usare le competenze esistenti**: per scrivere codice con il linguaggio, il framework e l'ambiente di sviluppo preferiti. Il servizio app supporta .NET, Node.js, Java, PHP e Python.
+
+- **Distribuzione rapida**: per effettuare il provisioning di nuove app Web e distribuirvi il codice in pochi secondi.
+
+- **Integrazione continua**: è possibile configurare [l'integrazione e la distribuzione continua](../app-service-web/app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket.
+
+- **Ambienti di staging e di test**: è possibile implementare una [pre-distribuzione](../app-service-web/web-sites-staged-publishing.md) per verificare il codice in un ambiente di pre-produzione identico all'ambiente di produzione. Quando si è pronti, si può rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio.
+
+- **Test in produzione**: è possibile ottimizzare la pre-distribuzione ed [eseguire il test A/B](../app-service-web/app-service-web-test-in-production-get-start.md) per verificare il nuovo codice con una frazione configurabile del traffico live.
+
+- **Autenticazione e autorizzazione**: si può proteggere un'app dall'accesso non autenticato senza apportare modifiche al codice. I servizi di autenticazione predefiniti proteggono le app dall'accesso da parte di utenti, client che rappresentano utenti o servizi. I provider di identità supportati includono Azure Active Directory, Facebook, Twitter, Google e account Microsoft. Per altre informazioni, vedere [Autenticazione e autorizzazione nel servizio app di Azure](app-service-authentication-overview.md).
+
+- **Possibilità di connettersi a qualsiasi servizio**: per la connessione dell'app a sistemi aziendali o piattaforme software come un servizio (SaaS) in pochi minuti, grazie ai [connettori](../connectors/apis-list.md) predefiniti. È possibile scegliere tra oltre 50 connettori per sistemi aziendali quali SAP, Siebel e Oracle, servizi aziendali SaaS più diffusi, quali Salesforce e Office 365 e i servizi Internet più comuni, come Facebook, Twitter e Dropbox.
+
+- **Scalabilità globale**: per [aumentare le prestazioni](../app-service/app-service-scale.md) o [aumentare le istanze](../azure-portal/insights-how-to-scale.md) in modo da gestire qualsiasi carico di lavoro in ingresso dei clienti. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica in base al carico o alla pianificazione. L'infrastruttura globale dei data center Microsoft ospita le app e facilita la replica dei dati e i servizi di hosting in più località.
+
+- **Livello aziendale**: il servizio app è progettato per compilare e ospitare applicazioni cruciali sicure. Si possono creare app aziendali integrate di Active Directory che si connettono in modo sicuro alle risorse locali e ospitarle quindi in una piattaforma cloud sicura [conforme agli standard ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Per tutto questo è disponibile un [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) di livello aziendale.
+
+- **Azure Marketplace**: è possibile scegliere da un [elenco di modelli di applicazioni](https://azure.microsoft.com/marketplace/) in continua crescita. Si possono sfruttare le migliori offerte della community di app OSS per installare pacchetti come WordPress, Joomla e Drupal con un solo clic.
+
+- **Processi Web**: consentono di [eseguire qualsiasi programma o script](../app-service-web/web-sites-create-web-jobs.md) nelle macchine virtuali del servizio app. I processi possono essere eseguiti in modo continuo o in base a una pianificazione oppure possono essere attivati da eventi. Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) semplifica il codice scritto per l'integrazione con altri servizi di Azure e di terze parti.
+
+- **Connessioni ibride**: consentono di accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+
+- **Integrazione di Visual Studio**: gli strumenti dedicati in Visual Studio semplificano l'attività di creazione, distribuzione, utilizzo, debug e gestione di app Web, app per dispositivi mobili e app per le API.
+
+## Introduzione al servizio app
+
+[Creare un'app Web, un'app per dispositivi mobili o un'app per la logica temporanea](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito, senza carta di credito, senza impegno, senza problemi.
+
+In alternativa, aprire un [account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/) e provare una delle esercitazioni introduttive:
+
+* [App Web](https://azure.microsoft.com/documentation/services/app-service/web/)
+* [App per dispositivi mobili](https://azure.microsoft.com/documentation/services/app-service/mobile/)
+* [App per le API](https://azure.microsoft.com/documentation/services/app-service/api/)
+* [App per la logica](https://azure.microsoft.com/documentation/services/app-service/logic/)
+
+<!---HONumber=AcomDC_0601_2016-->

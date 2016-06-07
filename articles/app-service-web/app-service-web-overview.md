@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="05/25/2016"
 	ms.author="tdykstra"/>
 
 # Panoramica di App Web
@@ -34,34 +34,44 @@ Per esempi di scenari di applicazione tipici per cui è possibile usare le app W
 
 ## Vantaggi dell'uso di App Web
 
-Ecco alcune funzionalità principali di App Web:
+Ecco alcune delle funzionalità principali del servizio app applicabili ad App Web:
 
-- **Familiarità e rapidità**: è possibile sfruttare le proprie conoscenze esistenti e scrivere codice nel linguaggio, framework e IDE (Integrated Development Environment) di propria scelta. Per il provisioning di nuove app Web e la distribuzione di codice nelle app Web sono necessari pochi secondi.
+- **Piattaforma completamente gestita**: applicazione automatica di patch del sistema operativo e del framework, supporto predefinito per il backup e il ripristino di emergenza. 
 
-- **Applicazioni aziendali**: il servizio app Web è stato ideato per creare e ospitare applicazioni di importanza strategica in tutta sicurezza. È possibile creare app aziendali integrate con Active Directory che si connettono in modo sicuro a risorse locali, quindi ospitarle in una piattaforma cloud sicura conforme agli standard [ISO](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [SOC](https://www.microsoft.com/TrustCenter/Compliance/SOC) e [PCI](https://www.microsoft.com/TrustCenter/Compliance/pci). Per tutte queste app è disponibile un [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) di livello aziendale.
+- **Possibilità di usare le competenze esistenti**: per scrivere codice con il linguaggio, il framework e l'ambiente di sviluppo preferiti. Il servizio app supporta .NET, Node.js, Java, PHP e Python.
 
-- **Scala globale**: il servizio app Web consente di [aumentare le prestazioni](../app-service/app-service-scale.md) o [aumentare il numero di istanze](../azure-portal/insights-how-to-scale.md) in modo rapido, per gestire qualsiasi carico di lavoro proveniente dalla clientela. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica in base al carico o alla pianificazione. L'infrastruttura globale di data center Microsoft esegue l'hosting delle app Web e semplifica la replica di dati e di servizi di hosting in più posizioni.
+- **Distribuzione rapida**: per effettuare il provisioning di nuove app Web e distribuirvi il codice in pochi secondi.
 
-- **Azure Marketplace**: è possibile scegliere da un [elenco in continua crescita di modelli di applicazione Web](https://azure.microsoft.com/marketplace/). È possibile sfruttare le migliori offerte della community di app OSS per installare in un singolo clic pacchetti come Wordpress, Joomla e Drupal.
+- **Integrazione continua**: è possibile configurare [l'integrazione e la distribuzione continua](../app-service-web/app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket.
 
-- **Integrazione continua**: è possibile configurare flussi di lavoro di [integrazione e distribuzione continua](app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. È possibile compilare, eseguire il test e distribuire automaticamente l'app Web a ogni archiviazione corretta del codice o a ogni test di integrazione.
+- **Ambienti di staging e di test**: è possibile implementare una [pre-distribuzione](../app-service-web/web-sites-staged-publishing.md) per verificare il codice in un ambiente di pre-produzione identico all'ambiente di produzione. Quando si è pronti, si può rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio.
 
-- **Ambienti di staging e di test**: è possibile implementare una [pre-distribuzione](web-sites-staged-publishing.md) per verificare il codice in un ambiente di pre-produzione identico all'ambiente di produzione. Quando si è pronti, si può rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio.
+- **Test in produzione**: è possibile ottimizzare la pre-distribuzione ed [eseguire il test A/B](../app-service-web/app-service-web-test-in-production-get-start.md) per verificare il nuovo codice con una frazione configurabile del traffico live.
 
-- **Test in produzione**: è possibile portare la pre-distribuzione al livello successivo ed [eseguire il test A/B](app-service-web-test-in-production-get-start.md) per verificare il nuovo codice con una frazione configurabile del proprio traffico live.
+- **Autenticazione e autorizzazione**: si può proteggere un'app dall'accesso non autenticato senza apportare modifiche al codice. I servizi di autenticazione predefiniti proteggono le app dall'accesso da parte di utenti, client che rappresentano utenti o servizi. I provider di identità supportati includono Azure Active Directory, Facebook, Twitter, Google e account Microsoft. Per altre informazioni, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
 
-- **Processi Web**: è possibile [eseguire qualsiasi programma o script](web-sites-create-web-jobs.md) nelle VM di App Web. I processi possono essere eseguiti in modo continuo o in base a una pianificazione oppure possono essere attivati da eventi. Azure [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md) semplifica il codice scritto per l'integrazione con altri servizi di Azure, ad esempio le code di archiviazione, i BLOB, le tabelle e le code e gli argomenti del bus di servizio.
+- **Possibilità di connettersi a qualsiasi servizio**: per la connessione dell'app a sistemi aziendali o piattaforme software come un servizio (SaaS) in pochi minuti, grazie ai [connettori](../connectors/apis-list.md) predefiniti. È possibile scegliere tra oltre 50 connettori per sistemi aziendali quali SAP, Siebel e Oracle, servizi aziendali SaaS più diffusi, quali Salesforce e Office 365 e i servizi Internet più comuni, come Facebook, Twitter e Dropbox.
 
-- **Connessioni ibride**: è possibile accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Scalabilità globale**: per [aumentare le prestazioni](../app-service/app-service-scale.md) o [aumentare le istanze](../azure-portal/insights-how-to-scale.md) in modo da gestire qualsiasi carico di lavoro in ingresso dei clienti. Selezionare manualmente il numero e le dimensioni delle macchine virtuali o configurare la scalabilità automatica in base al carico o alla pianificazione. L'infrastruttura globale dei data center Microsoft ospita le app e facilita la replica dei dati e i servizi di hosting in più località.
 
-- **Integrazione con Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app Web. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
+- **Livello aziendale**: il servizio app è progettato per compilare e ospitare applicazioni cruciali sicure. Si possono creare app aziendali integrate di Active Directory che si connettono in modo sicuro alle risorse locali e ospitarle quindi in una piattaforma cloud sicura [conforme agli standard ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Per tutto questo è disponibile un [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) di livello aziendale.
 
-Un'app Web può anche sfruttare le funzionalità offerte dalle [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md), ad esempio il supporto CORS, e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md), ad esempio le notifiche push. Analogamente, è possibile usare un'app per le API o un'app per dispositivi mobili per ospitare un'app Web e sfruttare le funzionalità delle app Web, ad esempio la scalabilità automatica e la pre-distribuzione. L'unica differenza tra i tre tipi di app, ovvero per le API, Web e per dispositivi mobili, è costituita dal nome e dall'icona con cui sono contraddistinte nel portale di Azure. Per altre informazioni sui tipi di app nel servizio app, vedere [Panoramica del servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
+- **Azure Marketplace**: è possibile scegliere da un [elenco di modelli di applicazioni](https://azure.microsoft.com/marketplace/) in continua crescita. Si possono sfruttare le migliori offerte della community di app OSS per installare pacchetti come WordPress, Joomla e Drupal con un solo clic.
+
+- **Processi Web**: consentono di [eseguire qualsiasi programma o script](../app-service-web/web-sites-create-web-jobs.md) nelle macchine virtuali del servizio app. I processi possono essere eseguiti in modo continuo o in base a una pianificazione oppure possono essere attivati da eventi. Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) semplifica il codice scritto per l'integrazione con altri servizi di Azure e di terze parti.
+
+- **Connessioni ibride**: consentono di accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+
+- **Integrazione di Visual Studio**: gli strumenti dedicati in Visual Studio semplificano l'attività di creazione, distribuzione, utilizzo, debug e gestione di app Web, app per dispositivi mobili e app per le API.
+
+Un'app Web può anche sfruttare le funzionalità offerte dalle [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md), ad esempio il supporto di CORS, e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md), ad esempio le notifiche push. L'unica differenza tra i tre tipi di app, ovvero per le API, Web e per dispositivi mobili, è costituita dal nome e dall'icona con cui sono contraddistinte nel portale di Azure. Per altre informazioni sui tipi di app nel servizio app, vedere [Informazioni sul servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
+
+Oltre ad App Web nel servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari App Web è la scelta migliore. Per un'architettura di microservizi, prendere in considerazione [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se è necessario un maggiore controllo delle macchine virtuali in cui viene eseguito il codice, considerare l'uso di [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md).
 
 ## Introduzione
 
 Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, seguire l'esercitazione [Distribuire la prima app Web in Azure in 5 minuti](app-service-web-get-started.md). Sarà necessario un account Azure gratuito.
 
-Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

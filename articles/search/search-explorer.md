@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"
 />
 # Eseguire query nell'indice di Ricerca di Azure usando il portale di Azure
@@ -26,7 +26,7 @@ Questa guida illustra come eseguire query nell'indice di Ricerca di Azure nel po
 
 Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md) e [averlo popolato con dati](search-what-is-data-import.md).
 
-## I. Passare al pannello del servizio Ricerca di Azure
+## I. Passaggio al pannello del servizio Ricerca di Azure
 1. Scegliere "Tutte le risorse" dal menu nel lato sinistro del [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Selezionare il servizio Ricerca di Azure
 
@@ -47,4 +47,4 @@ Prima di iniziare questa procedura dettagliata, è necessario avere [creato un i
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

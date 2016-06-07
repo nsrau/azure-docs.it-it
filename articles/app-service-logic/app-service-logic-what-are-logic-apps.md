@@ -21,8 +21,8 @@
 | Riferimento rapido |
 | --------------- |
 | [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Documentazione sulle API gestite per le app per la logica](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [Documentazione del connettore delle app per la logica](../connectors/apis-list.md) |
+| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
 
 Servizio app di Azure è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori che semplifica la creazione di app Web, per dispositivi mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
 
@@ -68,6 +68,7 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 ## Introduzione  
 
  - Per iniziare a usare le app per la logica, seguire l'esercitazione [Creare una nuova app per la logica][create].  
+ - [Visualizzare esempi e scenari comuni](app-service-logic-examples-and-scenarios.md)
  - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694) 
  - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 - Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][appservice].
@@ -80,4 +81,4 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->
