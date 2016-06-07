@@ -36,7 +36,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
 	![Impostazioni](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. Nel pannello **Settings** (Impostazioni) del lab toccare **Thresholds** (Soglie) in **Cost Management** (Gestione dei costi).
+1. Nel pannello **Impostazioni** del lab toccare **Soglie** in **Gestione dei costi**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
@@ -44,7 +44,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
     ![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)
 
-Il valore **Estimated cost** (Costo stimato) è il costo stimato per il mese in corso fino alla data odierna mentre **Projected cost** (Costo previsto) è il costo stimato per l'intero mese in corso, calcolato usando il costo del lab nei 5 giorni precedenti.
+Il valore **Costo stimato** è il costo stimato per il mese in corso fino alla data odierna mentre **Costo previsto** è il costo stimato per l'intero mese in corso, calcolato usando il costo del lab nei 5 giorni precedenti.
  
 Si noti che gli importi di costo vengono arrotondati al numero intero successivo. ad esempio:
 

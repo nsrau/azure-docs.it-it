@@ -43,7 +43,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
 
 4. Dopo il completamento della distribuzione, l'app per la logica verrà elencata come risorsa nel gruppo di risorse.
 
-5. Fare clic sull'app per la logica per passare al pannello App per la logica. Viene immediatamente visualizzata la finestra **Logic Apps Designer** (Finestra di progettazione di App per la logica).
+5. Fare clic sull'app per la logica per passare al pannello App per la logica. Viene immediatamente visualizzata la finestra **Logic Apps Designer** (Finestra di progettazione di app per la logica).
 
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 
@@ -174,4 +174,4 @@ Dopo aver usato un'app per la logica per connettere la soluzione preconfigurata 
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->
