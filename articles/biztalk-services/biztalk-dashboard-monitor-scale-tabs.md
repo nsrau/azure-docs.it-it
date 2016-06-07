@@ -244,10 +244,10 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
 
 	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico:  
-![Metrica Utilizzo CPU disabilitata][GrayedMetric]
+![Metrica Utilizzo CPU disabilitata][GrayedMetric]  
 
 	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico:  
-![Metrica Utilizzo CPU abilitata][EnabledMetric]
+![Metrica Utilizzo CPU abilitata][EnabledMetric]  
 
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 
