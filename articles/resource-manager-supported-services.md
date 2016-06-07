@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
-   ms.author="tomfitz"/>
+   ms.date="05/25/2016"
+   ms.author="magoedte;tomfitz"/>
 
 # Provider, aree, versioni API e schemi di Gestione risorse
 
@@ -133,7 +133,7 @@ Azure Active Directory funziona con Gestione risorse per l'abilitazione del cont
 
 | Servizio | Gestione risorse abilitato | API REST | Schema | Modelli di avvio rapido |
 | ------- | ------- | -------- | ------ | ------ |
-| Automazione | Sì | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| Automazione | Sì | [REST automazione](https://azure.microsoft.com/documentation/articles/resource-manager-supported-services/) | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | Insieme di credenziali di chiave | Sì | [REST insieme di credenziali di chiave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Insieme di credenziali chiave](resource-manager-template-keyvault.md)<br />[Segreto dell'insieme di credenziali chiave](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Operational Insights | Sì | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
 | Servizi di ripristino | Sì | | | |
@@ -156,7 +156,7 @@ Per usare un provider di risorse, il provider deve essere registrato con l'accou
 
 ### API REST
 
-Per ottenere tutti i provider di risorse disponibili completi di tipi, posizioni, stato di registrazione e versioni dell'API supportate usare l'operazione [Ottieni provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per registrare un provider di risorse vedere [Registrare una sottoscrizione con un provider di risorse](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Per ottenere tutti i provider di risorse disponibili completi di tipi, posizioni, versioni API e stato di registrazione, usare l'operazione [Elencare tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per registrare un provider di risorse, vedere [Registrare una sottoscrizione con un provider di risorse](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -303,4 +303,4 @@ L'output sarà analogo al seguente:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

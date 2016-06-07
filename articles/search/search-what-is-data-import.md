@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Caricare i dati in Ricerca di Azure
@@ -45,4 +45,4 @@ In Ricerca di Azure questa funzionalità viene implementata tramite *indicizzato
 
 La funzionalità di indicizzatore viene esposta nel [portale di Azure ](search-import-data-portal.md) e nell'[API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

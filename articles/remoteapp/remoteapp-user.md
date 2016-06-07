@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/02/2016"
+    ms.date="05/18/2016"
     ms.author="elizapo" />
 
 # Come aggiungere un utente alla raccolta di Azure RemoteApp
@@ -52,4 +52,4 @@ Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Direc
 ## Informazioni sugli account utente di Office 365 ProPlus
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all'[uso di Office 365 con Azure RemoteApp](remoteapp-o365.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

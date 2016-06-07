@@ -100,7 +100,7 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](virtual-machines-set-up-endpoints) per la macchina virtuale nel portale di Azure.
+Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) per la macchina virtuale nel portale di Azure.
 
 ## Backup per le macchine virtuali ripristinate
 Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.
@@ -142,11 +142,11 @@ PowerShell offre la possibilità di ripristinare solo i dischi della macchina vi
 
 Per poter ricreare completamente i dischi della macchina virtuale dopo il ripristino, seguire questa procedura:
 
-1. Ripristinare i dischi dall'insieme di credenziali di backup tramite [PowerShell per il Backup di Azure](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Ripristinare i dischi dall'insieme di credenziali di backup tramite [PowerShell per il Backup di Azure](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Creare la configurazione della macchina virtuale necessaria per il bilanciamento del carico/per più NIC/per più indirizzi IP riservati tramite i cmdlet di PowerShell e usarla per creare la macchina virtuale con la configurazione desiderata.
 	- Creare una macchina virtuale nel servizio cloud con [bilanciamento del carico interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com//documentation/articles/load-balancer-internet-getstarted/)
+	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creare una macchina virtuale con [più indirizzi IP riservati](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -155,4 +155,4 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

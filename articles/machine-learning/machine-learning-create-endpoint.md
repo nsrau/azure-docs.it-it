@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="himad"/>
 
 
@@ -42,4 +42,4 @@ Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, l
  
  Si noti che NON È POSSIBILE eliminare l'endpoint predefinito, da Visual Studio o da qui, se vi sono stati aggiunti endpoint. Verrà generato un errore.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

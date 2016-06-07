@@ -66,4 +66,4 @@ Per gestire i set di record e i record, vedere [Gestire record e set di record D
 
 Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->

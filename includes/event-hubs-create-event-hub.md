@@ -18,9 +18,11 @@
 
 	![][4]
 
-L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
+L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi. 
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+
+

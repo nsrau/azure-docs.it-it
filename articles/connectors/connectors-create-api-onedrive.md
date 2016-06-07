@@ -1,10 +1,10 @@
 <properties
-pageTitle="Aggiungere l'API di OneDrive a PowerApps Enterprise e alle app per la logica | Microsoft Azure"
-description="Panoramica dell'API di OneDrive con i parametri dell'API REST."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Aggiungere il connettore OneDrive a PowerApps Enterprise e alle app per la logica | Microsoft Azure"
+description="Panoramica del connettore OneDrive con i parametri dell'API REST."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Introduzione all'API di OneDrive
+# Introduzione al connettore OneDrive
 
-Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. L'API di OneDrive può essere usata da:
+Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. Il connettore OneDrive può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -37,24 +37,24 @@ Con OneDrive è possibile:
 - Creare il flusso aziendale in base ai dati ottenuti da OneDrive. 
 - Usare i trigger quando un file viene creato o aggiornato.
 - Usare le azioni per creare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in OneDrive, è possibile inviare tale file come messaggio di posta elettronica tramite Office 365.
-- Aggiungere l'API di OneDrive a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore OneDrive a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
-L'API di OneDrive include i trigger e le azioni seguenti.
+Il connettore OneDrive include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
 |<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>List files in a folder</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>List root folder</li><li>Update file</li><li>When a file is modified</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a OneDrive
 
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a OneDrive.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a OneDrive.
 
 1. Accedere all'account OneDrive.
 2. Consentire alle app per la logica di connettersi e usare OneDrive. 
@@ -312,4 +312,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

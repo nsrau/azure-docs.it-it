@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/16/2016" 
 	ms.author="johnmac"/>
 
 # Livelli di prestazioni in DocumentDB
@@ -173,7 +173,9 @@ Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB
 
 Per altre informazioni su DocumentDB, vedere la [documentazione](https://azure.microsoft.com/documentation/services/documentdb/) relativa ad Azure DocumentDB.
 
+Per informazioni sulle attività iniziali relative al test delle prestazioni e della scalabilità con DocumentDB, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
+
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

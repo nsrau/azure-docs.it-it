@@ -104,7 +104,7 @@ Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima
 4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Create**.
 5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e quindi selezionare **OK**. ![][6]
 
-[Microsoft Antimalware](../azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
 
 
 ## Passaggi successivi
@@ -124,4 +124,4 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

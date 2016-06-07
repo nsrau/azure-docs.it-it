@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurare un set di disponibilità per VM classiche | Microsoft Azure"
-	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il Portale di Azure classico e Azure PowerShell."
+	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il portale di Azure e Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Esempio di un webhook in un avviso di Log Analytics"
-   description="Una delle azioni che è possibile eseguire in risposta a un avviso di Log Analytics è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. In questo articolo viene riportata una procedura di esempio per la creazione di un'azione webhook in un avviso di Log Analytics tramite Slack."
+   description="Una delle azioni che è possibile eseguire in risposta a un avviso di Log Analytics è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. Questo articolo illustra un esempio di creazione di un'azione webhook in un avviso di Log Analytics tramite Slack."
    services="log-analytics"
    documentationCenter=""
    authors="bwren"
@@ -19,13 +19,13 @@
 
 Una delle azioni che è possibile eseguire in risposta a un [avviso di Log Analytics](log-analytics-alerts.md) è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. Per informazioni dettagliate su avvisi e webhook, vedere [Avvisi in Log Analytics](log-analytics-alerts.md).
 
-In questo articolo viene riportata una procedura di esempio per la creazione di un'azione webhook in un avviso di Log Analytics tramite il servizio di messaggistica Slack.
+Questo articolo illustra un esempio di creazione di un'azione webhook in un avviso di Log Analytics tramite il servizio di messaggistica Slack.
 
 >[AZURE.NOTE] Per completare l'esempio è necessario disporre di un account Slack. È possibile iscriversi per ottenere un account gratuito nel sito Web [slack.com](http://slack.com).
 
 ## Passaggio 1: Abilitare gli webhook in Slack
 2.	Accedere al sito Web Slack all'indirizzo [slack.com](http://slack.com).
-3.	Selezionare un canale nella sezione **Channel** (Canali) del riquadro a sinistra, che costituirà il canale a cui verrà inviato il messaggio. È possibile selezionare uno dei canali predefiniti, ad esempio **general** o **random**. In uno scenario di produzione sarebbe probabilmente necessario creare un canale speciale, ad esempio **criticalservicealerts**. <br>
+3.	Selezionare un canale nella sezione **Channels** (Canali) del riquadro a sinistra, che costituirà il canale a cui verrà inviato il messaggio. È possibile selezionare uno dei canali predefiniti, ad esempio **general** o **random**. In uno scenario di produzione sarà probabilmente necessario creare un canale speciale, ad esempio **criticalservicealerts**. <br>
 
 	![Canali Slack](media/log-analytics-alerts-webhooks/oms-webhooks01.png)
 
@@ -35,7 +35,7 @@ In questo articolo viene riportata una procedura di esempio per la creazione di 
 	![Canali Slack](media/log-analytics-alerts-webhooks/oms-webhooks02.png)
 
 4.	Fare clic su **Install** (Installa) vicino al nome del proprio team.
-5.	Fare clic su **Add Configuratio** (Aggiungi configurazione).
+5.	Fare clic su **Add Configuration** (Aggiungi configurazione).
 6.	Selezionare il canale che si intende usare in questo esempio e quindi fare clic su **Add Incoming WebHooks integration** (Aggiungi integrazione webhook in ingresso).  
 6. Copiare l'indirizzo contenuto in **Webhook URL** (URL webhook), che dovrà essere incollato nella configurazione dell'avviso. <br>
 
@@ -50,7 +50,7 @@ In questo articolo viene riportata una procedura di esempio per la creazione di 
     - Selezionare **Yes** (Sì) per **Webhook** e **No** per le altre azioni.
 7. Incollare l'URL del sito Slack nel campo **Webhook URL** (URL webhook). 
 8. Selezionare l'opzione che consente di **includere un payload JSON personalizzato**.
-9. Slack prevede un payload in formato JSON con un parametro denominato *text*, che costituisce il testo visualizzato nel messaggio che verrà creato. Usando il simbolo *#* è possibile includere anche più di un parametro di avviso.
+9. Slack prevede un payload in formato JSON con un parametro denominato *text*, che costituisce il testo visualizzato nel messaggio che verrà creato. Usando il simbolo *#* è possibile includere più di un parametro di avviso.
 
     ```
     {
@@ -62,7 +62,7 @@ In questo articolo viene riportata una procedura di esempio per la creazione di 
 
 9.	Fare clic su **Save** (Salva) per salvare la regola di avviso.
     
-10. Attendere il tempo necessario alla creazione dell'avviso. In Slack dovrebbe apparire un messaggio simile al seguente.
+10. Attendere il tempo necessario alla creazione dell'avviso. In Slack apparirà un messaggio simile al seguente.
     
 	![webhook di esempio in Slack](media/log-analytics-alerts-webhooks/oms-webhooks08.png)
 

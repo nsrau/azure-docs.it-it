@@ -19,8 +19,10 @@
 # Connettersi ed eseguire query con SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio][]
-- [SQLCMD][]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+
 
 Questa procedura dettagliata mostra come connettersi ed eseguire query su un database di SQL Data Warehouse di Azure in pochi minuti usando l'utilità sqlcmd.exe. In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 
@@ -77,10 +79,10 @@ Per altre informazioni su sqlcmd, vedere la [relativa documentazione][sqlcmd.exe
 
 Ora che è possibile connettersi ed eseguire query, provare a [connettersi con PowerBI][].
 
-Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione al database SQL o SQL Data Warehouse con l'autenticazione di Azure Active Directory][].
+Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory][].
 
 <!--Articles-->
-[Connessione al database SQL o SQL Data Warehouse con l'autenticazione di Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [connettersi con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
@@ -93,4 +95,4 @@ Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

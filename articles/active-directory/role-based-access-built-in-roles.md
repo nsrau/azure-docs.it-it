@@ -1,5 +1,5 @@
 <properties
-	pageTitle="RBAC: Ruoli predefiniti | Microsoft Azure"
+	pageTitle="Controllo degli accessi in base al ruolo: ruoli predefiniti | Microsoft Azure"
 	description="In questo argomento vengono descritti i ruoli predefiniti per il controllo di accesso basato sui ruoli (RBAC)."
 	services="active-directory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #Controllo degli accessi in base al ruolo: ruoli predefiniti
 
-## Ruoli predefiniti
-
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
 
-La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle **actions** e delle **non actions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **non actions **specifica le azioni non consentite.
+## Ruoli in Azure
+
+La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **notactions **specifica le azioni non consentite.
 
 >[AZURE.NOTE] Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
 
@@ -57,6 +57,9 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore reti virtuali classiche](#classic-network-contributor) | È in grado di gestire reti virtuali classiche e IP riservati |
 | [Collaboratore piani Web](#web-plan-contributor) | È in grado di gestire piani Web |
 | [Collaboratore siti Web](#website-contributor) | È in grado di gestire siti Web, ma non i piani Web a cui sono connessi |
+
+## Autorizzazioni ruoli
+Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo. Può trattarsi di proprietà **actions** che concedono autorizzazioni e **notactions** che le limitano.
 
 ### Collaboratore servizio Gestione API
 È in grado di gestire i servizi Gestione API
@@ -142,7 +145,7 @@ Può gestire tutto ad eccezione degli accessi.
 | ------- | ------ |
 | * | È in grado di creare e gestire ogni tipo di risorsa |
 
-| **Non azioni** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruoli |
 | Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruoli |
@@ -153,7 +156,7 @@ Può gestire tutto ad eccezione degli accessi.
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.DataFactory/dataFactories/* | Creare e gestire data factory |
+| Microsoft.DataFactory/dataFactories/* | È in grado gestire Data factory |
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
@@ -324,7 +327,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Sql/servers/read | È in grado di leggere i server SQL |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-| **Non azioni** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossibile modificare i criteri di controllo |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Impossibile modificare le impostazioni di controllo |
@@ -370,7 +373,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse | Microsoft.Sql/servers/* | Creare e gestire server SQL |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
-| **Non azioni** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Non è in grado di modificare i criteri di controllo di server SQL |
 | Microsoft.Sql/servers/auditingSettings/* | Non è in grado di modificare le impostazioni di controllo di SQL Server |
@@ -412,8 +415,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. |
-| Microsoft.Authorization/* | Autorizzazione Lettura |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Autorizzazione Lettura |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche
@@ -510,9 +512,9 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Web/sites/* | Creare e gestire siti Web |
 
 ## Vedere anche
-- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione alla funzionalità nel portale di Azure.
-- [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
+- [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse di Azure Active Directory](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
+- [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 - [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

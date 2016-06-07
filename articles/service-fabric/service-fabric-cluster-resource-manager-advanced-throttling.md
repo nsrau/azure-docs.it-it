@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione a Cluster Resource Manager di Service Fabric | Microsoft Azure"
-   description="Un'introduzione a Cluster Resource Manager di Service Fabric."
+   pageTitle="Limitazione in Cluster Resource Manager di Service Fabric | Microsoft Azure"
+   description="Informazioni sulla configurazione delle limitazioni messe a disposizione da Cluster Resource Manager di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -43,4 +43,4 @@ Si noti che la maggior parte dei casi di utilizzo di queste limitazioni ha inter
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux | Microsoft Azure"
    description="Il documento fornisce una panoramica di Microsoft Azure Disk Encryption per le VM IaaS Windows e Linux."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ La soluzione Crittografia dischi di Azure supporta i tre scenari dei clienti des
 - Abilitare la crittografia delle nuove VM IaaS create da chiavi di crittografia e VHD pre-crittografati.
 - Abilitare la crittografia di nuove VM IaaS create da immagini della Raccolta di Azure. 
 - Abilitare la crittografia delle VM IaaS esistenti già in esecuzione in Azure. 
-- Disabilitare la crittografia nelle VM IaaS Windows  
+- Disabilitare la crittografia nelle VM IaaS Windows 
 
 Se abilitata in Microsoft Azure, la soluzione supporta le funzionalità seguenti per le VM IaaS:
 
@@ -78,7 +78,7 @@ Quando si abilita e si distribuisce la crittografia del disco di Azure per le VM
 - Crittografia del volume del sistema operativo per proteggere il volume di avvio inattivo nell'archiviazione del cliente.
 
 	- La crittografia del volume del sistema operativo nella VM IaaS Linux già in esecuzione in Azure non è attualmente supportata. La crittografia del volume del sistema operativo per la VM IaaS Linux è supportata solo per uno scenario VHD pre-crittografato.
-	
+
 - Crittografia del volume o dei volumi dati per proteggere i volumi dati inattivi nell'archiviazione del cliente.
 
 - Disabilitare la crittografia nelle VM IaaS Windows
@@ -91,7 +91,7 @@ Quando si abilita e si distribuisce la crittografia del disco di Azure per le VM
 
 La soluzione Azure Disk Encryption per le VM IaaS per Windows e Linux include l'estensione di crittografia del disco per Windows, l'estensione di crittografia del disco per Linux, i cmdlet di crittografia del disco di PowerShell, i cmdlet di crittografia del disco per l'interfaccia della riga di comando e i modelli di crittografia del disco di Gestione risorse di Azure. La soluzione Azure Disk Encryption è supportata nelle VM IaaS che eseguono il sistema operativo Windows o Linux. Per altri dettagli sui sistemi operativi supportati, vedere la sezione relativa ai prerequisiti più avanti.
 
-**Nota: ** non è previsto alcun addebito per la crittografia dei dischi delle VM con Crittografia dischi di Azure.
+**Nota:** non è previsto alcun addebito per la crittografia dei dischi delle VM con Crittografia dischi di Azure.
 
 ### Proposta di valore
 
@@ -845,4 +845,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

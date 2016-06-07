@@ -21,13 +21,14 @@
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 Questa procedura dettagliata mostra come connettersi a un'istanza di Azure SQL Data Warehouse in pochi minuti usando l'estensione SQL Server Data Tools (SSDT) in Visual Studio. Una volta stabilita la connessione, si eseguirà una query semplice.
 
 ## Prerequisiti
 
 + Dati AdventureWorksDW di esempio in SQL Data Warehouse. Per crearne un'istanza, vedere [Creare un SQL Data Warehouse][].
-+ SQL Server Data Tools per Visual Studio. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio e SSDT][].
++ SQL Server Data Tools per Visual Studio. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse][].
 
 ## Passaggio 1: Trovare il nome completo del server SQL Azure
 
@@ -56,7 +57,7 @@ Per trovare il nome completo del server.
 
     ![Connetti al server][4]
 
-    - **Nome server**. Immettere il **nome server** identificato in precedenza.
+    - **Nome server**. Immettere il **nome del server** identificato in precedenza.
     - **Autenticazione**. Selezionare **Autenticazione SQL Server** o **Autenticazione integrata di Active Directory**.
     - **Nome utente** e **Password**. Se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
     - Fare clic su **Connect**.
@@ -93,12 +94,12 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con PowerBI][].
 
-Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione al database SQL o SQL Data Warehouse con l'autenticazione di Azure Active Directory][].
+Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory][].
 
 <!--Arcticles-->
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Installare Visual Studio e SSDT]: sql-data-warehouse-install-visual-studio.md
-[Connessione al database SQL o SQL Data Warehouse con l'autenticazione di Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[Installare Visual Studio 2015 e SSDT per SQL Data Warehouse]: sql-data-warehouse-install-visual-studio.md
+[Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [visualizzare i dati con PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
 <!--Other-->
@@ -115,4 +116,4 @@ Per configurare l'ambiente per l'autenticazione di Windows, vedere [Connessione 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

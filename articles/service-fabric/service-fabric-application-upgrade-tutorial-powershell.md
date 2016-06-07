@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -136,4 +136,4 @@ Per informazioni su come usare funzionalità avanzate durante l'aggiornamento de
 
 Risolvere problemi comuni negli aggiornamenti delle applicazioni facendo riferimento ai passaggi descritti in [Risolvere i problemi relativi agli aggiornamenti delle applicazioni](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

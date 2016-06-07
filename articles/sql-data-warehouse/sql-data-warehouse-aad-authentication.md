@@ -20,7 +20,11 @@
 # Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory
 
 
-L'autenticazione di Azure Active Directory è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni. Ecco alcuni vantaggi:
+L'autenticazione di Azure Active Directory è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni.
+
+## Vantaggi
+
+Ecco alcuni vantaggi:
 
 - Offre un'alternativa all'autenticazione di SQL Server.
 - Contribuisce ad arrestare la proliferazione delle identità utente nei server di database.
@@ -32,6 +36,8 @@ L'autenticazione di Azure Active Directory è un meccanismo di connessione a SQL
 
 > [AZURE.IMPORTANT] L'autenticazione di Azure Active Directory è una funzionalità in anteprima ed è soggetta alle condizioni per l'anteprima del contratto di licenza (ad esempio, il Contratto Enterprise, il Contratto di Microsoft Azure o il Contratto di Sottoscrizione Microsoft Online), nonché alle [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Procedura di configurazione
+
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure Active Directory.
 
 1. Creare e popolare un'istanza di Azure Active Directory
@@ -41,8 +47,10 @@ I passaggi di configurazione includono le procedure seguenti per configurare e u
 5. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
 6. Connettersi al data warehouse usando le identità di Azure AD
 
-La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi uguale per il database SQL di Azure e Azure SQL Data Warehouse. Seguire la procedure riportata nell'argomento [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-
 La differenza principale tra l'uso dell'autenticazione di Azure Active Directory con il database SQL di Azure e Azure SQL Data Warehouse consiste nella necessità di usare SQL Server Data Tools invece di SQL Server Management Studio per connettersi a SQL Data Warehouse. SQL Data Warehouse richiede almeno la versione di aprile 2016 (versione 14.0.60311.1) di SQL Server Data Tools per Visual Studio 2015. Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+  
+## Passaggi successivi 
+- Completare la procedura dettagliata. La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi uguale per il database SQL di Azure e Azure SQL Data Warehouse. Seguire la procedura riportata nell'argomento [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+- Creare ruoli di database personalizzati e aggiungere utenti ai ruoli. Concedere quindi autorizzazioni granulari ai ruoli. Per altre informazioni, vedere l'[introduzione alle autorizzazioni del motore di database](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

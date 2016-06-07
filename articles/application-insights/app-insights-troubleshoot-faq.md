@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # Domande su Application Insights per ASP.NET
@@ -39,7 +39,7 @@
 * Per registrarsi in Microsoft Azure è necessario fornire i dati della propria carta di credito, ma verranno addebitati costi solo se si usa un altro servizio di Azure a pagamento o si effettua esplicitamente l'aggiornamento a un livello non gratuito.
 * Se la propria app invia una quantità di dati superiore a quella consentita dalla quota mensile, la registrazione si interrompe. In tal caso, è possibile scegliere di pagare o attendere che la quota venga reimpostata alla fine del mese.
 * I dati relativi alla sessione e all'utilizzo di base non sono soggetti a una quota.
-* È anche previsto un periodo di valutazione gratuita di 30 giorni durante il quale è possibile usufruire delle funzionalità Premium senza alcun addebito.
+* È anche previsto un periodo di valutazione gratuita di 30 giorni durante il quale è possibile usufruire delle funzionalità a pagamento senza alcun addebito.
 * A ogni risorsa dell'applicazione è associata una quota separata ed è possibile impostare il relativo piano tariffario in modo indipendente rispetto alle altre.
 
 #### Quali vantaggi si ottengono a pagamento?
@@ -126,7 +126,6 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 <tr><td>Metriche personalizzate server</td><td><a href="../app-insights-api-custom-events-metrics/">Tenere traccia delle chiamate nel codice del server</a></td><td>Business intelligence</td></tr>
 </table>
 
-Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [ottenere la diagnostica][azurediagnostic] in tale posizione.
 
 ## Automazione
 
@@ -139,7 +138,6 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
@@ -147,4 +145,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

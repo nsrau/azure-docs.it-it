@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="05/20/2016"
    ms.author="larryfr"/>
 
 
@@ -43,15 +43,15 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	![Creare un nuovo cluster nel portale di Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Immettere un valore in __Nome cluster__ e quindi selezionare __Storm__ come __Tipo di cluster__. Un segno di spunta verde appare accanto al __Nome del cluster__, se disponibile.
+3. Immettere un valore in __Nome cluster__. Un segno di spunta verde appare accanto al __Nome del cluster__, se disponibile.
 
-	![Nome del cluster, tipo di cluster e tipo di sistema operativo](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
+4. Se sono disponibili più sottoscrizioni, selezionare la voce __Sottoscrizione__ per specificare la sottoscrizione di Azure da usare per il cluster.
 
-4. Se si dispone di più di una sottoscrizione, selezionare la voce__Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà utilizzata per il cluster.
+5.  Usare __Selezionare il tipo di cluster__ per selezionare un cluster __Storm__. In __Sistema operativo__ selezionare Windows. In __Livello cluster__ scegliere STANDARD. Infine, usare il pulsante di selezione per salvare le impostazioni.
 
-5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
+	![Nome del cluster, tipo di cluster e tipo di sistema operativo](./media/hdinsight-apache-storm-tutorial-get-started/clustertype.png)
 
-	> [AZURE.NOTE] Questa voce viene impostata su uno dei gruppi di risorse esistenti, se disponibili.
+5. Selezionare __Gruppo di risorse__ per visualizzare un elenco a discesa di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Viene visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
 6. Fare clic su __Credenziali__ e quindi immettere un valore in __Nome utente dell'account di accesso del cluster__ e in __Password dell'account di accesso del cluster__. Usare infine il pulsante __Seleziona__ per impostare le credenziali. Il desktop remoto non verrà utilizzato in questo documento, pertanto è possibile lasciarlo disabilitato.
 
@@ -245,4 +245,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

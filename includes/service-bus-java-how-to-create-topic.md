@@ -20,9 +20,11 @@ Per creare uno spazio dei nomi:
 
 2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale fare clic su **Crea**. ![][0]
+3.  Nel riquadro inferiore del portale fare clic su **Crea**.
+    ![][0]
 
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][2]
+4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+    ![][2]
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
@@ -39,11 +41,14 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
 
 ### Per ottenere le credenziali di gestione dal portale
 
-1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![][0]
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili:
+    ![][0]
 
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato: ![][3]
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato:
+    ![][3]
 
-3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi. ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+3.  Fare clic su **Configura** per visualizzare i criteri di accesso condivisi per lo spazio dei nomi.
+	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Prendere nota del valore della chiave o copiarlo negli Appunti.
 
@@ -56,3 +61,5 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+
+

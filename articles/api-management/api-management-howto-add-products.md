@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come creare e pubblicare un prodotto in Gestione API di Azure
@@ -148,4 +148,4 @@ Per altre informazioni sull'uso dei prodotti, vedere il video seguente.
 [Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure]: api-management-howto-create-groups.md
 [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

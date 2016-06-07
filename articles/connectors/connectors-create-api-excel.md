@@ -1,10 +1,10 @@
 <properties
-pageTitle="Aggiungere l'API di Excel in PowerApps Enterprise | Microsoft Azure"
-description="Panoramica dell'API di Excel con i parametri dell'API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Aggiungere il connettore Excel in PowerApps Enterprise | Microsoft Azure"
+description="Panoramica del connettore Excel con i parametri dell'API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,20 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di Excel
+# Introduzione al connettore Excel
 
-Connettersi a Excel per inserire una riga, eliminare una riga e altro ancora. L'API di Excel può essere usata da:
+Connettersi a Excel per inserire una riga, eliminare una riga e altro ancora. Il connettore Excel può essere usato da:
 
 - PowerApps
 
 Con Excel, è possibile:
 
-- Aggiungere l'API di Excel a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Excel a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 ## Trigger e azioni
 Excel include le azioni seguenti. Non sono disponibili trigger.
@@ -36,7 +36,7 @@ Excel include le azioni seguenti. Non sono disponibili trigger.
 |--- | ---|
 |Nessuno | <ul><li>Recupera righe</li><li>Inserisci riga</li><li>Elimina riga</li><li>Recupera riga</li><li>Recupera tabelle</li><li>Aggiorna riga</li></ul>
 
-Tutte le API supportano dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Riferimento all'API REST di Swagger
 Si applica alla versione 1.0.
@@ -208,4 +208,4 @@ Si applica alla versione 1.0.
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

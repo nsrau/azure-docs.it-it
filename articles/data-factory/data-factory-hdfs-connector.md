@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Spostare dati da HDFS locale | Data factory di Azure" 
-	description="Informazioni su come spostare dati da un HDFS locale con Data factory di Azure." 
+	pageTitle="Spostare dati da HDFS locale | Azure Data Factory" 
+	description="Informazioni su come spostare dati da un HDFS locale con Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,22 +16,22 @@
 	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
-# Spostare dati da HDFS locale con Data factory di Azure
+# Spostare dati da HDFS locale con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un HDFS locale a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-Data factory supporta attualmente solo lo spostamento di dati da un HDFS ad altri archivi dati, ma non da altri archivi dati a un HDFS locale.
+Data Factory supporta attualmente solo lo spostamento di dati da un HDFS ad altri archivi dati, ma non da altri archivi dati a un HDFS locale.
 
 
 ## Abilitazione della connettività
-Il servizio Data factory supporta la connessione a un HDFS locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a HDFS anche se è ospitato in una macchina virtuale IaaS di Azure.
+Il servizio Data Factory supporta la connessione a un HDFS locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a HDFS anche se è ospitato in una macchina virtuale IaaS di Azure.
 
 Anche se è possibile installare il gateway nello stesso computer locale o macchina virtuale di Azure di HDFS, è consigliabile installarlo in un diverso computer o macchina virtuale IaaS di Azure per evitare conflitti di risorse e per ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer con un HDFS.
 
 ## Esempio: Copiare i dati da HDFS locale al BLOB di Azure
 
-Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
  
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -75,7 +75,7 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
 
 **Set di dati di input HDFS**: questo set di dati fa riferimento alla cartella HDFS DataTransfer/UnitTest/. La pipeline copia tutti i file di questa cartella nella destinazione.
 
-Impostando "external" su "true" e specificando i criteri externalData (facoltativo) si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData (facoltativo) si comunica al servizio Data Factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 	
 	{
 	    "name": "InputDataset",
@@ -210,7 +210,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | userName | Nome utente per l'autenticazione di Windows | Sì (per l'autenticazione di Windows)
 | password | Password per l'autenticazione di Windows | Sì (per l'autenticazione di Windows)
 | authenticationType | Windows o anonima. | Sì |
-| gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi a HDFS. | Sì |   
+| gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi a HDFS. | Sì |   
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un HDFS locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
@@ -264,8 +264,8 @@ folderPath | Percorso della cartella. Esempio: myfolder<br/><br/>Usare il caratt
 fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato avrà il formato seguente: <br/><br/>Data.<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*.log"<br/>Esempio 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Nota**: fileFilter è applicabile per un set di dati di input FileShare | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
-| format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà **type** in format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per i dettagli vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat) e [Specifica di JsonFormat](#specifying-jsonformat). | No 
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat** o **OrcFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. È necessario impostare la proprietà **type** nell'area format su uno di questi valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per informazioni dettagliate, vedere le sezioni [Specifica di TextFormat](#specifying-textformat), [Specifica di AvroFormat](#specifying-avroformat), [Specifica di JsonFormat](#specifying-jsonformat) e [Specifica di OrcFormat](#specifying-orcformat). | No 
 
 
 > [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
@@ -275,7 +275,7 @@ fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di f
 
 Come indicato sopra, partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata.
 
-Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
+Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
 
 #### Esempio 1.
 
@@ -325,4 +325,4 @@ In caso di attività di copia con origine di tipo **FileSystemSource**, nella se
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

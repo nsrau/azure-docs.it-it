@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/25/2016"
 	ms.author="antonba"/>
 
 # Come configurare connessioni VPN in Gestione API di Azure
@@ -82,4 +82,4 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

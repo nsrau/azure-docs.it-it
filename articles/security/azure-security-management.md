@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Gestione della sicurezza in Azure
@@ -32,7 +32,7 @@ Gli utenti malintenzionati provano spesso a ottenere l'accesso con privilegi med
 
 Anche se sono disponibili controlli rigorosi sugli account amministratore principali, gli account degli utenti a livelli inferiori possono essere usati per sfruttare i punti deboli della strategia di sicurezza. Anche una formazione insufficiente a livello di sicurezza può provocare violazioni tramite diffusione o esposizione accidentale delle informazioni sull'account.
 
-Quando la workstation utente viene usata anche per attività amministrative, è possibile che venga compromessa in molti punti diversi, ad esempio quando un utente esplora il Web, usa strumenti di terze parti oppure open source o apre un documento dannoso contenente un trojan.
+Quando la workstation utente viene usata anche per attività amministrative, è possibile che venga compromessa in molti punti diversi, ad esempio quando un utente esplora il Web, usa strumenti open source o di terze parti oppure apre un documento dannoso contenente un trojan.
 
 In genere, la maggior parte degli attacchi specifici che generano violazioni dei dati può essere ricondotta a exploit del browser, plug-in (ad esempio Flash, PDF, Java) e spear phishing (posta elettronica) nei computer desktop. È possibile che questi computer abbiano autorizzazioni a livello amministrativo o di servizio per l'accesso a server attivi o a dispositivi di rete per operazioni in caso di uso per la distribuzione o la gestione di altre risorse.
 
@@ -247,4 +247,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

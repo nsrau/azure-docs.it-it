@@ -20,8 +20,8 @@
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell per macchine virtuali ARM](backup-azure-vms-automation.md)
-- [PowerShell per macchine virtuali classiche](backup-azure-vms-classic-automation.md)
+- [ARM](backup-azure-vms-automation.md)
+- [Classico](backup-azure-vms-classic-automation.md)
 
 Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure.
 
@@ -342,4 +342,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se si vogliono aggiungere funzionalità per la creazione di grafici sull'output del report, leggere il post sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) nel blog TechNet
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

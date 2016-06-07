@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
 Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
 
-- Parametro di query `moreLikeThis` nell'API di [ricerca documenti](#SearchDocs). Trova altri documenti rilevanti per un altro documento specifico.
+- `moreLikeThis` parametro query nell'API di [ricerca documenti](#SearchDocs). Trova altri documenti rilevanti per un altro documento specifico.
 
 Alcune parti aggiuntive dell'API REST `2015-02-28-Preview` sono documentate separatamente. incluse le seguenti:
 
@@ -1056,33 +1056,110 @@ Il corpo della richiesta contiene uno o più documenti da indicizzare. I documen
 
 **Risposta**
 
-Il codice di stato 200 OK viene restituito per una risposta con esito positivo, ovvero se tutti gli elementi sono stati indicizzati correttamente, come indicato dal campo 'status' impostato su true per tutti gli elementi:
+Il codice di stato 200 (OK) viene restituito per una risposta con esito positivo, a indicare che tutti gli elementi sono stati indicizzati correttamente. In questo caso, la proprietà `status` viene impostata su true per tutti gli elementi e la proprietà `statusCode` viene impostata su 201 per i documenti appena caricati o su 200 per i documenti uniti o eliminati:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-Il codice di stato 207 viene restituito quando almeno un elemento non è stato indicizzato correttamente, come indicato dal campo 'status' impostato su false per gli elementi che non sono stati indicizzati:
+Il codice di stato 207 (Multi-Status) viene restituito quando almeno un elemento non è stato indicizzato correttamente. Gli elementi non indicizzati hanno il campo `status` impostato su false. Le proprietà `errorMessage` e `statusCode` indicheranno il motivo dell'errore di indicizzazione:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-La proprietà `errorMessage` indicherà il motivo dell'errore di indicizzazione, se possibile.
+La tabella seguente descrive i diversi codici di stato di ogni documento che possono essere restituiti nella risposta. Si noti che alcuni indicano problemi con la richiesta, mentre altri indicano condizioni di errore temporaneo. Per queste ultime è necessario riprovare dopo un breve intervallo di tempo.
 
-**Nota**: se il codice del client riceve spesso una risposta 207, il problema può dipendere dal carico eccessivo del sistema. Per una conferma, controllare la proprietà `errorMessage`. Se si verifica questo problema, è consigliabile ***limitare le richieste di indicizzazione***. Se non si riduce il traffico di indicizzazione, è possibile che il sistema inizi a rifiutare tutte le richieste con errori 503.
+<table style="font-size:12">
+    <tr>
+		<th>Codice di stato</th>
+		<th>Significato</th>
+		<th>Non irreversibile</th>
+		<th>Note</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>Il documento è stato modificato o eliminato correttamente.</td>
+		<td>n/d</td>
+		<td>Le operazioni di eliminazione sono <a href="https://en.wikipedia.org/wiki/Idempotence">idempotenti</a>. In altre parole, anche se non esiste una chiave del documento nell'indice, il tentativo di eseguire un'operazione di eliminazione con quella chiave produrrà un codice di stato 200.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>Il documento è stato creato correttamente.</td>
+		<td>n/d</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>Si è verificato un errore nel documento che ne ha impedito l'indicizzazione.</td>
+		<td>No</td>
+		<td>Il messaggio di errore nella risposta indicherà il problema del documento.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>Non è stato possibile unire il documento perché la chiave specificata non esiste nell'indice.</td>
+		<td>No</td>
+		<td>Questo errore non si verifica per i caricamenti perché questi creano nuovi documenti e non si verifica per le eliminazioni perché queste sono <a href="https://en.wikipedia.org/wiki/Idempotence">idempotenti</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>È stato rilevato un conflitto di versione nel tentativo di indicizzare un documento.</td>
+		<td>Sì</td>
+		<td>Ciò può verificarsi quando si prova a indicizzare lo stesso documento più di una volta contemporaneamente.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>L'indice è temporaneamente non disponibile perché è stato aggiornato con il flag 'allowIndexDowntime' impostato su 'true'.</td>
+		<td>Sì</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>Il servizio di ricerca è temporaneamente non disponibile, probabilmente a causa di un sovraccarico.</td>
+		<td>Sì</td>
+		<td>In questo caso, il codice deve attendere prima di riprovare o si rischia di prolungare la non disponibilità del servizio.</td>
+	</tr>
+</table> 
+
+**Nota**: se il codice del client riceve spesso una risposta 207, il problema può dipendere dal carico eccessivo del sistema. Per una conferma verificare se la proprietà `statusCode` contiene 503. Se si verifica questo problema, è consigliabile ***limitare le richieste di indicizzazione***. Se non si riduce il traffico di indicizzazione, è possibile che il sistema inizi a rifiutare tutte le richieste con errori 503.
 
 Il codice di stato 429 indica che è stata superata la quota del numero di documenti per indice. È necessario creare un nuovo indice o effettuare l'aggiornamento per ottenere limiti di capacità più elevati.
 
@@ -1191,7 +1268,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `skip` anziché `$skip`.
 
-`$top=#` (facoltativo): il numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
+`$top=#` (facoltativo): numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `top` invece di `$top`.
 
@@ -1221,10 +1298,10 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 - `interval` (intervallo di tipo Integer maggiore di 0 per i numeri o `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` per i valori di tipo data/ora)
   - Esempio: `facet=baseRate,interval:100` genera bucket in base agli intervalli di tariffe di base con dimensioni pari a 100. Se le tariffe di base sono tutte comprese tra € 60 e € 600, saranno presenti bucket per 0-100, 100-200, 200-300, 300-400, 400-500 e 500-600.
   - Esempio: `facet=lastRenovationDate,interval:year` genera un bucket per ogni anno in cui gli hotel sono stati rinnovati.
-- `timeoffset` ([+-]hh:mm, [+-]hhmm o [+-]hh) `timeoffset` è facoltativo e può essere combinato solo con l'opzione `interval` e solo se applicato a un campo di tipo `Edm.DateTimeOffset`. Il valore specifica la differenza dell'ora UTC di cui tenere conto nell'impostazione dei limiti di ora.
-  - Ad esempio, `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa il limite di giorno che inizia alle 01.00.00 UTC (mezzanotte nel fuso orario di destinazione)
+- `timeoffset` ([+-]hh:mm, [+-]hhmm o [+-]hh) `timeoffset` è facoltativo. Può essere combinato solo con l'opzione `interval` e solo se applicato a un campo di tipo `Edm.DateTimeOffset`. Il valore specifica la differenza dell'ora UTC di cui tenere conto nell'impostazione dei limiti di ora.
+  - Ad esempio, `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa il limite del giorno che inizia alle 01:00:00 UTC (mezzanotte nel fuso orario di destinazione)
 - **Nota**: `count` e `sort` possono essere combinati nella stessa specifica di facet, ma non possono essere combinati con `interval` o `values` e inoltre `interval` e `values` non possono essere combinati tra loro.
-- **Nota**: se `timeoffset` non è specificato, i facet di intervallo per data e ora vengono calcolati in base all'ora UTC. Ad esempio, per `facet=lastRenovationDate,interval:day` il limite del giorno inizia alle 00.00.00 UTC. 
+- **Nota**: se `timeoffset` non è specificato, i facet di intervallo per data e ora vengono calcolati in base all'ora UTC. Ad esempio, per `facet=lastRenovationDate,interval:day` il limite del giorno inizia alle 00:00:00 UTC. 
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `facets` invece di `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
 
@@ -1244,9 +1321,13 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `scoringProfile=[string]` (facoltativo): specifica il nome di un profilo di punteggio da usare per valutare i punteggi di corrispondenza per i documenti trovati, in modo da ordinare i risultati.
 
-`scoringParameter=[string]` (zero o più): indica il valore per ogni parametro definito in una funzione di assegnazione di punteggio (ad esempio, `referencePointParameter`) usando il formato nome:valore. Ad esempio, se il profilo di punteggio definisce una funzione con un parametro denominato "mylocation", l'opzione della stringa di query sarà &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zero o più): indica i valori per ogni parametro definito in una funzione di assegnazione di punteggio, ad esempio `referencePointParameter`, con il formato `name-value1,value2,...`.
 
-> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` anziché `scoringParameter`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è una coppia nome:valore distinta.
+- Se ad esempio il profilo di punteggio definisce una funzione con un parametro denominato "mylocation", l'opzione della stringa di query sarà `&scoringParameter=mylocation--122.2,44.8`. Il primo trattino separa il nome dall'elenco di valori, mentre il secondo fa parte del primo valore, in questo esempio la longitudine.
+- Per i parametri di assegnazione dei punteggi, ad esempio per tag boosting che può contenere virgole, è possibile eseguire l'escape dei valori nell'elenco usando virgolette singole. Se i valori stessi contengono virgolette singole è possibile eseguire l'escape raddoppiandole.
+  - Se ad esempio è presente un parametro di tag boosting denominato "mytag" e si vuole eseguire il boosting sui valori di tag "Hello, O'Brien" e "Smith", l'opzione della stringa di query sarà `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Si noti che le virgolette sono necessarie solo per i valori che contengono virgole.
+
+> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` anziché `scoringParameter`. Viene specificato come matrice di stringhe JSON, dove ogni stringa è una coppia `name-values` separata.
 
 `minimumCoverage` (facoltativo, valore predefinito pari a 100): un numero compreso tra 0 e 100 che indica la percentuale di indice che deve essere inclusa nella query di ricerca in modo che l'esecuzione di quest'ultima venga segnalata come corretta. Per impostazione predefinita, deve essere disponibile l'intero indice. In caso contrario, `Search` restituirà il codice di stato HTTP 503. Se si imposta `minimumCoverage` e `Search` ha esito positivo, verrà restituito HTTP 200 che include un valore `@search.coverage` nella risposta; quest'ultimo indica la percentuale dell'indice che è stata inclusa nella query.
 
@@ -1492,13 +1573,13 @@ Si noti che è possibile eseguire query su un solo indice alla volta. Non creare
 13) Eseguire una ricerca nell'indice presupponendo che sia disponibile un profilo di punteggio denominato "geo" con due funzioni di assegnazione di punteggio in base alla distanza, che definiscono rispettivamente i parametri "currentLocation" e "lastLocation":
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Trovare documenti nell'indice usando una [sintassi di query semplice](https://msdn.microsoft.com/library/dn798920.aspx). Questa query restituisce gli hotel i cui campi disponibili per la ricerca contengono i termini "comfort" e "location" ma non "motel":
@@ -1639,7 +1720,7 @@ Un'operazione **Suggestions** viene generata come richiesta GET.
 
 Quando si usa HTTP GET per chiamare l'API **Suggestions**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni generano tuttavia query di dimensioni molto grandi, specialmente le espressioni di filtro OData. Per queste applicazioni è preferibile usare HTTP POST perché consente filtri di maggiori dimensioni rispetto a GET. Con POST il fattore limitante è il numero di clausole in un filtro, non la dimensione della stringa di filtro non elaborata, poiché il limite delle dimensioni della richiesta per POST è di circa 16 MB.
 
-> [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri, vedere le pagine relative alla [Sintassi delle espressioni di OData](https://msdn.microsoft.com/library/dn798921.aspx).
+> [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri vedere [Sintassi delle espressioni di OData](https://msdn.microsoft.com/library/dn798921.aspx).
 
 **Richiesta**
 
@@ -1772,4 +1853,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

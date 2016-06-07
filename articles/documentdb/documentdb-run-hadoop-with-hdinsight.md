@@ -76,7 +76,8 @@ Quando si effettua il provisioning di un cluster HDInsight, si specifica un acco
 
 1. Accedere al [portale di Azure classico][azure-classic-portal].
 
-2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.![Portale di Azure classico dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-storageaccount-quickcreate]
+2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.
+	![Portale di Azure classico dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-storageaccount-quickcreate]
 
 3. Immettere l'**URL**, selezionare i valori **PERCORSO** e **REPLICA**, quindi fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. I gruppi di affinità non sono supportati.
 	
@@ -221,7 +222,7 @@ Questa esercitazione usa l'Azione script dal portale di Azure classico per perso
     <p>In primo luogo, creare una tabella Hive dalla raccolta DocumentDB. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di includere il parametro DocumentDB.query facoltativo per ridurre i documenti semplicemente a _ts e _rid. </p>
 
     > [AZURE.NOTE] **La denominazione DocumentDB.inputCollections non è stata un errore.** Sì, si consente l'aggiunta di più raccolte come input: </br> 
-    '*DocumentDB.inputCollections*' = '*<Nome raccolta di input di DocumentDB 1 >*,*<Nome raccolta di input di DocumentDB 2> *' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.
+    '*DocumentDB.inputCollections*' = '*\<Nome raccolta di input di DocumentDB 1\>*,*\<Nome raccolta di input di DocumentDB 2\>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -238,7 +239,7 @@ Questa esercitazione usa l'Azione script dal portale di Azure classico per perso
 3.  Successivamente, si passa alla creazione di una tabella Hive per la raccolta di output. Le proprietà del documento di output saranno mese, giorno, ora, minuti e numero totale di occorrenze.
 
 	> [AZURE.NOTE] **Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** Sì, si consente l'aggiunta di più raccolte come output: </br>
-	'*DocumentDB.outputCollections*' = '*<Nome raccolta di output di DocumentDB 1>*,*<Nome raccolta di output di DocumentDB 2>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </br></br>
+	'*DocumentDB.outputCollections*' = '*\<Nome raccolta di output di DocumentDB 1\>*,*\<Nome raccolta di output di DocumentDB 2\>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </br></br>
 	Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -317,7 +318,8 @@ Questa esercitazione usa l'Azione script dal portale di Azure classico per perso
 2. <p>Si inizia a costruire la stringa di query. Verrà scritta una query Pig che accetta i timestamp generati dal sistema di tutti i documenti (_ts) e ID univoci (_rid) da una raccolta di DocumentDB, calcola tutti i documenti in base al minuto e quindi archivia i risultati in una nuova raccolta di DocumentDB.</p>
     <p>In primo luogo, caricare i documenti da DocumentDB in HDInsight. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di aggiungere una query di DocumentDB al parametro di query DocumentDB facoltativo per ridurre i documenti semplicemente a _ts e _rid.</p>
 
-    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come input: </br> '*<Nome raccolta di input di DocumentDB 1>*,*<Nome raccolta di input di DocumentDB 2>*'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </b>
+    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come input: </br>
+    '*\<Nome raccolta di input di DocumentDB 1\>*,*\<Nome raccolta di input di DocumentDB 2\>*'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </b>
 
 	Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
@@ -338,7 +340,7 @@ Questa esercitazione usa l'Azione script dal portale di Azure classico per perso
 4. Infine, si archivieranno i risultati nella nuova raccolta di output.
 
     > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come output:</br>
-    ' < DocumentDB Output insieme nome 1 >, < nome della raccolta di DocumentDB Output > 2'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola.</br> 
+    '\<Nome raccolta di output di DocumentDB 1\>, \<Nome raccolta di output di DocumentDB 2\>'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola.</br> 
     Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Store output data to DocumentDB.
@@ -486,3 +488,4 @@ Per altre informazioni, vedere gli articoli seguenti:
  
 
 <!---HONumber=AcomDC_0518_2016-->
+

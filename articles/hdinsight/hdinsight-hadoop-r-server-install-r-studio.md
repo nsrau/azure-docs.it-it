@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 ## Prerequisiti
 
-* Un cluster Azure HDInsight con R Server Per istruzioni in merito vedere l'articolo di [introduzione a R Server in cluster HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Un cluster Azure HDInsight con R Server Per istruzioni, vedere l'articolo di [introduzione all'uso di R Server in cluster HDInsight](hdinsight-hadoop-r-server-get-started.md).
 * Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 
 
@@ -36,7 +36,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 1. Identificare il nodo perimetrale del cluster. Per un cluster HDInsight con R Server, di seguito è indicata la convenzione di denominazione per il nodo head e il nodo perimetrale.
 
 	* Nodo head: `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Nodo perimetrale: `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Nodo perimetrale: `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. SSH nel nodo perimetrale del cluster tramite il modello di denominazione precedente.
  
@@ -75,7 +75,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 	* Tramite [Cygwin](http://www.redhat.com/services/custom/cygwin/) aprire in un client Linux o Windows una sessione terminal e usare il comando seguente.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Sostituire **NOME UTENTE** con un utente SSH per il cluster HDInsight e sostituire **NOME CLUSTER** con il nome del cluster HDInsight
 
@@ -124,4 +124,4 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

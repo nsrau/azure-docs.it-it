@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="juliako"/>
 
 #Panoramica di Live Streaming con Servizi multimediali di Azure
@@ -116,11 +116,13 @@ Un canale supporta fino a tre programmi in esecuzione simultanea, in modo da pot
 
 ##Implicazioni relative alla fatturazione
 
-Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API.
+Un canale avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API.
 
 La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale di Azure classico. È possibile che gli stati visualizzati nell'API risultino leggermente diversi da quelli dell'interfaccia del portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure classico, viene attivata la fatturazione.
 
-Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure classico. È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live. La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
+Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure classico. L'utente ad è responsabile dell'interruzione dei canali al termine dell'utilizzo del canale. La mancata interruzione del canale comporta infatti il proseguimento della fatturazione.
+
+>[AZURE.NOTE]Quando si usano i canali Standard, Servizi multimediali di Azure arresterà automaticamente eventuali canali con stato ancora "In esecuzione" 12 ore dopo la perdita del feed di input in assenza di programmi in esecuzione. Verrà tuttavia addebitato comunque il tempo in cui il canale è rimasto in stato "In esecuzione".
 
 ###<a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione 
 
@@ -164,4 +166,4 @@ Arrestato|Arrestato|No
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

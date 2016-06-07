@@ -13,18 +13,18 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
-# Procedura dettagliata relativa al connettore Generic SQL
-Questo argomento è una guida dettagliata. Verrà creato un semplice database HR di esempio che sarà utilizzato per importare alcuni utenti con la relativa appartenenza ai gruppi.
+# Procedura dettagliata per la creazione del connettore Generic SQL
+Questo argomento è una guida dettagliata. Verrà creato un semplice database delle risorse umane di esempio che sarà utilizzato per importare alcuni utenti con la relativa appartenenza ai gruppi.
 
 ## Preparare il database di esempio
 In un server che esegue SQL Server avviare lo script SQL disponibile nell’[Appendice A](#appendix-a). Verrà creato un database di esempio con il nome GSQLDEMO. Il modello a oggetti per il database creato sarà simile al seguente:
 
 ![Modello a oggetti](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\objectmodel.png)
 
-Creare anche un utente da usare per connettersi al database. In questa procedura dettagliata l’utente è chiamato FABRIKAM\\SQLUser e si trova nel dominio.
+Creare anche un utente da usare per connettersi al database. In questa procedura dettagliata l'utente si chiama FABRIKAM\\SQLUser e si trova nel dominio.
 
 ## Creare il file di connessione ODBC
 Il connettore Generic SQL usa ODBC per connettersi al server remoto. È necessario innanzitutto creare un file con le informazioni di connessione ODBC.
@@ -34,8 +34,8 @@ Il connettore Generic SQL usa ODBC per connettersi al server remoto. È necessar
 3. Il driver predefinito è adeguato allo scopo, perciò selezionarlo e fare clic su **Avanti>**. ![ODBC2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc2.png)
 4. Assegnare un nome al file, ad esempio **GenericSQL**. ![ODBC3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc3.png)
 5. Fare clic su **Fine**. ![ODBC4](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc4.png)
-6. È ora necessario configurare la connessione. Assegnare una descrizione efficace all’origine dati e specificare il nome del server che esegue SQL Server. ![ODBC5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc5.png)
-7. Selezionare la modalità di autenticazione con SQL. In questo caso, si userà Autenticazione di Windows. ![ODBC6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc6.png)
+6. È ora necessario configurare la connessione. Assegnare una descrizione appropriata all’origine dati e specificare il nome del server che esegue SQL Server. ![ODBC5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc5.png)
+7. Selezionare la modalità di autenticazione con SQL. In questo caso si userà Autenticazione di Windows. ![ODBC6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc6.png)
 8. Specificare il nome del database di esempio, **GSQLDEMO**. ![ODBC7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc7.png)
 9. In questa schermata mantenere tutte le selezioni predefinite. Fare clic su **Fine**.![ODBC8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc8.png)
 10. Per verificare che tutto funzioni come previsto, fare clic su **Verifica origine dati**. ![ODBC9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc9.png)
@@ -51,7 +51,7 @@ Il file necessario è ora disponibile e si può iniziare a creare il connettore.
 3. In questa procedura dettagliata si considera un caso semplificato in cui esistono due tipi di oggetti, **User** e **Group**. ![Connector3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector3.png)
 4. Per trovare gli attributi si desidera che il connettore li rilevi esaminando la tabella stessa. Poiché **Users** è una parola riservata in SQL, occorre specificarla fra parentesi quadre [ ]. ![Connector4](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector4.png)
 5. È ora necessario definire l'attributo di ancoraggio e l'attributo DN. Per **Users** si userà la combinazione dei due attributi Username ed EmployeeID. Per **Group** si userà GroupName (non molto plausibile in un caso reale, ma adeguato per questa procedura dettagliata). ![Connector5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector5.png)
-6. Non tutti i tipi di attributo possono essere rilevati in un database SQL. In particolare, non può essere rilevato il tipo di attributo di riferimento. Per il tipo di oggetto Group è necessario cambiare OwnerID e MemberID in riferimento. ![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
+6. Non tutti i tipi di attributo possono essere rilevati in un database SQL. In particolare, non può essere rilevato il tipo di attributo di riferimento. Per il tipo di oggetto Group è necessario cambiare OwnerID e MemberID a cui fare riferimento. ![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Per gli attributi che sono stati selezionati come attributi di riferimento al passaggio precedente ora è richiesto il tipo di oggetto di riferimento. In questo caso si tratta del tipo di oggetto User. ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. Nella pagina Parametri globali selezionare **Watermark** come strategia differenziale. Digitare inoltre il formato di data/ora **aaaa-MM-gg HH:mm:ss**. ![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
 9. Nella pagina **Configura partizioni** selezionare entrambi i tipi di oggetto. ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
@@ -63,7 +63,7 @@ Il file necessario è ora disponibile e si può iniziare a creare il connettore.
 2. Selezionare il tipo **Importazione completa (solo stage)**. ![Runprofile2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile2.png)
 3. Selezionare la partizione **OBJECT=User**. ![Runprofile3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile3.png)
 4. Selezionare **Tabella** e digitare **[USERS]**. Scorrere fino alla sezione del tipo di oggetto multivalore e immettere i dati riportati di seguito. Selezionare **Fine** per salvare il passaggio della procedura. ![Runprofile4a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4a.png) ![Runprofile4b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4b.png)  
-5. Selezionare **Nuovo passaggio**. Questa volta selezionare **OBJECT=Group**. Nell'ultima pagina utilizzare la configurazione riportata di seguito. Fare clic su **Fine**. ![Runprofile5a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png)![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5b.png)  
+5. Selezionare **Nuovo passaggio**. Questa volta selezionare **OBJECT=Group**. Nell'ultima pagina usare la configurazione riportata di seguito. Fare clic su **Fine**. ![Runprofile5a](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png)![Runprofile5b](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5b.png)  
 6. Facoltativo: se si vuole, è possibile configurare profili di esecuzione aggiuntivi. In questa procedura dettagliata si usa solo l'importazione completa.
 7. Fare clic su **OK** per terminare la modifica dei profili di esecuzione.
 
@@ -173,4 +173,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

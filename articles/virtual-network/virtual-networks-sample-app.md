@@ -34,7 +34,7 @@ Questa semplice istruzione PowerShell può essere eseguita su qualsiasi macchina
 **Nota:** se si usano gli script seguenti, l'aggiunta di questa regola del firewall corrisponde alla prima istruzione.
 
 ## IIS01 - Script di installazione dell'applicazione Web
-Questo script consentirà di eseguire queste operazioni:
+Questo script consentirà di:
 
 1.	Aprire IMCPv4 (Ping) in Windows Firewall nel server locale per eseguire più facilmente il testing.
 2.	Installare IIS e .Net Framework v4.5.
@@ -140,7 +140,7 @@ Lo script di PowerShell deve essere eseguito localmente mentre viene usata una s
 
 
 ## AppVM01 - Script di installazione del file server
-Imposta il back-end per questa semplice applicazione. Questo script consentirà di eseguire queste operazioni:
+Imposta il back-end per questa semplice applicazione. Questo script consentirà di:
 
 1.	Aprire IMCPv4 (Ping) nel firewall per eseguire più facilmente il testing.
 2.	Creare una nuova directory.
@@ -188,4 +188,4 @@ In questa applicazione di esempio non è incluso alcuno script per la configuraz
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0525_2016-->

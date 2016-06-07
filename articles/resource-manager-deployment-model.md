@@ -109,7 +109,7 @@ Questi sono i componenti e le relative relazioni per Gestione servizi di Azure.
 
 ## Vantaggi dell'utilizzo di Gestione risorse e di gruppi di risorse
 
-Gestione risorse ha aggiunto il concetto di gruppo di risorse. Tutte le risorse create tramite Gestione risorse esiste all'interno di un gruppo di risorse. Il modello di distribuzione di Gestione risorse offre diversi vantaggi:
+Gestione risorse ha aggiunto il concetto di gruppo di risorse. Tutte le risorse create tramite Gestione risorse esiste all'interno di un gruppo di risorse. Il modello di distribuzione di Resource Manager offre diversi vantaggi:
 
 - È possibile distribuire, gestire e monitorare tutti i servizi per la soluzione come un gruppo, anziché gestire singolarmente questi servizi.
 - è possibile distribuire l'applicazione in tutto il ciclo di vita dell'app ripetutamente e avere la certezza che le risorse vengano distribuite in uno stato coerente.
@@ -175,4 +175,4 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 - Per informazioni sulla struttura dei modelli di Resource Manager vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

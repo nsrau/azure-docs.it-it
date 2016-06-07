@@ -869,4 +869,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->

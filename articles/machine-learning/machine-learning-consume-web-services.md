@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/21/2016"
+	ms.date="05/22/2016"
 	ms.author="garye" />
 
 
@@ -67,8 +67,8 @@ Esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o B
 
 1.	La **chiave API** del servizio, disponibile nel dashboard dei servizi
 2.	L'**URI della richiesta** del servizio, disponibile nella pagina della Guida dell'API del servizio scelto
-3.	Le **intestazioni ** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
-4.	Le **intestazioni ** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+3.	Le **intestazioni** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+4.	Le **intestazioni** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
 
 Nei due esempi seguenti, il linguaggio c# viene utilizzato per illustrare che il codice necessario e la piattaforma di destinazione è un desktop di Windows 8.
 
@@ -685,4 +685,4 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

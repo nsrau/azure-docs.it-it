@@ -107,4 +107,4 @@ Docker Machine consente di eseguire facilmente il provisioning di host Docker in
 
 Per sviluppare applicazioni .NET Core con Visual Studio, vedere gli [Strumenti Docker per Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

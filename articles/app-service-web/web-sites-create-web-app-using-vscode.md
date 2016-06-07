@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Creare un'app Web ASP.NET 5 in Visual Studio Code
 
@@ -127,7 +127,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 2. Aprire un browser e passare all'URL seguente.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	Verrà visualizzata la pagina predefinita dell'app Web, come illustrato di seguito.
 
@@ -262,4 +262,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo [Vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

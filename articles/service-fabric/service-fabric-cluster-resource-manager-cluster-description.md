@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Descrizione di un cluster di Service Fabric
@@ -157,6 +157,8 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 I vincoli di posizionamento, oltre a molte altre proprietà che verranno illustrate, vengono specificati per ogni istanza diversa del servizio. Gli aggiornamenti sostituiscono (sovrascrivono) sempre quanto specificato in precedenza.
 
+È anche importante notare che a questo punto le proprietà in un nodo vengono definite tramite la definizione del cluster e quindi non possono essere aggiornate senza aggiornare il cluster.
+
 ## Capacità
 Uno dei processi più importanti di un agente di orchestrazione consiste nel semplificare la gestione dell'utilizzo delle risorse del cluster. Per eseguire in modo efficiente i servizi, occorre evitare una serie di nodi attivi, con conseguente conflitto per le risorse e prestazioni ridotte, mentre altri nodi sono inattivi, con conseguente spreco di risorse. Il bilanciamento verrà illustrato più avanti, ma occorre prima di tutto assicurarsi che i nodi non esauriscano le risorse.
 
@@ -202,13 +204,14 @@ ClusterManifest.xml
 
 È anche possibile che il carico di un servizio cambi in modo dinamico. In questo caso è possibile che la posizione in cui si trova una replica o un'istanza non risulti più valida perché l'utilizzo combinato di tutte le repliche e le istanze del nodo supera la capacità del nodo. Lo scenario che consente di cambiare dinamicamente il carico verrà illustrato più avanti, ma per quanto riguarda la capacità, viene gestita nello stesso modo. Le funzionalità di gestione delle risorse di Service Fabric vengono attivate automaticamente e riportano il nodo sotto la soglia massima di capacità, spostando una o più repliche o istanze del nodo in nodo diversi. Durante questa operazione, Resource Manager prova a ridurre al minimo il costo di tutti gli spostamenti. Il concetto di costo verrà illustrato più avanti.
 
-##Capacità del cluster
+## Capacità del cluster
 Se si vuole impedire che complessivamente il cluster sia troppo pieno, con il carico dinamico non sono effettivamente disponibili molte alternative. Poiché i servizi possono presentare picchi di carico indipendentemente dalle azioni effettuate da Resource Manager, è possibile che il cluster che attualmente non include molte risorse risulti insufficiente in seguito. Sono però disponibili alcuni controlli specifici che consentono di evitare errori di base. È prima di tutto possibile impedire la creazione di nuovi carichi di lavoro che riempirebbero il cluster.
 
 Si supponga di creare un semplice servizio senza stato con alcuni carichi associati. La creazione di report sul carico predefinito e dinamico verrà illustrata in seguito. Per questo servizio specifico, si supponga che vengano ritenute rilevanti alcune risorse, ad esempio DiskSpace, e che per impostazione predefinita vengano utilizzate 5 unità di DiskSpace per ogni istanza del servizio. Si vogliono creare 3 istanze del servizio. L'installazione è riuscita. È quindi necessario che 15 unità di DiskSpace siano presenti nel cluster per consentire semplicemente di creare queste istanze del servizio. Service Fabric calcola continuamente la capacità complessiva e l'utilizzo di ogni metrica, quindi è possibile prendere facilmente una decisione e rifiutare la chiamata di creazione del servizio se lo spazio è insufficiente.
 
 Si noti che, poiché il requisito prevede solo la disponibilità di 15 unità, è possibile che lo spazio venga allocato in molti modi diversi. È ad esempio possibile che in 15 nodi diversi rimanga solo un'unità di capacità o che rimangano tre unità di capacità su 5 nodi diversi. Se la capacità è insufficiente su tre nodi diversi, Service Fabric riorganizzerà i servizi già presenti nel cluster per liberare spazio nei tre nodi necessari. Questa riorganizzazione è quasi sempre possibile, a meno che il cluster nel complesso non sia quasi interamente pieno.
 
+## Capacità in buffering
 Per semplificare la gestione della capacità complessiva del cluster, è stato anche aggiungo il concetto di buffer parzialmente riservato per la capacità specificata in ogni nodo. Questa opzione è facoltativa, ma consente agli utenti di riservare una parte della capacità complessiva del nodo, in modo che venga usata solo per il posizionamento dei servizi durante gli aggiornamenti e gli errori, ovvero nei casi in cui la capacità del cluster risulta ridotta per altri motivi. Attualmente il buffer viene specificato a livello globale per ogni metrica per tutti i nodi tramite ClusterManifest. Il valore scelto per la capacità riservata sarà una funzione delle risorse dei servizi che presentano più vincoli, oltre al numero di domini di errore e di aggiornamento disponibili nel cluster. In genere, un numero elevato di domini di errore e di aggiornamento consente di scegliere un numero ridotto per la capacità in buffer, perché ci si aspetta che una quantità minore del cluster risulti non disponibile durante aggiornamenti ed errori. Si noti che specificare la percentuale del buffer risulta utile solo se è stata specificata anche la capacità del nodo per una metrica.
 
 ClusterManifest.xml
@@ -249,9 +252,9 @@ LoadMetricInformation     :
 ```
 
 ## Passaggi successivi
-- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, leggere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
-- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, leggere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Partire dall'inizio e leggere l'[Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, vedere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
+- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Partire dall'inizio e vedere l'[introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
@@ -262,4 +265,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

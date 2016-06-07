@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -57,9 +57,9 @@ Modificare entrambi i file **build.gradle**:
 
 2. Aggiungere il codice seguente al livello *Module app* del file **build.gradle** all'interno del tag *dependencies*:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	La versione più recente è la 3.1. Le versioni supportate sono elencate [qui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	La versione più recente è la 3.1.0. Le versioni supportate sono elencate [qui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Abilitare l'autorizzazione per Internet
 Per accedere ad Azure, è necessario abilitare l'autorizzazione INTERNET per l'app. Se non è già abilitata, aggiungere la riga di codice seguente al file **AndroidManifest.xml**:
@@ -95,24 +95,24 @@ Se la propria tabella di SQL Azure include più colonne, aggiungere i campi corr
 
 Se ad esempio include una colonna Priority di tipo Integer, è consigliabile aggiungere questo campo insieme ai relativi metodi getter e setter:
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end .NET) o [Procedura: Definire le tabelle con uno schema dinamico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end Node.js). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure].
 
@@ -121,8 +121,8 @@ Per informazioni su come creare altre tabelle nel back-end delle app per disposi
 Il codice seguente crea l'oggetto **MobileServiceClient** usato per accedere al back-end dell'app per dispositivi mobili. Il codice viene inserito nel metodo `onCreate` della classe **Activity** specificata nel file *AndroidManifest.xml* come azione **MAIN** e categoria **LAUNCHER**. Nel codice dell'esercitazione introduttiva viene inserito nel file **ToDoActivity.java**.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 In questo codice sostituire `MobileAppUrl` con l'URL del back-end dell'app per dispositivi mobili, che si trova nel pannello per il back-end dell'app per dispositivi mobili del [portale di Azure](https://portal.azure.com/). Per consentire la compilazione di questa riga di codice, è necessario aggiungere anche l'istruzione **import** seguente:
 
@@ -132,7 +132,7 @@ In questo codice sostituire `MobileAppUrl` con l'URL del back-end dell'app per d
 
 Il modo più semplice per eseguire query sui dati o modificarli nel back-end consiste nell'usare il *modello di programmazione tipizzato*, dal momento che Java è un linguaggio fortemente tipizzato. Più avanti verrà illustrato il modello *non tipizzato*. Questo modello garantisce la serializzazione e la deserializzazione automatica di JSON tramite la libreria [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) durante l'invio di dati tra oggetti e tabelle client nel back-end di SQL Azure. La gestione è affidata al framework, quindi lo sviluppatore non deve eseguire altre operazioni.
 
-Per accedere a una tabella, creare prima di tutto un oggetto [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) chiamando il metodo **getTable** su [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Questo metodo presenta due overload:
+Per accedere a una tabella, creare prima di tutto un oggetto [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) chiamando il metodo **getTable** su [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Questo metodo presenta due overload:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -141,14 +141,14 @@ Per accedere a una tabella, creare prima di tutto un oggetto [MobileServiceTable
 
 Nel codice seguente *mClient* è un riferimento all'oggetto MobileServiceClient.
 
-Il [primo overload](http://go.microsoft.com/fwlink/p/?LinkId=296839) viene usato quando il nome della classe e il nome della tabella sono identici ed è quello usato nell'esercitazione introduttiva:
+Il [primo overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) viene usato quando il nome della classe e il nome della tabella sono identici ed è quello usato nella guida introduttiva:
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-Il [secondo overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) viene usato quando il nome della tabella è diverso da quello della classe: il primo parametro è il nome della tabella.
+Il [secondo overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) viene usato quando il nome della tabella è diverso da quello della classe: il primo parametro è il nome della tabella.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>Procedura: Associare dati all'interfaccia utente
 
@@ -158,7 +158,7 @@ Il data binding riguarda tre componenti:
 - Layout della schermata
 - Adattatore che collega i due componenti.
 
-Nel codice di esempio i dati vengono restituiti dalla tabella di app per dispositivi mobili di SQL Azure *ToDoItem* a una matrice. Si tratta di un modello molto comune per le applicazioni dati: le query su database restituiscono spesso una raccolta di righe che il client riceve in un elenco o una matrice. In questo esempio la matrice è l'origine dati.
+Nel codice di esempio i dati vengono restituiti dalla tabella di app per dispositivi mobili di SQL Azure *ToDoItem* in una matrice. Si tratta di un modello molto comune per le applicazioni dati: le query su database restituiscono spesso una raccolta di righe che il client riceve in un elenco o una matrice. In questo esempio la matrice è l'origine dati.
 
 Nel codice viene specificato un layout di schermata che definisce la visualizzazione dei dati che appariranno sul dispositivo.
 
@@ -175,8 +175,7 @@ Il layout è definito da diversi frammenti di codice XML. Dato un layout esisten
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
 
-
-Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Di seguito è riportato il codice che consente di specificare una casella di controllo e il testo ad essa associato. Per tale codice viene creata una sola istanza per ogni elemento dell'elenco. Questo layout non visualizza il campo **id**, ma nella visualizzazione di un layout più complesso verranno specificati campi aggiuntivi. Il codice è incluso nel file **row\_list\_to\_do.xml**.
+Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Di seguito è riportato il codice che consente di specificare una casella di controllo e il testo ad essa associato. Per tale codice viene creata una sola istanza per ogni elemento dell'elenco. Questo layout non visualizza il campo **id**, ma se il layout è più complesso nella visualizzazione vengono specificati campi aggiuntivi. Il codice è incluso nel file **row\_list\_to\_do.xml**.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -252,15 +251,12 @@ Si noti che il secondo parametro del costruttore ToDoItemAdapter è un riferimen
 
 Le operazioni sulla tabella di app per dispositivi mobili e le chiamate API personalizzate sono asincrone, quindi si useranno gli oggetti [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) e [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) in tutti i metodi asincroni che interessano query e inserimenti, aggiornamenti ed eliminazioni. In questo modo è più facile eseguire più operazioni in un thread in background, senza dover gestire più callback annidati.
 
-Per verificare come vengono usate queste API asincrone nell'app Android e come vengono visualizzati i dati nell'interfaccia utente, esaminare il file **ToDoActivity.java** nel progetto dell'esercitazione introduttiva per Android dal [portale di Azure].
+Per verificare come vengono usate queste API asincrone nell'app Android e come vengono visualizzati i dati nell'interfaccia utente, esaminare il file **ToDoActivity.java** nel progetto di guida introduttiva per Android del [portale di Azure].
 
 
 #### <a name="use-adapter"></a>Procedura: Usare l'adattatore
 
-È ora possibile utilizzare l'associazione dati. Il codice seguente illustra come recuperare gli elementi nella tabella di Servizi mobili, cancellare l'adattatore e quindi chiamare il metodo *add* dell'adattatore per inserirvi gli elementi restituiti.
-
-
-**Da definire**: testare il codice.
+È ora possibile utilizzare l'associazione dati. Il codice seguente illustra come recuperare gli elementi nella tabella servizio mobile, cancellare l'adattatore e quindi chiamare il metodo *add* dell'adattatore per inserirvi gli elementi restituiti.
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -320,7 +316,7 @@ L'esecuzione della query seguente restituisce tutti gli elementi della tabella *
 
 Definire un filtro con la chiamata al metodo **where** sul riferimento alla tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore o uguale a), **lt** (minore di), **le** (minore o uguale a) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
-ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* è uguale a 2013.
+ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* (due) è uguale a 2013.
 
 	mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -349,7 +345,7 @@ Per una descrizione più dettagliata ed esempi di filtro, vedere il post relativ
 
 ### <a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
-Il codice seguente restituisce tutti gli elementi di una tabella di oggetti *ToDoItems* elencati in ordine crescente in base al campo *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza:
+Il codice di esempio seguente restituisce tutti gli elementi di una tabella di oggetti *ToDoItems* elencati in ordine crescente in base al campo *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza.
 
 	mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
@@ -416,7 +412,7 @@ In seguito si esegue il seguente codice:
 
 L'entità restituita corrisponde ai dati inseriti nella tabella del back-end, inclusi l'ID e gli eventuali altri valori impostati sul back-end.
 
-Le app per dispositivi mobili richiedono la presenza di una colonna denominata **id** in ogni tabella, usata per indicizzare la tabella. Per impostazione predefinita, questa colonna usa dati di tipo stringa, necessari per supportare la sincronizzazione offline. Il valore predefinito della colonna ID è un GUID, ma è possibile fornire altri valori univoci, ad esempio indirizzi di posta elettronica o nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo valore GUID.
+App per dispositivi mobili richiede la presenza di una colonna denominata **id** in ogni tabella, usata per indicizzare la tabella. Per impostazione predefinita, questa colonna usa dati di tipo stringa, necessari per supportare la sincronizzazione offline. Il valore predefinito della colonna ID è un GUID, ma è possibile fornire altri valori univoci, ad esempio indirizzi di posta elettronica o nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo valore GUID.
 
 I valori ID di stringa offrono i vantaggi seguenti:
 
@@ -544,7 +540,7 @@ Il seguente codice illustra come recuperare un'intera tabella. Poiché si sta us
 
 Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
-Per chiamare l'endpoint API personalizzato da un client Android, chiamare il metodo **invokeApi**. L'esempio seguente illustra come chiamare un endpoint API denominato *completeAll*, che restituisce una classe della raccolta denominata MarkAllResult.
+Per chiamare l'endpoint dell'API personalizzata da un client Android, chiamare il metodo **invokeApi**. L'esempio seguente illustra come chiamare un endpoint API denominato *completeAll*, che restituisce una classe della raccolta denominata MarkAllResult.
 
 	public void completeItem(View view) {
 
@@ -606,7 +602,7 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione relativa alla [configurazione del servizio app per usare l'account di accesso di Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 
 2. Installare ADAL modificando il file build.gradle per includere quanto segue:
 
@@ -682,7 +678,7 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 ## Procedura: Aggiungere notifiche push all'app
 
-È possibile [leggere una panoramica](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) che descrive in che modo Hub di notifica di Microsoft Azure supporta un'ampia gamma di notifiche push.
+È possibile [leggere una panoramica](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) che descrive in che modo Hub di notifica di Microsoft Azure supporta un'ampia gamma di notifiche push.
 
 In [questa esercitazione](app-service-mobile-android-get-started-push.md) viene inviata una notifica push ogni volta che si inserisce un record.
 
@@ -841,4 +837,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

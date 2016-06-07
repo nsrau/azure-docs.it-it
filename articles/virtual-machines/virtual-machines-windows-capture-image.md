@@ -3,7 +3,7 @@
 	description="Informazioni su come acquisire l'immagine di una VM di Azure basata su Windows creata con il modello di distribuzione di Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/13/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Come acquisire una macchina virtuale di Windows nel modello di distribuzione di Gestione risorse
 
@@ -210,4 +210,4 @@ La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.az
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire le macchine virtuali con Azure Gestione risorse e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

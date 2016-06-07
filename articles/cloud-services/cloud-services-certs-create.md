@@ -57,10 +57,15 @@ Sono disponibili due semplici modi per creare un certificato in Windows: con l'u
 
 ### Makecert.exe
 
-Questa utilità viene installata con Visual Studio 2013/2015. È un'utilità della console che consente di creare e installare i certificati. Se si avvia il collegamento **Prompt dei comandi per gli sviluppatori per VS2015** che si crea quando si installa Visual Studio, verrà visualizzato un prompt dei comandi con questo strumento nel percorso.
+Questa utilità è stata deprecata e di seguito non è più disponibile la relativa documentazione. Per altre informazioni, vedere [questo articolo di MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
-    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
+### PowerShell
 
+```
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
 
 ### Internet Information Services (IIS)
 
@@ -80,4 +85,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,10 +1,13 @@
-### Prerequisiti ###
+### Prerequisiti
 
 Il Toolkit di Azure per Eclipse richiede i seguenti componenti software:
 
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
-* Un kit Java Developer (JDK) v1.7 o versione successiva. 
+
+* Un kit Java Developer (JDK) v1.7 o versione successiva.
+
 * Sistemi operativi - il Toolkit di Azure per Eclipse è stato testato nei seguenti sistemi operativi:
+
     * Windows 10, Windows 8 o Windows 8.1, Windows 7
     * Windows Server 2012 e 2012 R2, Windows Server 2008 e 2008 R2
     * [Mac OS X](http://www.apple.com/osx) versioni "Yosemite" e "El Captain"
@@ -19,4 +22,4 @@ Altre informazioni sono reperibili nella pagina [Toolkit di Azure per Eclipse](h
 > 
 > Si noti che l’SDK di Azure è necessaria solo per Windows.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

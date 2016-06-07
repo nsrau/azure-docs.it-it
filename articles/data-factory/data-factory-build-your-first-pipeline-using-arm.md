@@ -261,6 +261,41 @@ Per istruzioni su come usare i pannelli del portale di Azure per monitorare la p
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
 
+## Modello ARM per la creazione di un gateway
+Di seguito è disponibile un modello ARM per la creazione di un gateway logico nel back-end. Si noti che è necessario installare un gateway nel computer locale o nella macchina virtuale IaaS di Azure e registrare il gateway con il servizio Data Factory usando una chiave. Per altre informazioni vedere [Spostare dati tra un ambiente locale e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
+
+	{
+	    "contentVersion": "1.0.0.0",
+	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "parameters": {
+	    },
+	    "variables": {
+	        "dataFactoryName":  "GatewayUsingArmDF",
+	        "apiVersion": "2015-10-01",
+	        "singleQuote": "'"
+	    },
+	    "resources": [
+	        {
+	            "name": "[variables('dataFactoryName')]",
+	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "Microsoft.DataFactory/datafactories",
+	            "location": "eastus",
+	            "resources": [
+	                {
+	                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+	                    "type": "gateways",
+	                    "apiVersion": "[variables('apiVersion')]",
+	                    "name": "GatewayUsingARM",
+	                    "properties": {
+	                    	"description": "my gateway"
+						}
+	                }            
+				]
+	        }
+	    ]
+	}
+
+Questo modello crea una data factory denominata GatewayUsingArmDF con un gateway denominato GatewayUsingARM.
 
 ## Vedere anche
 | Argomento | Descrizione |
@@ -273,4 +308,4 @@ Per istruzioni su come usare i pannelli del portale di Azure per monitorare la p
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

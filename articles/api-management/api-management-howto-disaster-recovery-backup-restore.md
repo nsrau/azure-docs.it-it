@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/24/2016" 
 	ms.author="sdanie"/>
 
 # Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -40,7 +40,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Gestione riso
 
 Il primo passaggio consiste nel creare un'applicazione Azure Active Directory. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) usando la sottoscrizione che include l'istanza del servizio Gestione API e passare alla scheda **Applicazioni** per la directory predefinita di Azure Active Directory.
 
->[AZURE.NOTE] Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come trovare la directory predefinita, vedere l'articolo sulle modalità per [trovare la directory predefinita](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come trovare la directory predefinita, vedere l'articolo sulle modalità per [trovare la directory predefinita](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
 
 ![Creare un'applicazione Azure Active Directory][api-management-add-aad-application]
 
@@ -191,4 +191,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

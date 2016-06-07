@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 # Informazioni sulle soluzioni preconfigurate di Azure IoT Suite
@@ -28,14 +28,14 @@ Ogni soluzione preconfigurata è un'implementazione end-to-end completa che usa 
 
 Oltre a distribuire ed eseguire le soluzioni in Azure, è possibile scaricare il codice sorgente completo e quindi personalizzare ed estendere la soluzione per soddisfare i requisiti IoT specifici.
 
-> [AZURE.NOTE] Per distribuire una delle soluzioni preconfigurate, visitare [Microsoft Azure IoT Suite][lnk-azureiotsuite]. L'articolo [Introduzione alle soluzioni preconfigurate IoT][lnk-preconf-get-started] fornisce altre informazioni su come distribuire ed eseguire una delle soluzioni.
+> [AZURE.NOTE] Per distribuire una delle soluzioni preconfigurate, visitare [Microsoft Azure IoT Suite][lnk-azureiotsuite]. L'articolo [Esercitazione: Introduzione alle soluzioni preconfigurate][lnk-preconf-get-started] fornisce altre informazioni su come distribuire ed eseguire una delle soluzioni.
 
 La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili per le soluzioni:
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoraggio remoto][lnk-remote-monitoring] | Sì | Sì | Sì | Sì | - | 
-| [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
+| [Monitoraggio remoto][lnk-preconf-get-started] | Sì | Sì | Sì | Sì | - |
+  [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
 
 - *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
 - *Identità del dispositivo*: gestione delle identità univoche di ogni dispositivo connesso.
@@ -89,7 +89,7 @@ In questa soluzione preconfigurata i processi di Analisi di flusso di Azure fann
 
 In questa soluzione preconfigurata il processore di eventi fa parte del **back-end della soluzione IoT** nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
-I processi di Analisi di flusso di Azure **Informazioni sul dispositivo** e **Regole** inviano i dati agli hub eventi in modo che siano recapitati ad altri servizi back-end. La soluzione usa un'istanza [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] per leggere i messaggi da questi hub eventi. **EventProcessorHost** usa i dati di **Informazioni sul dispositivo** per aggiornare il dati del dispositivo nel database DocumentDB e usa **Regole** per richiamare l'app per la logica e aggiornare gli avvisi visualizzati nel portale della soluzione.
+I processi di Analisi di flusso di Azure **Informazioni sul dispositivo** e **Regole** inviano i dati agli hub eventi in modo che siano recapitati ad altri servizi back-end. La soluzione usa un'istanza di [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] per leggere i messaggi da questi hub eventi. **EventProcessorHost** usa i dati di **Informazioni sul dispositivo** per aggiornare il dati del dispositivo nel database DocumentDB e usa **Regole** per richiamare l'app per la logica e aggiornare gli avvisi visualizzati nel portale della soluzione.
 
 ## Registro delle identità dei dispositivi e DocumentDB
 
@@ -124,17 +124,16 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: web-sites-create-web-jobs.md
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
 [lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-identity-registry]: iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

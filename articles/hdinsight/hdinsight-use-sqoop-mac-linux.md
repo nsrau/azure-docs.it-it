@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="05/24/2016"
 	ms.author="larryfr"/>
 
 #Usare Sqoop con Hadoop in HDInsight (SSH)
@@ -29,20 +29,76 @@ Informazioni su come usare Sqoop per eseguire importazioni ed esportazioni tra u
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-
-- **Un cluster Hadoop in HDInsight**. Vedere [Creare un cluster e un database SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- Un **cluster Hadoop in HDInsight** e un __database SQL di Azure__: i passaggi in questo documento si basano sul cluster e sul database creato usando le indicazioni nella sezione [Creare un cluster e un database SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database). Se si ha già un cluster HDInsight e il database SQL, è possibile sostituirli con i valori usati in queste indicazioni.
 - **Workstation**: un computer con un client SSH.
-- **Interfaccia della riga di comando di Azure**: per ulteriori informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+##Installare FreeTDS
+
+1. Usare SSH per connettersi al cluster HDInsight basato su Linux. L'indirizzo da usare durante la connessione è `CLUSTERNAME-ssh.azurehdinsight.net` e la porta è `22`.
+
+	Per altre informazioni sull'uso di SSH per connettersi a HDInsight, vedere i seguenti documenti:
+
+    * **Client Linux, Unix o OS X**: vedere [Connettersi a un cluster HDInsight basato su Linux, Unix e OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+
+    * **Client Windows**: vedere [Connettersi a un cluster HDInsight basato su Linux da client Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+
+3. Immettere il comando seguente per installare FreeTDS:
+
+        sudo apt-get --assume-yes install freetds-dev freetds-bin
+
+    FreeTDS verrà usato in diversi passaggi per connettersi al database SQL.
+
+##Creare la tabella nel database SQL
+
+> [AZURE.IMPORTANT] Se si usa un cluster HDInsight e il database SQL creato usando la procedura in [Creare un cluster e un database SQL](hdinsight-use-sqoop.md), ignorare i passaggi descritti in questa sezione poiché il database e la tabella sono stati creati come parte della procedura in tale documento.
+
+1. Dalla connessione SSH a HDInsight, usare il comando seguente per connettersi al server del database SQL e creare una tabella che verrà usata negli altri passaggi:
+
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+
+    L'output sarà simile al seguente:
+
+        locale is "en_US.UTF-8"
+        locale charset is "UTF-8"
+        using default charset "UTF-8"
+        Default database being set to sqooptest
+        1>
+
+5. Al prompt di `1>`, immettere il codice seguente:
+
+        CREATE TABLE [dbo].[mobiledata](
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
+        GO
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        GO
+
+    Dopo aver immesso l'istruzione `GO`, verranno valutate le istruzioni precedenti. Innanzitutto, verrà creata la tabella **mobiledata** a cui verrà aggiunto un indice cluster (richiesto dal Database SQL).
+
+    Per verificare la corretta creazione della tabella, usare quanto segue:
+
+        SELECT * FROM information_schema.tables
+        GO
+
+    L'output dovrebbe essere simile al seguente:
+
+        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+        sqooptest       dbo     mobiledata      BASE TABLE
+
+8. Per uscire dall'utilità psql, immettere `exit` al prompt di `1>`.
 
 ##Esportazione con Sqoop
 
-2. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop di usare tale driver per comunicare con il database SQL:
-
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
-
-3. Usare il comando seguente per verificare che Sqoop possa visualizzare il database SQL:
+3. Dalla connessione SSH a HDInsight, usare il comando seguente per verificare che Sqoop possa visualizzare il database SQL:
 
         sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
@@ -91,7 +147,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     Per altre informazioni sulla creazione e la configurazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
-* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
+* SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
 
 * Potrebbe essere necessario configurare SQL Server affinché accetti le connessioni remote. Per altre informazioni, vedere l'argomento relativo alla [risoluzione dei problemi di connessione al motore di database di SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
@@ -144,4 +200,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

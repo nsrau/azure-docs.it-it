@@ -1,10 +1,10 @@
 <properties
-pageTitle="Aggiungere l'API di Salesforce a PowerApps Enterprise e alle app per la logica | Microsoft Azure"
-description="Panoramica dell'API di Salesforce con i parametri dell'API REST."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Aggiungere il connettore Salesforce a PowerApps Enterprise e alle app per la logica | Microsoft Azure"
+description="Panoramica del connettore Salesforce con i parametri dell'API REST."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,11 +14,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/19/2016"
 ms.author="deonhe"/>
 
-# Introduzione all'API di Salesforce
-Connettersi a Salesforce per creare oggetti, recuperarli e così via. L'API di Salesforce può essere usata da:
+# Introduzione al connettore Salesforce 
+Connettersi a Salesforce per creare oggetti, recuperarli e così via. Il connettore Salesforce può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -36,9 +36,9 @@ Con Salesforce è possibile:
 - Creare il flusso aziendale in base ai dati ottenuti da Salesforce. 
 - Usare i trigger quando un oggetto viene creato o aggiornato.
 - Usare le azioni per creare un oggetto, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo oggetto in Salesforce, è possibile inviare un messaggio di posta elettronica tramite Office 365.
-- Aggiungere l'API di Salesforce a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Salesforce a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,14 +49,13 @@ L'API di Salesforce include i trigger e le azioni seguenti.
 | --- | --- |
 |<ul><li>When an object is created</li><li>When an object is modified</li></ul> | <ul><li>Create object</li><li>Get objects</li><li>When an object is created</li><li>When an object is modified</li><li>Delete object</li><li>Get object</li><li>Get object types (SObjects)</li><li>Update object</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a Salesforce 
 
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Salesforce.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Salesforce.
 
-1. Accedere all'account Salesforce.
-2. Consentire alle app per la logica di connettersi e usare l'account Salesforce. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Salesforce](../../includes/connectors-create-api-salesforce.md)]
 
 Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -266,4 +265,4 @@ Tornare all'[elenco di API](apis-list.md).
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurare la gestione dei costi | Microsoft Azure"
-	description="Informazioni su come configurare le funzionalità di gestione dei costi dei lab di sviluppo/test"
+	pageTitle="Tendenza dei costi mensili stimati | Microsoft Azure"
+	description="Informazioni sul grafico relativo alla tendenza dei costi mensili stimati di DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="05/25/2016"
 	ms.author="tarcher"/>
 
-# Configurare la gestione dei costi
+# Tendenza dei costi mensili stimati
 
 ## Panoramica
 
 La funzionalità di gestione dei costi dei lab di sviluppo/test consente di tenere traccia dei costi del lab. Questo articolo spiega come usare il grafico della **tendenza dei costi mensili stimati** grafico per visualizzare i costi stimati del mese in corso fino alla data odierna e la proiezione dell'ammontare dei costi a fine mese per il mese in corso.
 
-## Abilitazione del grafico della tendenza dei costi mensili stimati
+## Visualizzazione del grafico della tendenza dei costi mensili stimati
 
-Per abilitare il grafico della tendenza dei costi mensili stimati, seguire questa procedura:
+Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -36,24 +36,25 @@ Per abilitare il grafico della tendenza dei costi mensili stimati, seguire quest
 
 	![Impostazioni](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. Nel pannello delle **impostazioni** del lab toccare **Cost Thresholds** (Soglie di costo) in **Cost Policies** (Criteri di costo).
+1. Nel pannello **Impostazioni** del lab toccare **Soglie** in **Gestione dei costi**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. Nel pannello **Cost Thresholds** (Soglie dei costi) toccare **On** per abilitare la funzionalità e **Off** per disabilitarla.
+1. La schermata seguente illustra un esempio di grafico dei costi.
 
-1. Toccare **Salva**.
+    ![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)
 
-Dopo aver abilitato questa funzionalità, possono trascorrere alcune ore prima che il grafico visualizzi i costi stimati e previsti. Questo accade poiché il servizio di raccolta delle informazioni viene eseguito ogni ora, ma in ritardo di alcune ore rispetto alla raccolta dei dati live. Si supponga ad esempio di avviare una macchina virtuale alle 13:00. Il costo associato a tale macchina probabilmente non verrà incorporato nel grafico dei costi per un paio d'ore.
+Il valore **Costo stimato** è il costo stimato per il mese in corso fino alla data odierna mentre **Costo previsto** è il costo stimato per l'intero mese in corso, calcolato usando il costo del lab nei 5 giorni precedenti.
  
-La schermata seguente illustra un esempio di grafico dei costi.
+Si noti che gli importi di costo vengono arrotondati al numero intero successivo. ad esempio:
 
-![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)
-
-Il valore **Costo stimato** è il costo stimato per il mese in corso fino alla data odierna mentre **Costo previsto** è il costo stimato per l'intero mese in corso.
+- 5,01 arrotondato a 6 
+- 5,50 arrotondato a 6
+- 5,99 arrotondato a 6
 
 Come indicato sopra il grafico, i costi visualizzati nel grafico sono costi *stimati* in base alle tariffe del piano di [pagamento a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Il calcolo dei costi *non* include quanto segue:
 
+- Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto DevTest Labs usa le [API di fatturazione di Azure](../billing-usage-rate-card-overview.md) per calcolare il costo del lab e queste ultime non supportano le sottoscrizioni CSP o Dreamspark.
 - Le tariffe della propria offerta. Al momento non è possibile includere le tariffe, indicate nella sottoscrizione, negoziate con Microsoft o i partner Microsoft. Vengono usate tariffe a consumo.
 - Le imposte
 - Gli sconti
@@ -63,9 +64,9 @@ Come indicato sopra il grafico, i costi visualizzati nel grafico sono costi *sti
 
 Altre operazioni da eseguire:
 
-- [Definire i criteri dei lab](./devtest-lab-set-lab-policy.md): impostare i vari criteri che consentono di gestire il modo in cui vengono usati il lab e le relative macchine virtuali. 
-- [Creare un'immagine personalizzata](./devtest-lab-create-template.md): quando si crea una macchina virtuale, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
-- [Configurare immagini del Marketplace](./devtest-lab-configure-marketplace-images.md): il lab di sviluppo/test supporta la creazione di nuove macchine virtuali basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
-- [Creare una VM in un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova macchina virtuale da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
+- [Definire i criteri dei lab](./devtest-lab-set-lab-policy.md): impostare i vari criteri che consentono di gestire il modo in cui vengono usati il lab e le relative VM. 
+- [Creare un'immagine personalizzata](./devtest-lab-create-template.md): quando si crea una VM, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
+- [Configurare immagini del Marketplace](./devtest-lab-configure-marketplace-images.md): DevTest Labs supporta la creazione di nuove VM basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di nuove macchine virtuali in un lab.
+- [Creare una VM in un lab](./devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una nuova VM da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

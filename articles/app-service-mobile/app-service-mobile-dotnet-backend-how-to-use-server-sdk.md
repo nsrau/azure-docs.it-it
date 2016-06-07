@@ -180,6 +180,14 @@ L'esempio seguente inizializza un controller tabelle che usa Entity Framework pe
 
 Per un esempio di un controller tabelle che usa Entity Framework per accedere ai dati da un database SQL di Azure, vedere la classe **TodoItemController** nel progetto server di avvio rapido che è possibile scaricare dal portale di Azure.
 
+### Procedura: Modificare le dimensioni di pagina delle tabelle
+
+Per impostazione predefinita, App mobili di Azure restituisce 50 record per ogni richiesta. Ciò garantisce che il client non occupi il thread dell'interfaccia utente o il server troppo a lungo e quindi un'esperienza utente ottimale. È necessario aumentare sul lato server la "dimensione query consentita" e le dimensioni di pagina sul lato client per rendere effettiva una modifica delle dimensioni di pagina delle tabelle. Per aumentare le dimensioni di pagina, modificare il controller tabelle con la riga seguente:
+
+    [EnableQuery(PageSize = 500)]
+
+Verificare che il valore di PageSize sia uguale o maggiore delle dimensioni che verranno richieste dal client. Fare riferimento alle procedure specifiche del client per informazioni dettagliate su come modificare le dimensioni di pagina del client.
+
 ## Procedura: Definire un controller API personalizzato
 
 Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller API specifico per dispositivi mobili usando l'attributo [MobileAppController]. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
@@ -325,10 +333,6 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
 
 Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** funzioni, è necessario aggiungere un'istruzione using per `System.Security.Principal`.
 
-###<a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
-
-Spesso si desidera limitare i dati che vengono restituiti a un determinato utente autenticato. Questo tipo di partizionamento dei dati viene eseguito includendo una colonna userId nella tabella e memorizzando il SID dell'utente quando i dati vengono inseriti
-
 ## Procedura: Aggiungere notifiche push a un progetto server
 
 È possibile aggiungere notifiche push al progetto server estendendo l'oggetto **MobileAppConfiguration** e creando un client di Hub di notifica. Quando si installa il pacchetto [Microsoft.Azure.Mobile.Server.Quickstart] e si chiama il metodo di estensione **UseDefaultConfiguration**, è possibile andare al passaggio 3.
@@ -461,4 +465,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

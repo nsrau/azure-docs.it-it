@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/23/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 
-
-Le funzioni in Azure Active Directory Sync vengono usate per modificare il valore di un attributo durante la sincronizzazione. La sintassi delle funzioni viene espressa nel formato seguente: `<output type> FunctionName(<input type> <position name>, ..)`
+In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione. La sintassi delle funzioni viene espressa nel formato seguente: `<output type> FunctionName(<input type> <position name>, ..)`
 
 Se una funzione è in overload e accetta più sintassi, verranno elencate tutte quelle valide. Le funzioni sono fortemente tipizzate e verificano che il tipo passato corrisponda al tipo documentato. Se il tipo non corrisponde, viene generato un errore.
 
@@ -32,50 +31,44 @@ I tipi vengono espressi con la sintassi seguente:
 - **enum**: enumerazione di costanti note
 - **exp**: espressione per cui è prevista la restituzione di un valore booleano
 - **mvbin**: binario multivalore
-- **mvstr**: riferimento multivalore
+- **mvstr**: stringa multivalore
+- **mvref**: riferimento multivalore
 - **num**: numerico
 - **ref**: riferimento a valore singolo
 - **str**: stringa a valore singolo
 - **var**: variante di (quasi) tutti gli altri tipi
 - **void**: non restituisce un valore
 
-
-
 ## Riferimento alle funzioni
 
-----------
-**Conversione:**
-
-[CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [CGuid](#cguid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromBase64](#convertfrombase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromUTF8Hex](#convertfromutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [CNum](#cnum) &nbsp;&nbsp;&nbsp;&nbsp; [CRef](#cref) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromGuid](#StringFromGuid) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromSid](#stringfromsid)
-
-**Data/Ora:**
-
-[DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate)
-
-**Directory**
-
-[DNComponent](#dncomponent) &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
-
-**Valutazione:**
-
-[IsBitSet](#isbitset) &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
-
-**Matematiche:**
-
-[BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [BitOr](#bitor) &nbsp;&nbsp;&nbsp;&nbsp; [RandomNum](#randomnum)
-
-**A più valori**
-
-[Contains](#contains) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [ItemOrNull](#itemornull) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)
-
-**Flusso di programmi:**
-
-[Error](#error) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
-
-
-**Text**
-
-[GUID](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [InStrRev](#instrrev) &nbsp;&nbsp;&nbsp;&nbsp; [LCase](#lcase) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Len](#len) &nbsp;&nbsp;&nbsp;&nbsp; [LTrim](#ltrim) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [PadLeft](#padleft) &nbsp;&nbsp;&nbsp;&nbsp; [PadRight](#padright) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceChars](#replacechars) &nbsp;&nbsp;&nbsp;&nbsp; [Right](#right) &nbsp;&nbsp;&nbsp;&nbsp; [RTrim](rtrim) &nbsp;&nbsp;&nbsp;&nbsp; [Trim](#trim) &nbsp;&nbsp;&nbsp;&nbsp; [UCase](#ucase) &nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+Elenco di funzioni | | | | |  
+--------- | --------- | --------- | --------- | --------- | ---------
+**Conversione** |  
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+**Data/Ora** |  
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
+**Directory** |  
+[DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
+**Versione di valutazione** |  
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
+**Matematiche** |  
+[BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
+**A più valori** |  
+[Contiene](#contains) | [Numero](#count) | [Elemento](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [Split](#split) |
+**Flusso del programma** |  
+[Errore](#error) | [IIF](#iif) | [Switch](#switch)
+**Text** |  
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
+[PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
@@ -104,7 +97,7 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 
 - value1, value2: valori numerici da unire con OR
 
-**Osservazioni:** questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su 1 se il valore di uno o entrambi i bit corrispondenti nella maschera e nel flag è pari a 1 e su 0 se entrambi i bit corrispondenti sono pari a 0. In altre parole, restituisce 1 in tutti i casi tranne dove i bit corrispondenti di entrambi i parametri sono pari a 0.
+**Osservazioni:** Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su 1 se il valore di uno o entrambi i bit corrispondenti nella maschera e nel flag è pari a 1 e su 0 se entrambi i bit corrispondenti sono pari a 0. In altre parole, restituisce 1 in tutti i casi tranne dove i bit corrispondenti di entrambi i parametri sono pari a 0.
 
 ----------
 ### CBool
@@ -137,7 +130,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 ----------
 ### CGuid
 
-**Descrizione:** La funzione CGuid converte la rappresentazione di stringa di un GUID nella rappresentazione binaria.
+**Descrizione:** La funzione CGuid converte la rappresentazione di stringa di un GUID nella corrispondente rappresentazione binaria.
 
 **Sintassi:** `bin CGuid(str GUID)`
 
@@ -148,7 +141,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 **Descrizione:** La funzione Contains trova una stringa all'interno di un attributo multivalore
 
-**Sintassi:** `num Contains (mvstring attribute, str search)` - distinzione maiuscole/minuscole `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - distinzione maiuscole/minuscole
+**Sintassi:** `num Contains (mvstring attribute, str search)` (distinzione maiuscole/minuscole) `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` (distinzione maiuscole/minuscole)
 
 - attribute: l'attributo multivalore da cercare.<br>
 - search: stringa da trovare nell'attributo.<br>
@@ -156,7 +149,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 Restituisce l'indice nell'attributo multivalore in cui è stata trovata la stringa. Se la stringa non viene trovata, restituisce 0.
 
-**Osservazioni:** Per gli attributi di stringa multivalore, viene effettuata la ricerca di sottostringhe nei valori. Per gli attributi di riferimento, la stringa cercata deve corrispondere esattamente al valore per essere considerata una corrispondenza.
+**Osservazioni:** Per gli attributi stringa multivalore, viene effettuata la ricerca di sottostringhe nei valori. Per gli attributi di riferimento, la stringa cercata deve corrispondere esattamente al valore per essere considerata una corrispondenza.
 
 **Esempio:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` Se l'attributo proxyAddresses include un indirizzo di posta elettronica primario (indicato da "SMTP:") viene restituito l'attributo proxyAddress. In caso contrario viene restituito un errore.
 
@@ -165,7 +158,7 @@ Restituisce l'indice nell'attributo multivalore in cui è stata trovata la strin
 
 **Descrizione:** La funzione ConvertFromBase64 converte il valore con codifica Base 64 specificato in una stringa normale.
 
-**Sintassi:** `str ConvertFromBase64(str source)` - presuppone Unicode per la codifica <br> `str ConvertFromBase64(str source, enum Encoding)`
+**Sintassi:** `str ConvertFromBase64(str source)`. Presuppone Unicode per la codifica <br> `str ConvertFromBase64(str source, enum Encoding)`
 
 - source: stringa con codifica Base 64  
 - Encoding: Unicode, ASCII, UTF8
@@ -330,9 +323,9 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 **Esempio:**
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` I risultati in "2007-12-25".
+`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Il risultato è "2007-12-25".
 
-`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` possono restituire "20140905081453.0Z"
+`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` Può restituire "20140905081453.0Z"
 
 ----------
 ### GUID
@@ -352,7 +345,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 - valueIfTrue: valore che verrà restituito se la condizione restituisce true.
 - valueIfFalse: valore che verrà restituito se la condizione restituisce false.
 
-**Esempio:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è un interno. In caso contrario restituisce l'alias dell'utente invariato.
+**Esempio:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è uno stagista. In caso contrario restituisce l'alias dell'utente invariato.
 
 ----------
 ### InStr
@@ -399,7 +392,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 - value: valore numerico valutato. flag: valore numerico contenente il bit da valutare
 
-**Esempio:** `IsBitSet(&HF,4)` Restituisce True perché il bit "4" è impostato nel valore esadecimale "F"
+**Esempio:** `IsBitSet(&HF,4)` Restituisce True perché il bit "4" è impostato come valore esadecimale "F"
 
 ----------
 ### IsDate
@@ -408,7 +401,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 **Sintassi:** `bool IsDate(var Expression)`
 
-**Osservazioni:** Usata per determinare se CDate() riuscirà.
+**Osservazioni:** Usata per determinare se CDate() avrà esito positivo.
 
 ----------
 ### IsEmpty
@@ -424,7 +417,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 **Sintassi:** `bool IsGuid(str GUID)`
 
-**Osservazioni:** Un GUID viene definito come stringa in base a uno degli schemi seguenti: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+**Osservazioni:** Un GUID viene definito come stringa in base a uno degli schemi seguenti: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx o {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 Usata per determinare se CGuid() riuscirà.
 
@@ -600,7 +593,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 ----------
 ### Now
 
-**Descrizione:** La funzione Now restituisce un valore di data/ora che specifica la data e l'ora correnti, in base alla data e ora di sistema del computer.
+**Descrizione:** La funzione Now restituisce un valore di data/ora che specifica la data e l'ora correnti, in base alla data e all'ora di sistema del computer.
 
 **Sintassi:** `dt Now()`
 
@@ -685,7 +678,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 **Sintassi:** `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Esempio:** `RemoveDuplicates([proxyAddresses])` Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
+**Esempio:** `RemoveDuplicates([proxyAddresses])` Restituisce un attributo proxyAddress puro in cui sono stati rimossi tutti i valori duplicati.
 
 ----------
 ### Replace
@@ -764,7 +757,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 
 **Sintassi:** `str RTrim(str value)`
 
-**Esempio:** `RTrim(" Test ")` Restituisce "Test".
+**Esempio:** `RTrim(" Test ")` Restituisce " Test".
 
 ----------
 ### Split
@@ -866,4 +859,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

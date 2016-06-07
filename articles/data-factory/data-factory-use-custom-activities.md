@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usare attività personalizzate in una pipeline di Data factory di Azure"
-	description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure."
+	pageTitle="Usare attività personalizzate in una pipeline di Azure Data Factory"
+	description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,13 +16,13 @@
 	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
-# Usare attività personalizzate in una pipeline di Data factory di Azure
-In una pipeline di Data Factory di Azure è possibile usare due tipi di attività.
+# Usare attività personalizzate in una pipeline di Azure Data Factory
+In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
  
 - [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per spostare i dati fra [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores).
 - [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per trasformare/elaborare i dati usando calcoli come Azure HDInsight, Azure Batch e Azure Machine Learning. Ad esempio: HDInsight Hive e Machine Learning Batch Execution.  
 
-Se è necessario spostare dati da e verso un archivio dati non supportato da Data Factory di Azure, è possibile creare un'attività .NET personalizzata contenente la logica di spostamento dei dati richiesta e usarla nella pipeline.
+Se è necessario spostare dati da e verso un archivio dati non supportato da Azure Data Factory, è possibile creare un'attività .NET personalizzata contenente la logica di spostamento dei dati richiesta e usarla nella pipeline.
 
 Analogamente, se è necessario trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un’attività personalizzata contenente la logica di elaborazione dei dati richiesta e usarla nella pipeline.
  
@@ -52,7 +52,7 @@ Ai fini di questa esercitazione, è necessario creare un account Azure Batch con
 	2. Selezionare il proprio account Azure Batch per aprire il pannello **Account Batch**. 
 	3. Fare clic sul riquadro **Pool**.
 	4. Nel riquadro **pool** fare clic sul pulsante Aggiungi nella barra degli strumenti per aggiungere un pool.
-		1. Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data factory. 
+		1. Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data Factory. 
 		2. Specificare **Windows Server 2012 R2** per l'impostazione Famiglia di sistemi operativi.
 		3. Selezionare un **piano tariffario per il nodo**. 
 		3. Immettere **2** come valore per l'impostazione **Pool dedicati di destinazione**.
@@ -67,7 +67,7 @@ Ai fini di questa esercitazione, è necessario creare un account Azure Batch con
 	2.	Comprimere tutti i file binari e il file PDB (facoltativo) nella cartella di output.	
 	3.	Caricare il file ZIP nell'archiviazione BLOB di Azure. La procedura dettagliata è illustrata nella sezione Creare l'attività personalizzata. 
 2. **Creare una data factory di Azure che usa l'attività personalizzata**:
-	1. Creare un'istanza di Data factory di Azure.
+	1. Creare un'istanza di Azure Data Factory.
 	2. Creare servizi collegati.
 		1. AzureStorageLinkedService: fornisce le credenziali di archiviazione per accedere ai BLOB.
 		2. AzureBatchLinkedService: specifica Azure Batch come risorsa di calcolo.
@@ -330,7 +330,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
 	![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
 13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** dell'archiviazione BLOB di Azure usata dal servizio collegato **AzureStorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
 
-> [AZURE.NOTE] Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto data factory e si aggiunge un riferimento al progetto dell’attività .NET dal progetto dell’applicazione data factory, non è necessario eseguire gli ultimi due passaggi, ovvero creare manualmente il file ZIP e caricarlo nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare dati da BLOB di Azure a SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di entità di Data factory con Visual Studio.
+> [AZURE.NOTE] Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto data factory e si aggiunge un riferimento al progetto dell’attività .NET dal progetto dell’applicazione data factory, non è necessario eseguire gli ultimi due passaggi, ovvero creare manualmente il file ZIP e caricarlo nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data Factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare dati da BLOB di Azure a SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di entità di Data Factory con Visual Studio.
 
 ### Metodo Execute
 
@@ -408,7 +408,7 @@ Creare un file denominato **file.txt** con il contenuto seguente e caricarlo in 
 
 	test custom activity Microsoft test custom activity Microsoft
 
-La cartella di input corrisponde a una sezione in Data factory di Azure, anche se la cartella contiene 2 o più file. Quando ogni sezione viene elaborata dalla pipeline, l'attività personalizzata esegue l'iterazione di tutti i BLOB nella cartella di input per tale sezione.
+La cartella di input corrisponde a una sezione in Azure Data Factory, anche se la cartella contiene 2 o più file. Quando ogni sezione viene elaborata dalla pipeline, l'attività personalizzata esegue l'iterazione di tutti i BLOB nella cartella di input per tale sezione.
 
 Verrà visualizzato un file di output nella cartella mycontainer\\outputfolder con 1 o più righe (pari al numero di BLOB nella cartella di input):
  
@@ -421,7 +421,7 @@ Di seguito sono elencati i passaggi da eseguire in questa sezione:
 2. Creare **servizi collegati** per il pool Azure Batch di macchine virtuali su cui verrà eseguita l'attività personalizzata e l'archiviazione di Azure che contiene i BLOB di input/output. 
 2. Creare **set di dati** di input e di output che rappresentano l'input e l'output dell'attività personalizzata. 
 3. Creare una **pipeline** che usa l'attività personalizzata.
-4. **Data factory**. Ne verrà creata una durante la pubblicazione di queste entità in Azure. 
+4. **Data Factory**. Ne verrà creata una durante la pubblicazione di queste entità in Azure. 
 
 > [AZURE.NOTE] Creare il file **file.txt** e caricarlo in un contenitore BLOB, se l'operazione non è ancora stata eseguita. Le istruzioni sono riportate sopra.
 
@@ -430,8 +430,8 @@ Di seguito sono elencati i passaggi da eseguire in questa sezione:
 1.	Dopo l'accesso al portale di Azure, seguire questa procedura:
 	1.	Fare clic su **Nuovo** nel menu a sinistra.
 	2.	Fare clic su **Dati e analisi** nel pannello **Nuovo**.
-	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
-2.	Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
+	3.	Fare clic su **Data Factory** nel pannello **Analisi dei dati**.
+2.	Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
 3.	Fare clic su **Nome del gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo. 
 4.	Verificare se la **sottoscrizione** e l'**area** in cui si vuole creare la data factory sono quelle corrette. 
 5.	Fare clic su **Crea** nel pannello **Nuova data factory**.
@@ -444,7 +444,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 #### Creare il servizio collegato Archiviazione di Azure
 
-1.	Fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **CustomActivityFactory**. Verrà avviato l'editor di Data factory.
+1.	Fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **CustomActivityFactory**. Verrà avviato l'editor di Data Factory.
 2.	Fare clic su **Nuovo archivio dati** sulla barra dei comandi e scegliere **Archiviazione di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure.
 3.	Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
@@ -477,13 +477,13 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 	Per la proprietà **poolName** è anche possibile specificare l'ID del pool anziché il nome del pool.
 
-	> [AZURE.NOTE] Il servizio Data Factory non supporta un'opzione su richiesta per il Batch di Azure come accade per HDInsight. È possibile utilizzare solo il proprio pool di Batch di Azure in una data factory di Azure.
+	> [AZURE.NOTE] Il servizio Data Factory non supporta un'opzione su richiesta per il Batch di Azure come accade per HDInsight. È possibile usare solo il proprio pool di Batch di Azure in una data factory di Azure.
 	
 ### Passaggio 3: Creare set di dati
 In questo passaggio viene creato un set di dati per rappresentare i dati di input e di output.
 
 #### Creare set di dati di input
-1.	Nell'**Editor** per la Data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
+1.	Nell'**editor** di Data Factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti, quindi scegliere **Archiviazione BLOB di Azure** dal menu a discesa.
 2.	Sostituire il codice JSON nel riquadro a destra con il frammento JSON seguente.
 
 			{
@@ -518,7 +518,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 #### Creare un set di dati di output
 
-1. Nell'**Editor di Data factory**, fare clic su **Nuovo set di dati**, quindi fare clic su **Archivio BLOB di Azure** nella barra dei comandi.
+1. Nell'**editor di Data Factory**, fare clic su **Nuovo set di dati**, quindi fare clic su **Archivio BLOB di Azure** nella barra dei comandi.
 2. Sostituire lo script JSON nel riquadro a destra con il seguente script JSON:
 
 		{
@@ -567,7 +567,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 ### Creare ed eseguire una pipeline che usi l'attività personalizzata
 
-1. Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo.
+1. Nell'editor di Data Factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo.
 2. Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente. 
 
 		{
@@ -622,7 +622,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 	- **PackageLinkedService** è impostato su **AzureStorageLinkedService** che punta all'archiviazione BLOB contenente il file con estensione zip dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato stesso account di archiviazione di Azure.
 	- **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. Ha il formato: contenitoreperlozip/nomedellozip.zip.
 	- L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
-	- La proprietà linkedServiceName dell'attività personalizzata punta a **HDInsightLinkedService**, che indica a Data Factory di Azure che l'attività personalizzata deve essere eseguita in un cluster HDInsight di Azure.
+	- La proprietà linkedServiceName dell'attività personalizzata punta a **HDInsightLinkedService**, che indica ad Azure Data Factory che l'attività personalizzata deve essere eseguita in un cluster HDInsight di Azure.
 	- La proprietà **isPaused** è **false** per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su true per sospendere la pipeline e reimpostarla su false per riavviare la pipeline. 
 	- L'ora di **inizio** e l'ora di **fine** hanno **5** ore di differenza e le sezioni vengono prodotte ogni ora, quindi la pipeline genera 5 sezioni. 
 
@@ -630,7 +630,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 ### Monitorare la pipeline
  
-8. Nel pannello Data factory del portale di Azure fare clic su **Diagramma**.
+8. Nel pannello Data Factory del portale di Azure fare clic su **Diagramma**.
 	
 	![Riquadro Diagramma](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
  
@@ -650,7 +650,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 	2 occorrenze del termine di ricerca "Microsoft" sono state trovate nel file inputfolder/2015-11-16-00/file.txt.
 
-10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (specifically user-0.log) scaricabili dal portale o con i cmdlet.
+10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data Factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (specifically user-0.log) scaricabili dal portale o con i cmdlet.
 
 	![scaricare i log dall'attività personalizzata][image-data-factory-download-logs-from-custom-activity]
 
@@ -664,14 +664,14 @@ Il servizio Data Factory crea un processo in Azure Batch denominato **adf-<pool 
 
 > [AZURE.NOTE] Scaricare il codice sorgente per lo [strumento di esplorazione di Azure Batch][batch-explorer], compilarlo e usarlo per creare e monitorare i pool di Batch. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
 
-![Data factory e Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+![Data Factory e Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 È possibile visualizzare le attività di Azure Batch associate all'elaborazione delle sezioni nello strumento di esplorazione di Azure Batch, come illustrato nel diagramma seguente.
 
 ![Attività di Azure Batch][image-data-factory-azure-batch-tasks]
 
 
-### Eseguire il debug della pipeline
+## Eseguire il debug della pipeline
 Il debug è costituito da alcune tecniche di base:
 
 1.	Se la sezione di input non è impostata su **Ready**, verificare che la struttura di cartelle di input sia corretta e che **file.txt** sia presente nelle cartelle di input. 
@@ -689,6 +689,10 @@ Il debug è costituito da alcune tecniche di base:
 4.	Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
 5.	Assicurarsi che **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e **packageLinkedService**, che deve puntare all'archiviazione BLOB di Azure contenente il file ZIP, siano impostati sui valori corretti. 
 6.	Se è stato risolto un errore e si vuole rielaborare la sezione, fare doppio clic sulla sezione nel pannello **OutputDataset** e quindi fare clic su **Esegui**. 
+7.	L'attività personalizzata non usa il file **app.config** del pacchetto. Di conseguenza, se il codice legge qualsiasi stringa di connessione dal file di configurazione, l'attività non funzionerà in fase di esecuzione. La procedura consigliata quando si usa Azure Batch è inserire tutte le chiavi private in un **insieme di credenziali delle chiavi di Azure**, usare un'entità servizio basata su certificato per proteggere l'**insieme di credenziali** e distribuire il certificato al pool di Azure Batch. L'attività personalizzata .NET può quindi accedere alle chiavi private dall'insieme di credenziali delle chiavi in fase di esecuzione. Si tratta di una soluzione generica e scalabile per qualsiasi tipo di chiave privata, non solo per una stringa di connessione.
+
+	Esiste una soluzione più semplice, ma non consigliata: è possibile creare un nuovo **servizio collegato SQL Azure** con le impostazioni della stringa di connessione, creare un set di dati che usa il servizio collegato e concatenare tale set di dati come set di dati di input fittizio all'attività .NET personalizzata. È quindi possibile accedere alla stringa di connessione del servizio collegato nel codice dell'attività personalizzata, che dovrebbe funzionare correttamente in fase di esecuzione.
+
 
 
 ## Aggiornare l'attività personalizzata
@@ -697,7 +701,7 @@ Per aggiornare il codice dell'attività personalizzata, compilarlo e caricare il
 ## Copiare o spostare dati 
 L'attività di copia esegue la copia dei dati da un archivio dati **di origine** a un archivio dati **sink**. Per l'elenco degli archivi dati supportati come origini e sink per l'attività di copia, vedere [Archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores).
 
-Per spostare i dati da e verso un archivio dati non supportato dall'**attività di copia**, è possibile usare l'**attività personalizzata** in Data Factory con la logica richiesta per copiare o spostare i dati. Vedere l'[esempio relativo all'unità di download dei dati HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) su GitHub.
+Per spostare i dati da e verso un archivio dati che non è supportato dall'**attività di copia**, è possibile usare l'**attività personalizzata** in Data Factory con la logica richiesta per copiare o spostare i dati. Vedere l'[esempio relativo all'unità di download dei dati HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) su GitHub.
 
 ## Isolamento di AppDomain 
 Vedere l'[esempio sul passaggio fra AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) che mostra come creare un'attività .NET personalizzata per Azure Data Factory che non sia vincolata alle versioni assembly usate dal servizio di avvio di Azure Data Factory (ad esempio WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, ecc.).
@@ -739,7 +743,7 @@ Per accedere alle proprietà estese nel metodo **Execute**, usare un codice simi
 
 Per i dettagli, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../batch/batch-automatic-scaling.md).
 
-Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), il servizio Batch può richiedere 15-30 minuti per preparare la macchina virtuale prima di eseguire l'attività personalizzata. Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
+Se il pool usa il valore [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx) predefinito, il servizio Batch può richiedere 15-30 minuti per preparare la macchina virtuale prima di eseguire l'attività personalizzata. Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
 
 ## Usare i servizi collegati di Azure HDInsight
 Nella procedura dettagliata è stato usato il calcolo Azure Batch per eseguire l'attività personalizzata. È anche possibile usare il proprio cluster HDInsight o fare in modo che Data Factory crei un cluster HDInsight su richiesta ed esegua l'attività personalizzata sul cluster HDInsight. Ecco i passaggi generali per usare un cluster HDInsight.
@@ -750,14 +754,14 @@ Nella procedura dettagliata è stato usato il calcolo Azure Batch per eseguire l
 Può essere opportuno modificare l'ora di **inizio** e **fine** per la pipeline per poter testare lo scenario con il servizio Azure HDInsight.
 
 #### Creare un servizio collegato Azure HDInsight 
-Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, se si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster.
+Il servizio Azure Data Factory supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, se si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster.
 
 > [AZURE.NOTE] Al runtime, un'istanza di un'attività .NET viene eseguita solo in un nodo di lavoro nel cluster HDInsight, ma non può essere scalata al fine di essere eseguita in più nodi. È possibile eseguire più istanze di attività .NET contemporaneamente su diversi nodi del cluster HDInsight.
 
 ##### Per usare un cluster HDInsight su richiesta
 
-1. Nel **portale di Azure**, fare clic su **Creare e distribuire** nella home page di Data factory.
-2. Nell'Editor di Data factory, fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi scegliere **Cluster HDInsight su richiesta** dal menu.
+1. Nel **portale di Azure**, fare clic su **Creare e distribuire** nella home page di Data Factory.
+2. Nell'editor di Data Factory, fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi scegliere **Cluster HDInsight su richiesta** dal menu.
 2. Nello script JSON procedere come segue:
 	1. Per la proprietà **clusterSize**, specificare le dimensioni del cluster HDInsight.
 	3. Per la proprietà **timeToLive** specificare il tempo di inattività consentito per il cliente prima dell'eliminazione.
@@ -781,8 +785,8 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 
 ##### Per usare il proprio cluster HDInsight:
 
-1. Nel **portale di Azure**, fare clic su **Creare e distribuire** nella home page di Data factory.
-2. Nell'**Editor di Data factory**, fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi scegliere **Cluster HDInsight** dal menu.
+1. Nel **portale di Azure**, fare clic su **Creare e distribuire** nella home page di Data Factory.
+2. Nell'**editor di Data Factory**, fare clic su **Nuovo calcolo** sulla barra dei comandi, quindi scegliere **Cluster HDInsight** dal menu.
 2. Nello script JSON procedere come segue:
 	1. Per la proprietà **clusterUri**, immettere l'URL di HDInsight. Ad esempio: https://<clustername>.azurehdinsight.net/     
 	2. Per la proprietà **UserName**, immettere il nome dell'utente che ha accesso al cluster HDInsight.
@@ -850,7 +854,7 @@ Esempio | Funzioni delle attività personalizzate
 
 ## Vedere anche
 
-[Aggiornamenti della Data factory di Azure: eseguire le attività .NET personalizzate per ADF usando Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Aggiornamenti di Azure Data Factory: eseguire le attività .NET personalizzate per ADF usando Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -886,4 +890,4 @@ Esempio | Funzioni delle attività personalizzate
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

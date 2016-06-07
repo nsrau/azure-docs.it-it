@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Aggiungere l'API di Dropbox a PowerApps Enterprise o alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di Dropbox con i parametri dell'API REST."
-	services=""
+    pageTitle="Aggiungere il connettore Dropbox a PowerApps Enterprise o alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore Dropbox con i parametri dell'API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
-# Introduzione all'API di Dropbox 
-Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e così via. L'API di Dropbox può essere usata da:
+# Introduzione al connettore Dropbox 
+Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e così via. Il connettore Dropbox può essere usato da:
 
 - App per la logica 
 - PowerApps
@@ -38,9 +38,9 @@ Con Dropbox è possibile:
 - Creare il flusso aziendale in base ai dati ottenuti da Dropbox. 
 - Usare i trigger quando un file viene creato o aggiornato.
 - Usare le azioni per creare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in Dropbox, è possibile inviare tale file come messaggio di posta elettronica tramite Office 365.
-- Aggiungere l'API di Dropbox a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
+- Aggiungere il connettore Dropbox a PowerApps Enterprise, in modo che gli utenti possano usarlo nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un connettore in PowerApps Enterprise, vedere la pagina relativa alla [registrazione dei connettori in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,16 +51,15 @@ Trigger | Azioni
 --- | ---
 <ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a Dropbox
 
-Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Dropbox.
+Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Dropbox.
 
-1. Accedere all'account Dropbox.
-2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Dropbox. 
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
-Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Dropbox in altre app per la logica.
 
@@ -84,7 +83,7 @@ Carica un file in Dropbox. ```POST: /datasets/default/files```
 
 
 ### Quando un file viene creato    
-Attiva un flusso quando un nuovo file viene creato in una cartella di Dropbox ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando un nuovo file viene creato in una cartella di Dropbox. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -286,4 +285,4 @@ Tornare all'[elenco di API](apis-list.md).
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

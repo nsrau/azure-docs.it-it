@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/07/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Che cos’è Gestione snapshot StorSimple?
@@ -25,7 +25,7 @@ Questa panoramica introduce Gestione snapshot StorSimple, ne descrive le funzion
 
 Per una panoramica dell'intero sistema di Microsoft Azure StorSimple, tra cui il dispositivo StorSimple, il servizio StorSimple Manager, Gestione snapshot StorSimple e l'adattatore StorSimple per SharePoint, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md).
  
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
 >
@@ -38,9 +38,9 @@ Gestione snapshot StorSimple fornisce una console di gestione centrale che conse
 - Configurare, eseguire il backup ed eliminare volumi.
 - Configurare gruppi di volumi per assicurarsi che i dati di cui è stato eseguito il backup siano coerenti con l'applicazione.
 - Gestire criteri di backup in modo che il backup dei dati venga eseguito in una pianificazione predeterminata.
-- Creare copie indipendenti dei dati, che possono essere archiviate nel cloud e utilizzate per il ripristino di emergenza.
+- Creare snapshot locali e nel cloud, che possono essere archiviati nel cloud e usati per il ripristino di emergenza.
 
-Con Gestione snapshot StorSimple è possibile montare volumi, quindi configurarli in gruppi di volumi, in genere dall'applicazione. Gestione snapshot StorSimple utilizza questi gruppi di volumi per generare copie di backup coerenti con l'applicazione. (La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale dell'applicazione in un momento specifico).
+Snapshot Manager di StorSimple recupera l'elenco delle applicazioni registrate con il provider VSS nell'host. Per creare backup coerenti con l'applicazione, controlla quindi i volumi usati da un'applicazione e suggerisce i gruppi di volumi da configurare. Gestione snapshot StorSimple utilizza questi gruppi di volumi per generare copie di backup coerenti con l'applicazione. (La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale dell'applicazione in un momento specifico).
 
 I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. (Per ulteriori informazioni, andare alla sezione Integrazione con il servizio Copia Shadow del volume di Windows.) Con Gestione snapshot StorSimple, è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
 
@@ -62,7 +62,7 @@ I backup di Gestione snapshot StorSimple assumono la forma di snapshot increment
 
 - **Volumi condivisi cluster**: con i volumi condivisi cluster (CSV) più nodi in un cluster di failover possono leggere o scrivere contemporaneamente sullo stesso disco. Il failover da un nodo a un altro nodo può verificarsi rapidamente, senza necessità di modificare la proprietà dell'unità o di montare, smontare e rimuovere un volume.
 
->[AZURE.IMPORTANT]Non combinare volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot. La combinazione di volumi condivisi cluster e volumi non condivisi cluster in uno stesso snapshot non è supportata.
+>[AZURE.IMPORTANT] Non combinare volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot. La combinazione di volumi condivisi cluster e volumi non condivisi cluster in uno stesso snapshot non è supportata.
  
 È possibile utilizzare Gestione snapshot StorSimple per ripristinare interi gruppi di volumi o clonare volumi singoli e recuperare file singoli.
 
@@ -79,7 +79,7 @@ Gestione snapshot StorSimple utilizza i gruppi di volumi per creare copie di bac
 
 I gruppi di volumi non corrispondono ai contenitori di volumi. Un contenitore di volumi contiene uno o più volumi che condividono un account di archiviazione cloud e altri attributi, come la crittografia e il consumo della larghezza di banda. Un contenitore di volumi singolo può contenere fino a 256 volumi StorSimple con thin provisioning. Per altre informazioni sui contenitori di volumi, andare a [Gestione dei contenitori di volumi](storsimple-manage-volume-containers.md). I gruppi di volumi sono raccolte di volumi configurate per facilitare le operazioni di backup. Se si selezionano due volumi che appartengono a contenitori di volumi diversi, inserirli in un singolo gruppo di volumi, quindi creare un criterio di backup per tale gruppo di volumi. Il backup di ciascun volume verrà eseguito nel contenitore di volumi appropriato, utilizzando l'account di archiviazione appropriato.
 
->[AZURE.NOTE]Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
+>[AZURE.NOTE] Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
 
 ## Integrazione con il servizio Copia Shadow del volume di Windows
 
@@ -156,4 +156,4 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 - Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0525_2016-->

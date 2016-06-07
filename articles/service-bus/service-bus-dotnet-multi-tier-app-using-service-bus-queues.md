@@ -475,22 +475,9 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 * [Pagina relativa al bus di servizio][sbwacom]  
 * [Come usare le code del bus di servizio][sbwacomqhowto]  
 
-Per altre informazioni sugli scenari multilivello o per informazioni su come distribuire un'applicazione in un servizio cloud, vedere:
+Per altre informazioni sugli scenari multilivello, vedere:
 
 * [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage]  
-
-È consigliabile implementare il front-end di un'applicazione multilivello in un sito Web di Azure anziché in un servizio cloud di Azure.
-
-Per implementare l'applicazione creata in questa esercitazione come progetto Web standard invece che come ruolo Web di un servizio cloud, attenersi alle procedure disponibili in questa esercitazione, apportando le modifiche seguenti:
-
-1. Quando si crea il progetto, scegliere il modello di progetto **ASP.NET MVC Web Application** nella categoria **Web** invece del modello **Servizio cloud** nella categoria **Cloud**. Seguire quindi le istruzioni disponibili per la creazione dell'applicazione MVC, fino alla sezione **Gestione configurazione del cloud**.
-
-2. Quando si crea un ruolo di lavoro, crearlo in una nuova soluzione distinta, seguendo le istruzioni analoghe originali per la creazione del ruolo Web, ma creando solo il ruolo di lavoro nel progetto del servizio cloud. Seguire le stesse indicazioni per la creazione del ruolo di lavoro.
-
-3. È possibile verificare separatamente il front-end e il back-end oppure eseguirli simultaneamente in istanze distinte di Visual Studio.
-
-Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Creare un'app Web ASP.NET nel servizio app di Azure](../app-service-web/web-sites-dotnet-get-started.md). Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione][mutitierstorage].
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -545,4 +532,4 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

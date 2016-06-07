@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare l'archiviazione BLOB da Java | Microsoft Azure"
+	pageTitle="Come usare l'archiviazione BLOB (archiviazione degli oggetti) da Java | Microsoft Azure"
 	description="Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure."
 	services="storage"
 	documentationCenter="java"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Panoramica
+
+L'archiviazione BLOB di Azure è un servizio che archivia dati non strutturati nel cloud come oggetti/BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
 
 Questa guida illustra i diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#Next-Steps).
 
@@ -258,7 +260,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 - [API REST di Archiviazione di Azure][]
 - [Blog del team di Archiviazione di Azure][]
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni, vedere anche il [Centro per sviluppatori Java](/develop/java/).
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
@@ -268,4 +270,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

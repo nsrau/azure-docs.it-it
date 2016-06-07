@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere l'API di SQL Azure alle app per la logica | Microsoft Azure"
-	description="Panoramica dell'API di SQL Azure con i parametri dell'API REST."
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Aggiungere il connettore SQL Azure alle app per la logica | Microsoft Azure"
+    description="Panoramica del connettore SQL Azure con i parametri dell'API REST."
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 
-# Introduzione all'API di SQL Azure
+# Introduzione al connettore SQL Azure
 Connettersi al database SQL di Azure per gestire le tabelle e le righe, ad esempio per inserire righe, recuperare tabelle e così via.
 
-L'API del database SQL di Azure può essere usata da:
+Il connettore del database SQL Azure può essere usato da:
 
 - App per la logica trattate in questo argomento
 - PowerApps. Vedere l'[elenco delle connessioni PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) per l'elenco completo.
@@ -43,16 +43,14 @@ Trigger | Azioni
 --- | ---
 Nessuno | <ul><li>Get row</li><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get tables</li><li>Update row</li></ul>
 
-Tutte le API supportano i dati nei formati JSON e XML.
+Tutti i connettori supportano dati nei formati JSON e XML.
 
 ## Creare una connessione a SQL
-Quando si aggiunge questa API alle app per la logica, immettere i valori seguenti:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-|Stringa di connessione SQL|Sì|Immettere la stringa di connessione del database SQL di Azure|
+>[AZURE.INCLUDE [Passaggi per la creazione di una connessione a SQL](../../includes/connectors-create-api-sqlazure.md)]
 
-Dopo aver creato la connessione immettere le proprietà di SQL, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+
+Dopo aver creato la connessione immettere le proprietà SQL, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -226,6 +224,6 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 ## Passaggi successivi
 
-[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

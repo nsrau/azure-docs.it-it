@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Centro protezione di Microsoft
@@ -26,15 +26,15 @@ Ecco le risposte. L'utente è il proprietario dei dati, pertanto decide chi vi h
 
 Nel Centro protezione di Microsoft sono disponibili aree relative a:
 
-- [Sicurezza](https://www.microsoft.com/TrustCenter/Security/default.aspx): ottenere informazioni sul modo in cui vengono protetti tutti i servizi Microsoft Cloud.
-- [Privacy](https://www.microsoft.com/TrustCenter/Privacy/default.aspx): comprendere in che modo Microsoft garantisce la privacy dei dati nel cloud.
-- [Conformità](https://www.microsoft.com/TrustCenter/Compliance/default.aspx): scoprire in che modo Microsoft consente alle organizzazioni di soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti.
-- [Trasparenza](https://www.microsoft.com/TrustCenter/Transparency/default.aspx): ottenere informazioni sul modo in cui Microsoft garantisce all'utente il controllo dei dati nel cloud e fornisce informazioni approfondite sulla modalità di gestione dei dati.
-- [Prodotti e servizi](https://www.microsoft.com/TrustCenter/CloudServices/default.aspx): vedere tutti i prodotti e i servizi Microsoft Cloud in un'unica posizione
-- [Service Trust Portal](https://www.microsoft.com/TrustCenter/STP/default.aspx): ottenere copie dei report di controllo indipendenti dei servizi Microsoft Cloud, le valutazioni dei rischi, le procedure consigliate di sicurezza e il materiale correlato.
-- [Novità](https://www.microsoft.com/TrustCenter/Whats-New/default.aspx): scoprire le novità di Microsoft Cloud Trust
-- [Risorse](https://www.microsoft.com/TrustCenter/Resources/default.aspx): analizzare white paper, video e case study in Microsoft Trusted Cloud
+- [Sicurezza](https://aka.ms/tcsecurity): informazioni sul modo in cui vengono protetti tutti i servizi Microsoft Cloud.
+- [Privacy](https://aka.ms/tcprivacy): informazioni sul modo in cui Microsoft garantisce la privacy dei dati nel cloud.
+- [Conformità](https://aka.ms/tccompliance): informazioni sul modo in cui Microsoft consente alle organizzazioni di soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti.
+- [Trasparenza](https://aka.ms/tctransparency): informazioni sul modo in cui Microsoft garantisce all'utente il controllo dei dati nel cloud e offre informazioni approfondite sulla modalità di gestione dei dati.
+- [Prodotti e servizi](https://aka.ms/tcproductsservices): raccolta completa di informazioni su tutti i prodotti e i servizi di Microsoft Cloud
+- [Service Trust Portal](https://aka.ms/tcservicetrportal): copie dei report di audit indipendenti dei servizi di Microsoft Cloud, valutazioni dei rischi, procedure di sicurezza consigliate e materiale correlato.
+- [Novità](https://aka.ms/tcwhatsnew): novità di Microsoft Cloud Trust
+- [Risorse](https://aka.ms/tcresources): white paper, video e case study in Microsoft Trusted Cloud
 
 Il [Centro protezione di Microsoft](https://www.microsoft.com/trustcenter) contiene tutte le informazioni necessarie per comprendere come viene garantita la sicurezza di Microsoft Cloud.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

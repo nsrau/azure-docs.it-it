@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/04/2016"
+   ms.date="05/19/2016"
    ms.author="larryfr"/>
 
 
@@ -77,6 +77,12 @@ Azure HDInsight supporta solo le reti virtuali basate sulla località e attualme
 I cluster basati su Windows richiedono una rete virtuale v1 (classica), mentre i cluster basati su Linux richiedono una rete virtuale v2 (Gestione risorse di Azure). Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
 
 Se si dispone di risorse in una rete virtuale non utilizzabile da parte del cluster che si intende creare, creare una nuova rete virtuale che può essere utilizzata dal cluster e connetterla alla rete virtuale non compatibile. È quindi possibile creare il cluster nella versione della rete che richiede e questo sarà in grado di accedere alle risorse nell'altra rete, poiché le due sono unite. Per ulteriori informazioni sulla connessione di reti virtuali classiche e nuove, vedere [Connessione di VNet classiche a VNet nuove](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###DNS personalizzato
+
+Quando si crea una rete virtuale, Azure fornisce la risoluzione dei nomi predefinita per i servizi di Azure, ad esempio HDInsight, che vengono installati nella rete. Tuttavia, può essere necessario usare il proprio Domain Name System (DNS), per casi quali la risoluzione dei nomi di dominio tra più reti. Ad esempio, nel caso di una comunicazione tra servizi che si trovano in due reti virtuali associate. HDInsight supporta sia la risoluzione dei nomi predefinita di Azure sia il DNS personalizzato quando usato con la rete virtuale di Azure.
+
+Per altre informazioni sull'uso del proprio server DNS con la rete virtuale di Azure, vedere la sezione __Risoluzione dei nomi usando il server DNS__ dell'articolo [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 ###Reti virtuali protette
 
@@ -167,7 +173,7 @@ __Uso di Azure PowerShell__
 
 __Uso dell'interfaccia della riga di comando di Azure__
 
-1. Usare il comando seguente per creare un nuovo gruppo di sicurezza di rete denominato `hdisecure`. Sostituire __RESOURCEGROUPNAME__ e __LOCATION__ con il gruppo di risorse che contiene la rete virtuale di Azure e il percorso (area) in cui è stato creato il gruppo.
+1. Usare il comando seguente per creare un nuovo gruppo di sicurezza di rete denominato `hdisecure`. Sostituire __RESOURCEGROUPNAME__ e __LOCATION__ con il gruppo di risorse che contiene la rete virtuale di Azure e la località (area) in cui è stato creato il gruppo.
 
         azure network nsg create RESOURCEGROUPNAME hdisecure LOCATION
     
@@ -192,10 +198,10 @@ __Uso dell'interfaccia della riga di comando di Azure__
 >
 > Per consentire l'accesso SSH da Internet, ad esempio, è necessario aggiungere una regola simile alla seguente:
 >
-> * Azure PowerShell - ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
-> * Interfaccia della riga di comando di Azure - ```azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "22" -f "*" -e "VirtualNetwork" -c "Allow" -y 304 -r "Inbound"```
+> * Azure PowerShell: ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
+> * Interfaccia della riga di comando di Azure: ```azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "22" -f "*" -e "VirtualNetwork" -c "Allow" -y 304 -r "Inbound"```
 
-Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Per informazioni sul controllo del routing in una rete virtuale di Azure, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
+Per altre informazioni sui gruppi di sicurezza di rete, vedere la [panoramica dei gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Per informazioni sul controllo del routing in una rete virtuale di Azure, vedere l'articolo relativo alle [route definite dall'utente e all'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 ##<a id="tasks"></a>Attività e informazioni
 
@@ -303,4 +309,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

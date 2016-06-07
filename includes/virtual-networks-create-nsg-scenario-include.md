@@ -13,7 +13,7 @@ In questo scenario si creerà un NSG per ogni subnet nella rete virtuale **TestV
 	- **regola sql**. Questa regola consente il traffico SQL solo dal subnet *front-end*.
 	- **regola-web**. Questa regola nega tutto il traffico associato ad internet proveniente dal subnet *back-end*.
 
-La combinazione di queste regole crea uno scenario simile alla rete perimetrale, dove la subnet di back-end può solo ricevere traffico in ingresso per il traffico SQL dalla subnet front-end e non dispone dell'accesso a Internet, mentre la subnet front-end può comunicare con Internet e ricevere solo le richieste HTTP in ingresso.
+La combinazione di queste regole crea uno scenario simile alla rete perimetrale, dove la subnet di back-end può solo ricevere traffico in ingresso per SQL dalla subnet front-end e non dispone dell'accesso a Internet, mentre la subnet front-end può comunicare con Internet e ricevere solo le richieste HTTP in ingresso.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0525_2016-->

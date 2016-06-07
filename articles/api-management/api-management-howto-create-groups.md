@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
@@ -111,4 +111,4 @@ Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visual
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [sfruttare i gruppi esterni nei tenant di Azure Active Directory associati]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

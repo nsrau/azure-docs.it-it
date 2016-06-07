@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Come eseguire una verifica della sicurezza in Azure AD Privileged Identity Management
 
 Azure Active Directory (AD) Privileged Identity Management semplifica la gestione da parte delle aziende delle identità con privilegi e dell'accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
-Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore della sicurezza dell'organizzazione richieda di eseguire regolarmente una verifica e confermare che il ruolo è ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento o che si passi direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
+Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di eseguire regolarmente una verifica e confermare che il ruolo sia ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento o che si passi direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
 
-Per gli amministratori della sicurezza interessati alle verifiche della sicurezza sono disponibili altre informazioni in [Come avviare una verifica della sicurezza](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Per gli amministratori dei ruoli con privilegi interessati alle verifiche della sicurezza sono disponibili altre informazioni in [Come avviare una verifica della sicurezza in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Aggiungere l'applicazione Privileged Identity Management
 
@@ -49,4 +49,4 @@ L'accesso non verrà modificato fino a quando [la verifica non è stata completa
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->
