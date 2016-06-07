@@ -238,7 +238,7 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 1. Selezionare la scheda **Monitoraggio**.
 2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:  
 
-![Fare clic su Aggiungi metriche][AddMetrics]
+	![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
