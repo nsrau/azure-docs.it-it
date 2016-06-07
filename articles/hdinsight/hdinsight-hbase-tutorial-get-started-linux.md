@@ -47,9 +47,9 @@ La procedura seguente usa un modello di Gestione risorse di Azure per creare un 
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
 
-    - **ClusterName**: immettere un nome per il cluster HBase che verrà creato.
-    - **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
-    - **SSH username and password**: il nome utente predefinito è **sshuser**. È possibile rinominarlo.
+    - **ClusterName** (NomeCluster): immettere un nome per il cluster HBase che verrà creato.
+    - **Cluster login name and password** (Nome di accesso e password del cluster): il nome dell'account di accesso predefinito è **admin**.
+    - **SSH username and password** (Nome utente e password SSH): il nome utente predefinito è **sshuser**. È possibile rinominarlo.
      
     Gli altri parametri sono facoltativi.
     
