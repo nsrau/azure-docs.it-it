@@ -54,7 +54,10 @@ Sono disponibili due tipi di trigger:
 I connettori possono anche essere usati come azioni all'interno delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
 
 
-[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)
+[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) 
+[Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) 
+[Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connettersi al BLOB di Azure per gestire file nel contenitore BLOB."
