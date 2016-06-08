@@ -248,4 +248,4 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->

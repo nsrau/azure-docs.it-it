@@ -197,6 +197,6 @@ Nonostante i moduli di integrazione siano essenzialmente moduli di PowerShell, e
 ## Passaggi successivi
 
 - Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
-- Per altre informazioni sulla creazione di moduli di PowerShell, vedere l'articolo relativo alla scrittura di un modulo di Windows PowerShell (https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- Per altre informazioni sulla creazione di moduli di PowerShell, vedere [l'articolo relativo alla scrittura di un modulo di Windows PowerShell](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
 
 <!---HONumber=AcomDC_0601_2016-->
