@@ -262,4 +262,4 @@ Attiva un flusso quando viene modificato un file in una cartella di Box. ```GET:
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->
