@@ -108,7 +108,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
       * Fare clic su **OK**.
 
-  1. Il menu a discesa **App Service Plan** (Piano servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
+  1. Il menu a discesa **App Service Plan** (Piano di servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
 
         Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
 
@@ -116,13 +116,13 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
       * Fare clic su **New** (Nuovo).
 
-      * Viene visualizzata la finestra di dialogo **New App Service Plan** (Nuovo piano servizio app):
+      * Viene visualizzata la finestra di dialogo **New App Service Plan** (Nuovo piano di servizio app):
 
             ![][09]
 
       * Nella casella di testo **Name** (Nome) specificare un nome per il nuovo piano di servizio app.
 
-      * Nel menu a discesa **Location** (Posizione) selezionare la posizione del data center di Azure appropriata per il piano.
+      * Nel menu a discesa **Location** (Località) selezionare la posizione del data center di Azure appropriata per il piano.
 
       * Nel menu a discesa **Pricing Tier** (Piano tariffario) selezionare la tariffa appropriata per il piano. Ai fini del test è possibile scegliere **Free** (Gratuito).
 
@@ -134,7 +134,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
   1. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
 
-        Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. A questo punto si è pronti completare la distribuzione iniziale dell'app Web in Azure:
 
@@ -144,7 +144,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
     Nota: per impostazione predefinita, l'applicazione verrà distribuita come sottodirectory del server applicazioni. Se si vuole distribuire l'applicazione come applicazione radice, selezionare la casella di controllo **Deploy to root** (Distribuisci a radice) prima di fare clic su **OK**.
 
-1. Verrà quindi aperta la visualizzazione **Azure Activity Log** (Log attività Azure) in cui è indicato lo stato della distribuzione dell'app Web.
+1. Verrà quindi aperta la visualizzazione **Azure Activity Log** (Log attività di Azure) in cui è indicato lo stato della distribuzione dell'app Web.
 
     ![][12]
 
@@ -165,13 +165,13 @@ In entrambi i casi, il processo è identico e richiede solo pochi secondi:
 
 3. Poiché è già stato effettuato l'accesso in precedenza, verrà visualizzato un elenco dei contenitori di app Web esistenti. Selezionare il contenitore in cui si vuole pubblicare o ripubblicare l'applicazione Java e fare clic su **OK**.
 
-Pochi secondi dopo nella visualizzazione **Azure Activity Log** (Log attività Azure) la distribuzione aggiornata apparirà come **Published** (Pubblicata) e sarà possibile verificare l'applicazione aggiornata in un Web browser.
+Pochi secondi dopo nella visualizzazione **Azure Activity Log** (Log attività di Azure) la distribuzione aggiornata apparirà come **Published** (Pubblicata) e sarà possibile verificare l'applicazione aggiornata in un Web browser.
 
 ## Arresto di un'app Web esistente
 
-Per arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer** (Esplora Azure).
+Per arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer**.
 
-Se la visualizzazione **Azure Explorer** (Esplora Azure) non è aperta, è possibile aprirla facendo clic sul menu **Window** (Finestra) in Eclipse, quindi su **Show View** (Mostra visualizzazione), **Other** (Altro), **Azure** e infine su **Azure Explorer** (Esplora Azure). Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
+Se la visualizzazione **Azure Explorer** non è aperta, è possibile aprirla facendo clic sul menu **Window** (Finestra) in Eclipse, quindi su **Show View** (Mostra visualizzazione), **Other** (Altro), **Azure** e infine su **Azure Explorer**. Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
 
 Quando compare la visualizzazione **Azure Explorer**, per arrestare l'app Web seguire questa procedura:
 

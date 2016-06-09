@@ -149,7 +149,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
     c. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign-in page URL** (URL pagina di accesso).
 
-    d. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Sign-out page URL** (URL pagina di sign-out).
+    d. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Sign-out page URL** (URL pagina di disconnessione).
 
     e. Nella casella di testo **NameID format** digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 

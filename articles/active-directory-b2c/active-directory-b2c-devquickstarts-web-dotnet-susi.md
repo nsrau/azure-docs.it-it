@@ -44,7 +44,7 @@ Successivamente, è necessario creare un'app nella directory B2C. In questo modo
 
 In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene due esperienze di identità: **registrazione/accesso** e **reimpostazione della password**. È necessario creare criteri per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md). Durante la creazione dei due criteri, assicurarsi di:
 
-- Scegliere **User ID sign-up** (Registrazione tramite ID utente) o **Email sign-up** (Registrazione tramite indirizzo di posta elettronica) nel pannello dei provider di identità.
+- Scegliere **User ID sign-up** (Iscrizione tramite ID utente) o **Email sign-up** (Iscrizione tramite indirizzo di posta elettronica) nel pannello dei provider di identità.
 - Scegliere **Display name** (Nome visualizzato) e altri attributi per la registrazione nei criteri di registrazione e accesso.
 - Scegliere l'attestazione di **Display name** (Nome visualizzato) come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
 - Copiare il valore di **Name** (Nome) di ogni criterio dopo averlo creato. I nomi dei criteri saranno necessari in un secondo momento.

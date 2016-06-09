@@ -156,7 +156,7 @@ La pagina **Functions** (Funzioni) visualizza un elenco di funzioni eseguite e u
 
 ![Dettagli della chiamata](./media/functions-run-local/invocationdetail.png)
 
-Fare clic su una chiamata per visualizzare la pagina **Invocation Details** (Dettagli chiamata), che indica quando è stata attivata la funzione, il tempo di esecuzione approssimativo e il completamento corretto. Fare clic sul pulsante **Toggle Output** (Attiva/Disattiva output) per visualizzare i log scritti dal codice della funzione.
+Fare clic su una chiamata per visualizzare la pagina **Invocation Details** (Dettagli della chiamata), che indica quando è stata attivata la funzione, il tempo di esecuzione approssimativo e il completamento corretto. Fare clic sul pulsante **Toggle Output** (Attiva/Disattiva output) per visualizzare i log scritti dal codice della funzione.
 
 ![Dettagli della chiamata](./media/functions-run-local/invocationdetail.png)
 
