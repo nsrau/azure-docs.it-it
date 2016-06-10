@@ -258,4 +258,4 @@ Eseguire l'installazione mediante le impostazioni rapide | [Installazione rapida
 Eseguire l'aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Account usati per l'installazione | [Altre informazioni sugli account e le autorizzazioni di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!----HONumber=AcomDC_0601_2016-->
