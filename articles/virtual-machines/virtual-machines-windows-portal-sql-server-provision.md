@@ -249,4 +249,4 @@ Per altre informazioni sull'uso di SQL Server in Azure, vedere [Panoramica di SQ
 
 Per una panoramica su SQL Server in Macchine virtuali di Azure, guardare il video sulla [VM di Azure come piattaforma ottimale per SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!----HONumber=AcomDC_0601_2016-->
