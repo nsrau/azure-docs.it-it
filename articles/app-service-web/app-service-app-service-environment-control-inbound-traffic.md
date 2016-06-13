@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
@@ -41,7 +41,7 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 - 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
 - 443: porta predefinita per il traffico SSL in ingresso alle app in esecuzione nei piani del servizio app in un ambiente del servizio app
 - 21: canale di controllo per il servizio FTP. Questa porta può essere bloccata, se non si usa un servizio FTP.
-- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP. **Nota:** i canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.
+- 10001-10020: canali di dati per il servizio FTP. Come per il canale di controllo, queste porte possono essere bloccate se non si usa il servizio FTP.   
 - 4016: porta usata per il debug remoto con Visual Studio 2012. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4018: porta usata per il debug remoto con Visual Studio 2013. Questa porta può essere bloccata, se non si usa questa funzionalità.
 - 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
@@ -49,7 +49,7 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 ## Requisiti per DNS e connettività in uscita ##
 Per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
 
-Gli ambienti del servizio app richiedono anche un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L’attivazione di un riavvio di ambiente in sequenza mediante l'icona "Riavvia" posizionata nella parte superiore dell’ambiente di servizio app del pannello di gestione nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
+Gli ambienti del servizio app richiedono anche un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L'attivazione di un riavvio di ambiente continuo con l'icona "Riavvia" posizionata nella parte superiore del pannello di gestione dell'ambiente di servizio app nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
 
 L'elenco seguente illustra i requisiti relativi al DNS e alla connettività per un ambiente del servizio app:
 
@@ -149,4 +149,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

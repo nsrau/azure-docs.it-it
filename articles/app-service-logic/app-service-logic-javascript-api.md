@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/22/2016"
+   ms.date="05/31/2016"
    ms.author="stepsic"/>
 
-#App API JavaScript
+# App API JavaScript
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
-L'applicazione dell'API JavaScript offre un modo semplice per eseguire semplici espressioni JavaScript*mentre è in esecuzione l'applicazione di logica*.
+L'app per le API JavaScript offre un modo semplice per eseguire semplici espressioni JavaScript *mentre l'app per la logica è in esecuzione*.
 
-##Quando è necessario utilizzare questa applicazione API?
+## Quando è necessario utilizzare questa applicazione API?
 Lo scenario chiave per questa applicazione API è quando si desidera che il ciclo di vita del codice che è possibile scrivere sia lo stesso dell'applicazione logica e se *non* si desidera che il codice possa essere richiamato in qualsiasi altro scenario.
 
 D'altra parte, se si desidera un frammento di codice che dispone di un ciclo di vita indipendente dell'applicazione logica riutilizzabile, si deve utilizzare l'app processi Web API per creare espressioni di codice semplice e richiamarle da app logica.
@@ -31,11 +31,11 @@ Infine, se si vogliono includere tutti i pacchetti aggiuntivi, è necessario usa
 
 Utilizzare la[App API C#](app-service-logic-cs-api.md)se non si desidera scrivere espressioni in C#.
 
-##Creazione di un'applicazione API JavaScript
+## Creazione di un'applicazione API JavaScript
 Per utilizzare l'applicazione dell'API JavaScript, è necessario creare innanzitutto un'istanza dell'applicazione API JavaScript. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app JavaScript API da Azure Marketplace.
 
-##Utilizzo di App API JavaScript nell'area di progettazione logica App
-###Trigger
+## Uso di app per le API JavaScript nell'area di progettazione App per la logica
+### Trigger
 È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se viene restituito contenuto, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
 Gli input per il trigger sono:
@@ -48,7 +48,7 @@ Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la lo
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
-###Azione
+### Azione
 
 Analogamente, è possibile fornire un'azione da eseguire.
 
@@ -89,7 +89,7 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 
 L'azione restituisce il JSON restituito dalla funzione. Pertanto, nell'app API Yammer è possibile fare riferimento a `@body('javascriptapi')` per la proprietà degli **allegati**.
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
  
@@ -97,6 +97,6 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--References -->
 
 <!--Links -->
-[Creating a Logic App]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

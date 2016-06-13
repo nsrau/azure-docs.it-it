@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,16 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="05/26/2016"
 	ms.author="genli"/>
 
 # Non è possibile accedere per gestire la sottoscrizione di Azure
+
+> [AZURE.NOTE]Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 Questo articolo consentirà di risolvere alcune cause comuni dei problemi di accesso.
 
 ## A quale portale si sta tentando di accedere?
 
-Un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/) solo se gli amministratori del servizio (SA) e i coamministratori (CA) hanno accesso al [portale di Azure](https://portal.azure.com) o al [portale di Azure classico](https://manage.windowsazure.com/).
+Un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/) solo se gli amministratori del servizio (SA) e i coamministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com) o al [portale di Azure classico](https://manage.windowsazure.com/).
 
 Per altre informazioni sui ruoli di amministratore di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md).
 
@@ -48,8 +50,8 @@ Ora che è possibile accedere ad Azure con un account aziendale, ecco le modific
 |Account Microsoft |Sì|No|No|
 |Account dell'organizzazione|Sì|Sì|No|
 
-## Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso
+## Si è verificato un problema con il browser?
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

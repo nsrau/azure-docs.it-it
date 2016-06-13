@@ -23,8 +23,6 @@
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Raccogliere log di controllo
@@ -83,4 +81,4 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   - Creare una nuova VM in un altro set di disponibilità nella stessa area.
   - Aggiungere la nuova VM alla stessa rete virtuale.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

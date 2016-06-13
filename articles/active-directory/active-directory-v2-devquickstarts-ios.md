@@ -22,5 +22,9 @@ L'esercitazione introduttiva per iOS non è ancora disponibile... Riprovare più
 
 > [AZURE.NOTE]
 	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	
+	## Get security updates for our product
 
-<!---HONumber=AcomDC_0224_2016-->
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->

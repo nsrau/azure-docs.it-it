@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="plarsen"/>
 
-# DB2
+# Connettore DB2
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
-Microsoft Connector for DB2 è un'app per le API per la connessione di applicazioni tramite il servizio app di Azure alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per la connessione a computer server DB2 attraverso una connessione di rete TCP/IP, incluse connessioni ibride di Azure a server DB2 locali mediante l'inoltro del bus di servizio di Azure. Il connettore supporta le operazioni di database seguenti:
+Microsoft Connector for DB2 è un'app per le API per la connessione di applicazioni tramite il servizio app di Azure alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per la connessione a computer server DB2 remoti attraverso una connessione di rete TCP/IP, incluse connessioni ibride di Azure a server DB2 locali mediante l'inoltro del bus di servizio di Azure. Il connettore supporta le operazioni del database seguenti:
 
 - Lettura di righe mediante SELECT
 - Polling per la lettura di righe mediante SELECT COUNT seguita da SELECT
@@ -39,7 +39,7 @@ Trigger | Azioni
 <ul><li>Polling di dati</li></ul> | <ul><li>Inserimento in blocco</li><li>Inserimento</li><li>Aggiornamento in blocco</li><li>Aggiornamento</li><li>Chiamata</li><li>Eliminazione in blocco</li><li>Eliminazione</li><li>Selezione</li><li>Aggiornamento condizionale</li><li>Post in EntitySet</li><li>Eliminazione condizionale</li><li>Selezione di una singola entità</li><li>Eliminazione</li><li>Upsert in EntitySet</li><li>Comandi personalizzati</li><li>Operazioni composite</li></ul>
 
 
-## Creare DB2 Connector
+## Creare il connettore DB2
 È possibile definire un connettore in un'app per la logica da Azure Marketplace, come illustrato nell'esempio seguente:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
@@ -271,4 +271,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

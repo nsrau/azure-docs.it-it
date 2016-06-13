@@ -24,10 +24,11 @@ La clonazione di app è attualmente supportata solo per i piani di servizio app 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+Per informazioni su come usare cmdlet di Azure PowerShell basati su Azure Resource Manager per gestire le app Web, vedere [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## Clonazione di un'app esistente ##
 
-Scenario: l'utente vuole clonare il contenuto di un'app Web esistente nell'area South Central US in una nuova app Web nell'aera North Central US. Questa operazione può essere eseguita con la versione ARM del cmdlet di PowerShell per creare una nuova app Web con l'opzione -SourceWebApp.
+Scenario: l'utente vuole clonare il contenuto di un'app Web esistente nell'area South Central US in una nuova app Web nell'aera North Central US. Questa operazione può essere eseguita con la versione Azure Resource Manager del cmdlet di PowerShell per creare una nuova app Web con l'opzione -SourceWebApp.
 
 Conoscendo il nome del gruppo di risorse che include l'app Web di origine, è possibile usare il comando di PowerShell seguente per ottenere informazioni sull'app Web di origine, denominata in questo caso source-webapp:
 
@@ -77,17 +78,17 @@ Di seguito è illustrata la creazione di un clone dell'app Web di origine in una
 
 ## Configurazione di Gestione traffico durante la clonazione di un'app ##
 
-La creazione di app Web a più aree e la configurazione di Gestione traffico di Azure per indirizzare il traffico a tali app Web sono importanti per garantire la disponibilità elevata delle app dei clienti. Durante la clonazione di un'app Web esistente è possibile scegliere di connettere entrambe le app Web a un nuovo profilo di Gestione traffico oppure a uno esistente. Si noti che è supportata unicamente la versione di Gestione traffico di Gestione risorse di Azure.
+La creazione di app Web con più aree e la configurazione di Gestione traffico di Azure per indirizzare il traffico a tali app Web sono importanti per garantire la disponibilità elevata delle app dei clienti. Durante la clonazione di un'app Web esistente è possibile scegliere di connettere entrambe le app Web a un nuovo profilo di Gestione traffico oppure a uno esistente. Si noti che è supportata unicamente la versione Azure Resource Manager di Gestione traffico.
 
 ### Creazione di un nuovo profilo di Gestione traffico durante la clonazione di un'app ###
 
-Scenario: l'utente vuole clonare un'app Web in un'altra area mentre configura un profilo di Gestione traffico di ARM che include entrambe le app Web. Di seguito è illustrata la creazione di un clone dell'app Web di origine in una nuova app Web durante la configurazione di un nuovo profilo di Gestione traffico:
+Scenario: l'utente vuole clonare un'app Web in un'altra area mentre configura un profilo di Gestione traffico di Azure Resource Manager che include entrambe le app Web. Di seguito è illustrata la creazione di un clone dell'app Web di origine in una nuova app Web durante la configurazione di un nuovo profilo di Gestione traffico:
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 
 ### Aggiunta di una nuova app Web clonata a un profilo di Gestione traffico esistente ###
 
-Scenario: L'utente ha già un profilo di Gestione traffico di ARM a cui vorrebbe aggiungere entrambe le app Web come endpoint. A questo scopo, è necessario assemblare prima di tutto l'ID del profilo di Gestione traffico esistente, per cui saranno necessari l'ID sottoscrizione, il nome del gruppo di risorse e il nome del profilo di Gestione traffico esistente.
+Scenario: l'utente ha già un profilo di Gestione traffico di Azure Resource Manager a cui vorrebbe aggiungere entrambe le app Web come endpoint. A questo scopo, è necessario assemblare prima di tutto l'ID del profilo di Gestione traffico esistente, per cui saranno necessari l'ID sottoscrizione, il nome del gruppo di risorse e il nome del profilo di Gestione traffico esistente.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 
@@ -106,13 +107,15 @@ Questa funzionalità è attualmente in anteprima e sono allo studio nuove funzio
 - Le impostazioni di Easy Auth non vengono clonate.
 - L'estensione Kudu non viene clonata.
 - Le regole TiP non vengono clonate.
+- Il contenuto di database non viene clonato.
 
 
 ### Riferimenti ###
+- [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 - [Clonazione di app Web con il portale di Azure](app-service-web-app-cloning-portal.md)
 - [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md)
 - [Supporto di Gestione risorse di Azure per la versione di anteprima di Gestione traffico di Azure](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

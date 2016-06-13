@@ -213,7 +213,7 @@ GetImportEntriesRunStep | [ImportRunStep][irs] | Contiene la filigrana (CustomDa
 OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Fornisce informazioni allo script sul tipo di esecuzione dell'importazione (differenziale o completa), la partizione, la gerarchia, la filigrana e la dimensione della pagina prevista.
 Types | [Schema][schema] | Schema per lo spazio del connettore che verrà importato.
 
-Lo script di importazione dei dati deve scrivere un oggetto List[[CSEntryChange][csec]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni singolo oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
+Lo script di importazione dei dati deve scrivere un oggetto List[[[CSEntryChange]]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni singolo oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
 
 **Fine importazione**
 
@@ -370,4 +370,4 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto <Connecto
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

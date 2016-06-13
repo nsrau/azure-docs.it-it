@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso del connettore SAP nelle app per la logica | Microsoft Azure App Service"
-   description="Come creare e configurare l'app per le API o il connettore SAP e usarlo in un'app per la logica in Azure App Service"
+   pageTitle="Uso del connettore SAP nelle app per la logica | Servizio app di Microsoft Azure"
+   description="Come creare e configurare l'app per le API o il connettore SAP e usarlo in un'app per la logica nel servizio app di Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Uso del connettore SAP e aggiunta all'app per la logica
+# Iniziare a usare il connettore SAP e aggiungerlo all'app per la logica
 
 >[AZURE.NOTE] Il connettore è in corso di aggiornamento sulla base del feedback dei clienti. Questa pagina verrà aggiornata quando il connettore sarà pronto. Non è consigliabile usare il connettore SAP prima che sia disponibile la nuova versione. Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
@@ -84,7 +84,7 @@ Completare l'app per la logica per definire il processo aziendale e quindi esegu
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -99,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

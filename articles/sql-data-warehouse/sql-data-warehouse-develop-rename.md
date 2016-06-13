@@ -13,28 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/28/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Rinominare in SQL Data Warehouse
-Mentre il server SQL supporta la ridenominazione del database tramite la procedura di archiviazione `sp_renamedb`, SQL Data Warehouse usa la sintassi DDL per ottenere lo stesso scopo. Il comando DDL è `RENAME OBJECT`.
+SQL Data Warehouse usa l'istruzione [RENAME][] per rinominare le tabelle. Questo comportamento è diverso da SQL Server, che usa `sp_rename`. Attualmente è possibile rinominare solo le tabelle utente. Le tabelle esterne e i database non possono essere rinominati.
 
 ## Rinominare tabella
 
-Attualmente, solo le tabelle possono essere rinominate. La sintassi per rinominare una tabella è:
+Quando si rinomina una tabella, tutti gli oggetti e le proprietà associati alla tabella vengono aggiornati per fare riferimento al nuovo nome della tabella. Ad esempio, le definizioni della tabella, gli indici, i vincoli e le autorizzazioni vengono aggiornati. Le visualizzazioni non vengono aggiornate.
+
+La sintassi per rinominare una tabella è:
 
 ```sql
 RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
-Quando si rinomina una tabella, tutti gli oggetti e le proprietà associati alla tabella vengono aggiornati per fare riferimento al nuovo nome della tabella. Ad esempio, le definizioni della tabella, gli indici, i vincoli e le autorizzazioni vengono aggiornati. Le visualizzazioni non vengono aggiornate.
-
-## Rinominare una tabella esterna
-
-La ridenominazione di una tabella esterna modifica il nome della tabella in SQL Data Warehouse. Non influisce sulla posizione dei dati esterni alla tabella.
-
 ## Modificare uno schema di tabella
-Se si vuole cambiare lo schema a cui appartiene un oggetto, usare l'istruzione ALTER SCHEMA:
+
+Per modificare lo schema a cui appartiene un oggetto, usare l'istruzione ALTER SCHEMA:
 
 ```sql
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
@@ -42,20 +39,22 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 
 ## La ridenominazione della tabella richiede un blocco esclusivo sulla tabella
 
-È importante ricordare che non è possibile rinominare una tabella mentre è in uso. Una ridenominazione di una tabella richiede un blocco esclusivo sulla tabella. Se la tabella è in uso, si potrebbe dover terminare la sessione utilizzando la tabella. Per terminare una sessione, è necessario usare il comando [KILL][]. Prestare attenzione quando si utilizza `KILL` nel momento in cui si termina una sessione e verrà eseguito il rollback di eventuale lavoro non sottoposto a commit. Alle sessioni in SQL Data Warehouse viene aggiunto il prefisso 'SID'. È necessario includere questo e il numero della sessione quando si richiama il comando KILL. Ad esempio, `KILL 'SID1234'`. Per altre informazioni sulle [sessioni], vedere l'articolo relativo alle connessioni
+Non è possibile rinominare una tabella mentre è in uso. Una ridenominazione di una tabella richiede un blocco esclusivo sulla tabella. Se la tabella è in uso, si potrebbe dover terminare la sessione utilizzando la tabella. Per terminare una sessione, usare il comando [KILL][]. Ad esempio, `KILL 'SID1234'`. Prestare attenzione quando si usa l'istruzione KILL perché, quando una sessione viene terminata, verrà eseguito il rollback di qualsiasi lavoro transazionale non sottoposto a commit. Per altre informazioni, vedere [Sessions and requests][] (Sessioni e richieste). Per altre informazioni sull'impatto dell'arresto di una query transazionale e sugli effetti di un rollback, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse][]
 
 
 ## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
+Per altri riferimenti T-SQL, vedere [T-SQL references][] (Riferimenti T-SQL).
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[sessioni]: sql-data-warehouse-develop-connections.md
-
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[sessions and requests]: ./sql-data-warehouse-develop-connections.md#sessions-and-requests
+[T-SQL references]: ./sql-data-warehouse-reference-tsql-statements.md
+[Ottimizzazione delle transazioni per SQL Data Warehouse]: ./sql-data-warehouse-develop-best-practices-transactions.md
 
 <!--MSDN references-->
 [KILL]: https://msdn.microsoft.com/library/ms173730.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

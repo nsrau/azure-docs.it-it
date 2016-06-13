@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -44,29 +44,29 @@ L'attività di copia esegue la copia dei dati da un archivio dati **di origine**
 
 | Origini| Sink |
 |:------- | :---- |
-| <ul><li>[BLOB di Azure](data-factory-azure-blob-connector.md)</li><li>[Tabella di Azure](data-factory-azure-table-connector.md)</li><li>[Database SQL di Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vedere la nota riportata di seguito)](data-factory-azure-documentdb-connector.md)</li><li>[Archivio Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server locale/IaaS di Azure](data-factory-sqlserver-connector.md)</li><li>[File System locale/IaaS di Azure](data-factory-onprem-file-system-connector.md)</li><li>[Database Oracle locale/IaaS di Azure](data-factory-onprem-oracle-connector.md)</li><li>[Database MySQL locale/IaaS di Azure](data-factory-onprem-mysql-connector.md)</li><li>[Database DB2 locale/IaaS di Azure](data-factory-onprem-db2-connector.md)</li><li>[Database Teradata locale/IaaS di Azure ](data-factory-onprem-teradata-connector.md)</li><li>[Database Sybase locale/IaaS di Azure](data-factory-onprem-sybase-connector.md)</li><li>[Database PostgreSQL locale/IaaS di Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Origini dati ODBC locali/IaaS di Azure](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) locale/IaaS di Azure](data-factory-hdfs-connector.md)</li><li>[Origini OData](data-factory-odata-connector.md)</li><li>[Tabella Web](data-factory-web-table-connector.md)</li><li>[GE Historian locale/IaaS di Azure](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[BLOB di Azure](data-factory-azure-blob-connector.md)</li><li>[Tabella di Azure](data-factory-azure-table-connector.md)</li><li>[Database SQL di Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vedere la nota riportata di seguito)](data-factory-azure-documentdb-connector.md)</li><li>[Archivio Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server locale/IaaS di Azure](data-factory-sqlserver-connector.md)</li><li>[File system locale/IaaS di Azure](data-factory-onprem-file-system-connector.md)</li></ul> |
+| <ul><li>[BLOB di Azure](data-factory-azure-blob-connector.md)</li><li>[Tabella di Azure](data-factory-azure-table-connector.md)</li><li>[Database SQL di Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vedere la nota riportata di seguito)](data-factory-azure-documentdb-connector.md)</li><li>[Archivio Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server locale/IaaS di Azure](data-factory-sqlserver-connector.md)</li><li>[File System locale/IaaS di Azure](data-factory-onprem-file-system-connector.md)</li><li>[Database Oracle locale/IaaS di Azure](data-factory-onprem-oracle-connector.md)</li><li>[Database MySQL locale/IaaS di Azure](data-factory-onprem-mysql-connector.md)</li><li>[Database DB2 locale/IaaS di Azure](data-factory-onprem-db2-connector.md)</li><li>[Database Teradata locale/IaaS di Azure ](data-factory-onprem-teradata-connector.md)</li><li>[Database Sybase locale/IaaS di Azure](data-factory-onprem-sybase-connector.md)</li><li>[Database PostgreSQL locale/IaaS di Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Origini dati ODBC locali/IaaS di Azure](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) locale/IaaS di Azure](data-factory-hdfs-connector.md)</li><li>[Origini OData](data-factory-odata-connector.md)</li><li>[Tabella Web](data-factory-web-table-connector.md)</li><li>[GE Historian locale/IaaS di Azure](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[BLOB di Azure](data-factory-azure-blob-connector.md)</li><li>[Tabella di Azure](data-factory-azure-table-connector.md)</li><li>[Database SQL di Azure](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vedere la nota riportata di seguito)](data-factory-azure-documentdb-connector.md)</li><li>[Archivio Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server locale/IaaS di Azure](data-factory-sqlserver-connector.md)</li><li>[File system locale/IaaS di Azure](data-factory-onprem-file-system-connector.md)</li><li>[Database Oracle locale/IaaS di Azure](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
 > [AZURE.NOTE] È possibile spostare solo da e verso Azure DocumentDB da e verso altri servizi di Azure come BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Azure DocumentDB e Archivio Azure Data Lake. Anche la matrice completa per Azure Document DB sarà supportata a breve.
 
-Per spostare i dati da e verso un archivio dati che non è supportato dall'**attività di copia**, è possibile usare l'**attività personalizzata** in Data Factory con la logica richiesta per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
+Per spostare i dati da e verso un archivio dati che non è supportato dall'**attività di copia** è possibile usare l'**attività personalizzata** in Data Factory con la logica richiesta per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
 
 ## Esercitazione
 Per un'esercitazione rapida sull'uso dell'attività di copia, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md). Nell'esercitazione si userà l'attività di copia per copiare dati da un'archiviazione BLOB di Azure a un database SQL di Azure.
 
 ## <a name="copyactivity"></a>Attività di copia
-L'attività di copia esegue la copia dei dati da un set di dati di input (**origine**) in un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività. Per informazioni sulla definizione di attività in generale, vedere l'articolo relativo a [pipeline e attività](data-factory-create-pipelines.md).
+L'attività di copia esegue la copia dei dati da un set di dati di input (**origine**) in un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività. Per informazioni sulla definizione di attività in generale, vedere l'articolo [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
 
 L'attività di copia offre le funzionalità seguenti:
 
 ### <a name="global"></a>Spostamento dei dati disponibile a livello globale
 Anche se Azure Data Factory è disponibile solo negli Stati Uniti occidentali, negli Stati Uniti orientali e in Europa settentrionale, il servizio su cui si basa l'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
 
-Il **Gateway di gestione dati** o **Azure Data Factory** esegue lo spostamento dei dati in base alla posizione degli archivi dati di origine e destinazione in un'operazione di copia. Per informazioni dettagliate, vedere la tabella seguente:
+Il **gateway di gestione dati** o **Azure Data Factory** esegue lo spostamento dei dati in base alla posizione degli archivi dati di origine e destinazione in un'operazione di copia. Per informazioni dettagliate, vedere la tabella seguente:
 
 Posizione dell'archivio dati di origine | Posizione dell'archivio dati di destinazione | Lo spostamento dei dati viene eseguito da  
 -------------------------- | ------------------------------- | ----------------------------- 
-locale/VM di Azure (IaaS) | cloud | **Gateway di gestione dati** in un computer locale o una VM di Azure. I dati non transitano attraverso il servizio nel cloud. <br/><br/>Nota: il Gateway di gestione dati può trovarsi nello stesso computer locale o nella stessa VM di Azure in cui risiede l'archivio dati o in un altro computer locale o un'altra VM di Azure, purché possa connettersi a entrambi gli archivi dati.
+locale/VM di Azure (IaaS) | cloud | **Gateway di gestione dati** in un computer locale o una VM di Azure. I dati non transitano attraverso il servizio nel cloud. <br/><br/>Nota: il gateway di gestione dati può trovarsi nello stesso computer locale o nella stessa VM di Azure in cui risiede l'archivio dati o in un altro computer locale o un'altra VM di Azure, purché possa connettersi a entrambi gli archivi dati.
 cloud | locale/VM di Azure (IaaS) | Come sopra. 
 locale/VM di Azure (IaaS) | locale/VM di Azure | **Gateway di gestione dati associato all'origine**. I dati non transitano attraverso il servizio nel cloud. Vedere la nota precedente.   
 cloud | cloud | **Servizio cloud su cui si basa l'attività di copia**. Data factory di Azure usa la distribuzione del servizio nell'area più vicina alla posizione del sink nella stessa area geografica. Per il mapping, vedere la tabella seguente: <br/><br/><table><tr><th>Area dell'archivio dati di destinazione</th> <th>Area usata per lo spostamento dei dati</th></tr><tr><td>Stati Uniti orientali</td><td>Stati Uniti orientali</td></tr><tr><td>Stati Uniti orientali 2</td><td>Stati Uniti orientali 2</td><tr/><tr><td>Stati Uniti centrali</td><td>Stati Uniti centrali</td><tr/><tr><td>Stati Uniti occidentali</td><td>Stati Uniti occidentali</td></tr><tr><td>Stati Uniti centro-settentrionali</td><td>Stati Uniti centro-settentrionali</td></tr><tr><td>Stati Uniti centro-meridionali</td><td>Stati Uniti centro-meridionali</td></tr><tr><td>Europa settentrionale</td><td>Europa settentrionale</td></tr><tr><td>Europa occidentale</td><td>Europa occidentale</td></tr><tr><td>Asia sud-orientale</td><td>Asia sud-orientale</td></tr><tr><td>Asia orientale</td><td>Asia sud-orientale</td></tr><tr><td>Giappone orientale</td><td>Giappone orientale</td></tr><tr><td>Giappone occidentale</td><td>Giappone orientale</td></tr><tr><td>Brasile meridionale</td><td>Brasile meridionale</td></tr><tr><td>Australia orientale</td><td>Australia orientale</td></tr><tr><td>Australia sud-orientale</td><td>Australia sud-orientale</td></tr></table>
@@ -146,7 +146,7 @@ La procedura **Copia guidata di Data Factory** consente di creare una pipeline p
 #### Una procedura guidata intuitiva e perfettamente integrata per la copia dei dati 
 Questa procedura guidata consente di spostare facilmente i dati da un'origine a una destinazione in pochi minuti con i semplici passaggi seguenti:
 
-1.	Selezionare l'**origine**
+1.	Selezione **l'origine**
 2.	Selezionare la **destinazione**
 3.	Configurare le **impostazioni**
 
@@ -174,11 +174,11 @@ L'esperienza è totalmente pensata per i Big Data. Spostare centinaia di cartell
 
 
 ### Provare il servizio 
-Per una procedura dettagliata per l'uso di **Copia guidata di Data Factory** per creare una pipeline con un'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
+Per una procedura dettagliata per l'uso di **Copia guidata di Data Factory** per creare una pipeline con un'attività di copia, vedere [Esercitazione: Creare una pipeline usando Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
 
 ### Variabili nel percorso della cartella di Azure Blob
-È possibile usare le variabili nel percorso della cartella per copiare i dati da una cartella che viene determinata nel runtime in base alla [variabile di sistema WindowStart](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **year**, **month**, **day**, **hour**, **minute** e **{custom}**. Esempio: inputfolder/{year}/{month}/{day}.
+È possibile usare le variabili nel percorso della cartella per copiare i dati da una cartella che viene determinata in fase di esecuzione in base alla [variabile di sistema WindowStart](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **year**, **month**, **day**, **hour**, **minute** e **{custom}**. Esempio: inputfolder/{year}/{month}/{day}.
 
 Si supponga di avere cartelle di input nel formato seguente:
 	
@@ -187,7 +187,7 @@ Si supponga di avere cartelle di input nel formato seguente:
 	2016/03/01/03
 	...
 
-Fare clic sul pulsante **Sfoglia** per il **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo ora dovrebbe essere visualizzato **2016/03/01/02**. Sostituire **2016** con **{year}**, **03** con **{month}**, **01** con **{day}**, **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il **formato** per queste quattro variabili come indicato di seguito:
+Fare clic sul pulsante **Sfoglia** per il **file o la cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02 e fare clic su **Scegliere**. Nella casella di testo dovrebbe essere ora visualizzato **2016/03/01/02**. Sostituire **2016** con **{year}**, **03** con **{month}**, **01** con **{day}**, **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il **formato** per queste quattro variabili come indicato di seguito:
 
 ![Uso di variabili di sistema](./media/data-factory-data-movement-activities/blob-standard-variables-in-folder-path.png)
 
@@ -195,4 +195,4 @@ Fare clic sul pulsante **Sfoglia** per il **File o cartella**, passare a una di 
 
 ![Uso di variabili personalizzate](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure
+
+
+> [AZURE.SELECTOR]
+- [Migrazione guidata in SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Esportare in un file BACPAC.](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importare da file BACPAC.](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replica transazionale](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 La procedura guidata Distribuire il database nel database di Microsoft Azure in SQL Server Management Studio esegue la migrazione di un [database compatibile di SQL Server](sql-database-cloud-migrate.md) direttamente nel server del database SQL.
 
@@ -50,8 +57,15 @@ La procedura guidata Distribuire il database nel database di Microsoft Azure in 
 7.	Usando Esplora oggetti, connettersi al database sottoposto a migrazione nel server del database SQL di Azure.
 8.	Usando il portale di Azure visualizzare il database e le relative proprietà.
 
-## Passaggio successivo: risolvere i problemi di compatibilità, se presenti
+## Passaggi successivi
 
-[Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md), se presenti.
+- [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Altre informazioni
+
+- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)
+
+<!---HONumber=AcomDC_0601_2016-->

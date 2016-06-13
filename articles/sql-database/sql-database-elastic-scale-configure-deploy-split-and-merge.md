@@ -3,7 +3,7 @@
 	description="Suddivisione e unione con gli strumenti di database elastico"
 	services="sql-database"  
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ddove"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/27/2016"
 	ms.author="ddove" />
 
 # Distribuire un servizio di divisione e unione 
@@ -151,14 +151,14 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Assicurarsi che il nome del server non inizi con **https://**.
+* Assicurarsi che il nome del server non inizi con ****https://**.
 * Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Per eseguire questa operazione, aprire https://manage.windowsazure.com, fare clic su "Database SQL" a sinistra, fare clic su "Server" in alto, quindi selezionare il proprio server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'opzione **Servizi di Azure** sia impostata su "Sì" (vedere la sezione Prerequisiti all'inizio di questo articolo).
 
 ## Testare la distribuzione del servizio
 
 ### Connettersi con un Web browser
 
-Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di Azure classico accedendo al **Dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire **http://** con **https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
+Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di Azure classico accedendo al **Dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire ****http://** con ****https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
 
 ### Eseguire i test con gli script di PowerShell
 
@@ -339,4 +339,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

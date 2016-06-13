@@ -29,8 +29,6 @@ Azure fornisce un servizio che è possibile utilizzare per [iniziare rapidamente
 
 Se il servizio notebook non funziona per lo scenario, continuare a leggere questo articolo che illustra come distribuire il Jupyter Notebook in Microsoft Azure utilizzando macchine virtuali (VM) Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
-
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creazione e configurazione di una macchina virtuale in Azure
@@ -41,7 +39,7 @@ Il primo passaggio consiste nel creare una macchina virtuale eseguita in Azure. 
 
 Seguire le istruzioni fornite [qui][portal-vm-linux] per creare una macchina virtuale della distribuzione *Ubuntu*. Questa esercitazione utilizza Ubuntu Server 14.04 LTS. Si presuppone che il nome utente sia *azureuser*.
 
-Dopo aver distribuito la macchina virtuale è necessario aprire una regola di protezione nel gruppo di sicurezza di rete. Dal portale di Azure, passare a **Gruppi di sicurezza di rete** e aprire la scheda per il gruppo di sicurezza corrispondente alla VM. È necessario aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti: **TCP** per il protocollo, **\*** per la porta di origine (pubblica) e **9999** per la porta di destinazione (privata).
+Dopo aver distribuito la macchina virtuale è necessario aprire una regola di protezione nel gruppo di sicurezza di rete. Dal portale di Azure, passare a **Gruppi di sicurezza di rete** e aprire la scheda per il gruppo di sicurezza corrispondente alla VM. È necessario aggiungere una regola di sicurezza in ingresso con le impostazioni seguenti: **TCP** per il protocollo, ***** per la porta di origine (pubblica) e **9999** per la porta di destinazione (privata).
 
 ![Schermata](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
@@ -195,8 +193,8 @@ Le funzionalità di base di Jupyter sono anche disponibili all'interno di Visual
 
 Per altre informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

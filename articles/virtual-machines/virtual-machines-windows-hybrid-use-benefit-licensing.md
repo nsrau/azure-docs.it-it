@@ -25,8 +25,8 @@ Per i clienti che usano Windows Server con Software Assurance è possibile trasf
 ## Prerequisiti
 Per usufruire del vantaggio Azure Hybrid Use per macchine virtuali Windows Server è necessario soddisfare alcuni requisiti:
 
-- Installare il modulo Azure PowerShell
-- Un disco rigido virtuale di Windows Server da caricare in Archiviazione di Azure
+- Disporre del modulo Azure PowerShell
+- Disporre di un disco rigido virtuale di Windows Server da caricare in Archiviazione di Azure
 
 ### Installare Azure PowerShell
 Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Anche se si intende distribuire le macchine virtuali tramite modelli di Resource Manager sarà comunque necessario installare Azure PowerShell per caricare il disco rigido virtuale di Windows Server. Vedere il passaggio successivo.
@@ -164,4 +164,4 @@ Altre informazioni sul [vantaggio Azure Hybrid Use](https://azure.microsoft.com/
 
 Altre informazioni sull'[uso dei modelli di Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

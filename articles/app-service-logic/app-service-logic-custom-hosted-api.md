@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Uso dell'API personalizzata ospitata nel servizio app con App per la logica
 
-Anche se le app per la logica includono un set completo di oltre 40 connettori per una vasta gamma di servizi, è possibile chiamare l'API personalizzata che può eseguire il codice personalizzato. Uno dei modi più semplici e scalabili per ospitare un'API Web personalizzata consiste nell'uso del servizio app. Questo articolo illustra come chiamare un'API Web ospitata in un'app per le API, in un'app Web o in un'app per dispositivi mobili del servizio app.
+Anche se la funzionalità App per la logica include un set completo di oltre 40 connettori, è possibile chiamare l'API personalizzata che può eseguire il codice personalizzato. Uno dei modi più semplici e scalabili per ospitare un'API Web personalizzata consiste nell'uso del servizio app. Questo articolo illustra come chiamare un'API Web ospitata in un'app per le API, in un'app Web o in un'app per dispositivi mobili del servizio app.
 
-Per informazioni sulla compilazione di API di attivazione o azione all'interno di app per la logica, vedere [questo articolo](app-service-logic-create-api-app.md).
+Per informazioni sulla compilazione di API come trigger o azione all'interno di app per la logica, vedere [questo articolo](app-service-logic-create-api-app.md).
 
 ## Distribuire l'app Web
 
-Prima di tutto è necessario distribuire l'API come un'app Web nel servizio app. Queste istruzioni riguardano la distribuzione di base: [Creare un'app Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Sebbene sia possibile chiamare le API da qualsiasi app per la logica, per un'esperienza ottimale si consiglia di aggiungere metadati Swagger per facilitare l'integrazione con le azioni delle app per la logica. Per informazioni dettagliate, vedere la pagina sull'[aggiunta di swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+Prima di tutto è necessario distribuire l'API come un'app Web nel servizio app. Queste istruzioni riguardano la distribuzione di base: [Creare un'app Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Sebbene sia possibile chiamare le API da qualsiasi app per la logica, per un'esperienza ottimale si consiglia di aggiungere metadati Swagger per facilitare l'integrazione con le azioni delle app per la logica. Per informazioni dettagliate, vedere la pagina sull'[aggiunta di swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### Impostazioni API
 
-Per consentire alla finestra di progettazione delle app per la logica di analizzare Swagger, è importante abilitare CORS e impostare le proprietà APIDefinition dell'applicazione web. La configurazione nel portale di Azure è molto semplice. Aprire il pannello delle impostazioni nell'App Web e nella sezione API impostare 'Definizione API' sull'URL del file swagger.json (in genere https://{name}.azurewebsites.net/swagger/docs/v1)) e aggiungere un criterio CORS per '*' per consentire le richieste della finestra di progettazione delle app per la logica.
+Per consentire alla finestra di progettazione delle app per la logica di analizzare Swagger, è importante abilitare CORS e impostare le proprietà APIDefinition dell'app Web. La configurazione nel portale di Azure è molto semplice. Aprire il pannello delle impostazioni nell'app Web e nella sezione API impostare 'Definizione API' sull'URL del file swagger.json (in genere https://{name}.azurewebsites.net/swagger/docs/v1)) e aggiungere un criterio CORS per '*' per consentire le richieste della finestra di progettazione delle app per la logica.
 
 ## Chiamata all'API
 
@@ -116,7 +116,7 @@ Per eseguire automaticamente e nello stesso momento la distribuzione di un'app W
 
 [![Distribuzione in Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-Per un modello completo, vedere [Chiamate dell'app per la logica un'API personalizzata ospitata in un servizio app e protetta da AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+Per un modello completo, vedere la pagina relativa alle [chiamate dell'app per la logica a un'API personalizzata ospitata in un servizio app e protetta da AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
 
 ### Parte 3: Popolare la sezione Autorizzazione nell'app per la logica
@@ -169,4 +169,4 @@ Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la fun
 
 È comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

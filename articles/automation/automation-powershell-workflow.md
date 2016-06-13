@@ -3,8 +3,8 @@
    description="Questo articolo è concepito come una lezione rapida per autori che hanno familiarità con PowerShell per comprendere le differenze specifiche tra PowerShell e il flusso di lavoro PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/26/2016"
    ms.author="bwren" />
 
 # Informazioni sul flusso di lavoro di Windows PowerShell
@@ -211,7 +211,7 @@ L'esempio seguente è simile all'esempio precedente in cui vengono copiati i fil
 
 ## Checkpoint
 
-Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene [sospeso](suspending-a-workflow), alla successiva esecuzione verrà avviato dal relativo ultimo checkpoint anziché dall'inizio del flusso di lavoro. È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow**.
+Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro. È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow**.
 
 Nel codice di esempio seguente si verifica un'eccezione dopo Activity2 con la conseguente sospensione del Runbook. Quando il flusso di lavoro viene nuovamente avviato, inizierà con l'esecuzione di Activity2, poiché questa attività si trovava immediatamente dopo l'ultimo checkpoint impostato.
 
@@ -240,13 +240,11 @@ Nell'esempio seguente vengono copiati più file in un percorso di rete e viene i
 	}
 
 
-
 Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta di checkpoint a un flusso di lavoro di script](http://technet.microsoft.com/library/jj574114.aspx).
 
 
+## Passaggi successivi
 
-## Articoli correlati
+- Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) 
 
-- [Introduzione al flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

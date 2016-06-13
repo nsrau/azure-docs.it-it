@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/08/2016"
+   ms.date="05/31/2016"
    ms.author="spyros;sethm" />
 
 # Inviare notifiche agli utenti riguardo ai dati ricevuti da sensori o da altri sistemi
@@ -83,4 +83,4 @@ Per distribuire la soluzione per l'invio di notifiche agli utenti in base ai dat
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

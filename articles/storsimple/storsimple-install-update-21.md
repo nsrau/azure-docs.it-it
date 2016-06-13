@@ -87,11 +87,11 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 | 3\. | KB3103616 | Pacchetto WMI | Normale | ~ 12 min. |
 
 
- & #42; *Si noti che l'aggiornamento del software è costituito da due file binari: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. L'aggiornamento software del dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve essere installato prima dell'agente Cis ed Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+ & #42; *Si noti che l'aggiornamento del software è costituito da due file binari: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. L'aggiornamento software del dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve essere installato prima dell'agente Cis e Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. È inoltre necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` dopo aver applicato l'aggiornamento dell'agente Cis e Mds (e prima di applicare i restanti aggiornamenti).*
 
 #### Scaricare gli aggiornamenti per un dispositivo che esegue il software di pre-aggiornamento 2
 
-**Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0 e 1.1**, è necessario scaricare e installare l'aggiornamento del driver e del firmware LSI. Questo aggiornamento è già installato se si esegue l'aggiornamento 1.2 o 2.
+**Se il dispositivo sta eseguendo le versioni 0.2, 0.3, 1.0 e 1.1**, è necessario scaricare e installare l'aggiornamento del driver e del firmware LSI in aggiunta agli aggiornamenti software, iSCSI e WMI. Questo aggiornamento è già installato se si esegue l'aggiornamento 1.2 o 2.
  
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -132,4 +132,4 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 Altre informazioni sulla [versione dell'aggiornamento 2.1](storsimple-update21-release-notes.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

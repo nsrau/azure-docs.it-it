@@ -19,8 +19,6 @@
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 Questo argomento fornisce collegamenti alle istruzioni dettagliate per la distribuzione di un'applicazione line-of-business a disponibilità elevata, solo intranet basata sul Web con i gruppi di disponibilità SQL Server AlwaysOn nei servizi di infrastruttura di Azure. L'applicazione è ospitata nei computer seguenti:
 
 - Due server Web
@@ -75,7 +73,7 @@ La configurazione deve essere distribuita nelle seguenti fasi:
 - [Fase 2: configurare i controller di dominio](virtual-machines-windows-ps-lob-ph2.md). Creare e configurare i controller di dominio dei servizi di dominio Active Directory (AD DS) di replica.
 - [Fase 3: Configurare l'infrastruttura di SQL Server](virtual-machines-windows-ps-lob-ph3.md). Creare e configurare le macchine virtuali che eseguono SQL Server, creare il cluster e abilitare i gruppi di disponibilità SQL Server AlwaysOn.
 - [Fase 4: configurare i server Web](virtual-machines-windows-ps-lob-ph4.md). Creare e configurare le due macchine virtuali del server Web.
-- [Fase 5: aggiungere i database dell'applicazione a un gruppo di disponibilità SQL Server AlwaysOn](virtual-machines-windows-ps-lob-ph5.md). Preparare i database dell'applicazione line-of-business e aggiungerli a un gruppo di disponibilità SQL Server AlwaysOn.
+- [Fase 5: Aggiungere i database dell'applicazione a un gruppo di disponibilità SQL Server AlwaysOn](virtual-machines-windows-ps-lob-ph5.md). Preparare i database dell'applicazione line-of-business e aggiungerli a un gruppo di disponibilità SQL Server AlwaysOn.
 
 Questa distribuzione è progettata per integrare i [progetti di architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664) e incorporare le raccomandazioni più recenti.
 
@@ -93,4 +91,4 @@ Per altre informazioni sulla progettazione di carichi di lavoro IT per Azure, ve
 
 - Iniziare la configurazione di questo carico di lavoro dalla [Fase 1](virtual-machines-windows-ps-lob-ph1.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

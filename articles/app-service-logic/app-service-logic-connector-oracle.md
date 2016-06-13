@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso del connettore Oracle Database nelle app per la logica | Microsoft Azure App Service"
-   description="Come creare e configurare l'app per le API o il connettore Oracle Database e usarlo in un'app per la logica in Azure App Service"
+   pageTitle="Uso del connettore Oracle Database nelle app per la logica | Servizio app di Microsoft Azure"
+   description="Come creare e configurare l'app per le API o il connettore Oracle Database e usarlo in un'app per la logica nel servizio app di Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Uso del connettore Oracle Database e aggiunta all'app per la logica
+# Iniziare a usare il connettore Oracle Database e aggiungerlo all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Connettersi a un server di database Oracle in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle Database nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
@@ -67,7 +67,7 @@ Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, a
 
 
 ## Usare il connettore come trigger
-In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
+In questa sezione viene descritta una semplice app per la logica che esegue il poll dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
 ### Aggiungere il trigger
 1. Quando si crea o modifica un'app per la logica, selezionare il connettore Oracle creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/> ![][5]
@@ -77,7 +77,7 @@ In questa sezione viene descritta una semplice app per la logica che esegue il p
 3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive:<br/> ![][7]
 
 ## Usare il connettore come azione
-Usando una semplice app per la logica che esegue il polling dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
+Usando una semplice app per la logica che esegue il poll dei dati da una tabella Oracle, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
 
 Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o le stored procedure immesse durante la creazione del connettore Oracle:
 
@@ -89,7 +89,7 @@ Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o 
 
 4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: <br/> ![][12]
 
-È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene effettuato il polling.
+È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene eseguito il poll.
 
 ## Configurazione ibrida
 
@@ -102,7 +102,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -120,4 +120,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

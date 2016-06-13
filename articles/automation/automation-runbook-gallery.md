@@ -70,6 +70,8 @@ Microsoft consiglia di aggiungere alla raccolta dei runbook i runbook ritenuti p
 
 - Il caricamento deve interessare un singolo file con estensione PS1 o GRAPHRUNBOOK. Se il runbook richiede eventuali moduli, runbook figlio o asset, è consigliabile elencare questi elementi nella descrizione dell'invio e nella sezione dei commenti del runbook. Se si dispone di una soluzione che richiede più runbook, caricare ciascuna soluzione separatamente ed elencare i nomi dei runbook correlati in ognuna delle relative descrizioni. Assicurarsi di usare gli stessi tag in modo che vengano visualizzati nella stessa categoria. Un utente dovrà fare riferimento alla descrizione per sapere se sono necessari altri runbook per il corretto funzionamento della soluzione.
 
+- Se si pubblica un **runbook grafico** (non un flusso di lavoro grafico), aggiungere il tag "GraficoPS".
+
 - Inserire un frammento di codice di PowerShell o di un flusso di lavoro PowerShell nella descrizione mediante l’icona **Inserisci sezione di codice**.
 
 - Nei risultati della raccolta di runbook verrà visualizzato il riepilogo del caricamento. Sarà pertanto necessario fornire informazioni dettagliate che consentano a un utente di identificare le funzionalità del runbook.
@@ -125,7 +127,7 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 
     Poiché ogni attività deve essere estratta potrebbero volerci alcuni minuti.
 10. Si riceverà una notifica indicante che è in corso la distribuzione del modulo e quindi un'altra notifica quando l'operazione è completata.
-11. Dopo aver importato il modulo, verranno visualizzate le attività disponibili e sarà possibile usare le risorse nei runbook e nella configurazione dello stato desiderato.
+11. Dopo aver importato il modulo, verranno visualizzate le attività disponibili e sarà possibile usare le risorse nei runbook e in Desired State Configuration.
 
 ## Richiesta di un runbook o un modulo
 
@@ -136,4 +138,4 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

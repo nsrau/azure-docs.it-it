@@ -26,14 +26,14 @@
 
 Questa esercitazione illustra come creare una singola macchina virtuale di Azure usando il modello di distribuzione **Azure Resource Manager** con i cmdlet di Azure PowerShell. In questa esercitazione verrà creata una singola macchina virtuale con una singola unità disco da un'immagine di SQL Gallery. Verranno creati nuovi provider per le risorse di archiviazione, rete e calcolo che verranno usate dalla macchina virtuale. Se esistono già provider per queste risorse, è possibile usarli.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica. Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con la versione classica di Azure PowerShell](virtual-machines-windows-classic-ps-sql-create.md).
+Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Prerequisiti
 
 Per questa esercitazione occorrono:
 
 - Un account e una sottoscrizione di Azure prima di iniziare. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell](../powershell-install-configure.md), almeno versione 1.0.0 o successiva. Questa esercitazione usa la versione 1.0.4.
+- [Azure PowerShell](../powershell-install-configure.md), versione 1.0.0 o successiva. Questa esercitazione usa la versione 1.0.4.
     - Per recuperare la versione, digitare **Get-Module Azure -ListAvailable**.
 
 ## Configurare la sottoscrizione
@@ -66,7 +66,7 @@ Modificare in base alle esigenze specifiche e quindi eseguire i cmdlet seguenti 
 
 Usare le variabili seguenti per definire l'account di archiviazione e il tipo di risorsa di archiviazione che devono essere usati dalla macchina virtuale.
 
-Modificare in base alle esigenze specifiche e quindi eseguire il cmdlet seguente per inizializzare le variabili. Si noti che in questo esempio viene usata l'[Archiviazione Premium](../storage/storage-premium-storage.md), consigliata per carichi di lavoro di produzione. Per informazioni dettagliate su questa e su altre indicazioni, vedere [Procedure consigliate per le prestazioni per SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
+Modificare in base alle esigenze specifiche e quindi eseguire il cmdlet seguente per inizializzare le variabili. Si noti che in questo esempio viene usata l'[Archiviazione Premium](../storage/storage-premium-storage.md), consigliata per carichi di lavoro di produzione. Per informazioni dettagliate su questa e su altre indicazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageType = "Premium_LRS"
@@ -125,7 +125,7 @@ Eseguire il cmdlet seguente per creare un nuovo gruppo di risorse.
 
 ## Creare un account di archiviazione
 
-La macchina virtuale richiede risorse di archiviazione per il disco del sistema operativo e per i file di dati e di log di SQL Server. Per semplificare, verrà creato un singolo disco per entrambi. È possibile collegare dischi aggiuntivi in seguito usando il cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) per posizionare i file di dati e di log di SQL Server in dischi dedicati. Verrà usato il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) per creare l'account di archiviazione nel nuovo gruppo di risorse, con il nome di account di archiviazione, il nome di risorsa di archiviazione e la posizione definiti usando le variabili inizializzate in precedenza.
+La macchina virtuale richiede risorse di archiviazione per il disco del sistema operativo e per i file di dati e di log di SQL Server. Per semplificare, verrà creato un singolo disco per entrambi. Successivamente è possibile collegare dischi aggiuntivi usando il cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) per posizionare i file di dati e di log di SQL Server in dischi dedicati. Verrà usato il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) per creare l'account di archiviazione nel nuovo gruppo di risorse, con il nome di account di archiviazione, il nome di risorsa di archiviazione e la posizione definiti usando le variabili inizializzate in precedenza.
 
 Eseguire il cmdlet seguente per creare il nuovo account di archiviazione.
 
@@ -205,7 +205,7 @@ Eseguire il cmdlet seguente per configurare le proprietà del sistema operativo 
 
 ### Aggiungere l'interfaccia di rete alla macchina virtuale
 
-Verrà quindi aggiunta alla macchina virtuale l'interfaccia di rete creata in precedenza. Verrà usato il cmdlet [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) per aggiungere l'interfaccia di rete usando la variabile di interfaccia di rete definita in precedenza.
+Verrà quindi aggiunta alla macchina virtuale l'interfaccia di rete creata in precedenza. Verrà usato il cmdlet [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) per aggiungere l'interfaccia di rete utilizzando la variabile di interfaccia di rete definita in precedenza.
 
 Eseguire il cmdlet seguente per configurare l'interfaccia di rete per la macchina virtuale.
 
@@ -221,7 +221,7 @@ Eseguire il cmdlet seguente per impostare la posizione dell'archivio BLOB.
 
 ### Configurare le proprietà del disco del sistema operativo per la macchina virtuale
 
-Verranno quindi configurate le proprietà del disco del sistema operativo per la macchina virtuale. Verrà usato il cmdlet [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) per specificare che il sistema operativo per la macchina virtuale deriverà da un'immagine, per configurare la memorizzazione nella cache su sola lettura, perché SQL Server viene installato nello stesso disco, e per definire il nome della macchina virtuale e il disco del sistema operativo specificati usando le variabili definite in precedenza.
+Verranno quindi configurate le proprietà del disco del sistema operativo per la macchina virtuale. Verrà usato il cmdlet [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) per specificare che il sistema operativo per la macchina virtuale deriverà da un'immagine, per configurare la memorizzazione nella cache su sola lettura, perché SQL Server viene installato nello stesso disco e per definire il nome della macchina virtuale e il disco del sistema operativo specificati usando le variabili definite in precedenza.
 
 Eseguire il cmdlet seguente per configurare le proprietà del disco del sistema operativo per la macchina virtuale.
 
@@ -229,7 +229,7 @@ Eseguire il cmdlet seguente per configurare le proprietà del disco del sistema 
 
 ### Specificare l'immagine di piattaforma per la macchina virtuale
 
-L'ultimo passaggio della configurazione consiste nello specificare l'immagine di piattaforma per la macchina virtuale. Per l'esercitazione viene usata l'immagine più recente per SQL Server 2016 CTP. Verrà usato il cmdlet [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) per usare questa immagine in base a quanto definito dalle variabili definite in precedenza.
+L'ultimo passaggio della configurazione consiste nello specificare l'immagine di piattaforma per la macchina virtuale. Per l'esercitazione viene usata l'immagine più recente per SQL Server 2016 CTP. Verrà usato il cmdlet [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) per utilizzare questa immagine in base a quanto definito dalle variabili definite in precedenza.
 
 Eseguire il cmdlet seguente per specificare l'immagine di piattaforma per la macchina virtuale.
 
@@ -237,7 +237,7 @@ Eseguire il cmdlet seguente per specificare l'immagine di piattaforma per la mac
 
 ## Creare la macchina virtuale SQL
 
-Al termine della procedura di configurazione, è possibile creare la macchina virtuale. Verrà usato il cmdlet [New-AzureRmVM](https://msdn.microsoft.com/library/mt603754.aspx) per creare la macchina virtuale usando le variabili definite.
+Al termine della procedura di configurazione, è possibile creare la macchina virtuale. Verrà usato il cmdlet [New-AzureRmVM](https://msdn.microsoft.com/library/mt603754.aspx) per creare la macchina virtuale utilizzando le variabili definite.
 
 Eseguire il cmdlet seguente per creare la macchina virtuale.
 
@@ -310,4 +310,4 @@ Lo script seguente contiene lo script PowerShell completo per l'esercitazione. S
 ## Passaggi successivi
 Dopo la creazione della macchina virtuale, è possibile connettersi alla macchina virtuale mediante RDP e configurare la connettività. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

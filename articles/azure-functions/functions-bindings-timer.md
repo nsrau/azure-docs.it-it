@@ -47,9 +47,7 @@ Il trigger timer gestisce automaticamente la scalabilità orizzontale di più is
 
 ## Formato dell'espressione schedule
 
-L'espressione schedule può essere un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include 6 campi: {secondo} {minuto} {ora} {giorno} {mese} {giorno della settimana}. In molti documenti con l'espressione cron disponibili online viene omesso il campo {secondo}, quindi, se si copia il contenuto da uno di questi documenti, sarà necessario inserire il campo aggiuntivo.
-
-L'espressione schedule può essere anche nel formato *hh:mm:ss* per specificare il ritardo tra ogni attivazione della funzione.
+L'espressione schedule è un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include 6 campi: {secondo} {minuto} {ora} {giorno} {mese} {giorno della settimana}. In molti documenti con l'espressione cron disponibili online viene omesso il campo {secondo}, quindi, se si copia il contenuto da uno di questi documenti, sarà necessario inserire il campo aggiuntivo.
 
 Ecco alcuni esempi di espressione schedule.
 
@@ -67,13 +65,6 @@ Per attivare immediatamente e poi ogni due ore:
 "runOnStartup": true,
 ```
 
-Per attivare ogni 15 secondi:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
-```
-
 ## Esempio di codice C# del trigger timer
 
 Questo esempio di codice C# scrive un singolo log ogni volta che viene attivata la funzione.
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

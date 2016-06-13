@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 #Unità richiesta in DocumentDB
+Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di DocumentDB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs).
 
+![Calcolatore della velocità effettiva][5]
+
+##Introduzione
 Questo articolo fornisce una panoramica delle unità richiesta in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -54,6 +58,30 @@ Un'unità di richiesta è una misura normalizzata del costo di elaborazione dell
 
 > [AZURE.NOTE] La base di 1 unità richiesta per un documento da 1 KB corrisponde a una semplice operazione GET tramite collegamento automatico o ID del documento.
 
+###Usare il calcolatore di unità richiesta
+Per semplificare l'ottimizzazione delle stime di velocità effettiva da parte dei clienti, è disponibile un [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner), che consente di stimare i requisiti relativi alle unità richiesta per operazioni tipiche, incluse le seguenti:
+
+- Creazioni di documenti (scritture)
+- Letture di documenti
+- Eliminazioni di documenti
+
+L'uso dello strumento è molto semplice:
+
+1. Caricare uno o più documenti JSON rappresentativi.
+
+	![Caricare documenti nel calcolatore di unità richiesta][2]
+
+2. Immettere il numero di operazioni di creazione, lettura ed eliminazione dei documenti necessarie (al secondo).
+
+	![Immettere i requisiti relativi alla velocità effettiva nel calcolatore di unità richiesta][3]
+
+3. Fare clic su Calcola ed esaminare i risultati.
+
+	![Risultati del calcolatore di unità richiesta][4]
+
+>[AZURE.NOTE]Se sono presenti tipi di documenti che variano notevolmente in termini di dimensioni e numero di proprietà indicizzate, caricare un campione di ogni *tipo* di documento tipico nello strumento e quindi calcolare i risultati.
+
+###Usare l'intestazione della risposta di addebito della richiesta di DocumentDB
 Ogni risposta dal servizio DocumentDB include un'intestazione personalizzata (x-ms-request-charge) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di DocumentDB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse. Per quanto riguarda le query, Esplora Query di DocumentDB nel portale di Azure fornisce informazioni sull'addebito richiesta per le query eseguite.
 
 ![Analisi degli addebiti delle unità richiesta in Esplora Query][1]
@@ -182,5 +210,9 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

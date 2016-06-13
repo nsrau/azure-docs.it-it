@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/26/2016"
 	ms.author="cjiang"/>
 
 # Risoluzione dei problemi relativi all'iscrizione ad Azure
 Questo articolo descrive come risolvere le cause più comuni dei problemi che possono verificarsi durante l'iscrizione ad Azure.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Errore quando si immettono le informazioni per eseguire l'iscrizione.
 Le informazioni relative al profilo dell'account sono corrette? I dettagli del profilo vengono usati per generare gli estratti conto ai fini della fatturazione ed è quindi importante immettere informazioni accurate. Esempi di campi non corretti sono:
@@ -51,7 +53,7 @@ Assicurarsi che il metodo di pagamento indicato durante la procedura di iscrizio
 - I fornitori di carte di credito/debito accettati variano in base al paese dell'account.
 
 Suggerimenti:
-- per le cause più comuni dei problemi relativi all'iscrizione tramite carta di credito o di debito, vedere l'articolo [La carta di credito non viene accettata quando si tenta di iscriversi ad Azure](billing-credit-card-fails-during-azure-sign-up.md).
+- Per le cause più comuni dei problemi relativi all'iscrizione tramite carta di credito o di debito, vedere l'articolo [La carta di credito non viene accettata quando si tenta di iscriversi ad Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Non è possibile attivare un piano con vantaggi di Azure, ad esempio MSDN, BizSpark, BizSparkPlus o MPN.
 Verificare lo stato di idoneità: verificare tramite il canale del programma dei vantaggi se si è idonei al piano scelto:
@@ -59,19 +61,19 @@ Verificare lo stato di idoneità: verificare tramite il canale del programma dei
   - Verificare lo stato di idoneità nella [pagina dell'account MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
   - Se non è possibile verificare lo stato, contattare i [centri del Servizio clienti per abbonamenti MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - MPN
-  - Accedere al [portale MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si dispone delle [competenze Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriate.
+  - Accedere al [portale di MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si hanno le [competenze Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriate.
   - Se non è possibile verificare lo stato, contattare il [supporto tecnico di MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
-- Bizpark:
-  - Accedere al [portale BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verificare lo stato di idoneità per BizSpark e BizSpark Plus. Se non è possibile verificare lo stato, contattare il supporto di BizSpark con un messaggio di posta elettronica facendo clic su [Contatta il team di BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+- BizSpark:
+  - Accedere al [portale di BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verificare lo stato di idoneità per BizSpark e BizSpark Plus. Se non è possibile verificare lo stato, contattare il supporto di BizSpark con un messaggio di posta elettronica facendo clic su [Contatta il team di BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
 Suggerimenti:
-- se si è tentato di attivare una nuova sottoscrizione tramite i vantaggi e sono stati riscontrati errori durante l'esperienza di iscrizione, verificare se l'installazione della sottoscrizione è stata completata nella [pagina di sottoscrizione di Azure](http://account.windowsazure.com/Subscriptions). Potrebbero essere necessari alcuni minuti prima che la sottoscrizione risulti attiva. Una volta attivata la sottoscrizione, si riceverà un messaggio di posta elettronica. Se lo stato della sottoscrizione resta in sospeso per più di quattro minuti, si [contattare il supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per richiedere assistenza.
+- Se si è tentato di attivare una nuova sottoscrizione tramite i vantaggi e sono stati riscontrati errori durante l'esperienza di iscrizione, verificare se l'installazione della sottoscrizione è stata completata nella [pagina di sottoscrizione di Azure](http://account.windowsazure.com/Subscriptions). Potrebbero essere necessari alcuni minuti prima che la sottoscrizione risulti attiva. Una volta attivata la sottoscrizione, si riceverà un messaggio di posta elettronica. Se lo stato della sottoscrizione resta in sospeso per più di quattro minuti, si [contattare il supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per richiedere assistenza.
 
 ## Non è possibile attivare una nuova sottoscrizione di Azure In Open.
 È necessaria una chiave di attivazione del servizio online (OSA, Online Service Activation) a cui è associato almeno un token di Azure In Open per attivare una nuova sottoscrizione di Azure In Open.
 
 Suggerimenti:
-- se non si dispone di una chiave di attivazione del servizio online, contattare uno dei partner Microsoft elencati in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+- Se non è disponibile una chiave di attivazione del servizio online, contattare uno dei partner Microsoft elencati in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
 ## Non è possibile attivare una versione di valutazione gratuita di Azure.
 È già stata usata una sottoscrizione di Azure in passato? Le condizioni per l'utilizzo di Azure prevedono un limite di una sola attivazione della versione di valutazione gratuita per ogni utente che non ha mai usato Azure in precedenza. Se quindi si è già usato un qualsiasi altro tipo di sottoscrizione di Azure, non sarà possibile attivare una versione di valutazione gratuita.
@@ -79,7 +81,4 @@ Suggerimenti:
 Suggerimenti:
 - se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione della versione di valutazione gratuita non riesce, prendere in considerazione l'acquisto di una sottoscrizione con pagamento in base al consumo. L'utente potrebbe inoltre aver diritto a un'offerta con vantaggi. Per altre informazioni, vedere la [pagina dettagli dell'offerta Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) anziché il piano della versione di valutazione gratuita di Azure. Si noti che i piani con vantaggi richiedono prerequisiti specifici.
 
-## I problemi di iscrizione non sono stati risolti?
-Se i problemi di iscrizione non sono stati risolti o se l'errore riscontrato non è descritto in questo articolo, [contattare il supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per richiedere assistenza.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

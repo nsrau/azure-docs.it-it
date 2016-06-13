@@ -3,7 +3,7 @@
 	description="Recommendations di Azure Machine Learning - Guida introduttiva"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations dei servizi cognitivi
@@ -129,12 +129,14 @@ In questa attività, si utilizzerà l'applicazione di esempio per creare il prim
 
 1. Dopo aver creato il modello, prendere nota dell'**ID modello** poiché sarà necessario per la richiesta di consigli nell'ambiente di produzione.
 
+>  Altre informazioni sui tipi di compilazione e su come valutare la qualità delle compilazioni sono disponibili [qui](cognitive-services-recommendations-buildtypes.md).
+
 <a name="Ex1Task4"></a>
 ### Mettere il modello in funzione. ###
 
 Dopo aver appreso come creare un modello e usare le raccomandazioni, il passaggio successivo consiste nella messa in funzione sul proprio sito Web e sulle applicazioni per dispositivi mobili o nell'integrazione nel sistema CRM o ERP. Ovviamente, ognuna di queste implementazioni è differente. Poiché le API Recommendations sono richieste come servizio Web, sarà facilmente possibile richiamarle da qualsiasi di questi ambienti diversi.
 
-**Importante:** è consigliabile creare un server proxy per visualizzare i consigli da un client pubblico, ad esempio il proprio sito di e-commerce. Questo è importante per non esporre la chiave API a entità esterne (potenzialmente non attendibili).
+**Importante:** è consigliabile creare un server proxy per visualizzare gli elementi consigliati da un client pubblico, ad esempio il proprio sito di e-commerce. Questo è importante per non esporre la chiave API a entità esterne (potenzialmente non attendibili).
 
 Di seguito sono riportati alcuni suggerimenti delle posizioni in cui è possibile usare le raccomandazioni:
 
@@ -160,10 +162,10 @@ Di seguito sono riportati alcuni suggerimenti delle posizioni in cui è possibil
 Un modello di raccomandazione può accettare come input un id utente. La cronologia delle transazioni per tale utente verrà utilizzata per fornire raccomandazioni personalizzate all'utente specificato.
 </p>
 
-Vedere la [documentazione su come ottenere i consigli sugli elementi](http://go.microsoft.com/fwlink/?LinkID=760719).
+Vedere la [documentazione su come ottenere gli elementi consigliati](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
 ### Passaggi successivi
-Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, vedere la versione integrale della [documentazione sull'API Consigli](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande, contattare Microsoft all'indirizzo mlapi@microsoft.com
+Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, vedere la versione integrale delle [informazioni di riferimento sull'API Recommendations](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande contattare Microsoft all'indirizzo mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

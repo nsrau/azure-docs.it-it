@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple in caso di emergenza. Un failover consentirà di migrare i dati da un dispositivo di origine nel centro dati a un altro dispositivo fisico o virtuale che si trova nella stessa o in un’altra area geografica.
 
-Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene avviato dalla pagina Dispositivi. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
 
 ![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -89,6 +89,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 1. Nella procedura guidata visualizzata, sotto **Scegli contenitore di volumi per il failover**:
 
 	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
+	
 
 		>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
@@ -175,4 +176,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

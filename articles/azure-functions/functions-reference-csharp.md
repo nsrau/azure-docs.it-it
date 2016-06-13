@@ -160,7 +160,10 @@ Per usare i pacchetti NuGet in una funzione C# caricare un file *project.json* n
 }
 ```
 
-Quando si carica un file *project.json* il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"`. Per usare i tipi definiti nei pacchetti NuGet basta aggiungere le istruzioni `using` necessarie al file *run.csx*.
+Poiché è supportato solo .NET Framework 4.6, verificare che nel file *project.json* sia specificato `net46` come qui illustrato.
+
+Quando si carica un file *project.json*, il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"`. Per usare i tipi definiti nei pacchetti NuGet è sufficiente aggiungere le istruzioni `using` necessarie al file *run.csx*.
+
 
 ### Come caricare un file project.json
 
@@ -168,9 +171,9 @@ Quando si carica un file *project.json* il runtime ottiene i pacchetti e aggiung
 
 	In questo modo è anche possibile accedere ai log in streaming in cui verrà visualizzato l'output di installazione dei pacchetti.
 
-2. Per istruzioni sul caricamento di un file project.json vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
+2. Per caricare un file project.json, usare uno dei metodi descritti nella sezione **Come aggiornare i file delle app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
 
-3. Dopo il caricamento del file *project.json* il log di streaming della funzione visualizza output simile a quello dell'esempio seguente:
+3. Dopo il caricamento del file *project.json*, l'output visualizzato nel log in streaming della funzione è simile all'esempio seguente:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -191,7 +194,7 @@ Quando si carica un file *project.json* il runtime ottiene i pacchetti e aggiung
 
 ## Variabili di ambiente
 
-Per ottenere una variabile di ambiente o un valore di impostazione app usare `System.Environment.GetEnvironmentVariable`, come illustrato nell'esempio di codice seguente:
+Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usare `System.Environment.GetEnvironmentVariable` come illustrato nell'esempio di codice seguente:
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -210,7 +213,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## Riutilizzo del codice CSX
 
-È possibile usare classi e metodi definiti in altri file con estensione *csx* nel file *run.csx*. A questo scopo, usare le direttive `#load` nel file *run.csx*, come illustrato nell'esempio seguente.
+È possibile usare classi e metodi definiti in altri file con estensione *csx* nel file *run.csx*. A tale scopo, usare direttive `#load` nel file *run.csx*, come illustrato nell'esempio seguente.
 
 Esempio di *run.csx*:
 
@@ -239,7 +242,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 * `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una sottocartella della cartella della funzione.
 
-* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero subito al di sotto di *wwwroot*.
+* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
  
 La direttiva `#load` funziona solo con i file con estensione *csx* (script C# ), non con i file con estensione *cs*.
 
@@ -251,4 +254,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,7 +3,7 @@
     description="Informazioni su come usare PowerShell per gestire un pool di database elastici."  
 	services="sql-database" 
     documentationCenter="" 
-    authors="stevestein" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Monitorare e gestire un pool di database elastici con PowerShell 
 
@@ -28,7 +28,7 @@ Gestire un [pool di database elastici](sql-database-elastic-pool.md) tramite i c
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-I valori per i pool sono disponibili nei [limiti di archiviazione e di eDTU](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+I valori per i pool sono disponibili in [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Prerequisiti
 
@@ -44,7 +44,7 @@ I valori per i pool sono disponibili nei [limiti di archiviazione e di eDTU](sql
 
 ## Modificare le impostazioni delle prestazioni di un pool
 
-Quando le prestazioni ne risentono, è possibile modificare le impostazioni del pool per supportare la crescita. Usare il cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx). Impostare il parametro -Dtu sul numero di eDTU per pool. Vedere i [limiti di archiviazione e di eDTU](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases) per i valori possibili.
+Quando le prestazioni ne risentono, è possibile modificare le impostazioni del pool per supportare la crescita. Usare il cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx). Impostare il parametro -Dtu sul numero di eDTU per pool. Per i valori possibili, vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
@@ -103,9 +103,70 @@ Per recuperare le metriche:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
+## Aggiungere un avviso a una risorsa di pool
+
+È possibile aggiungere regole di avviso alle risorse per inviare notifiche tramite posta elettronica oppure stringhe di avviso a [endpoint di URL](https://msdn.microsoft.com/library/mt718036.aspx) quando la risorsa raggiunge la soglia di utilizzo impostata. Usare il cmdlet Add-AzureRmMetricAlertRule.
+
+In questo esempio viene aggiunto un avviso per ricevere una notifica quando il consumo di eDTU del pool supera una soglia stabilita.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location =  '<location'                         # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    #$Target Resource ID
+    $ResourceID = '/subscriptions/' + $subscriptionId + '/resourceGroups/' +$resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticpools/' + $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # create a unique rule name
+    $alertName = $poolName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+
+## Aggiungere avvisi a tutti i database di un pool
+
+È possibile aggiungere regole di avviso a tutti i database di un pool elastico in modo che vengano inviate notifiche tramite posta elettronica o stringhe di avviso a [endpoint di URL](https://msdn.microsoft.com/library/mt718036.aspx) quando una risorsa raggiunge la soglia di utilizzo impostata.
+
+In questo esempio viene aggiunto un avviso a ciascuno dei database di un pool in modo che venga inviata una notifica quando il consumo di DTU del database supera una determinata soglia.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location = '<location'                          # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    # Get the list of databases in this pool.
+    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # Get resource usage metrics for a database in an elastic database for the specified time interval.
+    foreach ($db in $dbList)
+    {
+    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+
+    # create a unique rule name
+    $alertName = $db.DatabaseName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+
+    # drop the alert rule
+    #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
+    } 
+
+
+
 ## Raccogliere e monitorare i dati sull'utilizzo delle risorse in più pool in una sottoscrizione
 
-In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici. I cmdlet di PowerShell per database SQL e le query T-SQL, invece, possono essere combinati per raccogliere dati sull'utilizzo delle risorse da più pool e i relativi database per il monitoraggio e l'analisi dell'utilizzo delle risorse. Nel repository di esempi relativi a SQL Server su GitHub è disponibile un'[implementazione di esempio](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) di un set di script di PowerShell di questo tipo, insieme alla documentazione sulle operazioni che esegue e su come usarla.
+In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici. I cmdlet di PowerShell per database SQL e le query T-SQL, invece, possono essere combinati per raccogliere dati sull'utilizzo delle risorse da più pool e i relativi database per il monitoraggio e l'analisi dell'utilizzo delle risorse. Nel repository di esempi relativi a SQL Server su GitHub è disponibile un'[implementazione di esempio](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) di un set di script di PowerShell di questo tipo, insieme alla documentazione relativa alle operazioni eseguite da tale implementazione e al relativo uso.
 
 Per usare questa implementazione di esempio, seguire questa procedura.
 
@@ -209,6 +270,6 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 ## Passaggi successivi
 
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
-- Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
+- Vedere [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

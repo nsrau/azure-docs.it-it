@@ -400,6 +400,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 ##<a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -442,4 +443,4 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

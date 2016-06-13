@@ -19,8 +19,6 @@
 
 # Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 I passaggi in questo argomento illustrano la creazione di un ambiente cloud ibrido per il testing di una farm Intranet di SharePoint ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -43,7 +41,7 @@ La configurazione di questo ambiente di test cloud ibrido prevede tre fasi princ
 2.	Configurare il computer SQL server (SQL1).
 3.	Configurare il server di SharePoint (SP1).
 
-Questo carico di lavoro richiede una sottoscrizione di Azure. Se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Questo carico di lavoro richiede una sottoscrizione di Azure. Se si ha una sottoscrizione di MSDN o di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Impostare l'ambiente cloud ibrido
 
@@ -209,10 +207,10 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 11.	Per **Modalità con cui si desidera configurare la farm di SharePoint**, fare clic su **Avvia la procedura guidata**.
 12.	Nella pagina Configura SharePoint farm in **Account del servizio**, fare clic su **Usa account gestito esistente**.
 13.	In **Servizi**, deselezionare le caselle di controllo eccetto la casella accanto a **Stato servizio**, quindi fare clic su **Avanti**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento.
-14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita **Contoso Corporation** in **Titolo**, specificare l'URL **http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
+14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita **Contoso Corporation** in **Titolo**, specificare l'URL ****http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
 15.	Nella pagina Completamento della configurazione guidata della farm, fare clic su **Termina**. Nella scheda di Internet Explorer viene visualizzato il sito SharePoint 2013 Central Administration.
 16.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-17.	Nella barra degli Indirizzi digitare **http://sp1/** e quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.
+17.	Nella barra degli Indirizzi digitare ****http://sp1/** e quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.
 
 Questa è la configurazione corrente.
 
@@ -224,4 +222,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 
 - [Configurare](https://technet.microsoft.com/library/ee836142.aspx) la farm di SharePoint.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

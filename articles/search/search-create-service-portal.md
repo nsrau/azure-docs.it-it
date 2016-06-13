@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
@@ -74,4 +74,4 @@ Le *__repliche__* consentono al servizio di gestire un carico superiore di query
 ## Avanti
 Dopo il provisioning di un servizio di Ricerca di Azure, è possibile [definire un indice di Ricerca di Azure](search-what-is-an-index.md) per caricare e cercare i dati.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

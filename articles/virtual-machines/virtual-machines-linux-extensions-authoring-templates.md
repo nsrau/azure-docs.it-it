@@ -19,8 +19,6 @@
 
 # Creazione di modelli di Azure Resource Manager con le estensioni di VM Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Eseguire il comando seguente dall'interfaccia della riga di comando di Azure:
@@ -41,7 +39,7 @@ Queste tre proprietà vengono mappate rispettivamente a "publisher", "type" e "t
 
 Il passaggio successivo per la creazione di un modello di estensione consiste nell'identificare il formato per indicare i parametri di configurazione. Ogni estensione supporta il proprio set di parametri.
 
-Per visualizzare configurazioni di esempio per le estensioni Linux, fare clic sulla documentazione relativa agli [esempi di estensioni Linux](virtual-machines-linux-extensions-configuration-samples.md).
+Per visualizzare configurazioni di esempio per le estensioni Linux, fare clic sulla documentazione sugli [Esempi di configurazione dell'estensione delle macchine virtuali di Linux](virtual-machines-linux-extensions-configuration-samples.md).
 
 Vedere quanto segue per ottenere un modello completo con estensioni di VM.
 
@@ -49,4 +47,4 @@ Vedere quanto segue per ottenere un modello completo con estensioni di VM.
 
 Dopo aver creato il modello, è possibile distribuirlo usando l'interfaccia della riga di comando di Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

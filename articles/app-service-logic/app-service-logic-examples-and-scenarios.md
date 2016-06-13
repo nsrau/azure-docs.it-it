@@ -32,16 +32,24 @@ Esistono diversi modi per attivare un'app per la logica da un'altra app. Di segu
 
 - [Risposta sincrona alle richieste nelle app per la logica](app-service-logic-http-endpoint.md)
 
+## Azioni personalizzate e con esecuzione prolungata
+
+- [Creazione di un'azione personalizzata](app-service-logic-create-api-app.md)
+
+## Distribuzione e gestione di un'app per la logica
+
+- [Creare un modello di distribuzione di app per la logica](app-service-logic-create-deploy-template.md)
+- [Diagnosticare i problemi di un'app per la logica](app-service-logic-diagnosing-failures.md)
+- [Distribuire l'app per la logica da Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Monitorare un'app per la logica](app-service-logic-monitor-your-logic-apps.md).
+
 ## Tipi di contenuto, conversioni e trasformazioni
 
-Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica contiene numerose funzioni che consentono di convertire e usare diversi tipi di contenuto. Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
+Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica contiene numerose funzioni che consentono di convertire e utilizzare diversi tipi di contenuto. Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
 
-- [Gestione dei tipi di contenuto](app-service-logic-content-type.md) come application/json, application/xml e plain/text
+- [Gestione dei tipi di contenuto](app-service-logic-content-type.md) come application/json, application/xml e text/plain
+- [Creazione di definizioni del flusso di lavoro](app-service-logic-author-definitions.md)
 - [Linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
-
-## Azioni con esecuzione prolungata
-
-- [Creazione di un'azione con esecuzione prolungata](app-service-logic-create-api-app.md)
 
 ## Batch ed esecuzione di cicli
 
@@ -49,9 +57,13 @@ Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-## Integrazione con flussi di lavoro annidati e funzioni di Azure
+## Integrazione con Funzioni di Azure
 
 - [Integrazione di funzioni di Azure](app-service-logic-azure-functions.md)
+
+### Scenari
+
+- [Funzioni di Azure come trigger del bus di servizio](app-service-logic-scenario-function-sb-trigger.md)
 
 ## HTTP, REST e SOAP
 
@@ -60,4 +72,4 @@ Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
 
 Verranno aggiunti altri esempi e scenari a questo documento. Usare la sezione dei commenti in basso per segnalare eventuali esempi o scenari da includere.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

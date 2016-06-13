@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Sostituire un modulo controller nel dispositivo StorSimple
@@ -69,7 +69,7 @@ In una sostituzione di un controller singolo, è necessario rimuovere prima il c
 
 ### Procedura per la sostituzione di un singolo controller
 
-Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft Azure StorSimple ha esito negativo. (L’altro controller deve essere attivo e in esecuzione. Se entrambi i controller hanno esito negativo o non funzionano, andare alla[Procedura per la sostituzione doppia del controller](#dual-controller-replacement-steps).)
+Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft Azure StorSimple ha esito negativo. (L’altro controller deve essere attivo e in esecuzione. Se entrambi i controller hanno esito negativo o non funzionano, passare alla[Procedura per la sostituzione doppia del controller](#dual-controller-replacement-steps).
 
 >[AZURE.NOTE] Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere 30 - 45 minuti. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2 ore.
 
@@ -77,7 +77,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 1. Nel portale di Azure classico passare al servizio StorSimple Manager, fare clic sulla scheda **Dispositivi** e quindi sul nome del dispositivo da monitorare.
 
-2. Scegliere la scheda **Manutenzione**e quindi passare alla scheda**Stato hardware**. Lo stato del Controller 0 o Controller 1 deve essere rosso, ad indicare un errore.
+2. Passare a **Manutenzione > Stato hardware**. Lo stato del Controller 0 o Controller 1 deve essere rosso, ad indicare un errore.
 
     >[AZURE.NOTE] Il controller che ha avuto esito negativo in una sostituzione di un singolo controller è sempre un controller in standby.
 
@@ -96,9 +96,9 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 4. Nel controller che ha avuto esito negativo, rimuovere tutti i cavi di rete connessi dalle porte dati. Se si utilizza un modello 8600, rimuovere anche i cavi SAS che connettono il controller al controller EBOD.
 
-5. Seguire i passaggi in[Rimuovere un controller](#remove-a-controller)per rimuovere il controller che ha avuto esito negativo.
+5. Seguire la procedura [Rimuovere un controller](#remove-a-controller) per rimuovere il controller che ha avuto esito negativo.
 
-6. Installare la sostituzione della factory nello stesso slot da cui è stato rimosso il controller che ha avuto esito negativo. In questo modo viene attivata la logica di sostituzione di un singolo controller. Per ulteriori informazioni, vedere[Logica di sostituzione di un singolo controller](#single-controller-replacement-logic).
+6. Installare la sostituzione della factory nello stesso slot da cui è stato rimosso il controller che ha avuto esito negativo. In questo modo viene attivata la logica di sostituzione di un singolo controller. Per altre informazioni, vedere [Logica di sostituzione di un singolo controller](#single-controller-replacement-logic).
 
 7. Mentre la logica di sostituzione del singolo controller viene eseguita in background, riconnettere i cavi. Prestare attenzione a collegare tutti i cavi esattamente allo stesso modo i cui erano connessi prima della sostituzione.
 
@@ -128,7 +128,7 @@ In una doppia sostituzione di controller, rimuovere prima entrambi i controller 
 
 3. Nel frattempo, il controller nello slot 1 attende che il controller 0 completi la creazione dell'immagine e si avvii.
 
-4. Dopo l'avvio del controller 0, il controller 1 rileva il cluster creato dal controller 0, che attiva la logica di sostituzione del singolo controller. Per ulteriori informazioni, vedere[Logica di sostituzione di un singolo controller](#single-controller-replacement-logic).
+4. Dopo l'avvio del controller 0, il controller 1 rileva il cluster creato dal controller 0, che attiva la logica di sostituzione del singolo controller. Per altre informazioni, vedere [Logica di sostituzione di un singolo controller](#single-controller-replacement-logic).
 
 5. Successivamente, verranno eseguiti entrambi i controller e il cluster verrà portato online.
 
@@ -150,11 +150,11 @@ Questo flusso di lavoro è necessario quando entrambi i controller del dispositi
 
 2. Rimuovere tutti i cavi di rete connessi alle porte dati. Se si utilizza un modello 8600, rimuovere anche i cavi SAS che collegano l'enclosure principale all'enclosure EBOD.
 
-3. Rimuovere entrambi i controller dal dispositivo StorSimple. Per ulteriori informazioni, vedere[Rimuovere un controller](#remove-a-controller).
+3. Rimuovere entrambi i controller dal dispositivo StorSimple. Per altre informazioni, vedere [Rimuovere un controller](#remove-a-controller).
 
-4. Inserire la sostituzione della factory prima per il Controller 0 e quindi inserire il Controller 1. Per ulteriori informazioni, vedere[Inserire un controller](#insert-a-controller). In questo modo viene attivata la logica di sostituzione doppia del controller. Per ulteriori informazioni, vedere [Logica di sostituzione doppia del controller](#dual-controller-replacement-logic).
+4. Inserire la sostituzione della factory prima per il Controller 0 e quindi inserire il Controller 1. Per altre informazioni, vedere [Inserire un controller](#insert-a-controller). In questo modo viene attivata la logica di sostituzione doppia del controller. Per altre informazioni, vedere [Logica di sostituzione doppia del controller](#dual-controller-replacement-logic).
 
-5. Mentre la logica di sostituzione del controller viene eseguita in background, riconnettere i cavi. Prestare attenzione a collegare tutti i cavi esattamente allo stesso modo i cui erano connessi prima della sostituzione. Vedere le istruzioni dettagliate per il modello nella sezione Cablare il dispositivo della sezione [installare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md)o[installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+5. Mentre la logica di sostituzione del controller viene eseguita in background, riconnettere i cavi. Prestare attenzione a collegare tutti i cavi esattamente allo stesso modo i cui erano connessi prima della sostituzione. Vedere le istruzioni dettagliate per il modello in uso nella sezione Cable your device (Cablare il dispositivo) di [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) (Installare il dispositivo StorSimple 8100) o [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md) (Installare il dispositivo StorSimple 8600).
 
 6. Accendere il dispositivo StorSimple. Se si utilizza un modello 8600:
 
@@ -214,7 +214,7 @@ Utilizzare la procedura seguente per installare un modulo controller factory for
 
     >[AZURE.NOTE] La riattivazione del controller e del LED potrebbe richiedere fino a 5 minuti.
 
-5. Per verificare che la sostituzione abbia avuto esito positivo, nel portale di Azure classico, passare a**Dispositivi** > **Manutenzione** > **Stato Hardware**e assicurarsi che sia controller 0 e sia il controller 1 siano integri (lo stato deve essere verde).
+5. Per verificare che la sostituzione abbia avuto esito positivo, nel portale di Azure classico, passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e assicurarsi che sia il controller 0 e sia il controller 1 siano integri (lo stato deve essere verde).
 
 ## Identificare il controller attivo sul dispositivo
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -57,7 +57,7 @@ Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usa
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcune risorse di Azure possono essere distribuite con uno dei due modelli, mentre altre possono essere distribuite con entrambi i modelli. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.
 
 
-### <a name="faultdomain"></a>dominio di errore  
+### <a name="fault-domain"></a>Dominio di errore  
 Raccolta di macchine virtuali di un set di disponibilità nelle quali può verificarsi un errore contemporaneamente. Un esempio è un gruppo di macchine virtuali in un rack che condividono un'unità di alimentazione e un commutatore di rete comune. In Azure, le macchine virtuali di un set di disponibilità vengono suddivise automaticamente su più domini di errore. Vedere anche [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
@@ -142,7 +142,7 @@ Risorsa che implementa comportamenti o funzionalità utili per il funzionamento 
 
 
 ### <a name="vnet"></a>rete virtuale  
-Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Può essere connessa ad altre reti virtuali di Azure tramite un [gateway VPN di Azure](vpn-gateway-about-vpngateways/) e alla rete locale tramite [più opzioni](vpn-gateway-cross-premises-options/). È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. Vedere anche [Panoramica di Rete virtuale](./virtual-network/virtual-networks-overview.md)
+Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Può essere connessa ad altre reti virtuali di Azure tramite un [gateway VPN di Azure](./vpn-gateway/vpn-gateway-about-vpngateways.md) e alla rete locale usando [più opzioni](./vpn-gateway/vpn-gateway-cross-premises-options.md). È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. Vedere anche [Panoramica di Rete virtuale](./virtual-network/virtual-networks-overview.md)
 
 ###**Vedere anche**  
 - [Inizia a usare Azure](https://azure.microsoft.com/get-started/)
@@ -150,4 +150,4 @@ Rete che offre la connettività tra le risorse di Azure e che è isolata da tutt
 - [Azure per le applicazioni aziendali](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [Azure nel data center](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

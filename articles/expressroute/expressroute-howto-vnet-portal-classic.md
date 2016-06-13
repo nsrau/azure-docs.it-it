@@ -14,10 +14,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/08/2016"
+   ms.date="05/25/2016"
    ms.author="cherylmc"/>
 
-# Configurare una rete virtuale per ExpressRoute nel portale classico
+# Creare una rete virtuale per ExpressRoute nel portale classico
 
 La procedura disponibile in questo articolo illustra come configurare una rete virtuale e un gateway da usare con ExpressRoute mediante il modello di distribuzione classica e il portale classico.
 
@@ -27,7 +27,9 @@ Se sono necessarie istruzioni per il modello di distribuzione di Resource Manage
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Per configurare una VNet e un gateway
+## Creare una rete virtuale classica e un gateway
+
+La procedura seguente consente di creare una rete virtuale classica e un gateway di rete virtuale. Se è già disponibile una rete virtuale classica, vedere la sezione [Configurare una rete virtuale classica esistente](#config) in questo articolo.
 
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
@@ -40,33 +42,46 @@ Se sono necessarie istruzioni per il modello di distribuzione di Resource Manage
 
 4. Nella pagina **DNS Servers and VPN Connectivity** immettere le informazioni seguenti e quindi fare clic sulla freccia Next in basso a destra.
 
-	- **Server DNS**: immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, consente di specificare i server DNS che si desidera utilizzare per la risoluzione dei nomi per la rete virtuale.
-	- **Configura una VPN Site-To-Site**: selezionare la casella di controllo **Configura una VPN Site-To-Site**.
-	- **Seleziona ExpressRoute** : selezionare la casella di controllo **Usa ExpressRoute**. Questa opzione viene visualizzata solo se è stato selezionato ***Configura una VPN Site-To-Site*** nel passaggio precedente.
-	- **Rete locale**: una rete locale rappresenta la posizione fisica locale. È possibile selezionare una rete locale creata in precedenza oppure creare una nuova rete locale.
+	- **Server DNS**: immettere il nome del server DNS e l'indirizzo IP o selezionare un server DNS registrato in precedenza dall'elenco a discesa. Questa impostazione non crea un server DNS, ma consente di specificare i server DNS da usare per la risoluzione dei nomi per la rete virtuale.
+	- **Connettività da sito a sito**: selezionare la casella di controllo **Configura una VPN Site-to-Site**.
+	- **ExpressRoute**: selezionare la casella di controllo **Usa ExpressRoute**. Questa opzione viene visualizzata solo se è stata selezionata **Configura una VPN Site-To-Site**.
+	- **Rete locale**: è necessario avere un sito di rete locale per ExpressRoute. Tuttavia, nel caso di una connessione ExpressRoute, i prefissi degli indirizzi specificati per il sito di rete locale verranno ignorati. Per il routing verranno invece usati i prefissi degli indirizzi annunciati a Microsoft attraverso il circuito ExpressRoute.<BR>Se è già disponibile una rete locale creata per la connessione ExpressRoute, è possibile selezionarla dall'elenco a discesa. In caso contrario, selezionare **Specificare una nuova rete locale**.
 
-	Se si seleziona una rete locale esistente, ignorare il passaggio 5.
-
-5. Se si crea una nuova rete locale, verrà visualizzato la pagina **Connettività Site-to-Site**. Se si seleziona una rete locale creata in precedenza, questa pagina non verrà visualizzata nella procedura guidata e sarà possibile passare alla sezione successiva. Per configurare la rete locale, immettere le informazioni seguenti e quindi fare clic sulla freccia avanti.
+5. Se nel passaggio precedente si è scelto di specificare una nuova rete locale, verrà visualizzata la pagina **Connettività da sito a sito**. Per configurare la rete locale, immettere le informazioni seguenti e quindi fare clic sulla freccia avanti.
 
 	- **Nome**: nome da assegnare al sito di rete locale.
-	- **Spazio di indirizzi**: inclusi IP iniziale e CIDR (conteggio indirizzi). È possibile specificare qualsiasi intervallo di indirizzi, purché non si sovrapponga all'intervallo di indirizzi della rete virtuale.
-	- **Aggiungi spazio di indirizzi**: questa impostazione non è rilevante per ExpressRoute. **Nota**: è necessario creare un sito di rete locale per ExpressRoute. I prefissi di indirizzo specificati per il sito di rete locale verranno ignorati. Prefissi di indirizzo annunciati a Microsoft tramite il circuito ExpressRoute verranno usati per il routing.
+	- **Spazio di indirizzi**: inclusi IP iniziale e CIDR (conteggio indirizzi). È possibile specificare qualsiasi intervallo di indirizzi, purché non si sovrapponga all'intervallo di indirizzi della rete virtuale. In genere, vengono specificati gli intervalli di indirizzi per le reti locali, ma nel caso di ExpressRoute queste impostazioni non vengono usate. Tuttavia, questa impostazione è necessaria per creare la rete locale quando si usa il portale classico.
+	- **Aggiungi spazio di indirizzi**: questa impostazione non è rilevante per ExpressRoute.
+
 
 6. Nella pagina **Virtual Network Address Spaces** immettere le informazioni seguenti e quindi fare clic sul segno di spunta in basso a destra per configurare la rete.
 
 	- **Spazio di indirizzi**: inclusi IP iniziale e conteggio indirizzi. Verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
-	- **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP dinamici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze PaaS.
-	- **Aggiungi subnet gateway**: fare clic per aggiungere la subnet del gateway. La subnet del gateway viene usata solo per il gateway di rete virtuale ed è obbligatoria per la configurazione. ***Importante:*** la subnet del gateway per ExpressRoute deve essere /28 o inferiore (/27, /26 ecc.).
+	- **Aggiungi subnet** inclusi IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet.
+	- **Aggiungi subnet gateway**: fare clic per aggiungere la subnet del gateway. La subnet del gateway viene usata solo per il gateway di rete virtuale ed è obbligatoria per questa configurazione.<BR>Il CIDR, o conteggio indirizzi, della subnet del gateway per ExpressRoute deve essere /28 o superiore (/ 27/26 e così via). In questo modo nella subnet saranno disponibili indirizzi IP sufficienti per consentire il funzionamento della configurazione. Se nel portale classico è stata selezionata la casella di controllo per l'uso di ExpressRoute, verrà specificata automaticamente una subnet del gateway con /28. Si noti che non è possibile modificare il conteggio di indirizzi CIDR nel portale classico. La subnet del gateway verrà visualizzata come **Gateway** nel portale classico, anche se il vero nome della subnet del gateway creato è in effetti **GatewaySubnet**. È possibile visualizzare il nome tramite PowerShell o nel portale di Azure.
 
-7. Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Stato** verrà visualizzato **Creato** nella pagina **Reti** del portale di Azure classico.
+7. Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine, nella pagina **Reti** del portale classico verrà visualizzato **Creato** in **Stato**.
 
-8. Nella pagina relativa alle **Reti**, fare clic sulla rete virtuale appena creata, quindi fare clic su **Dashboard**.
-9. Nella parte inferiore della pagina Dashboard, fare clic su **CREATE GATEWAY**, quindi fare clic su **Yes**.
+## <a name="gw"></a>Creare il gateway
 
-10. All'avvio della creazione del gateway, verrà visualizzato un messaggio che indica che la procedura è stata avviata. La creazione del gateway potrebbe richiedere fino a 15 minuti.
+1. Nella pagina **Reti** fare clic sulla rete virtuale appena creata e quindi fare clic su **Dashboard** nella parte superiore della pagina.
 
-11. Collegare la rete al circuito. Seguire le istruzioni riportate nell'articolo [Come collegare reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-classic.md).
+2. Nella parte inferiore della pagina **Dashboard** fare clic su **Crea gateway** e selezionare **Routing dinamico**. Fare clic su **Sì** per confermare che si vuole creare un gateway.
+
+3. All'avvio della creazione del gateway, verrà visualizzato un messaggio che indica che la procedura è stata avviata. La creazione del gateway può richiedere fino a 45 minuti.
+
+4. Collegare la rete al circuito. Seguire le istruzioni riportate nell'articolo [Come collegare reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-classic.md).
+
+## <a name="config"></a>Configurare una rete virtuale classica esistente per ExpressRoute
+
+Se è già disponibile una rete virtuale classica, è possibile configurarne la connessione a ExpressRoute nel portale classico. Le impostazioni saranno le stesse usate nelle sezioni precedenti, quindi vedere quelle sezioni per acquisire familiarità con le impostazioni necessarie. Se si vuole creare una connessione coesistente ExpressRoute/Da sito a sito, vedere la procedura in [questo articolo](expressroute-howto-coexist-classic.md). I passaggi sono diversi rispetto a questo articolo.
+ 
+1. Sarà necessario creare la rete locale prima di aggiornare il resto delle impostazioni della rete virtuale. Per creare una nuova rete locale, necessaria quando si configura ExpressRoute tramite il portale classico, fare clic su **Nuovo** **>** **Servizi di rete** **>** **Rete virtuale** **>** **Aggiungi rete locale**. Seguire i passaggi della procedura guidata per creare la rete locale.
+
+2. Usare la pagina **Configura** per aggiornare il resto delle impostazioni per la rete virtuale e associare la rete virtuale alla rete locale.
+
+3. Dopo aver configurato le impostazioni, vedere la sezione [Creare il gateway](#gw) in questo articolo per completare l'operazione.
+
 
 ## Passaggi successivi
 
@@ -76,4 +91,4 @@ Se sono necessarie istruzioni per il modello di distribuzione di Resource Manage
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

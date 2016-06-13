@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Informazioni generali sulla sicurezza di Archiviazione di Azure
@@ -28,7 +28,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 
 Questo articolo offre informazioni generali su ognuna di queste funzionalità di sicurezza principali che possono essere usate con Archiviazione di Azure. Per maggiori informazioni sono disponibili collegamenti ad articoli contenenti informazioni dettagliate su ogni funzionalità.
 
-Per un'analisi più approfondita della sicurezza in Archiviazione di Azure, vedere la [Guida alla sicurezza di Archiviazione di Azure](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
+Per un'analisi più approfondita della sicurezza in Archiviazione di Azure, vedere la [Guida alla sicurezza di Archiviazione di Azure](../storage/storage-security-guide.md).
 
 Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 
@@ -160,4 +160,4 @@ Altre informazioni:
 - [Monitorare un account di archiviazione nel portale di Azure](../storage/storage-monitor-storage-account.md)
 - [Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer](../storage/storage-e2e-troubleshooting.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

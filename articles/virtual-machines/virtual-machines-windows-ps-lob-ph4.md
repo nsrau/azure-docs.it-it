@@ -19,8 +19,6 @@
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono creati i server Web in cui caricare l'applicazione line-of-business.
 
 È necessario completare questa fase prima di passare alla [Fase 5](virtual-machines-windows-ps-lob-ph5.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-windows-lob-overview.md).
@@ -151,4 +149,4 @@ Questo diagramma illustra la configurazione ottenuta al termine di questa fase.
 
 - Seguire la [Fase 5](virtual-machines-windows-ps-lob-ph5.md) per completare la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

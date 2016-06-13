@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 #Disinstallare i componenti dei processi di database elastici
 I componenti dei**Processi di database elastici** possono essere disinstallati utilizzando il portale o PowerShell.
@@ -64,4 +64,4 @@ Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramic
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

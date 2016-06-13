@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso di Informix Connector nel servizio app di Microsoft Azure | Microsoft Azure"
-   description="Informazioni su come usare Informix Connector con trigger e azioni delle app per la logica"
+   pageTitle="Uso del connettore Informix nel servizio app di Microsoft Azure | Microsoft Azure"
+   description="Informazioni su come usare il connettore Informix con trigger e azioni delle app per la logica"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="plarsen"/>
 
-# Informix Connector
+# Connettore Informix
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Microsoft Connector for Informix è un'app per le API per la connessione di applicazioni tramite il servizio app di Azure alle risorse archiviate in un database IBM Informix. Il connettore include un client Microsoft per la connessione a computer server Informix attraverso una connessione di rete TCP/IP, incluse connessioni ibride di Azure a server Informix locali mediante l'inoltro del bus di servizio di Azure. Il connettore supporta le operazioni di database seguenti:
@@ -91,15 +91,15 @@ SHIPZIP | 99362
 9. Le impostazioni dovrebbero avere un aspetto simile al seguente: ![][3]  
 10. Nell'elenco **Tutte le esecuzioni** in **Operazioni** selezionare il primo elemento dell'elenco, ovvero l'esecuzione più recente. 
 11. Nel pannello relativo alle **esecuzioni delle app per la logica** selezionare l'elemento **ACTION** di tipo **informixconnectorneworders**.
-12. Nel pannello relativo alle **azioni delle app per la logica** selezionare **INPUTS LINK**. Informix Connector usa gli input per elaborare un'istruzione INSERT con parametri.
+12. Nel pannello relativo alle **azioni delle app per la logica** selezionare **INPUTS LINK**. Il connettore Informix usa gli input per elaborare un'istruzione INSERT con parametri.
 13. Nel pannello relativo alle **azioni delle app per la logica** selezionare **OUTPUTS LINK**. Gli input dovrebbero avere un aspetto simile al seguente: ![][4]
 
 #### Informazioni importanti
 
 - Il connettore tronca i nomi di tabella Informix quando forma i nomi delle azioni delle app per la logica. Ad esempio, l'operazione **Insert into NEWORDERS** viene troncata in **Insert into NEWORDER**.
 - Dopo il salvataggio di **Trigger e azioni** delle app per la logica, l'operazione viene elaborata dall'app per la logica. È possibile che per l'elaborazione dell'operazione da parte dell'app per la logica sia necessario attendere alcuni secondi, ad esempio 3-5 secondi. È facoltativamente possibile fare clic su **Esegui ora** per elaborare l'operazione.
-- Informix Connector definisce membri EntitySet con attributi, indicando anche se il membro corrisponde a una colonna Informix con colonne predefinite o generate, ad esempio la colonna Identity. L'app per la logica visualizza un asterisco rosso accanto al nome di ID membro EntitySet per indicare le colonne Informix che richiedono valori. È consigliabile non immettere alcun valore per il membro ORDID, che corrisponde alla colonna Identity Informix. È possibile immettere valori per i membri facoltativi (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), che corrispondono a colonne Informix con valori predefiniti. 
-- Informix Connector restituisce all'app per la logica la risposta a Post to EntitySet che include i valori per le colonne Identity, derivati da DRDA SQLDARD (SQL Data Area Reply Data) nell'istruzione SQL INSERT preparata. Il server Informix non restituisce i valori inseriti per le colonne con i valori predefiniti.  
+- Il connettore Informix definisce membri EntitySet con attributi, indicando anche se il membro corrisponde a una colonna Informix con colonne predefinite o generate, ad esempio la colonna Identity. L'app per la logica visualizza un asterisco rosso accanto al nome di ID membro EntitySet per indicare le colonne Informix che richiedono valori. È consigliabile non immettere alcun valore per il membro ORDID, che corrisponde alla colonna Identity Informix. È possibile immettere valori per i membri facoltativi (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), che corrispondono a colonne Informix con valori predefiniti. 
+- Il connettore Informix restituisce all'app per la logica la risposta a Post to EntitySet che include i valori per le colonne Identity, derivati da DRDA SQLDARD (SQL Data Area Reply Data) nell'istruzione SQL INSERT preparata. Il server Informix non restituisce i valori inseriti per le colonne con i valori predefiniti.  
 
 
 ## App per la logica con azione del connettore Informix per l'aggiunta di dati in blocco ##
@@ -129,10 +129,10 @@ SHIPZIP | 99362
 - Il connettore tronca i nomi di tabella Informix quando forma i nomi delle azioni delle app per la logica. Ad esempio, l'operazione **Bulk Insert into NEWORDERS** viene troncata in **Bulk Insert into NEW**.
 - È possibile che il database Informix applichi la distinzione tra maiuscole e minuscole ai nomi di tabelle e colonne. Ad esempio, è possibile sia necessario specificare i nomi di colonna della matrice dell'operazione Bulk Insert in minuscolo ("custid") invece che in maiuscolo ("CUSTID").
 - Omettendo le colonne Identity (ad esempio ORDID), le colonne che ammettono valori Null (ad esempio SHIPDATE) e le colonne con valori predefiniti (ad esempio ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), il database Informix genera i valori.
-- Specificando "today" e "tomorrow", Informix Connector genera le funzioni "CURRENT DATE" e "CURRENT DATE + 1 DAY" (ad esempio REQDATE). 
+- Specificando "today" e "tomorrow", il connettore Informix genera le funzioni "CURRENT DATE" e "CURRENT DATE + 1 DAY" (ad esempio REQDATE). 
 
 
-## App per la logica con trigger di Informix Connector per la lettura, la modifica o l'eliminazione di dati ##
+## App per la logica con trigger del connettore Informix per la lettura, la modifica o l'eliminazione di dati ##
 È possibile definire un trigger dell'app per la logica per eseguire il polling e leggere i dati da una tabella Informix mediante un'operazione composita di tipo API Poll Data. Ad esempio, è possibile leggere uno o più nuovi record di ordine cliente, restituendo i record all'app per la logica. Le impostazioni del pacchetto/dell'app di connessione Informix dovrebbero avere un aspetto simile al seguente:
 
 	App Setting | Value
@@ -177,8 +177,8 @@ In questo esempio l'app per la logica eseguirà il polling, leggerà, aggiorner�
 ## App per la logica con azione del connettore Informix per la rimozione di dati ##
 È possibile definire un'azione dell'app per la logica per rimuovere dati da una tabella Informix mediante un'operazione OData di tipo API Delete o Post to Entity. Ad esempio, è possibile inserire un nuovo record di ordine cliente elaborando un'istruzione SQL INSERT rispetto a una tabella definita con una colonna Identity e restituendo il valore Identity delle righe interessate all'app per la logica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-## Creare un'app per la logica usando Informix Connector per rimuovere i dati ##
-È possibile creare una nuova app per la logica in Azure Marketplace, quindi usare Informix Connector come azione per rimuovere gli ordini cliente. Ad esempio, è possibile usare l'operazione condizionale Delete di Informix Connector per elaborare un'istruzione SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
+## Creare un'app per la logica usando il connettore Informix per rimuovere i dati ##
+È possibile creare una nuova app per la logica in Azure Marketplace, quindi usare il connettore Informix come azione per rimuovere gli ordini cliente. Ad esempio, è possibile usare l'operazione condizionale Delete del connettore Informix per elaborare un'istruzione SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
 1. Nel menu dell'hub della schermata **iniziale** di Azure fare clic su **+** (segno più), quindi su **Web e dispositivi mobili** e infine su **App per la logica**. 
 2. Nel pannello **Crea app per la logica** digitare un **Nome**, ad esempio **RemoveOrdersInformix**.
@@ -190,7 +190,7 @@ In questo esempio l'app per la logica eseguirà il polling, leggerà, aggiorner�
 8. Nell'area di progettazione dell'app per la logica fare clic sull'elemento **Ricorrenza** impostare un valore per **Frequenza** e **Intervallo**, ad esempio **Giorni** e **1**, quindi fare clic sul **segno di spunta** per salvare le impostazioni dell'elemento di ricorrenza.
 9. Nel riquadro **App per le API** del pannello **Trigger e azioni** fare clic su **Informix Connector** nel gruppo di risorse.
 10. Nell'area di progettazione dell'app per la logica fare clic sull'attività di **Informix Connector**, fare clic sui puntini di sospensione (**...**) per espandere l'elenco di operazioni e quindi fare clic su **Conditional delete from N**.
-11. Nell'attività di Informix Connector digitare **ordid ge 10000** per un'**espressione che identifica un sottoinsieme di voci**.
+11. Nell'attività del connettore Informix digitare **ordid ge 10000** per un'**espressione che identifica un sottoinsieme di voci**.
 12. Fare clic sul **segno di spunta** per salvare le impostazioni delle azioni, quindi fare clic su **Salva**. Le impostazioni dovrebbero avere un aspetto simile al seguente: ![][13]
 13. Fare clic per chiudere il pannello **Trigger e azioni**, quindi fare clic per chiudere il pannello **Impostazioni**.
 14. Nell'elenco **Tutte le esecuzioni** in **Operazioni** fare clic sul primo elemento dell'elenco, ovvero l'esecuzione più recente.
@@ -274,4 +274,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

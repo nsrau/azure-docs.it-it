@@ -26,7 +26,7 @@ Questo articolo contiene istruzioni dettagliate sullo sviluppo di applicazioni S
 * Per accedere alle risorse cluster HDInsight Spark di Azure
 * Per sviluppare ed eseguire un'applicazione Spark in Scala localmente
 
-Per istruzioni su come iniziare, è possibile guardare un video disponibile [qui](https://mix.office.com/watch/1nqkqjt5xonza).
+Per iniziare, è anche possibile guardare un video disponibile [qui](https://mix.office.com/watch/1nqkqjt5xonza).
 
 >[AZURE.IMPORTANT] Questo strumento può essere usato per creare e inviare applicazioni solo per un cluster HDInsight Spark in Linux.
 
@@ -281,4 +281,4 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

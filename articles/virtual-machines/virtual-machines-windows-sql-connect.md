@@ -30,8 +30,6 @@ Esistono tuttavia alcuni aspetti relativi alla connettività di SQL Server che s
 
 Questo articolo descrive come connettersi a una VM SQL Server usando il modello di Gestione risorse. Per una procedura dettagliata completa del provisioning e della connettività, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 ## Scenari di connessione
 
 La modalità di connessione di un client a SQL Server in esecuzione in una macchina virtuale varia a seconda della posizione del client e della configurazione tra il computer e la rete. Tali scenari includono:
@@ -43,7 +41,7 @@ La modalità di connessione di un client a SQL Server in esecuzione in una macch
 
 Per connettersi al motore di database di SQL Server da Internet, sono necessari alcuni passaggi, ad esempio configurazione del firewall, abilitazione dell'autenticazione di SQL, nonché configurazione del gruppo di sicurezza di rete. Per consentire il traffico TCP sulla porta 1433, è necessario avere una regola del gruppo di sicurezza di rete.
 
-Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblico** per l'opzione di connettività SQL:
+Se si usa il portale per eseguire il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblico** per l'opzione di connettività SQL:
 
 ![](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
@@ -65,7 +63,7 @@ La [rete virtuale](../virtual-network/virtual-networks-overview.md) supporta sce
 
 Le reti virtuali consentono inoltre di aggiungere le macchine virtuali di Azure a un dominio. Si tratta dell'unico modo per usare l'autenticazione di Windows per SQL Server. Gli altri scenari di connessione richiedono l'autenticazione SQL con nomi utente e password.
 
-Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, le regole del firewall corrette per la comunicazione sulla rete virtuale vengono impostate quando si seleziona **Privato** per l'opzione di connettività SQL. Se questa operazione non è stata eseguita durante il provisioning, è possibile configurare manualmente SQL Server e le macchine virtuali seguendo la [procedura per configurare manualmente la connettività in questo articolo](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Se però si prevede di configurare un ambiente di dominio e l'autenticazione di Windows, non è necessario seguire la procedura descritta in questo articolo per configurare l'autenticazione SQL e gli account di accesso. Non è nemmeno necessario configurare regole del gruppo di sicurezza di rete per l'accesso tramite Internet.
+Se si usa il portale per eseguire il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, le regole del firewall corrette per la comunicazione sulla rete virtuale vengono impostate quando si seleziona **Privato** per l'opzione di connettività SQL. Se questa operazione non è stata eseguita durante il provisioning, è possibile configurare manualmente SQL Server e le macchine virtuali seguendo la [procedura per configurare manualmente la connettività in questo articolo](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Se però si prevede di configurare un ambiente di dominio e l'autenticazione di Windows, non è necessario seguire la procedura descritta in questo articolo per configurare l'autenticazione SQL e gli account di accesso. Non è nemmeno necessario configurare regole del gruppo di sicurezza di rete per l'accesso tramite Internet.
 
 Presupponendo che il DNS sia stato configurato nella rete virtuale, è possibile connettersi all'istanza di SQL Server specificando il nome computer della VM di SQL Server nella stringa di connessione. L'esempio seguente presuppone che sia stata configurata anche l'autenticazione di Windows e che all'utente sia stato concesso l'accesso all'istanza di SQL Server.
 
@@ -100,4 +98,4 @@ Per la procedura di configurazione della connettività e del provisioning, veder
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

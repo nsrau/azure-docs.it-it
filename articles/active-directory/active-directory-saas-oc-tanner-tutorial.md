@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/25/2016"
 	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con O.C. Tanner - AppreciateHub
 
-Questa esercitazione descrive l'integrazione di O.C. Tanner - AppreciateHub con Azure Active Directory (Azure AD).<br>L'integrazione di O.C. Tanner - AppreciateHub con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive l'integrazione di O.C. Tanner - AppreciateHub con Azure Active Directory (Azure AD). L'integrazione di O.C. Tanner - AppreciateHub con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a O.C. Tanner - AppreciateHub 
 - È possibile abilitare gli utenti ad accedere automaticamente a O.C. Tanner - AppreciateHub (Single Sign-On) con i relativi account Azure AD
@@ -45,7 +45,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
  
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i tre blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
 1. Aggiunta di O.C. Tanner - AppreciateHub dalla raccolta 
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -56,27 +56,40 @@ Per configurare l'integrazione di O.C. Tanner - AppreciateHub in Azure AD, è ne
 
 **Per aggiungere O.C. Tanner - AppreciateHub dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1] <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore. <br><br> ![Applicazioni][2] <br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina. <br><br> ![Applicazioni][3] <br>
+	![Applicazioni][2]
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**. <br><br> ![Applicazioni][4] <br>
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
-6. Nella casella di ricerca digitare **O.C. Tanner - AppreciateHub**. <br><br> ![Applicazioni][5] <br>
+	![Applicazioni][3]
 
-7. Nel riquadro dei risultati selezionare **O.C. Tanner - AppreciateHub** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Applicazioni][25] <br>
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **O.C. Tanner - AppreciateHub**.
+
+	![Applicazioni][5]
+
+7. Nel riquadro dei risultati selezionare **O.C. Tanner - AppreciateHub** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Applicazioni][25]
 
 
 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
+
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con O.C. Tanner - AppreciateHub in base a un utente test denominato "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di O.C. Tanner - AppreciateHub che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in O.C. Tanner - AppreciateHub.<br> La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** in O.C. Tanner - AppreciateHub.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di O.C. Tanner - AppreciateHub che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in O.C. Tanner - AppreciateHub. La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** in O.C. Tanner - AppreciateHub.
  
 Per configurare e testare l'accesso Single Sign-On di Azure AD con O.C. Tanner - AppreciateHub, è necessario completare i blocchi predefiniti seguenti:
 
@@ -88,21 +101,30 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con O.C. Tanner -
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-L'obiettivo di questa sezione è abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione O.C. Tanner - AppreciateHub.<br>
+L'obiettivo di questa sezione è abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione O.C. Tanner - AppreciateHub.
+
 
 **Per configurare l'accesso Single Sign-On di Azure AD con O.C. Tanner - AppreciateHub, seguire questa procedura:**
 
-1. Nel portale di Azure classico, in **O.C. Tanner - AppreciateHub** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][6]
+1. Nella pagina di integrazione dell'applicazione **O.C. Tanner - AppreciateHub** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a O.C. Tanner - AppreciateHub** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.<br><br> ![Accesso Single Sign-On di Azure AD][7]
+	![Configura accesso Single Sign-On][6]
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configurare le impostazioni dell'app][8]
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a O.C. Tanner - AppreciateHub** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+
+	![Accesso Single Sign-On di Azure AD][7]
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configurare le impostazioni dell'app][8]
  
      a. Aprire il file dei metadati usando il collegamento seguente: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
 
      b. Individuare il nodo **md:AssertionConsumerService**.
 
-     c. Copiare il valore dell'attributo **Location**. <br><br>![Configurare le impostazioni dell'app][12]
+     c. Copiare il valore dell'attributo **Location**.
+
+     ![Configurare le impostazioni dell'app][12]
      
      d. Nella casella di testo **Sign On URL** incollare il valore ottenuto nel passaggio precedente.
 
@@ -110,32 +132,48 @@ L'obiettivo di questa sezione è abilitare Single Sign-On di Azure AD nel portal
 
      e. Fare clic su **Next**.
  
-4. Nella pagina **Configura accesso Single Sign-On in O.C. Tanner - AppreciateHub** fare clic su **Scarica metadati** e quindi salvare il file di metadati in locale nel computer.<br><br>![Cos'è Azure AD Connect][9]
+4. Nella pagina **Configura accesso Single Sign-On in O.C. Tanner - AppreciateHub** fare clic su **Scarica metadati** e quindi salvare il file di metadati in locale nel computer.
+
+	![Cos'è Azure AD Connect][9]
 
 5. Contattare il team di supporto di O.C. Tanner - AppreciateHub tramite xyz, fornire il file di metadati e chiedere di abilitare Single Sign-On.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]
+	![Cos'è Azure AD Connect][10]
+
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+
+	![Cos'è Azure AD Connect][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
+
+![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png)
- 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png)
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png)
+ 
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png)
+
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png)
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -143,7 +181,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
+6.  Nella pagina **Profilo utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -153,9 +193,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png)
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png)
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png)
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png)
   
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -174,22 +218,35 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
 ### Assegnazione dell'utente test di Azure AD
 
-L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a O.C. Tanner - AppreciateHub. <br><br>![Assegna utente][200]
+L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a O.C. Tanner - AppreciateHub.
+
+![Assegna utente][200]
 
 **Per assegnare Britta Simon a O.C. Tanner - AppreciateHub, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br> <br><br>![Assegna utente][201]
-2. Nell'elenco delle applicazioni selezionare **O.C. Tanner - AppreciateHub**. <br><br>![Assegna utente][202]
-1. Nel menu in alto fare clic su **Utenti**. <br> <br><br>![Assegna utente][203]
-1. Nell'elenco utenti selezionare **Britta Simon**.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory scegliere **Applicazioni** dal menu in alto.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+	![Assegna utente][201]
+
+2. Nell'elenco delle applicazioni selezionare **O.C. Tanner - AppreciateHub**.
+
+	![Assegna utente][202]
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
+
+1. Nell'elenco di utenti selezionare **Britta Simon**.
+
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+
+	![Assegna utente][205]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-L'obiettivo di questa sezione consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro O.C. Tanner - AppreciateHub nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione O.C. Tanner - AppreciateHub.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro O.C. Tanner - AppreciateHub nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione O.C. Tanner - AppreciateHub.
 
 
 ## Risorse aggiuntive
@@ -223,4 +280,4 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

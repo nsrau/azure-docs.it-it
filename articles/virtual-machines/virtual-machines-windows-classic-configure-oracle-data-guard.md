@@ -2,7 +2,8 @@
 	pageTitle="Configurazione di protezione di dati Oracle in macchine virtuali | Microsoft Azure"
 	description="Esercitazione che illustra come configurare e implementare Oracle Data Guard in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,12 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Configurazione di Oracle Data Guard per Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 
 In questa esercitazione viene illustrato come configurare e implementare Oracle Data Guard in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla replica unidirezionale per i database Oracle non RAC.
@@ -30,7 +29,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 - Lettura della sezione dedicata alle considerazioni sulla disponibilità elevata e il ripristino di emergenza nell'argomento [Immagini di macchine virtuali Oracle - considerazioni varie](virtual-machines-windows-classic-oracle-considerations.md). Si noti che Azure attualmente supporta istanze autonome di Oracle Database, ma non cluster Oracle RAC (Oracle Real Application Cluster).
 
 
-- Creazione di due macchine virtuali (VM) in Azure usando la stessa immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) e [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-windows-load-balance.md) e nella stessa [rete virtuale](azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È inoltre consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-windows-manage-availability.md) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Si noti che Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle macchine virtuali fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-windows-sizes.md). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md).
+- Sono state create due macchine virtuali (VM) in Azure usando la stessa piattaforma fornita dall'immagine Oracle Enterprise Edition. Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-windows-load-balance.md) e nella stessa [rete virtuale](azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È inoltre consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-windows-manage-availability.md) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Si noti che Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle macchine virtuali fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-windows-sizes.md). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -631,4 +630,4 @@ Se non è stato abilitato il flashback nel database primario originale, è consi
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

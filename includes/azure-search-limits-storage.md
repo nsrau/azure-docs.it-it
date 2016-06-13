@@ -1,9 +1,11 @@
-Storage is constrained by disk space or the number of indexes or documents per service, whichever comes first.
+L'archiviazione è vincolata dallo spazio su disco o dal numero di indici o documenti per ogni servizio, a seconda del limite raggiunto per primo.
 
-Resource|Free|Basic (Preview)|S1|S2
+Risorsa|Free|Basic (anteprima)|S1|S2
 ---|---|---|---|----
-Disk space|50 MB |2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)
-Document count|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Index count|3|5|50|200
-Indexer count|3|5|50|200
-Indexer Data Source count|3|5|50|200
+Spazio su disco|50 MB |2 GB per servizio|25 GB per partizione |100 GB per partizione (con un massimo di 1,2 TB per ogni servizio)
+Conteggio documenti|10\.000 in totale|1 milione per servizio|15 milioni per partizione (fino a 180 milioni di documenti per servizio)|60 milioni per partizione (fino a 720 milioni di documenti per servizio)
+Numero di indici|3|5|50|200
+Numero di indicizzatori|3|5|50|200
+Conteggio origine dati di un indicizzatore|3|5|50|200
+
+<!---HONumber=AcomDC_0601_2016-->

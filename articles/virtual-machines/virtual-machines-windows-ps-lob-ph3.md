@@ -19,8 +19,6 @@
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 3: Configurare l'infrastruttura di SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono configurati i due computer che eseguono SQL Server e il computer del nodo di maggioranza cluster, che vengono quindi combinati in un cluster Windows Server.
 
 È necessario completare questa fase prima di passare alla [Fase 4](virtual-machines-windows-ps-lob-ph4.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-windows-lob-overview.md).
@@ -259,4 +257,4 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 - Seguire la [Fase 4](virtual-machines-windows-ps-lob-ph4.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

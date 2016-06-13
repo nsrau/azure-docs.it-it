@@ -26,12 +26,12 @@ Per un elenco completo dei pacchetti disponibili, è possibile eseguire ricerche
 
 In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con Jupyter Notebook.
 
-**Prerequisiti:**
+##Prerequisiti
 
 È necessario disporre di quanto segue:
 
 - Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere [Creare cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Usare pacchetti esterni con i notebook Jupyter 
 
@@ -43,7 +43,7 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **New** (Nuovo) e quindi su **Spark**.
+2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Spark**.
 
 	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
@@ -51,27 +51,27 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Il magic `%%configure` verrà usato per configurare il notebook per l'uso di un pacchetto esterno. Nei notebook che usano pacchetti esterni assicurarsi di richiamare il magic `%%configure` nella prima cella del codice. Questo accorgimento garantisce che il kernel sia configurato per l'uso del pacchetto prima dell'avvio della sessione.
+4. Si userà `%%configure` magic verrà usato per configurare il notebook per l'uso di un pacchetto esterno. Nei notebook che usano pacchetti esterni assicurarsi di richiamare `%%configure` magic nella prima cella del codice. Questo accorgimento garantisce che il kernel sia configurato per l'uso del pacchetto prima dell'avvio della sessione.
 
 		%%configure
 		{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-	>[AZURE.IMPORTANT] Se si dimentica di configurare il kernel nella prima cella, è possibile usare il magic `%%configure` con il parametro `-f`. In questo modo, tuttavia, la sessione verrà riavviata e il lavoro fatto andrà perso.
+	>[AZURE.IMPORTANT] Se si dimentica di configurare il kernel nella prima cella, è possibile usare `%%configure` magic con il parametro `-f`. In questo modo, tuttavia, la sessione verrà riavviata e le operazioni eseguite andranno perse.
 
-5. Nel frammento di codice sopra riportato `packages` attende un elenco di coordinate Maven nel repository centrale Maven. In questo frammento di codice `com.databricks:spark-csv_2.10:1.4.0` è la coordinata Maven per il pacchetto **spark-csv**. Di seguito viene spiegato come creare le coordinate per un pacchetto.
+5. Nel frammento di codice riportato sopra `packages` attende un elenco di coordinate Maven nel repository centrale Maven. In questo frammento di codice `com.databricks:spark-csv_2.10:1.4.0` è la coordinata Maven per il pacchetto **spark-csv**. Di seguito viene spiegato come creare le coordinate per un pacchetto.
 
 	a. Individuare un pacchetto nel repository Maven. In questa esercitazione si userà [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
 	
-	b. Recuperare dal repository i valori per **GroupId** (ID gruppo), **ArtifactId** (ID elemento) e **Version** (Versione).
+	b. Recuperare dal repository i valori per **GroupId**, **ArtifactId** e **Version**.
 
 	![Usare pacchetti esterni con Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usare pacchetti esterni con Jupyter Notebook")
 
-	c. Concatenare i tre valori, separati da virgola (**:**).
+	c. Concatenare i tre valori, separati da due punti (**:**).
 
 		com.databricks:spark-csv_2.10:1.4.0
 
-6. Eseguire la cella di codice con il magic `%%configure`. Questa operazione configura la sessione Livy sottostante per l'uso del pacchetto fornito. Nelle celle successive del notebook è ora possibile usare il pacchetto, come mostrato di seguito.
+6. Eseguire la cella di codice con `%%configure` magic. Questa operazione configura la sessione Livy sottostante per l'uso del pacchetto fornito. Nelle celle successive del notebook è ora possibile usare il pacchetto, come mostrato di seguito.
 
 		val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
@@ -118,4 +118,4 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

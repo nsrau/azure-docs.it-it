@@ -19,8 +19,6 @@
 
 # Creazione di modelli Azure Resource Manager con le estensioni di VM Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Eseguire il cmdlet seguente di Azure PowerShell da Azure PowerShell:
@@ -52,4 +50,4 @@ Fare riferimento a quanto segue per ottenere un modello completo con estensioni 
 
 Dopo aver creato il modello, è possibile distribuirlo usando Azure PowerShell.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

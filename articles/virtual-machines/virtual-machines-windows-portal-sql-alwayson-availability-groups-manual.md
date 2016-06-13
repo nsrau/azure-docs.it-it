@@ -24,11 +24,7 @@
 
 <br/>
 
-
-
 Questa esercitazione end-to-end illustra come implementare i gruppi di disponibilità tramite SQL Server AlwaysOn in esecuzione in macchine virtuali di Azure Resource Manager.
-
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello Gestione risorse.
 
 Al termine dell'esercitazione, la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
@@ -94,7 +90,7 @@ Azure creerà il nuovo gruppo di risorse e aggiungerà un collegamento al gruppo
 
 Il passaggio successivo prevede la creazione di reti e di subnet nel gruppo di risorse di Azure.
 
-La soluzione usa una rete virtuale con due subnet. È consigliabile conoscere le nozioni di base sulle reti e il funzionamento delle reti in Azure. Per altre informazioni sulle reti in Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
+La soluzione usa una rete virtuale con due subnet. È consigliabile conoscere le nozioni di base sulle reti e il funzionamento delle reti in Azure. Per altre informazioni sulle reti in Azure, vedere l'articolo sulla [panoramica delle reti virtuali](../virtual-network/virtual-networks-overview.md).
 
 Per creare la rete virtuale:
 
@@ -312,7 +308,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -429,7 +425,7 @@ Questi indirizzi verranno usati per configurare il servizio DNS per ogni VM. A t
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -658,7 +654,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 ### Creare il database MyDB1 in sqlserver-0:
 
-1. Disconnettersi dalle sessioni Desktop remoto per **sqlserver-0** e **sqlserver-1**, se non è ancora stata eseguita questa operazione.
+1. Disconnettersi dalle sessioni Desktop remoto per **sqlserver-0** e **sqlserver-1**, se non lo si è ancora fatto.
 
 1. Avviare il file RDP per **sqlserver-0** e accedere come **CORP\\Install**.
 
@@ -668,7 +664,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 	![Creare una cartella di backup](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665521.gif)
 
-1. Aggiungere **CORP\\SQLSvc1** e assegnargli l'autorizzazione **Lettura/Scrittura**, quindi aggiungere **CORP\\SQLSvc2** e assegnargli l'autorizzazione **Lettura/Scrittura** come mostrato di seguito, quindi fare clic su **Condividi**. Una volta completato il processo di condivisione file, fare clic su **Fatto**.
+1. Aggiungere **CORP\\SQLSvc1** e assegnargli l'autorizzazione **Lettura/Scrittura**, poi aggiungere **CORP\\SQLSvc2** e assegnargli l'autorizzazione **Lettura/Scrittura** come mostrato di seguito, quindi fare clic su **Condividi**. Una volta completato il processo di condivisione file, fare clic su **Fatto**.
 
 	![Concedere le autorizzazioni per la cartella di backup](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665522.gif)
 
@@ -702,7 +698,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
 
-1. Nel percorso di file di Backup digitare **\\\sqlserver-0\\backup**, quindi fare clic su Aggiorna, selezionare MyDB1.bak, quindi fare clic su OK e nuovamente su OK. A questo punto vengono visualizzati il backup completo e il backup del log nel riquadro.
+1. Nel percorso di file di Backup digitare **\\\sqlserver-0\\backup**, poi fare clic su Aggiorna, selezionare MyDB1.bak, quindi fare clic su OK e nuovamente su OK. A questo punto vengono visualizzati il backup completo e il backup del log nel riquadro.
 
 1. Andare alla pagina Opzioni, selezionare RIPRISTINO CON NORECOVERY nello stato del ripristino e fare clic su OK per ripristinare il database. Una volta completata l'operazione di ripristino, fare clic su OK.
 
@@ -736,7 +732,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 	![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
-1. Nella pagina **Convalida** fare clic su **Avanti**. L'aspetto di questa pagina dovrebbe essere simile a quanto riportato di seguito. È presente un avviso per la configurazione del listener in quanto non è stato configurato un listener del gruppo di disponibilità. È possibile ignorare questo avviso, poiché l'esercitazione non configura alcun listener. In questa esercitazione il listener verrà creato più avanti. Per i dettagli su come configurare un listener, vedere [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) (Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure).
+1. Nella pagina **Convalida** fare clic su **Avanti**. L'aspetto di questa pagina dovrebbe essere simile a quanto riportato di seguito. È presente un avviso per la configurazione del listener in quanto non è stato configurato un listener del gruppo di disponibilità. È possibile ignorare questo avviso, poiché l'esercitazione non configura alcun listener. In questa esercitazione il listener verrà creato più avanti. Per i dettagli su come configurare un listener, vedere [Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 	![Creazione guidata nuovo gruppo di disponibilità: convalida](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
@@ -762,11 +758,11 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 ## Configurare un servizio di bilanciamento del carico interno in Azure e un listener del gruppo di disponibilità nel cluster
 
-Per connettersi direttamente al gruppo di disponibilità, è necessario configurare un servizio di bilanciamento del carico interno in Azure e quindi creare il listener nel cluster. Questa sezione offre una panoramica generale di tali passaggi. Per istruzioni dettagliate, vedere [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) (Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure).
+Per connettersi direttamente al gruppo di disponibilità, è necessario configurare un servizio di bilanciamento del carico interno in Azure e quindi creare il listener nel cluster. Questa sezione offre una panoramica generale di tali passaggi. Per istruzioni dettagliate, vedere [Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ### Creare il servizio di bilanciamento del carico in Azure
 
-1. Nel portale di Azure andare a **SQL-HA-RG** e fare clic su **+ Aggiungi**.
+1. Nel portale di Azure passare a **SQL-HA-RG** e fare clic su **+ Aggiungi**.
 
 1. Cercare **servizio di bilanciamento del carico**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft e fare clic su **Crea**.
 
@@ -799,7 +795,7 @@ Configurare le impostazioni seguenti per il servizio di bilanciamento del carico
 | **Intervallo probe** | 5
 | **Probe Soglia di non integrità** | 2
 | **Probe Usato da** | SQLAlwaysOnEndPointListener
-| **Regole di bilanciamento del carico** Nome | SQLAlwaysOnEndPointListener
+| Nome **regole di bilanciamento del carico** | SQLAlwaysOnEndPointListener
 | **Regole di bilanciamento del carico Protocollo** | TCP
 | **Regole di bilanciamento del carico Porta** | 1433\. Si noti che si usa questa porta perché è quella predefinita di SQL Server.
 | **Regole di bilanciamento del carico Porta** | 1433\. Si noti che si usa questa porta perché è quella predefinita di SQL Server.
@@ -823,7 +819,7 @@ A questo punto è necessario configurare il listener del gruppo di disponibilit�
 
 1. In Gestione cluster di failover espandere il nome del cluster e fare clic su **Ruoli**.
 
-1. In **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere**Aggiungi risorsa** > **Punto di accesso client**.
+1. In **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere **Aggiungi risorsa** > **Punto di accesso client**.
 
 1. In **Nome** digitare **aglistener**. Fare clic su **Avanti** due volte e quindi su **Fine**. Non portare il listener o la risorsa in linea a questo punto.
 
@@ -865,4 +861,4 @@ Per testare la connessione:
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -49,7 +49,7 @@ Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensi
 
 ## Prerequisiti
 - Agente Linux di Microsoft Azure 2.0.6 o versioni successive. Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-- [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Seguire [queste linee guida](../xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo, **accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure** per elencare tutte le macchine virtuali presenti in Azure.
+- [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Seguire [queste linee guida](../xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo, **accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure ** per elencare tutte le macchine virtuali presenti in Azure.
 - Un account di archiviazione per archiviare i dati. Saranno necessari un nome di account di archiviazione e un tasto di scelta creati in precedenza per caricare i dati nella risorsa di archiviazione.
 
 
@@ -63,10 +63,10 @@ Per la versione 2.0 e versioni successive, i dati predefiniti che verranno racco
 
 Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto seguente:
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName" : "the storage account to receive data",
+        "storageAccountKey" : "the key of the account"
+    }
 
 Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -80,12 +80,15 @@ Per tutti i provider e le variabili supportati, fare riferimento a questo [docum
 
 Per impostazione predefinita i dati Rsyslog verranno sempre raccolti.
 
-	{
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
-          ]
-	}
+    {
+      	"perfCfg":
+      	[
+      	    {
+      	        "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+      	        "table" : "LinuxMemory"
+      	    }
+      	]
+    }
 
 
 Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -96,27 +99,29 @@ In questa sezione viene descritto come raccogliere e caricare file di log specif
 
 Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto descritto nello Scenario 1. Creare un altro file denominato PublicConfig.json con il contenuto seguente.
 
-	{
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
-             "table":"mysqlerr"
-           	}
-          ]
-	}
+    {
+        "fileCfg" : 
+        [
+            {
+                "file" : "/var/log/mysql.err",
+                "table" : "mysqlerr"
+             }
+        ]
+    }
 
 
 Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Scenario 4. Arrestare la raccolta di log dell'estensione
-Questa sezione descrive come arrestare la raccolta di log dell'estensione. Si noti che il processo dell'agente di monitoraggio sarà operativo anche con questa riconfigurazione. Pertanto, se si desidera interrompere completamente tale processo, è al momento necessario disinstallare l'estensione. In futuro potrebbe essere aggiunta una proprietà di configurazione in grado di disabilitare l'estensione (arrestando anche il processo dell'agente di monitoraggio interamente), senza richiederne la completa disinstallazione.
+Questa sezione descrive come arrestare la raccolta di log dell'estensione. Si noti che il processo dell'agente di monitoraggio sarà operativo anche con questa riconfigurazione. Se si desidera arrestare completamente il processo dell'agente di monitoraggio, è possibile disabilitare l'estensione. Il comando per disabilitare l'estensione è estensione **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto descritto nello Scenario 1. Creare un altro file denominato PublicConfig.json con il contenuto seguente.
 
-	{
-     	"perfCfg":[],
-     	"enableSyslog":"false"
-	}
+    {
+        "perfCfg" : [],
+        "enableSyslog" : "false"
+    }
 
 
 Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -139,4 +144,4 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 ## Problemi noti
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

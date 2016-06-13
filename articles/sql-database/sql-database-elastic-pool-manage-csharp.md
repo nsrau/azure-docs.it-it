@@ -3,7 +3,7 @@
     description="Usare tecniche di sviluppo di database in C# per gestire un pool di database elastici per database SQL di Microsoft Azure."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Monitorare e gestire un pool di database elastici con C&#x23; 
 
@@ -432,4 +432,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
 - Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->
