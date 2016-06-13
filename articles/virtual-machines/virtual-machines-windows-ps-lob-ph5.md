@@ -57,7 +57,7 @@ Usare questi passaggi per il backup del database.
 4.	Fare doppio clic su un database per eseguire il backup, scegliere **Attività**, quindi fare clic su **Backup**.
 5.	Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
 6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\\ [machineName]\\backup[databaseName].bak**, dove **machineName** è il nome del **computer SQL server** principale e **databaseName** è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
-7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro ** [databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
+7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro **[databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
 8.	In **Tipo di Backup**, selezionare **Log delle transazioni**, quindi fare clic su **OK** per due volte.
 9.	Mantenere aperta la sessione Desktop remoto.
 

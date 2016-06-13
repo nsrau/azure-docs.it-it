@@ -145,7 +145,7 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 
 1. L'oggetto User con una configurazione di attributi specifica continua a ricevere errori di esportazione invece di inserire gli attributi in quarantena. ad esempio:
 
-    a. Viene creato un nuovo utente in AD con UPN ****Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
+    a. Viene creato un nuovo utente in AD con UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
 
     b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, in cui ProxyAddress è **SMTP:Joe@contoso.com**.
 
@@ -153,9 +153,9 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 
 2. L'attività timer che cerca i conflitti di attributi duplicati risolti confronta solo i conflitti di UPN con altri conflitti di UPN. Questo causa il problema illustrato nel passaggio 4 dello scenario seguente:
 
-    a. ****UserA@contoso.com** ha un UPN non univoco a causa della presenza di un altro ProxyAddress dell'oggetto con tale valore.
+    a. **UserA@contoso.com** ha un UPN non univoco a causa della presenza di un altro ProxyAddress dell'oggetto con tale valore.
 
-    b. A UserA viene assegnato un **MOERA UPN** temporaneo, ****UserA1234@contoso.onmicrosoft.com** e il valore reale dell'UPN viene messo in quarantena (come previsto).
+    b. A UserA viene assegnato un **MOERA UPN** temporaneo, **UserA1234@contoso.onmicrosoft.com** e il valore reale dell'UPN viene messo in quarantena (come previsto).
 
     c. In un secondo momento viene rimosso ProxyAddress dall'altro oggetto in conflitto.
 
@@ -183,9 +183,9 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 
     b. Viene quindi provata la sincronizzazione di **User B** con **UPN = User@contoso.com**.
 
-    c. L'UPN di **User B** viene modificato in ****User1234@contoso.onmicrosoft.com** e ****User@contoso.com** viene aggiunto a **DirSyncProvisioningErrors**.
+    c. L'UPN di **User B** viene modificato in **User1234@contoso.onmicrosoft.com** e **User@contoso.com** viene aggiunto a **DirSyncProvisioningErrors**.
 
-    d. Il messaggio di errore per **User B** dovrebbe indicare che **User A** ha già ****User@contoso.com** come UPN, ma visualizza il valore displayName di **User B**.
+    d. Il messaggio di errore per **User B** dovrebbe indicare che **User A** ha già **User@contoso.com** come UPN, ma visualizza il valore displayName di **User B**.
 
 3. Il report può visualizzare solo informazioni dettagliate sull'errore per gli utenti con conflitti di **UPN**, non per quelli con errori **ProxyAddress** (ancora non è stato stabilito se ciò è coerente o ambientale).
 

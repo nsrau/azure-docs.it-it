@@ -357,7 +357,9 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà seguir
 * Nella finestra di dialogo Certificato visualizzata selezionare la scheda Dettagli.
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
-* Copiare il valore dell'identificazione personale ** Eliminare i caratteri Unicode non visibili davanti alla prima cifra ** Eliminare tutti gli spazi
+* Copiare il valore dell'identificazione personale
+** Eliminare i caratteri Unicode non visibili davanti alla prima cifra
+** Eliminare tutti gli spazi
 
 ## Configurare i client consentiti nel file di configurazione del servizio
 

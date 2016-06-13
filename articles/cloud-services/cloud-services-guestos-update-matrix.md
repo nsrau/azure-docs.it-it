@@ -182,7 +182,7 @@ Se si aggiorna manualmente il sistema operativo guest, leggere le informazioni i
 ## Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/it-IT/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

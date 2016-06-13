@@ -778,7 +778,7 @@ Per ottenere questo valore:
 1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**.
 2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione** e quindi fare clic su **Riserva**.
 3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali ** fare clic sulla registrazione dell'app appena creata.
+4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali** fare clic sulla registrazione dell'app appena creata.
 5. Fare clic su **Gestione dell’app** > **Identità dell’app**, e poi scorrere fino a trovare il **SID pacchetto**.
 
 In molti casi il SID pacchetto questo viene considerato come un URI e sarà necessario usare _ms-app: / /_ come schema. Prendere nota della versione del SID pacchetto formato tramite la concatenazione di questo valore come prefisso.
