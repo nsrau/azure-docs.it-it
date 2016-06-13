@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="sameerch"/>
 
 
@@ -21,13 +21,13 @@
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
-Usando il [connettore SAP](app-service-logic-connector-sap.md) è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. In questo modo è possibile richiamare RFC, BAPI, tRFC nonché inviare IDoc al server SAP, anche se si trova dietro al firewall locale.
+Usando il [connettore SAP](app-service-logic-connector-sap.md) è possibile connettere le app Web, per dispositivi mobili e per la logica dei servizi app di Azure al server SAP esistente. In questo modo è possibile richiamare RFC, BAPI, tRFC nonché inviare IDoc al server SAP, anche se si trova dietro al firewall locale.
 
 Se si dispone di un server SAP locale, utilizzare un listener ibrido per stabilire la connessione con il connettore SAP, come illustrato:
 
 ![Flusso di connettività ibrida][1]
 
-Sebbene un connettore SAP nel cloud non possa connettersi direttamente a un server SAP dietro un firewall locale, è possibile utilizzare il listener ibrido per colmare il divario. Si imposta questa funzionalità ospitando un endpoint di inoltro che consente al connettore di stabilire in modo sicuro la connettività al server SAP.
+Sebbene un connettore SAP nel cloud non possa connettersi direttamente a un server SAP dietro un firewall locale, è possibile usare il listener ibrido per colmare il divario. Si imposta questa funzionalità ospitando un endpoint di inoltro che consente al connettore di stabilire in modo sicuro la connettività al server SAP.
 
 
 ## Diverse modalità di integrazione con SAP
@@ -45,9 +45,9 @@ Le librerie client specifiche di SAP sono richieste sul computer client su cui �
 ## Creare un nuovo connettore SAP
 1. Accedere al portale di Azure.
 2. Selezionare **Nuovo**.
-3. Nel pannello di creazione, selezionare **Calcolo ** > **Azure Marketplace**.
+3. Nel pannello di creazione, selezionare **Calcolo** > **Azure Marketplace**.
 4. Nel pannello Marketplace selezionare **App per le API** e quindi eseguire la ricerca di SAP nella barra di ricerca: ![App per le API del connettore SAP][2]
-5. Selezionare il **connettore SAP** pubblicato da Microsoft.
+5. Selezionare **SAP Connector** pubblicato da Microsoft.
 6. Nel pannello Connettore SAP selezionare **Crea**.
 7. Nel nuovo pannello che viene visualizzato, immettere le informazioni seguenti:  
 	1. **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
@@ -102,10 +102,10 @@ Nel pannello del connettore, notare che lo stato di connessione ibrida è *Conne
 ![Stato di Connessione ibrida - connesso][8]
 
 
-## Uso del connettore SAP nelle app per la logica
-Dopo aver creato il connettore SAP è possibile usarlo all'interno del flusso di lavoro delle app per la logica. A tale scopo, creare una nuova app per la logica scegliendo **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati relativi all'app per la logica, incluso il gruppo di risorse.
+## Uso di SAP Connector nelle app per la logica
+Dopo aver creato il nuovo SAP Connector, è possibile usarlo all'interno del flusso di lavoro delle app per la logica. A tale scopo, creare una nuova app per la logica scegliendo **Nuovo** > **App per la logica** > **Crea**. Immettere i metadati relativi all'app per la logica, incluso il gruppo di risorse.
 
-Selezionare **Trigger e azioni**. Viene visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
+Selezionare **Trigger e azioni**. Verrà visualizzata la finestra di progettazione del flusso di lavoro delle app per la logica.
 
 Selezionare il connettore SAP dal riquadro a destra e selezionare un'azione dalla scheda Azioni.
 
@@ -124,4 +124,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

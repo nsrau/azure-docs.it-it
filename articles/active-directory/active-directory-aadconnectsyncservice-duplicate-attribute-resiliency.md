@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/26/2016"
 	ms.author="markusvi"/>
 
 
@@ -25,15 +25,15 @@ In genere questi due attributi devono essere univoci in tutti gli oggetti **User
 
 > [AZURE.NOTE] Solo gli oggetti User possono avere UPN.
 
-Il nuovo comportamento abilitato da questa funzionalità si trova nella parte cloud della pipeline di sincronizzazione, quindi è indipendente dal client e rilevante per qualsiasi prodotto di sincronizzazione di Microsoft, tra cui Azure AD Connect, DirSync e i connettori di tipo MIM. In questo documento si userà il termine generico "client di sincronizzazione" per rappresentare uno qualsiasi di questi prodotti.
+Il nuovo comportamento abilitato da questa funzionalità si trova nella parte cloud della pipeline di sincronizzazione, quindi è indipendente dal client e rilevante per qualsiasi prodotto di sincronizzazione di Microsoft, tra cui Azure AD Connect, DirSync e i connettori di tipo MIM. In questo documento si usa il termine generico "client di sincronizzazione" per rappresentare uno qualsiasi di questi prodotti.
 
 ## Comportamento attuale
-Se viene eseguito un tentativo di effettuare il provisioning di un nuovo oggetto con un valore UPN o ProxyAddress che viola il vincolo di univocità, Azure Active Directory blocca la creazione di tale oggetto. Analogamente, se un oggetto viene aggiornato con un valore UPN o ProxyAddress non univoco, l'aggiornamento non riesce. Il tentativo di provisioning o aggiornamento viene ripetuto dal client di sincronizzazione a ogni ciclo di esportazione e continuerà a non riuscire fino a quando il conflitto non viene risolto. A ogni tentativo viene generato un messaggio di posta elettronica di segnalazione dell'errore e il client di sincronizzazione registra un errore.
+Se viene eseguito un tentativo di effettuare il provisioning di un nuovo oggetto con un valore UPN o ProxyAddress che viola il vincolo di univocità, Azure Active Directory blocca la creazione di tale oggetto. Analogamente, se un oggetto viene aggiornato con un valore UPN o ProxyAddress non univoco, l'aggiornamento non riesce. Il tentativo di provisioning o aggiornamento viene ripetuto dal client di sincronizzazione a ogni ciclo di esportazione e continua a non riuscire fino a quando il conflitto non viene risolto. A ogni tentativo viene generato un messaggio di posta elettronica di segnalazione dell'errore e il client di sincronizzazione registra un errore.
 
 ## Comportamento con resilienza degli attributi duplicati
-Invece di causare un errore di provisioning o di aggiornamento di un oggetto a causa di un attributo duplicato, Azure Active Directory "mette in quarantena" l'attributo duplicato che violerebbe il vincolo di univocità. Se questo attributo è obbligatorio per il provisioning, ad esempio UserPrincipalName, il servizio assegnerà un valore segnaposto. Il formato di questi valori temporanei è "***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***". Se l'attributo non è obbligatorio, come ad esempio **ProxyAddress**, Azure Active Directory mette semplicemente in quarantena l'attributo in conflitto e procede con la creazione o l'aggiornamento dell'oggetto.
+Invece di causare un errore di provisioning o di aggiornamento di un oggetto a causa di un attributo duplicato, Azure Active Directory "mette in quarantena" l'attributo duplicato che violerebbe il vincolo di univocità. Se questo attributo è obbligatorio per il provisioning, ad esempio UserPrincipalName, il servizio assegna un valore segnaposto. Il formato di questi valori temporanei è "***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***". Se l'attributo non è obbligatorio, come ad esempio **ProxyAddress**, Azure Active Directory mette semplicemente in quarantena l'attributo in conflitto e procede con la creazione o l'aggiornamento dell'oggetto.
 
-Dopo aver messo in quarantena l'attributo, vengono inviate informazioni sul conflitto nello stesso messaggio di posta elettronica di segnalazione dell'errore usato nel comportamento precedente. Queste informazioni vengono però visualizzate nella segnalazione dell'errore una sola volta, al momento dell'inserimento in quarantena, e non continueranno a essere registrate nei messaggi di posta elettronica futuri. Poiché l'esportazione di questo oggetto è riuscita, il client di sincronizzazione non registra un errore e non prova a ripetere l'operazione di creazione o aggiornamento nei cicli di sincronizzazione successivi.
+Dopo aver messo in quarantena l'attributo, vengono inviate informazioni sul conflitto nello stesso messaggio di posta elettronica di segnalazione dell'errore usato nel comportamento precedente. Queste informazioni vengono però visualizzate nella segnalazione dell'errore una sola volta, al momento dell'inserimento in quarantena, e non continuano a essere registrate nei messaggi di posta elettronica futuri. Poiché l'esportazione di questo oggetto è riuscita, il client di sincronizzazione non registra un errore e non prova a ripetere l'operazione di creazione o aggiornamento nei cicli di sincronizzazione successivi.
 
 Per supportare questo comportamento è stato aggiunto un nuovo attributo alle classi di oggetti User, Group e Contact: **DirSyncProvisioningErrors**
 
@@ -79,7 +79,7 @@ Una volta connessi, per visualizzare un elenco generale di errori di provisionin
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Verrà generato un risultato simile al seguente: ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
+Viene generato un risultato simile al seguente: ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
 
 
 #### Per tipo di proprietà
@@ -119,38 +119,33 @@ Per eseguire una ricerca di stringhe estesa, usare il flag **-SearchString**. Pu
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
 ## Portale di amministrazione di Office 365
-Il report nel portale di Office 365 mostra solo gli oggetti **User** che contengono questi errori. Non visualizza informazioni sui conflitti tra **Groups**, **Contacts** o **PublicFolders**.
 
-**Per visualizzare questi errori nel portale di amministrazione di Office 365**:
+È possibile visualizzare gli errori di sincronizzazione della directory nell'interfaccia di amministrazione di Office 365. Il report nel portale di Office 365 mostra solo gli oggetti **User** che contengono questi errori. Non visualizza informazioni sui conflitti tra **Groups**, **Contacts** o **PublicFolders**.
 
-1.	Accedere a **portal.office.com** come amministratore tenant.
 
-2.	Fare clic su **Utenti -> Utenti attivi** ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/2.png "Utenti attivi").
+![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "Utenti attivi")
 
-3.	Nella parte superiore della pagina verrà visualizzato un avviso se sono presenti errori di attributi duplicati in qualsiasi oggetto nel tenant: ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/3.png "Utenti attivi")
+Per istruzioni su come visualizzare gli errori di sincronizzazione della directory nell'interfaccia di amministrazione di Office 365, vedere [Identificare gli errori di sincronizzazione della directory in Office 365](https://support.office.com/it-IT/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
-4.	Per visualizzare dettagli specifici degli oggetti, selezionare "Utenti con errori" nell'elenco a discesa "Selezionare una visualizzazione": ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/4.png "Utenti attivi")
-
-5.	Fare clic su un oggetto per vedere altri dettagli sul conflitto, che saranno visualizzati nell'angolo inferiore destro della schermata: ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/5.png "Utenti attivi")
 
 ### Segnalazione dell'errore di sincronizzazione delle identità
-Quando un oggetto con un conflitto di attributi duplicati viene gestito con questo nuovo comportamento, nel messaggio di posta elettronica standard di segnalazione dell'errore di sincronizzazione delle identità inviato al contatto per le comunicazioni tecniche del tenant viene inclusa una notifica. Questo comportamento include tuttavia una modifica importante. In passato le informazioni su un conflitto di attributi duplicati sarebbe stato incluso in tutte le segnalazioni degli errori successive, fino alla risoluzione del conflitto. Con questo nuovo comportamento la notifica di errore per un determinato conflitto verrà visualizzata solo una volta, nel momento in cui l'attributo in conflitto viene messo in quarantena.
+Quando un oggetto con un conflitto di attributi duplicati viene gestito con questo nuovo comportamento, nel messaggio di posta elettronica standard di segnalazione dell'errore di sincronizzazione delle identità inviato al contatto per le comunicazioni tecniche del tenant viene inclusa una notifica. Questo comportamento include tuttavia una modifica importante. In passato le informazioni su un conflitto di attributi duplicati sarebbe stato incluso in tutte le segnalazioni degli errori successive, fino alla risoluzione del conflitto. Con questo nuovo comportamento la notifica di errore per un determinato conflitto viene visualizzata solo una volta, nel momento in cui l'attributo in conflitto viene messo in quarantena.
 
-Di seguito è riportato un esempio dell'aspetto che avrà la notifica di posta elettronica per un conflitto relativo a ProxyAddress: ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Utenti attivi")
+Di seguito è riportato un esempio dell'aspetto che ha la notifica di posta elettronica per un conflitto relativo a ProxyAddress: ![Utenti attivi](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Utenti attivi")
 
 ## Risoluzione dei conflitti
 La strategia di risoluzione dei problemi e le tattiche per risolvere questi errori non dovranno essere diverse dal modo in cui venivano gestiti in passato gli errori relativi agli attributi duplicati. L'unica differenza è che l'attività timer scorre il tenant sul lato del servizio per aggiungere automaticamente l'attributo in questione all'oggetto corretto dopo la risoluzione del conflitto.
 
-L'articolo seguente descrive varie strategie di risoluzione dei problemi e degli errori: [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098).
+L'articolo seguente descrive varie strategie di risoluzione dei problemi e degli errori: [Gli attributi duplicati o non validi impediscono la sincronizzazione della directory in Office 365](https://support.microsoft.com/kb/2647098).
 
 ## Problemi noti
-Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle prestazioni del servizio. Alcuni sono di tipo estetico, altri causano la generazione di errori di attributi duplicati "*pre-resilienza*" standard invece di mettere in quarantena l'attributo in conflitto e altri ancora causano la richiesta di correzioni manuali aggiuntive per determinati errori.
+Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prestazioni del servizio. Alcuni sono di tipo estetico, altri causano la generazione di errori di attributi duplicati "*pre-resilienza*" standard invece di mettere in quarantena l'attributo in conflitto e altri ancora causano la richiesta di correzioni manuali aggiuntive per determinati errori.
 
 **Comportamento di base:**
 
 1. L'oggetto User con una configurazione di attributi specifica continua a ricevere errori di esportazione invece di inserire gli attributi in quarantena. ad esempio:
 
-    a. Viene creato un nuovo utente in Active Directory con UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
+    a. Viene creato un nuovo utente in AD con UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
 
     b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, in cui ProxyAddress è **SMTP:Joe@contoso.com**.
 
@@ -166,7 +161,7 @@ Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle pr
 
     d. L'UPN di UserA non viene mai corretto automaticamente, ma deve essere aggiornato manualmente.
 
-3. Se in locale vengono creati due gruppi con lo stesso indirizzo SMTP, uno non riuscirà a effettuare il provisioning al primo tentativo, con un errore **ProxyAddress** duplicato standard. Il valore duplicato sarà tuttavia messo correttamente in quarantena al successivo ciclo di sincronizzazione.
+3. Se in locale vengono creati due gruppi con lo stesso indirizzo SMTP, uno non riesce a effettuare il provisioning al primo tentativo, con un errore **ProxyAddress** duplicato standard. Il valore duplicato viene tuttavia messo correttamente in quarantena al successivo ciclo di sincronizzazione.
 
 **Cmdlet di PowerShell**:
 
@@ -186,7 +181,7 @@ Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle pr
 
     a. **User A** viene sincronizzato prima con **UPN = User@contoso.com**.
 
-    b. Viene quindi tentata la sincronizzazione di **User B** con **UPN = User@contoso.com**.
+    b. Viene quindi provata la sincronizzazione di **User B** con **UPN = User@contoso.com**.
 
     c. L'UPN di **User B** viene modificato in **User1234@contoso.onmicrosoft.com** e **User@contoso.com** viene aggiunto a **DirSyncProvisioningErrors**.
 
@@ -198,6 +193,8 @@ Nessuno di questi problemi noti causerà perdite di dati o la riduzione delle pr
 
 - [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 
-- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+- [Identificare gli errori di sincronizzazione della directory in Office 365](https://support.office.com/it-IT/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+
+<!---HONumber=AcomDC_0601_2016-->

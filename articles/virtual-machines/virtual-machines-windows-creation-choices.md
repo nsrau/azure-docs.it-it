@@ -21,9 +21,6 @@
 
 Azure offre diversi modi per creare una macchina virtuale perché le macchine virtuali sono adatte a scopi e utenti diversi. Di conseguenza è necessario effettuare alcune scelte sulla macchina virtuale e su come crearla. In questo articolo viene fornito un riepilogo di queste opzioni e i collegamenti alle istruzioni.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
-
 ## Portale di Azure
 
 L’utilizzo del portale di Azure è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure.
@@ -47,4 +44,4 @@ Le macchine virtuali richiedono una combinazione di risorse (come set di disponi
 
 [Distribuire le risorse di Azure usando librerie di calcolo, rete e .NET di archiviazione](virtual-machines-windows-csharp.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

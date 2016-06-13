@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/14/2016"
+    ms.date="05/24/2016"
     ms.author="dineshm"/>
 
 # Elenco delle risorse di archiviazione di Azure in C++
@@ -55,7 +55,7 @@ Pertanto non è pratico elencare tutti gli oggetti in un'unica risposta. Al cont
 La risposta per un'operazione elenco segmentato include:
 
 -	<i>\_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API.
--	*continuation\_token* che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
+-	*continuation\_token*che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
 
 Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri[esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
@@ -184,4 +184,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

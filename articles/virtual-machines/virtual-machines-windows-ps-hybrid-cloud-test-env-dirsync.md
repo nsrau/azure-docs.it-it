@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
  
 I passaggi in questo argomento illustrano la creazione di un ambiente di cloud ibrido per il test della sincronizzazione delle directory di Office 365 (DirSync) con sincronizzazione della password ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -181,4 +179,4 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
 - Distribuire il carico di lavoro [nell'ambiente di produzione](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

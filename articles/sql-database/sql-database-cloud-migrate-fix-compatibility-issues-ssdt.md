@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Uso di SQL Server Data Tools per Visual Studio per eseguire la migrazione di un database di SQL Server a un database SQL di Azure
+# Eseguire la migrazione di un database di SQL Server a un database SQL di Azure usando SQL Server Data Tools per Visual Studio 
+
+> [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Preparazione aggiornamento](http://www.microsoft.com/download/details.aspx?id=48119)
+- [MIGRAZIONE GUIDATA DATABASE SQL DI AZURE](sql-database-cloud-migrate-fix-compatibility-issues.md)
+
+Questo articolo illustra come individuare e risolvere i problemi di compatibilità dei database di SQL Server usando SQL Server Data Tools per Visual Studio prima di eseguire la migrazione al database SQL di Azure.
+
+## Utilizzare SQL Server Data Tools per Visual Studio.
 
 Utilizzare SQL Server Data Tools per Visual Studio ("SSDT") per importare lo schema del database in un progetto database di Visual Studio per l'analisi. Per eseguire l’analisi, specificare Database SQL versione 12 come piattaforma di destinazione per il progetto, quindi compilare il progetto. Se la compilazione ha esito positivo, il database è compatibile. Se la compilazione non viene eseguita correttamente, è possibile risolvere gli errori in SSDT (o uno degli altri strumenti descritti in questo argomento). Una volta creato il progetto, è possibile pubblicarlo nuovamente come una copia del database di origine e quindi utilizzare la funzione di confronto di dati in SSDT per copiare i dati dal database di origine al database compatibile alla versione 12 di SQL Azure. È quindi possibile migrare il database aggiornato. Per utilizzare questa opzione, scaricare la [versione più recente di SSDT](https://msdn.microsoft.com/library/mt204009.aspx).
 
@@ -73,6 +84,17 @@ Utilizzare SQL Server Data Tools per Visual Studio ("SSDT") per importare lo sch
     
 	![testo alternativo](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)
     
-6.	Scegliere un metodo di distribuzione. Vedere [Eseguire la migrazione di un database di SQL Server compatibile al database SQL.](sql-database-cloud-migrate.md)
+6.	Scegliere un metodo di distribuzione. Vedere [Eseguire la migrazione di un database di SQL Server compatibile al database SQL](sql-database-cloud-migrate.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+## Passaggi successivi
+
+- [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Altre informazioni
+
+- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)
+
+<!---HONumber=AcomDC_0601_2016-->

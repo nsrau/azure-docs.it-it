@@ -19,8 +19,6 @@
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 Impostando la prima o la successiva applicazione line-of-business solo Intranet basata sul Web in Microsoft Azure, è possibile usufruire della facilità di configurazione e della possibilità di espandere rapidamente l'applicazione per includere nuova capacità.
  
 Con le funzionalità per macchine virtuali e reti virtuali dei servizi di infrastruttura di Azure, è possibile distribuire ed eseguire rapidamente un'applicazione line-of-business accessibile agli utenti dell'organizzazione. Ad esempio, è possibile definire la configurazione seguente.
@@ -39,7 +37,7 @@ Una rete virtuale cross-premise è connessa a una rete locale mediante una conne
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-È possibile creare questo ambiente di sviluppo/test gratuitamente con il proprio [abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una sottoscrizione di Azure.
+È possibile creare questo ambiente di sviluppo/test gratuitamente con il proprio [abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una sottoscrizione di Azure.
 
 Il passaggio successivo consiste nel creare un'applicazione line-of-business a disponibilità elevata in Azure.
 
@@ -85,4 +83,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 - Ottenere una [panoramica](virtual-machines-windows-lob-overview.md) del carico di lavoro di produzione prima di approfondire la configurazione.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

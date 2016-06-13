@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Usare Power BI con SQL Data Warehouse
@@ -27,6 +27,7 @@ Quando si usa Direct Connect, occorre notare quanto segue:
 + I riquadri vengono aggiornati ogni 15 minuti circa. Non è necessario pianificare l'aggiornamento.
 + Non sono disponibili domande e risposte per i set di dati di Direct Connect.
 + Le modifiche allo schema non vengono rilevate automaticamente.
++ Tutte le query di Direct Connect scadranno dopo 2 minuti
 
 Queste restrizioni e note sono soggette a modifiche nel corso del miglioramento delle esperienze. I passaggi per la connessione sono illustrati nel dettaglio più avanti.
 
@@ -34,7 +35,7 @@ Queste restrizioni e note sono soggette a modifiche nel corso del miglioramento 
 Il modo più semplice per spostarsi tra SQL Data Warehouse e Power BI consiste nell'usare il pulsante Apri in Power BI. Questo pulsante permette di creare con facilità nuovi dashboard in Power BI.
 
 1.	Per iniziare, passare all'istanza di SQL Data Warehouse nel portale di Azure classico.
-2.	Fare clic su Apri in Power BI.
+2.	Fare clic sul pulsante Apri in Power BI.
 3.	Se non è possibile accedere direttamente o se non si ha un account di Power BI, sarà necessario effettuare l'accesso.  
 4.	Si verrà indirizzati alla pagina di connessione di SQL Data Warehouse, con le informazioni di SQL Data Warehouse pre-popolate.
 5.  Dopo l'immissione delle credenziali, si sarà completamente connessi a SQL Data Warehouse.
@@ -45,13 +46,9 @@ Oltre a usare il pulsante Apri in Power BI, gli utenti possono connettersi a SQL
 1.  Fare clic su ’Recupera dati’ nella parte inferiore del pannello di navigazione.
 2.  Selezionare 'Database'.
 3.  Una volta nella pagina database selezionare 'SQL Azure Data Warehouse' e poi fare clic su ’Connetti’.
-4.  Immettere le informazioni di connessione necessarie. La sezione relativa all'individuazione dei parametri seguente spiega dove sono disponibili i dati necessari.
+4.  Immettere le informazioni di connessione necessarie. Il nome del server e il nome del database sono disponibili nel portale di Azure.
 5.  Si verrà indirizzati di nuovo alla pagina principale di Power BI e dopo che la connessione viene stabilita, verrà visualizzata una nuova voce in 'set di dati con il nome dell'istanza.  
-6.	 È possibile fare clic sul nuovo set di dati per esplorare tutte le tabelle e le visualizzazioni nel database. Se si seleziona una colonna, una query verrà restituita all'origine, creando dinamicamente l'oggetto visivo. Gli oggetti visivi possono essere salvati in un nuovo report e aggiunti nuovamente al dashboard.
-
-## Individuazione dei valori dei parametri
-Il nome completo del server e il nome del database sono disponibili nel portale di Azure classico. Si noti che SQL Data Warehouse è attualmente disponibile solo nel portale di Azure.
-
+6.	 È possibile fare clic sul nuovo set di dati per esplorare tutte le tabelle e le visualizzazioni del database. Se si seleziona una colonna, una query verrà restituita all'origine, creando dinamicamente l'oggetto visivo. Gli oggetti visivi possono essere salvati in un nuovo report e aggiunti nuovamente al dashboard.
 
 <!--Image references-->
 
@@ -63,4 +60,4 @@ Il nome completo del server e il nome del database sono disponibili nel portale 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016"
+	ms.author="ddove"/>
 
 # Creare e gestire database SQL di Azure con un numero maggiore di istanze (anteprima)
 
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

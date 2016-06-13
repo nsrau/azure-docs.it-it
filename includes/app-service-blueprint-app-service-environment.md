@@ -7,5 +7,7 @@
 * [Sicurezza del traffico in ingresso](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Connessione alle risorse back-end](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Ambienti ExpressRoute e servizio app](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [Impostazioni di configurazione personalizzate per gli ambienti del servizio app](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [Hosting ad alta densità nel servizio app di Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

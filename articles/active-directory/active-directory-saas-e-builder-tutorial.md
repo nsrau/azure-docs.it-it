@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con e-Builder
@@ -64,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per e-Bu
     ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a e-Builder tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a e-Builder con il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -80,7 +80,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configura URL app")
 
-4.  Nella pagina **Configura accesso Single Sign-On in e-Builder** fare clic su **Download metadati** per scaricare i metadati e salvare il file di dati localmente come **c:\\e-BuilderMetaData.xml**.
+4.  Nella pagina **Configura accesso Single Sign-On in e-Builder** fare clic su **Scarica metadati** per scaricare i metadati e salvare il file di dati localmente come **c:\\e-BuilderMetaData.xml**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configura accesso Single Sign-On")
 
@@ -110,4 +110,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

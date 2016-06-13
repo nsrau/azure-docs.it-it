@@ -3,8 +3,8 @@
    description="Informazioni su come connettersi ad Azure SQL Data Warehouse con l'autenticazione di Azure Active Directory."
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="BYHAM"
-   manager="jhubbard"
+   authors="byham"
+   manager="barbkess"
    editor=""
    tags=""/>
 
@@ -14,10 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/11/2016"
-   ms.author="rick.byham@microsoft.com"/>
+   ms.date="05/31/2016"
+   ms.author="rickbyh;barbkess;sonyama"/>
 
 # Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
 L'autenticazione di Azure Active Directory è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni.
@@ -51,6 +56,6 @@ La differenza principale tra l'uso dell'autenticazione di Azure Active Directory
   
 ## Passaggi successivi 
 - Completare la procedura dettagliata. La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi uguale per il database SQL di Azure e Azure SQL Data Warehouse. Seguire la procedura riportata nell'argomento [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-- Creare ruoli di database personalizzati e aggiungere utenti ai ruoli. Concedere quindi autorizzazioni granulari ai ruoli. Per altre informazioni, vedere l'[introduzione alle autorizzazioni del motore di database](https://msdn.microsoft.com/library/mt667986.aspx).
+- Creare ruoli di database personalizzati e aggiungere utenti ai ruoli. Concedere quindi autorizzazioni granulari ai ruoli. Per altre informazioni, vedere [Introduzione alle autorizzazioni del motore di database](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

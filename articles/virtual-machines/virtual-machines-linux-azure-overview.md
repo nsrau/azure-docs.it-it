@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/01/2016"
+   ms.date="05/24/2016"
    ms.author="rclaus"/>
 
 # Azure e Linux
@@ -33,7 +33,7 @@ Usare insieme le macchine virtuali, le risorse di archiviazione e la rete di Mic
 
 ## Logistica: Aree, distribuzioni, disponibilità, dimensioni delle VM e quote
 ### Regioni
-Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1ª gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente **[qui](https://azure.microsoft.com/regions/)**.
+Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1° gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente **[qui](https://azure.microsoft.com/regions/)**.
 
 ### Distribuzioni
 Microsoft Azure supporta l'esecuzione di numerose distribuzioni comuni di Linux fornite e gestite da diversi partner. In Azure Marketplace sono disponibili distribuzioni come CentOS, Debian, Red Hat Enterprise, Ubuntu, FreeBSD e altre ancora. Microsoft collabora attivamente con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni supportate. **[Estrarre le distribuzioni correnti](virtual-machines-linux-endorsed-distros.md)** Se la distribuzione di Linux preferita non è attualmente presente nella raccolta, è possibile usare una VM "Bring your own Linux" seguendo le linee guida **[in questa pagina.](virtual-machines-linux-create-upload-generic.md)**
@@ -60,4 +60,4 @@ Ogni sottoscrizione di Azure ha limiti di quota predefiniti che possono influire
 
 Account di valutazione gratuita. **[Richiederne uno.](https://azure.microsoft.com/pricing/free-trial/)** Se è già disponibile, provarlo. **[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)**. Se questa operazione è già stata eseguita, [creare una VM Linux ora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

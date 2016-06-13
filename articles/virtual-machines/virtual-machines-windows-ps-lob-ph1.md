@@ -19,8 +19,6 @@
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 1: Configurare Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica.
- 
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure viene creata l'infrastruttura di rete e di archiviazione di Azure. È necessario completare questa fase prima di passare alla [Fase 2](virtual-machines-windows-ps-lob-ph2.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-windows-lob-overview.md).
 
 È necessario eseguire il provisioning di Azure con questi componenti di rete di base:
@@ -220,4 +218,4 @@ Questa è la configurazione risultante dal corretto completamento di questa fase
 
 - Seguire la [Fase 2](virtual-machines-windows-ps-lob-ph2.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

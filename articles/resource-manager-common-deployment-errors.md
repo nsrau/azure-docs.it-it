@@ -19,7 +19,7 @@
 
 # Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
-Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. Si presuppone che sia stato visualizzato un messaggio che descrive l'errore. Per altri dettagli sulla causa della distribuzione non riuscita, vedere l'articolo [sulle operazioni di distribuzione](resource-manager-troubleshoot-deployments-portal.md).
+Questo argomento illustra come risolvere alcuni errori comuni che possono verificarsi durante la distribuzione di risorse in Azure. È probabile che sia già stato visualizzato un messaggio di errore utile. In caso contrario o se sono necessari altri dettagli sulla causa dell'errore durante la distribuzione, vedere prima di tutto [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](resource-manager-troubleshoot-deployments-portal.md) e quindi tornare a questo articolo per informazioni su come risolvere l'errore.
 
 ## Risorsa o modello non valido
 
@@ -33,7 +33,7 @@ A seconda della posizione del carattere mancante nel modello, viene visualizzato
 
 ## Il nome della risorsa esiste già
 
-Per alcune risorse, in particolare gli account di archiviazione, i server di database e i siti Web, è necessario specificare un nome che sia univoco all'interno di Azure. È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](./resource-group-template-functions/#uniquestring).
+Per alcune risorse, in particolare gli account di archiviazione, i server di database e i siti Web, è necessario specificare un nome che sia univoco all'interno di Azure. È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -240,4 +240,4 @@ Per impedire che Azure segnali lo stato di completamento della distribuzione, tu
 - Per risolvere errori di Remote Desktop Protocol in una macchina virtuale basata su Windows, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
 - Per risolvere errori di Secure Shell in una macchina virtuale basata su Linux, vedere [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

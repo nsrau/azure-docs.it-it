@@ -19,8 +19,6 @@
 
 # Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
-
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando (CLI) di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
 
 Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) usando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
@@ -29,7 +27,7 @@ Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modal
 
 I parametri facoltativi sono indicati tra parentesi quadre (ad esempio `[parameter]`). Tutti gli altri parametri sono obbligatori.
 
-Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
+Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Usando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
 
 ## Impostazione della modalità di gestione risorse
 
@@ -1874,4 +1872,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

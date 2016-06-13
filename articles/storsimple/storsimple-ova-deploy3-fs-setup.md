@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: configurare come file server
@@ -94,7 +94,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	> [AZURE.NOTE]
 	> 
-	> Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
+	> Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati o ereditati oggetti Criteri di gruppo (GPO). Tramite Criteri di gruppo è possibile installare applicazioni quali software antivirus in StorSimple Virtual Array. L'installazione di software aggiuntivo non è supportata e può causare il danneggiamento dei dati.
 
 1.  Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
 
@@ -192,7 +192,7 @@ Eseguire la procedura seguente nel [portale di Azure classico](https://manage.wi
 
     3.  Selezionare un tipo di utilizzo per la condivisione. Il tipo di utilizzo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale**. Per tutti gli altri dati, selezionare una **Condivisione a livelli**.
 
-	Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning e può essere creata molto velocemente. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
+	Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
 
 1.  Specificare la capacità sottoposta a provisioning per la condivisione. Notare che la capacità specificata deve essere inferiore rispetto alla capacità disponibile. Se si usa una condivisione a livelli, le dimensioni della condivisione devono essere comprese tra 500 GB e 20 TB. Per una condivisione aggiunta in locale, specificare una dimensione di condivisione tra 50 GB e 2 TB. Usare la capacità disponibile come guida per il provisioning di una condivisione. Se la capacità locale disponibile è di 0 GB, non è consentito eseguire il provisioning delle condivisioni locali o a livelli.
 
@@ -232,4 +232,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

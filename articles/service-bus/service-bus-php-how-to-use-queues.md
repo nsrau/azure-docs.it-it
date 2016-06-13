@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/01/2016" 
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -48,7 +48,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 > [AZURE.NOTE] In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -74,7 +74,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 
@@ -90,7 +90,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare**ServiceBusRestProxy->createQueue** per creare una coda denominata `myqueue` all'interno di uno spazio dei nomi del servizio `MySBNamespace`:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -122,7 +122,7 @@ catch(ServiceException $e){
 Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama il metodo **ServiceBusRestProxy->sendQueueMessage**. Il seguente codice illustra come inviare un messaggio alla coda `myqueue` creata in precedenza all'interno dello spazio dei nomi del servizio `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -164,7 +164,7 @@ Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fa
 Il seguente esempio mostra come ricevere ed elaborare messaggi usando la modalità **PeekLock** (non predefinita).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -220,4 +220,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori di PHP](/develo
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

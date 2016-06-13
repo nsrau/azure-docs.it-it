@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # Informazioni di riferimento sull'analisi
@@ -345,95 +345,129 @@ Divide il record di un'eccezione in righe per ogni elemento nel campo dei dettag
 
 ### Operatore parse
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Estrae i valori da una stringa. È possibile usare la corrispondenza con espressioni semplici o regolari.
 
-Gli elementi nella clausola `with` vengono confrontati a loro volta con la stringa di origine. Ogni elemento usa un blocco del testo di origine. Se è una stringa di testo normale, il cursore corrispondente si sposta alla stessa distanza della corrispondenza. Se è una colonna con un nome di tipo, il cursore si sposta fino alla distanza sufficiente per analizzare il tipo specificato. Le corrispondenze di stringa si spostano fino a trovare una corrispondenza con l'elemento successivo. Se è un'espressione regex, viene associata l'espressione regolare (e la colonna risultante ha sempre il tipo stringa).
-
 **Sintassi**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Argomenti**
 
-* *T:* tabella di input.
-* *kind:* simple o regex. Il valore predefinito è simple.
-* *StringExpression:* espressione che restituisce una stringa o può essere convertita in una stringa.
-* *SimpleMatch:* stringa che corrisponde alla parte successiva del testo.
-* *Column:* specifica la nuova colonna a cui assegnare una corrispondenza.
-* *Type:* specifica come analizzare la parte successiva della stringa di origine.
-* *Regex:* espressione regolare per la corrispondenza con la parte successiva della stringa. 
+* `T`: tabella di input.
+* `kind`: 
+ * `simple` (valore predefinito): le stringhe `Match` sono normali stringhe.
+ * `relaxed`: se il testo non viene analizzato come tipo di una colonna, la colonna viene impostata su null e l'analisi continua. 
+ * `regex`: le stringhe `Match` sono espressioni regolari.
+* `Text`: colonna o altra espressione che restituisce una stringa o può essere convertita in una stringa.
+* *Match:* trova la corrispondenza nella parte successiva della stringa e la rimuove.
+* *Column:* assegna la parte successiva della stringa a questa colonna. Se non esiste, la colonna viene creata.
+* *Type:* analizza la parte successiva della stringa come tipo specificato, ad esempio int, date, double. 
+
 
 **Restituisce**
 
 La tabella di input, estesa in base all'elenco di colonne.
 
+Gli elementi nella clausola `with` vengono confrontati a loro volta con il testo di origine. Ogni elemento usa un blocco del testo di origine:
+
+* Una stringa letterale o un'espressione regolare sposta il cursore corrispondente in base alla lunghezza della corrispondenza.
+* In un'analisi regex un'espressione regolare può usare l'operatore di riduzione "?" per passare il prima possibile alla corrispondenza seguente.
+* Un nome di colonna con un tipo analizza il testo come tipo specificato. A meno che kind=relaxed, un'analisi non riuscita invalida la corrispondenza con l'intero schema.
+* Un nome di colonna senza un tipo o con il tipo "string", copia il numero minimo di caratteri per passare alla corrispondenza seguente.
+* "*" ignora il numero minimo di caratteri per passare alla corrispondenza seguente. È possibile usare "*" all'inizio e alla fine dello schema o dopo un tipo diverso da string oppure tra corrispondenze di stringa.
+
+Tutti gli elementi in uno schema di analisi devono corrispondere correttamente. In caso contrario, non verrà generato alcun risultato. L'eccezione a questa regola è che, quando kind=relaxed, se l'analisi di una variabile tipizzata non riesce, il resto dell'analisi continua.
 
 **esempi**
 
-L'operatore `parse` consente di applicare facilmente un operatore `extend` a una tabella usando più applicazioni `extract` nella stessa espressione `string`. Ciò è molto utile quando la tabella include una colonna `string` contenente diversi valori che si vuole dividere in singole colonne, ad esempio una colonna generata da un'istruzione di traccia ("`printf`"/"`Console.WriteLine`") dello sviluppatore.
-
-Nell'esempio seguente si supponga che la colonna `EventNarrative` della tabella `StormEvents` contenga stringhe nel formato `{0} at {1} crested at {2} feet around {3} on {4} {5}`. L'operazione seguente estenderà la tabella con due colonne: `SwathSize` e `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|Il livello del Green River nei pressi di Brownsville ha raggiunto i 5,7 m verso le 03.30 del 12 dicembre (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). Il livello di piena a Brownsville è di 5,5 m (Flood stage at Brownsville is 18 feet). A questo livello si verificano allagamenti moderati (Minor flooding occurs at this level). Il fiume supera i muri di contenimento e alcuni degli argini più bassi, inondando alcuni terreni alluvionali agricoli (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
-|Il livello del Rolling Fork River nei pressi di Boston ha raggiunto i 12 m verso le 11.00 del 12 dicembre (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). Il livello di piena a Boston è di 10,7 m (Flood stage at Boston is 35 feet). A questo livello si verificano allagamenti moderati, con l’inondazione di alcuni terreni alluvionali agricoli (Minor flooding occurs at this level, with some agricultural bottom land covered).|
-|Il livello del Green River nei pressi di Woodbury ha raggiunto gli 11,2 m verso le 00.00 del 16 dicembre (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). Il livello di piena a Woodbury è di 10 m (Flood stage at Woodbury is 33 feet). A questo livello si verificano allagamenti moderati, con l’inondazione di alcuni terreni alluvionali agricoli intorno alla città di Woodbury (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
-|Il livello dell’Ohio River nei pressi di Tell City ha raggiunto gli 11,9 m verso le 01.00 del 18 dicembre (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). Il livello di piena a Tell City è di 11,6 m (Flood stage at Tell City is 38 feet). Il livello di piena a Tell City è di 11,6 m (Flood stage at Tell City is 38 feet). Sono stati segnalati straripamenti sulla Indiana Highway 66 tra Rome e Derby (Indiana Highway 66 floods between Rome and Derby).|
+*Simple:*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|Percorso|Altezza|Time|Mese|Giorno|
-|---|---|---|---|---|---|
-|The Green River | Woodbury |36\.7| 0600EST | December|16|
-|The Rolling Fork River | Boston |39\.3| 1700EST | December|12|
-|The Green River | Brownsville |18\.8| 0930EST | December|12|
-|The Ohio River | Tell City |39| 7 AM EST | December|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-È anche possibile trovare la corrispondenza usando espressioni regolari. Si ottiene lo stesso risultato, ma tutte le colonne dei risultati hanno il tipo stringa:
+*Relaxed:*
+
+Quando l'input contiene una corrispondenza corretta per ogni colonna tipizzata, un'analisi ridotta genera gli stessi risultati di un'analisi semplice. Se però una delle colonne tipizzate non viene analizzata correttamente, un'analisi ridotta continua a elaborare il resto dello schema, mentre un'analisi semplice si arresta e non riesce a generare risultati.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x | present | Year
+---|---|---
+1 | socks | 63
+
+
+*Regex:*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\)"
+| project-away x, s
+```
+
+resource | slice | lock | release | previous
+---|---|---|---|---
+Utilità di pianificazione | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### Operatore project
 
@@ -724,9 +758,9 @@ Considera due o più tabelle e restituisce le righe di tutte.
 
 **Argomenti**
 
-* *Table1*, *Table2* ...
- *  Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause) oppure
- *  un'espressione di query, ad esempio `(requests | where success=="True")`.
+* *Table1*, *Table2*...
+ *  Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause).
+ *  Un'espressione di query, ad esempio `(requests | where success=="True")`.
  *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `e*` forma l'unione di tutte le tabelle definite nelle clausole let precedenti il cui nome inizia per "e", insieme alla tabella "exceptions".
 * `kind`: 
  * `inner`: il risultato include il subset di colonne comuni a tutte le tabelle di input.
@@ -994,8 +1028,8 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
  * `0` = il calcolo meno preciso e più veloce.
- * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8 % circa.
- * `2` = il calcolo più preciso e più lento. Errore dello 0,4 % circa.
+ * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8% circa.
+ * `2` = il calcolo più preciso e più lento. Errore dello 0,4% circa.
 
 **Esempio**
 
@@ -1015,8 +1049,8 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
  * `0` = il calcolo meno preciso e più veloce.
- * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8 % circa.
- * `2` = il calcolo più preciso e più lento. Errore dello 0,4 % circa.
+ * `1` = il valore predefinito che bilancia precisione e tempi di calcolo. Errore dello 0,8% circa.
+ * `2` = il calcolo più preciso e più lento. Errore dello 0,4% circa.
 
 **Esempio**
 
@@ -1359,17 +1393,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 ### abs
@@ -1471,7 +1495,7 @@ Funzione della radice quadrata.
 
 **Restituisce**
 
-* Un numero positivo per cui `sqrt(x) * sqrt(x) == x`
+* Un numero positivo per cui `sqrt(x) * sqrt(x) == x`.
 * `null` se l'argomento è negativo o non può essere convertito in un valore `real`. 
 
 
@@ -1870,7 +1894,7 @@ Recupera una corrispondenza di un'[espressione regolare](#regular-expressions) d
 
 **Restituisce**
 
-Se *regex* trova una corrispondenza in *text*: la sottostringa corrispondente nel gruppo di acquisizione indicato, *captureGroup*, facoltativamente convertita in *typeLiteral*.
+Se *regex* trova una corrispondenza in *text*: la sottostringa corrispondente nel gruppo di acquisizione indicato *captureGroup*, facoltativamente convertita in *typeLiteral*.
 
 Se non esiste alcuna corrispondenza o la conversione del tipo non riesce: `null`.
 
@@ -1984,7 +2008,7 @@ Suddivide una stringa specificata in base a un delimitatore specificato e restit
 
 * *source*: stringa di origine che viene suddivisa in base al delimitatore specificato.
 * *delimiter*: delimitatore usato per suddividere la stringa di origine.
-* *requestedIndex*: indice su base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
+* *requestedIndex*: indice in base zero facoltativo `int`. Se specificato, la matrice di stringhe restituita conterrà la sottostringa richiesta, se esistente. 
 
 **Restituisce**
 
@@ -2028,7 +2052,7 @@ Estrarre una sottostringa da una stringa di origine specificata a partire da un 
 **Argomenti**
 
 * *source:* stringa di origine da cui viene ricavata la sottostringa.
-* *startingIndex:* posizione del carattere iniziale su base zero della sottostringa richiesta.
+* *startingIndex:* posizione del carattere iniziale in base zero della sottostringa richiesta.
 * *length:* parametro facoltativo che può essere usato per specificare il numero di caratteri richiesto nella sottostringa. 
 
 **Restituisce**
@@ -2183,7 +2207,7 @@ T
 ### Oggetti dinamici nelle clausole let
 
 
-Poiché le [clausole let](#let-clause) memorizzano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
+Poiché le [clausole let](#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2256,7 +2280,7 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 
 **Suggerimenti per incrementare le prestazioni**
 
-* Applicare le clausole where prima di usare `extractjson()`
+* Applicare le clausole where prima di usare `extractjson()`.
 * Si consiglia di usare una corrispondenza di espressione regolare con [extract](#extract). L'esecuzione risulta molto più rapida ed è efficace se JSON è prodotto in base a un modello.
 * Usare `parsejson()` se è necessario estrarre più di un valore da JSON.
 * Considerare la possibilità di analizzare JSON al momento dell'inserimento dichiarando il tipo della colonna come dinamico.
@@ -2391,4 +2415,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

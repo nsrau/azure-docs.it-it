@@ -85,7 +85,7 @@ La tabella seguente chiarisce la differenza tra amministratore di una sottoscriz
 | Accesso a [Machine Learning Studio] | No * | Sì |
 
 
-> [AZURE.NOTE] * L'amministratore di una sottoscrizione di Azure diventa automaticamente proprietario di un'area di lavoro quando si crea un'area di lavoro, ma l'accesso viene concesso solo perché è il proprietario di un'area di lavoro.
+> [AZURE.NOTE] * L'amministratore di una sottoscrizione di Azure viene automaticamente aggiunto all'area di lavoro che crea in qualità di proprietario. Il ruolo di amministratore di una sottoscrizione di Azure non garantisce tuttavia l'accesso a qualsiasi area di lavoro inclusa nella sottoscrizione.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -105,4 +105,4 @@ La tabella seguente chiarisce la differenza tra amministratore di una sottoscriz
 [Machine Learning Studio]: https://studio.azureml.net/
 [portale di Microsoft Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

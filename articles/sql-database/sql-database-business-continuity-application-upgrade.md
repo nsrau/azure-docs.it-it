@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Continuità aziendale del database SQL durante l'aggiornamento dell'applicazione" 
-   description="Questa sezione fornisce indicazioni per la continuità aziendale in modo da evitare il tempo di inattività durante un aggiornamento dell'applicazione." 
+   description="Questa sezione fornisce informazioni su come evitare tempo di inattività durante l'aggiornamento di un'applicazione." 
    services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="05/27/2016"
    ms.author="elfish"/>
 
-#Aggiornamento dell'applicazione senza tempo di inattività
+#Aggiornare un'applicazione senza tempo di inattività
 
 Nel contesto di Microsoft Azure, il termine "applicazione" fa riferimento a componenti come i front-end, i servizi distribuiti in un servizio cloud e il livello dati usato per rendere persistenti i metadati o i dati delle applicazioni. Le applicazioni cloud sono spesso progettate in modo da garantire un servizio ininterrotto 24 ore su 24, 7 giorni su 7. L'implementazione di una nuova versione dell'applicazione, quando nel sito attivo vengono applicate modifiche al livello dati, può causare alcuni problemi, ad esempio la disponibilità limitata di alcune funzionalità o addirittura uno stato completo di inattività.
 
@@ -27,8 +27,9 @@ Quando si progetta il processo di aggiornamento di un'applicazione, l'obiettivo 
 3.	Possibilità di eseguire il rollback in caso di errori durante l'aggiornamento.
 4.	Costo totale. Sono inclusi il costo dei componenti aggiuntivi dell'applicazione necessari per creare una copia temporanea, ad esempio database Premium aggiuntivi per la replica geografica attiva, e i costi incrementali per le distribuzioni temporanee usate dal processo di aggiornamento. 
 
-Se l'applicazione può funzionare temporaneamente in modalità di sola lettura, il flusso di lavoro di aggiornamento potrebbe essere progettato in modo da eliminare completamente il tempo di inattività. Per comprendere come implementare il flusso di lavoro di aggiornamento per la specifica topologia dell'applicazione, vedere [le procedure consigliate per ridurre al minimo le interruzioni del database SQL di Azure durante gli aggiornamenti in sequenza delle applicazioni](https://msdn.microsoft.com/library/azure/dn790385.aspx).
+Se l'applicazione può funzionare temporaneamente in modalità di sola lettura, il flusso di lavoro di aggiornamento potrebbe essere progettato in modo da eliminare completamente il tempo di inattività. Per comprendere come implementare il flusso di lavoro di aggiornamento per la specifica topologia dell'applicazione, vedere [Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL](sql-database-manage-application-rolling-upgrade.md).
+ 
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0601_2016-->

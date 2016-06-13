@@ -42,7 +42,7 @@ In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'a
 
 Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Dopo aver eseguito la registrazione per una sottoscrizione, il modo più semplice per distribuire una macchina virtuale SQL Server in Azure consiste nell'[eseguire il provisioning di un'immagine della raccolta di macchine virtuali SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
+Dopo l'iscrizione a una sottoscrizione, il modo più semplice per distribuire una macchina virtuale di SQL Server in Azure consiste nell'[effettuare il provisioning di un'immagine della raccolta di macchine virtuali di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
 
 È importante notare che esistono due modelli per creare e gestire le macchine virtuali di Azure: il modello classico e Gestione risorse. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md). Ogni argomento deve indicare chiaramente il modello di destinazione, a meno che non si applichi a entrambi i modelli, classico e di Resource Manager, come questo articolo.
 
@@ -51,13 +51,13 @@ La tabella seguente descrive una matrice di immagini di SQL Server disponibili n
 
 |Versione di SQL Server|Sistema operativo|Edizione di SQL Server|
 |---|---|---|
-|**SQL Server 2016 RC**|Windows Server 2012 R2|[Versione di valutazione](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rc3evaluationwindowsserver2012r2/)|
-|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
-|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
+|**SQL Server 2016**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmenterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmstandardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmwebwindowsserver2012r2/), [Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmexpresswindowsserver2012r2/)|
+|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
+|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
 
 >[AZURE.NOTE] Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Se necessario, è possibile personalizzare o disabilitare il programma dopo il provisioning della macchina virtuale. Connettersi alla VM con Desktop remoto ed eseguire l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server**.
 
@@ -65,7 +65,7 @@ Ulteriore assistenza per la creazione di una nuova VM di SQL? Vedere la procedur
 
 Oltre a queste immagini preconfigurate, è anche possibile [creare una macchina virtuale di Azure](virtual-machines-windows-hero-tutorial.md) senza SQL Server preinstallato. È possibile installare qualsiasi istanza di SQL Server per cui si dispone di una licenza. Si esegue la migrazione della licenza in Azure per l'esecuzione di SQL Server in macchine virtuale di Azure usando la [mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). In questo scenario si pagano solo i [costi](https://azure.microsoft.com/pricing/details/virtual-machines/) di archiviazione e calcolo di Azure associati alla macchina virtuale.
 
-Per determinare le impostazioni di configurazione migliori della macchina virtuale per l'immagine di SQL Server, esaminare [Procedure consigliate per le prestazioni per le macchine virtuali di SQL Server](virtual-machines-windows-sql-performance.md). Per i carichi di lavoro di produzione, **DS3** è la dimensione minima consigliata della macchina virtuale per SQL Server Enterprise Edition. **DS2** è la dimensione minima consigliata della macchina virtuale per i carichi di lavoro di produzione per la Standard Edition.
+Per determinare le impostazioni di configurazione migliori della macchina virtuale per l'immagine di SQL Server, esaminare [Procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-performance.md). Per i carichi di lavoro di produzione, **DS3** è la dimensione minima consigliata della macchina virtuale per SQL Server Enterprise Edition. **DS2** è la dimensione minima consigliata della macchina virtuale per i carichi di lavoro di produzione per la Standard Edition.
 
 ## Migrare i dati
 
@@ -73,9 +73,9 @@ Quando la macchina virtuale SQL Server è attiva e in esecuzione, è possibile e
 
 ## Disponibilità elevata
 
-Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. Ciò comporta più macchine virtuali di Azure in una rete virtuale. Il portale di Azure dispone di un modello che consente di impostare questa configurazione. Per altre informazioni, vedere [Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali in Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. Ciò comporta più macchine virtuali di Azure in una rete virtuale. Il portale di Azure dispone di un modello che consente di impostare questa configurazione. Per altre informazioni, vedere [Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali in Azure Resource Manager (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
-Se si desidera configurare manualmente il gruppo di disponibilità e il listener associato, vedere [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Se si desidera configurare manualmente il gruppo di disponibilità e il listener associato, vedere [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Per ulteriori informazioni sulla disponibilità elevata, vedere [disponibilità elevata e ripristino di emergenza di SQL Server in macchine virtuali Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -86,10 +86,10 @@ Per i database in locale, Azure può fungere da un centro dati secondario per ar
 
 ## Passaggi successivi
 
-Prima di tutto, [creare una VM di SQL Server nel Portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Prima di tutto, [creare una VM di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Esaminare quindi le [procedure consigliate per le prestazioni](virtual-machines-windows-sql-performance.md) e le [tecniche di migrazione](virtual-machines-windows-migrate-sql.md) in relazione allo spostamento dei carichi di lavoro di SQL Server nelle VM di Azure.
 
-Altre domande su SQL Server nelle macchine virtuali di Azure? Innanzitutto, vedere le [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle VM di SQL per interagire con Microsoft e la community.
+Altre domande su SQL Server nelle macchine virtuali di Azure? Prima di tutto, vedere le [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle VM di SQL per interagire con Microsoft e la community.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

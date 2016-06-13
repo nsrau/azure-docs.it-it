@@ -20,9 +20,6 @@
 
 # Come acquisire una macchina virtuale Linux da usare come modello di Gestione risorse
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
-
-
 Usare l'interfaccia della riga di comando di Azure per acquisire una macchina virtuale di Azure che esegue Linux e usarla come modello di Azure Resource Manager per creare altre macchine virtuali. Questo modello specifica il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Non include le risorse della rete virtuale necessarie per creare una VM di Gestione risorse di Azure, perciò nella maggior parte dei casi sarà necessario configurarle separatamente prima di creare un'altra macchina virtuale che usa il modello.
 
 ## Prima di iniziare
@@ -197,4 +194,4 @@ Per altre opzioni del comando, eseguire `azure help vm create`.
 
 Per gestire le VM con l'interfaccia della riga di comando, vedere le attività in [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->
