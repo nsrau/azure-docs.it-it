@@ -415,7 +415,8 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Gestire l'autorizzazione |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | 
+| Microsoft.Authorization/* | Gestire l'autorizzazione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche
