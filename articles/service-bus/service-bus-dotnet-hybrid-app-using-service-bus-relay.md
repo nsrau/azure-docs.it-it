@@ -468,7 +468,7 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 11. Sempre nella finestra di dialogo **Proprietà** fare clic su **Dipendenze progetto** sul lato sinistro.
 
-12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che ** ProductsPortal** **non** sia selezionato.
+12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che **ProductsPortal** **non** sia selezionato.
 
 14. Nell'elenco **Progetti** fare clic su **ProductsPortal**. Assicurarsi che **ProductsServer** sia selezionato.
 

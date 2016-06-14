@@ -41,7 +41,7 @@ Per creare un lab sono necessari gli elementi seguenti:
 
     1. Immettere un valore in **Nome lab** per il nuovo lab.
     1. Selezionare la **Sottoscrizione** da associare al lab.
-    1. Selezionare un **Percorso ** in cui archiviare il lab.
+    1. Selezionare un **Percorso** in cui archiviare il lab.
     1. Selezionare **Create**.
 
     ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)

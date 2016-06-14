@@ -64,7 +64,7 @@ Si supponga che Jane Doe debba amministrare le risorse di database e di siti Web
 
 1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'account dell'amministratore del servizio per la sottoscrizione di Azure (in questo esempio, msmith@hotmail.com).
 2.	Trasferire la sottoscrizione alla directory Contoso: fare clic su **Impostazioni** > **Sottoscrizioni** > selezionare la sottoscrizione > **Modifica directory** > selezionare **Contoso (Contoso.com)**. Durante il trasferimento, eventuali account aziendali o dell'istituto di istruzione di coamministratori della sottoscrizione verranno rimossi.
-3.	Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi ** > digitare ****JohnDoe@Contoso.com**.
+3.	Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi** > digitare **JohnDoe@Contoso.com**.
 
 ## Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Come vengono associate le sottoscrizioni Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).

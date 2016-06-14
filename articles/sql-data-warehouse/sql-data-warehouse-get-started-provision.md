@@ -32,7 +32,7 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
+2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
     ![Creazione](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -40,11 +40,11 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
     ![Creazione del database](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Server**: è consigliabile selezionare prima di tutto il server. È possibile selezionare un server esistente o [crearne uno nuovo](./sql-data-warehouse-get-started-new-server.md). 
+    - **Server**: è consigliabile selezionare prima di tutto il server. È possibile selezionare un server esistente o [crearne uno nuovo](./sql-data-warehouse-get-started-new-server.md). 
 
-	- **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse. Il nome deve essere univoco per il server.
+        - **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse. Il nome deve essere univoco per il server.
 	
-    - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/it-IT/pricing/details/sql-data-warehouse/).
+        - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
     - **Sottoscrizione**: selezionare la sottoscrizione per la fatturazione di questa istanza di SQL Data Warehouse.
 

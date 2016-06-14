@@ -190,7 +190,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     import java.util.logging.*;
     ```
 
-7. Aggiungere le variabili a livello di classe seguenti alla classe **App**. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con Hub eventi** ed è espresso nel formato **xyznamespace**. In altre parole, rimuovere il prefisso ****sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con Hub eventi fornito dal portale:
+7. Aggiungere le variabili a livello di classe seguenti alla classe **App**. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con Hub eventi** ed è espresso nel formato **xyznamespace**. In altre parole, rimuovere il prefisso **sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con Hub eventi fornito dal portale:
 
     ```
     private static String namespaceName = "{youreventhubcompatiblenamespace}";

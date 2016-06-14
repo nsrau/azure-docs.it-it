@@ -144,15 +144,15 @@ A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazi
 
 Il runbook avvia attualmente la macchina virtuale nel gruppo di risorse specificato nel cmdlet **Start-AzureRmVM**, ma il runbook sarebbe più utile se si potesse specificarli entrambi quando viene avviato. Per fornire questa funzionalità, ora si aggiungeranno dei parametri di input al runbook.
 
-1. Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
-2. Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
-3. Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
-4. Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br> ![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
-5. Selezionare l'attività **Start-AzureRmVM** e quindi fare clic su **Parametri**.
-6. Cambiare **Origine dati** per **Nome** in **Input runbook** e quindi selezionare **VMName**.<br>
-7. Cambiare **Origine dati** per **ResourceGroupName** in **Input runbook** e quindi selezionare **ResourceGroupName**.<br> ![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
-8. Salvare il runbook e aprire il riquadro Test. Si noti che ora è possibile fornire i valori per le due variabili di input che verranno usate nel test.
-9. Chiudere il riquadro Test.
+1.	 Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
+2. 	Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
+3.	 Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
+4.	 Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br> ![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+5.	 Selezionare l'attività **Start-AzureRmVM** e quindi fare clic su **Parametri**.
+6.	 Cambiare **Origine dati** per **Nome** in **Input runbook** e quindi selezionare **VMName**.<br>
+7.	 Cambiare **Origine dati** per **ResourceGroupName** in **Input runbook** e quindi selezionare **ResourceGroupName**.<br> ![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
+8	. Salvare il runbook e aprire il riquadro Test. Si noti che ora è possibile fornire i valori per le due variabili di input che verranno usate nel test.
+9	. Chiudere il riquadro Test.
 10.	Fare clic su **Pubblica** per pubblicare la nuova versione del runbook.
 11.	Arrestare la macchina virtuale avviata nel passaggio precedente.
 12.	Fare clic su **Avvia** per avviare il runbook. Digitare **VMName** e **ResourceGroupName** per la macchina virtuale da avviare.<br> ![Avviare il Runbook](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
@@ -162,20 +162,20 @@ Il runbook avvia attualmente la macchina virtuale nel gruppo di risorse specific
 
 Ora si modificherà il runbook in modo che provi solo ad avviare la macchina virtuale, se non è già avviata. Per eseguire questa operazione aggiungere al runbook un cmdlet **Get-AzureRmVM** che otterrà lo stato a livello di istanza della macchina virtuale. Verrà quindi aggiunto un modulo Codice del flusso di lavoro PowerShell denominato **Get Status** con un frammento di codice PowerShell per determinare se lo stato della macchina virtuale è in esecuzione o arrestato. Un collegamento condizionale dal modulo **Get Status** eseguirà **Start-AzureRmVM** solo se lo stato di esecuzione corrente è arrestato. Infine si genererà un messaggio per informare se la VM è stata avviata correttamente o meno usando il cmdlet Write-Output di PowerShell.
 
-1. Aprire **MyFirstRunbook** nell'editor grafico.
-2. Rimuovere il collegamento tra **Specify Subscription Id** e **Start-AzureRmVM** facendo clic su di esso e quindi premendo *CANC*.
-3. Nel controllo Libreria digitare **Get-AzureRm** nella casella di testo di ricerca.
-4. Aggiungere **Get-AzureRmVM** all'area di disegno.
-5. Selezionare **Get-AzureRmVM** e quindi **Set di parametri** per visualizzare i set per **Get-AzureRmVM**. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
-6. In **Origine dati** per **Nome** selezionare **Input runbook** e quindi selezionare **VMName**. Fare clic su **OK**.
-7. In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi selezionare **ResourceGroupName**. Fare clic su **OK**.
-8. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.  
-9. Creare un collegamento da **Specify Subscription Id** a **Get-AzureRmVM**.
-10. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.  
-11. Creare un collegamento da **Get-AzureRmVM** a **Codice**.  
-12. Fare clic su **Codice** e nel riquadro Configurazione impostare l'etichetta su **Get Status**.
-13. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.  
-14. Nell'editor di codice incollare il frammento di codice seguente:
+1.	Aprire **MyFirstRunbook** nell'editor grafico.
+2.	Rimuovere il collegamento tra **Specify Subscription Id** e **Start-AzureRmVM** facendo clic su di esso e quindi premendo *CANC*.
+3.	Nel controllo Libreria digitare **Get-AzureRm** nella casella di testo di ricerca.
+4.	Aggiungere **Get-AzureRmVM** all'area di disegno.
+5.	Selezionare **Get-AzureRmVM** e quindi **Set di parametri** per visualizzare i set per **Get-AzureRmVM**. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
+6.	In **Origine dati** per **Nome** selezionare **Input runbook** e quindi selezionare **VMName**. Fare clic su **OK**.
+7.	In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi selezionare **ResourceGroupName**. Fare clic su **OK**.
+8.	 In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.  
+9.	Creare un collegamento da **Specify Subscription Id** a **Get-AzureRmVM**.
+10	. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.  
+11	. Creare un collegamento da **Get-AzureRmVM** a **Codice**.  
+12	. Fare clic su **Codice** e nel riquadro Configurazione impostare l'etichetta su **Get Status**.
+13	. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.  
+14	. Nell'editor di codice incollare il frammento di codice seguente:
 
      ```
      $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText 
