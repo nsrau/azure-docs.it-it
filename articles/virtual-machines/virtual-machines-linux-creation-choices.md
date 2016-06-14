@@ -37,7 +37,7 @@ Dall'interfaccia della riga di comando usare l'interfaccia della riga di comando
 
 L'interfaccia utente grafica del [portale di Azure](https://portal.azure.com) è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure, perché non richiede installazioni nel sistema. Usare il portale di Azure per creare la VM:
 
-* [Creare una macchina virtuale che esegue Linux tramite il portale di Azure](virtual-machines-linux-portal-create.md) 
+* [Creare una macchina virtuale che esegue Linux tramite il portale di Azure](virtual-machines-linux-quick-create-portal.md) 
 
 ## Sistema operativo e opzioni dell'immagine
 
@@ -59,10 +59,10 @@ Per personalizzazioni specifiche, è possibile usare un'immagine basata su una m
 
 ## Passaggi successivi
 
-* Provare a eseguire una delle esercitazioni per creare una VM Linux dal [portale](virtual-machines-linux-portal-create.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) o usando un [modello](virtual-machines-linux-cli-deploy-templates.md) di distribuzione Azure Resource Manager.
+* Provare a eseguire una delle esercitazioni per creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) o usando un [modello](virtual-machines-linux-cli-deploy-templates.md) di distribuzione di Azure Resource Manager.
 
 * Dopo aver creato una VM Linux, è possibile [aggiungere un disco dati](virtual-machines-linux-add-disk.md) con facilità.
 
 * Procedura rapida per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

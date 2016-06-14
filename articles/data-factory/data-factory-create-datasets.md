@@ -164,7 +164,7 @@ Sezioni giornaliere che iniziano alle 6.00 invece che alla mezzanotte predefinit
 		"offset": "06:00:00"
 	}
 
-**frequency** è impostata su **Month** e **interval** è impostata su **1**, ovvero una volta al mese. Se si vuole che la sezione venga prodotta il 9ª giorno di ogni mese alle 06.00, impostare offset su "09.06:00:00". Tenere presente che questo valore è espresso in base all'ora UTC.
+**frequency** è impostata su **Month** e **interval** è impostata su **1**, ovvero una volta al mese. Se si vuole che la sezione venga prodotta il 9° giorno di ogni mese alle 06.00, impostare offset su "09.06:00:00". Tenere presente che questo valore è espresso in base all'ora UTC.
 
 Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa ogni anno l'1 o il 2 marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), a seconda che l'anno sia bisestile o meno.
 
@@ -243,7 +243,7 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 
 | Nome | Descrizione | Obbligatorio | Default Value |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati devono essere disponibili ogni ora, il controllo per verificare se i dati esterni sono effettivamente disponibili e se la sezione corrispondente è Ready può essere posticipato in base a dataDelay.<br/><br/>Si applica solo al momento attuale, ad esempio se sono le 13.00 e questo valore è 10 minuti, la convalida inizierà alle 13.10.<br/><br/>Questa impostazione non interessa le sezioni precedenti, ovvero sezioni con Slice End Time + dataDelay < Now, che verranno elaborate senza ritardi.<br/><br/>L'orario successivo alle 23.59 deve essere specificato usando il formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Se si utilizza 24:00:00, verrà considerato come 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. | No | 0 |
+| dataDelay | Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati devono essere disponibili ogni ora, il controllo per verificare se i dati esterni sono effettivamente disponibili e se la sezione corrispondente è Ready può essere posticipato in base a dataDelay.<br/><br/>Si applica solo al momento attuale, ad esempio se sono le 13.00 e questo valore è 10 minuti, la convalida inizierà alle 13.10.<br/><br/>Questa impostazione non interessa le sezioni precedenti, ovvero sezioni con Slice End Time + dataDelay < Now, che verranno elaborate senza ritardi.<br/><br/>L'orario successivo alle 23.59 deve essere specificato usando il formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Se si utilizza 24:00:00, verrà considerato come 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1.04:00:00. | No | 0 |
 | retryInterval | Il tempo di attesa tra un errore e il successivo tentativo. Si applica al tempo presente; Se il precedente tentativo non è riuscito, dopo di esso si aspetta tale tempo. <br/><br/>Se sono le 13.00, verrà avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo sarà alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per i sezionamenti passati, non si verificherà alcun ritardo. Il tentativo verrà eseguito immediatamente. | No | 00:01:00 (1 minute) | 
 | retryTimeout | Timeout per ogni nuovo tentativo.<br/><br/>Se è impostato su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo verrà sospeso.<br/><br/>Se tutti i tentativi per la convalida scadono, la sezione sarà contrassegnata come TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Numero di volte per controllare la disponibilità dei dati esterni. Il valore massimo consentito è 10. | No | 3 | 
@@ -342,4 +342,4 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 	    }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

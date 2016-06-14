@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Ridimensionamento delle prestazioni per Azure SQL Data Warehouse
@@ -56,7 +56,7 @@ Per un elenco delle DWU, vedere gli obiettivi del livello di servizio nell'artic
 
 ### Come ridimensionare le prestazioni?
 
-Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione Unità Data Warehouse (DWU) per il database. In background, SQL Data Warehouse modifica le allocazioni di memoria e CPU tramite funzionalità di distribuzione semplici e rapide del database SQL.
+Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione Unità Data Warehouse (DWU) per il database. In background, SQL Data Warehouse arresta l'istanza, modifica le allocazioni della CPU e della memoria e quindi riavvia l'istanza.
 
 Le DWU vengono allocate in blocchi di 100, ma non tutti i blocchi sono disponibili. Man mano che le DWU aumentano anche le prestazioni aumentano in modo lineare. A livelli superiori di DWU, è necessario aggiungere più di 100 DWU per osservare un miglioramento significativo delle prestazioni. Per consentire la selezione di variazioni di DWU significative, vengono forniti livelli di DWU in grado di offrire i migliori risultati.
  
@@ -142,13 +142,11 @@ Per comprendere più facilmente alcuni ulteriori concetti importanti sulle prest
 [Riavviare le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Riavviare le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[Modello di concorrenza]: sql-data-warehouse-develop-concurrency.md
-[Progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
-[Scegliere una chiave di distribuzione hash per la tabella]: sql-data-warehouse-develop-hash-distribution-key.md
-[Statistiche per migliorare le prestazioni]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[Modello di concorrenza]: ./sql-data-warehouse-develop-concurrency.md
+[Progettazione di tabelle]: ./sql-data-warehouse-develop-table-design.md
+[Scegliere una chiave di distribuzione hash per la tabella]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[Statistiche per migliorare le prestazioni]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
@@ -157,4 +155,4 @@ Per comprendere più facilmente alcuni ulteriori concetti importanti sulle prest
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

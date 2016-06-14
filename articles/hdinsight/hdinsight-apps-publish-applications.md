@@ -70,11 +70,11 @@ Creare un file ZIP contenente tutti i file necessari per installare le applicazi
 		
 	>Si noti che il nome dello script è composto da tre parti:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. Un prefisso del nome file che includerà il nome dell'applicazione o un nome rilevante per l'applicazione.
+	>	2. Un "-" per migliorare la leggibilità.
+	>	3. Una funzione stringa univoca con il nome dell'applicazione come parametro.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+>Ad esempio, la stringa indicata sopra alla fine diventerà: hue-install-v0-4wkahss55hlas nell'elenco di azioni script persistenti. Per un payload JSON di esempio, vedere [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Tutti gli script necessari.
 
@@ -85,12 +85,12 @@ Creare un file ZIP contenente tutti i file necessari per installare le applicazi
 Seguire questa procedura per pubblicare un'applicazione HDInsight:
 
 1. Accedere al [portale di pubblicazione di Azure](https://publish.windowsazure.com/).
-2. Fare clic su **Solution templates** per creare un nuovo modello di soluzione.
-3. Fare clic su **Create Dev Center account and join the Azure program** per registrare la società, se non è ancora stato fatto. Vedere [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-4. Fare clic su **Define some Topologies to get Started**. Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione/offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. 
+2. Fare clic su **Solution templates** (Modelli di soluzione) per creare un nuovo modello di soluzione.
+3. Fare clic su **Create Dev Center account and join the Azure program** (Creare un account Dev Center e partecipare al programma di Azure) per registrare la società, se non è ancora stato fatto. Vedere [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+4. Fare clic su **Define some Topologies to get Started** (Definire alcune topologie per iniziare). Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione/offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. 
 5. Aggiungere una nuova versione
 6. Caricare il file ZIP preparato in [Inserire l'applicazione in un pacchetto](#package-application).  
-7. Fare clic su **Request Certification**. Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
+7. Fare clic su **Request Certification** (Richiedi certificazione). Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
 
 ## Passaggi successivi
 

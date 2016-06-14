@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Introduzione al client Python di Azure Batch
@@ -24,7 +24,7 @@
 
 Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione scritta in Python. Verrà illustrato il modo in cui due script di esempio sfruttano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](./../storage/storage-introduction.md) per la gestione temporanea e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
 
-> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità illustrati in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti dell'applicazione](batch-application-packages.md) e le [attività a istanze multiple](batch-mpi.md) **non sono attualmente supportati** nei nodi di calcolo Linux.
+> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità illustrati in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti dell'applicazione](batch-application-packages.md) **non sono attualmente supportati** nei nodi di calcolo Linux.
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
@@ -34,7 +34,7 @@ Questo articolo presuppone che l'utente sappia usare Python e Linux e possa sodd
 
 ### Account
 
-- **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile [creare un account Azure gratuito][azure_free_account].
+- **Account Azure**: se non si ha già una sottoscrizione di Azure è possibile [creare un account Azure gratuito][azure_free_account].
 - **Account Batch**: dopo aver creato una sottoscrizione di Azure, [creare un account Azure Batch](batch-account-create-portal.md).
 - **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
@@ -58,7 +58,7 @@ Specificare il comando **pip** seguente per installare i pacchetti per Batch e A
 
 In alternativa è possibile installare i pacchetti Python [azure-batch][pypi_batch] e [azure-storage][pypi_storage] manualmente.
 
-> [AZURE.TIP] Potrebbe essere necessario anteporre `sudo` ai comandi, ad esempio `sudo pip install -r requirements.txt`, se si usa un account senza privilegi (scelta consigliata). Per altre informazioni sull'installazione dei pacchetti Python vedere l'articolo sull'[installazione dei pacchetti][pypi_install] in readthedocs.io.
+> [AZURE.TIP] Potrebbe essere necessario anteporre `sudo` ai comandi, ad esempio `sudo pip install -r requirements.txt`, se si usa un account senza privilegi (scelta consigliata). Per altre informazioni sull'installazione dei pacchetti Python, vedere l'articolo sull'[Installing Packages][pypi_install] (Installazione di pacchetti) in readthedocs.io.
 
 ### Azure Batch Explorer (facoltativo)
 
@@ -250,9 +250,8 @@ Dopo il caricamento degli script attività e dei file di dati nell'account di ar
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Viene quindi creato un pool di nodi di calcolo nell'account Batch con una chiamata a `create_pool`.
@@ -334,7 +333,7 @@ Si noti la chiamata alla funzione helper `wrap_commands_in_shell`. Questa funzio
 
 Si noti nel frammento di codice precedente anche l'uso di due variabili di ambiente nella proprietà **command\_line** di StartTask: `AZ_BATCH_TASK_WORKING_DIR` e `AZ_BATCH_NODE_SHARED_DIR`. Ogni nodo di calcolo in un pool di Batch viene configurato automaticamente con diverse variabili di ambiente specifiche per Batch. Tutti processi eseguiti da un'attività possono accedere a queste variabili di ambiente.
 
-> [AZURE.TIP] Per altre informazioni sulle variabili di ambiente disponibili nei nodi di calcolo in un pool di Batch, oltre a informazioni sulle directory di lavoro delle attività, vedere **Impostazioni di ambiente per le attività** e **File e directory** nelle [informazioni generali sulle funzionalità di Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Per altre informazioni sulle variabili di ambiente disponibili nei nodi di calcolo in un pool di Batch, oltre a informazioni sulle directory di lavoro delle attività, vedere **Impostazioni di ambiente per le attività** e **File e directory** in [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md).
 
 ## Passaggio 4: Creare un processo di Batch
 
@@ -542,7 +541,7 @@ blob_client.delete_container(output_container_name)
 
 ## Passaggio 9: Eliminare il processo e il pool
 
-Nel passaggio finale viene richiesto all'utente di eliminare il processo e il pool creati dallo script *python\_tutorial\_client.py*. Anche se non vengono addebitati costi per i processi e le attività in sé, *vengono* addebiti costi per i nodi di calcolo. È quindi consigliabile allocare i nodi solo in base alla necessità. L'eliminazione dei pool inutilizzati può fare parte del processo di manutenzione.
+Nel passaggio finale viene richiesto all'utente di eliminare il processo e il pool creati dallo script *python\_tutorial\_client.py*. Anche se non vengono applicati addebiti per i processi e le attività, *vengono* effettuati addebiti per i nodi di calcolo. È quindi consigliabile allocare i nodi solo in base alla necessità. L'eliminazione dei pool inutilizzati può fare parte del processo di manutenzione.
 
 Gli elementi [JobOperations][py_job] e [PoolOperations][py_pool] di BatchServiceClient includono metodi di eliminazione corrispondenti chiamati se l'utente conferma l'eliminazione:
 
@@ -561,7 +560,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 Quando si esegue lo script *python\_tutorial\_client.py*, l'output della console sarà simile al seguente. Sarà visibile una pausa in `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` mentre vengono creati e avviati i nodi di calcolo del pool e vengono eseguiti i comandi nell'attività iniziale del pool. Usare il [portale di Azure][azure_portal] oppure [Batch Explorer][github_batchexplorer] per monitorare il pool, i nodi di calcolo, il processo e le attività durante e dopo l'esecuzione. Usare il [portale di Azure][azure_portal] o [Microsoft Azure Storage Explorer][storage_explorer] per visualizzare le risorse di archiviazione (contenitori e blob) creati dall'applicazione.
 
-Il tempo di esecuzione tipico è pari a **5-7 minuti circa** se si esegue l'applicazione con la configurazione predefinita.
+Se si esegue l'applicazione con la configurazione predefinita, il tempo di esecuzione tipico è di **circa 5-7 minuti**.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -598,7 +597,7 @@ Press ENTER to exit...
 Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzione Batch, è possibile esaminare in dettaglio le funzionalità aggiuntive del servizio Batch.
 
 - Se non si ha familiarità con il servizio, è consigliabile vedere l'articolo [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md).
-- Per altri articoli sullo sviluppo in Batch, vedere **Approfondimenti sullo sviluppo** nel [Percorso di apprendimento per Batch][batch_learning_path].
+- Per altri articoli sullo sviluppo in Batch, vedere **Approfondimenti sullo sviluppo** nel [percorso di apprendimento per Batch][batch_learning_path].
 - Una diversa implementazione dell'elaborazione del carico di lavoro di tipo "prime N parole" con Batch è disponibile nell'esempio [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
@@ -665,4 +664,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

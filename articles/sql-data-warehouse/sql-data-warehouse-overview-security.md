@@ -99,7 +99,7 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 
 <!--Article references-->
 [Connettersi a SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
-[Introduzione al controllo del database SQL]: sql-database-auditing-get-started.md
+[Introduzione al controllo del database SQL]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Firewall di database SQL di Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -113,4 +113,4 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

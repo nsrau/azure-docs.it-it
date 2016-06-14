@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/06/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Importare da BACPAC al database SQL tramite SSMS
@@ -52,4 +52,15 @@ In questo articolo viene illustrato come importare da un file [BACPAC](https://m
 
 6.	Usando il portale di Azure visualizzare il database e le relative proprietà.
 
-<!---HONumber=AcomDC_0413_2016-->
+## Passaggi successivi
+
+- [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Altre informazioni
+
+- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)
+
+<!---HONumber=AcomDC_0601_2016-->

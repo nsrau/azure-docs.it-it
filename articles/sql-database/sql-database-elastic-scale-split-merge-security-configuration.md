@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="torsteng" />
 
 
 # Configurazione della sicurezza del servizio di divisione e unione  
@@ -357,7 +357,9 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà seguir
 * Nella finestra di dialogo Certificato visualizzata selezionare la scheda Dettagli.
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
-* Copiare il valore dell'identificazione personale ** Eliminare i caratteri Unicode non visibili davanti alla prima cifra ** Eliminare tutti gli spazi
+* Copiare il valore dell'identificazione personale
+** Eliminare i caratteri Unicode non visibili davanti alla prima cifra
+** Eliminare tutti gli spazi
 
 ## Configurare i client consentiti nel file di configurazione del servizio
 
@@ -487,4 +489,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

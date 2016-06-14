@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="guybo"/>
 
 # Panoramica dei set di scalabilità di macchine virtuali
@@ -91,7 +91,7 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 - Prevedere non più di 20 VM per ogni account di archiviazione, a meno che non si imposti la proprietà _overprovision_ su "false", nel qual caso è possibile arrivare a 40.
 - Diversificare il più possibile le prime lettere dei nomi degli account di archiviazione. I modelli di set di scalabilità VM di esempio nei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/) offrono esempi di come procedere.
 - Se si usano macchine virtuali personalizzate, non pianificare più di 40 macchine virtuali per set di scalabilità in un singolo account di archiviazione. Sarà necessaria l'immagine copiata in precedenza nell'account di archiviazione prima di poter iniziare a distribuire i set di scalabilità di macchine virtuali. Per altre informazioni, vedere le domande frequenti.
-- Non pianificare più di 2048 macchine virtuali per rete virtuale. Questo limite aumenterà in futuro.
+- Non pianificare più di 4096 VM per rete virtuale.
 - Il numero di VM che è possibile creare è limitato dalla quota di memoria centrale nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare il supporto tecnico per richiedere l'aumento della quota di calcolo anche se l'attuale limite di core da usare con i servizi cloud o IaaS v1 è elevato. Per informazioni sulla quota, è possibile eseguire il comando dell'interfaccia della riga di comando di Azure `azure vm list-usage` e il comando di PowerShell `Get-AzureRmVMUsage`. Se si usa una versione di PowerShell precedente alla 1.0, usare `Get-AzureVMUsage`.
 
 ## Domande frequenti sui set di scalabilità di macchine virtuali
@@ -155,4 +155,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

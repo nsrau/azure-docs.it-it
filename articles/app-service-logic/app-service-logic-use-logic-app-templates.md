@@ -1,6 +1,6 @@
 <properties
- pageTitle="Usare i modelli di app per la logica in Servizio app di Azure | Microsoft Azure"
- description="Informazioni su come usare modelli di app per la logica predefiniti"
+ pageTitle="Usare i modelli di app per la logica nel servizio app di Azure | Microsoft Azure"
+ description="Informazioni su come usare modelli di app per la logica predefiniti per iniziare"
  authors="kevinlam1"
  manager="dwrede"
  editor=""
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="klam"/>
 
 # Uso dei modelli di app per la logica
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
-I modelli di app per la logica costituiscono un set predefinito di app per la logica integrate, che consentono di sviluppare rapidamente applicazioni di integrazione personali.
+I modelli di app per la logica costituiscono un set predefinito di app per la logica integrate, che consentono di sviluppare rapidamente applicazioni di integrazione personalizzate.
 
-Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili sul mercato. Costituiscono inoltre un ottimo modo per individuare diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico.
+Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili nel Marketplace. Sono inoltre un ottimo modo per individuare i diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico.
 
-Per iniziare a usare un modello di app di logica, aprire Marketplace, cercare "Modello di app per la logica" e scegliere uno dei modelli dall'elenco predefinito. In alternativa, selezionare "Trigger e azioni" durante la creazione di una nuova app per la logica e scegliere uno dei set di modelli disponibili nell'area di progettazione.
+Per iniziare a usare un modello di app di logica, passare al Marketplace, cercare "Modello di app per la logica" e scegliere uno dei modelli dall'elenco predefinito. In alternativa, selezionare "Trigger e azioni" durante la creazione di una nuova app per la logica e scegliere uno dei set di modelli disponibili nella finestra di progettazione.
 
 ## Modelli di esempio disponibili
 
@@ -46,4 +46,4 @@ Vengono forniti semplici modelli che si integrano con le applicazioni di social 
 Dopo aver selezionato uno dei modelli, completare la distribuzione seguendo la stessa procedura usata per le app per la logica create in modo autonomo. La procedura dettagliata è disponibile nell'articolo [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

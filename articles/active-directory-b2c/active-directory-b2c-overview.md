@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/22/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni
@@ -67,4 +67,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

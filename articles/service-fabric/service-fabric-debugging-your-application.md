@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/31/2016"
-   ms.author="jesseb; mikhegn; vturecek"/>
+   ms.author="vturecek;mikhegn"/>
 
 # Debug dell'applicazione di Service Fabric mediante Visual Studio
 
@@ -70,7 +70,7 @@ Se le applicazioni di Service Fabric sono in esecuzione in un cluster di Service
 1. Passare al cluster in **Cloud Explorer**, fare clic con il pulsante destro del mouse e scegliere **Abilita debug**
 
     ![Abilitare il debug remoto][enableremotedebugging]
-    
+
     Verrà avviato il processo di abilitazione dell'estensione di debug remoto nei nodi del cluster e delle configurazioni di rete necessarie.
 
 2. Fare clic con il pulsante destro del mouse sul nodo del cluster in **Cloud Explorer** e scegliere **Collega debugger**
@@ -80,20 +80,20 @@ Se le applicazioni di Service Fabric sono in esecuzione in un cluster di Service
 3. Nella finestra di dialogo **Connetti a processo** scegliere il processo di cui si vuole eseguire il debug e fare clic su **Connetti**
 
     ![Scegliere il processo][chooseprocess]
-    
+
     Il nome del processo a cui connettersi corrisponde al nome dell'assembly del progetto del servizio.
 
     Il debugger si connetterà a tutti i nodi che eseguono il processo.
     - Se si esegue il debug di un servizio senza stato, tutte le istanze del servizio in tutti i nodi fanno parte della sessione di debug.
     - Se si esegue il debug di un servizio con stato, solo la replica primaria di qualsiasi partizione sarà attiva e quindi rilevata dal debugger. Se la replica primaria viene spostata durante la sessione di debug, l'elaborazione di quella replica farà ancora parte della sessione di debug.
     - Per rilevare solo le partizioni o istanze pertinenti di un determinato servizio, è possibile usare punti di interruzione condizionali per interrompere solo una specifica istanza o partizione.
-        
+
     ![Punto di interruzione condizionale][conditionalbreakpoint]
-    
+
     > [AZURE.NOTE] Attualmente non è supportato il debug di un cluster di Service Fabric con più istanze dello stesso nome di eseguibile del servizio.
-    
+
 4. Al termine del debug dell'applicazione è possibile disabilitare l'estensione di debug remoto facendo clic con il pulsante destro del mouse sul cluster in **Cloud Explorer** e scegliendo **Disabilita debug**
-    
+
     ![Disabilitare il debug remoto][disableremotedebugging]
 
 ## Streaming delle tracce da un nodo del cluster remoto
@@ -108,17 +108,17 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
 1. Passare al cluster in **Cloud Explorer**, fare clic con il pulsante destro del mouse e scegliere **Abilita tracce streaming**
 
     ![Abilitare le tracce di streaming remote][enablestreamingtraces]
-    
+
     Verrà avviato il processo di abilitazione dell'estensione di streaming delle tracce nei nodi del cluster e delle configurazioni di rete necessarie.
 
 2. Espandere l'elemento **Nodi** in **Cloud Explorer**, fare clic con il pulsante destro del mouse sul nodo da cui trasmettere le tracce e scegliere **Visualizza tracce streaming**
 
     ![Visualizzare le tracce di streaming remote][viewremotestreamingtraces]
-    
+
     Ripetere il passaggio 2 per tutti i nodi da cui visualizzare le tracce. Il flusso di ogni nodo verrà visualizzato in una finestra dedicata.
-    
+
     A questo punto è possibile vedere le tracce emesse da Service Fabrice e dai propri servizi. Per filtrare gli eventi in modo da visualizzare solo una specifica applicazione, è sufficiente immettere il nome dell'applicazione nel filtro.
-    
+
     ![Visualizzazione delle tracce di streaming][viewingstreamingtraces]
 
 4. Al termine dello streaming delle tracce dal cluster, è possibile disabilitare le tracce di streaming remote facendo clic con il pulsante destro del mouse sul cluster in **Cloud Explorer** e scegliere **Disabilita tracce streaming**
@@ -146,4 +146,4 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

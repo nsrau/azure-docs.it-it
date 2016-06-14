@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/29/2016" 
+    ms.date="05/25/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Zoom
@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Zoom** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.zoom.us**" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Zoom** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.zoom.us*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configura URL app")
 
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

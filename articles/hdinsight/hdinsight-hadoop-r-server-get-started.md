@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@ L'offerta del piano Premium per HDInsight include R Server nell'ambito del clust
 
 Connettersi al nodo perimetrale di R Server del cluster HDInsight tramite SSH:
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] È anche possibile trovare l'indirizzo `RServer.CLUSTERNAME.ssh.azurehdinsight.net` nel portale di Azure selezionando il cluster, quindi __Tutte le impostazioni__, __App__ e __RServer__. Questa operazione consente di visualizzare le informazioni sull'endpoint SSH per il nodo perimetrale.
+> [AZURE.NOTE] È anche possibile trovare l'indirizzo `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` nel portale di Azure selezionando il cluster e quindi __Tutte le impostazioni__, __App__ e __RServer__. Questa operazione consente di visualizzare le informazioni sull'endpoint SSH per il nodo perimetrale.
 >
 > ![Immagine dell'endpoint SSH per il nodo perimetrale](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-Se è stata usata una password per proteggere l'account utente SSH, verrà richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio: `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
+Se è stata usata una password per proteggere l'account utente SSH, verrà richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
     
 Per altre informazioni sull'uso di SSH con HDInsight basato su Linux, vedere gli articoli seguenti:
 
@@ -353,4 +353,4 @@ Entrambi i modelli creano un nuovo cluster HDInsight e un account di archiviazio
 
 Per informazioni generali sull'uso dei modelli ARM, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

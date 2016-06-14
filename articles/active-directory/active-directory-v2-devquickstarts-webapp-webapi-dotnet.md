@@ -63,7 +63,7 @@ Configurare il middleware OWIN per l'uso del [protocollo di autenticazione OpenI
 - Aprire il file `web.config` nella radice del progetto `TodoList-Service` e sostituire `ida:Audience` con lo stesso **ID applicazione** di cui sopra.
 
 
-- Aprire il file `App_Start\Startup.Auth.cs` e aggiungere istruzioni `using` per le librerie sopra indicate.
+- Aprire il file `App_Start\Startup.Auth.cs` e aggiungere istruzioni `using` per le librerie indicate in precedenza.
 - Nello stesso file, implementare il metodo `ConfigureAuth(...)`. I parametri forniti in `OpenIDConnectAuthenticationOptions` fungeranno da coordinate per consentire all'app di comunicare con Azure AD.
 
 ```C#
@@ -109,7 +109,9 @@ Nella notifica `AuthorizationCodeReceived` si desidera usare [OAuth 2.0 in paral
 
 - Per prima cosa installare la versione di anteprima di ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Aggiungere quindi un'altra istruzione `using` al file `App_Start\Startup.Auth.cs` per ADAL. - Aggiungere ora un nuovo metodo, il gestore dell'evento `OnAuthorizationCodeReceived`. Questo gestore userà ADAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di ADAL per usi successivi:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- Aggiungere anche un'altra istruzione `using`al file `App_Start\Startup.Auth.cs` per ADAL.
+- Aggiungere ora un nuovo metodo, il gestore eventi `OnAuthorizationCodeReceived`. Questo gestore userà ADAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di ADAL per usi successivi:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -191,6 +193,12 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 ## Passaggi successivi
 
-Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Per altre risorse, vedere:
+- [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow, tag "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Ottenere aggiornamenti della sicurezza per i prodotti
+
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->

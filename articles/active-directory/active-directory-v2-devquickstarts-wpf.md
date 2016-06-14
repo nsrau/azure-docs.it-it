@@ -214,7 +214,12 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null) { // If the user clicked the 'clear cache' button, // clear the ADAL token cache and show the user as signed out. // It's also necessary to clear the cookies from the browser // control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null)
+{
+		// If the user clicked the 'clear cache' button,
+		// clear the ADAL token cache and show the user as signed out.
+		// It's also necessary to clear the cookies from the browser
+		// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{
@@ -244,6 +249,12 @@ Ora è possibile passare ad argomenti più avanzati. È possibile:
 
 - [Protezione dell'API Web TodoListService con l'endpoint v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Per altre risorse, vedere:
+- [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow, tag "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Ottenere aggiornamenti della sicurezza per i prodotti
+
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->

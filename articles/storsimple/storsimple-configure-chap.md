@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Configurare CHAP per il dispositivo StorSimple
@@ -54,6 +54,7 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
 	3. Confermare la password.
 
 4. Fare clic su **Save**. Verrà visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
+
 #### Per configurare l'autenticazione unidirezionale nel server host di Windows
 
 1. Nel server host di Windows, avviare l'iniziatore iSCSI.
@@ -197,4 +198,4 @@ Se la configurazione di CHAP non è corretta, è probabile che venga visualizzat
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

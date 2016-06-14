@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="06/07/2016"
     ms.author="magoedte"/>
 
 # Autenticare runbook con account RunAs di Azure
-Questo argomento illustra come configurare un account di automazione dal portale di Azure usando la nuova funzionalità di account RunAs, anche detta entità servizio, per accedere alle risorse di Azure Resource Manager nella sottoscrizione con i runbook di automazione. Quando si crea un nuovo account di automazione nel portale di Azure, per impostazione predefinita viene creata automaticamente una nuova entità servizio assegnata al ruolo Collaboratore di controllo degli accessi in base al ruolo (RBAC) nella sottoscrizione. Questo semplifica il processo e consente di iniziare rapidamente la compilazione e distribuzione di runbook per supportare le esigenze di automazione.
+Questo argomento illustra come configurare un account di Automazione dal portale di Azure usando la nuova funzionalità di account RunAs, anche detta entità servizio, per accedere alle risorse di Azure Resource Manager nella sottoscrizione con i runbook di automazione. Quando si crea un nuovo account di automazione nel portale di Azure, per impostazione predefinita viene creata automaticamente una nuova entità servizio assegnata al ruolo Collaboratore di controllo degli accessi in base al ruolo (RBAC) nella sottoscrizione. Questo semplifica il processo e consente di iniziare rapidamente la compilazione e distribuzione di runbook per supportare le esigenze di automazione.
 
 Con un'entità servizio è possibile:
 
-* Standardizzare l'autenticazione con Azure quando si gestiscono risorse di Azure Resource Manager tramite runbook.
+* Standardizzare l'autenticazione con Azure quando si gestiscono risorse di Azure Resource Manager con i runbook
 * Automatizzare l'uso di runbook globali configurati negli avvisi di Azure.
 
 
@@ -85,7 +85,7 @@ Lo script di PowerShell configura quanto segue:
 1. Salvare lo script seguente nel computer. Per questo esempio, salvare il file con il nome **New-AzureServicePrincipal.ps1**.  
 
     ```
-    #Requires - RunAsAdministrator
+    #Requires -RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
     [String] $ResourceGroup,
@@ -97,7 +97,7 @@ Lo script di PowerShell configura quanto segue:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
-    [String] $SubscriptionName,
+    [String] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
@@ -108,7 +108,7 @@ Lo script di PowerShell configura quanto segue:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -143,14 +143,14 @@ Lo script di PowerShell configura quanto segue:
     {
       # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
       Sleep 5
-      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose
+      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
       Sleep 5
       $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
       $Retries++;
     }
 
     # Get the tenant id for this subscription
-    $SubscriptionInfo = Get-AzureRmSubscription
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
@@ -158,20 +158,19 @@ Lo script di PowerShell configura quanto segue:
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
-    $SubscriptionId = $SubscriptionInfo | Select SubscriptionId -First 1
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
 2. Avviare **Windows PowerShell** con diritti utente elevati nel computer dalla schermata **Start**.
-3. Dalla shell della riga di comando di PowerShell con privilegi elevati passare alla cartella contenente lo script creato nel passaggio 1 ed eseguire lo script modificando i valori dei parametri *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* e *-CertPlainPassword*.<br>
+3. Dalla shell della riga di comando di PowerShell con privilegi elevati passare alla cartella contenente lo script creato nel passaggio 1 ed eseguire lo script modificando i valori dei parametri *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* e *-CertPlainPassword*.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -204,9 +203,9 @@ A questo punto dell'esercitazione viene eseguito un breve test per confermare ch
 13. Chiudere il pannello **Modifica runbook di PowerShell**.
 14. Chiudere il pannello **Test-SecPrin-Runbook**.
 
-## Codice di esempio per l'autenticazione con le risorse di Azure Resource Manager
+## Codice di esempio per l'autenticazione con le risorse di Resource Manager
 
-È possibile usare il codice di esempio aggiornato seguente, tratto dal runbook di esempio AzureAutomationTutorial, per eseguire l'autenticazione usando l'account RunAs per gestire le risorse di Azure Resource Manager con i runbook.
+È possibile usare il codice di esempio aggiornato seguente, tratto dal runbook di esempio AzureAutomationTutorial, per eseguire l'autenticazione usando l'account RunAs per gestire le risorse di Resource Manager con i runbook.
 
    ```
    $connectionName = "AzureRunAsConnection"
@@ -243,4 +242,4 @@ Lo script include due righe di codice aggiuntive per supportare il riferimento a
 - Per altre informazioni sulle entità servizio, vedere [Oggetti applicazione e oggetti entità servizio](../active-directory/active-directory-application-objects.md).
 - Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

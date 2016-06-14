@@ -3,8 +3,8 @@ pageTitle="Considerazioni sull'utilizzo di immagini della macchina virtuale Orac
 description="Informazioni sulle configurazioni supportate e sulle limitazioni per una macchina virtuale di Oracle su Windows Server in Azure prima di distribuire."
 services="virtual-machines-windows"
 documentationCenter=""
-manager=""
-authors="bbenz"
+manager="timlt"
+authors="rickstercdn"
 tags="azure-service-management"/>
 
 <tags
@@ -13,16 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+ms.date="05/17/2016"
+ms.author="rclaus" />
 
 #Considerazioni varie sulle immagini di macchine virtuali Oracle
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
-
-In questo articolo vengono illustrate delle considerazioni sulle macchine virtuali Oracle su Azure, che sono basate su immagini software Oracle fornite da Microsoft con Windows Server come sistema operativo.
+Questo articolo illustra considerazioni sulle macchine virtuali Oracle su Azure, basate su immagini software Oracle fornite da Oracle.
 
 -  Immagini di macchine virtuali Oracle Database
 -  Immagini di macchine virtuali Oracle WebLogic Server
@@ -47,13 +45,9 @@ Sebbene l'approccio più semplice consista nel collegare un unico disco alla mac
 
 Prendere in considerazione due diversi approcci per il collegamento di più dischi a seconda se si desidera assegnare la priorità alle prestazioni delle operazioni di lettura o a quelle delle operazioni di scrittura per il database:
 
-- **Solo Oracle ASM**: è probabile che si ottengano prestazioni IOPS migliori in termini di operazioni di scrittura, ma peggiori in termini di operazioni di lettura rispetto all’approccio che utilizza i pool di archiviazione di Windows Server 2012. L’illustrazione seguente descrive questa disposizione in modo logico. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
+- **Solo Oracle ASM**: è probabile che si ottengano prestazioni IOPS migliori in termini di operazioni di scrittura, ma peggiori in termini di operazioni di lettura rispetto all'approccio che usa array di dischi. L’illustrazione seguente descrive questa disposizione in modo logico. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
 
-- **Oracle ASM con pool di archiviazione di Windows Server 2012**: è probabile che si ottengano prestazioni IOPS migliori in termini di operazioni di lettura se il database esegue principalmente operazioni di lettura o se si prediligono le prestazioni delle operazioni di lettura rispetto a quelle delle operazioni di scrittura. È necessaria un'immagine basata sul sistema operativo Windows Server 2012. Per ulteriori informazioni sui pool di archiviazione, vedere [Distribuzione degli spazi di archiviazione su un server autonomo](http://technet.microsoft.com/library/jj822938.aspx). In questo caso, viene innanzitutto eseguito lo «striping» di due sottoinsiemi uguali di dischi collegati come dischi fisici in due volumi del pool di archiviazione, quindi i volumi vengono aggiunti a un gruppo di dischi ASM. L’illustrazione seguente descrive questa disposizione in modo logico.
-
-	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)
-
->[AZURE.IMPORTANT] Valutare il compromesso tra prestazioni di scrittura e prestazioni di lettura caso per caso. I risultati effettivi possono variare quando si utilizzano questi approcci.
+>[AZURE.IMPORTANT] Valutare il compromesso tra prestazioni di scrittura e prestazioni di lettura caso per caso. I risultati effettivi possono variare quando si usa questo approccio.
 
 ### Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 
@@ -65,7 +59,7 @@ Con Oracle Data Guard, la disponibilità elevata può essere ottenuta con un dat
 
 ##Immagini di macchine virtuali Oracle WebLogic Server
 
--  **Il clustering è supportato solo nella Enterprise Edition.** Se si utilizzano le immagini concesse in licenza da Microsoft di WebLogic Server (in particolare, quelle con Windows Server come sistema operativo), si dispone della licenza per utilizzare il clustering di WebLogic solo con la Enterprise Edition di WebLogic Server. Non utilizzare il clustering con WebLogic Server Standard Edition.
+-  **Il clustering è supportato solo nella Enterprise Edition.** Si dispone della licenza per usare il clustering di WebLogic solo con la Enterprise Edition di WebLogic Server. Non utilizzare il clustering con WebLogic Server Standard Edition.
 
 -  **Timeout di connessione:** se l'applicazione si basa sulle connessioni agli endpoint pubblici di un altro servizio cloud di Azure (ad esempio, un servizio di livello database), Azure potrebbe chiudere le connessioni aperte dopo 4 minuti di inattività. Ciò potrebbe influire sulle funzionalità e sulle applicazioni che si basano sui pool di connessioni, poiché le connessioni inattive per più di tale limite potrebbero non essere più valide. Se questo influisce sulle applicazioni, provare ad abilitare la logica «keep-alive» sul pool di connessioni.
 
@@ -108,4 +102,4 @@ Per informazioni correlate, vedere l'articolo KB **860340.1** all’indirizzo <h
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -35,8 +35,8 @@ Usare i passaggi seguenti per connettersi al database SQL di Azure con SSMS usan
      ![Nuovo firewall a livello di server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
- ## Risolvere i problemi relativi agli errori di connessione
+## Risolvere i problemi relativi agli errori di connessione
 
 I motivi più comuni per cui si verificano errori di connessione sono gli errori nel nome del server (si ricordi che <*nomeserver*> è il nome del server logico, non del database), gli errori nel nome utente o nella password, nonché il blocco delle connessioni da parte del server per motivi di sicurezza.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

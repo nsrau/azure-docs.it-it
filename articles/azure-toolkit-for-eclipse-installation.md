@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installare il Toolkit di Azure per Eclipse | Microsoft Azure"
-	description="Informazioni su come installare il Toolkit di Azure per Eclipse."
+	pageTitle="Installare Azure Toolkit for Eclipse | Microsoft Azure"
+	description="Informazioni su come installare Azure Toolkit for Eclipse."
 	services=""
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -20,7 +20,7 @@
 
 # Installare il Toolkit di Azure per Eclipse.
 
-Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Il Toolkit di Azure per Eclipse è un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in GitHub all'indirizzo seguente:
+Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Azure Toolkit for Eclipse è un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in GitHub all'indirizzo seguente:
 
 <https://github.com/microsoft/azure-tools-for-java>
 
@@ -38,21 +38,21 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
 1. Nella finestra di dialogo **Available Software** (Software disponibile), all'interno della casella di testo **Work with** (Usa), digitare **http://dl.microsoft.com/eclipse** e premere **Invio**.
 
-1. Nel riquadro **Name** (Nome), selezionare **Azure Toolkit for Eclipse** (Toolkit di Azure per Eclipse) e deselezionare **Contact all update sites during install to find required software** (Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto). Verrà visualizzata una schermata simile alla seguente:
+1. Nel riquadro **Name** (Nome), selezionare **Azure Toolkit for Eclipse** e deselezionare **Contact all update sites during install to find required software** (Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto). Verrà visualizzata una schermata simile alla seguente:
 
     ![Installare il Toolkit di Azure per Eclipse.][02]
 
-1. Espandendo **Azure Toolkit for Eclipse** (Toolkit di Azure per Eclipse), verranno visualizzate le voci seguenti:
+1. Espandendo **Azure Toolkit for Eclipse**, verranno visualizzate le voci seguenti:
 
     * **Plug-in di Application Insights per Java**: questo componente consente di usare servizi di analisi e di registrazione dei dati di telemetria di Azure per le applicazioni e le istanze del server.
-    * **Azure Access Control Services Filter** (Filtro dei servizi di controllo accessi di Azure): questo componente supporta l'autenticazione degli utenti dell'applicazione ad ACS di Azure, offrendo scenari Single Sign-On ed esternalizzando la logica delle identità dall'applicazione.
-    * **Azure Common Plugin** (Plug-in comune di Azure): questo componente offre le funzionalità comuni necessarie per gli altri componenti del toolkit.
-    * **Azure Explorer for Eclipse** (Azure Explorer per Eclipse): questo componente offre le funzionalità comuni necessarie per gli altri componenti del toolkit.
-    * **Azure Plugin for Eclipse with Java** (Plug-in di Azure per Eclipse con Java): questo componente supporta lo sviluppo di progetti per compilare, testare e distribuire le applicazioni Java per il cloud di Microsoft Azure in Eclipse e tramite riga di comando.
-    * **Azure Web Apps Plugin with Java** (Plug-in di App Web di Azure con Java): questo componente supporta la distribuzione di applicazioni Web Java in contenitori App Web di Microsoft Azure.
-    * **Microsoft JDBC Driver 4.2 for SQL Server** (Microsoft JDBC Driver 4.2 per SQL Server): questo componente fornisce l'API JDBC per SQL Server e il database SQL di Microsoft Azure per Java Platform Enterprise Edition 8.
-    * **Package for Apache Qpid Client Libraries for JMS** (Pacchetto per le librerie client Apache Qpid per JMS): questo componente fornisce il componente client JSMS dal progetto Apache Qpid per consentire all'applicazione di usare la messaggistica basata su AMQP in Microsoft Azure.
-    * **Package for Microsoft Azure Libraries for Java** (Pacchetto per le librerie di Microsoft Azure per Java): questo componente fornisce le API per accedere ai servizi di Microsoft Azure, ad esempio archiviazione, bus di servizio, runtime del servizio e così via.
+    * **Azure Access Control Services Filter**: questo componente supporta l'autenticazione degli utenti dell'applicazione ad ACS di Azure, offrendo scenari Single Sign-On ed esternalizzando la logica delle identità dall'applicazione.
+    * **Plug-in Azure Common**: questo componente offre le funzionalità comuni necessarie per gli altri componenti del toolkit.
+    * **Azure Explorer for Eclipse**: questo componente offre le funzionalità comuni necessarie per gli altri componenti del toolkit.
+    * **Azure Plugin for Eclipse with Java**: questo componente supporta lo sviluppo di progetti per compilare, testare e distribuire le applicazioni Java per il cloud di Microsoft Azure in Eclipse e tramite riga di comando.
+    * **Azure Web Apps Plugin for Java**: questo componente supporta la distribuzione di applicazioni Web Java in contenitori App Web di Microsoft Azure.
+    * **Microsoft JDBC Driver 4.2 per SQL Server**: questo componente fornisce l'API JDBC per SQL Server e il database SQL di Microsoft Azure per Java Platform Enterprise Edition 8.
+    * **Package for Apache Qpid Client Libraries for JMS**: questo componente fornisce il componente client JSMS dal progetto Apache Qpid per consentire all'applicazione di usare la messaggistica basata su AMQP in Microsoft Azure.
+    * **Package for Microsoft Azure Libraries for Java**: questo componente fornisce le API per accedere ai servizi di Microsoft Azure, ad esempio archiviazione, bus di servizio, runtime del servizio e così via.
 
 1. Fare clic su **Avanti**. (Se si verificano ritardi insoliti durante l'installazione del toolkit, assicurarsi che **Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto** sia deselezionato.)
 

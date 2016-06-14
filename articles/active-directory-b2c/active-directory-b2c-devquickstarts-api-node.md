@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="hero-article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di B2C: Proteggere un'API Web usando Node.js
@@ -881,4 +881,4 @@ Ora è possibile passare ad argomenti più avanzati, ad esempio:
 
 [Connettersi a un'API Web usando iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/24/2016"
+   ms.date="05/27/2016"
    ms.author="alkohli" />
 
 # Note sulla versione dell'aggiornamento 0.1 per l'array virtuale StorSimple
@@ -29,17 +29,17 @@ Le note sulla versione vengono aggiornate continuamente e i problemi che richied
 
 L'aggiornamento 0.1 contiene le correzioni di bug e i miglioramenti seguenti.
 
-- **Resilienza sulle interruzioni del cloud**: questa versione include diverse correzioni di bug per il ripristino di emergenza, il backup e la suddivisione in livelli in caso di interruzione della connettività al cloud. 
+- **Miglioramento della resilienza per le interruzioni del cloud**: questa versione include diverse correzioni di bug per il ripristino di emergenza, il backup e la suddivisione in livelli in caso di interruzione della connettività al cloud. 
 
 - **Miglioramento delle prestazioni di ripristino**: questa versione include correzioni di bug che riducono significativamente il tempo necessario per il completamento dei processi di ripristino.
 
 - **Ottimizzazione del recupero automatizzato dello spazio**: quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
 
-- **Nuovi file VHD, VHDX e VMDK**: sono ora disponibili nuovi file VHD, VHDX e VMDK tramite il portale di Azure classico. È possibile scaricare queste immagini per eseguire il provisioning dei nuovi dispositivi con aggiornamento 0.1.
+- **Nuove immagini di dischi virtuali**: sono ora disponibili nuovi file VHD, VHDX e VMDK tramite il portale di Azure classico. È possibile scaricare queste immagini per eseguire il provisioning dei nuovi dispositivi con aggiornamento 0.1.
 
 - **Miglioramento della precisione dello stato dei processi nel portale**: nella versione precedente del software, la segnalazione dello stato del processo nel portale non era granulare. Questo problema è stato risolto in questa versione.
 
-- **Correzione di bug relativi all'aggiunta al dominio e alla ridenominazione** del dispositivo.
+- **Esperienza di aggiunta al dominio**: correzione di bug relativi all'aggiunta al dominio e alla ridenominazione del dispositivo.
 
 
 ## Problemi risolti nell'aggiornamento 0.1
@@ -83,4 +83,4 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 
 [Installare l'aggiornamento 0.1](storsimple-ova-install-update-01.md) sull'array virtuale StorSimple
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

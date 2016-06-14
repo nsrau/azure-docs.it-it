@@ -1,12 +1,10 @@
-Resource|Free|Basic (Preview)|S1|S2
+Risorsa|Free|Basic (anteprima)|S1|S2
 ---|---|---|---|----
-Maximum services at each tier per subscription <sup>1</sup>|1 |12 |12  |1
-Maximum scale per tier <sup>2</sup>|N/A|3 SU (up to 3 replicas and 1 partition)|36 SU|36 SU  
+Numero massimo di servizi in ogni piano per ogni sottoscrizione <sup>1</sup>|1 |12 |12 |1
+Scalabilità massima per ogni piano <sup>2</sup>|N/D|3 unità di ricerca (fino a 3 repliche e 1 partizione)|36 unità di ricerca|36 unità di ricerca  
 
-<sup>1</sup> Each service is provisioned at a given pricing tier, with limits on the number of services you can provision at each tier within a single Azure subscription. During the Preview period, tiers are available at an introductory rate of 50% off the full price.
+<sup>1</sup> Viene eseguito il provisioning di ogni servizio in un determinato piano tariffario, con limiti al numero di servizi di cui è possibile effettuare il provisioning in ogni piano all'interno di una singola sottoscrizione di Azure. Nel periodo di anteprima i piani sono disponibili con uno sconto del 50% rispetto al prezzo intero.
 
-<sup>2</sup> Scale out limits are defined in terms of Search Units (SU) per tier. Search units are the billable unit for either a **replica** or a **partition**. You need both for storage, indexing, and query operations. Visit [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that stay under the maximum limit of 3 or 36 units, for **Basic** and **Standard** respectively. Because **Free** is based on shared resources used by multiple subscribers, scale out is not provided at this level.
+<sup>2</sup> I limiti di scalabilità sono definiti in termini di unità di ricerca (SU) per ogni piano. Le unità di ricerca sono l'unità fatturabile per una **replica** o una **partizione**. Sono necessarie entrambe per l'archiviazione, l'indicizzazione e le operazioni di query. Vedere [Pianificazione della capacità in Ricerca di Azure](../articles/search/search-capacity-planning.md) per le combinazioni valide di repliche e partizioni entro il limite massimo di 3 o 36 unità rispettivamente per **Basic** e **Standard**. Poiché il piano **Gratuito** è basato su risorse condivise usate da più sottoscrittori, l'aumento delle istanze non viene fornito a questo livello.
 
-
-
-
+<!---HONumber=AcomDC_0601_2016-->

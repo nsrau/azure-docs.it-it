@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="ddove;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="ddove" />
 
 # Spostamento di dati tra database cloud con scalabilità orizzontale
 
@@ -252,4 +252,4 @@ Non è necessario eseguire il provisioning di un nuovo database dei metadati per
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

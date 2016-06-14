@@ -19,8 +19,6 @@
 
 # Creare farm di SharePoint Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello classico.
-
 Con il marketplace del portale di Microsoft Azure, è possibile creare rapidamente delle farm pre-configurate di SharePoint Server 2013. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
 
 > [AZURE.NOTE] L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso. È stato sostituito dagli elementi **SharePoint 2013 non-HA Farm** e **SharePoint 2013 HA Farm**.
@@ -36,7 +34,7 @@ Per creare la farm di SharePoint (tre server) di base:
 1. Fare clic [qui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)
 2. Fare clic su **Distribuisci**.
 3. Nel riquadro **SharePoint 2013 non-HA Farm**, fare clic su **Crea**.
-4. Specificare le impostazioni nei sette passaggi del riquadro di creazione **SharePoint 2013 non-HA Farm**, quindi fare clic su **Crea**.
+4. Specificare le impostazioni nei sette passaggi del riquadro di creazione di **SharePoint 2013 non-HA Farm** e quindi fare clic su **Crea**.
 
 La farm di SharePoint a disponibilità elevata è costituita da nove macchine virtuali in questa configurazione.
 
@@ -49,9 +47,9 @@ Per creare la farm di SharePoint a disponibilità elevata (nove server):
 1. Fare clic [qui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)
 2. Fare clic su **Distribuisci**.
 3. Nel riquadro **SharePoint 2013 HA Farm**, fare clic su **Crea**.
-4. Specificare le impostazioni nei sette passaggi del riquadro di creazione della **SharePoint 2013 HA Farm**, quindi fare clic su **Crea**.
+4. Specificare le impostazioni nei sette passaggi del riquadro di creazione di **SharePoint 2013 HA Farm** e quindi fare clic su **Crea**.
 
-> [AZURE.NOTE] Non è possibile creare la **SharePoint 2013 non-HA Farm** o **SharePoint 2013 HA Farm** con una versione di valutazione gratuita di Azure.
+> [AZURE.NOTE] Non è possibile creare l'elemento **SharePoint 2013 non-HA Farm** o **SharePoint 2013 HA Farm** con una versione di valutazione gratuita di Azure.
 
 Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
 
@@ -61,10 +59,10 @@ Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud co
 
 Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] Con l'[immagine versione di valutazione di SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/) è possibile creare una macchina virtuale che esegue SharePoint Server 2016.
+> [AZURE.NOTE] Con l'[immagine della versione di valutazione di SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/) è possibile creare una macchina virtuale che esegue SharePoint Server 2016.
 
 ## Passaggi successivi
 
 - Altre configurazioni di [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi dell'infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

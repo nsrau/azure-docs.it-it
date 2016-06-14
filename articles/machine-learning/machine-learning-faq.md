@@ -85,7 +85,7 @@ I seguenti moduli sono limitati a set di dati inferiori a 10 GB:
 - Modulo SMOTE
 - Moduli di script: R, Python, SQL
 - Moduli in cui la dimensione dei dati di output può essere maggiore della dimensione dei dati in input, ad esempio Join o Feature Hashing.
-- Convalida incrociata, parametri di organizzazione, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato.
+- Convalida incrociata, ottimizzazione degli iperparametri del modello, regressione ordinale e multiclasse uno-tutti, quando il numero di iterazioni è molto elevato.
 
 Per i set di dati con dimensioni maggiori di alcuni GB, è necessario caricare i dati in Archiviazione di Azure o nel database SQL di Azure oppure usare HDInsight, anziché caricarli direttamente dal file locale.
 
@@ -95,8 +95,10 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure e quindi usare il modulo [Reader][reader] per passarli all'esperimento.
-<!--<SEE CLOUD DS PROCESS>-->
+Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Importa dati][import-data]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure e quindi usare il modulo [Importa dati][import-data] per passarli all'esperimento.
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -225,7 +227,7 @@ Una volta distribuito un modello predittivo, è possibile monitorarlo dal portal
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
-Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È anche possibile scriverla nell'archivio BLOB di Azure. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È anche possibile scrivere l'output in un database o in una tabella usando il modulo [Export Data][writer].
+Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È anche possibile scriverla nell'archivio BLOB di Azure. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È anche possibile scrivere l'output in un database o in una tabella usando il modulo [Export Data][export-data].
 
 **È possibile creare servizi Web solo da modelli creati in Machine Learning Studio?**
 
@@ -324,10 +326,10 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

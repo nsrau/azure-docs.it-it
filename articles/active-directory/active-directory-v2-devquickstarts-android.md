@@ -23,4 +23,8 @@ L'esercitazione introduttiva per Android non è ancora disponibile... Riprovare 
 > [AZURE.NOTE]
 	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+## Ottenere aggiornamenti della sicurezza per i prodotti
+
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->

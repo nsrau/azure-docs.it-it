@@ -415,7 +415,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Autorizzazione Lettura |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Gestire l'autorizzazione |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche
@@ -517,4 +517,4 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 - [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

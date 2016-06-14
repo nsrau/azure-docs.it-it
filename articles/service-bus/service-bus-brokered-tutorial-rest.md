@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Esercitazione REST sulla messaggistica negoziata del Bus di servizio| Microsoft Azure"
-   description="Esercitazione di messaggistica negoziata REST."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Esercitazione REST sulla messaggistica negoziata del Bus di servizio| Microsoft Azure"
+    description="Esercitazione di messaggistica negoziata REST."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/15/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # Esercitazione sulla messaggistica negoziata del bus di servizio - REST
 
-In questa esercitazione viene illustrato come creare una coda base del bus di servizio di Azure basata su REST e un servizio argomento/sottoscrizione.
+Questa esercitazione illustra come creare una coda e un argomento/una sottoscrizione di base del bus di servizio di Azure basati su REST.
 
 ## Passaggio 1: Creare uno spazio dei nomi
 
 Il primo passaggio consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di [Firma di accesso condiviso](service-bus-sas-overview.md). Uno spazio dei nomi servizio fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
-### Creare uno spazio dei nomi e ottenere una chiave privata condivisa
+### Creare uno spazio dei nomi e ottenere una chiave di firma di accesso condiviso
 
 1. Per creare uno spazio dei nomi del servizio, visitare il [portale di Azure classico][]. Fare clic su **Bus di servizio** sul lato sinistro, quindi fare clic su **Crea**. Digitare un nome per lo spazio dei nomi, quindi fare clic sul segno di spunta.
 
@@ -186,17 +186,19 @@ Incollare il seguente codice subito dopo il codice `GetSASToken()` aggiunto nel 
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
-    // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
+    // Create the URI of the new queue, note that this uses the HTTPS scheme
+    string queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
     Console.WriteLine("\nCreating queue {0}", queueAddress);
-    // Prepare the body of the create queue requestvar putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
-                                  <title type=""text"">" + queueName + @"</title>
-                                  <content type=""application/xml"">
-                                    <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
-                                  </content>
-                                </entry>";
+    // Prepare the body of the create queue request
+    var putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
+                          <title type=""text"">" + queueName + @"</title>
+                          <content type=""application/xml"">
+                            <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
+                          </content>
+                        </entry>";
 
     byte[] response = webClient.UploadData(queueAddress, "PUT", Encoding.UTF8.GetBytes(putData));
     return Encoding.UTF8.GetString(response);
@@ -633,4 +635,4 @@ Vedere gli articoli seguenti per ulteriori informazioni:
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

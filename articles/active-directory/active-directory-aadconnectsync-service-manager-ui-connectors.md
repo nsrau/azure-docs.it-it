@@ -43,7 +43,8 @@ Aggiorna schema | Aggiorna lo schema memorizzato nella cache. È preferibile usa
 [Spazio connettore di ricerca](#search-connector-space) | Consente di trovare oggetti e [seguire un oggetto e i relativi dati attraverso il sistema](#follow-an-object-and-its-data-through-the-system).
 
 ### Delete
-L'azione di eliminazione viene usata per due scopi diversi. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
+L'azione di eliminazione viene usata per due scopi diversi.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 L'opzione **Delete connector space only** (Elimina solo lo spazio connettore) rimuove tutti i dati, ma mantiene tutta la configurazione.
 
@@ -61,28 +62,52 @@ L’azione Cerca spazio connettore è utile per trovare oggetti e risolvere prob
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
 
-Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni). ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png) Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) Da qui è possibile selezionare un oggetto, selezionare **Properties** (Proprietà) e [seguirlo](#follow-an-object-and-its-data-through-the-system) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
+Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni).  
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
+Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)
+Da qui è possibile selezionare un oggetto, selezionare **Properties** (Proprietà) e [seguirlo](#follow-an-object-and-its-data-through-the-system) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
 
 ## Seguire un oggetto e i relativi dati attraverso il sistema
 In fase di risoluzione di un problema relativo ai dati, seguire un oggetto dallo spazio connettore di origine fino al metaverse e allo spazio connettore di destinazione è una procedura fondamentale per capire perché i dati non hanno i valori previsti.
 
 ### Proprietà dell’oggetto spazio connettore
-**Import (Importa)** Quando si apre un oggetto cs, nella parte superiore sono presenti diverse schede. La scheda **Import** (Importa) visualizza i dati di gestione temporanea dopo l'importazione. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) **Old Value** (Valore precedente) indica il valore attualmente presente nel sistema, mentre **New Value** (Nuovo valore) indica il valore ricevuto dal sistema di origine e non ancora applicato. In questo caso è impossibile applicare la modifica perché si è verificato un errore di sincronizzazione.
+**Import (Importa)**  
+Quando si apre un oggetto cs, nella parte superiore sono presenti diverse schede. La scheda **Import** (Importa) visualizza i dati di gestione temporanea dopo l'importazione.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png)
+**Old Value** (Valore precedente) indica il valore attualmente presente nel sistema, mentre **New Value** (Nuovo valore) indica il valore ricevuto dal sistema di origine e non ancora applicato. In questo caso è impossibile applicare la modifica perché si è verificato un errore di sincronizzazione.
 
-**Error (Errore)** La pagina di errore è visibile solo se si è verificato un problema con l'oggetto. Per altre informazioni su come [risolvere gli errori di sincronizzazione](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab), vedere i dettagli nella pagina Operations (Operazioni).
+**Error (Errore)**  
+La pagina di errore è visibile solo se si è verificato un problema con l'oggetto. Per altre informazioni su come [risolvere gli errori di sincronizzazione](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab), vedere i dettagli nella pagina Operations (Operazioni).
 
-**Derivazione** La scheda Lineage (Derivazione) visualizza la correlazione fra l'oggetto spazio connettore e l'oggetto metaverse. È possibile vedere l'ultima volta in cui è stata importata una modifica dal sistema connesso e quali regole sono state applicate per inserire i dati nel metaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) Nella colonna **Action** (Azione) è presente una regola di sincronizzazione con direzione **Inbound** (In ingresso) e azione **Provision** (Provisioning). Questo indica che l'oggetto metaverse rimarrà fino a quando sarà presente l'oggetto spazio connettore. Se l'elenco delle regole di sincronizzazione visualizza invece una regola di sincronizzazione con direzione **Outbound** (In uscita) e azione **Provision** (Provisioning), questo oggetto verrà eliminato quando sarà eliminato l'oggetto metaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) Si noti anche che nella colonna **PasswordSync** (Sincronizzazione password) lo spazio connettore in ingresso può apportare modifiche alla password poiché una regola di sincronizzazione ha il valore **True** (Vero). Questa password viene poi inviata ad Azure AD attraverso la regola in uscita.
+**Derivazione**  
+La scheda Lineage (Derivazione) visualizza la correlazione fra l'oggetto spazio connettore e l'oggetto metaverse. È possibile vedere l'ultima volta in cui è stata importata una modifica dal sistema connesso e quali regole sono state applicate per inserire i dati nel metaverse.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png)
+Nella colonna **Action** (Azione) è presente una regola di sincronizzazione con direzione **Inbound** (In ingresso) e azione **Provision** (Provisioning). Questo indica che l'oggetto metaverse rimarrà fino a quando sarà presente l'oggetto spazio connettore. Se l'elenco delle regole di sincronizzazione visualizza invece una regola di sincronizzazione con direzione **Outbound** (In uscita) e azione **Provision** (Provisioning), questo oggetto verrà eliminato quando sarà eliminato l'oggetto metaverse.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png)
+Si noti anche che nella colonna **PasswordSync** (Sincronizzazione password) lo spazio connettore in ingresso può apportare modifiche alla password poiché una regola di sincronizzazione ha il valore **True** (Vero). Questa password viene poi inviata ad Azure AD attraverso la regola in uscita.
 
 Dalla scheda Lineage (Derivazione) è possibile accedere al metaverse facendo clic su [Metaverse Object Properties](#metaverse-object-properties) (Proprietà oggetto metaverse).
 
 Nella parte inferiore di tutte le schede sono disponibili due pulsanti: **Preview** (Anteprima) e **Log**.
 
-**Anteprima** La pagina Preview (Anteprima) viene usata per sincronizzare un solo oggetto. È utile mentre si risolvono problemi relativi a regole di sincronizzazione di un cliente e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile scegliere tra **Full Sync** (Sincronizzazione completa) e **Delta sync** (Sincronizzazione differenziale). È anche possibile scegliere tra **Generate Preview** (Genera anteprima), che manterrà la modifica solo in memoria, e **Commit Preview** (Anteprima commit) che inserirà tutte le modifiche negli spazi connettore di destinazione. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Si può esaminare l'oggetto e individuare la regola applicata per un particolare flusso di attributi. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
+**Anteprima**  
+La pagina Preview (Anteprima) viene usata per sincronizzare un solo oggetto. È utile mentre si risolvono problemi relativi a regole di sincronizzazione di un cliente e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile scegliere tra **Full Sync** (Sincronizzazione completa) e **Delta sync** (Sincronizzazione differenziale). È anche possibile scegliere tra **Generate Preview** (Genera anteprima), che manterrà la modifica solo in memoria, e **Commit Preview** (Anteprima commit) che inserirà tutte le modifiche negli spazi connettore di destinazione.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png)
+Si può esaminare l'oggetto e individuare la regola applicata per un particolare flusso di attributi.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
-**Log** La pagina Log visualizza lo stato e la cronologia della sincronizzazione delle password. Per altre informazioni, vedere [Risoluzione dei problemi di sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+**Log**  
+La pagina Log visualizza lo stato e la cronologia della sincronizzazione delle password. Per altre informazioni, vedere [Risoluzione dei problemi di sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 
 ### Proprietà oggetto metaverse
-**Attributes (Attributi)** Nella scheda Attributes (Attributi) è possibile visualizzare i valori e il connettore che li ha forniti. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png) **Connectors (Connettori)** La scheda Connectors (Connettori) visualizza tutti gli spazi connettore che hanno una rappresentazione dell'oggetto. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) Questa scheda consente anche di accedere all'[oggetto spazio connettore](#connector-space-object-properties).
+**Attributes (Attributi)**  
+Nella scheda Attributes (Attributi) è possibile visualizzare i valori e il connettore che li ha forniti.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png)
+**Connectors (Connettori)**  
+La scheda Connectors (Connettori) visualizza tutti gli spazi connettore che hanno una rappresentazione dell'oggetto.
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png)
+Questa scheda consente anche di accedere all'[oggetto spazio connettore](#connector-space-object-properties).
 
 ## Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).

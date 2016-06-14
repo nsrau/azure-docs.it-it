@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="05/27/2016"
     ms.author="dineshm"/>
 
 # Come usare l'archiviazione delle code da C++  
@@ -236,4 +236,4 @@ A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodament
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

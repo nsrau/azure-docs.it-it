@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso del connettore QuickBooks nelle app per la logica | Microsoft Azure App Service"
-   description="Come creare e configurare l'app per le API o il connettore QuickBooks e usarlo in un'app per la logica in Azure App Service"
+   pageTitle="Uso del connettore QuickBooks nelle app per la logica | Servizio app di Microsoft Azure"
+   description="Come creare e configurare l'app per le API o il connettore QuickBooks e usarlo in un'app per la logica nel servizio app di Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Uso del connettore QuickBooks e aggiunta all'app per la logica
+# Iniziare a usare il connettore QuickBooks e aggiungerlo all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Usare il connettore QuickBooks per creare e modificare diverse entità QuickBooks. La tabella seguente elenca le entità supportate.
@@ -58,7 +58,7 @@ A questo punto è possibile creare un'app per le API del connettore QuickBooks.
 ##Creare un'app per la logica##
 In questa sezione viene descritta la creazione di una semplice app per la logica che crea un account in QuickBooks e aggiorna il valore di 'Category Type' dello stesso account.
 
-1.	Accedere al portale di Azure e fare clic su "Nuovo -> Web e dispositivi mobili -> App per la logica"
+1.	Accedere al portale di Azure e fare clic su 'Nuovo -> Web e dispositivi mobili -> App per la logica'
 
 	![][1]
 
@@ -66,17 +66,17 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][2]
 
-3.	Fare clic su 'Triggers and Actions' per aprire la schermata dell'editor dell'app per la logica.
+3.	Fare clic su 'Trigger e azioni' per aprire la schermata dell'editor dell'app per la logica.
 
 	![][3]
 
-4.	Selezionare 'Run this logic manually' per fare in modo che questa app per la logica possa essere richiamata solo manualmente.
+4.	Selezionare 'Esegui app per la logica manualmente' per fare in modo che questa app per la logica possa essere richiamata solo manualmente.
 
 
 5.	Espandere la sezione relativa alle app per le API nel gruppo di risorse nella raccolta per visualizzare tutte le app per le API disponibili. Selezionare 'QuickBooks Connector' dalla raccolta per aggiungere il connettore QuickBooks al flusso.
 
 
-6.	Se QuickBooks è online, per eseguire operazioni per conto dell'utente è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su Authorize in QuickBooks Connector.
+6.	Se QuickBooks è online, per eseguire operazioni per conto dell'utente è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su Autorizza nel connettore QuickBooks.
 
 	![][4]
 
@@ -84,7 +84,7 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][5]
 
-8. Fare clic su Authorize nella finestra di dialogo di consenso per concedere all'account l'accesso alle app per la logica al fine di eseguire operazioni per conto dell'utente.
+8. Fare clic su Autorizza nella finestra di dialogo di consenso per concedere all'account l'accesso alle app per la logica al fine di eseguire operazioni per conto dell'utente.
 
 	![][6]
 
@@ -100,7 +100,7 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 	![][9]
 
-12.	Selezionare 'QuickBooks Connector' nella sezione 'Recently Used' della raccolta. Viene aggiunta una nuova azione QuickBooks.
+12.	Selezionare 'QuickBooks Connector' nella sezione 'Usati di recente' della raccolta. Viene aggiunta una nuova azione QuickBooks.
 
 13.	Selezionare 'Create or Update Account' dall'elenco delle azioni. Vengono visualizzati i parametri di input dell'azione.
 
@@ -116,14 +116,14 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 16. Fare clic su OK nella schermata dell'editor dell'app per la logica, quindi fare clic su 'Create'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
 
-17. Passare all'app per la logica appena creata e fare clic su 'Run' per avviare l'esecuzione.
+17. Passare all'app per la logica appena creata e fare clic su 'Esegui' per avviare l'esecuzione.
 
 18. È possibile controllare che nell'account QuickBooks venga creato un nuovo account con nome 'Contoso'.
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -144,4 +144,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="05/31/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -27,6 +27,8 @@ Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di des
 
 Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
+> [AZURE.NOTE] In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si vuole che modificare l'offerta dell'account di Azure, ad esempio effettuando l'aggiornamento da pagamento in base al consumo a pagamento anticipato, pur continuando a lavorare con le risorse esistenti, vedere [Passaggio a un'offerta di Azure diversa](billing-how-to-switch-azure-offer.md).
+
 ## Controllo prima di spostare le risorse
 
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
@@ -34,8 +36,8 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 1. Il servizio deve supportare lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui [servizi che supportano lo spostamento di risorse](#services-that-support-move).
 2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indicherà che **la sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Se si usa Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
-4. Prima di spostare un'app del Servizio app è consigliabile leggere [Limitazioni del servizio app](#app-service-limitations).
-5. Prima di spostare risorse distribuite con il modello classico è consigliabile leggere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
+4. Prima di spostare un'app del servizio app, è consigliabile vedere [Limitazioni del servizio app](#app-service-limitations).
+5. Prima di spostare risorse distribuite con il modello classico, è consigliabile vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
 
 ## Servizi che supportano lo spostamento
 
@@ -89,7 +91,7 @@ Se il gruppo di risorse originale include anche una risorsa Application Insights
 
 Se ad esempio il gruppo di risorse contiene:
 
-- **web-a** che è associata a **plan-a** e **app-insights-a**
+- **web-a** associata a **plan-a** e **app-insights-a**
 - **web-b** associata a **plan-b** e **app-insights-b**
 
 Le opzioni possibili sono:
@@ -125,7 +127,7 @@ Quando si spostano risorse da un gruppo di risorse a un altro **nella stessa sot
 - È possibile spostare un solo account di archiviazione (classico) alla volta.
 - Un account di archiviazione (classico) non può essere spostato nella stessa operazione di spostamento che include una macchina virtuale o un servizio cloud.
 
-Quando si spostano risorse a una **nuova sottoscrizione** sono valide le restrizioni seguenti:
+Quando si spostano risorse in una **nuova sottoscrizione**, sono valide le restrizioni seguenti:
 
 - Tutte le risorse classiche della sottoscrizione vanno spostate nella stessa operazione.
 - Lo spostamento può essere richiesto solo tramite il portale o tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione. Le sezioni seguenti visualizzano le procedure per usare il portale o l'API REST.
@@ -134,7 +136,7 @@ Quando si spostano risorse a una **nuova sottoscrizione** sono valide le restriz
 
 È possibile spostare alcune risorse tramite il portale, tuttavia non tutti i provider di risorse che supportano l'operazione di spostamento forniscono tale funzionalità tramite il portale.
 
-Per spostare una risorsa, selezionare la risorsa e quindi il pulsante **Sposta**.
+Per spostare una risorsa, selezionarla e quindi fare clic sul pulsante **Sposta**.
 
 ![Spostamento della risorsa](./media/resource-group-move-resources/move-resources.png)
 
@@ -154,7 +156,7 @@ Per un'altra opzione di spostamento di risorse a un nuovo gruppo di risorse (non
 
 ![Selezionare le risorse da spostare](./media/resource-group-move-resources/select-resource.png)
 
-Selezionare **Proprietà** per la risorsa.
+Selezionare **Proprietà** della risorsa.
 
 ![Selezionare le proprietà](./media/resource-group-move-resources/select-properties.png)
 
@@ -228,7 +230,7 @@ Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione d
 
 Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
-Per spostare **risorse classiche in una nuova sottoscrizione** è tuttavia necessario usare altre operazioni REST. Per verificare se una sottoscrizione può partecipare come sottoscrizione di origine o di destinazione a uno spostamento di risorse classiche tra sottoscrizioni, usare la seguente operazione:
+Per spostare **risorse classiche in una nuova sottoscrizione**, è tuttavia necessario usare operazioni REST diverse. Per verificare se una sottoscrizione può partecipare come sottoscrizione di origine o di destinazione a uno spostamento di risorse classiche tra sottoscrizioni, usare la seguente operazione:
 
     POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
     
@@ -272,4 +274,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/21/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
@@ -155,4 +155,4 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple. Veri
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

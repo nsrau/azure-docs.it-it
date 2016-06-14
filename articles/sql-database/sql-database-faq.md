@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="carlrabeler" 
    manager="jhubbard" 
-   editor="monicar"/>
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/25/2016"
+   ms.date="05/25/2016"
    ms.author="sashan;carlrab"/>
 
 # Domande frequenti sul database SQL
@@ -41,8 +41,8 @@ esempi
 - Nel giorno 2, alle ore 5:05 di mattina, il Database 1 inizia a utilizzare 50 DTU e rimane stabile per tutto il giorno. Il Database 2-5 fluttua tra le 0 e le 80 DTU. Durante il giorno vengono aggiunti altri cinque database che utilizzano DTU che variano nel corso della giornata. Il giorno 2 viene fatturato interamente a 200 DTU. 
 - Il giorno 3, alle ore 5 di mattina vengono aggiunti altri 15 database. L'utilizzo dei database aumenta nel corso della giornata fino a quando si decide di aumentare le DTU per il pool da 200 a 400 alle ore 8:05 di sera. Gli addebiti a livello di 200 DTU sono stati applicabili fino alle 8 di sera e sono aumentate fino a 400 per le 4 ore rimanenti. 
 
-## Come viene indicato l'utilizzo della replica geografica in un pool di database elastici nella fattura?
-A differenza dei singoli database, l'utilizzo del ripristino di emergenza geografico con i database elastici non ha un impatto diretto sulla fatturazione. Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
+## Come viene indicato l'uso della replica geografica attiva in un pool di database elastici nella fattura?
+A differenza dei singoli database, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione. Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
 
 ## In che modo l'utilizzo della funzionalità di controllo influisce sulla fatturazione? 
 La funzionalità di controllo è integrata nel servizio del database SQL, senza costi aggiuntivi, ed è disponibile per i database Basic, Standard e Premium. Tuttavia, per archiviare i log di controllo, la funzionalità di controllo utilizza un account di archiviazione di Azure e le tariffe per le tabelle e code di archiviazione di Azure si applicano in base alle dimensioni del registro di controllo.
@@ -51,7 +51,7 @@ La funzionalità di controllo è integrata nel servizio del database SQL, senza 
 Sono disponibili alcuni strumenti.
 
 - Per i database locali, utilizzare la [gestione del ridimensionamento delle DTU](http://dtucalculator.azurewebsites.net/), che consiglia i database e le DTU necessarie e valuta più database per i pool di database elastici.
-- Se un database singolo potrebbe trarre vantaggio nel far parte di in un pool, il motore intelligente di Azure consiglia un pool di database elastici se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare, gestire e dimensionare un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Vedere [Considerazioni sul prezzo e sulle prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) per informazioni su come eseguire i calcoli matematici personalmente.
+- Se un database singolo potrebbe trarre vantaggio nel far parte di in un pool, il motore intelligente di Azure consiglia un pool di database elastici se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Vedere [Considerazioni sul prezzo e sulle prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) per informazioni su come eseguire i calcoli matematici personalmente.
 - Per vedere se è necessario aumentare o diminuire il livello di un database singolo, vedere [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md).
 
 ## Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo? 
@@ -64,12 +64,12 @@ Numero di volte desiderato.
 La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, possono essere necessari da pochi minuti a diverse ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei singoli database vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md).
 
 ## Quando è meglio usare un database singolo e quando invece è meglio usare database elastici? 
-In generale, i pool di database elastici sono progettati per un modello di applicazione tipico di software-as-a-service (SaaS), in cui è presente un solo database per client o tenant. L'acquisto di singoli database e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente.
+In generale, i pool di database elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di singoli database e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente.
 
-Il motore intelligente di Azure consiglia un pool per i database, se ne rileva un modello di utilizzo che lo garantisca. Per altri dettagli, vedere [Indicazioni sui livelli di prezzo del database SQL](sql-database-service-tier-advisor.md). Per istruzioni dettagliate sulla scelta tra database singoli e elastici, consultare [Considerazioni su prezzi e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md).
+Il motore intelligente di Azure consiglia un pool per i database, se ne rileva un modello di utilizzo che lo garantisca. Per altri dettagli, vedere [Indicazioni sui piani tariffari del database SQL](sql-database-service-tier-advisor.md). Per istruzioni dettagliate sulla scelta tra database singoli e elastici, consultare [Considerazioni su prezzi e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 ## Che cosa significa avere fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per l'archiviazione di backup? 
-L'archiviazione di backup è l'archiviazione associata ai backup automatizzati dei database, usati per il ripristino temporizzato e il ripristino geografico. Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, saranno disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
+L'archiviazione di backup è l'archiviazione associata ai backup automatizzati dei database, usati per il [ripristino temporizzato](sql-database-point-in-time-restore.md) e il [ripristino geografico](sql-database-geo-restore.md). Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, saranno disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
 
 ## Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
 I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic. Sono presenti domande frequenti aggiuntive che dovrebbe aiutare in questo periodo di transizione. [Domande frequenti sul ritiro dell'edizione Web e Business](sql-database-web-business-sunset-faq.md)
@@ -89,4 +89,4 @@ La replica geografica secondaria è una replica asincrona per la quale non viene
 ## Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
 L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

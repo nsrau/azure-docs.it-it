@@ -22,8 +22,6 @@
 
 Questo argomento descrive come trovare editori, offerte, SKU e versioni per ciascuna località di distribuzione. Per fare un esempio, alcune immagini di macchina virtuale Windows usate comunemente sono:
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 ## Tabella delle immagini Windows usate comunemente
 
 
@@ -47,4 +45,4 @@ Questo argomento descrive come trovare editori, offerte, SKU e versioni per cias
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

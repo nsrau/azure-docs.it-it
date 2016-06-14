@@ -18,6 +18,8 @@
 
 # Token e tipi di attestazioni supportati
 
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+
 Questo argomento è progettato per facilitare la comprensione e la valutazione delle attestazioni nei token SAML 2.0 e JSON Web Token (JWT) emessi da Azure Active Directory (Azure AD).
 
 L'argomento inizia con una descrizione di ogni attestazione token e mostra un esempio di attestazione in un token SAML e un token JWT, come appropriato. Le attestazioni che sono in stato di anteprima vengono elencate separatamente. Termina con i token di esempio per visualizzare le attestazioni nel contesto.
@@ -412,4 +414,4 @@ Questo è un esempio di un tipico token Web JSON (JWT) usato in un flusso Web di
 
 [Protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

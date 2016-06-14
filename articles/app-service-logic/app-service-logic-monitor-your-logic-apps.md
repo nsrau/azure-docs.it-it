@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitorare le app per la logica in Servizio app di Azure | Microsoft Azure" 
+	pageTitle="Monitorare le app per la logica nel servizio app di Azure | Microsoft Azure" 
 	description="Come verificare il funzionamento delle app per la logica" 
 	authors="stepsic-microsoft-com" 
 	manager="erikre" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Monitorare le app per la logica
 
-Dopo aver [creato un'app per la logica](app-service-logic-create-a-logic-app.md), è possibile visualizzare l'intera cronologia della sua esecuzione nel portale di Azure. Per visualizzare la cronologia, selezionare **Sfoglia** e quindi **App per la logica**. Verrà visualizzato l'elenco di tutte le app per la logica incluse nella propria sottoscrizione. È possibile selezionare qualsiasi app per la logica e **abilitarla** o **disabilitarla**. Se **abilitata**, i trigger eseguono l'app per la logica in risposta a eventi di attivazione; se **disabilitata**, l'app per la logica non viene eseguita in risposta ad alcun evento.
+Dopo aver [creato un'app per la logica](app-service-logic-create-a-logic-app.md), è possibile visualizzare l'intera cronologia della relativa esecuzione nel portale di Azure. Per visualizzare la cronologia, selezionare **Esplora** e quindi **App per la logica**. Verrà visualizzato l'elenco di tutte le app per la logica incluse nella propria sottoscrizione. È possibile selezionare un'app per la logica qualsiasi e **abilitarla** o **disabilitarla**. Se lo stato è **Abilitato**, i trigger eseguono l'app per la logica in risposta a eventi di attivazione. Se è **Disabilitato**, l'app per la logica non viene eseguita in risposta ad alcun evento.
 
 ![Panoramica](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
@@ -43,7 +43,7 @@ Un'altra informazione importante è l'**ID di traccia**. Questo identificatore v
 
 ## Visualizzare la cronologia di attivazione 
 
-I trigger di polling verificano l'API in base a un determinato intervallo, ma non avviano necessariamente un'esecuzione, che dipende dal tipo di risposta (ad esempio, `200` indica di avviare l'esecuzione, `202` di non avviarla). La cronologia di attivazione consente di visualizzare tutte le chiamate effettuate che, tuttavia, non eseguono l'app per la logica (le risposte `202`).
+I trigger di polling verificano l'API in base a un determinato intervallo, ma non avviano necessariamente un'esecuzione, che dipende dal tipo di risposta (ad esempio, `200` indica di avviare l'esecuzione, `202` di non avviarla). La cronologia di attivazione consente di visualizzare tutte le chiamate effettuate che, tuttavia, non eseguono l'app per la logica, ovvero le risposte `202`.
 
 ![Cronologia di attivazione](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
@@ -51,9 +51,12 @@ Per ogni trigger è possibile vedere se è stato **Attivato**, se non è stato a
 
 Per i trigger *Push* *non* è possibile vedere quante volte sono state avviate le esecuzioni. Sono invece visibili le chiamate di *registrazione del callback*, ovvero le registrazioni eseguite dall'app per la logica per essere richiamata. Se il trigger di push non funziona, potrebbe trattarsi di un problema di registrazione (visibile in Output). Diversamente, potrebbe essere necessario esaminare l'API in modo specifico.
 
+## Abilitazione di Diagnostica di Azure
+
+È possibile abilitare le informazioni di diagnostica per il recupero e l'archiviazione dei dati di runtime relativi ai flussi di lavoro. Nel pannello App per la logica, scorrere fino ai grafici di **Monitoraggio** e selezionare **Fare clic qui per abilitare la diagnostica**. È quindi possibile configurare un account di archiviazione nell'area dell'app per la logica e sottoscrivere **Log** o **Metrica** da tale app. **Log** invierà un evento ogni volta che un'esecuzione, un'azione o un evento viene avviato o completato. **Metrica** fornisce dati aggregati sul numero di esecuzioni completate in un intervallo di tempo.
+
 ## Abilitare il controllo delle versioni
 
-È disponibile una funzionalità aggiuntiva, non ancora attiva nell'interfaccia utente ma disponibile tramite l'[API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Se è già in corso un'esecuzione, infatti, questa continua a fare riferimento alla versione dell'app per la logica che esisteva nel momento in cui è stata avviata. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
- 
+Esiste una funzionalità aggiuntiva, non ancora accessibile dall'interfaccia utente ma lo sarà a breve, che però è disponibile tramite l'[API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Se è già in corso un'esecuzione, infatti, questa continua a fare riferimento alla versione dell'app per la logica che esisteva nel momento in cui è stata avviata. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

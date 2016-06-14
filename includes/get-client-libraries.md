@@ -6,19 +6,10 @@
 
 	```
 	{
-	    "repositories": [
-	        {
-	            "type": "pear",
-	            "url": "https://pear.php.net"
-	        }
-	    ],
-	    "require": {
-	        "pear-pear.php.net/mail_mime" : "*",
-	        "pear-pear.php.net/http_request2" : "*",
-	        "pear-pear.php.net/mail_mimedecode" : "*",
-	        "microsoft/windowsazure": "*"
-	    }
-	}
+      "require": {
+        "microsoft/windowsazure": "^0.4"
+      }
+    }
 	```
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
@@ -29,21 +20,9 @@
 	php composer.phar install
 	```
 
-### Installare manualmente
-
-Per scaricare e installare manualmente le librerie client PHP per Azure, attenersi alla procedura seguente:
-
-> [AZURE.NOTE] Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) e [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
- 
-1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork dell'archivio, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
-	
-2. Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione.
-
-Per altre informazioni sull'installazione delle librerie client PHP per Azure, comprese informazioni sull'installazione di un pacchetto PEAR, vedere [Download di Azure SDK per PHP][download-SDK-PHP].
-
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

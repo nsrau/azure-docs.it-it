@@ -61,7 +61,7 @@ Il file `function.json` contiene la configurazione specifica di una funzione, co
 
 È possibile impedire che il runtime esegua la funzione impostando la proprietà `disabled` su `true`.
 
-La proprietà `bindings` è quella che consente di configurare trigger e associazioni. Ogni associazione condivide alcune impostazioni comuni e altre specifiche per tipo. Ogni associazione richiede le seguenti impostazioni:
+La proprietà `bindings` è quella che consente di configurare trigger e associazioni. Ogni associazione condivide alcune impostazioni comuni e altre specifiche per tipo. Ogni associazione richiede le impostazioni seguenti:
 
 |Proprietà|Valori/tipi|Commenti|
 |---|-----|------|
@@ -97,7 +97,7 @@ Il file *host.json* contiene alcune configurazioni specifiche dell'host di scrip
 
 Ogni funzione ha una cartella che contiene il o i file di codice, il file *function.json* e altre dipendenze.
 
-Quando si configura un progetto per la distribuzione di funzioni in un'app di funzione in un servizio App di Azure, è possibile considerare questa struttura di cartelle il codice del sito. È possibile usare gli strumenti esistenti come l' integrazione e la distribuzione continue o gli script di distribuzione personalizzata per l'installazione del pacchetto di distribuzione o la transpilazione del codice.
+Quando si configura un progetto per la distribuzione di funzioni a un'app per le funzioni in un servizio App di Azure, è possibile considerare questa struttura di cartelle il codice del sito. È possibile usare gli strumenti esistenti come l' integrazione e la distribuzione continue o gli script di distribuzione personalizzata per l'installazione del pacchetto di distribuzione o la transpilazione del codice.
 
 ## <a id="fileupdate"></a> Come aggiornare i file delle app per le funzioni
 
@@ -129,17 +129,17 @@ Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di
 
 3. Passare a `D:\home\site\wwwroot` per aggiornare *host.json* o a `D:\home\site\wwwroot<function_name>` per aggiornare i file di una funzione.
 
-4. Selezionare e trascinare un file da caricare nella cartella appropriata della griglia di file.
+4. Selezionare e trascinare un file da caricare nella cartella appropriata della griglia di file. Nella griglia di file è possibile rilasciare un file in due aree. Per i file con estensione *zip* viene visualizzata una casella con l'etichetta "Drag here to upload and unzip" (Trascinare qui per caricare e decomprimere). Gli altri tipi di file devono essere rilasciati nella griglia di file ma all'esterno della casella per la decompressione.
 
 #### Per usare il protocollo FTP
 
 1. Per la configurazione del protocollo FTP seguire le istruzioni riportate [qui](../app-service-web/web-sites-deploy.md#ftp).
 
-2. Una volta stabilita la connessione al sito delle app per le funzioni copiare un file *host.json* aggiornato in `/site/wwwroot` o copiare i file di funzione in `/site/wwwroot/<function_name>`.
+2. Dopo aver stabilito la connessione al sito delle app per le funzioni, copiare un file *host.json* aggiornato in `/site/wwwroot` o copiare i file di funzione in `/site/wwwroot/<function_name>`.
 
 ## Esecuzione parallela
 
-Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo sia in grado di elaborare, il runtime chiama la funzione più volte in parallelo. Se un'app per le funzioni sta usando il [piano di servizio Dynamic](functions-scale.md#dynamic-service-plan) il numero di istanze simultanee dell'app può aumentare automaticamente fino a 10. Ogni istanza dell'app per le funzioni, eseguita in un piano di servizio Dynamic o in un normale [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread. Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app di funzione varia in base alla dimensione della memoria dell'app di funzione.
+Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo riesca a elaborare, il runtime chiama la funzione più volte in parallelo. Se un'app per le funzioni sta usando il [piano di servizio dinamico](functions-scale.md#dynamic-service-plan), il numero di istanze simultanee dell'app può aumentare automaticamente fino a 10. Ogni istanza dell'app per le funzioni, indipendentemente dal fatto che venga eseguita in un piano di servizio dinamico o in un normale [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread. Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app per le funzioni varia in base alle dimensioni della memoria dell'app per le funzioni.
 
 ## Funzioni di Azure - Pulse  
 
@@ -172,6 +172,6 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funzioni di Azure: l'evoluzione) sul blog del team del Servizio app di Azure. Storia dello sviluppo di Funzioni di Azure.
+* [Post sull'evoluzione di Funzioni di Azure](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) nel blog del team del Servizio app di Azure. Storia dello sviluppo di Funzioni di Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

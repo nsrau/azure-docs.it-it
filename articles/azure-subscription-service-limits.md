@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -74,6 +74,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Sottoscrizione](#subscription-limits)
 - [Gestione traffico](#traffic-manager-limits)
 - [Macchine virtuali](#virtual-machines-limits)
+- [Set di scalabilità di macchine virtuali](#virtual-machine-scale-sets-limits)
 
 
 ### Limiti relativi alle sottoscrizioni
@@ -91,7 +92,6 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Limiti relativi a Macchine virtuali
 #### Limiti relativi alla macchina virtuale
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Limiti dei set di scalabilità delle macchine virtuali
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Limiti relativi alla rete
 
@@ -184,11 +187,17 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
-- **Gratuito**, che offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
-- **Basic (anteprima)** che offre risorse di elaborazione dedicate per i carichi di lavoro di produzione su scala ridotta. Questo livello, attualmente in anteprima, viene offerto a una tariffa ridotta.
-- **Standard (S1 e S2)**, per i carichi di lavoro di produzione. Una versione di capacità più grande (**S2**) è disponibile su richiesta (inviare un messaggio di posta elettronica a azuresearch_contact@microsoft.com).
+- *Gratuito*, offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
+- *Basic (anteprima)* fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte. Questo livello, attualmente in anteprima, viene offerto a una tariffa ridotta.
+- *Standard (S1 e S2)*, per i carichi di lavoro di produzione. Una versione con capacità maggiore (*S2*) è disponibile su richiesta. Per assistenza, contattare il supporto tecnico o azuresearch_contact@microsoft.com.
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Limiti dei livelli**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+
+**Limiti relativi all'archiviazione**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
 
 Per informazioni su altri limiti, quali le dimensioni dei documenti, le chiavi, le richieste e le risposte, vedere [Limiti dei servizi in Ricerca di Azure](search/search-limits-quotas-capacity.md).
 
@@ -291,4 +300,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

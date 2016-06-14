@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/23/2016"
 	ms.author="jeffstok"/>
 
 # Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
@@ -86,6 +86,8 @@ Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) p
 | Nome utente | Nome utente che ha accesso in scrittura al database |
 | Password | Password per connettersi al database |
 | Tabella | Nome della tabella in cui verrà scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
+
+> [AZURE.NOTE] Attualmente l'offerta relativa al database SQL di Azure è supportata per un output di processi in Analisi di flusso. Non è tuttavia supportata una macchina virtuale di Azure che esegue SQL Server con un database collegato. Questo comportamento sarà soggetto a modifiche nelle versioni future.
 
 ## Archiviazione BLOB
 
@@ -316,4 +318,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

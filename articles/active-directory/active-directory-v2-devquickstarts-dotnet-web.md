@@ -207,4 +207,8 @@ Per altre risorse, vedere:
 - [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0323_2016-->
+## Ottenere aggiornamenti della sicurezza per i prodotti
+
+È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
+
+<!---HONumber=AcomDC_0601_2016-->
