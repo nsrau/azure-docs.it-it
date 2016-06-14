@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido per l'esecuzione di test
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
  
 Questo argomento illustra la creazione di un ambiente cloud ibrido in Microsoft Azure per attività di test. Di seguito è riportata la configurazione risultante.
 
@@ -45,11 +43,11 @@ L'impostazione di un ambiente di test del cloud ibrido comporta cinque fasi prin
 4.	Creare la connessione VPN da sito a sito.
 5.	Configurare DC2. 
 
-Se non si ha già una sottoscrizione di Azure, è possibile iscriversi per ottenere un account gratuito nella pagina della [versione di valutazione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se si ha una sottoscrizione di MSDN o Visual Studio, vedere [Crediti mensili Azure per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si ha già una sottoscrizione di Azure, è possibile iscriversi per ottenere un account gratuito nella pagina [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/). Se si ha una sottoscrizione di MSDN o di Visual Studio, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Un gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](https://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi di esecuzione del gateway VPN, creare l'ambiente di test ed eseguire il test e la dimostrazione necessari il più rapidamente possibile.
 
-Questa configurazione richiede una subnet di test di fino a quattro computer connessi direttamente a Internet utilizzando un indirizzo IP pubblico. Se non si hanno queste risorse, è anche possibile [configurare un ambiente cloud ibrido simulato per i test](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). L'ambiente di test cloud ibrida simulato richiede una sottoscrizione di Azure.
+Questa configurazione richiede una subnet di test di fino a quattro computer connessi direttamente a Internet utilizzando un indirizzo IP pubblico. Se non si hanno queste risorse, è anche possibile [configurare un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). L'ambiente di test cloud ibrida simulato richiede una sottoscrizione di Azure.
 
 ## Fase 1: Configurare i computer nella subnet Corpnet.
 
@@ -189,7 +187,7 @@ Usare quindi il comando seguente per determinare l'indirizzo IP pubblico del gat
 
 Prendere nota dell'indirizzo IP nel campo **IPAddress** dello schermo. Sarà necessario per la fase 4.
 
-Richiedere quindi all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo sulla [creazione di una stringa casuale per una chiave precondivisa IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) per ottenere una chiave precondivisa.
+Richiedere quindi all'amministratore di rete o della sicurezza una chiave casuale, crittograficamente complessa, a 32 caratteri, precondivisa. In alternativa, usare le informazioni fornite nell'articolo [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creare una stringa casuale per una chiave precondivisa IPsec) per ottenere una chiave precondivisa.
 
 Usare i comandi seguenti per creare la connessione VPN da sito a sito in Azure.
 
@@ -287,7 +285,7 @@ Configurare quindi una regola di Windows Firewall per permettere il traffico per
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-Il comando ping dovrebbe restituire quattro risposte dall'indirizzo IP 10.0.0.1. Se si sta usando la *configurazione del cloud ibrido simulato*, verranno visualizzate le risposte corrette dall'indirizzo IP 10.0.0.4. Questo è un test del traffico per la connessione VPN da sito a sito o da rete virtuale a rete virtuale.
+Il comando ping dovrebbe restituire quattro risposte dall'indirizzo IP 10.0.0.1. Se si sta usando la *configurazione del cloud ibrido simulato*, verranno visualizzate quattro risposte corrette dall'indirizzo IP 10.0.0.4. Questo è un test del traffico per la connessione VPN da sito a sito o da rete virtuale a rete virtuale.
 
 Quindi, aggiungere un altro disco dati come nuovo volume con la lettera di unità F:.
 
@@ -329,6 +327,6 @@ L'ambiente cloud ibrido è ora pronto per il testing.
  
 ## Passaggi successivi
 
-- Impostare una [farm Intranet di SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), un'[applicazione line-of-business basata sul Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [server di sincronizzazione della directory di Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) in questo ambiente.
+- Impostare una [farm Intranet di SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), un'[applicazione LOB basata sul Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [server di sincronizzazione della directory di Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) in questo ambiente.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

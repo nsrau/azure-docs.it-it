@@ -2,7 +2,8 @@
 	pageTitle="Creare una macchina virtuale Oracle Database con il portale di Azure classico | Microsoft Azure"
 	description="Informazioni su come creare una macchina virtuale con un database Oracle all'interno usando il modello di distribuzione classica e il portale di Azure."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 
@@ -12,47 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Creare una macchina virtuale Oracle Database in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-
-Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su un'immagine Oracle Database fornita da Microsoft in esecuzione su Windows Server 2012 in Azure. Sono disponibili due passaggi: Innanzitutto, creare la macchina virtuale e quindi creare il Database Oracle all'interno della macchina virtuale. Nell'esempio mostrato viene utilizzata la versione 12c di Oracle Database, ma i passaggi per la versione 11g sono praticamente identici.
-
-##Per creare una macchina virtuale Oracle Database in Azure
-
-1.	Accedere al [Portale di Azure](https://ms.portal.azure.com/).
-
-2.	Fare clic su **Marketplace**, su **Calcolo** e quindi digitare **Oracle** nella casella di ricerca.
-
-3.	Selezionare una delle immagini Oracle Database disponibili, tra cui **versione 11g, versione 12c, Standard Edition, Enterprise Edition oppure uno dei bundle di opzioni comuni o avanzate**. Esaminare le informazioni sull'immagine selezionata, ad esempio le dimensioni minime consigliate, quindi fare clic su **Avanti**.
-
-4.	Specificare un **nome host** per la macchina virtuale.
-
-5.	Specificare un **nome utente** per la macchina virtuale. Tenere presente che questo utente può essere utilizzato per l’accesso in remoto alla macchina virtuale e non è il nome utente del database Oracle.
-
-6.	Specificare e confermare una password per la macchina virtuale o fornire una chiave pubblica SSH.
-
-7.	Scegliere un **piano tariffario**. Per impostazione predefinita, vengono visualizzati i livelli di prezzo consigliati. Per visualizzare tutte le opzioni di configurazione, fare clic su **Visualizza tutto** in alto a destra.
-
-8.	Impostare la configurazione facoltativa in base alle esigenze, con queste considerazioni:
-
-	a. Lasciare **Account di archiviazione** invariato per creare un nuovo account di archiviazione con il nome della macchina virtuale.
-
-	b. Lasciare **Set di disponibilità** come «Non configurato».
-
-	c. Al momento non aggiungere alcun **endpoint**.
-
-9.	Scegliere o creare un gruppo di risorse.
-
-10. Scegliere una **sottoscrizione**.
-
-11. Scegliere una **posizione**.
-
-12. Fare clic su **Crea** e verrà avviato il processo di creazione di una macchina virtuale. Quando lo stato della macchina virtuale è **In esecuzione**, passare alla procedura successiva.
+L'esempio seguente illustra come creare un Database Oracle in una macchina virtuale Windows Server in cui sia già creato e installato il Database Oracle in versione 12C. Sono disponibili due passaggi: Innanzitutto, collegare la macchina virtuale e quindi creare il Database Oracle all'interno della VM. Nell'esempio mostrato viene utilizzata la versione 12c di Oracle Database, ma i passaggi per la versione 11g sono praticamente identici.
 
 
 ##Creazione del database utilizzando la macchina virtuale Oracle Database in Azure
@@ -105,7 +73,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Conferma dell’installazione del database
 
-1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start*, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
+1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start**, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
 
 2.	Quando richiesto, accedere con il nome utente di **SISTEMA** e la password specificata durante la creazione del database Oracle.
 
@@ -200,4 +168,4 @@ Dopo aver configurato la macchina virtuale e creato il database, vedere gli argo
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

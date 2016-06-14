@@ -19,9 +19,7 @@
 
 # Applicare criteri a macchine virtuali di Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica
-
-Tramite i criteri è possibile imporre convenzioni e regole diverse in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
+Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
 
 Per eseguire questa operazione, seguire questa procedura:
 
@@ -92,8 +90,8 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 |----------------|----------------------------------------------------|
 | imagePublisher | Specifica l'editore dell'immagine |
 | imageOffer | Specifica l'offerta per l'editore dell'immagine prescelto |
-| imageSku | Specifica la SKU per l'offerta prescelta |
-| imageVersion | Specifica la versione di immagine per la SKU prescelta |
+| imageSku | Specifica lo SKU per l'offerta prescelta |
+| imageVersion | Specifica la versione di immagine per lo SKU prescelto |
 
 ## Creare i criteri
 
@@ -108,4 +106,4 @@ Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambi
 
 * [Creazione dei criteri](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

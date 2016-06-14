@@ -16,46 +16,46 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-  # Loop, ambiti e scomposizione batch delle app per la logica
+# Cicli, ambiti e debatching delle app per la logica
   
-  >[AZURE.NOTE] Questa versione dell'articolo si applica allo schema 2016-04-01-preview e versioni successive delle app per la logica. I concetti sono simili per gli schemi precedenti, ma gli ambiti sono disponibili solo per questo schema e le versioni successive.
+>[AZURE.NOTE] Questa versione dell'articolo si applica allo schema 2016-04-01-preview e versioni successive delle app per la logica. I concetti sono simili per gli schemi precedenti, ma gli ambiti sono disponibili solo per questo schema e le versioni successive.
   
-  ## Loop e matrici ForEach
+## Cicli ForEach e matrici
   
-  App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento. Per queste operazioni viene usata l'azione `foreach`. Nella finestra di progettazione è possibile specificare l'aggiunta di un loop ForEach. Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni. Attualmente è possibile eseguire solo un'azione per ogni loop ForEach, ma questa limitazione verrà rimossa nelle prossime settimane. All'interno del loop è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
-  
-  Se si usa la visualizzazione del codice, è possibile specificare un loop ForEach come nell'illustrazione che segue. In questo esempio di loop ForEach viene inviato un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene "microsoft.com":
-  
-  ```
-  {
-      "forEach_email": {
-          "type": "foreach",
-          "foreach": "@triggerBody()['emails']",
-          "expression": "@contains(item(), 'microsoft.com')",
-          "actions": {
-              "send_email": {
-                  "type": "ApiConnection",
-                  "inputs": {
-                    "body": {
-                        "to": "@item()",
-                        "from": "me@contoso.com",
-                        "message": "Hello, thank you for ordering"
+App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento. Per queste operazioni viene usata l'azione `foreach`. Nella finestra di progettazione è possibile specificare l'aggiunta di un loop ForEach. Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni. Attualmente è possibile eseguire solo un'azione per ogni loop ForEach, ma questa limitazione verrà rimossa nelle prossime settimane. All'interno del loop è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
+
+Se si usa la visualizzazione del codice, è possibile specificare un loop ForEach come nell'illustrazione che segue. In questo esempio di loop ForEach viene inviato un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene "microsoft.com":
+
+```
+{
+    "forEach_email": {
+        "type": "foreach",
+        "foreach": "@triggerBody()['emails']",
+        "expression": "@contains(item(), 'microsoft.com')",
+        "actions": {
+            "send_email": {
+                "type": "ApiConnection",
+                "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                }
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
                     }
-                    "host": {
-                        "connection": {
-                            "id": "@parameters('$connections')['office365']['connection']['id']"
-                        }
-                    }
-                  }
-              }
-          }
-      }
-  }
-  ```
+                }
+                }
+            }
+        }
+    }
+}
+```
   
   Un'azione `foreach` è in grado di eseguire l'iterazione su matrici con fino a 5.000 righe. Ogni iterazione può essere eseguita in parallelo, quindi può essere necessario aggiungere messaggi a una coda se è richiesto il controllo di flusso.
   
-  ## Loop Until
+## Ciclo until
   
   È possibile eseguire un'azione o una serie di azioni finché non viene soddisfatta una condizione. Lo scenario più comune è quello in cui si chiama un endpoint fino a ottenere la risposta desiderata. Nella finestra di progettazione è possibile specificare l'aggiunta di un loop Until. Dopo avere aggiunto le azioni nel loop, è possibile impostare la condizione di uscita, nonché i limiti del loop. Si verifica un ritardo di 1 minuto tra i cicli del loop.
   
@@ -132,4 +132,4 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 }
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

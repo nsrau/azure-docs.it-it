@@ -41,8 +41,8 @@ Per le nuove macchine virtuali basate su Azure Resource Manager (set di scalabil
 ## Autenticazione nei webhook
 Esistono due tipi di URI di autenticazione:
 
-	1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Autenticazione basata su token, che prevede il salvataggio dell'URI del webhook con un ID token come parametro di query. Ad esempio, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Autenticazione di base, che prevede l'uso di un ID utente e una password. Ad esempio, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## Schema di payload del webhook di notifica di scalabilità automatica
 Quando viene generata la notifica di scalabilità automatica, nel payload del webhook vengono inclusi i metadati seguenti:
@@ -91,6 +91,6 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 |portalLink |Sì |Collegamento del portale di Azure alla pagina di riepilogo della risorsa di destinazione|
 |oldCapacity|	Sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità|
 |newCapacity|	Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa|
-|Proprietà|	No|	Facoltativo. Set di <Key  Value> coppie (ad esempio, Dictionary <String  String>). Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query)|
+|Proprietà|	No|	Facoltativo. Set di coppie <Key  Value> (ad esempio, Dictionary <String  String>). Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

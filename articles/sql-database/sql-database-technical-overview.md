@@ -41,7 +41,7 @@ Ma come è possibile confrontare le prestazioni relative di database e i pool di
 
 Il settore di Azure che ha una accordo sul livello di disponibilità del servizio del 99,99% [(SLA)](http://azure.microsoft.com/support/legal/sla/), fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. Con ogni database SQL, si sfruttano i vantaggi della protezione dati incorporata, la tolleranza di errore e la protezione dei dati che sarebbe altrimenti necessario progettare, acquistare, compilare e gestire. Anche in questo caso, a seconda delle esigenze dell'azienda, si possono chiedere ulteriori livelli di protezione per garantire che l'app e l'azienda possano ripristinarsi rapidamente in caso di emergenza, di errore o di altri elementi. Con il database SQL ogni livello di servizio offre un diverso menu di funzionalità, che è possibile usare per iniziare subito e rimanere operativi. È possibile utilizzare un ripristino temporizzato per riportare un database a uno stato precedente, anche per 35 giorni. Inoltre, se nel datacenter che ospita i database si verifica un'interruzione, è possibile eseguire il failover alle repliche del database in un'area diversa. Oppure è possibile utilizzare le repliche per gli aggiornamenti o la rilocazione in aree diverse.
 
-![Replica geografica del Database SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
+![Replica geografica del database SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
 Vedere [Continuità aziendale](sql-database-business-continuity.md) per informazioni dettagliate sulle diverse funzionalità per la continuità aziendale disponibili per i diversi livelli di servizio.
@@ -59,4 +59,4 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 - Creare la prima app in C#, Java, Node.js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 - Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio database SQL di Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

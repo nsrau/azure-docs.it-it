@@ -80,23 +80,23 @@ Prima di poter analizzare un set di dati è in genere necessario pre-elaborarlo.
 
 Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno rimosse tutte le righe con dati mancanti.
 
-1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
+1. Digitare **select columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati), quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
-2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Proprietà**.
+2. Selezionare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Proprietà**.
 
-	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Project Columns][project-columns] esaminerà tutte le colonne, ad eccezione di quelle che verranno escluse.
+	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) analizzerà tutte le colonne, ad eccezione di quelle che verranno escluse.
 	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
 	- Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne.
 
     ![Selezione colonne][screen3]
 
-	Il riquadro delle proprietà per **Project Columns** indica che verranno esaminate tutte le colonne del set di dati ad eccezione di **normalized-losses**.
+	Il riquadro delle proprietà per **Select Columns in Dataset** (Seleziona colonne in set di dati) indica che verranno analizzate tutte le colonne del set di dati ad eccezione di **normalized-losses**.
 
-    ![Proprietà Project Columns][screen4]
+    ![Proprietà di Select Columns in Dataset (Seleziona colonne in set di dati)][screen4]
 
-    > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Project Columns][project-columns] e immettere il commento "Escludi normalized-losses".
+    > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso fare doppio clic sul modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e immettere il commento "Escludi normalized-losses".
 
-3. Trascinare il modulo [Clean Missing Data][clean-missing-data] nell'area di disegno dell'esperimento e connetterlo al modulo [Project Columns][project-columns]. Nel riquadro **Properties** selezionare **Remove entire row** in **Cleaning mode** per pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
+3. Trascinare il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) nell'area di disegno dell'esperimento e connetterlo al modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Nel riquadro **Properties** selezionare **Remove entire row** in **Cleaning mode** per pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
 
 	![Proprietà Clean Missing Data][screen4a]
 
@@ -114,17 +114,17 @@ A questo punto, una volta puliti i dati è possibile specificare le caratteristi
 
 In Machine Learning le *caratteristiche* sono singole proprietà misurabili di un elemento a cui si è interessati. Nel set di dati corrente ogni riga rappresenta un'automobile e ogni colonna è una caratteristica di tale automobile. Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Inoltre, alcune caratteristiche sono strettamente correlate ad altre (ad esempio city-mpg e highway-mpg), di conseguenza non aggiungono nuove informazioni al modello e possono essere rimosse.
 
-Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Come prima ipotesi, verranno selezionate le seguenti caratteristiche (colonne) con il modulo [Project Columns][project-columns]. Tenere presente che per il training del modello è necessario includere il valore *price* relativo al prezzo che si intende stimare.
+Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. Se si vuole, si può tornare indietro e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Come prima ipotesi verranno selezionate le caratteristiche (colonne) seguenti con il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Tenere presente che per il training del modello è necessario includere il valore *price* relativo al prezzo che si intende stimare.
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Trascinare un altro modulo [Project Columns][project-columns] nell'area di disegno dell'esperimento e connetterlo alla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data]. Fare doppio clic sul modulo e digitare "Selezionare le caratteristiche per la stima".
+1. Trascinare un altro modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) nell'area di disegno dell'esperimento e connetterlo alla porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti). Fare doppio clic sul modulo e digitare "Selezionare le caratteristiche per la stima".
 
 2. Fare clic su **Launch column selector** nel riquadro **Properties**.
 
 3. Nel selettore di colonna, selezionare **No columns** per **Begin With** e quindi selezionare **Include** e **column names** nella riga del filtro. Immettere l'elenco di nomi di colonna. In tal modo il modulo passerà solo nelle colonne specificate.
 
-	> [AZURE.TIP] Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Project Columns][project-columns] a [Clean Missing Data][clean-missing-data], il modulo [Project Columns][project-columns] riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
+	> [AZURE.TIP] Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) a [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti), il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
 
 4. Fare clic sul pulsante di segno di spunta (OK).
 
@@ -140,11 +140,11 @@ La *classificazione* e la *regressione* sono due tipi di tecniche di Machine Lea
 
 Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi, si userà un modello basato su regressione. Per questo esempio, verrà eseguito il training di un semplice modello di *regressione lineare*, che verrà testato nel passaggio successivo.
 
-1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Project Columns][project-columns]. Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
+1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] (Dividi dati) nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
 
 	> [AZURE.TIP] Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
-2. Eseguire l'esperimento. In questo modo, i moduli [Project Columns][project-columns] e [Split Data][split] potranno passare le definizioni di colonna ai moduli che saranno aggiunti successivamente.
+2. Eseguire l'esperimento. In questo modo, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) potranno passare le definizioni di colonna ai moduli che saranno aggiunti successivamente.
 
 3. Per selezionare l'algoritmo di apprendimento, espandere la categoria **Machine Learning** nella tavolozza dei moduli a sinistra dell'area di disegno e quindi espandere **Initialize Model**. Verranno visualizzate diverse categorie di moduli che possono essere usate per inizializzare gli algoritmi di Machine Learning.
 
@@ -229,9 +229,9 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

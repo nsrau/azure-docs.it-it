@@ -19,9 +19,6 @@
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 2: Configurare i controller di dominio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
- 
-
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono configurati due controller di dominio di replica nella rete virtuale di Azure in modo che le richieste Web dei client relative alle risorse Web possano essere autenticate nella rete virtuale di Azure invece di usare la connessione VPN o ExpressRoute per inviare il traffico di autenticazione alla rete locale.
 
 È necessario completare questa fase prima di passare alla [Fase 3](virtual-machines-windows-ps-lob-ph3.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-windows-lob-overview.md).
@@ -197,4 +194,4 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 - Seguire la [Fase 3](virtual-machines-windows-ps-lob-ph3.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

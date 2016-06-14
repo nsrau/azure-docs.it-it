@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/27/2016"
 	ms.author="mimig"/>
 
 # Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB
@@ -66,9 +66,9 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-5. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
+5. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **OK**.
 
-	![Schermata con il livello Uniformità e il pulsante Salva](./media/documentdb-consistency-levels/database-consistency-level-2.png)
+	![Screenshot con il livello di coerenza e il pulsante OK](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Livelli di coerenza per le query
 
@@ -91,4 +91,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica delimitata obsolescenza (PBS) per pratiche quorum parziale.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

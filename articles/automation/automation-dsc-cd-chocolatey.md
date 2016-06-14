@@ -58,16 +58,16 @@ Il procedimento funziona anche se non si inizia con un modello ARM. Sono disponi
 
 ## Passaggio 1: Configurazione del server di pull e dell'account di automazione
 
-Da una riga di comando di PowerShell autenticata (Add-AzureAccount), la configurazione del server di pull può richiedere alcuni minuti:
+Da una riga di comando di PowerShell (Add-AzureRmAccount) autenticata (la configurazione del server di pull può richiedere alcuni minuti):
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Giappone orientale, Stati Uniti orientali 2, Europa occidentale, Asia sudorientale, Stati Uniti centro-meridionali.
 
 ## Passaggio 2: Modifiche dell'estensione VM nel modello ARM
 
-I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell DSC, sono disponibili in questo [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Questo passaggio registra la nuova VM con il server di pull nell'elenco di nodi DSC. Parte di tale registrazione consiste nella specifica della configurazione da applicare ai nodi. Questa configurazione di nodi non deve essere già presente nel server di pull, pertanto il passaggio 4 può essere eseguito quando la configurazione viene effettuata per la prima volta. In questo passaggio 2 è tuttavia necessario definire il nome del nodo e della configurazione. In questo esempio di utilizzo, il nodo è 'isvbox' e la configurazione è 'ISVBoxConfig'. Pertanto il nome della configurazione di nodi da specificare in DeploymentTemplate.json è 'ISVBoxConfig.isvbox'.
+I dettagli per la registrazione della VM, usando l'estensione VM di PowerShell DSC, sono disponibili in questo [modello di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Questo passaggio registra la nuova VM con il server di pull nell'elenco di nodi DSC. Parte di tale registrazione consiste nella specifica della configurazione da applicare ai nodi. Questa configurazione di nodi non deve essere già presente nel server di pull e questa operazione può quindi essere eseguita per la prima volta nel passaggio 4. In questo passaggio 2 è tuttavia necessario definire il nome del nodo e della configurazione. In questo esempio di utilizzo, il nodo è 'isvbox' e la configurazione è 'ISVBoxConfig'. Pertanto il nome della configurazione di nodi da specificare in DeploymentTemplate.json è 'ISVBoxConfig.isvbox'.
 
 ## Passaggio 3: Aggiunta delle risorse DSC necessarie al server di pull
 
@@ -78,16 +78,16 @@ PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'a
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Installare il modulo necessario nella workstation, come indicato di seguito:
-    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10)
-    -   `Install-Module  –ModuleName MODULENAME` <—estrae il modulo da PowerShell Gallery. 
+    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10).
+    -   `Install-Module –Name MODULE-NAME` <—estrae il modulo da PowerShell Gallery. 
 -   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
 -   Eliminare esempi e documentazione dalla cartella principale. 
 -   Comprimere la cartella principale e denominare il file ZIP esattamente come la cartella. 
--   Inserire il file con estensione zip in una posizione HTTP raggiungibile, ad esempio l'archiviazione BLOB in un Account di archiviazione di Azure.
+-   Inserire il file ZIP in una posizione HTTP raggiungibile, ad esempio l'archivio BLOB in un account di archiviazione di Azure.
 -   Eseguire questo comando di PowerShell:
 
-        New-AzureAutomationModule ``
-            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+        New-AzureRmAutomationModule `
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
@@ -171,7 +171,7 @@ Ogni volta che una versione passa il controllo di qualità e viene approvata per
 
 ## Note
 
-Questo esempio di utilizzo inizia con una VM da un'immagine generica di Windows 2012 R2 disponibile nella Raccolta di Azure. È possibile iniziare da qualsiasi immagine archiviata e usarla come base per modificare la configurazione di DSC. La modifica della configurazione basata su un'immagine è tuttavia molto più complessa rispetto all'aggiornamento dinamico della configurazione mediante DSC.
+Questo esempio di uso inizia con una VM da un'immagine generica di Windows 2012 R2 disponibile nella raccolta di Azure. È possibile iniziare da qualsiasi immagine archiviata e usarla come base per modificare la configurazione DSC. La modifica della configurazione basata su un'immagine è tuttavia molto più complessa rispetto all'aggiornamento dinamico della configurazione mediante DSC.
 
 Non è necessario usare un modello ARM e l'estensione VM per usare questa tecnica con le proprie VM. Inoltre, le VM non devono trovarsi necessariamente in Azure per la gestione della distribuzione continua. È solo necessario che Chocolatey sia installato e che Gestione configurazione locale sia configurato nella VM perché riconosca la posizione del server di pull.
 
@@ -185,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

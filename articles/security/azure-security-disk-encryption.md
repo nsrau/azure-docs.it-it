@@ -262,23 +262,23 @@ Usare il cmdlet di PowerShell seguente per creare una nuova app Azure AD:
 
 1\.Fare clic sulla scheda Active Directory illustrata nella figura seguente:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\.Fare clic su Aggiungi applicazione e digitare il nome dell'applicazione come illustrato di seguito:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\.Fare clic sul pulsante con la freccia e configurare le proprietà dell'app come illustrato di seguito:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\.Fare clic sul segno di spunta nell'angolo in basso a sinistra per completare l'operazione. Verrà visualizzata la pagina di configurazione dell'app. Notare che l'ID client di Azure AD si trova in basso nella pagina, come illustrato nella figura seguente.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5\.Per salvare il segreto client di Azure AD usare il pulsante Salva. Fare clic sul pulsante Salva e prendere nota del segreto indicato nella casella di testo delle chiavi. Questo è il segreto client di Azure AD. Il segreto client di Azure AD dovrà essere correttamente protetto.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Nota:** il flusso di lavoro precedente non è supportato nel portale.
@@ -845,4 +845,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

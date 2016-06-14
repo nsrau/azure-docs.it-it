@@ -20,8 +20,6 @@
 
 Questo argomento illustra come creare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure in esecuzione nel modello Resource Manager. Un gruppo di disponibilità AlwaysOn richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello classico.
-
 Per completare questa attività, è necessario un gruppo di disponibilità AlwaysOn di SQL Server distribuito in macchine virtuali di Azure nel modello Resource Manager. Entrambe le macchine virtuali di SQL Server devono appartenere allo stesso set di disponibilità. È possibile usare il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) per creare automaticamente il gruppo di disponibilità AlwaysOn in Azure Resource Manager. Questo modello crea automaticamente il servizio di bilanciamento del carico interno.
 
 Se si preferisce, è possibile [configurare manualmente un gruppo di disponibilità AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
@@ -64,7 +62,7 @@ Il primo passaggio consiste nel creare il servizio di bilanciamento del carico. 
 
 | Impostazione | Valore |
 | ----- | ----- |
-| **Nome** | Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio, **sqlLB**. |
+| **Nome** | Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
 | **Schema** | **Interno** |
 | **Rete virtuale** | Scegliere la rete virtuale in cui si trovano le istanze di SQL Server. |
 | **Subnet** | Scegliere la subnet in cui si trovano le istanze di SQL Server. |
@@ -90,7 +88,7 @@ Configurare ora l'indirizzo IP del servizio di bilanciamento del carico.
 
 - Salvare le impostazioni.
 
-Il servizio di bilanciamento del carico ora ha un indirizzo IP. Registrare tale indirizzo IP, che verrà usato quando si creerà un listener nel cluster. Più avanti in questo articolo usare questo indirizzo per la variabile `$ILBIP` in uno script di PowerShell.
+Il servizio di bilanciamento del carico ora ha un indirizzo IP. Registrare tale indirizzo IP, che verrà usato quando si creerà un listener nel cluster. Più avanti in questo articolo si userà questo indirizzo per la variabile `$ILBIP` in uno script di PowerShell.
 
 
 
@@ -128,9 +126,9 @@ Il passaggio successivo consiste nella creazione di un probe. Il probe definisce
 
 | Impostazione | Valore |
 | ----- | ----- |
-| **Nome** | Nome che rappresenta il probe. Ad esempio, **SQLAlwaysOnEndPointProbe**. |
+| **Nome** | Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
 | **Protocollo** | **TCP** |
-| **Porta** | È possibile usare qualsiasi porta disponibile. Ad esempio, *59999*. |
+| **Porta** | È possibile usare qualsiasi porta disponibile. Ad esempio *59999*. |
 | **Interval** | *5* | 
 | **Soglia non integra** | *2* | 
 
@@ -152,7 +150,7 @@ Impostare le regole di bilanciamento del carico. Le regole di bilanciamento del 
 
 | Impostazione | Valore |
 | ----- | ----- |
-| **Nome** | Nome che rappresenta la regola di bilanciamento del carico. Ad esempio, **SQLAlwaysOnEndPointListener**. |
+| **Nome** | Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
 | **Protocollo** | **TCP** |
 | **Porta** | *1433* |
 | **Porta back-end** | *1433*. Si noti che sarà disabilitata perché questa regola usa **IP mobile (Direct Server Return)**. |
@@ -267,4 +265,4 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 - Con un servizio di bilanciamento del carico interno è possibile accedere al listener solo dalla stessa rete virtuale.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

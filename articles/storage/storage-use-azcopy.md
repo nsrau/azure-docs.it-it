@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
@@ -374,13 +374,15 @@ Si supponga che in un contenitore BLOB siano presenti: un file JSON che rapprese
 
 ### Copiare solo i dati che non esistono nella destinazione
 
-I parametri `/XO` e `/XN` consentono di escludere dalla copia, rispettivamente, le risorse di origine precedenti o più recenti. Questi parametri non sono supportati quando l'origine o la destinazione è una tabella. Per copiare solo e risorse di origine che non esistono nella destinazione, è possibile specificare entrambi i parametri nel comando AzCopy:
+I parametri `/XO` e `/XN` consentono di escludere dalla copia, rispettivamente, le risorse di origine precedenti o più recenti. Per copiare solo e risorse di origine che non esistono nella destinazione, è possibile specificare entrambi i parametri nel comando AzCopy:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Nota: questi parametri non sono supportati quando l'origine o la destinazione è una tabella.
 
 ### Usare un file di risposta per specificare i parametri della riga di comando
 
@@ -400,7 +402,7 @@ o su righe separate:
 	/S
 	/Y
 
-Se il parametro viene suddiviso su due righe, l'operazione di AzCopy non riuscirà, come mostrato di seguito per il parametro `/sourcekey`:
+Se il parametro viene suddiviso su due righe, l'operazione di AzCopy avrà esito negativo, come mostrato di seguito per il parametro `/sourcekey`:
 
 	http://myaccount.blob.core.windows.net/mycontainer
  	C:\myfolder
@@ -521,7 +523,7 @@ Se l'origine specificata è una condivisione file di Azure, è necessario specif
 
 AzCopy utilizza la corrispondenza tra maiuscole e minuscole quando l’opzione /Source è un contenitore BLOB o una directory virtuale di BLOB e non utilizza la corrispondenza tra maiuscole e minuscole in tutti gli altri casi.
 
-I criterio del file predefinito usato quando non viene specificato alcun criterio è *.* per un percorso del file system o un prefisso vuoto per un percorso di Archiviazione di Azure. Non è consentito specificare più criteri file.
+Il criterio del file predefinito usato quando non viene specificato alcun criterio è *.* per un percorso del file system o un prefisso vuoto per un percorso di Archiviazione di Azure. Non è consentito specificare più criteri file.
 
 **Applicabile a:** BLOB, file
 
@@ -864,4 +866,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

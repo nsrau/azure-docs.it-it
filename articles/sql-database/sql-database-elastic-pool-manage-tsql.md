@@ -3,18 +3,18 @@
     description="Usare T-SQL per creare un database SQL di Azure in un pool elastico. In alternativa, usare T-SQL per spostare il database all'interno e all'esterno di pool." 
 	services="sql-database" 
     documentationCenter="" 
-    authors="sidneyh" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Monitorare e gestire un pool di database elastici con Transact-SQL  
 
@@ -31,7 +31,7 @@ Usare i comandi [Create Database (database SQL di Azure)](https://msdn.microsoft
 
 
 ## Creare un nuovo database in un pool elastico
-Usare il comando CREATE DATABASE con l'opzione SERVICE_OBJECTIVE.
+Usare il comando CREATE DATABASE con l'opzione SERVICE\_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECT
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Spostare un database in un pool elastico 
-Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECTIVE come ELASTIC_POOL. Come nome, impostare il nome del pool di destinazione.
+Usare il comando ALTER DATABASE con MODIFY e impostare l'opzione SERVICE\_OBJECTIVE come ELASTIC\_POOL. Come nome, impostare il nome del pool di destinazione.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Spostare un database da un pool elastico
-Usare il comando ALTER DATABASE e impostare SERVICE_OBJECTIVE su uno dei livelli di prestazioni, ovvero S0, S1 e così via.
+Usare il comando ALTER DATABASE e impostare SERVICE\_OBJECTIVE su uno dei livelli di prestazioni, ovvero S0, S1 e così via.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
@@ -84,4 +84,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Vedere [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

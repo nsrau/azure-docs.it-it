@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="06/07/2016"
 	ms.author="davidmu"/>
 
 # Creare una VM Windows con Resource Manager e PowerShell
@@ -120,7 +120,7 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    La password deve avere una lunghezza compresa tra 8 e 123 caratteri e includere almeno 3 degli elementi seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.
+    La password deve avere una lunghezza compresa tra 12 e 123 caratteri e includere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.
         
 2. Sostituire il valore di **$vmName** con un nome per la macchina virtuale. Creare la variabile e la configurazione della macchina virtuale.
 
@@ -170,4 +170,4 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 - Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute nell'articolo [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

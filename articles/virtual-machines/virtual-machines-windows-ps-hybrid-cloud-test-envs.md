@@ -19,8 +19,6 @@
 
 # Ambienti di test basati su cloud ibrido
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali (VNet) cross-premise. Al termine, è possibile sviluppare ed effettuare il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale (VPN, Virtual Private Network) site-to-site relativa alla propria posizione su Internet.
 
 ## Configurazione di base del cloud ibrido
@@ -52,4 +50,4 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 - Informazioni sulle [linee guida di implementazione](virtual-machines-linux-infrastructure-service-guidelines.md) per progettare una distribuzione personalizzata di sviluppo/test o produzione nei servizi di infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

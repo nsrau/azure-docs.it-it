@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp (anteprima)
@@ -102,4 +102,4 @@ Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità in antep
 ## Se non è stato possibile provare la funzionalità in anteprima
 Se non si è ancora autorizzati a provare l'anteprima, usare questo [sondaggio](http://www.instant.ly/s/AY83p) per richiedere l'accesso.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Scenari di dati con Archivio Data Lake
@@ -50,7 +50,7 @@ Si tratta dei dati che possono essere generati da origini diverse, ad esempio ap
 
 Di seguito sono elencati gli strumenti che è possibile usare:
  
-* [Analisi di flusso di Azure](../stream-analytics-data-lake-output) - Gli eventi inseriti nell’hub eventi possono essere scritti in Azure Data Lake utilizzando un output dell’archivio Azure Data Lake.
+* [Analisi di flusso di Azure](../stream-analytics-data-lake-output): gli eventi inseriti in Hub eventi possono essere scritti in Azure Data Lake utilizzando un output dell’archivio Azure Data Lake.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - È possibile scrivere i dati direttamente in Archivio Data Lake dal cluster Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) - È possibile ricevere eventi da Hub eventi e scriverli in Archivio Data Lake usando [.NET SDK di Archivio Data Lake](data-lake-store-get-started-net-sdk.md).
 
@@ -85,7 +85,7 @@ La maggior parte dei tipi di cluster HDInsight (Hadoop, HBase, Storm) supportano
 
 L'uso dei metodi descritti in precedenza per il caricamento di set di dati di più terabyte può talvolta risultare lento e costoso. In questi casi, è possibile usare le opzioni seguenti.
 
-* **Caricamento "offline" dei dati**. È possibile usare il [servizio di importazione/esportazione di Azure](../storage/storage-import-export-service.md) per inviare le unità disco rigido con i dati a un data center di Azure dal quale verranno quindi caricati in un BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o lo [strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) per spostare i dati dai BLOB di archiviazione di Azure ad Archivio Data Lake.
+* **Caricamento "offline" dei dati**. È possibile usare il [servizio Importazione/Esportazione di Azure](../storage/storage-import-export-service.md) per inviare le unità disco rigido con i dati a un data center di Azure dal quale verranno quindi caricati in un BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o lo [strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) per spostare i dati dai BLOB di archiviazione di Azure ad Archivio Data Lake.
 
 	>[AZURE.NOTE] Durante l'uso del servizio di importazione/esportazione, le dimensioni dei file nei dischi inviati al data center di Azure non devono superare i 200 GB.
 
@@ -132,6 +132,6 @@ In questi casi, è possibile usare le opzioni seguenti:
 ![Visualizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Archivio Data Lake")
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Archivio Data Lake ad Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* Successivamente, è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) per creare la rappresentazione visiva dei dati.
+* È successivamente possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) per creare la rappresentazione visiva dei dati.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

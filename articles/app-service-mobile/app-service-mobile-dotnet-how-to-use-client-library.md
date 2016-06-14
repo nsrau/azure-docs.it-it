@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/25/2016"
 	ms.author="glenga"/>
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
@@ -22,11 +22,11 @@
 
 ##Panoramica
 
-Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili]. In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, consultare la documentazione sull'uso dell' [SDK del server .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [dell'SDK del server Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili]. In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere la documentazione per [SDK del server back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Node.js SDK per server](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 ## Documentazione di riferimento
 
-La documentazione di riferimento per il client SDK è disponibile qui: [Riferimento al client .NET di app per dispositivi mobili di Azure]. È anche possibile trovare alcuni esempi di client nel [repository GitHub degli esempi di Azure].
+La documentazione di riferimento per l'SDK per client è disponibile nell'articolo di [riferimento al client .NET di app per dispositivi mobili di Azure]. È anche possibile trovare alcuni esempi per client nel [repository GitHub degli esempi di Azure].
 
 ##<a name="setup"></a>Installazione e prerequisiti
 
@@ -447,48 +447,142 @@ Si noti che questa è una chiamata tipizzata al metodo, che richiede che il tipo
 
 App per dispositivi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
 
-Sono supportati due flussi di autenticazione, un _flusso server_ e un _flusso client_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
+Sono supportati due flussi di autenticazione: _gestito dal client_ e _gestito dal server_. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
 
-In entrambi i casi è necessario effettuare la registrazione dell'app con il provider di identità. Il provider di identità fornirà un ID client e un segreto client. È quindi necessario configurare l'autenticazione o l'autorizzazione del servizio app di Azure con l'ID client e il segreto client forniti dal provider di identità. Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app].
+>[AZURE.NOTE] Nelle app di produzione è consigliabile usare un flusso gestito dal client.
 
-###<a name="serverflow"></a>Flusso server
-Dopo aver eseguito la registrazione del provider di identità, chiamare MobileServiceClient.[metodo LoginAsync] con il valore [MobileServiceAuthenticationProvider] del provider. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
+Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità. Il provider di identità genera un ID client e un segreto client per l'app, che vengono quindi impostati nel back-end per abilitare l'autenticazione/autorizzazione del servizio app di Azure tramite quel provider di identità. Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Windows].
 
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
+Questo articolo descrive gli argomenti seguenti:
 
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
++ [Autenticazione gestita dal client](#client-flow)
++ [Autenticazione gestita dal server](#serverflow)
++ [Memorizzazione nella cache del token di autenticazione](#caching)
 
-Se si usa un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider] con il nome del provider.
+###<a name="client-flow"></a>Autenticazione gestita dal client
 
-In un flusso server, il servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione del servizio app una volta eseguito correttamente l'accesso con il provider di identità. Il metodo LoginAsync restituisce [MobileServiceUser] con cui si ottiene sia il valore [UserId] dell'utente autenticato, sia [MobileServiceAuthenticationToken] come token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
+L'app può contattare il provider di identità in modo indipendente e quindi fornire il token restituito durante l'accesso con il back-end. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi. Questo approccio può essere preferibile rispetto all'uso di un flusso server, perché fornisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-###<a name="client-flow"></a>Flusso client
+Vengono forniti esempi per i modelli di autenticazione del flusso client seguenti:
 
-L'app può anche contattare il provider di identità in modo indipendente e quindi fornire il token restituito al servizio app per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
++ [Active Directory Authentication Library](#adal)
++ [Facebook o Google](#client-facebook)
++ [Live SDK](#client-livesdk)
 
-####Accesso singolo utilizzando un token da Facebook o Google
+#### <a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library
 
-Nella forma più semplice, è possibile utilizzare il flusso client come illustrato in questo frammento di codice per Facebook o Google.
+È possibile usare Active Directory Authentication Library (ADAL) per avviare l'autenticazione degli utenti dal client usando l'autenticazione di Azure Active Directory.
+
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad AAD seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+
+2. In Visual Studio o Xamarin Studio aprire il progetto e aggiungere un riferimento al pacchetto NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Includere nella ricerca le versioni non definitive.
+
+3. Aggiungere il codice seguente all'applicazione, in base alla piattaforma usata. Apportare le sostituzioni seguenti:
+
+	* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
+	
+	* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo ID è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+	
+	* Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
+	
+	* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
+	
+	Il codice necessario per ogni piattaforma è riportato di seguito:
+	
+	**Windows:**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        while (user == null)
+	        {
+	            string message;
+	            try
+	            {
+	                AuthenticationContext ac = new AuthenticationContext(authority);
+	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+						new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+	                JObject payload = new JObject();
+	                payload["access_token"] = ar.AccessToken;
+	                user = await App.MobileService.LoginAsync(
+						MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	                message = string.Format("You are now logged in - {0}", user.UserId);
+	            }
+	            catch (InvalidOperationException)
+	            {
+	                message = "You must log in. Login Required";
+	            }
+	            var dialog = new MessageDialog(message);
+	            dialog.Commands.Add(new UICommand("OK"));
+	            await dialog.ShowAsync();
+	        }
+	    }
+	
+	**Xamarin.iOS**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync(UIViewController view)
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(view));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+	        }
+	    }
+	
+	**Xamarin.Android**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(this));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	            builder.SetMessage(ex.Message);
+	            builder.SetTitle("You must log in. Login Required");
+	            builder.Create().Show();
+	        }
+	    }
+	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+	    {
+	        base.OnActivityResult(requestCode, resultCode, data);
+	        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+	    }
+
+####<a name="client-facebook"></a>Single Sign-On con un token da Facebook o Google
+
+È possibile usare il flusso client come illustrato in questo frammento di codice per Facebook o Google.
 
 	var token = new JObject();
 	// Replace access_token_value with actual value of your access token obtained
@@ -519,9 +613,9 @@ Nella forma più semplice, è possibile utilizzare il flusso client come illustr
 		}
 	}
 
-####Accesso singolo utilizzando un account Microsoft con Live SDK
+####<a name="client-livesdk"></a>Single Sign-On con un account Microsoft con Live SDK
 
-Per poter autenticare gli utenti, è necessario registrare l'app presso il centro per sviluppatori degli account Microsoft. È quindi necessario connettere questa registrazione al back-end dell'app per i dispositivi mobili. Completare i passaggi nell'argomento [Registrare un'app per l'uso delle credenziali d'accesso di un account Microsoft] per creare una registrazione di account Microsoft e connettersi al back-end dell'app per dispositivi mobili. Se si dispone di entrambe le versioni dell'app (Windows Store e Windows Phone 8/Silverlight), registrare prima la versione di Windows Store.
+Per poter autenticare gli utenti, è necessario registrare l'app presso il centro per sviluppatori degli account Microsoft. È quindi necessario connettere questa registrazione al back-end dell'app per i dispositivi mobili. Completare i passaggi nell'articolo [Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft] per creare la registrazione di un account Microsoft e connetterlo al back-end dell'app per dispositivi mobili. Se si dispone di entrambe le versioni dell'app (Windows Store e Windows Phone 8/Silverlight), registrare prima la versione di Windows Store.
 
 Il codice seguente esegue l'autenticazione usando Live SDK e usa il token restituito per effettuare l'accesso al back-end dell'app per i dispositivi mobili.
 
@@ -572,145 +666,83 @@ Il codice seguente esegue l'autenticazione usando Live SDK e usa il token restit
         }
     }
 
-Per altre informazioni su [Windows Live SDK], vedere la documentazione.
+Per altre informazioni su [Windows Live SDK], vedere la relativa documentazione.
+
+###<a name="serverflow"></a>Autenticazione gestita dal server
+Dopo aver eseguito la registrazione del provider di identità, chiamare il metodo [LoginAsync] su [MobileServiceClient] con il valore [MobileServiceAuthenticationProvider] del provider. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
+
+	private MobileServiceUser user;
+	private async System.Threading.Tasks.Task Authenticate()
+	{
+		while (user == null)
+		{
+			string message;
+			try
+			{
+				user = await client
+					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+				message =
+					string.Format("You are now logged in - {0}", user.UserId);
+			}
+			catch (InvalidOperationException)
+			{
+				message = "You must log in. Login Required";
+			}
+
+			var dialog = new MessageDialog(message);
+			dialog.Commands.Add(new UICommand("OK"));
+			await dialog.ShowAsync();
+		}
+	}
+
+Se si usa un provider di identità diverso da Facebook, sostituire il valore di [MobileServiceAuthenticationProvider] con il nome del provider.
+
+In un flusso server, il servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione del servizio app una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync] restituisce [MobileServiceUser] con cui si ottiene sia il valore [UserId] dell'utente autenticato, sia [MobileServiceAuthenticationToken] come token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
 
 ###<a name="caching"></a>Memorizzazione nella cache del token di autenticazione
-In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault], le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
 
-	// After logging in
+In alcuni casi, la chiamata al metodo di accesso può essere evitata dopo la prima autenticazione riuscita, archiviando il token di autenticazione ed eventualmente il token di accesso del provider, quando si usa il flusso client.
+
+Le app di Windows Store e UWP possono usare [PasswordVault] per memorizzare nella cache il token di autenticazione corrente dopo un accesso riuscito, come indicato di seguito:
+
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
+
 	PasswordVault vault = new PasswordVault();
-	vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
+	vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId, 
+		client.currentUser.MobileServiceAuthenticationToken));
 
-	// Log in
+Il valore UserId viene archiviato come UserName delle credenziali e il token viene archiviato come Password. Negli avvi successivi è possibile usare **PasswordVault** per verificare le credenziali memorizzate nella cache. L'esempio seguente usa le credenziali memorizzate nella cache quando vengono trovate e, in caso contrario, prova a eseguire di nuovo l'autenticazione con il back-end:
+
+	// Try to retrieve stored credentials.
 	var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 	if (creds != null)
 	{
-		user = new MobileServiceUser(creds.UserName);
-		user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
+		// Create the current user from the stored credentials.
+		client.currentUser = new MobileServiceUser(creds.UserName);
+		client.currentUser.MobileServiceAuthenticationToken = 
+			vault.Retrieve("Facebook", creds.UserName).Password;
 	}
 	else
 	{
-		// Regular login flow
-		user = new MobileServiceuser( await client
-			.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-		var token = new JObject();
-		// Replace access_token_value with actual value of your access token
-		token.Add("access_token", "access_token_value");
+		// Regular login flow and cache the token as shown above.
 	}
 
-	 // Log out
+Quando si disconnette un utente, è necessario rimuovere anche le credenziali archiviate, come indicato di seguito:
+
 	client.Logout();
-	vault.Remove(vault.Retrieve("Facebook", user.UserId));
+	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
+Le app Xamarin usano le API [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) per archiviare in modo sicuro le credenziali in un oggetto **Account**. Per un esempio dell'uso di queste API, vedere il file di codice [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) nell'[esempio di condivisione di foto di ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
 
-Nel caso delle app per Windows Phone, è possibile crittografare i dati e memorizzarli nella cache utilizzando la classe [ProtectedData] e archiviare i dati sensibili in uno spazio di memorizzazione isolato.
+Quando si usa l'autenticazione gestita dal client, è anche possibile memorizzare nella cache il token di accesso fornito dal provider, ad esempio Facebook o Twitter. Questo token può essere fornito per richiedere un nuovo token di autenticazione dal back-end, come indicato di seguito:
 
--->
+	var token = new JObject();
+	// Replace <your_access_token_value> with actual value of your access token
+	token.Add("access_token", "<your_access_token_value>");
 
-### <a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library
+	// Authenticate using the access token.
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
-È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
-
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione relativa alla [configurazione del servizio app per usare l'account di accesso di Active Directory]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
-
-2. In Visual Studio o Xamarin Studio aprire il progetto e aggiungere un riferimento al pacchetto NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Includere le versioni preliminari nella ricerca.
-
-3. Aggiungere il codice seguente all'applicazione, in base alla piattaforma usata. Apportare le sostituzioni seguenti:
-
-* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
-
-* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili, disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
-
-* Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-
-* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
-
-Il codice necessario per ogni piattaforma è riportato di seguito:
-
-**Windows:**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        while (user == null)
-        {
-            string message;
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                message = string.Format("You are now logged in - {0}", user.UserId);
-            }
-            catch (InvalidOperationException)
-            {
-                message = "You must log in. Login Required";
-            }
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-    }
-
-**Xamarin.iOS**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-        }
-    }
-
-**Xamarin.Android**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(ex.Message);
-            builder.SetTitle("You must log in. Login Required");
-            builder.Create().Show();
-        }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
-        base.OnActivityResult(requestCode, resultCode, data);
-        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
 
 ##<a name="pushnotifications">Notifiche push
 
@@ -735,7 +767,7 @@ Il client di App per dispositivi mobili consente di registrarsi per le notifiche
 
 Se si effettua il push a WNS, è necessario ottenere un SID pacchetto di Windows Store (vedere sotto). Si noti che in questo esempio due tag sono inclusi con la registrazione. Per ulteriori informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app].
 
-Si noti che la richiesta di tag dal client non è supportata. Le richieste di tag vengono eliminate automaticamente dalla registrazione. Se si desidera registrare il dispositivo con tag, creare un'API personalizzata che usa l'API di hub di notifica per eseguire la registrazione automaticamente. [Eseguire una chiamata all'API personalizzata](#customapi) anziché al metodo `RegisterNativeAsync()`.
+Si noti che la richiesta di tag dal client non è supportata. Le richieste di tag vengono eliminate automaticamente dalla registrazione. Se si desidera registrare il dispositivo con tag, creare un'API personalizzata che usa l'API di hub di notifica per eseguire la registrazione automaticamente. [Eseguire una chiamata all'API personalizzata](#customapi) invece che al metodo `RegisterNativeAsync()`.
 
 ###<a name="package-sid"></a>Procedura: ottenere un SID pacchetto di Windows Store
 
@@ -792,13 +824,13 @@ Il metodo **RegisterAsync()** accetta anche riquadri secondari:
 
 Si noti che tutti i tag verranno eliminati immediatamente per la sicurezza. Per aggiungere tag all'istallazione o modelli all'interno di istallazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure].
 
-Per inviare notifiche usando questi modelli registrati, vedere le [API degli hub di notifica].
+Per inviare notifiche usando questi modelli registrati, vedere [Riferimento alle API per gli hub di notifica].
 
 ##<a name="misc"></a>Argomenti vari
 
 ###<a name="errors"></a>Procedura: Gestire gli errori
 
-Quando si verifica un errore nel back-end, il client SDK genera `MobileServiceInvalidOperationException`. Nell'esempio seguente viene illustrato come gestire un'eccezione che viene restituita dal back-end:
+Quando si verifica un errore nel back-end, l'SDK per client genera `MobileServiceInvalidOperationException`. Nell'esempio seguente viene illustrato come gestire un'eccezione che viene restituita dal back-end:
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -815,7 +847,7 @@ Quando si verifica un errore nel back-end, il client SDK genera `MobileServiceIn
 		}
 	}
 
-Per un altro tipo di gestione delle condizioni di errore, vedere l'[esempio di file per le app per dispositivi mobili]\: [LoggingHandler] rende disponibile un gestore dei delegati di registrazione (vedere sotto) per registrare le richieste inoltrate al back-end. Ciò consente di eseguire il debug di applicazioni Xamarin in modo semplice anziché basarsi su Fiddler.
+Per un altro tipo di gestione delle condizioni di errore, vedere l'[esempio di file per le app per dispositivi mobili]\: [LoggingHandler] rende disponibile un gestore dei delegati di registrazione (vedere di seguito) per registrare le richieste inoltrate al back-end. Ciò consente di eseguire il debug di applicazioni Xamarin in modo semplice anziché basarsi su Fiddler.
 
 ###<a name="headers"></a>Procedura: Personalizzare le intestazioni delle richieste
 
@@ -862,8 +894,8 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 
 <!-- Internal URLs. -->
 [introduzione alle app per dispositivi mobili]: app-service-mobile-windows-store-dotnet-get-started.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Aggiungere l'autenticazione all'app di Servizi mobili]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Aggiungere l'autenticazione all'app di Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Work with .NET backend SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [How to use the Node.js backend SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
@@ -871,11 +903,11 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Registrare un'app per l'uso delle credenziali d'accesso di un account Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[configurazione del servizio app per usare l'account di accesso di Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[Riferimento al client .NET di app per dispositivi mobili di Azure]: https://msdn.microsoft.com/it-IT/library/azure/mt419521(v=azure.10).aspx
+[riferimento al client .NET di app per dispositivi mobili di Azure]: https://msdn.microsoft.com/it-IT/library/azure/mt419521(v=azure.10).aspx
 [MobileServiceClient]: https://msdn.microsoft.com/it-IT/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 [MobileServiceCollection]: https://msdn.microsoft.com/it-IT/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/it-IT/library/azure/dn268408(v=azure.10).aspx
@@ -909,7 +941,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [Windows Live SDK]: https://msdn.microsoft.com/it-IT/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[API degli hub di notifica]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Riferimento alle API per gli hub di notifica]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [esempio di file per le app per dispositivi mobili]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 [repository GitHub degli esempi di Azure]: https://github.com/Azure-Samples
@@ -922,4 +954,4 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [SymbolSource]: http://www.symbolsource.org/
 [istruzioni di SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

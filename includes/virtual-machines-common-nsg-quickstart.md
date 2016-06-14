@@ -1,12 +1,14 @@
-You open a port, or create an endpoint, in Azure by creating a network filter that allows traffic to your chosen port on a subnet or virtual machine (VM) network interface. These filters, which control both inbound and outbound traffic, are placed in a Network Security Group and attached to the resource that will receive the traffic.
+Aprire una porta o creare un endpoint in Azure tramite la creazione di un filtro di rete che consenta il traffico verso la porta scelta su una subnet o un'interfaccia di rete di macchina virtuale (VM). Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceverà il traffico.
 
-Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you will:
+Si userà un esempio comune di traffico Web sulla porta 80. Dopo aver ottenuto una macchina virtuale configurata per rispondere alle richieste Web sulla porta TCP 80, ricordando anche di avviare i servizi e aprire tutte le regole del firewall del sistema operativo nella macchina virtuale, si procederà a:
 
-1. Create a Network Security Group.
-2. Create an inbound rule allowing traffic with:
-  - the destination port range of "80"
-  - the source port range of "*" (allowing any source port)
-  - a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
-3. Associate the Network Security Group with the VM network interface or subnet.
+1. Creare un gruppo di sicurezza di rete.
+2. Creare una regola in ingresso che consenta il traffico con:
+  - intervallo di porte di destinazione impostato su "80"
+  - intervallo di porte di origine "*", che consente qualsiasi porta di origine
+  - valore di priorità minore di 65.500, per ottenere una priorità più alta rispetto al valore predefinito della regola in ingresso di accesso negato di tipo catch-all
+3. Associare il gruppo di sicurezza di rete con l'interfaccia di rete della VM o con la subnet
     
-You can create very complex network configurations to secure your environment using Network Security Groups and rules, rather than only one or two rules that allow HTTP traffic or remote management. For more information, see the ['More Information'](#more-information-on-network-security-groups) section below or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+È possibile creare configurazioni di rete molto complesse per proteggere l'ambiente mediante gruppi di sicurezza di rete e le regole, invece che solo una o due regole che consentono il traffico HTTP o la gestione remota. Per altre informazioni, vedere la sezione ["Altre informazioni"](#more-information-on-network-security-groups) seguente o [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
+
+<!---HONumber=AcomDC_0601_2016-->

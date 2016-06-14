@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
-	ms.author="sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 # Iniziare a utilizzare gli strumenti di database elastici
 
@@ -101,4 +101,4 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

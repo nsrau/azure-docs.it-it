@@ -39,8 +39,8 @@ Per impostare le proprietà di un oggetto, specificare il valore della propriet�
 L’esempio di codice seguente crea un contenitore e scrive alcuni dei valori delle proprietà in una finestra della console.
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -62,7 +62,7 @@ L’esempio di codice seguente crea un contenitore e scrive alcuni dei valori de
 
 È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla raccolta **Metadati** nella risorsa, quindi chiamare il metodo **SetMetadata** per salvare i valori nel servizio.
 
-> [AZURE.NOTE]\: il nome dei metadati deve essere conforme alle convenzioni di denominazione per gli identificatori C#.
+> [AZURE.NOTE] Il nome dei metadati deve essere conforme alle convenzioni di denominazione degli identificatori C#.
  
 Il seguente codice di esempio imposta i metadati in un contenitore. Un valore è impostato mediante l'utilizzo del metodo di raccolta **Aggiungi**. L'altro valore è impostato utilizzando la sintassi implicita chiave/valore. Entrambi sono validi.
 
@@ -97,4 +97,4 @@ Per recuperare i metadati, chiamare il metodo **FetchAttributes** sul BLOB o sul
 - [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

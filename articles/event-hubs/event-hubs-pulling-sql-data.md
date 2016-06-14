@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/26/2016"
-   ms.author="spyros;spyrossak" />
+   ms.date="05/31/2016"
+   ms.author="spyros;sethm" />
 
 # Estrazione dei dati da SQL a un hub eventi di Azure
 
@@ -42,4 +42,4 @@ Dopo che l'applicazione ha letto il file di configurazione, avvia un ciclo che p
 
 Per distribuire la soluzione, clonare o scaricare l'applicazione SqlToEventHub, modificare il file App.config, compilarlo e infine pubblicarlo. Dopo la pubblicazione, l'applicazione viene eseguita nel portale di Azure classico in Servizi cloud ed è possibile monitorare gli eventi in arrivo nell'hub eventi. Si noti che la frequenza verrà determinata da due elementi: la frequenza degli aggiornamenti della tabella SQL e l'intervallo di sospensione specificato nel file di configurazione per l'applicazione.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

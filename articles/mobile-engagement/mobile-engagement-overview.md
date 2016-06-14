@@ -45,12 +45,10 @@ Microsoft è da tempo impegnata nella tutela della privacy, che costituisce part
 
 ###Passaggi successivi:
 
-[Creare un'app di Azure Mobile Engagement](mobile-engagement-create.md)
-
 [Procedure consigliate e processo di creazione del Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Guida introduttiva (responsabili marketing)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Per iniziare](/documentation/services/mobile-engagement/)
 
-[Guida introduttiva (sviluppatori)](/documentation/services/mobile-engagement/)
+[Scaricare le app demo con il codice sorgente](https://aka.ms/azmedemoapps)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

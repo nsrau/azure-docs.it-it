@@ -3,8 +3,8 @@
 	description="Informazioni su come scaricare e installare Azure SDK per PHP."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 #Download di Azure SDK per PHP
 
@@ -31,11 +31,11 @@ Le sezioni seguenti illustrano come eseguire il download e l'installazione dei c
 
 Le istruzioni fornite in questo argomento presuppongono che [PHP][install-php] sia installato nel computer in uso.
 
-> [AZURE.NOTE] È necessario disporre di PHP 5.3 o versione successiva per usare le librerie client PHP per Azure.
+> [AZURE.NOTE] È necessario avere PHP 5.5 o versione successiva per usare le librerie client PHP per Azure.
 
 ##Librerie client PHP per Azure
 
-Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Possono essere installate tramite Composer, gli strumenti di gestione dei pacchetti PEAR oppure manualmente.
+Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Queste librerie possono essere installate tramite il programma di creazione.
 
 Per informazioni su come usare le librerie client PHP per Azure, vedere [Come usare il servizio BLOB][blob-service], [Come usare il servizio tabelle][table-service] e [Come usare il servizio di accodamento][queue-service].
 
@@ -49,18 +49,9 @@ Per informazioni su come usare le librerie client PHP per Azure, vedere [Come us
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
 
         {
-            "repositories": [
-                {
-                    "type": "pear",
-                    "url": "http://pear.php.net"
-                }
-            ],
-            "require": {
-                "pear-pear.php.net/mail_mime" : "*",
-                "pear-pear.php.net/http_request2" : "*",
-                "pear-pear.php.net/mail_mimedecode" : "*",
-                "microsoft/windowsazure": "*"
-            }
+			"require": {
+				"microsoft/windowsazure": "^0.4"
+			}
         }
 
 3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
@@ -68,30 +59,6 @@ Per informazioni su come usare le librerie client PHP per Azure, vedere [Come us
 4. Aprire un prompt dei comandi ed eseguire quanto segue nella radice del progetto
 
 		php composer.phar install
-
-###Installazione come pacchetto PEAR
-
-Per installare le librerie client PHP per Azure come pacchetto PEAR, eseguire la procedura seguente:
-
-1. [Installare PEAR][install-pear].
-2. Configurare il canale PEAR di Azure:
-
-		pear channel-discover pear.windowsazure.com
-3. Installare il pacchetto PEAR:
-
-		pear install pear.windowsazure.com/WindowsAzure-0.4.1
-
-Al termine dell'installazione, è possibile fare riferimento alle librerie di classi dall'applicazione.
-
-###Installare manualmente
-
-Per scaricare e installare manualmente le librerie client PHP per Azure, attenersi alla procedura seguente:
-
-1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork del repository, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
-
-	> [AZURE.NOTE] Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) e [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti utilizzando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
-
-2. Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione e fare riferimento alle classi dall'applicazione.
 
 ##Azure PowerShell ed emulatori di Azure
 
@@ -113,11 +80,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
 [composer-phar]: http://getcomposer.org/composer.phar
-[pear-net]: http://pear.php.net/
-[http-request2-package]: http://pear.php.net/package/HTTP_Request2
-[mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
-[mail-mime-package]: http://pear.php.net/package/Mail_mime
-[install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447
@@ -130,4 +92,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

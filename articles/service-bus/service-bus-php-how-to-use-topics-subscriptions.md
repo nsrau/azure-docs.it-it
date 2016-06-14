@@ -75,7 +75,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 Per gli esempi illustrati in questo articolo, la stringa di connessione viene passata direttamente.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare **ServiceBusRestProxy->createTopic** per creare un argomento denominato `mytopic` all'interno di uno spazio dei nomi `MySBNamespace`:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ catch(ServiceException $e){
 Il filtro predefinito **MatchAll** viene utilizzato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si utilizza il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata 'mysubscription' e viene utilizzato il filtro predefinito **MatchAll**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -191,7 +191,7 @@ A questo punto, quando viene inviato un messaggio all'argomento `mytopic`, viene
 Per inviare un messaggio a un argomento del bus di servizio, l'applicazione chiama il metodo **ServiceBusRestProxy->sendTopicMessage**. Il codice seguente illustra come inviare un messaggio all'argomento `mytopic` creato in precedenza all'interno dello spazio dei nomi del servizio `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -247,7 +247,7 @@ Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fa
 L'esempio seguente illustra come ricevere ed elaborare un messaggio usando la modalità **PeekLock** (non predefinita).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -300,7 +300,7 @@ Per eliminare un argomento o una sottoscrizione, usare rispettivamente il metodo
 L'esempio seguente illustra come eliminare un argomento denominato `mytopic` e le relative sottoscrizioni registrate.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +338,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 [require-once]: http://php.net/require_once
 [Quote del bus di servizio]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

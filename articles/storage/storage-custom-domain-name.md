@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurare un nome di dominio per l'endpoint di archiviazione BLOB | Microsoft Azure"
-	description="Scoprire come eseguire il mapping di un dominio utente personalizzato all'endpoint di archiviazione BLOB per un account di archiviazione di Azure."
+	description="Informazioni su come eseguire il mapping di un dominio utente personalizzato all'endpoint di archiviazione BLOB per un account di archiviazione di Azure nel portale di Azure classico."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -22,9 +22,6 @@
 ## Panoramica
 
 È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
-
-
-> [AZURE.NOTE]	Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/"> Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato in Servizio app di Azure</a>.
 
 Esistono due modi per puntare il dominio personalizzato all'endpoint BLOB per l'account di archiviazione. Il modo più semplice consiste nel creare un record CNAME per eseguire il mapping del dominio personalizzato e del sottodominio all'endpoint BLOB. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine è rappresentato dal dominio personalizzato e dal relativo sottodominio. Si noti che il sottodominio è sempre obbligatorio. Il dominio di destinazione è l'endpoint del servizio BLOB.
 
@@ -112,8 +109,23 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 -   http://photos.contoso.com/myforms/applicationform.htm
 
+## Annullare la registrazione di un dominio personalizzato dall'account di archiviazione
+
+Per annullare la registrazione di un dominio personalizzato, seguire questa procedura:
+
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com). 
+
+2. Nel riquadro di spostamento fare clic su **Archiviazione**.
+
+3. Nella pagina **Archiviazione** fare clic sul nome dell'account di archiviazione per visualizzare il dashboard.
+
+5. Sulla barra multifunzione fare clic su **Gestisci dominio**.
+
+6. Nella finestra di dialogo **Gestisci dominio personalizzato** fare clic su **Annulla registrazione**.
+
+
 ## Risorse aggiuntive
 
 -   [Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

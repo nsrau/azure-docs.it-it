@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="06/08/2016"
 	ms.author="heidist"/>
 
 # Importare dati in Ricerca di Azure tramite il portale
 
-Il dashboard di Ricerca di Azure nel portale di Azure include un comando **Importa dati** che facilita l'inserimento di dati in Ricerca di Azure. Il comando si basa sulla funzionalità predefinita Indicizzatori che effettua una ricerca per indicizzazione in un'origine dati esistente, creando e caricando documenti in base al set di righe trovato nell'origine dati.
+Il dashboard di Ricerca di Azure nel portale di Azure include un comando **Importa dati** per caricare i dati in un indice. Il comando si basa sulle funzionalità di indicizzazione predefinite che effettuano una ricerca per indicizzazione in un'origine dati esistente, creando e caricando documenti in base al set di righe trovato nell'origine dati.
 
-Con la procedura guidata l'importazione dei dati si compone di 3 parti:
+L'importazione dei dati nella procedura guidata si compone di 3 parti:
 
 - Connessione all'origine dati
 - Indice di destinazione in cui vengono caricati i dati (spesso la procedura può generarlo automaticamente)
@@ -68,6 +68,12 @@ L'operazione di importazione dei dati appena completata ha creato un indicizzato
 
 ##Modificare un indicizzatore esistente
 
-Nel dashboard del servizio fare doppio clic sul riquadro Indicizzatore per visualizzare un elenco di tutti gli indicizzatori creati per la sottoscrizione. Fare doppio clic su uno degli indicizzatori per eseguirlo, modificarlo o eliminarlo.
+Nel dashboard del servizio fare doppio clic sul riquadro Indicizzatore per visualizzare un elenco di tutti gli indicizzatori creati per la sottoscrizione. Fare doppio clic su uno degli indicizzatori per eseguirlo, modificarlo o eliminarlo. È possibile sostituire l'indice con un altro esistente, modificare l'origine dati e impostare le opzioni per le soglie di errore durante l'indicizzazione.
 
-<!---HONumber=AcomDC_0316_2016-->
+##Modificare un indice esistente
+
+In Ricerca di Azure, gli aggiornamenti strutturali in un indice richiedono la ricompilazione dell'indice, che prevede di eliminare e creare di nuovo l'indice e di ricaricare i dati. Gli aggiornamenti strutturali includono la modifica di un tipo di dati e la ridenominazione o eliminazione di un campo.
+
+Le modifiche che non richiedono la ricompilazione includono l'aggiunta di un nuovo campo, la modifica dei profili di punteggio, la modifica degli strumenti suggerimenti o la modifica degli analizzatori del linguaggio. Vedere [Aggiornare un indice](https://msdn.microsoft.com/library/azure/dn800964.aspx) per altre informazioni.
+
+<!---HONumber=AcomDC_0608_2016-->

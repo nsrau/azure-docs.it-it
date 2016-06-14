@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="05/25/2016"
    ms.author="terrylan"/>
 
 # Procedure consigliate e modelli per la sicurezza di Azure
@@ -34,11 +34,11 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 
 Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e sui modelli per la sicurezza di Azure. Ricordare di visitare periodicamente questo sito per conoscere gli aggiornamenti dell'elenco in continua espansione di procedure consigliate e modelli per la sicurezza di Azure:
 
-- [Procedure consigliate per la sicurezza della rete di Azure](../azure-security-network-security-best-practices.md)
+- [Procedure consigliate per la sicurezza della rete di Azure](azure-security-network-security-best-practices.md)
 - [Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](azure-security-data-encryption-best-practices.md)
 - [Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità](azure-security-identity-management-best-practices.md)
 - [Procedure consigliate per la sicurezza di Internet delle cose](azure-security-iot-best-practices.md)
 - [Procedure consigliate per l'aggiornamento software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 - [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

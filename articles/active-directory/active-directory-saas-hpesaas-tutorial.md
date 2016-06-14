@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -76,12 +76,12 @@ Per configurare l'integrazione di HPE SaaS in Azure AD, è necessario aggiungere
 	![Applicazioni][4]
 
 6. Nella casella di ricerca digitare **HPE SaaS**
-	
+
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_01.png)
 
 7. Nel riquadro dei risultati selezionare **HPE SaaS** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con HPE SaaS in base a un utente test di nome "Britta Simon".
@@ -117,11 +117,9 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png)
 
 
-    a. Nella casella di testo **URL accesso** digitare l'URL usato dagli utenti per accedere all'applicazione HPE SaaS adottando il modello seguente: `https://<tenant name>.saas.hpe.com`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione HPE SaaS: **"https://login.saas.hpe.com/msg"**. Può anche essere modificato dai clienti in un URL specifico dell'applicazione.
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`
-
-    c. Fare clic su **Avanti**.
+    b. Fare clic su **Avanti**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in HPE SaaS** seguire questa procedura:
@@ -147,8 +145,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico. Nell'elenco di utenti selezionare **Britta Simon**.
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 ![Creare un utente di Azure AD][20]
 
@@ -156,7 +153,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -164,9 +161,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_05.png)
 
@@ -176,7 +175,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
+6.  Nella pagina **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_06.png)
 
@@ -225,7 +224,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 	![Assegna utente][201]
 
-2. Nell'elenco di applicazioni selezionare **HPE SaaS**.
+2. Nell'elenco delle applicazioni selezionare **HPE SaaS**.
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_50.png)
 
@@ -270,4 +269,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

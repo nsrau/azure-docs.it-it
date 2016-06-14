@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/31/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -108,12 +108,25 @@ Quando un utente apre il Centro sicurezza di Azure, verranno visualizzati solo i
 
 Per modificare i criteri di sicurezza, è necessario essere proprietario o collaboratore della sottoscrizione.
 
+## Macchine virtuali
+
 ### Quali tipi di macchine virtuali saranno supportati?
-Sono supportate le macchine virtuali create in base ai [modelli di distribuzione classica e di Azure Resource Manager](../azure-classic-rm.md), comprese quelle che fanno parte dei cluster di Azure Service Fabric.
+Sono supportate le macchine virtuali create in base ai [modelli di distribuzione classica e di Resource Manager](../azure-classic-rm.md), comprese quelle che fanno parte dei cluster di Azure Service Fabric.
 
 Le raccomandazioni relative all'elenco di controllo di accesso sono attualmente valide per le macchine virtuali (versione classica). I gruppi di sicurezza di rete attualmente sono validi solo per le macchine virtuali di Azure Resource Manager.
 
-### Sono supportate le macchine virtuali Linux?
-Il Centro sicurezza di Azure offre il monitoraggio della baseline per le macchine virtuali Linux (solo per le versioni 12.04, 14.04, 14.10 e 15.04 di Ubuntu). In futuro, saranno disponibili ulteriori funzioni di monitoraggio dello stato di sicurezza e per la raccolta/analisi dei dati, nonché il supporto di altre distribuzioni Linux.
+Macchine virtuali Windows supportate:
 
-<!---HONumber=AcomDC_0504_2016-->
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+Macchine virtuali Linux supportate:
+
+- Versioni di Ubuntu 12.04, 14.04, 15.10, 16.04
+- Versioni di Debian 7.0, 8.0
+- Versioni di CentOS 6.0, 7.0
+- Versioni di Red Hat Enterprise Linux (RHEL) 6, 7
+- Versioni di SUSE Linux Enterprise Server (SLES) 11, 12
+
+<!---HONumber=AcomDC_0601_2016-->

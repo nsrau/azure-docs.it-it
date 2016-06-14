@@ -34,13 +34,15 @@ Nel [portale di Azure](https://portal.azure.com/) l'URL dell'endpoint può esser
 
 ### Proprietà Gestione risorse di Azure
 
-È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando strumenti di Gestione risorse di Azure come Azure PowerShell, CLI o [Esplora risorse](https://resources.azure.com/).
+È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [Esplora risorse](https://resources.azure.com/) o i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md) in strumenti da riga di comando, ad esempio [Azure PowerShell](../powershell-install-configure.md) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-Impostare la proprietà `apiDefinition` sul tipo di risorsa Microsoft.Web/sites/config per la risorsa <site name>/web. Ad esempio, in **Esplora risorse**, passare a **sottoscrizioni > {sottoscrizione} > gruppi di risorse > {gruppo di risorse} > provider > Microsoft.Web > siti > {sito} > config > web** per visualizzare la proprietà cors:
+In **Esplora risorse** passare a **Sottoscrizioni > {sottoscrizione} > Gruppi di risorse > {gruppo di risorse} > Provider > Microsoft.Web > Siti > {sito} > config > web** per visualizzare la proprietà `apiDefinition`:
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
+
+Per un esempio di un modello di distribuzione Azure Resource Manager che imposta la proprietà `apiDefinition`, aprire il [file azuredeploy.json nell'applicazione di esempio di elenco attività](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Trovare la sezione del modello simile all'esempio JSON precedente:
 
 ### Valore predefinito
 
@@ -58,4 +60,4 @@ Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e u
 
 Se si usa Gestione API di Azure con app per le API, è possibile usare metadati di Swagger per importare l'API in Gestione API. Per altre informazioni, vedere [Come importare la definizione di un'API con le operazioni in Gestione API di Azure](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
