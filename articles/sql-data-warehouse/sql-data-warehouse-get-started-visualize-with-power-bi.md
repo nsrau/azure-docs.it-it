@@ -108,7 +108,7 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [migrazione]: ./sql-data-warehouse-overview-migrate.md
 [sviluppo]: ./sql-data-warehouse-overview-develop.md
 [caricamento]: ./sql-data-warehouse-overview-load.md
-[caricare i dati di esempio manualmente]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[caricare i dati di esempio manualmente]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
@@ -118,4 +118,4 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [portale di Azure]: https://portal.azure.com/
 [sito Web di Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

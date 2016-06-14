@@ -71,4 +71,4 @@ Site Recovery può essere utile per una strategia BCDR compatibile con le applic
 - Altre informazioni sull'architettura di Site Recovery sono disponibili in [Funzionamento di Azure Site Recovery](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

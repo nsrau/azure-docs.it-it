@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="02/25/2016"
+    ms.date="05/31/2016"
     ms.author="mbaldwin" />
 
 
@@ -35,4 +35,4 @@ Le opinioni dei nostri utenti sono importanti. Alla fine di ogni sessione viene 
 
 >[AZURE.NOTE] Poiché si tratta di un ambiente controllato per la modalità demo, non è stato abilitato l'accesso a Internet esterno dalle applicazioni demo pubblicate. Pertanto, i servizi come OneDrive non sono accessibili. Inoltre, la condivisione degli Appunti (con la funzionalità di copia e incolla) e il reindirizzamento USB e della stampante sono disabilitati.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

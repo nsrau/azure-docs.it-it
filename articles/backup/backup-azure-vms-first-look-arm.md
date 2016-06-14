@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Proteggere macchine virtuali di Azure Resource Manager con Backup di Azure | Microsoft Azure"
-	description="Proteggere macchine virtuali di Azure Resource Manager con il servizio Backup di Azure. Usare i backup di macchine virtuali di Azure Resource Manager e macchine virtuali di Archiviazione Premium per proteggere i dati. Creare e registrare un insieme di credenziali dei servizi di ripristino. Registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
+	pageTitle="Proteggere le macchine virtuali distribuite in Resource Manager con Backup di Azure | Microsoft Azure"
+	description="Proteggere le macchine virtuali distribuite in Resource Manager con il servizio Backup di Azure. Usare i backup delle macchine virtuali distribuite in Resource Manager e delle macchine virtuali di Archiviazione Premium per proteggere i dati. Creare e registrare un insieme di credenziali dei servizi di ripristino. Registrare macchine virtuali, creare criteri e proteggere macchine virtuali in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
-# Primi passi: eseguire il backup di VM di Azure Resource Manager in un insieme di credenziali dei servizi di ripristino
+# Primi passi: eseguire il backup di VM di Resource Manager in un insieme di credenziali di Servizi di ripristino
 
 > [AZURE.SELECTOR]
-- [Backup di VM di Azure Resource Manager](backup-azure-vms-first-look-arm.md)
+- [Eseguire il backup di VM distribuite in Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Backup di VM in modalità classica](backup-azure-vms-first-look.md)
 
 Questa esercitazione illustra i passaggi per creare un insieme di credenziali di Servizi di ripristino e per eseguire il backup di una macchina virtuale (VM) di Azure. Gli insiemi di credenziali di Servizi di ripristino proteggono:
 
-- Macchine virtuali di Azure Resource Manager (ARM)
+- VM distribuite in Azure Resource Manager
 - Macchine virtuali classiche
 - Macchine virtuali di Archiviazione Standard
 - Macchine virtuali di Archiviazione Premium
 
 Per altre informazioni sulla protezione di macchine virtuali di Archiviazione Premium, vedere la sezione relativa al [backup e ripristino di macchine virtuali di Archiviazione Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] Questa esercitazione presuppone che sia disponibile una macchina virtuale nella sottoscrizione di Azure e che al servizio Backup sia stato concesso l'accesso alla macchina virtuale. Per creare e utilizzare le risorse, Azure offre due modelli di distribuzione: [Azure Resource Manager e classica](../resource-manager-deployment-model.md). Questo articolo si applica alle VM basate su Gestione risorse e su Azure Resource Manager.
+>[AZURE.NOTE] Questa esercitazione presuppone che sia disponibile una macchina virtuale nella sottoscrizione di Azure e che al servizio Backup sia stato concesso l'accesso alla macchina virtuale. Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questo articolo si applica a Resource Manager e alle VM distribuite in Resource Manager.
 
 Di seguito è riportata, a livello generale, la procedura da seguire.
 
@@ -189,35 +189,7 @@ Per eseguire **Esegui backup**:
 
     Al termine del processo di backup, lo stato è *Completato*.
 
-## Definizione di un criterio di backup
-
-Un criterio di backup definisce una matrice relativa a quando sono stati acquisiti gli snapshot dei dati e per quanto tempo tali snapshot vengono conservati. Quando si definisce un criterio per il backup di una VM, è possibile attivare un processo di backup *una volta al giorno*. Quando si crea un nuovo criterio, viene applicato all'insieme di credenziali. L'interfaccia del criterio di backup è simile alla seguente:
-
-![Criterio di backup](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
-
-Per creare un criterio:
-
-1. In **Nome criterio** assegnare un nome al criterio.
-
-2. Gli snapshot dei dati possono essere acquisiti a intervalli giornalieri o settimanali. Usare il menu a discesa **Frequenza di backup** per scegliere se acquisire gli snapshot dei dati ogni giorno o ogni settimana.
-
-    - Se si sceglie un intervallo giornaliero, usare il controllo evidenziato per selezionare l'ora del giorno per lo snapshot. Per modificare l'ora, deselezionarla e selezionare quella nuova.
-
-    ![Criterio di backup giornaliero](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
-
-    - Se si sceglie un intervallo settimanale, usare i controlli evidenziati per selezionare uno o più giorni della settimana e l'ora del giorno in cui acquisire lo snapshot. Nel menu dei giorni selezionare uno o più giorni. Nel menu delle ore selezionare un'ora. Per modificare l'ora, deselezionare quella selezionata e selezionare quella nuova.
-
-    ![Criterio di backup settimanale](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
-
-3. Per impostazione predefinita, tutte le opzioni di **Intervallo conservazione** sono selezionate. Deselezionare i limiti dell'intervallo di conservazione che non si vuole usare.
-
-    >[AZURE.NOTE] Quando si protegge una VM, una volta al giorno viene eseguito un processo di backup. L'ora in cui il backup viene eseguito è la stessa per ogni intervallo di conservazione.
-
-    Nei controlli corrispondenti specificare uno o più intervalli da usare. Gli intervalli di conservazione mensili e annuali consentono di specificare gli snapshot basati su un incremento settimanale o giornaliero.
-
-4. Dopo avere impostato tutte le opzioni per il criterio, nella parte inferiore del pannello fare clic su **OK**.
-
-    Il nuovo criterio viene impostato per essere applicato all'insieme di credenziali una volta completate le impostazioni dell'insieme di credenziali dei servizi di ripristino. Tornare al passaggio 6 della sezione [Selezionare i criteri di impostazione dello scenario e definire gli elementi da proteggere](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect).
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Installare l'agente di macchine virtuali nella macchina virtuale
 
@@ -230,7 +202,7 @@ La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine vir
 | **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installazione dell'agente di macchine virtuali | <li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. | <li> Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
-| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. | Seguire le istruzioni relative all'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. |
+| Aggiornamento dell'agente di VM | L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. | Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines-linux-update-agent.md). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di macchine virtuali. |
 | Convalida dell'installazione dell'agente di macchine virtuali | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella macchina virtuale di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | N/D |
 
 
@@ -238,13 +210,13 @@ La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine vir
 
 Dopo aver installato l'agente di macchine virtuali nella macchina virtuale, il servizio Backup di Azure installa l'estensione di backup nell'agente di macchine virtuali. Il servizio Backup di Azure applica aggiornamenti e patch all'estensione di backup senza ulteriore intervento dell'utente.
 
-L'estensione di backup viene installata dal servizio Backup indipendentemente dal fatto che la macchina virtuale sia in esecuzione o meno. Una macchina virtuale in esecuzione consente di ottenere un punto di ripristino coerente con l'applicazione. Il servizio Backup di Azure continuerà tuttavia a eseguire il backup della macchina virtuale, anche se questa è spenta e non è stato possibile installare l'estensione. Questa situazione è detta macchina virtuale offline. In tal caso, il punto di ripristino sarà *coerente con l'arresto anomalo*.
+L'estensione di backup viene installata dal servizio Backup indipendentemente dal fatto che la macchina virtuale sia in esecuzione o meno. Una macchina virtuale in esecuzione consente di ottenere un punto di ripristino coerente con l'applicazione. Il servizio Backup di Azure continuerà tuttavia a eseguire il backup della macchina virtuale, anche se questa è spenta e non è stato possibile installare l'estensione. Questa situazione è detta macchina virtuale offline. In questo caso, il punto di ripristino sarà *coerente con l'arresto anomalo*.
 
 ## Informazioni sulla risoluzione dei problemi
-In caso di problemi nell'esecuzione di alcune attività di questo articolo, vedere la [guida alla risoluzione dei problemi](backup-azure-vms-troubleshoot.md).
+In caso di problemi nell'esecuzione di alcune attività di questo articolo, vedere la [Guida alla risoluzione dei problemi](backup-azure-vms-troubleshoot.md).
 
 
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

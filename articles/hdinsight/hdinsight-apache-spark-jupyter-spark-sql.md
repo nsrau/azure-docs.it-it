@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="06/07/2016"
 	ms.author="nitinme"/>
 
 
-# Introduzione: creare cluster Apache Spark in HDInsight Linux ed eseguire query interattive usando Spark SQL (anteprima)
+# Introduzione: creare cluster Apache Spark in HDInsight Linux ed eseguire query interattive usando Spark SQL
 
 Informazioni su come creare un cluster Apache Spark in HDInsight e quindi usare il notebook di [Jupyter](https://jupyter.org) per eseguire query interattive Spark SQL nel cluster Spark.
 
@@ -38,22 +38,24 @@ Informazioni su come creare un cluster Apache Spark in HDInsight e quindi usare 
     
 	-  Da un computer Windows: [Usare SSH con HDInsight basato su Linux (Hadoop) da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
+>[AZURE.NOTE] Questo articolo usa un modello di Azure Resource Manager per creare un cluster Spark che usa [BLOB di archiviazione di Azure come risorsa di archiviazione del cluster](hdinsight-hadoop-use-blob-storage.md). È anche possibile creare un cluster Spark che usa [Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md) come risorsa di archiviazione aggiuntiva, oltre ai BLOB di archiviazione di Azure come risorsa di archiviazione predefinita. Per istruzioni, vedere [Creare un cluster HDInsight con Archivio Data Lake](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
 
 ## Creare un cluster Spark
 
-In questa sezione si crea un cluster HDInsight versione 3.3 (Spark versione 1.5.1) usando un modello di Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In questa sezione viene creato un cluster HDInsight versione 3.4 (Spark versione 1.6.1) con un modello di distribuzione Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Il modello di Azure Resource Manager è disponibile in un contenitore BLOB pubblico, **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
    
 2. Nel pannello Parametri immettere le informazioni seguenti:
 
-    - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
-    - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
-    - **Nome utente e password SSH**.
+    - **ClusterName** (Nome cluster): immettere un nome per il cluster Hadoop che verrà creato.
+    - **Cluster login name/password** (Nome di accesso cluster/Password di accesso cluster): il nome di accesso predefinito è admin.
+    - **Nome utente SSH/Password SSH**.
     
     Annotare questi valori. Sarà necessario usarli più avanti nell'esercitazione.
 
@@ -69,7 +71,7 @@ In questa sezione si crea un cluster HDInsight versione 3.3 (Spark versione 1.5.
     
 3\. Fare clic su **OK** per salvare i parametri.
 
-4\. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella di riepilogo a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
+4\. Nel pannello **Distribuzione personalizzata** fare clic sulla casella a discesa **Gruppo di risorse** e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
 
 5\. Fare clic su **Note legali** e quindi su **Crea**.
 
@@ -84,10 +86,10 @@ In questa sezione è possibile usare un notebook Jupyter per eseguire query SQL 
 * **PySpark** (per le applicazioni scritte in Python)
 * **Spark** (per le applicazioni scritte in Scala)
 
-In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per Jupyter Notebook con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
+In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
 
 * Non è necessario impostare i contesti per Spark e Hive. Questi vengono impostati automaticamente.
-* È possibile usare Magic nella cella, ad esempio `%%sql` per eseguire direttamente query SQL o Hive senza anteporre frammenti di codice.
+* È possibile usare comandi speciali nelle celle, ad esempio `%%sql` per eseguire direttamente query SQL o Hive senza anteporre frammenti di codice.
 * L'output delle query SQL o Hive viene visualizzato automaticamente.
 
 ### Creare un notebook di Jupyter con il kernel PySpark 
@@ -108,11 +110,11 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo, incollare il frammento di codice seguente in una cella e premere **MAIUSC+INVIO**.
+4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo incollare il frammento di codice seguente in una cella e premere **MAIUSC+INVIO**.
 
 		from pyspark.sql.types import *
 		
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **PySpark** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
@@ -135,7 +137,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dato che si sta usando un kernel PySpark, ora è possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando la sintassi Magic `%%sql`. Per altre informazioni sulla sintassi Magic `%%sql` e sulle altre sintassi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando speciale `%%sql`. Per altre informazioni sul comando speciale `%%sql` e sugli altri comandi speciali disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -183,17 +185,21 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)
+
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gestire le risorse
+* [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-### Problemi noti
-
-* [Problemi noti di Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-known-issues.md)
+* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -206,4 +212,4 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

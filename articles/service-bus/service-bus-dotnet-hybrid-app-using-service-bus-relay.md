@@ -468,7 +468,7 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 11. Sempre nella finestra di dialogo **Proprietà** fare clic su **Dipendenze progetto** sul lato sinistro.
 
-12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che **ProductsPortal** **non** sia selezionato.
+12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che ** ProductsPortal** **non** sia selezionato.
 
 14. Nell'elenco **Progetti** fare clic su **ProductsPortal**. Assicurarsi che **ProductsServer** sia selezionato.
 
@@ -568,6 +568,6 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
