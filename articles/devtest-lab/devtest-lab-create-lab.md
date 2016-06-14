@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Creare un lab di sviluppo/test di Azure
@@ -29,11 +29,11 @@ Per creare un lab sono necessari gli elementi seguenti:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Fare clic su **Esplora**.
+1. Selezionare **Esplora**.
 
-1. Fare clic su **Lab DevTest** dall'elenco.
+1. Fare clic su **DevTest Labs** dall'elenco.
 
-1. Nel pannello **Lab DevTest** fare clic su **Aggiungi**.
+1. Nel pannello **DevTest Labs** fare clic su **Aggiungi**.
 
     ![Aggiungere un lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
@@ -41,8 +41,8 @@ Per creare un lab sono necessari gli elementi seguenti:
 
     1. Immettere un valore in **Nome lab** per il nuovo lab.
     1. Selezionare la **Sottoscrizione** da associare al lab.
-    1. Selezionare un **Percorso ** in cui archiviare il lab.
-    1. Fare clic su **Crea**.
+    1. Selezionare un **Percorso** in cui archiviare il lab.
+    1. Selezionare **Create**.
 
     ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -60,4 +60,4 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
 - [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

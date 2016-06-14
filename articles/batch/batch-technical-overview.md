@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/02/2016"
 	ms.author="marsma"/>
 
 # Nozioni di base su Azure Batch
@@ -69,7 +69,7 @@ Le applicazioni e i servizi possono effettuare chiamate dirette all'API REST, us
 | **Batch REST** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (anteprima) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
 
 ### Gestione delle risorse di Batch
 
@@ -77,17 +77,17 @@ Oltre a usare le API client, è possibile gestire le risorse nell'account Batch 
 
 - [Cmdlet di PowerShell per Batch][batch_ps]\: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](../powershell-install-configure.md) consentono di gestire le risorse Batch con PowerShell.
 
-- [Interfaccia della riga di comando di Azure](../xplat-cli-install.md): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che fornisce comandi della shell per l'interazione con molti servizi di Azure, incluso Batch.
+- [Interfaccia della riga di comando di Azure](../xplat-cli-install.md): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, incluso Batch.
 
-- Libreria client di [gestione .NET per Batch](batch-management-dotnet.md): anche la libreria client di gestione .NET per Batch è disponibile in [NuGet][api_net_mgmt_nuget], e può essere usata per gestire gli account, le quote e i pacchetti dell'applicazione Batch a livello di codice. I riferimenti per la libreria di gestione sono disponibili su [MSDN][api_net_mgmt].
+- Libreria client di [gestione .NET per Batch](batch-management-dotnet.md): anche la libreria client di gestione .NET per Batch è disponibile in [NuGet][api_net_mgmt_nuget] e può essere usata per gestire gli account, le quote e i pacchetti dell'applicazione Batch a livello di codice. I riferimenti per la libreria di gestione sono disponibili in [MSDN][api_net_mgmt].
 
 ### Strumenti di Batch
 
 Anche se non sono necessari per creare soluzioni con Batch, questi strumenti possono essere considerati essenziali per la compilazione e il debug di applicazioni e servizi di Batch.
 
-- [Azure Batch Explorer][batch_explorer]\: Batch Explorer è una delle applicazioni Batch .NET di esempio [disponibili in GitHub][github_samples]. Compilare l'applicazione Windows Presentation Foundation (WPF) con Visual Studio 2013 o 2015 e usarla per esplorare e gestire le risorse nell'account Batch durante lo sviluppo e il debug delle soluzioni Batch. È possibile visualizzare i dettagli di attività, pool e processi, scaricare file dai nodi di calcolo o connettersi ai nodi in modalità remota usando i file desktop remoto (RDP) disponibili con pochi clic nell'interfaccia di Batch Explorer.
+- [Azure Batch Explorer][batch_explorer]\: Batch Explorer è una delle applicazioni Batch .NET di esempio disponibili in [GitHub][github_samples]. Compilare l'applicazione Windows Presentation Foundation (WPF) con Visual Studio 2013 o 2015 e usarla per esplorare e gestire le risorse nell'account Batch durante lo sviluppo e il debug delle soluzioni Batch. È possibile visualizzare i dettagli di attività, pool e processi, scaricare file dai nodi di calcolo o connettersi ai nodi in modalità remota usando i file desktop remoto (RDP) disponibili con pochi clic nell'interfaccia di Batch Explorer.
 
-- [Microsoft Azure Storage Explorer][storage_explorer]\: anche se non si tratta di uno strumento di Azure Batch in senso stretto, Storage Explorer risulta molto utile per lo sviluppo e il debug delle soluzioni Batch.
+- [Microsoft Azure Storage Explorer][storage_explorer]\: anche se non si tratta di uno strumento di Azure Batch in senso stretto, Storage Explorer è molto utile per lo sviluppo e il debug delle soluzioni Batch.
 
 ## Scenario: scalabilità orizzontale di un carico di lavoro parallelo
 
@@ -101,7 +101,7 @@ In questo scenario comune l'applicazione o il servizio elabora un carico di lavo
 
 1. Caricare i **file di input** e l'**applicazione** che elaborerà i file nell'account di archiviazione di Azure. I file di input elaborati dall'applicazione possono essere, ad esempio, dati di modellazione finanziaria o file video da transcodificare. L'applicazione può essere una qualsiasi applicazione usata per l'elaborazione dei dati, ad esempio un'applicazione per il rendering 3D o un transcodificatore di file multimediali.
 
-2. Creare un **pool** di nodi di calcolo di Batch nell'account Batch, ovvero le macchine virtuali che eseguiranno le attività. Specificare le proprietà, ad esempio le [dimensioni dei nodi](./../cloud-services/cloud-services-sizes-specs.md), il sistema operativo e il percorso in Archiviazione di Azure dell'applicazione da installare quando i nodi vengono aggiunti al pool. L'applicazione è quella caricata nel passaggio 1. È anche possibile configurare il pool per il [ridimensionamento automatico](batch-automatic-scaling.md), affinché il numero di nodi di calcolo del pool venga regolato in modo dinamico in risposta al carico di lavoro generato dalle attività.
+2. Creare un **pool** di nodi di calcolo di Batch nell'account Batch, ovvero le macchine virtuali che eseguiranno le attività. Specificare le proprietà, ad esempio le [dimensioni dei nodi](./../cloud-services/cloud-services-sizes-specs.md), il sistema operativo e il percorso in Archiviazione di Azure dell'applicazione da installare quando i nodi vengono aggiunti al pool. Si tratta dell'applicazione caricata nel passaggio 1. È anche possibile configurare il pool per la [scalabilità automatica](batch-automatic-scaling.md), in modo che il numero di nodi di calcolo del pool venga regolato in modo dinamico in risposta al carico di lavoro generato dalle attività.
 
 3. Creare un **processo** Batch per eseguire il carico di lavoro nel pool di nodi di calcolo. Quando si crea un processo, lo si associa a un pool di Batch.
 
@@ -121,15 +121,17 @@ Tenere presente che questo è soltanto uno dei modi in cui è possibile usare il
 
 Ora che è stato esaminato uno scenario di esempio, è necessario approfondire il servizio Batch per poterlo usare per l'elaborazione di carichi di lavoro paralleli a elevato utilizzo di calcolo.
 
-- [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md) per imparare a usare C# e la libreria Batch .NET per mettere in pratica le tecniche descritte in precedenza. È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch.
+- Vedere [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md) per imparare a usare C# e la libreria Batch .NET per mettere in pratica le tecniche descritte in precedenza. È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch.
 
-- Vedere [Panoramica delle funzionalità di Azure Batch](batch-api-basics.md) per informazioni più approfondite sulle funzionalità API offerte dal servizio Batch per l'elaborazione dei carichi di lavoro a elevato utilizzo di calcolo.
+- Vedere [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md) per informazioni più approfondite sulle funzionalità API offerte dal servizio Batch per l'elaborazione dei carichi di lavoro a elevato utilizzo di calcolo.
 
-- Oltre a Batch Explorer, sono disponibili altri [esempi di codice in GitHub][github_samples] che mostrano come usare molte delle funzionalità di Azure Batch con la libreria Batch .NET.
+- Oltre a Batch Explorer sono disponibili altri [esempi di codice in GitHub][github_samples] che mostrano come usare molte delle funzionalità di Azure Batch con la libreria Batch .NET.
 
-- Vedere il [percorso di apprendimento di Batch][learning_path] per conoscere le risorse disponibili per imparare a usare il servizio Batch.
+- Vedere il [percorso di apprendimento per Batch][learning_path] per conoscere le risorse disponibili per imparare a usare il servizio Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
+[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -153,4 +155,4 @@ Ora che è stato esaminato uno scenario di esempio, è necessario approfondire i
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

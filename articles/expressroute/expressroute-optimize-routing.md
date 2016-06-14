@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="charwen"/>
 
 # Ottimizzare il routing in ExpressRoute
@@ -42,4 +42,4 @@ La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi i
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

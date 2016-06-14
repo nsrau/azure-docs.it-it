@@ -63,11 +63,11 @@ Il Database Estensione è destinato a database transazionali con grandi quantit�
 
 Se si usa la funzionalità tabella temporale di SQL Server 2016, usare il Database Estensione per eseguire la migrazione di tutta o parte della tabella della cronologia associata per un'archiviazione economica in Azure. Per altre informazioni, vedere l'articolo su come [gestire la conservazione dei dati cronologici nelle tabelle temporali con controllo delle versioni di sistema](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Per identificare i database e le tabelle candidati per il Database Estensione, usare l'ottimizzazione guidata Database Estensione di SQL Server 2016 Upgrade Advisor. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md). Per altre informazioni sui possibili problemi di blocco, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).
+Per identificare i database e le tabelle candidati per il Database Estensione, usare l'ottimizzazione guidata Database Estensione di SQL Server 2016 Upgrade Advisor. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md). Per altre informazioni sui possibili problemi di blocco, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
 ## <a name="FAQ"></a>Domande frequenti sull'estensione database
 **Il Database Estensione funziona con & lt;Nome funzionalità di SQL Server& gt;?**
--   Per un elenco delle funzionalità di SQL Server che rendono una tabella non idonea per l'estensione, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).
+-   Per un elenco delle funzionalità di SQL Server che rendono una tabella non idonea per l'estensione, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
 -   È possibile scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle candidati per il Database Estensione. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md).
 
@@ -123,4 +123,4 @@ Il Database Estensione non modifica il modello di autorizzazioni di un database 
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/03/2016"
    ms.author="yurid"/>
 
 # Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure
@@ -69,8 +69,8 @@ Utilizzare la tabella seguente come riferimento per comprendere il funzionamento
 
 | Criterio | Quando lo stato è Sì |
 |----- |-----|
-| System Updates | Recupera un elenco di aggiornamenti disponibili da Windows Update o WSUS, a seconda del servizio configurato per la macchina virtuale, ogni 12 ore e suggerisce gli aggiornamenti critici e della sicurezza mancanti da installare nelle macchine virtuali di Windows. |
-| Regole delle baseline | Analizza tutte le macchine virtuali supportate per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle line di base consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. |
+| System Updates | Recupera ogni giorno un elenco di aggiornamenti disponibili da Windows Update o WSUS, a seconda del servizio configurato per la macchina virtuale, e suggerisce di applicare gli aggiornamenti mancanti. |
+| Regole delle baseline | Analizza ogni giorno le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle line di base consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. |
 | Endpoint Protection | Suggerisce l'Endpoint Protection di cui eseguire il provisioning per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. 
 | Gruppi di sicurezza di rete | Suggerisce la configurazione di [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) (NSG) per controllare il traffico in ingresso e in uscita rispetto alle subnet e alle interfacce di rete. Gli NSG configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questa opzione valuta le regole di sicurezza in ingresso per identificare le eventuali regole che consentono il traffico in ingresso. |
 | Web Application Firewall | Suggerisce il provisioning di un web application firewall nelle macchine virtuali quando viene usato l'indirizzo [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) e vengono configurate le regole di sicurezza in ingresso dei gruppi di sicurezza di rete associati per consentire l'accesso alla porta 80/443. Viene utilizzato l'IP con carico bilanciato (indirizzo VIP) e vengono configurati il bilanciamento del carico e le regole NAT in entrata associati per consentire l'accesso alla porta 80/443 (per ulteriori informazioni, vedere [Supporto di Gestione risorse di Azure per il servizio di bilanciamento del carico](../load-balancer/load-balancer-arm.md)) |
@@ -78,7 +78,7 @@ Utilizzare la tabella seguente come riferimento per comprendere il funzionamento
 | Controllo SQL | Suggerisce l'abilitazione del controllo dell'accesso ai database e ai server SQL di Azure per scopi di conformità e rilevamento e analisi avanzati. |
 | Transparent Data Encryption di SQL | Suggerisce l'abilitazione della crittografia dati inattivi per i database SQL di Azure, i backup associati e file di log delle transazioni, affinché i dati siano illeggibili in caso di violazione. |
 
-11\. Al termine della configurazione di tutte le opzioni, fare clic su **OK ** nel pannello **Criteri di sicurezza** che include le raccomandazioni, quindi fare clic su **Salva** nel pannello **Criteri di sicurezza** che include le impostazioni iniziali.
+11\. Al termine della configurazione di tutte le opzioni, fare clic su **OK** nel pannello **Criteri di sicurezza** che include le raccomandazioni e quindi fare clic su **Salva** nel pannello **Criteri di sicurezza** con le impostazioni iniziali.
 
 ## Impostazione di criteri di sicurezza per i gruppi di risorse
 
@@ -100,8 +100,8 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni partner.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

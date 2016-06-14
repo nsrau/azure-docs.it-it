@@ -13,21 +13,21 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
 # Aspettative di anteprima di SQL Data Warehouse
 
-In questo articolo vengono descritte le funzionalità di anteprima SQL Data Warehouse e i nostri obiettivi per il servizio per la disponibilità generale (GA). Queste informazioni verranno aggiornate ogni qual volta che si presentano miglioramenti delle funzionalità di anteprima pubblica.
+In questo articolo sono descritte le funzionalità di SQL Data Warehouse in anteprima e gli obiettivi del servizio per la disponibilità a livello generale. Queste informazioni verranno aggiornate ogni qual volta che si presentano miglioramenti delle funzionalità di anteprima pubblica.
 
 Obiettivi per SQL Data Warehouse:
 
-- Prestazioni prevedibili e scalabilità lineare fino a petabyte di dati.
+- Prestazioni prevedibili e scalabilità lineare fino a petabyte di dati
 - Affidabilità elevata per tutte le operazioni di data warehouse
 - Tempi minimi dal caricamento dei dati alle analisi sui dati per i dati relazionali e non relazionali
 
-Lavoreremo continuamente per raggiungere questi obiettivi prima di promuovere SQL Data Warehouse per la disponibilità generale.
+Microsoft è impegnata a raggiungere questi obiettivi durante l'anteprima di SQL Data Warehouse.
 
 ## Prestazioni prevedibili e scalabili
 
@@ -40,29 +40,22 @@ Qualsiasi data warehouse ha 2 metriche delle prestazioni fondamentali:
 
 Stiamo misurando alcuni miglioramenti importanti sulle prestazioni e presto condivideremo le frequenze previste. Durante il periodo di anteprima verranno apportati miglioramenti (ad esempio, aumento della compressione e della memorizzazione nella cache) per aumentare i tassi e per garantire una scalabilità prevedibile.
 
+## Protezione dati
 
-## Affidabilità elevata
+SQL Data Warehouse archivia tutti i dati in Archiviazione di Azure tramite risorse di archiviazione con ridondanza locale. Nel data center locale vengono mantenute più copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati.
 
-### Protezione dati
-
-SQL Data Warehouse archivia tutti i dati in Archiviazione di Azure tramite BLOB con ridondanza geografica. Nell'area di Azure locale vengono mantenute tre copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati, quali malfunzionamenti delle unità di archiviazione. Inoltre, in un'area di Azure remota vengono mantenute tre copie asincrone allo scopo di proteggere i dati qualora si verificassero problemi nell'area (ripristino di emergenza). L'area locale e quella remota vengono abbinate per mantenere latenze di sincronizzazione accettabili, ad esempio Stati Uniti orientali e Stati Uniti occidentali.
-
-
-### Backups
+## Backups
 
 SQL Data Warehouse esegue il backup di tutti i dati almeno ogni 8 ore usando snapshot di Archiviazione di Azure. Tali snapshot vengono conservati per 7 giorni. È quindi possibile ripristinare i dati tornando indietro di almeno 21 momenti specifici degli ultimi 7 giorni e arrivando fino all'ora in cui è stato acquisito l'ultimo snapshot. È possibile ripristinare dati da uno snapshot utilizzando PowerShell o le API REST.
 
-Gli snapshot vengono copiati in modo asincrono in un'area di Azure remota per assicurare una maggiore recuperabilità in caso di errori a livello dell'area stessa (ripristino di emergenza).
+## Affidabilità delle query
+
+SQL Data Warehouse si basa su un'architettura MPP (Massively Parallel Processing). SQL Data Warehouse rileva automaticamente e consente di ridurre gli errori dei nodi di calcolo e controllo. Tuttavia, un'operazione come ad esempio il caricamento di dati o una query potrebbe non riuscire a causa di un errore del nodo o della migrazione. Durante l'anteprima, stiamo predisponendo miglioramenti continui per completare con successo le operazioni nonostante gli errori di nodo.
 
 
-### Completamento della query
+## Aggiornamenti e tempo di inattività
 
-SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono alcuni dati utente e controllano l’esecuzione della query su tali dati. Come parte dell'architettura di elaborazione parallela massiva (MPP), le query vengono eseguite in parallelo tra i nodi di calcolo. SQL Data Warehouse rileva automaticamente e consente di ridurre gli errori del nodo di calcolo. Tuttavia, durante l'anteprima, un'operazione (ad esempio, il caricamento dei dati o query) può non riuscire a causa di errori del singolo nodo. Durante l'anteprima, stiamo predisponendo miglioramenti continui per completare con successo le operazioni nonostante gli errori di nodo.
-
-
-### Aggiornamenti e tempo di inattività
-
-Durante l'anteprima, SQL Data Warehouse verrà aggiornato periodicamente per aggiungere nuove funzionalità e installare aggiornamenti critici. Questi aggiornamenti possono comportare interruzioni del servizio e per il momento la pianificazione degli aggiornamenti non è prevedibile. Se questo processo causa troppe interruzioni del servizio, è consigliabile [creare un ticket di supporto][] per ricevere informazioni su una soluzione alternativa a questo processo.
+SQL Data Warehouse verrà aggiornato periodicamente per aggiungere nuove funzionalità e installare aggiornamenti critici. Questi aggiornamenti possono comportare interruzioni del servizio e per il momento la pianificazione degli aggiornamenti non è prevedibile. Se questo processo causa troppe interruzioni del servizio, è consigliabile [creare un ticket di supporto][] per ricevere informazioni su una soluzione alternativa a questo processo.
 
 
 ## Passaggi successivi
@@ -79,4 +72,4 @@ Durante l'anteprima, SQL Data Warehouse verrà aggiornato periodicamente per agg
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

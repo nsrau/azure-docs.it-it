@@ -52,8 +52,8 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Sottoscrizioni, argomenti e code del Bus di servizio](service-bus-queues-topics-subscriptions.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
-- [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+- [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -56,6 +56,6 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+- [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -7,13 +7,9 @@
 	manager="mbaldwin"
 	editor=""/>
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="objectivec"
-	ms.topic="hero-article"
-	ms.date="02/17/2016"
+<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di Azure AD B2C: Chiamare un'API Web da un'app iOS
@@ -630,4 +626,4 @@ Per riferimento, l'esempio completo [viene fornito come file ZIP](https://github
 
 [Personalizzare l'esperienza utente per un'app B2C]()
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

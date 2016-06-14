@@ -69,26 +69,50 @@ Dopo aver creato la zona DNS nel servizio DNS di Azure, è necessario configurar
 
 Si supponga, ad esempio, di acquistare il dominio "contoso.com" e di creare una zona con il nome "contoso.com" nel servizio DNS di Azure. In qualità di proprietario del dominio, il registrar offrirà l'opzione di configurare gli indirizzi del server dei nomi (cioè i record NS) per il dominio. Il registrar archivierà questi record NS nel dominio padre, in questo caso ".com". I clienti di tutto il mondo verranno quindi reindirizzato al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in "contoso.com".
 
-### Per configurare la delega
+### Ricerca dei nomi dei server dei nomi
 
-Per configurare la delega, è necessario conoscere i nomi dei server dei nomi per la zona. DNS di Azure alloca i server dei nomi da un pool ogni volta che viene creata una zona e li archivia nei record NS autorevoli che vengono creati automaticamente all'interno della zona. Per visualizzare i nomi dei server dei nomi, è sufficiente recuperare questi record.
+Prima di poter delegare la zona DNS a DNS Azure è necessario conoscere i nomi dei server dei nomi per la zona. DNS Azure alloca i server dei nomi da un pool ogni volta che viene creata una zona.
 
-Con Azure PowerShell i record NS autorevoli possono essere recuperati come indicato di seguito. Si noti che il nome del record "@" viene usato per fare riferimento ai record al vertice della zona. In questo esempio, alla zona "contoso.com" sono stati assegnati i server dei nomi "ns1-04.azure-dns.com", "ns2-04.azure-dns .net", "ns3-04.azure-dns.org" e "ns4-04.azure-dns.info".
+Il modo più semplice per visualizzare i server dei nomi assegnati alla zona è con il portale di Azure. In questo esempio, alla zona "contoso.net" sono stati assegnati i server dei nomi 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info'.
 
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-	$zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+DNS Azure crea automaticamente i record NS autorevoli nella zona con i server dei nomi assegnati. Per visualizzare i nomi dei server dei nomi con Azure PowerShell o l'interfaccia della riga di comando di Azure è sufficiente recuperare questi record.
+
+Con Azure PowerShell i record NS autorevoli possono essere recuperati come indicato di seguito. Si noti che il nome del record "@" viene usato per fare riferimento ai record al vertice della zona.
+
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
-	ZoneName          : contoso.com
+	ZoneName          : contoso.net
 	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
-                     ns4-04.azure-dns.info}
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                        ns4-01.azure-dns.info}
 	Tags              : {}
 
+È anche possibile usare l'interfaccia della riga di comando multipiattaforma di Azure per recuperare i record NS autorevoli e quindi trovare i server dei nomi assegnati alla zona:
+
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
+
+### Per configurare la delega
 
 Ogni registrar prevede i propri strumenti di gestione DNS per modificare i record del server dei nomi per un dominio. Nella pagina di gestione DNS del registrar, modificare i record NS e sostituirli con quelli creati da DNS di Azure.
 
@@ -126,10 +150,9 @@ La configurazione di un sottodominio segue un processo simile a una normale dele
 3. Delegare la zona figlio configurando i record NS nella zona padre che punta alla zona figlio.
 
 
-
 ### Per delegare un sottodominio
 
-L'esempio di PowerShell seguente dimostra il funzionamento.
+L'esempio di PowerShell seguente dimostra il funzionamento. Gli stessi passaggi possono essere eseguiti con il portale di Azure o l'interfaccia della riga di comando multipiattaforma di Azure.
 
 #### Passaggio 1. Creare le zone padre e figlio
 
@@ -140,7 +163,7 @@ Prima di tutto si creeranno le zone padre e figlio, che possono trovarsi nello s
 
 #### Passaggio 2. Recuperare i record NS
 
-Successivamente, si recupereranno i record NS autorevoli dalla zona figlio, come indicato nel seguente esempio:
+Successivamente, si recupereranno i record NS autorevoli dalla zona figlio, come indicato nel seguente esempio: Contiene i server dei nomi assegnati alla zona figlio.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -176,4 +199,4 @@ Creare il set di record NS corrispondente nella zona padre per completare la del
 
 [Gestire i record DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/24/2016"
+	ms.date="06/06/2016"
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -56,6 +56,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 | Supporto di HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Bilanciamento del carico. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Protezione DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 dual stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Memorizzazione nella cache della stringa di query](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtro di paese](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -76,6 +77,8 @@ I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete C
 
 Per informazioni sul funzionamento della rete CDN, guardare il [video della sessione Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Per informazioni sui prezzi, vedere [Prezzi del servizio rete CDN](https://azure.microsoft.com/pricing/details/cdn/).
+Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN) ](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0525_2016-->
+Per esaminare una funzionalità presente nella rete CDN di Azure, inviare [Commenti e suggerimenti](https://feedback.azure.com/forums/169397-cdn).
+
+<!---HONumber=AcomDC_0608_2016-->
