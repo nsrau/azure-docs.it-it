@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Zoom** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.zoom.us*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Zoom** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.zoom.us*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configura URL app")
 
