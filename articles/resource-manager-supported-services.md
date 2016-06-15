@@ -35,7 +35,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Servizi del ciclo di vita Dynamics | Sì | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (anteprima) | Sì | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Macchine virtuali | Sì | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Macchine virtuali (classico) | Limitato | Parziale | - | - | | App remota | No | - | - | - | | Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
+| Macchine virtuali (classico) | Limitato | Parziale | - | - |
+| App remota | No | - | - | - |
+| Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
