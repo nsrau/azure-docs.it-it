@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Perché usare un approccio ai microservizi per la compilazione di applicazioni
 Per gli sviluppatori di software non c'è nulla di nuovo nel modo di considerare la fattorizzazione di un'applicazione nelle parti che la compongono. È il paradigma centrale della programmazione orientata a oggetti, delle astrazioni software e della componentizzazione. Attualmente questa fattorizzazione tende ad assumere la forma di classi e interfacce tra le librerie condivise e i livelli della tecnologia, in genere tramite un approccio a più livelli con un archivio back-end, una logica di business di livello intermedio e un'interfaccia utente front-end. Ciò che *è* cambiato negli ultimi anni è il fatto che gli sviluppatori creano applicazioni distribuite per il cloud in base alle esigenze aziendali.
@@ -143,9 +143,9 @@ L'obiettivo di Service Fabric è ridurre le complessità della compilazione di a
 
 * Per altre informazioni:
 	* [Panoramica di Service Fabric](service-fabric-overview.md)
-    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/it-IT/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

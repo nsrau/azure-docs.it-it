@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione) | Microsoft Azure"
-	description="Informazioni su come usare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
+	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Estensione database) | Microsoft Azure"
+	description="Informazioni su come usare un predicato del filtro per selezionare righe di cui eseguire la migrazione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -16,7 +16,7 @@
 	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)
+# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Estensione database)
 
 Se si archiviano dati cronologici in una tabella separata, è possibile configurare il Database Estensione per eseguire la migrazione dell'intera tabella. Se la tabella contiene dati attuali e cronologici, è tuttavia possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione. Il predicato del filtro è una funzione con valori di tabella inline. Questo argomento descrive come scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione.
 
@@ -24,7 +24,7 @@ Se si archiviano dati cronologici in una tabella separata, è possibile configur
 
 Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-Quando si esegue la procedura guidata Abilitare il database per l'estensione, è possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice basato sulla data nella procedura guidata. Se si vuole utilizzare un predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
+Quando si esegue la procedura guidata Abilitare il database per l'estensione, è possibile eseguire la migrazione di un'intera tabella o specificare un predicato semplice nella procedura guidata. Per usare un tipo di predicato del filtro diverso per selezionare le righe di cui eseguire la migrazione, completare una delle operazioni seguenti.
 
 -   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare un predicato.
 
@@ -32,7 +32,7 @@ Quando si esegue la procedura guidata Abilitare il database per l'estensione, è
 
 La sintassi di ALTER TABLE per l'aggiunta di un predicato è descritta più avanti in questo argomento.
 
-## Requisiti di base per la funzione con valori di tabella inline
+## Requisiti di base per il predicato del filtro
 La funzione con valori di tabella inline necessaria per un predicato del filtro del Database Estensione è simile all'esempio seguente.
 
 ```tsql
@@ -155,6 +155,58 @@ Dopo aver associato la funzione alla tabella con predicato, le affermazioni segu
 -   Le colonne usate dalla funzione sono associate a schema. Non è possibile modificare queste colonne finché una tabella usa la funzione come predicato del filtro.
 
 Non è possibile eliminare una funzione colonne con valori di tabella inline finché una tabella usa la funzione come predicato del filtro.
+
+>   [AZURE.NOTE] Per migliorare le prestazioni della funzione di filtro, creare un indice nelle colonne usate dalla funzione.
+
+### Passaggio dei nomi di colonna al predicato del filtro
+Quando si assegna una funzione di filtro a una tabella, specificare un nome composto da una sola parte per i nomi di colonna passati alla funzione di filtro. Se in questo passaggio si specifica un nome in tre parti, le successive query sulla tabella abilitata per l'estensione avranno esito negativo.
+
+Ad esempio, se si specifica un nome di colonna di tre parti, come illustrato nell'esempio seguente, l'istruzione verrà eseguita correttamente, ma le successive query sulla tabella avranno esito negativo.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(dbo.SensorTelemetry.ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+Specificare invece la funzione di filtro con un nome di colonna in una sola parte, come illustrato nell'esempio seguente.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON  (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+## <a name="addafterwiz"></a>Aggiungere un predicato del filtro dopo l'esecuzione della procedura guidata  
+
+Se si desidera usare un predicato che non è possibile creare nella procedura guidata **Abilitare il database per l'estensione**, è possibile eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Prima di applicare un predicato è tuttavia necessario interrompere la migrazione di dati già in corso e ripristinare i dati migrati. (Per altre informazioni sui motivi che lo rendono necessario, vedere [Sostituire un predicato del filtro esistente](#replacePredicate)).
+
+1. Invertire la direzione della migrazione e recuperare i dati di cui è già stata eseguita la migrazione. Non è possibile annullare questa operazione dopo l'avvio. I trasferimenti di dati in uscita comportano anche costi in Azure. Per altre informazioni, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
+
+2. Attendere il completamento della migrazione. È possibile controllare lo stato in **Stretch Database Monitor** da SQL Server Management Studio oppure è possibile eseguire una query della vista **sys.dm\_db\_rda\_migration\_status**. Per altre informazioni, vedere [Monitoraggio e risoluzione dei problemi di migrazione dei dati](sql-server-stretch-database-monitor.md) o [sys.dm\_db\_rda\_migration\_status](https://msdn.microsoft.com/library/dn935017.aspx).
+
+3. Creare il predicato del filtro che si desidera applicare alla tabella.
+
+4. Aggiungere il predicato alla tabella e riavviare la migrazione dei dati in Azure.
+
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
 
 ## Filtrare le righe per data
 Nell'esempio seguente viene eseguita la migrazione delle righe in cui la colonna **date** contiene un valore precedente a 01/01/2016.
@@ -405,7 +457,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 Se la funzione restituisce un risultato non vuoto per la riga, questa è idonea alla migrazione.
 
-## Sostituire un predicato del filtro esistente
+## <a name="replacePredicate"></a>Sostituire un predicato del filtro esistente
 Per sostituire un predicato del filtro specificato in precedenza, eseguire di nuovo l'istruzione ALTER TABLE e specificare un nuovo valore per il parametro FILTER\_PREDICATE. Ad esempio:
 
 ```tsql
@@ -504,8 +556,15 @@ Dopo avere rimosso il predicato del filtro, tutte le righe nella tabella saranno
 ## Controllare il predicato del filtro applicato a una tabella
 Per controllare il predicato del filtro applicato a una tabella, aprire la vista del catalogo **sys.remote\_data\_archive\_tables** e verificare il valore della colonna **filter\_predicate**. Se il valore è Null, l'intera tabella è idonea all'archiviazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
+## Note sulla protezione per i predicati del filtro  
+Un account compromesso con privilegi db\_owner può eseguire le operazioni seguenti.
+
+-   Creare e applicare una funzione con valori di tabella che usa grandi quantità di risorse del server o che resta in attesa per un periodo prolungato con conseguente Denial of Service.  
+
+-   Creare e applicare una funzione con valori di tabella che rende possibile dedurre il contenuto di una tabella per la quale all'utente è stato esplicitamente negato l'accesso in lettura.
+
 ## Vedere anche
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

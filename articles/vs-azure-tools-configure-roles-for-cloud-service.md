@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configurare i ruoli per un servizio cloud di Azure con Visual Studio
@@ -235,7 +235,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. (Facoltativamente) Per visualizzare il file creato quando si esegue il servizio cloud in modalità locale, seguire questa procedura:
 
-  1. Eseguire il ruolo Web e fare clic su **Button1** per assicurarsi che il codice in `Button1_Click` venga chiamato.
+  1. Eseguire il ruolo Web e selezionare **Button1** per assicurarsi che il codice in `Button1_Click` venga chiamato.
 
   1. Nell'area di notifica aprire il menu di scelta rapida per l'icona di Azure e scegliere **Mostra interfaccia emulatore di calcolo**. Verrà visualizzata la finestra di dialogo **Emulatore di calcolo di Azure**.
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

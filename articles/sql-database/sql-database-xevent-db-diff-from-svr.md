@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
 # Eventi estesi nel database SQL
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 In questo argomento viene illustrato come l'implementazione di eventi estesi in Azure SQL Database è leggermente diversa rispetto agli eventi estesi in Microsoft SQL Server.
 
@@ -36,6 +37,12 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi in 
 > [AZURE.NOTE] A partire da ottobre 2015, viene attivata la funzionalità della sessione eventi estesi in Azure SQL Database a livello di anteprima. La data di disponibilità generale (GA) non è ancora stabilita.
 >
 > La pagina degli [aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=sql-database) di Azure contiene post quando vengono fatti annunci GA.
+
+
+Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
+
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx) (Avvio rapido: eventi estesi in SQL Server)
+- [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Prerequisiti
@@ -269,4 +276,4 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

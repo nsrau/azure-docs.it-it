@@ -3,7 +3,7 @@
 	description="Questo articolo offre una panoramica sulla protezione del server DPM/Backup di Azure di una farm di SharePoint in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="06/06/2015"
 	ms.author="giridham;jimpark"/>
 
 
@@ -133,7 +133,7 @@ Dopo aver configurato DPM e la farm di SharePoint come descritto in precedenza, 
     ![Riepilogo](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## Ripristinare un elemento di SharePoint dal disco tramite DPM
-Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
+Nell'esempio seguente, l'*elemento di SharePoint da ripristinare * è stato accidentalmente eliminato e deve essere ripristinato. ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
 1. Aprire la **Console amministrazione DPM**. Tutte le farm di SharePoint protette da DPM vengono visualizzate nella scheda **Protezione**.
 
@@ -153,7 +153,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![DPM SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
 
-6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina** per aprire **Ripristino guidato**. Fare clic su **Avanti**.
+6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina ** per aprire **Ripristino guidato**. Fare clic su **Avanti**.
 
     ![Verifica selezione per ripristino](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 
@@ -233,4 +233,4 @@ D: è possibile ripristinare un database di SharePoint nel percorso originale se
 - Esaminare le [Note sulla versione di System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Esaminare le [Note sulla versione di Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

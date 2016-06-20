@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Gestione degli errori in OAuth 2.0
@@ -137,4 +137,4 @@ La specifica RFC 6750 definisce gli errori seguenti per le risorse che usano l'i
 | 403 | insufficient\_scope | Il token di accesso non contiene le autorizzazioni di rappresentazione necessarie per accedere alla risorsa. | Inviare una nuova richiesta di autorizzazione all'endpoint di autorizzazione. Se la risposta contiene il parametro scope, usare il valore di scope nella richiesta alla risorsa. |
 | 403 | insufficient\_access | Il soggetto del token non ha le autorizzazioni necessarie per accedere alla risorsa. | Chiedere all'utente di usare un account diverso o di richiedere le autorizzazioni alla risorsa specificata. |
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

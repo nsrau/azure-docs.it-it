@@ -13,17 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/08/2016" 
 	ms.author="spelluru"/>
 
 # Set di dati in Azure Data Factory
 I set di dati in Azure Data Factory sono riferimenti denominati o puntatori di dati da usare come input o output di un'attività in una pipeline. I set di dati identificano i dati all'interno dei diversi archivi dati tra cui tabelle, file, cartelle e documenti.
 
-Quando si crea una data factory, si creano i servizi collegati che collegano gli archivi dati alla data factory. Un **servizio collegato** definisce le informazioni richieste da Azure Data Factory per **connettersi** a un archivio dati, ad esempio un account di archiviazione di Azure e il database SQL di Azure. Il servizio collegato definisce il meccanismo, ovvero l'indirizzo, il protocollo, lo schema di autenticazione e così via, per accedere all'archivio dati.
+Un **servizio collegato** definisce le informazioni richieste da Azure Data Factory per **connettersi** a un **archivio dati**, ad esempio un account di archiviazione di Azure e il database SQL di Azure o un ambiente di **calcolo** (ad esempio Azure HDInsight e Azure Batch). Il servizio collegato definisce il meccanismo, ovvero l'indirizzo, il protocollo, lo schema di autenticazione e così via, per accedere all'archivio dati o all'ambiente di calcolo.
 
-Un **set di dati** in Data Factory rappresenta le strutture dei dati, ad esempio un contenitore BLOB o una tabella SQL, all'interno dell'archivio dati, che è possibile usare come input o output di un'attività in una pipeline. Dopo aver creato i set di dati, è possibile usarli con le attività nella pipeline. Ad esempio, si può avere un set di dati configurato come set di dati di input o di output di un'attività di copia o un'attività HDInsightHive.
+Per un elenco di servizi collegati alle origini dati supportate, vedere [Origini dati supportate](data-factory-data-movement-activities.md#supported-data-stores). Fare clic su un'origine dati nella tabella per ottenere l'argomento contenente informazioni dettagliate su come creare o configurare un servizio collegato per questo archivio dati.
 
-> [AZURE.NOTE] Se si ha familiarità con Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory ](data-factory-introduction.md) per una panoramica del servizio e [Creare la prima data factory](data-factory-build-your-first-pipeline.md) per un'esercitazione sulla creazione della prima data factory. Questi due articoli forniscono le informazioni generali necessarie per comprendere meglio questo articolo.
+Per un elenco di servizi collegati di calcolo supportati, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md). Per comprendere le attività che usano questi servizi collegati, vedere [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
+
+Un **set di dati** in Data Factory rappresenta le strutture di dati in un archivio dati rappresentato da un **servizio collegato di archivio dati**, ad esempio, un contenitore BLOB in un account di archiviazione di Azure o una tabella in un database SQL Azure. Può essere usato come input o output di un'attività in una pipeline. Dopo aver creato i set di dati, è possibile usarli con le attività nella pipeline. Ad esempio, si può avere un set di dati configurato come set di dati di input o di output di un'attività di copia o un'attività HDInsightHive.
+
+> [AZURE.NOTE] Se si ha familiarità con Azure Data Factory, vedere [Introduzione al servizio Data Factory di Azure ](data-factory-introduction.md) per una panoramica del servizio e [Creare la prima data factory](data-factory-build-your-first-pipeline.md) per un'esercitazione sulla creazione della prima data factory. Questi due articoli forniscono le informazioni generali necessarie per comprendere meglio questo articolo.
+
 
 ## Definire i set di dati
 Un set di dati in Azure Data Factory viene definito come segue:
@@ -59,17 +64,17 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | -------- | ----------- | -------- | ------- |
-| name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md). | Sì | ND |
+| name | Nome del set di dati. Per le regole di denominazione, vedere [Data factory di Azure - Regole di denominazione](data-factory-naming-rules.md). | Sì | ND |
 | type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio AzureBlob, AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipo di set di dati](#Type). | Sì | ND |
 | structure | Schema del set di dati.<br/><br/>Per altre informazioni dettagliate, vedere la sezione [Struttura del set di dati](#Structure). | No. | ND |
 | typeProperties | Proprietà che corrispondono al tipo selezionato. Per informazioni dettagliate sui tipi supportati e sulle relative proprietà, vedere la sezione [Tipo di set di dati](#Type). | Sì | ND |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. | No | false | 
-| availability | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Disponibilità del set di dati](#Availability)<br/><br/>Per altre informazioni dettagliate sul modello di sezionamento del set di dati, vedere l'articolo [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md). | Sì | ND
-| policy | Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Criteri del set di dati](#Policy). | No | ND |
+| availability | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Disponibilità dei set di dati](#Availability)<br/><br/>Per altre informazioni dettagliate sul modello di sezionamento del set di dati, vedere l'articolo [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). | Sì | ND
+| policy | Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Criteri di set di dati](#Policy). | No | ND |
 
 ### Esempio
 
-Di seguito è riportato un esempio di set di dati che rappresenta una tabella denominata **MyTable** in un **database SQL di Azure**.
+Di seguito è riportato un esempio di un set di dati che rappresenta una tabella denominata **MyTable** in un **database SQL di Azure**.
 
 	{
 	    "name": "DatasetSample",
@@ -147,10 +152,10 @@ La tabella seguente descrive le proprietà che è possibile usare nella sezione 
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | -------- | ----------- | -------- | ------- |
-| frequency | Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/>**Frequenze supportate**: Minute, Hour, Day, Week, Month. | Sì | ND |
-| interval | Specifica un moltiplicatore per la frequenza.<br/><br/>"frequency x interval" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario che il set di dati sia sezionato su base oraria, impostare **frequency** su **Hour** e **interval** su **1**.<br/><br/>**Nota:** se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15. | Sì | ND |
-| style | Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se frequency è impostata su Month e style è impostata su EndOfInterval, la sezione viene generata l'ultimo giorno del mese. Se style è impostata su StartOfInterval, la sezione viene generata il primo giorno del mese.<br/><br/>Se frequency viene impostata su Day e style è impostata su EndOfInterval, la sezione viene generata durante l'ultima ora del giorno.<br/><br/>Se frequency è impostata su Hour e style è impostata su EndOfInterval, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. | No | EndOfInterval |
-| anchorDateTime | Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>**Nota:** se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari verranno ignorate. <br/><br/>Ad esempio, se l'**intervallo** è **orario**, ovvero frequency: hour e interval: 1, e **AnchorDateTime** contiene **minuti e secondi**, le parti **minuti e secondi** di AnchorDateTime verranno ignorate. | No | 01/01/0001 |
+| frequency | Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/>**Frequenza supportata**: minuto, ora, giorno, settimana, mese | Sì | ND |
+| interval | Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario che il set di dati sia sezionato su base oraria, impostare **frequency** su **Hour** e **interval** su **1**.<br/><br/>**Nota:** se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15. | Sì | ND |
+| style | Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se frequency è impostata su Month e style è impostata su EndOfInterval, la sezione viene generata l'ultimo giorno del mese. Se style è impostata su StartOfInterval, la sezione viene generata il primo giorno del mese.<br/><br/>Se frequency è impostata su Day e style è impostata su EndOfInterval, la sezione viene generata durante l'ultima ora del giorno.<br/><br/>Se frequency è impostata su Hour e style è impostata su EndOfInterval, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. | No | EndOfInterval |
+| anchorDateTime | Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>**Nota:** se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari verranno ignorate. <br/><br/>Ad esempio, se l'**intervallo** è **orario**, ovvero frequenza: ora e intervallo: 1 e **AnchorDateTime** contiene **minuti e secondi**, le parti **minuti e secondi** di AnchorDateTime verranno ignorate. | No | 01/01/0001 |
 | offset | Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>**Nota:** se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. | No | ND |
 
 ### Esempio di offset
@@ -237,7 +242,7 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 
 ### Set di dati esterni
 
-I set di dati esterni sono quelli non prodotti da una pipeline in esecuzione nella data factory. Se il set di dati è contrassegnato come **external**, è possibile definire i criteri di **ExternalData** per influenzare il comportamento della disponibilità di sezioni dei set di dati.
+I set di dati esterni sono quelli non prodotti da una pipeline in esecuzione nella data factory. Se il set di dati è contrassegnato come **external**, è possibile definire i criteri di **ExternalData** in modo da influenzare il comportamento della disponibilità di sezioni dei set di dati.
 
 A meno che un set di dati non sia generato da Azure Data Factory, deve essere contrassegnato come **external**. Questo concetto si applica in genere agli input della prima attività in una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
 
@@ -249,9 +254,9 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 | maximumRetry | Numero di volte per controllare la disponibilità dei dati esterni. Il valore massimo consentito è 10. | No | 3 | 
 
 ## Set di dati con ambito
-È possibile creare set di dati con ambito limitato a una pipeline tramite la proprietà **datasets**. Questi set di dati possono essere usati dalle attività all'interno di questa pipeline, ma non da quelle in altre pipeline. L'esempio seguente definisce una pipeline con due set di dati, InputDataset-rdc and OutputDataset-rdc, da usare all'interno della pipeline.
+È possibile creare set di dati con ambito limitato a una pipeline usando la proprietà **datasets**. Questi set di dati possono essere usati dalle attività all'interno di questa pipeline, ma non da quelle in altre pipeline. L'esempio seguente definisce una pipeline con due set di dati, InputDataset-rdc and OutputDataset-rdc, da usare all'interno della pipeline.
 
-> [AZURE.IMPORTANT] I set di dati con ambito sono supportati solo con pipeline monouso (valore di **pipelineMode** impostato su **OneTime**). Per i dettagli vedere [Pipeline monouso](data-factory-scheduling-and-execution.md#onetime-pipeline).
+> [AZURE.IMPORTANT] I set di dati con ambito sono supportati solo con pipeline monouso, con valore di **pipelineMode** impostato su **OneTime**. Per i dettagli vedere [Pipeline monouso](data-factory-scheduling-and-execution.md#onetime-pipeline).
 
 	{
 	    "name": "CopyPipeline-rdc",
@@ -342,4 +347,4 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 	    }
 	}
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

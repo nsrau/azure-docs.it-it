@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jocaplan"/>
 
 
@@ -23,7 +23,7 @@
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Microsoft Power BI Embedded** è un servizio di Azure che consentirà ai fornitori di software indipendente di vivere l'esperienza dati di Power BI nelle proprie applicazioni. I fornitori di software indipendente hanno applicazioni compilate con utenti e funzionalità specifiche. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da **Microsoft Power BI Embedded**. Per poter usare l'applicazione, non è necessario che gli utenti abbiano un account Power BI. Possono continuare ad accedere all'applicazione come facevano prima e possono visualizzare e usare i report e i riquadri di Power BI senza richiedere altre licenze.
+**Microsoft Power BI Embedded** è un servizio di Azure che consente ai fornitori di software indipendente di vivere l’esperienza dati di Power BI nelle proprie applicazioni. I fornitori di software indipendente hanno applicazioni compilate con utenti e funzionalità specifiche. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da **Microsoft Power BI Embedded**. Per poter usare l'applicazione, non è necessario che gli utenti abbiano un account Power BI. Possono continuare ad accedere all'applicazione come facevano prima e possono visualizzare e usare i report e i riquadri di Power BI senza richiedere altre licenze.
 
 ## Licenza di Microsoft Power BI Embedded
 
@@ -48,7 +48,7 @@ La **raccolta di aree di lavoro** è il contenitore di primo livello di Azure ch
 L'**area di lavoro** è un contenitore di contenuto Power BI che può includere set di dati, report e dashboard. L'**area di lavoro** è vuota quando viene creata. Nella versione di anteprima sarà necessario creare tutto il contenuto usando Power BI Desktop e caricarlo in una delle aree di lavoro usando le [API REST di Power BI](http://docs.powerbi.apiary.io/reference).
 
 ## Uso delle raccolte di aree di lavoro e delle aree di lavoro
-Le **raccolte di aree di lavoro** e le **aree di lavoro** sono contenitori di contenuto usate e organizzate nel miglior modo affinché si adattino al modello dell'applicazione che si sta compilando. I modi per organizzare il contenuto all'interno di questi elementi possono essere molteplici. È possibile scegliere di inserire tutto il contenuto all'interno di un'area di lavoro e di usare successivamente i token delle app per suddividere ulteriormente il contenuto tra i clienti. È possibile anche decidere di inserire tutti i clienti in aree di lavoro distinte in modo che rimangano separati. In alternativa è possibile organizzare gli utenti per area anziché per cliente. Questa progettazione flessibile consente di scegliere il modo migliore per organizzare il contenuto.
+Le **raccolte di aree di lavoro ** e le ** aree di lavoro** sono contenitori di contenuto usate e organizzate nel miglior modo affinché si adattino al modello dell'applicazione che si sta compilando. I modi per organizzare il contenuto all'interno di questi elementi possono essere molteplici. È possibile scegliere di inserire tutto il contenuto all'interno di un'area di lavoro e di usare successivamente i token delle app per suddividere ulteriormente il contenuto tra i clienti. È possibile anche decidere di inserire tutti i clienti in aree di lavoro distinte in modo che rimangano separati. In alternativa è possibile organizzare gli utenti per area anziché per cliente. Questa progettazione flessibile consente di scegliere il modo migliore per organizzare il contenuto.
 ## Origini dati nella versione di anteprima
 
 La versione di anteprima consentirà l'uso di una serie di origini dati limitata, come descritto di seguito:
@@ -73,7 +73,7 @@ Nella versione di anteprima è possibile usare i set di dati memorizzati nella c
 
 ### Token di autenticazione delle applicazioni
 
-I **token delle app** vengono usati per eseguire l'autenticazione in **Microsoft Power BI Embedded**. Esistono tre tipi di **token delle app**:
+I**token delle app ** vengono usati per eseguire l'autenticazione in **Microsoft Power BI Embedded**. Esistono tre tipi di **token delle app**:
 
 1.	Token di provisioning: sono usati durante il provisioning di una nuova **area di lavoro** in una **raccolta di aree di lavoro**
 2.	Token di sviluppo: sono usati per chiamare direttamente le **API REST di Power BI**
@@ -99,4 +99,4 @@ Per un esempio su come usare i metodi [CreateProvisionToken](https://msdn.micros
 - [API REST di Power BI](http://docs.powerbi.apiary.io/reference)
 - [Aree di Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

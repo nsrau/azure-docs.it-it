@@ -67,8 +67,8 @@ Esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o B
 
 1.	La **chiave API** del servizio, disponibile nel dashboard dei servizi
 2.	L'**URI della richiesta** del servizio, disponibile nella pagina della Guida dell'API del servizio scelto
-3.	Le **intestazioni** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
-4.	Le **intestazioni** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+3.	Le **intestazioni ** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+4.	Le **intestazioni ** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
 
 Nei due esempi seguenti, il linguaggio c# viene utilizzato per illustrare che il codice necessario e la piattaforma di destinazione è un desktop di Windows 8.
 
@@ -355,7 +355,7 @@ La proprietà *Results* viene popolata solo se il processo è stato completato c
 
 Il [pacchetto NuGet BES SDK](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornisce funzioni che semplificano la chiamata a BES per assegnare un punteggio in modalità batch. Per installare il pacchetto NuGet in Visual Studio, nel menu **Strumenti** selezionare **Gestione pacchetti NuGet** e quindi fare clic su **Console di Gestione pacchetti**.
 
-Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che prevedono che l'input sia fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non usare un modulo di input del servizio Web e usare invece un modulo **Reader**. In questo caso, per ottenere i dati il modulo **Reader** in genere legge da un database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
+Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che prevedono che l'input sia fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non utilizzare un modulo di input del servizio Web e utilizzare invece un modulo **Importazione dei dati**. In questo caso, per ottenere i dati il modulo **Importazione dei dati** in genere legge da un database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
 
 L'esempio di codice riportato di seguito illustra come inviare e monitorare un processo batch su un endpoint di servizio di Azure Machine Learning tramite BES SDK. Per informazioni dettagliate su impostazioni e chiamate, osservare i commenti.
 
@@ -685,4 +685,4 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

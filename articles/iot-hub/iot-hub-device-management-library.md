@@ -126,7 +126,7 @@ La libreria client essenzialmente gestisce la comunicazione tra il dispositivo e
 
 È stato illustrato come implementare la logica specifica del dispositivo per eseguire i processi del dispositivo. Ora verrà spiegato quali oggetti possono essere usati.
 
-Alcuni di questi oggetti sono obbligatori e quindi è necessario implementare la logica specifica del dispositivo perché possa fare parte di Gestione dei dispositivi dell'hub IoT. Altri sono facoltativi ed è possibile scegliere in base alle esigenze del servizio, ad esempio, è possibile scegliere di non eseguire gli aggiornamenti del firmware con l'hub IoT. Ecco una descrizione di ogni oggetto:
+Alcuni di questi oggetti sono obbligatori e quindi è necessario implementare la logica specifica del dispositivo perché possa fare parte di Gestione dei dispositivi dell’hub IoT. Altri sono facoltativi ed è possibile scegliere in base alle esigenze del servizio, ad esempio, è possibile scegliere di non eseguire gli aggiornamenti del firmware con l'hub IoT. Ecco una descrizione di ogni oggetto:
 
 - **Oggetto dispositivo (obbligatorio)**: fornisce informazioni specifiche del dispositivo, ad esempio informazioni sul produttore, numero del modello, numero di serie, ora del dispositivo. Il servizio può leggere queste informazioni e in alcuni casi aggiornarle. Definisce anche due azioni che il servizio può eseguire in un dispositivo: riavvio e ripristino delle impostazioni predefinite.
 - **Oggetto server (obbligatorio)**: contiene i parametri e le impostazioni di connessione usati per connettersi all'hub IoT, ad esempio la durata della registrazione e l'associazione di trasporto. Il servizio può solo leggere queste informazioni.
@@ -222,4 +222,4 @@ Per un'esperienza pratica, è possibile accedere alle risorse seguenti:
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -18,8 +18,6 @@
 # Monitorare un sito di SharePoint con Application Insights
 
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
 
 
@@ -175,4 +173,4 @@ function onRequestFail(sender, args) {
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

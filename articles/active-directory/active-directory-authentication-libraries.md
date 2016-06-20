@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Authentication Library
@@ -63,4 +63,4 @@ In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un serv
 
 [Esempi di codice per Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

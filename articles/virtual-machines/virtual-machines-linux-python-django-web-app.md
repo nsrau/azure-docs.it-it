@@ -42,7 +42,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ## Creazione e configurazione di una macchina virtuale di Azure per l'hosting di Django
 
-1. Attenersi alle istruzioni riportate [qui](virtual-machines-linux-portal-create.md) per creare una macchina virtuale di Azure della distribuzione *Ubuntu Server 14.04 LTS*. Se si preferisce, è possibile scegliere l'autenticazione di password al posto della chiave pubblica SSH.
+1. Attenersi alle istruzioni riportate [qui](virtual-machines-linux-quick-create-portal.md) per creare una macchina virtuale di Azure della distribuzione *Ubuntu Server 14.04 LTS*. Se si preferisce, è possibile scegliere l'autenticazione di password al posto della chiave pubblica SSH.
 
 1. Modificare il gruppo di sicurezza di rete per consentire il traffico http in ingresso alla porta 80 utilizzando le istruzioni [qui](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -101,7 +101,7 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 ## Configurazione di Apache
 
-1.  Creare un file di configurazione dell'host virtuale Apache **/etc/apache2/sites-available/helloworld.conf**. Impostare il contenuto del file in base al seguente codice e sostituire *yourVmName* con il nome effettivo del computer in uso (ad esempio *pyubuntu*).
+1.  Creare un file di configurazione dell'host virtuale Apache **/etc/apache2/sites-available/helloworld.conf**. Impostare il contenuto del file in base al seguente codice e sostituire *yourVmName*con il nome effettivo del computer in uso (ad esempio *pyubuntu*).
 
 		<VirtualHost *:80>
 		ServerName yourVmName
@@ -126,4 +126,4 @@ Anche se nella macchina virtuale Ubuntu Linux Python 2.7 è già preinstallato, 
 
 Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di Azure creata per liberare le risorse per altre esercitazioni e per evitare di incorrere in addebiti per l'utilizzo di Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

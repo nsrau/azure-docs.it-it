@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure Active Directory B2C: Accesso Web con OpenID Connect
@@ -30,7 +30,7 @@ Tramite l'estensione di OAuth 2.0, consente inoltre alle app di acquisire in mod
 
 Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-policies.md), che consente di usare OpenID Connect per aggiungere esperienze utente all'applicazione, ad esempio gestione dell'iscrizione, dell'accesso e del profilo. Di seguito viene illustrato come usare OpenID Connect e i criteri per implementare ciascuna di queste esperienze nelle applicazioni Web. Viene anche illustrato come ottenere i token di accesso per accedere alle API Web.
 
-Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio **https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati. Altre informazioni su come [ottenere tenant, applicazione e criteri B2C](#use-your-own-b2c-directory).
+Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio * ***https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati. Altre informazioni su come [ottenere tenant, applicazione e criteri B2C](#use-your-own-b2c-directory).
 
 ## Invio di richieste di autenticazione
 Quando l'app Web deve autenticare l'utente ed eseguire un criterio, può indirizzarlo all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente opera effettivamente in base ai criteri.
@@ -342,4 +342,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

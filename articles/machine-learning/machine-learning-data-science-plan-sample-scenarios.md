@@ -64,7 +64,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 6.  Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Leggere i dati dai BLOB di Azure usando il modulo [Reader][reader].
+7.  Leggere i dati dal BLOB di Azure utilizzando il modulo [Import Data][import-data].
 
 8. Compilare un flusso di esperimento di Azure Machine Learning iniziando con il set di dati inserito.
 
@@ -90,7 +90,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 8. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Leggere i dati dai BLOB di Azure usando il modulo [Reader][reader].
+9. Leggere i dati dal BLOB di Azure utilizzando il modulo [Import Data][import-data].
 
 10. Compilare un flusso di esperimento di Azure ML iniziando con il set di dati inserito.
 
@@ -132,7 +132,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 9. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Leggere i dati direttamente da SQL Server usando il modulo [Reader][reader]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Reader][reader].
+10. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
 
 11. Compilare un flusso di esperimento di Azure ML iniziando con il set di dati inserito.
 
@@ -176,7 +176,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 7.  Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Leggere i dati direttamente da SQL Server usando il modulo [Reader][reader]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Reader][reader].
+8. Leggere i dati direttamente da SQL Server utilizzando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
 
 9. Semplice flusso di esperimento di Azure ML a partire dal set di dati caricato
 
@@ -216,7 +216,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 7.  Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Leggere i dati direttamente da SQL Server usando il modulo [Reader][reader]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Reader][reader].
+8. Leggere i dati direttamente da SQL Server utilizzando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
 
 9. Semplice flusso di esperimento di Azure ML a partire dal set di dati caricato.
 
@@ -280,7 +280,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
 
 8.  Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Leggere i dati direttamente da `Hive Queries` usando il modulo [Reader][reader]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Reader][reader].
+9. Leggere i dati direttamente da `Hive Queries` utilizzando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
 
 10. Semplice flusso di esperimento di Azure ML a partire dal set di dati caricato.
 
@@ -312,6 +312,6 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

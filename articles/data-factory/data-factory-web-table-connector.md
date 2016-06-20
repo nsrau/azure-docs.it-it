@@ -45,7 +45,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -74,8 +74,8 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -99,7 +99,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -186,7 +186,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -231,8 +231,8 @@ index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -286,4 +286,4 @@ Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Exc
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

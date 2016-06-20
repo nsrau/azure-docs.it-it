@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 #Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
 
-> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di elementi personalizzati](/documentation/videos/how-to-author-custom-artifacts)
+> [AZURE.NOTE] Visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di elementi personalizzati](/documentation/videos/how-to-author-custom-artifacts)
 
 ## Panoramica
 Gli **Elementi** vengono utilizzati per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Un elemento è costituito da un file di definizione dell’elemento e altri file di script archiviati in una cartella in un archivio git. I file di definizione dell’elemento sono costituiti da JSON ed espressioni che è possibile utilizzare per specificare gli elementi da installare in una macchina virtuale. Ad esempio, è possibile definire il nome dell’elemento, il comando da eseguire e i parametri che vengono resi disponibili quando si esegue il comando. È possibile fare riferimento ad altri file di script all'interno del file di definizione dell'elemento in base al nome.
@@ -124,4 +124,4 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 - Informazioni su come [aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

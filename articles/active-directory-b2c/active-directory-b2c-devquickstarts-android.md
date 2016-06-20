@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di Azure AD B2C: Chiamare un'API Web da un'applicazione Android
@@ -40,7 +40,7 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. In questo caso, sia l'app che l'API Web sono rappresentate da un singolo **ID applicazione** perché includono un'unica app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di:
 
-- Includere un'**app Web**/**API Web** nell'applicazione.
+- Includere un'**app Web**/**API Web* nell'applicazione.
 - Immettere `urn:ietf:wg:oauth:2.0:oob` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
 - Creare un **segreto applicazione** per l'applicazione e prenderne nota. Sarà necessario più avanti. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
@@ -975,4 +975,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [Altre informazioni sui cookie](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

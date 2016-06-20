@@ -122,7 +122,7 @@ Le immagini inviate insieme all'esperimento vengono usate per creare il riquadro
 
 Se il set di dati non è stato importato tramite un modulo Reader ma fa parte dell'esperimento, viene pubblicato nella raccolta contestualmente all'esperimento. Per questo motivo, è necessario che i termini del contratto di licenza relativo al set di dati pubblicato con l'esperimento consentano la condivisione e il download da qualsiasi utente.
 
-**Per la realizzazione di un esperimento ho usato le mie credenziali per estrarre i dati da HDInsight o SQL tramite un modulo Reader. Come posso assicurarmi che le mie credenziali non verranno condivise con la pubblicazione dell'esperimento?**
+**Per la realizzazione di un esperimento ho utilizzato le mie credenziali per estrarre i dati da HDInsight o SQL tramite un modulo Reader. Come posso assicurarmi che le mie credenziali non verranno condivise con la pubblicazione dell'esperimento?**
 
 Per il momento non è consentita la pubblicazione di esperimenti che usano credenziali.
 
@@ -136,4 +136,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 
 **[VAI ALLA RACCOLTA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

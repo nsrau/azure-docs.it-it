@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="hawong"/>
 
 # Esercitazione su Power BI per DocumentDB: Visualizzare dati tramite il connettore Power BI
@@ -111,8 +111,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 11. Fare clic su **Modifica** per avviare l'Editor di query che consente di trasformare i dati.
 
 ## Rendere flat e trasformare i documenti JSON
-1. Nel riquadro centrale dell'Editor di Query di Power BI verrà visualizzata una colonna **Documento**.
-![Editor di Query di Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. Nel riquadro centrale dell'Editor di Query di Power BI verrà visualizzata una colonna **Documento**. ![Editor di Query di Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Fare clic sul pulsante di espansione a destra dell'intestazione della colonna **Documento**. Verrà visualizzato il menu di scelta rapida con un elenco di campi. Selezionare i campi necessari per il report, ad esempio, nome del vulcano, paese, area geografica, località, altezza, tipo, stato e ultima eruzione nota, quindi fare clic su **OK**.
 
@@ -149,7 +148,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
     ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Modificare il tipo di colonna](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
-12. Fare clic su **Applica e chiudi** per salvare il modello di dati.
+12. Fare clic su **Applica e chiudi ** per salvare il modello di dati.
 
     ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Chiudi e applica](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -195,4 +194,4 @@ Per condividere il report, è necessario avere un account in PowerBI.com.
 - Per altre informazioni su Power BI, fare clic [qui](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 - Per altre informazioni su DocumentDB, vedere [qui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare cluster HDInsight con Archivio Data Lake di Azure tramite PowerShell | Azure"
-   description="Usare Azure PowerShell per creare e usare cluster Hadoop di HDInsight con Azure Data Lake"
+   description="Utilizzare Azure PowerShell per creare e usare cluster HDInsight con Azure Data Lake"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
@@ -25,7 +25,7 @@
 
 Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight (Hadoop, HBase o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
 
-* **Per i cluster Hadoop e Storm (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
+* **Per i cluster Spark (Linux) e Hadoop/Storm (Windows e Linux)**, Archivio Data Lake può essere utilizzato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
 
 * **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva.
 
@@ -380,4 +380,4 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

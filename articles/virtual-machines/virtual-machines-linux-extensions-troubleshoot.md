@@ -19,8 +19,6 @@
 
 # Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Visualizzazione dello stato dell'estensione
@@ -72,4 +70,4 @@ Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm 
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

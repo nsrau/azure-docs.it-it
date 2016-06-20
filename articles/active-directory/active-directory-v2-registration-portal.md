@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Riferimento alla registrazione delle app
@@ -33,7 +33,7 @@ Ogni app può contenere due segreti applicazione validi in qualsiasi momento. Ma
 A questo punto, nel portale di registrazione delle app sono consentiti solo due tipi di segreti applicazione. Scegliendo **Genera nuova password** nell'archivio dati corrispondente viene generato e archiviato un segreto condiviso, che è possibile usare nell'applicazione. Scegliendo **Genera nuova coppia di chiavi** viene creata una nuova coppia di chiavi pubblica/privata che può essere scaricata e usata per l'autenticazione client in Azure AD.
 
 ## Profilo
-La sezione relativa al profilo del portale di registrazione delle app può essere usata per personalizzare la pagina di accesso dell'applicazione. Attualmente è possibile modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e l'informativa sulla privacy. Il logo deve essere un'immagine trasparente da 48 x 48 o 50 x 50 pixel in un file GIF, PNG o JPEG di dimensioni non superiori a 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante.
+La sezione relativa al profilo del portale di registrazione delle app può essere usata per personalizzare la pagina di accesso dell'applicazione. Attualmente è possibile modificare il logo dell'applicazione della pagina di accesso, l'URL delle condizioni del servizio e l'informativa sulla privacy. Il logo deve essere un'immagine trasparente da 48 x 48 o 50 x 50 pixel in un file GIF, PNG o JPEG di dimensioni non superiori a 15 KB. Provare a modificare i valori e a visualizzare la pagina di accesso risultante.
 
 ## Supporto Live SDK
 Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creato viene eseguito il provisioning sia in Azure AD che negli archivi dati dell'account Microsoft. In questo modo l'applicazione potrà integrarsi direttamente con il servizio di account Microsoft (login.live.com). Se si vuole compilare un'app usando direttamente l'account Microsoft, anziché l'endpoint di Azure AD 2.0, assicurarsi che il supporto Live SDK sia abilitato.
@@ -42,4 +42,4 @@ Disabilitando il supporto Live SDK il segreto applicazione viene scritto unicame
 
 Se si intende usare solo l'endpoint di Azure AD 2.0, è possibile disabilitare il supporto Live SDK.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

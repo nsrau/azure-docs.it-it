@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Pubblicazione di un servizio cloud con gli strumenti di Azure
@@ -49,7 +49,7 @@ Quando si pubblica l'applicazione Azure, è possibile eseguire una delle seguent
 
   1. Nella finestra di dialogo **Crea pacchetto dell’applicazione Azure** scegliere la configurazione del servizio per il quale si desidera creare un pacchetto e quindi scegliere la configurazione di compilazione.
 
-  1. (facoltativo) Per attivare Desktop remoto per il servizio cloud dopo la pubblicazione, selezionare la casella di controllo **Abilita Desktop remoto per tutti i ruoli**, quindi fare clic su **Impostazioni** per configurare Desktop remoto. Se si desidera eseguire il debug del servizio cloud dopo la pubblicazione, attivare il debug remoto selezionando **Abilita Debugger remoto per tutti i ruoli**.
+  1. (facoltativo) Per attivare Desktop remoto per il servizio cloud dopo la pubblicazione, selezionare la casella di controllo **Abilita Desktop remoto per tutti i ruoli**, quindi selezionare **Impostazioni** per configurare Desktop remoto. Se si desidera eseguire il debug del servizio cloud dopo la pubblicazione, attivare il debug remoto selezionando **Abilita Debugger remoto per tutti i ruoli**.
 
       Per altre informazioni, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
@@ -97,7 +97,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
     Il servizio cloud viene pubblicato. La macchina virtuale creata dispone di connessioni remote abilitate per IIS in modo che Distribuzione Web possa essere utilizzato per aggiornare i ruoli web senza ripubblicarli.
 
-    >[AZURE.NOTE] Se si dispone di più di un'istanza configurata per un ruolo web, viene visualizzato un messaggio di avviso che informa che ogni ruolo web sarà limitato a una sola istanza nel pacchetto creato per pubblicare l'applicazione. Fare clic su OK per continuare. Come indicato nella sezione Requisiti, è possibile disporre di più di un ruolo web ma di solo un'istanza di ogni ruolo.
+    >[AZURE.NOTE] Se si dispone di più di un'istanza configurata per un ruolo web, viene visualizzato un messaggio di avviso che informa che ogni ruolo web sarà limitato a una sola istanza nel pacchetto creato per pubblicare l'applicazione. Selezionare **OK** per continuare. Come indicato nella sezione Requisiti, è possibile disporre di più di un ruolo web ma di solo un'istanza di ogni ruolo.
 
 ### Per aggiornare il ruolo Web tramite Distribuzione Web
 
@@ -125,7 +125,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
 1. Per aggiungere un certificato SSL attendibile a IIS da utilizzare per le connessioni remote, attenersi alla seguente procedura:
 
-  1. Per connettersi alla macchina virtuale che esegue il ruolo web, fare clic sull'istanza del ruolo web in **Cloud Explorer** o **Esplora Server**, quindi scegliere il comando **Connessione tramite Desktop remoto**. Per la procedura dettagliata su come connettersi alla macchina virtuale, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-remote-desktop-roles.md).
+  1. Per connettersi alla macchina virtuale che esegue il ruolo web, selezionare l'istanza del ruolo web in **Cloud Explorer** o **Esplora Server**, quindi scegliere il comando **Connessione tramite Desktop remoto**. Per la procedura dettagliata su come connettersi alla macchina virtuale, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-remote-desktop-roles.md).
 
       Il browser richiederà di scaricare un file RDP.
 
@@ -173,4 +173,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

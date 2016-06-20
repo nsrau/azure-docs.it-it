@@ -42,7 +42,7 @@ Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i d
 * Altre informazioni: [Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md)
 
 ## Resilienza
-Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve ripetere la chiamata. Per la ripetizione dei tentativi si consiglia di usare una logica backoff, in modo da non sovraccaricare inutilmente il database SQL con più client che ripetono i tentativi contemporaneamente.
+Quando si verifica un errore temporaneo durante la connessione al database SQL, il codice deve ripetere la chiamata. Per la ripetizione dei tentativi si consiglia di utilizzare una logica backoff, in modo da non sovraccaricare inutilmente il database SQL con più client che ripetono i tentativi contemporaneamente.
 
 * Esempi di codice: per alcuni esempi di codice che illustrano la logica di ripetizione dei tentativi, vedere gli esempi del linguaggio in uso in [Librerie di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 * Altre informazioni: [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
@@ -53,7 +53,7 @@ Quando si verifica un errore temporaneo durante la connessione al database SQL, 
 
 ## Considerazioni sulla rete
 * Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433. Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md)
-* Se il programma client si connette al database SQL versione 12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni:[Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Se il programma client si connette al database SQL versione 12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
 * Le connessioni client al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## Condivisione dei dati con la scalabilità elastica
@@ -62,4 +62,4 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 * [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

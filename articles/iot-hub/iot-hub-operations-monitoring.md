@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="06/06/2016"
  ms.author="nberdy"/>
 
 # Introduzione al monitoraggio delle operazioni
@@ -122,6 +122,25 @@ La categoria Connessioni tiene traccia degli errori che si verificano quando i d
          "deviceId": "device-ID"
     }
 
+### Caricamenti di file
+
+La categoria di caricamenti dei file tiene traccia degli errori che si verificano nell'hub IoT e correlati alla funzionalità di caricamento dei file. Questo include errori che si verificano con l'URI della firma di accesso condiviso (ad esempio, quando scade prima che un dispositivo invii una notifica all'hub riguardo a un caricamento completato), con caricamenti non riusciti segnalati dal dispositivo e quando non è possibile trovare un file in memoria durante la creazione dei messaggi di notifica dell’hub IoT. Notare che questa categoria non può intercettare errori che si verificano direttamente mentre il dispositivo sta caricando un file in memoria.
+
+    {
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## Passaggi successivi
 
 Al termine di questa panoramica del monitoraggio delle operazioni, è possibile usare i collegamenti seguenti per altre informazioni:
@@ -139,4 +158,4 @@ Al termine di questa panoramica del monitoraggio delle operazioni, è possibile 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

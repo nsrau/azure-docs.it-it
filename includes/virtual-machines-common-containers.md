@@ -97,7 +97,7 @@ La seguente tabella descrive a un livello generale le differenze in termini di f
 
 A questo punto, qualsiasi architetto, sviluppatore o specialista in operazioni IT potrebbe pensare: "Posso automatizzare TUTTO questo; questo è davvero Data-Center-As-A-Service!".
 
-È vero e può essere qualsiasi numero di sistemi, molti dei quali sia già disponibile, in grado di gestire i gruppi di macchine virtuali di Azure e inserire codice personalizzato utilizzando gli script, spesso con la [CustomScriptingExtension per Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension per Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). È possibile automatizzare&mdash; e probabilmente è stato già fatto&mdash;le distribuzioni di Azure utilizzando gli script di PowerShell o dell’interfaccia della riga di comando di Azure [come segue](../articles/virtual-machines/virtual-machines-windows-create-powershell.md).
+È vero e può essere qualsiasi numero di sistemi, molti dei quali sia già disponibile, in grado di gestire i gruppi di macchine virtuali di Azure e inserire codice personalizzato utilizzando gli script, spesso con la [CustomScriptingExtension per Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension per Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). È possibile automatizzare&mdash; e probabilmente è stato già fatto&mdash;le distribuzioni di Azure utilizzando gli script di PowerShell o dell’interfaccia della riga di comando di Azure [come segue](../articles/virtual-machines/virtual-machines-windows-ps-create.md).
 
 Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) per automatizzare la creazione di VM su larga scala e la loro configurazione (qui sono disponibili alcuni link su [come utilizzare questi strumenti con Azure](#tools-for-working-with-containers)).
 
@@ -122,7 +122,7 @@ Inoltre, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with
 
 [Deis](http://deis.io/overview/) è una "Platform-as-a-Service" (PaaS) open source che rende più semplice distribuire e gestire le applicazioni sui propri server. Deis è basato su Docker e CoreOS per fornire una PaaS semplificata con un flusso di lavoro ispirato a Heroku. È possibile [creare un gruppo di VM di Azure a 3 nodi e installare Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) in Azure e quindi [installare un'applicazione Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application) con facilità.
 
-[CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md), una distribuzione Linux con un footprint ottimizzato, supporto Docker e il proprio sistema contenitore chiamato [rkt](https://github.com/coreos/rkt), dispone inoltre di uno strumento di gestione del gruppo contenitore chiamato [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), una distribuzione Linux con un footprint ottimizzato, supporto Docker e il proprio sistema contenitore chiamato [rkt](https://github.com/coreos/rkt), dispone inoltre di uno strumento di gestione del gruppo contenitore chiamato [fleet](https://coreos.com/using-coreos/clustering/).
 
 Ubuntu, un'altra distribuzione Linux molto diffuso, supporta Docker molto bene, ma supporta anche [Linux clusters (in stile LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -174,11 +174,11 @@ Docker su Microsoft Azure:
 
 Distribuzioni Linux ed esempi di Azure:
 
-- [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)
+- [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 Configurazione, gestione del cluster e orchestrazione del contenitore:
 
-- [Flotta su CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Flotta su CoreOS](https://coreos.com/using-coreos/clustering/)
 
 -	Deis
 	- [Creare un gruppo di VM di Azure a 3 nodi, installare Deis, e avviare un'applicazione Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
@@ -216,4 +216,4 @@ Vedere [Docker](https://www.docker.com) e [Contenitori Windows](https://msdn.mic
 [microservizio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

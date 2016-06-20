@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="05/27/2016"
 	ms.author="wesmc"/>
 
 # Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -41,7 +41,7 @@ Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e d
 
 ##Creare un'applicazione Node.js
 
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un’applicazione Node.js, vedere [Creare e distribuire un’applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix].
 
 ##Configurare l'applicazione per l'uso di Hub di notifica
 
@@ -51,19 +51,7 @@ Per usare Hub di notifica di Azure, è necessario scaricare e usare il [pacchett
 
 1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Linux) e passare alla cartella in cui è stata creata l'applicazione vuota.
 
-2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile al seguente (i numeri di versione possono variare):
-
-        azure@0.7.0 node_modules\azure
-		|-- dateformat@1.0.2-1.2.3
-		|-- xmlbuilder@0.4.2
-		|-- node-uuid@1.2.0
-		|-- mime@1.2.9
-		|-- underscore@1.4.4
-		|-- validator@0.4.28
-		|-- tunnel@0.0.2
-		|-- wns@0.5.3
-		|-- xml2js@0.2.6 (sax@0.4.2)
-		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
+2.  Digitare **npm install azure-sb** nella finestra di comando.
 
 3.  È possibile eseguire manualmente il comando **ls** o **dir** per verificare che sia stata creata una cartella **node\_modules**. All'interno di tale cartella trovare il pacchetto **azure**, che contiene le librerie necessarie per accedere a Hub di notifica.
 
@@ -85,7 +73,7 @@ Il valore **connectionstring** della connessione può essere recuperato dal [por
 
 1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
 
-2. Selezionare **Hub di notifica** e quindi individuare l'hub da usare per l'esempio. Per informazioni sulla creazione di un nuovo hub di notifica, vedere l'[esercitazione introduttiva per Windows Store](notification-hubs-windows-store-dotnet-get-started.md).
+2. Selezionare **Hub di notifica** e quindi individuare l'hub da utilizzare per l'esempio. Per informazioni sulla creazione di un nuovo hub di notifica, vedere l'[esercitazione introduttiva per Windows Store](notification-hubs-windows-store-dotnet-get-started.md).
 
 3. Selezionare **Impostazioni**.
 
@@ -102,19 +90,19 @@ L'oggetto **NotificationHubService** espone le istanze seguenti dell'oggetto per
 * **Android**: utilizzare l'oggetto **GcmService**, disponibile in **notificationHubService.gcm**
 * **iOS**: utilizzare l'oggetto **GcmService**, accessibile in **notificationHubService.apns**
 * **Windows Phone**: utilizzare l'oggetto **MpnsService**, disponibile in **notificationHubService.mpns**
-* **Piattaforma UWP (Universal Windows Platform)**: usare l'oggetto **WnsService** disponibile in **notificationHubService.wns**
+* **Piattaforma UWP (Universal Windows Platform)**: utilizzare l'oggetto **WnsService** disponibile in **notificationHubService.wns**
 
 ### Procedura: Inviare notifiche push ad applicazioni Android
 
-L'oggetto **GcmService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Android. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L’oggetto **GcmService** fornisce un metodo **send** che è possibile utilizzare per inviare notifiche push alle applicazioni Android. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
 * **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
-* **Payload**: il payload JSON o stringa non elaborata del messaggio.
+* **Payload**: il payload JSON o la stringa non elaborata del messaggio.
 * **Callback**: la funzione di richiamata.
 
 Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all'[implementazione del server GCM](http://developer.android.com/google/gcm/server.html#payload).
 
-Nel codice seguente viene usata l'istanza **GcmService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push a tutti i client registrati.
+Nel codice seguente viene utilizzata l'istanza **GcmService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push a tutti i client registrati.
 
 	var payload = {
 	  data: {
@@ -129,7 +117,7 @@ Nel codice seguente viene usata l'istanza **GcmService** esposta dall'oggetto **
 
 ### Procedura: Inviare notifiche push ad applicazioni iOS
 
-Come per le applicazioni Android descritte sopra, l'oggetto **ApnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni iOS. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+Come per le applicazioni Android descritte sopra, l'oggetto **ApnsService** fornisce un metodo **send** che è possibile utilizzare per inviare notifiche push alle applicazioni iOS. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
 * **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
 * **Payload**: il payload JSON o stringa del messaggio.
@@ -150,7 +138,7 @@ Nel codice seguente viene utilizzata l'istanza **ApnsService** esposta dall'ogge
 
 ### Procedura: Inviare notifiche push ad applicazioni Windows Phone
 
-L'oggetto **MpnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Windows Phone. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L'oggetto **MpnsService** fornisce un metodo **send** che è possibile utilizzare per inviare notifiche push alle applicazioni Windows Phone. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
 * **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
 * **Payload**: il payload XML del messaggio.
@@ -161,7 +149,7 @@ L'oggetto **MpnsService** fornisce un metodo **send** che è possibile usare per
 
 Per un elenco dei valori validi per **TargetName**, **NotificationClass** e le opzioni di intestazione, vedere la pagina relativa al [push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx).
 
-Nel codice di esempio seguente viene usata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup:
+Nel codice di esempio seguente viene utilizzata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup:
 
 	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
 	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
@@ -172,7 +160,7 @@ Nel codice di esempio seguente viene usata l'istanza **MpnsService** esposta dal
 
 ### Procedura: Inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform)
 
-L'oggetto **WnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform). Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L'oggetto **WnsService** fornisce un metodo **send** che è possibile utilizzare per inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform). Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
 * **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client registrati.
 * **Payload**: il payload XML del messaggio.
@@ -182,7 +170,7 @@ L'oggetto **WnsService** fornisce un metodo **send** che è possibile usare per 
 
 Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
-Nel codice seguente viene usata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup a un'app UWP:
+Nel codice seguente viene utilizzata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup a un'app UWP:
 
 	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
 	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
@@ -223,11 +211,11 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
   [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Sito Web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

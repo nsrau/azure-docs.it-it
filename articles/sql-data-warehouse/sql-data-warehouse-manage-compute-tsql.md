@@ -19,7 +19,7 @@
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-overview-manage-compute.md)
+- [Panoramica](sql-data-warehouse-manage-compute-overview.md)
 - [Portale](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -35,7 +35,7 @@ Questo gruppo di attività usa T-SQL per:
 
 Per sospendere o riprendere un database, scegliere una delle altre opzioni di piattaforma nella parte superiore di questo articolo.
 
-Per altre informazioni, vedere [Manage compute power overview][] (Panoramica sulla gestione della potenza di calcolo).
+Per altre informazioni, vedere [Panoramica sulla gestione della potenza di calcolo][].
 
 <a name="current-dwu-bk"></a>
 
@@ -86,7 +86,7 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Panoramica sulla gestione della potenza di calcolo]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

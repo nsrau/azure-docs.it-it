@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Limiti e quote di DocumentDB | Microsoft Azure" 
-	description="Informazioni sull'applicazione di limiti e quote in DocumentDB. Esaminare le quote di utilizzo dei servizi di database di Azure."
-	keywords="Quote, database, documentdb, azure, Microsoft azure"
+	pageTitle="Quote predefinite per DocumentDB | Microsoft Azure" 
+	description="Informazioni sulle quote predefinite allocate da DocumentDB."
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -14,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="05/27/2016" 
 	ms.author="arramac"/>
 
 
-# Limiti e quote di DocumentDB
+# Quote predefinite per DocumentDB
 
-La tabella seguente descrive le quote e i limiti applicati in DocumentDB.
+Nella tabella seguente sono descritte le quote predefinite per le risorse di DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

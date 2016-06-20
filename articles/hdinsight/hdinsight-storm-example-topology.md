@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/18/2016"
+ ms.date="06/06/2016"
  ms.author="larryfr"/>
 
 # Esempi di topologie e componenti Storm per Apache Storm in HDInsight
@@ -61,4 +61,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

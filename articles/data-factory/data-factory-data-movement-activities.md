@@ -102,7 +102,7 @@ Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'att
 Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico archivio dati, vedere gli argomenti relativi al connettore archivio dati corrispondente. È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
 
 ### Uso di diversi formati di file
-L'attività di copia supporta una vasta gamma di formati di file, inclusi i formati binari, di testo, Avro e JSON per gli archivi basati su file. È possibile usare l'attività di copia per convertire i dati da un formato a un altro. Esempio: testo (CSV) ad Avro. Se i dati non sono strutturati, è possibile omettere la proprietà **Structure** nella definizione JSON del [set di dati](data-factory-create-datasets.md).
+L’attività di copia supporta una vasta gamma di formati di file, inclusi i formati binari, di testo, Avro, ORC e JSON per gli archivi basati su file. È possibile usare l'attività di copia per convertire i dati da un formato a un altro. Esempio: testo (CSV) ad Avro. Se i dati non sono strutturati, è possibile omettere la proprietà **Structure** nella definizione JSON del [set di dati](data-factory-create-datasets.md).
 
 ### Proprietà dell'attività di copia
 Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via. D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività.
@@ -195,4 +195,4 @@ Fare clic sul pulsante **Sfoglia** per il **file o la cartella**, passare a una 
 
 ![Uso di variabili personalizzate](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

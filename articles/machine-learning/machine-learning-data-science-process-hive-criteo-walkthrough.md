@@ -113,7 +113,7 @@ Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di coman
 
 **NOTA IMPORTANTE**: **eseguire tutti i comandi di Hive in questa procedura dettagliata dal prompt della directory bin/ Hive indicato sopra. In questo modo, eventuali problemi di percorso verranno risolti automaticamente. I termini "prompt della directory Hive", "prompt della directory bin/ Hive" e "riga di comando di Hadoop" verranno usati in modo intercambiabile in questo documento.**
 
-**NOTA IMPORTANTE 2**: **per eseguire qualsiasi query Hive, è sempre possibile usare il comando** cd %hive\_home%\\bin hive
+**NOTA IMPORTANTE 2**: **per eseguire qualsiasi query Hive, è sempre possibile usare il comando ** cd %hive\_home%\\bin hive
 
 Dopo che viene visualizzata la shell REPL Hive con l'indicazione "hive >", è sufficiente tagliare e incollare la query per eseguirla.
 
@@ -438,17 +438,17 @@ Il processo di creazione di un modello in Azure Machine Learning prevede i passa
 5. [Valutare il modello](#step5)
 6. [Pubblicare il modello come servizio Web per consentirne l'utilizzo](#step6)
 
-È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati verrà usato il modulo **Reader** di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate sotto.
+È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati verrà utilizzato il modulo **Import Data** di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate sotto.
 
-### <a name="step1"></a> Passaggio 1: Ottenere i dati dalle tabelle Hive in Machine Learning usando il modulo Reader e selezionarli per un esperimento di Machine Learning
+### <a name="step1"></a> Passaggio 1: Ottenere i dati dalle tabelle Hive in Azure Machine Learning utilizzando il modulo Import Data e selezionarli per un esperimento di Machine Learning
 
-Per iniziare, selezionare **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Quindi nella casella **Search** in alto a sinistra cercare "Reader". Trascinare il modulo **Reader** sull'area di disegno degli esperimenti (la parte centrale della schermata) per usare il modulo per l'accesso ai dati.
+Per iniziare, selezionare **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Quindi nella casella **Search** in alto a sinistra cercare "Import Data". Trascinare il modulo **Import Data** sull'area di disegno degli esperimenti (la parte centrale della schermata) per utilizzare il modulo per l'accesso ai dati.
 
-Ecco l'aspetto del modulo **Reader** durante il recupero dei dati dalla tabella Hive:
+Ecco l'aspetto del modulo **Import Data** durante il recupero dei dati dalla tabella Hive:
 
-![Il lettore ottiene i dati](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Acquisizione di dati con Import Data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-Per il modulo **Reader** i valori dei parametri forniti nel grafico sono solo esempi del tipo di valori che sarà necessario specificare. Di seguito sono illustrate alcune indicazioni generali su come compilare il set di parametri per il modulo **Reader**.
+Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono solo esempi del tipo di valori che sarà necessario specificare. Di seguito sono illustrate alcune indicazioni generali su come compilare il set di parametri per il modulo **Import Data**.
 
 1. In **Data Source** scegliere "Hive query".
 2. Nella casella **Hive database query**, è sufficiente specificare l'istruzione SELECT * FROM <nome\_database.nome\_tabella>.
@@ -461,11 +461,11 @@ Per il modulo **Reader** i valori dei parametri forniti nel grafico sono solo es
 9. **Azure container name**: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc".
 
 
-Quando il modulo **Reader** termina il recupero di dati (il completamento è indicato da un segno di spunta verde nel modulo), salvare i dati come set di dati (con un nome di propria scelta). L'aspetto è il seguente:
+Quando il modulo **Import Data** termina il recupero di dati (il completamento è indicato da un segno di spunta verde nel modulo), salvare i dati come set di dati (con un nome di propria scelta). L'aspetto è il seguente:
 
-![Il lettore salva i dati](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Salvataggio di dati con Import Data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Reader**. Verranno visualizzate le opzioni **Save as dataset** e **Visualize**. Facendo clic sull'opzione **Visualize** vengono visualizzati 100 righe di dati e un pannello, sul lato destro, utile per le statistiche di riepilogo. Per salvare i dati, è sufficiente selezionare **Save as dataset** e seguire le istruzioni.
+Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Import Data**. Verranno visualizzate le opzioni **Save as dataset** e **Visualize**. Facendo clic sull'opzione **Visualize** vengono visualizzati 100 righe di dati e un pannello, sul lato destro, utile per le statistiche di riepilogo. Per salvare i dati, è sufficiente selezionare **Save as dataset** e seguire le istruzioni.
 
 Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Learning, individuare il set di dati usando la casella **Search** illustrata di seguito. Digitare quindi una parte del nome assegnato al set di dati per accedervi e trascinare il set di dati nel pannello principale. Rilasciando il set di dati sul pannello principale, questo viene selezionato per la modellazione in Machine Learning.
 
@@ -624,13 +624,13 @@ Nota: per il formato dei dati di input, verrà ora usato l'OUTPUT del modulo **C
 
 #### Esperimento di assegnazione dei punteggi per la pubblicazione del servizio Web
 
-Innanzitutto, viene illustrato l'aspetto. La struttura essenziale è un modulo **Score Model** che accetta l'oggetto modello sottoposto a training e poche righe di dati di input generate nei passaggi precedenti usando il modulo **Count Featurizer**. Viene usato il modulo "Project Columns" per ottenere le etichette con i punteggi e le probabilità di stima.
+Innanzitutto, viene illustrato l'aspetto. La struttura essenziale è un modulo **Score Model** che accetta l'oggetto modello sottoposto a training e poche righe di dati di input generate nei passaggi precedenti usando il modulo **Count Featurizer**. Viene usato il modulo "Select Columns in Dataset" per ottenere le etichette con i punteggi e le probabilità di stima.
 
-![Selezione delle colonne](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Select Columns in Dataset](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Si noti che modo è possibile usare il modulo **Project Columns** per filtrare i dati da escludere da un set di dati. Il contenuto è illustrato di seguito:
+Si noti che modo è possibile utilizzare il modulo **Select Columns in Dataset** per filtrare i dati da escludere da un set di dati. Il contenuto è illustrato di seguito:
 
-![Filtro tramite il modulo Project Columns](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Applicazione di filtri con il modulo Select Columns in Dataset](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 Per ottenere le porte di input e di output indicate in blu, è sufficiente fare clic su **prepare webservice** in basso a destra. L'esecuzione di questo esperimento consente anche di pubblicare il servizio Web facendo clic sull'icona **PUBLISH WEB SERVICE** in basso a destra, illustrata di seguito.
 
@@ -663,4 +663,4 @@ Si noti che per i due esempi di test chiesti (nel framework JSON dello script Py
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Questo articolo illustra come configurare la replica geografica per un database SQL di Azure con Transact-SQL.
+Questo articolo illustra come configurare la replica geografica per un database SQL di Azure usando Transact-SQL.
 
 Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-transact-sql.md).
 
@@ -61,7 +61,7 @@ Usare la procedura seguente per creare un database secondario non accessibile in
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica e con un database secondario non leggibile in MySecondaryServer1, dove MySecondaryServer1 è il nome descrittivo del server.
+3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non leggibile in MySecondaryServer1, dove MySecondaryServer1 è il nome descrittivo del server.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -137,7 +137,7 @@ Usare la procedura seguente per rimuovere il database secondario con replica geo
 
 4. Fare clic su **Execute** per eseguire la query.
 
-## Monitorare la configurazione di replica geografica e l'integrità
+## Monitorare la configurazione della replica geografica e l'integrità
 
 Le attività di monitoraggio includono il controllo della configurazione della replica geografica e dell'integrità della replica dei dati. È possibile usare la vista a gestione dinamica (DMV) **sys.dm\_geo\_replication\_links** in un database master per restituire informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico di database SQL di Azure. Questa vista include una riga per ogni collegamento di replica tra i database primari e secondari. È possibile usare la DMV **sys.dm\_replication\_status** per restituire una riga per ogni database SQL di Azure attualmente interessato da un collegamento di replica. Sono inclusi il database primario e i database secondari. Se esiste più di un collegamento di replica continua per un determinato database primario, questa tabella contiene una riga per ogni relazione. La vista viene creata in tutti i database, incluso il database master logico. Eseguendo query su questa vista in tale database, verrà tuttavia restituito un set vuoto. È possibile usare la DMV **sys.dm\_operation\_status** per visualizzare lo stato di tutte le operazioni di database, incluso lo stato dei collegamenti di replica. Per altre informazioni, vedere [sys.geo\_replication\_links (database SQL di Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm\_geo\_replication\_link\_status (database SQL di Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm\_operation\_status (database SQL di Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
@@ -176,11 +176,11 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 ## Risorse aggiuntive
 
 - [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

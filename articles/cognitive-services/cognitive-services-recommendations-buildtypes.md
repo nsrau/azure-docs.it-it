@@ -21,12 +21,15 @@
 <a name="TypeofBuilds"></a>
 ## Quale tipo di compilazione di elementi consigliati si deve usare? ##
 
-Attualmente sono supportati due tipi di compilazione: *Elementi consigliati* e *FBT*. Ogni tipo viene compilato usando algoritmi diversi e ha vantaggi diversi.
+Attualmente sono supportati due tipi di compilazione: *Elementi consigliati* e *FBT*. Ogni tipo viene compilato usando algoritmi diversi e ha vantaggi diversi. Questo documento descrive ciascuna di questo compilazioni, oltre alle tecniche per confrontare la qualità dei modelli generati.
+
+
+> Se non è già stato fatto, è consigliabile completare la [Guida introduttiva](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Tipo di compilazione di elementi consigliati ###
 
-La compilazione di *elementi consigliati* usa la fattorizzazione di matrici per offrire indicazioni. Usa in sintesi le transazioni dell'utente per generare vettori di [funzionalità latenti](https://en.wikipedia.org/wiki/Latent_variable) per descrivere ogni elemento e quindi usa questi vettori latenti per confrontare gli elementi simili.
+Il tipo di compilazione di *elementi consigliati* utilizza la fattorizzazione di matrici per offrire indicazioni. Utilizza in sintesi le transazioni dell'utente per generare vettori di [funzionalità latenti](https://en.wikipedia.org/wiki/Latent_variable) per descrivere ogni elemento e quindi utilizza questi vettori latenti per confrontare gli elementi simili.
 
 Supponendo che si esegua il training del modello in base agli acquisti effettuati nel proprio negozio di elettronica, e che in fase di assegnazione dei punteggi venga indicato un telefono Lumia 650 come input per il modello, verrà restituito un set di elementi che tendono a essere acquistati da utenti che è probabile acquistino un telefono Lumia 650. Si noti che gli elementi possono non essere complementari. In questo esempio è possibile che vengano restituiti altri telefoni perché gli utenti interessati al telefono Lumia 650 potrebbero essere interessati ad altri telefoni.
 
@@ -155,7 +158,7 @@ In fase di compilazione nell'ambito dei parametri per la compilazione FBT o di e
 
 2.	È possibile selezionare facoltativamente il parametro *splitterStrategy*, ovvero *RandomSplitter* o *LastEventSplitter*. *RandomSplitter* suddivide i dati di utilizzo in set di training e set di test basati sui valori percentuali e di seme casuali *randomSplitterParameters* specificati per il test. *LastEventSplitter* suddivide i dati di utilizzo in set di training e set di test in base all'ultima transazione per ogni utente.
 
-Verrà attivata una compilazione che usa solo un subset dei dati per il training; il resto dei dati viene usato per calcolare le metriche di valutazione. Dopo aver completato la compilazione, per ottenere l'output della valutazione è sufficiente chiamare [l'API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) passando il rispettivo elemento *modelId* e *buildId*.
+Verrà attivata una compilazione che usa solo un subset dei dati per il training; il resto dei dati viene usato per calcolare le metriche di valutazione. Dopo aver completato la compilazione, per ottenere l'output della valutazione è sufficiente chiamare l’[API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) passando il rispettivo elemento *modelId* e *buildId*.
 
  Di seguito è riportato l'output JSON per la valutazione di esempio eseguita:
 
@@ -238,4 +241,4 @@ Verrà attivata una compilazione che usa solo un subset dei dati per il training
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

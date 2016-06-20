@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark Linux su HDInsight (anteprima)
+# Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux
 
 Il cluster Apache Spark in HDInsight (Linux) include notebook di Jupyter che è possibile usare per testare le applicazioni. Un kernel è un programma che esegue e interpreta il codice. I cluster HDInsight Spark offrono due kernel che è possibile usare con il notebook di Jupyter. Si tratta di:
 
@@ -126,7 +126,7 @@ Quando si apre un notebook di Jupyter verranno visualizzate due cartelle a livel
 
 Per conoscere i diversi magic disponibili, è possibile aprire il notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** dalla cartella **PySpark** o **Spark**. Per informazioni su come realizzare diversi scenari usando i notebook Jupyter con cluster HDInsight Spark, è anche possibile usare gli altri notebook di esempio disponibili nelle due cartelle.
 
-## Dove sono archiviati i notebook?
+## Dove sono archiviati i notebook
 
 I notebook Jupyter vengono salvati nell'account di archiviazione associato al cluster nella cartella **/HdiNotebooks**. I notebook, i file di testo e le cartelle creati dall'interno di Jupyter saranno accessibili da WASB. Ad esempio, se si usa Jupyter per creare una cartella **myfolder** e un notebook **myfolder/mynotebook.ipynb**, sarà possibile accedere al notebook dal percorso `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. È anche vero il contrario, ovvero se si carica un notebook direttamente nell'account di archiviazione al percorso `/HdiNotebooks/mynotebook1.ipynb`, il notebook sarà visibile anche da Jupyter. I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
 
@@ -174,10 +174,18 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -47,7 +47,7 @@ Per identificare i database e le tabelle per l'estensione database, scaricare Ge
 
 2.  Nell'elenco delle tabelle consigliate nel pannello **Risultati analisi** selezionare una delle tabelle consigliate per visualizzare il pannello **Risultati tabella**.
 
-    Nel pannello **Risultati tabella** sono elencati i problemi di blocco della tabella selezionata. Per informazioni sui problemi di blocco rilevati dall'ottimizzazione guidata Database Estensione, vedere [Limitazioni della superficie di attacco e problemi di blocco per Database Estensione](sql-server-stretch-database-limitations.md).
+    Nel pannello **Risultati tabella** sono elencati i problemi di blocco della tabella selezionata. Per informazioni sui problemi di blocco rilevati dall'ottimizzazione guidata dell'estensione database, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
 3.  Nell'elenco dei problemi di blocco nel pannello **Risultati tabella** selezionare uno dei problemi per visualizzare il pannello **Risultati regola**.
 
@@ -62,10 +62,10 @@ Abilitare Database Estensione.
 
 ## Vedere anche
 
-[Limitazioni della superficie di attacco e problemi di blocco per Database Estensione](sql-server-stretch-database-limitations.md)
+[Limitazioni di Estensione database](sql-server-stretch-database-limitations.md)
 
 [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md)
 
 [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

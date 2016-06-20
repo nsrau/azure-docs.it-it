@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
@@ -110,7 +110,8 @@ Copiare il testo seguente in Blocco note.
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
-    <BackendAddressPools>
+      </Probes>
+     <BackendAddressPools>
         <BackendAddressPool>
             <Name>pool1</Name>
             <IPAddresses>
@@ -222,4 +223,4 @@ Per configurare l'offload SSL (Secure Sockets Layer), vedere [Configurare un gat
 
 Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite la CLI di Azure
@@ -61,9 +61,14 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
 
 ##Eliminare cluster
+
 Utilizzare il comando seguente per eliminare un cluster:
 
 	azure hdinsight cluster delete <Cluster Name>
+
+È inoltre possibile eliminare un cluster eliminando il gruppo di risorse che lo contiene. Tenere presente che questa operazione eliminerà tutte le risorse nel gruppo, compreso l’account di archiviazione predefinito.
+
+	azure group delete <Resource Group Name>
 
 ##Ridimensionare i cluster
 
@@ -108,4 +113,4 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elenco e visualizzazione di cluster"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

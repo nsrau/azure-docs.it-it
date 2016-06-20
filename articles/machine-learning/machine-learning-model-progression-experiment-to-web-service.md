@@ -128,7 +128,7 @@ Dipende da che cosa è necessario aggiornare:
 
 Se non si intende cambiare il modello, ma solo il modo in cui il servizio Web gestisce i dati, è possibile modificare l'esperimento predittivo e quindi fare ancora clic su **Deploy Web Service**. Il servizio Web si arresterà, l'esperimento predittivo aggiornato verrà distribuito e il servizio Web verrà nuovamente avviato.
 
-Ecco un esempio: si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile che si preferisca che il servizio Web restituisca solo il risultato. È possibile aggiungere un modulo **Project Columns** nell'esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quella del risultato. Quando si fa di nuovo clic su **Deploy Web Service**, il servizio Web viene aggiornato.
+Ecco un esempio: si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile che si preferisca che il servizio Web restituisca solo il risultato. È possibile aggiungere un modulo **Select Columns in Dataset** nell’esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quelle del risultato. Quando si fa di nuovo clic su **Deploy Web Service**, il servizio Web viene aggiornato.
 
 **Si vuole ripetere il training del modello con i nuovi dati**
 
@@ -160,4 +160,4 @@ Per esempi dell'intero processo, vedere:
 
 -   [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

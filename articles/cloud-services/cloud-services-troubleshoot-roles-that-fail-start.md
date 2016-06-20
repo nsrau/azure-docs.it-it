@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
 
-## Contattare il supporto tecnico di Azure
-
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/).
-
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del supporto per Azure, vedere le [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## File DLL o dipendenze mancanti
 
@@ -71,7 +67,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 
 1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
 
-2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Uso di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Utilizzo di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure classico fare clic su una delle istanze del ruolo.
 
@@ -123,7 +119,7 @@ Per ottenere risultati ottimali con questo metodo di diagnosi, è consigliabile 
 
 ## Diagnosticare i problemi usando IntelliTrace
 
-Per i ruoli di lavoro e i ruoli Web che usano .NET Framework 4, è possibile usare [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), disponibile in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+Per i ruoli di lavoro e i ruoli Web che utilizzano .NET Framework 4, è possibile utilizzare [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), disponibile in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
 
 Seguire questa procedura per distribuire il servizio con IntelliTrace abilitato:
 
@@ -163,8 +159,8 @@ Dopo avere verificato che tutti gli errori sono stati corretti, è possibile dis
 
 ## Passaggi successivi
 
-Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 
-Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

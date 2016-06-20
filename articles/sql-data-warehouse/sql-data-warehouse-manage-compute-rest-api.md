@@ -19,7 +19,7 @@
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (REST)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-overview-manage-compute.md)
+- [Panoramica](sql-data-warehouse-manage-compute-overview.md)
 - [Portale](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Questa raccolta di attività usa il portale di Azure per:
 - Sospendere le risorse di calcolo
 - Riavviare le risorse di calcolo
 
-Per altre informazioni, vedere [Manage compute power overview][] (Panoramica sulla gestione della potenza di calcolo).
+Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -89,8 +89,7 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 
 <!--Article references-->
 [Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute.md
+[Panoramica sulla gestione del calcolo]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
@@ -101,4 +100,4 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

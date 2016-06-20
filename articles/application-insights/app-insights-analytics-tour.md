@@ -208,19 +208,24 @@ Si noti che è possibile usare `name=` per impostare il nome di una colonna di r
 
 ## Conteggio dei dati campionati
 
-`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma quando nell'operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti eventi `itemCount` per ogni punto dati visualizzato. Il riepilogo di itemCount offre quindi una stima valida del numero di eventi originale.
+`sum(itemCount)` è l'aggregazione consigliata per contare gli eventi. In molti casi, itemCount==1, quindi la funzione somma semplicemente il numero di righe nel gruppo. Ma quando nell’operazione è previsto un [campionamento](app-insights-sampling.md), solo una frazione degli eventi originali verrà conservata come punto dati in Application Insights, in modo che siano presenti `itemCount` eventi per ogni punto dati visualizzato.
+
+Ad esempio, se il campionamento elimina il 75% degli eventi originali, allora itemCount==4 nei record mantenuti; ciò significa che per ogni record mantenuto c’erano quattro record originali.
+
+Il campionamento adattivo causa un valore itemCount più elevato durante i periodi in cui l'applicazione viene utilizzata di frequente.
+
+Il riepilogo di itemCount offre quindi una stima valida del numero di eventi originale.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-È disponibile anche un'aggregazione `count()`, oltre a un'operazione di conteggio, per i casi in cui si vuole effettivamente contare il numero di righe in un gruppo.
+È disponibile anche un’aggregazione `count()`, oltre a un’operazione di conteggio, per i casi in cui si vuole effettivamente contare il numero di righe in un gruppo.
 
 
 Esiste un intervallo di [funzioni di aggregazione](app-insights-analytics-reference.md#aggregations).
 
 
 ## Disegnare i risultati
-
 
 
 ```AIQL
@@ -261,7 +266,7 @@ Si osservino solo le eccezioni riportate dai browser:
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
  * `and`, `or`: operatori booleani
- * `==`, `<>`: uguale a e non uguale a
+ * `==`, `<>` : uguale e non uguale a
  * `=~`, `!=`: stringa con distinzione maiuscole/minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
 Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
@@ -318,7 +323,7 @@ Usare più valori in una clausola `summarize by` per creare una riga distinta pe
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Per visualizzare più righe in un grafico, fare clic su **Split by** (Dividi) e selezionare una colonna.
+Per visualizzare più righe in un grafico, fare clic su **Dividi** e selezionare una colonna.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -446,13 +451,13 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 ```
 
 
-È buona norma usare `project` per selezionare solo le colonne necessarie prima di eseguire il join. Nelle stesse clausole, si rinomina la colonna timestamp.
+È buona norma utilizzare `project` per selezionare solo le colonne necessarie prima di eseguire il join. Nelle stesse clausole, si rinomina la colonna timestamp.
 
 
 
-## [Let](app-insights-analytics-reference.md#let-clause): assegnare un risultato a una variabile
+## [Let](app-insights-analytics-reference.md#let-clause): assegna un risultato a una variabile
 
-Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
+Utilizzare [let](./app-insights-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
 ```AIQL
 
@@ -469,4 +474,4 @@ Usare [let](./app-insights-analytics-syntax.md#let-statements) per separare le p
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

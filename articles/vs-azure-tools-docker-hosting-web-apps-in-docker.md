@@ -3,7 +3,7 @@
    description="Imparare a usare Visual Studio Tools per Docker per pubblicare un'app Web ASP.NET 5 in un contenitore Docker in esecuzione su un computer host Docker di Azure"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Distribuire un contenitore ASP.NET in un host Docker remoto
 
@@ -57,13 +57,13 @@ Prima di distribuire l'app da Visual Studio in Azure, aggiungere l'endpoint 80 a
 
     1.  Passare al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Toccare **MACCHINE VIRTUALI**.
+    1.  Selezionare **MACCHINE VIRTUALI**.
     
     1.  Selezionare la macchina virtuale dell'host Docker.
     
-    1.  Toccare la scheda **ENDPOINT**.
+    1.  Selezionare la scheda **ENDPOINT**.
     
-    1.  Toccare **AGGIUNGI** (nella parte inferiore della pagina).
+    1.  Selezionare **ADD** nella parte inferiore della pagina.
     
     1.  Seguire le istruzioni per esporre la porta 80, che viene usata dallo script di distribuzione per impostazione predefinita.
 
@@ -83,7 +83,7 @@ Durante la distribuzione su host remoti, la funzione di mapping volume usata per
 
 1.  Modificare la destinazione di avvio impostandola su **Docker**.
 
-1.  Toccare l'icona **Docker** per compilare ed eseguire l'app.
+1.  Selezionare l'icona **Docker** per compilare ed eseguire l'app.
 
 ![Avviare l'app][2]
 
@@ -96,4 +96,4 @@ I risultati visualizzati dovrebbero essere simili ai seguenti.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

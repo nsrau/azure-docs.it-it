@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Backup e ripristino di database con estensione abilitata | Microsoft Azure"
-	description="Scoprire come eseguire backup e ripristino di database con estensione abilitata."
+	pageTitle="Eseguire il backup di database con estensione abilitata | Microsoft Azure"
+	description="Informazioni su come eseguire il backup di database con estensione abilitata."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,42 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/03/2016"
 	ms.author="douglasl"/>
 
+# Eseguire il backup di database con estensione abilitata
 
-# Eseguire backup e ripristino di database con estensione abilitata
+I backup del database consentono di recuperare da molti tipi di errori e guasti.
 
-Per eseguire il backup e il ripristino di database con estensione abilitata, è possibile continuare a usare i metodi attualmente in uso. Per sapere di più su backup e ripristino di SQL Server, vedere l'articolo su come [eseguire il backup e il ripristino di database di SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
+-   È necessario eseguire il backup dei database SQL Server abilitati per l'estensione.  
 
-Il backup di un database con estensione abilitata è un backup superficiale che non include i dati migrati al server remoto.
+-   Microsoft Azure esegue automaticamente il backup dei dati remoti che Estensione database ha migrato da SQL Server in Azure.
 
-Il Database Estensione offre supporto completo per il ripristino temporizzato. Dopo aver ripristinato il database di SQL Server a un punto nel tempo e autorizzato nuovamente la connessione ad Azure, Database Estensione riconcilia i dati remoti allo stesso punto nel tempo. Per sapere di più sul ripristino temporizzato in SQL Server, vedere l'articolo sul [ripristino di un database di SQL Server in un punto nel tempo (modello di recupero con registrazione completa)](https://msdn.microsoft.com/library/ms179451.aspx). Per informazioni sulla stored procedure da eseguire dopo un ripristino per autorizzare nuovamente la connessione ad Azure, vedere [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx).
+>    [AZURE.NOTE] Il backup è solo una parte di una soluzione completa di continuità aziendale e a disponibilità elevata. Per altre informazioni sulla disponibilità elevata, vedere [Soluzioni a disponibilità elevata (SQL Server)](https://msdn.microsoft.com/library/ms190202.aspx).
 
-## <a name="Reconnect"></a>Ripristinare un database con estensione abilitata da un backup
+## Eseguire il backup dei dati di SQL Server  
 
-1.  Ripristinare il database da un backup.
+Per eseguire il backup di database SQL Server con estensione abilitata, è possibile continuare a usare i metodi di backup di SQL Server attualmente in uso. Per altre informazioni, vedere [Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
-2.  Eseguire la stored procedure [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) per riconnettere ad Azure il database locale con estensione abilitata.
+I backup di un database con estensione abilitata contengono solo dati locali e dati idonei alla migrazione in corrispondenza del punto nel tempo in cui viene eseguito il backup (i dati idonei sono dati non ancora migrati, ma che saranno migrati in Azure in base alle impostazioni di migrazione delle tabelle). Questo è chiamato backup **superficiale** e non include i dati già migrati in Azure.
 
-    -   Specificare le credenziali con ambito database come sysname o valore varchar (128). Non usare varchar(max). È possibile cercare il nome delle credenziali nella vista **sys.database\_scoped\_credentials**.
+## Eseguire il backup di dati di Azure remoti   
 
-	-   Specificare se creare una copia dei dati remoti e connettersi alla copia.
+Microsoft Azure esegue automaticamente il backup dei dati remoti che Estensione database ha migrato da SQL Server in Azure.
 
-    ```tsql
-    Declare @credentialName nvarchar(128);
-    SET @credentialName = N'<database_scoped_credential_name_created_previously>';
-    EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 0;
-    ```
+### Azure riduce il rischio di perdita dei dati con il backup automatico  
+Il servizio Estensione database di SQL Server in Azure protegge i database remoti con snapshot di archiviazione automatici almeno ogni 8 ore. Mantiene ogni snapshot per 7 giorni per fornire un intervallo di possibili punti di ripristino.
 
-## <a name="MoreInfo"></a>Altre informazioni su backup e ripristino
-I backup in un database con Database Estensione abilitato contengono solo dati locali e dati idonei in corrispondenza del punto nel tempo in cui viene eseguito il backup. Questi backup contengono anche informazioni sull'endpoint remoto in cui risiedono i dati remoti del database. Questo backup è noto come "backup superficiale". Backup completi che contengono tutti i dati nel database locale e remoto non sono supportati.
+### Azure riduce il rischio di perdita dei dati con la ridondanza in più aree geografiche  
+I backup dei database di Azure vengono archiviati in archiviazioni di Azure RA-GRS ridondanti in più aree geografiche e pertanto offrono la ridondanza geografica per impostazione predefinita. Con l'archiviazione con ridondanza geografica i dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria. Sia nelle aree primarie che in quelle secondarie i dati vengono replicati tre volte tra domini di errore e domini di aggiornamento separati. In questo modo viene garantita la durata dei dati anche in caso di una completa interruzione del servizio a livello locale o di una calamità che rende una delle aree di Azure non disponibile.
 
-Quando si ripristina un backup di un database con Database Estensione abilitato, questa operazione consente di ripristinare i dati locali e idonei per il database come previsto. I dati idonei sono dati non ancora spostati, ma che lo saranno in Azure in base alla configurazione di Database Estensione delle tabelle. Dopo aver eseguito l'operazione di ripristino, il database conterrà i dati locali e idonei del punto nel tempo in cui è stato eseguito il backup, ma non disporrà delle credenziali e degli elementi necessari per la connessione all'endpoint remoto.
+### <a name="stretchRPO"></a>Estensione database riduce il rischio di perdita dei dati di Azure conservando temporaneamente le righe migrate
+Dopo che Estensione database ha eseguito la migrazione delle righe idonee da SQL Server in Azure, conserva le righe nella tabella di gestione temporanea per un minimo di 8 ore. Se si ripristina un backup del database di Azure, Estensione database usa le righe salvate nella tabella di gestione temporanea per riconciliare i database SQL Server e di Azure.
 
-È necessario eseguire la stored procedure **sys.sp\_rda\_reauthorize\_db** per ristabilire la connessione tra il database locale e l'endpoint remoto relativo. Solo un db\_owner può eseguire questa operazione. Questa stored procedure richiede anche accesso e password dell'amministratore per il server Azure di destinazione.
+Dopo aver ripristinato un backup di dati di Azure, è necessario eseguire la stored procedure [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) per connettere il database SQL Server con estensione abilitata con il database di Azure remoto. Quando si esegue **sys.sp\_rda\_reauthorize\_db**, Estensione database riconosce automaticamente i database SQL Server e di Azure.
 
-Dopo aver ristabilito la connessione, Database Estensione tenta di riconciliare i dati idonei nel database locale con i dati remoti creando una copia dei dati remoti nell'endpoint remoto e collegandolo al database locale. Questo processo è automatico e non necessita dell'intervento dell'utente. Dopo aver eseguito la riconciliazione, il database locale e l'endpoint remoto sono in uno stato di coerenza.
+Per aumentare il numero di ore per cui i dati migrati sono conservati da Estensione database nella tabella di gestione temporanea, eseguire la stored procedure [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) e specificare un numero di ore maggiore di 8. Per decidere la quantità di dati da conservare, considerare i fattori seguenti:
+-   La frequenza dei backup automatici di Azure (almeno ogni 8 ore).
+-   Il tempo necessario dopo un problema per riconoscere il problema e decidere di ripristinare un backup.
+-   La durata dell'operazione di ripristino di Azure.
+
+> [AZURE.NOTE] Aumentando la quantità di dati che Estensione database deve conservare temporaneamente nella tabella di gestione temporanea aumenta la quantità di spazio necessaria in SQL Server.
+
+Per controllare il numero di ore per cui i dati sono conservati attualmente da Estensione database nella tabella di gestione temporanea, eseguire la stored procedure [sys.sp\_rda\_get\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
 ## Vedere anche
 
@@ -58,4 +64,4 @@ Dopo aver ristabilito la connessione, Database Estensione tenta di riconciliare 
 
 [Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

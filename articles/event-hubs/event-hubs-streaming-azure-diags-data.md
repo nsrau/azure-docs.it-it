@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
@@ -64,7 +64,7 @@ Il sink dell'Hub eventi deve essere dichiarato e definito anche nella sezione **
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-Il valore **SharedAccessKeyName** deve corrispondere a una chiave di firma di accesso condiviso e ai criteri definiti nello spazio dei nomi **ServiceBus/EventHub**. Questa operazione può essere eseguita tramite il dashboard di Hub eventi nel [portale di Azure classico](https://manage.windowsazure.com), facendo clic sulla scheda **Configura** e impostando un criterio denominato (ad es., "SendRule") dotato delle autorizzazioni *Send*. Anche il valore **StorageAccount** viene dichiarato in **PrivateConfig**. Non è necessario modificare i valori, specialmente se funzionano. In questo esempio i valori verranno lasciati vuoti, poiché una risorsa downstream si occuperà di popolarli; ad esempio, il file di configurazione dell'ambiente *ServiceConfiguration.Cloud.cscfg* imposterà i nomi e le chiavi appropriate per l'ambiente.
+Il valore **SharedAccessKeyName** deve corrispondere a una chiave di firma di accesso condiviso e ai criteri definiti nello spazio dei nomi **ServiceBus/EventHub**. Questa operazione può essere eseguita tramite il dashboard di Hub eventi nel [portale di Azure classico](https://manage.windowsazure.com), selezionando la scheda **Configura** e impostando un criterio denominato (ad es. "SendRule") dotato delle autorizzazioni *Send*. Anche il valore **StorageAccount** viene dichiarato in **PrivateConfig**. Non è necessario modificare i valori, specialmente se funzionano. In questo esempio i valori verranno lasciati vuoti, poiché una risorsa downstream si occuperà di popolarli; ad esempio, il file di configurazione dell'ambiente *ServiceConfiguration.Cloud.cscfg* imposterà i nomi e le chiavi appropriate per l'ambiente.
 
 >[AZURE.WARNING] Tenere presente che la chiave di firma di accesso condiviso di Hub eventi è archiviata in testo normale nel file *.wadcfgx*. Spesso questo file viene archiviato nel controllo del codice sorgente o in una risorsa del server di compilazione, pertanto è necessario proteggerlo adeguatamente. Si consiglia di usare una chiave SAS con autorizzazioni *Send only* in modo che qualsiasi utente malintenzionato possa al massimo solo scrivere nell'Hub eventi, ma mai ascoltarlo o gestirlo.
 
@@ -295,4 +295,4 @@ Il file *ServiceConfiguration.Cloud.cscfg* complementare per questo esempio si p
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

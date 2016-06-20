@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="06/07/2016"
    ms.author="kyliel"/>
 
 # Creare e caricare un disco rigido virtuale con FreeBSD in Azure
@@ -68,39 +68,57 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 		# pkg install sudo
 
-5. Prerequisiti per l'agente di Azure
+5. **Prerequisiti per l'agente di Azure**
 
-    5\.1 **Installare python**
-
-		# pkg install python27
-		# ln -s /usr/local/bin/python2.7 /usr/bin/python
-
-    5\.2 **Installare wget**
-
-		# pkg install wget
+		# pkg install python27  
+		# pkg install Py27-setuptools27   
+		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
+		# pkg install git 
 
 6. **Installare l'agente di Azure**
 
-    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). Dalla versione 2.0.10, supporta ufficialmente FreeBSD 10 e versioni successive. La versione più recente dell'agente Azure per FreeBSD è 2.0.16.
+    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). La versione 2.0.10 + supporta ufficialmente FreeBSD 10 e 10.1 e la versione 2.1.4 supporta ufficialmente FreeBSD 10.2 e versioni successive.
 
-		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
-		# mv waagent /usr/sbin
-		# chmod 755 /usr/sbin/waagent
-		# /usr/sbin/waagent -install
+		# git clone https://github.com/Azure/WALinuxAgent.git  
+		# cd WALinuxAgent  
+		# git tag  
+		…
+		WALinuxAgent-2.0.16
+		…
+		v2.1.4
+		v2.1.4.rc0
+		v2.1.4.rc1
+   
+    Per la versione 2.0 verrà usata come esempio la versione 2.0.16.
+    
+		# git checkout WALinuxAgent-2.0.16
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
-    **Importante:** dopo l'installazione, verificare che sia in esecuzione.
+    Per la versione 2.1 verrà usata come esempio la versione 2.1.4.
+    
+		# git checkout v2.1.4
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+   
+    **Importante**: dopo l'installazione è possibile verificare di nuovo la versione e assicurarsi che sia in esecuzione.
 
+		# waagent -version
+		WALinuxAgent-2.1.4 running on freebsd 10.3
+		Python: 2.7.11
 		# service –e | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-    Ora è possibile **arrestare** la macchina virtuale. È anche possibile eseguire il passaggio 7 prima dell'arresto, ma è facoltativo.
+7. **Deprovisioning**
 
-7. Il deprovisioning è facoltativo. Serve per pulire il sistema e renderlo nuovamente idoneo al provisioning.
+    Serve per pulire il sistema e renderlo nuovamente idoneo al provisioning. Il comando seguente elimina anche l'ultimo account utente di cui è stato effettuato il provisioning e i dati associati.
 
-    Il comando seguente elimina anche l'ultimo account utente di cui è stato effettuato il provisioning e i dati associati.
-
-		# waagent –deprovision+user
+		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+		# echo  'waagent_enable="YES"' >> /etc/rc.conf
+    
+    Ora è possibile **arrestare** la macchina virtuale.
 
 ## Passaggio 2: creare un account di archiviazione in Microsoft Azure ##
 
@@ -177,7 +195,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
    Per altre informazioni, vedere [Iniziare a usare i cmdlet di Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Per ulteriori informazioni sull'installazione e la configurazione di PowerShell, vedere [Come installare e configurare Microsoft Azure PowerShell](../install-configure-powershell.md).
+   Per ulteriori informazioni sull'installazione e la configurazione di PowerShell, vedere [Come installare e configurare Microsoft Azure PowerShell](../powershell-install-configure.md).
 
 ## Passaggio 4: caricare il file VHD ##
 
@@ -209,4 +227,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

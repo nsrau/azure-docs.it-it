@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="06/05/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestire i database in Azure SQL Data Warehouse
@@ -89,25 +89,7 @@ Per altre informazioni sulla gestione della sicurezza, vedere la [Panoramica del
 
 ## Backup e ripristino
 
-È possibile ripristinare un database in due modi. Se alcuni dati sono danneggiati nel database o si è verificato un errore, è possibile ripristinare uno snapshot del database. In caso di una completa interruzione del servizio a livello locale o di una calamità che rende una delle aree non disponibile, è possibile creare di nuovo il database in un'altra area.
-
-SQL Data Warehouse esegue automaticamente il backup del database a intervalli regolari. Per la pianificazione del backup dei dati e i criteri di conservazione, vedere la sezione [Affidabilità elevata][].
-
-### Archiviazione con ridondanza geografica
-
-Poiché SQL Data Warehouse separa il calcolo dall'archiviazione, tutti i dati vengono scritti direttamente in Archiviazione di Azure con ridondanza geografica (RA-GRS). Con l'archiviazione con ridondanza geografica i dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria. Sia nelle aree primarie che in quelle secondarie i dati vengono replicati tre volte tra domini di errore e domini di aggiornamento separati. In questo modo viene garantita la durabilità dei dati anche in caso di una completa interruzione del servizio a livello locale o di una calamità che rende una delle aree non disponibile. Per altre informazioni sull'archiviazione con accesso in lettura e ridondanza geografica, vedere le [opzioni di ridondanza dell'archiviazione di Azure][].
-
-### Ripristino del database
-
-La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica almeno ogni 8 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Questi backup vengono archiviati in Archiviazione di Azure RA-GRS e pertanto offrono ridondanza geografica per impostazione predefinita. Le funzionalità di backup e ripristino automatici sono disponibili senza spese aggiuntive e consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero.
-
-Per altre informazioni sul ripristino di database, vedere [Eseguire il ripristino da uno snapshot][].
-
-### Ripristino geografico
-
-Il ripristino geografico è progettato per ripristinare il database se diventa non disponibile a causa di un evento di arresto improvviso. È possibile contattare il supporto tecnico per ripristinare un database da un backup con ridondanza geografica e creare un nuovo database in un'area di Azure. Poiché il backup è con ridondanza geografica, è possibile usarlo per ripristinare un database anche se il database è inaccessibile a causa di un'interruzione del servizio. La funzionalità di ripristino geografico viene fornita senza alcun costo aggiuntivo.
-
-Per usare la funzionalità di ripristino geografico, vedere [Eseguire il ripristino geografico da uno snapshot][].
+Eseguire backup affidabili dei dati è una parte fondamentale di qualsiasi database di produzione. SQL Data Warehouse tiene al sicuro i dati eseguendo automaticamente il backup dei database attivi a intervalli regolari. Questi backup consentono di eseguire il ripristino dagli scenari in cui sono stati corrotti i dati oppure sono stati eliminati accidentalmente i dati o il database. Per i criteri di conservazione e pianificazione dei backup dei dati, vedere [Affidabilità elevata][]. Per altre informazioni sul ripristino di database, vedere l’articolo relativo al [ripristino da snapshot][].
 
 ## Passaggi successivi
 L'uso di buoni principi di progettazione dei database semplificherà la gestione dei database in SQL Data Warehouse. Per altre informazioni, vedere la [panoramica sullo sviluppo][].
@@ -115,20 +97,18 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Image references-->
 
 <!--Article references-->
-[opzioni di ridondanza dell'archiviazione di Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Creare un database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
 [Connettersi a SQL Data Warehouse con Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connettersi ed eseguire query con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-development.md
-[Eseguire il ripristino geografico da uno snapshot]: sql-data-warehouse-backup-and-geo-restore-from-snapshot.md
 [Affidabilità elevata]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitoraggio del carico di lavoro mediante DMV]: sql-data-warehouse-manage-monitor.md
-[Sospendere il calcolo]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
-[Eseguire il ripristino da uno snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Riprendere il calcolo]: sql-data-warehouse-overview-scalability.md#resume-compute-performance-bk
-[Scalare le prestazioni]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[Sospendere il calcolo]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[ripristino da snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Riprendere il calcolo]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
+[Scalare le prestazioni]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Panoramica della sicurezza]: sql-data-warehouse-overview-security.md
 [Procedure consigliate per SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 [Viste di sistema]: sql-data-warehouse-reference-tsql-system-views.md
@@ -139,4 +119,4 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

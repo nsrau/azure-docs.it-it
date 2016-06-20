@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/02/2016" 
+ms.date="06/07/2016" 
 ms.author="adegeo"/>
 
 # Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
 
-Quando si crea un ruolo di lavoro, si estende la classe[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx)che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.
+Quando si crea un ruolo di lavoro, si estende la classe[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx)che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli Web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.
 
 ## Estendere la classe RoleEntryPoint
 
@@ -80,4 +80,4 @@ L’esecuzione dell'override del metodo**Run**non è obbligatoria, l'implementaz
 ## Passaggi successivi
 Informazioni su come[creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

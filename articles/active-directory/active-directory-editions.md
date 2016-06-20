@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -163,7 +163,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] \(livello gratuito + app del proxy di applicazione) | Nessun limite [2] \(livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)|
+| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] (livello gratuito + app del proxy di applicazione) | Nessun limite [2] (livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)|
 
 [1] Con Azure AD Free e Azure AD Basic, gli utenti finali a cui è stato assegnato l'accesso alle app SaaS possono visualizzare fino a 10 app nel proprio pannello di accesso e possono ottenere l'accesso SSO a tali app. Con le sottoscrizioni Free e Basic gli amministratori possono configurare l'accesso SSO e assegnare agli utenti l'accesso a qualsiasi numero di app SaaS, ma gli utenti finali possono vedere un massimo di 10 app alla volta nel proprio pannello di accesso.
 
@@ -454,6 +454,20 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | | | ![Controllo][12]| |
 
 
+#### Enterprise State Roaming
+
+**Tipo:** Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
+
+
+**Disponibilità:**
+
+| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Controllo][12]| |
+
+**Altre informazioni:**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Funzionalità in anteprima di Azure AD
@@ -465,7 +479,6 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 - [Unità amministrative](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

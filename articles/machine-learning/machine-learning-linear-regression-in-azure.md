@@ -51,7 +51,7 @@ La regressione di Excel usava il modello di regressione lineare standard disponi
 Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
 1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
-2.	È stato creato un nuovo esperimento ed è stato usato il modulo [Project Columns][project-columns] per selezionare le stesse funzionalità di dati usate in Excel   
+2.	È stato creato un nuovo esperimento ed è stato utilizzato il modulo [Select Columns in Dataset][select-columns] per selezionare le stesse funzionalità di dati utilizzate in Excel   
 3.	È stato usato il modulo [Split][split] (con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel  
 4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
@@ -155,8 +155,8 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

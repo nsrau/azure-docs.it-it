@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limiti di capacità di SQL Data Warehouse
@@ -35,7 +35,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Database | Dimensioni massime | 60 TB compressi su disco<br/><br/>SQL Data Warehouse consente di avere fino a 60 TB di spazio su disco per database. Lo spazio su disco corrisponde alla dimensione compressa per le tabelle permanenti. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti. La compressione columnstore cluster è stimata a 5x, ovvero la dimensione non compressa del database potrebbe crescere a circa 300 TB quando tutte le tabella sono columnstore cluster (il tipo di tabella predefinito). Il limite di 60 TB diventa di 240 TB alla fine della fase di anteprima pubblica e questo consente a molti database di crescere fino a oltre 1 PB di dati non compressi.|
+| Database | Dimensioni massime | 240 TB compressi su disco<br/><br/>Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti. La compressione columnstore cluster è stimata a 5x, ovvero la dimensione non compressa del database potrebbe crescere a circa 1 PB quando tutte le tabelle sono columnstore cluster (il tipo di tabella predefinito).|
 | Tabella | Dimensioni massime | 60 TB compressi su disco |
 | Tabella | Tabelle per database | 2 miliardi |
 | Tabella | Colonne per tabella | 1024 colonne |
@@ -109,4 +109,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [CREATE TABLE in Azure SQL Data Warehouse]: https://msdn.microsoft.com/library/mt203953.aspx
 [Messaggio di errore quando si esegue una query in SQL Server 2005: "Errore interno: è stato raggiunto un limite di servizi di espressione"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

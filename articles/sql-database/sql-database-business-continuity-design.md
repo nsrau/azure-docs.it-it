@@ -43,13 +43,13 @@ Per abilitare la funzionalità di ripristino geografico, vedere [Eseguire il rip
 
 La funzionalità di [replica geografica attiva](sql-database-geo-replication-overview.md) consente di creare database leggibili (secondari) in un'area diversa da quella del database primario. Questa funzionalità garantisce che il database abbia le risorse di calcolo e i dati necessari per supportare il carico di lavoro dell'applicazione dopo il ripristino. Per informazioni sull'uso del failover per ripristinare l'applicazione, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md).
 
-È consigliabile usare la replica geografica se l'applicazione soddisfa i criteri seguenti:
+È consigliabile utilizzare la replica geografica se l’applicazione soddisfa i criteri seguenti:
 
 1. È considerata cruciale. Ha un contratto di servizio vincolante con valori RPO e RTO elevati. La perdita di dati e disponibilità comporta una responsabilità finanziaria. 
 2. La frequenza di modifica dei dati è alta (ad esempio, è espressa in termini di transazioni al minuto o al secondo). Un valore RPO di 1 ora associato alla protezione predefinita avrà come risultato una perdita di dati inaccettabile.
 3. Il costo legato all'uso della replica geografica è notevolmente inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
-Per abilitare la funzionalità di replica geografica attiva, vedere [Configurare la replica geografica per il database SQL di Azure con il Portale di Azure](sql-database-geo-replication-portal.md)
+Per abilitare la funzionalità di replica geografica attiva, vedere [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] La replica geografica attiva supporta inoltre l'accesso in sola lettura al database secondario e fornisce quindi capacità aggiuntiva per i carichi di lavoro di sola lettura.
 
@@ -60,4 +60,4 @@ Per abilitare la funzionalità di replica geografica attiva, vedere [Configurare
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

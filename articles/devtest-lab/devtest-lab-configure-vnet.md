@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Configurare una rete virtuale per un lab
@@ -27,23 +27,23 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
+1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
 
-1. Nell'elenco dei lab toccare il lab desiderato.
+1. Nell'elenco dei lab selezionare il lab desiderato.
 
 1. Verrà visualizzato il pannello **Impostazioni** del lab selezionato.
 
-1. Toccare **Reti virtuali**.
+1. Selezionare **Reti virtuali**.
 
 	![È possibile configurare le reti virtuali dal pannello Impostazioni del lab](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. Nel pannello **Reti virtuali** verrà visualizzato l'elenco delle reti virtuali configurate per il lab corrente, come pure la rete virtuale predefinita creata per il lab.
 
-1. Toccare **+ Aggiungi**.
+1. Selezionare **+ Aggiungi**.
 
 	![Aggiungere una rete virtuale esistente al lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
-1. Nel pannello **Rete virtuale** toccare **[Selezionare rete virtuale]**.
+1. Nel pannello **Rete virtuale** selezionare **[Selezionare rete virtuale]**.
 
 	![Selezionare una rete virtuale esistente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
@@ -61,7 +61,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Nel campo **MAX VM PER UTENTE** specificare le VM massime per utente per ogni subnet. Se si desidera un numero illimitato di VM, lasciare vuoto questo campo.
 
-1. Toccare **Salva**.
+1. Selezionare **Salva**.
 
 1. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una nuova VM. Questa operazione è esemplificata nell'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
@@ -69,4 +69,4 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 Dopo aver aggiunto le reti virtuali desiderate al lab, il passaggio successivo consiste nell'[aggiungere una VM a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -198,7 +198,7 @@ Altre informazioni sulla libreria R di Azure Machine Learning sono disponibili [
 
 DSVM non solo consente di compilare la soluzione di analisi in locale nella macchina virtuale, ma anche di accedere ai servizi nel cloud di Microsoft Azure. Azure offre diversi servizi di calcolo, archiviazione e analisi dei dati e altri servizi amministrabili e accessibili da DSVM.
 
-Per amministrare la sottoscrizione di Azure e le risorse cloud, è possibile usare il browser e accedere al [portale di Azure](portal.azure.com). È anche possibile usare Azure PowerShell per amministrare le risorse e la sottoscrizione di Azure con uno script. È possibile eseguire Azure PowerShell da un collegamento "Microsoft Azure PowerShell" sul desktop o nel menu Start. Per altre informazioni su come amministrare le risorse e la sottoscrizione di Azure con gli script di Windows PowerShell, vedere la [documentazione di Microsoft Azure PowerShell](../powershell-azure-resource-manager.md).
+Per amministrare la sottoscrizione di Azure e le risorse cloud, è possibile utilizzare il browser e accedere al [portale di Azure](https://portal.azure.com). È anche possibile usare Azure PowerShell per amministrare le risorse e la sottoscrizione di Azure con uno script. È possibile eseguire Azure PowerShell da un collegamento "Microsoft Azure PowerShell" sul desktop o nel menu Start. Per altre informazioni su come amministrare le risorse e la sottoscrizione di Azure con gli script di Windows PowerShell, vedere la [documentazione di Microsoft Azure PowerShell](../powershell-azure-resource-manager.md).
 
 
 ## 5\. Estendere lo spazio di archiviazione con un file system condiviso
@@ -268,7 +268,7 @@ BLOB di Azure è una risorsa di archiviazione cloud conveniente e affidabile per
 
 **Prerequisito**
 
-- **Creare l'account di archiviazione BLOB di Azure nel [portale di Azure](http://portal.azure.com).**
+- **Creare l’account di archiviazione BLOB di Azure nel [portale di Azure](https://portal.azure.com).**
 
 ![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -287,7 +287,7 @@ Per spostare i dati tra i file locali e l'archivio BLOB, è possibile usare AzCo
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Sostituire **C:\\myfolder** con il percorso di archiviazione del file, **mystorageaccount** con il nome dell'account di archiviazione BLOB, **mycontainer** con il nome del contenitore e **storage account key** con la chiave di accesso alle risorse di archiviazione BLOB. È possibile trovare le credenziali dell'account di archiviazione nel [portale di Azure](http://portal.azure.com).
+Sostituire **C:\\myfolder** con il percorso di archiviazione del file, **mystorageaccount** con il nome dell'account di archiviazione BLOB, **mycontainer** con il nome del contenitore e **storage account key** con la chiave di accesso alle risorse di archiviazione BLOB. È possibile trovare le credenziali dell'account di archiviazione nel [portale di Azure](https://portal.azure.com).
 
 ![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -318,7 +318,7 @@ Una volta eseguito il comando AzCopy per la copia in un BLOB di Azure, il file v
 
 **Leggere i dati dal BLOB di Azure: modulo Reader di AML**
 
-In Azure Machine Learning Studio è possibile usare un **modulo Reader** per leggere i dati dal BLOB.
+In Azure Machine Learning Studio è possibile usare un **modulo Import Data** per leggere i dati dal BLOB.
 
 
 ![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -379,7 +379,7 @@ Un Archivio Azure Data Lake è un repository con iperscalabilità per i carichi 
 
 **Prerequisito**
 
-- Creare Analisi Azure Data Lake nel [portale di Azure](http://portal.azure.com).
+- Creare Analisi Azure Data Lake nel [portale di Azure](https://portal.azure.com).
 
 ![Azure\_Data\_Lake\_Create\_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -404,7 +404,7 @@ Se i dati si trovano nell'archivio BLOB di Azure, è possibile leggerli direttam
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-In Visual Studio è possibile leggere i dati dall'archivio BLOB, modificarli, progettare funzionalità e pubblicare i dati risultanti in Azure Data Lake o nell'archivio BLOB di Azure. Quando si fa riferimento ai dati nell'archivio BLOB, usare **wasb://**. Quando si fa riferimento ai dati in Azure Data Lake, usare **swbhdfs://**.
+In Visual Studio è possibile leggere i dati dall'archivio BLOB, modificarli, progettare funzionalità e pubblicare i dati risultanti in Azure Data Lake o nell'archivio BLOB di Azure. Quando si fa riferimento ai dati nell'archivio BLOB, usare ****wasb://**. Quando si fa riferimento ai dati in Azure Data Lake, usare ****swbhdfs://**.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -474,7 +474,7 @@ Azure HDInsight è un servizio di Apache Hadoop, Spark, HBase e Storm gestito ne
 
 **Prerequisito**
 
-- Creare l'account di archiviazione BLOB di Azure nel [portale di Azure](http://portal.azure.com). Questo account di archiviazione viene usato per archiviare i dati per i cluster HDInsight.
+- Creare l'account di archiviazione BLOB di Azure nel [portale di Azure](https://portal.azure.com). Questo account di archiviazione viene usato per archiviare i dati per i cluster HDInsight.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -910,4 +910,4 @@ Sono stati inclusi in un pacchetto diversi strumenti che permettono di soddisfar
 ## Riepilogo
 Queste sono solo alcune delle attività che è possibile eseguire nella macchina virtuale per l'analisi scientifica dei dati di Microsoft. Ce ne sono molte altre che è possibile eseguire per renderla un ambiente di analisi efficace.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

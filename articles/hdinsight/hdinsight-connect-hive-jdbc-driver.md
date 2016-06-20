@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/20/2016"
+ ms.date="06/03/2016"
  ms.author="larryfr"/>
 
 #Connettersi a Hive in Azure HDInsight con il driver Hive JDBC
@@ -161,15 +161,15 @@ __Sintomi__: quando ci si connette a un cluster HDInsight versione 3.3 o 3.4, un
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Causa__: questo errore è causato da una mancata corrispondenza tra la versione del file common-codec.jar usato da SQuirreL e la versione necessaria per i componenti Hive JDBC scaricati dal cluster HDInsight.
+__Causa__: questo errore è causato da una mancata corrispondenza tra la versione del file commons-codec.jar utilizzato da SQuirreL e la versione necessaria per i componenti Hive JDBC scaricati dal cluster HDInsight.
 
 __Soluzione__: per risolvere l'errore eseguire i passaggi seguenti.
 
-1. Scaricare il file jar common-codec dal cluster HDInsight.
+1. Scaricare il file commons-codec.jar dal cluster HDInsight.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Uscire da SQuirreL e passare alla directory in cui è installato SQuirreL nel sistema. Nella directory `lib` della directory di SquirreL sostituire il file common-codec.jar esistente con quello scaricato dal cluster HDInsight.
+2. Uscire da SQuirreL e passare alla directory in cui è installato SQuirreL nel sistema. Nella directory `lib` della directory di SquirreL sostituire il file commons-codec.jar esistente con quello scaricato dal cluster HDInsight.
 
 3. Riavviare SQuirreL. L'errore non dovrebbe più verificarsi quando ci si connette a Hive in HDInsight.
 
@@ -182,4 +182,4 @@ Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

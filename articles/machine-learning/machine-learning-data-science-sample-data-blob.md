@@ -96,10 +96,10 @@ A questo punto, è possibile utilizzare il frame di dati precedente con il campi
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Leggere i dati del BLOB di Azure tramite il [Lettore](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure ML, come illustrato nell’immagine successiva:
+3. Leggere i dati del BLOB di Azure tramite [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure ML, come illustrato nell’immagine successiva:
  
 ![lettore BLOB](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

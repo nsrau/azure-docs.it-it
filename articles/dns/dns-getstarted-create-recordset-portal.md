@@ -28,34 +28,34 @@
 - [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 
 
-Questo articolo illustra la creazione di record e set di record mediante il portale di Azure. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A questo scopo, occorre comprendere prima di tutto i record e i set di record DNS.
+Questo articolo illustra la creazione di record e set di record con il portale di Azure. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
-## Creare un nuovo set di record e un record
+## Creare un set di record e un record
 
-L'esempio seguente fornisce indicazioni su come creare un set di record e record con il portale di Azure. Viene usato il tipo di record DNS 'A'.
+L’esempio seguente fornisce indicazioni sulla procedura per creare un set di record e record con il portale di Azure. Viene usato il tipo di record DNS "A".
 
-1. Accedere al portale di Azure.
+1. Accedere al portale.
 
-2. Passare al pannello **Zona DNS** in cui creare un set di record.
+2. Accedere al pannello **Zona DNS** in cui creare un set di record.
 
-3. Nella parte superiore del pannello della zona DNS fare clic su **Set di record** per aprire il pannello **Aggiungi set di record**.
- 
-	![nuovo set di record](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+3. Nella parte superiore del pannello **Zona DNS** selezionare **Set di record** per aprire il pannello **Aggiungi set di record**.
+
+	![Nuovo set di record](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
 4. Nel pannello **Aggiungi set di record** assegnare un nome al set di record, ad esempio, "**www**".
-  
-	![aggiungere un set di record](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-5. In Tipo selezionare il tipo di record da creare. Ad esempio, **A**.
+	![Aggiungere un set di record](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-6. Impostare **TTL**. L'impostazione predefinita nel portale è di 1 ora.
+5. Selezionare il tipo di record da creare. Ad esempio, selezionare **A**.
 
-7. Aggiungere gli indirizzi IP, un indirizzo IP per riga. Se si usa il nome del set di record suggerito e il tipo di record precedente, vengono aggiunti gli indirizzi IP IPv4 al record A del set di record www.
+6. Impostare **TTL**. La durata predefinita per la permanenze nel portale è un'ora.
 
-8. Dopo avere aggiunto gli indirizzi IP, fare clic su **OK** nella parte inferiore del pannello. Verrà creato il set di record DNS.
+7. Aggiungere gli indirizzi IP, un indirizzo IP per riga. Quando si utilizza il nome del set di record suggerito e il tipo di record descritto in precedenza, vengono aggiunti gli indirizzi IP IPv4 al record **A** del set di record www.
+
+8. Dopo aver aggiunto gli indirizzi IP, selezionare **OK** nella parte inferiore del pannello. Verrà creato il set di record DNS.
 
 
 ## Passaggi successivi
@@ -64,4 +64,4 @@ Per gestire i set di record e i record, vedere le informazioni su [come creare e
 
 Per altre informazioni sul servizio DNS di Azure, vedere la [panoramica del servizio DNS di Azure](dns-overview.md).
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

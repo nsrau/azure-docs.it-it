@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -36,7 +36,7 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
     ![Installare il Toolkit di Azure per Eclipse.][01]
 
-1. Nella finestra di dialogo **Available Software** (Software disponibile), all'interno della casella di testo **Work with** (Usa), digitare **http://dl.microsoft.com/eclipse** e premere **Invio**.
+1. Nella finestra di dialogo **Available Software** (Software disponibile), all'interno della casella di testo **Work with** (Usa), digitare ****http://dl.microsoft.com/eclipse** e premere **Invio**.
 
 1. Nel riquadro **Name** (Nome), selezionare **Azure Toolkit for Eclipse** e deselezionare **Contact all update sites during install to find required software** (Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto). Verrà visualizzata una schermata simile alla seguente:
 
@@ -74,20 +74,28 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
 ## Vedere anche
 
-[Toolkit di Azure per Eclipse]
+Per ulteriori informazioni su Azure Toolkits per gli IDE Java, consultare i seguenti collegamenti:
 
-[Creare un'app Web Hello World per Azure in Eclipse]
+- [Toolkit di Azure per Eclipse]
+  - *Installazione di Azure Toolkit per Eclipse (questo articolo)*
+  - [Creare un'app Web Hello World per Azure in Eclipse]
+  - [Novità di Azure Toolkit per Eclipse]
+- [Toolkit di Azure per IntelliJ]
+  - [Installazione del Toolkit di Azure per IntelliJ]
+  - [Creare un'App Web Hello World per Azure in IntelliJ]
 
-[Novità di Azure Toolkit per Eclipse]
-
-Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
-[centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
+[Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md
 [Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -98,4 +106,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -25,11 +25,11 @@ Quando si progetta il processo di aggiornamento di un'applicazione, l'obiettivo 
 1.	Tempo massimo accettabile in cui l'applicazione avrà una capacità limitata. 
 2.	Set minimo di funzionalità che saranno disponibili durante il processo di aggiornamento.
 3.	Possibilità di eseguire il rollback in caso di errori durante l'aggiornamento.
-4.	Costo totale. Sono inclusi il costo dei componenti aggiuntivi dell'applicazione necessari per creare una copia temporanea, ad esempio database Premium aggiuntivi per la replica geografica attiva, e i costi incrementali per le distribuzioni temporanee usate dal processo di aggiornamento. 
+4.	Costo totale. Sono inclusi il costo dei componenti aggiuntivi dell’applicazione necessari per creare una copia temporanea, ad esempio database aggiuntivi per la replica geografica attiva) e i costi incrementali per le distribuzioni temporanee utilizzate dal processo di aggiornamento. 
 
 Se l'applicazione può funzionare temporaneamente in modalità di sola lettura, il flusso di lavoro di aggiornamento potrebbe essere progettato in modo da eliminare completamente il tempo di inattività. Per comprendere come implementare il flusso di lavoro di aggiornamento per la specifica topologia dell'applicazione, vedere [Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL](sql-database-manage-application-rolling-upgrade.md).
  
  
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

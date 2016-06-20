@@ -64,7 +64,7 @@ Gli utenti per i quali l'autorizzazione ha esito positivo possono eseguire le op
 
 Per l'uso con l'insieme di credenziali delle chiavi sono disponibili gli SDK seguenti:
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[Documentazione su .NET SDK](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentazione su Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Pacchetto di .NET SDK](https://azure.microsoft.com/documentation/api/)|[Pacchetto Node.js SDK](https://www.npmjs.com/package/azure-keyvault)|
@@ -97,4 +97,4 @@ Per indicazioni specifiche sulle attività relative all'integrazione e all'uso d
 - [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

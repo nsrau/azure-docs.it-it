@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-linux"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
@@ -53,7 +53,7 @@ La richiesta di avvio della VM arrestata deve essere eseguita nel cluster origin
 
 *	Ripetere la richiesta di riavvio in un secondo momento.
 
-## Problema: Errore durante il riavvio di una VM esistente
+## Problema: Errore durante il ridimensionamento di una VM esistente
 
 Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
 
@@ -74,4 +74,4 @@ La richiesta di ridimensionamento della VM deve essere eseguita nel cluster orig
   2. Dopo l'arresto di tutte le VM, ridimensionare la VM desiderata impostando una dimensione maggiore.
   3. Selezionare la VM ridimensionata e fare clic su **Avvia**, quindi avviare ognuna delle VM arrestate.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -76,7 +76,7 @@ L'obiettivo del tempo di ripristino (RTO) corrisponde alla quantità di tempo ma
 L'obiettivo del punto di ripristino (RPO) è l'intervallo di tempo accettabile per i dati persi a causa del processo di ripristino. Se ad esempio l'RPO è pari a un'ora, è necessario eseguire il backup o la replica completa di tutti i dati almeno ogni ora. Dopo la riattivazione dell'applicazione in un'area alternativa, nel backup può mancare al massimo un'ora di dati. Come per l'RTO, le applicazioni critiche richiedono un RPO ridotto.
 
 ##Elenco di controllo
-Ecco i punti chiave che sono stati trattati in questo articolo e negli articoli correlati sulla [disponibilità elevata](./resiliency-high-availability-azure-applications.md) e il [ripristino di emergenza](./resiliency-disaster-recovery-azure-applications.md) per le applicazioni Azure. Questo riepilogo sarà un elenco di controllo di cui tenere conto ai fini della pianificazione della disponibilità e del ripristino di emergenza. Si tratta di procedure consigliate utili per i clienti che vogliono implementare una soluzione efficiente. Questo tipo di soluzione è realmente efficace per il ripristino tempestivo e corretto in seguito a errori di sistema.
+Ecco i punti chiave che sono stati trattati in questo articolo e negli articoli correlati sulla [disponibilità elevata](resiliency-high-availability-azure-applications.md) e il [ripristino di emergenza](resiliency-disaster-recovery-azure-applications.md) per le applicazioni Azure. Questo riepilogo sarà un elenco di controllo di cui tenere conto ai fini della pianificazione della disponibilità e del ripristino di emergenza. Si tratta di procedure consigliate utili per i clienti che vogliono implementare una soluzione efficiente. Questo tipo di soluzione è realmente efficace per il ripristino tempestivo e corretto in seguito a errori di sistema.
 
 1. Eseguire una valutazione dei rischi per ogni applicazione, perché ognuna di esse può presentare requisiti diversi. Alcune applicazioni sono più importanti di altre, il che giustifica i costi aggiuntivi necessari per progettare il ripristino di emergenza.
 1. Usare queste informazioni per definire l'RTO e l'RPO di ogni applicazione.
@@ -99,11 +99,11 @@ Azure rileva e gestisce molti errori, ma esistono molti tipi di errori che richi
 Quando si crea un piano di disponibilità e ripristino di emergenza dell'applicazione, tenere conto delle conseguenze aziendali dell'errore dell'applicazione. La definizione di processi, criteri e procedure per il ripristino di sistemi critici in seguito a eventi catastrofici richiede tempo, pianificazione e impegno. L'operazione, inoltre, non si esaurisce con la definizione dei piani. È necessario analizzare, testare e migliorare continuamente i piani in base al portafoglio di applicazioni, alle esigenze aziendali e alle tecnologie disponibili. Azure offre nuove funzionalità e pone nuove sfide per la creazione di applicazioni affidabili in grado di far fronte agli errori.
 
 ##Risorse aggiuntive
-[Disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-high-availability-azure-applications.md)
+[Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Ripristino di emergenza per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
+[Ripristino di emergenza per le applicazioni basate su Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md)
+[Indicazioni tecniche sulla resilienza di Azure](resiliency-technical-guidance.md)
 
 [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md)
 
@@ -114,6 +114,6 @@ Quando si crea un piano di disponibilità e ripristino di emergenza dell'applica
 [Procedure consigliate per la progettazione di servizi su larga scala nei servizi cloud di Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
 
 ##Passaggi successivi
-Questo articolo fa parte di una serie dedicata a ripristino di emergenza e disponibilità elevata per le applicazioni Azure. L'articolo successivo della serie riguarda [Disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+Questo articolo fa parte di una serie dedicata a ripristino di emergenza e disponibilità elevata per le applicazioni Azure. L'articolo successivo della serie riguarda [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

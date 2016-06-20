@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare cluster Hadoop di HDInsight con Archivio Data Lake di Azure tramite il portale | Azure"
-   description="Usare il portale di Azure per creare e usare cluster Hadoop di HDInsight con Archivio Data Lake di Azure."
+   pageTitle="Creare cluster HDInsight con Archivio Data Lake di Azure tramite il portale | Azure"
+   description="Utilizzare il portale di Azure per creare e usare cluster HDInsight con Archivio Data Lake di Azure"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
@@ -23,15 +23,15 @@
 - [Tramite PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Informazioni su come usare il portale di Azure per creare un cluster HDInsight (Hadoop, HBase o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
+Informazioni su come utilizzare il portale di Azure per creare un cluster HDInsight (Hadoop, HBase, Spark o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
 
-* **Per i cluster Hadoop (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
+* **Per i cluster Spark (Linux) e Hadoop (Windows e Linux)**, Archivio Data Lake può essere utilizzato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
 
 * **Per i cluster Storm (Windows e Linux)**, Archivio Data Lake può essere usato per scrivere dati da una topologia Storm. È anche possibile usare Archivio Data Lake per archiviare dati di riferimento che possono essere letti da una topologia Storm. Per altre informazioni, vedere [Usare Archivio Data Lake in una topologia Storm](#use-data-lake-store-in-a-storm-topology).
 
 * **Per i cluster HBase (Windows e Linux)**, Archivio Data Lake può essere usato come risorsa di archiviazione predefinita o aggiuntiva. Per altre informazioni, vedere [Usare Archivio Data Lake con cluster HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versione 3.2, sia per Windows che per Linux.
+> [AZURE.NOTE] L'opzione per creare cluster HDInsight con accesso ad Archivio Data Lake è disponibile solo con HDInsight versioni 3.2 e 3.4 (per i cluster Hadoop, HBase e Storm sia per Windows che per Linux). Per i cluster Spark su Linux, queste opzione è disponibile solo sui cluster HDInsight 3.4.
 
 
 ## Prerequisiti
@@ -258,4 +258,4 @@ Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefi
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

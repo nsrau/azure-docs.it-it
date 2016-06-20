@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Risoluzione dei problemi | Microsoft Azure"
-   description="Risoluzione dei problemi relativi a SQL Data Warehouse."
+   pageTitle="Risoluzione dei problemi relativi a SQL Data Warehouse di Azure | Microsoft Azure"
+   description="Risoluzione dei problemi relativi a SQL Data Warehouse di Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,10 +16,10 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# Risoluzione dei problemi
-Il seguente argomento fornisce un elenco di alcuni dei problemi più comuni che i clienti riscontrano con SQL Data Warehouse di Azure.
+# Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
+Questo argomento fornisce un elenco di alcuni dei problemi più comuni che gli utenti riscontrano con SQL Data Warehouse di Azure.
 
-## Connettività
+## Connectivity
 I problemi di connettività più comuni comprendono:
 
 - Le regole del firewall non sono impostate
@@ -33,13 +33,13 @@ SQL Data Warehouse consiglia di usare [Visual Studio 2013 o 2015][] per eseguire
 
 ## Prestazioni di query
 
-Esistono diverse operazioni semplici che è possibile eseguire nella progettazione del database per assicurarsi di ottenere prestazioni ottimali delle query da SQL Data Warehouse. Si può iniziare a capire la qualità delle prestazioni delle query leggendo l'articolo su come [imparare a monitorare le query][]. A volte la soluzione per far sì che si esegua una query più velocemente è quella di aggiungere semplicemente una maggiore potenza di calcolo alle query [ridimensionando SQL Datawarehouse][]. Per trovare un maggior numero di queste ottimizzazioni in un'unica posizione, consultare l'articolo [Procedure consigliate per SQL Data Warehouse][].
+Esistono diverse operazioni semplici che è possibile eseguire nella progettazione del database per assicurarsi di ottenere prestazioni ottimali delle query da SQL Data Warehouse. Si può iniziare a capire la qualità delle prestazioni delle query leggendo l'articolo su come [imparare a monitorare le query][]. A volte la soluzione per far sì che si esegua una query più velocemente è quella di aggiungere semplicemente una maggiore potenza di calcolo alle query [ridimensionando SQL Data Warehouse][]. Per trovare un maggior numero di queste ottimizzazioni in un'unica posizione, consultare l'articolo [Procedure consigliate per SQL Data Warehouse][].
 
 Di seguito sono riportate alcune delle cause più comuni dei problemi riscontrati nelle prestazioni delle query.
 
 ### Statistiche
 
-Le [statistiche][] sulle tabelle includono informazioni sull'intervallo e sulla frequenza di valori in una colonna di database o in una combinazione di colonne. Il motore di query usa queste statistiche per ottimizzare l'esecuzione e migliorare le prestazioni delle query. A differenza di SQL Server o SQL DB, SQL Data Warehouse non crea o aggiorna automaticamente le statistiche. Le statistiche vanno gestite manualmente in tutte le tabelle. Per informazioni su come gestire le statistiche e identificare le tabelle che richiedono le statistiche, consultare l'articolo [Gestire le statistiche in SQL Data Warehouse][].
+Le [statistiche][] sulle tabelle includono informazioni sull'intervallo e sulla frequenza di valori in una colonna di database o in una combinazione di colonne. Il motore di query usa queste statistiche per ottimizzare l'esecuzione e migliorare le prestazioni delle query. A differenza di SQL Server o database SQL, SQL Data Warehouse non crea o aggiorna automaticamente le statistiche. Le statistiche vanno gestite manualmente in tutte le tabelle. Per informazioni su come gestire le statistiche e identificare le tabelle che richiedono le statistiche, consultare l'articolo [Gestire le statistiche in SQL Data Warehouse][].
 
 ### Progettazione della tabella
 
@@ -85,14 +85,14 @@ ORDER BY
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-> [AZURE.NOTE]  LoadUser deve corrispondere a un utente valido creato per l'esecuzione dell'istruzione ALTER INDEX. La classe risorse dell'utente db\_owner non può essere modificata. Altre informazioni sulle classi di risorse e sulla creazione di un nuovo utente sono disponibili nel collegamento riportato di seguito.
+> [AZURE.NOTE]  LoadUser deve corrispondere a un utente valido creato per l'esecuzione dell'istruzione ALTER INDEX. La classe di risorse dell'utente db\_owner non può essere modificata. Altre informazioni sulle classi di risorse e sulla creazione di un nuovo utente sono disponibili nel collegamento riportato di seguito.
 
  
-**Passaggio 3:** accedere con le credenziali dell'utente indicato nel passaggio 2 (ad esempio "LoadUser"), che ora usa una classe di risorse superiore, quindi eseguire le istruzioni ALTER INDEX generate dalla query nel Passaggio 1. Assicurarsi che l'utente disponga dell'autorizzazione ALTER per le tabelle identificate nella query del Passaggio 1.
+**Passaggio 3:** accedere con le credenziali dell'utente indicato nel passaggio 2 (ad esempio "LoadUser"), che ora usa una classe di risorse superiore, quindi eseguire le istruzioni ALTER INDEX generate dalla query nel Passaggio 1. Assicurarsi che l'utente disponga dell'autorizzazione ALTER per le tabelle identificate nella query del passaggio 1.
  
-**Passaggio 4:** rieseguire la query dal passaggio 1. Se gli indici sono stati compilati in modo efficiente, questa query non restituisce alcuna riga. Se non viene restituita alcuna riga, la procedura è terminata. Se si dispone di più database SQL DW, è necessario ripetere questa procedura su ogni database. Se vengono restituite delle righe, procedere con il Passaggio 5.
+**Passaggio 4:** rieseguire la query dal passaggio 1. Se gli indici sono stati compilati in modo efficiente, questa query non restituisce alcuna riga. Se non viene restituita alcuna riga, la procedura è terminata. Se sono presenti più database SQL DW, è necessario ripetere questa procedura su ogni database. Se vengono restituite righe, procedere con il passaggio 5.
  
-**Passaggio 5:** se quando si esegue nuovamente la query del Passaggio 1 vengono restituite delle righe, potrebbero essere presenti tabelle con righe molto lunghe, che richiedono una quantità di memoria elevata per la creazione ottimale degli indici columnstore cluster. In tal caso, ripetere il processo per queste tabelle usando la classe xlargerc. Per modificare la classe di risorse, ripetere il passaggio 2 usando xlargerc. Quindi ripeter il Passaggio 3 per le tabelle che continuano a restituire indici non ottimali. Se si usa l'impostazione DW100 - DW300 e si sta già usando xlargerc, è possibile scegliere di lasciare gli indici nello stato corrente oppure di incrementare temporanemente il numero di DWU per rendere disponibile più memoria per questa operazione.
+**Passaggio 5:** se quando si esegue nuovamente la query del Passaggio 1 vengono restituite delle righe, potrebbero essere presenti tabelle con righe molto lunghe, che richiedono una quantità di memoria elevata per la creazione ottimale degli indici columnstore cluster. In tal caso, ripetere il processo per queste tabelle usando la classe xlargerc. Per modificare la classe di risorse, ripetere il passaggio 2 usando xlargerc. Quindi ripetere il passaggio 3 per le tabelle che continuano a restituire indici non ottimali. Se si usa l'impostazione DW100 - DW300 e si sta già usando xlargerc, è possibile scegliere di lasciare gli indici nello stato corrente oppure di incrementare temporaneamente il numero di DWU per rendere disponibile più memoria per questa operazione.
  
 **Passaggi finali:** la classe di risorse sopra indicata è la classe di risorse minima consigliata per la creazione di indici columnstore di qualità elevata. È consigliabile mantenere questa impostazione per l'utente che carica i dati. Tuttavia, se si vuole annullare la modifica del passaggio 2, è possibile farlo con il comando seguente.
 
@@ -100,7 +100,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
 ```
 
-Le linee guida per la classe di risorse minima per i caricamenti in una tabella CCI prevedono l'uso di xlargerc per DW100-DW300, largerc per DW400-DW600 e mediumrc per DW1000 o valori superiori. Queste indicazioni sono consigliabili per la maggior parte dei carichi di lavoro. L'obiettivo è quello di garantire a ogni operazione di compilazione dell'indice una quantità di memoria pari o superiore a 400 MB. Tuttavia le linee guida non sono valide per tutte le situazioni. La memoria necessaria per ottimizzare un indice columnstore dipende dai dati caricati e in particolare dalle dimensioni delle righe. Le tabelle con righe più strette richiedono meno memoria, mentre le tabelle con righe più larghe richiedono più memoria. Per fare delle prove, è possibile usare la query del passaggio 1 e verificare se si ottengono indici columnstore ottimali con allocazioni di memoria inferiori. A livello minimo, ogni gruppo di righe deve contenere in media oltre 100.000 righe. Un valore superiore a 500.000 è ancora migliore. Il valore massimo è pari a 1 milione di righe per gruppo. Per informazioni dettagliate sulla gestione delle classi e della concorrenza delle risorse, vedere il collegamento in basso.
+Le linee guida per la classe di risorse minima per i caricamenti in una tabella CCI prevedono l'uso di xlargerc per DW100-DW300, largerc per DW400-DW600 e mediumrc per DW1000 o valori superiori. Queste indicazioni sono consigliabili per la maggior parte dei carichi di lavoro. L'obiettivo è garantire a ogni operazione di compilazione dell'indice una quantità di memoria pari o superiore a 400 MB. Tuttavia le linee guida non sono valide per tutte le situazioni. La memoria necessaria per ottimizzare un indice columnstore dipende dai dati caricati e in particolare dalle dimensioni delle righe. Le tabelle con righe più strette richiedono meno memoria, mentre le tabelle con righe più larghe richiedono più memoria. Per fare delle prove, è possibile usare la query del passaggio 1 e verificare se si ottengono indici columnstore ottimali con allocazioni di memoria inferiori. A livello minimo, ogni gruppo di righe deve contenere in media oltre 100.000 righe. Un valore superiore a 500.000 è ancora migliore. Il valore massimo è pari a 1 milione di righe per gruppo. Per informazioni dettagliate sulla gestione delle classi e della concorrenza delle risorse, vedere il collegamento in basso.
 
 
 ## Passaggi successivi
@@ -109,7 +109,7 @@ Consultare l'articolo sulle [Procedure consigliate per SQL Data Warehouse][] per
 <!--Image references-->
 
 <!--Article references-->
-[ridimensionando SQL Datawarehouse]: ./sql-data-warehouse-overview-scalability.md
+[ridimensionando SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [progettazione della tabella]: ./sql-data-warehouse-develop-table-design.md
 [la scelta della chiave di distribuzione hash giusta per la tabella]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
@@ -126,4 +126,4 @@ Consultare l'articolo sulle [Procedure consigliate per SQL Data Warehouse][] per
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

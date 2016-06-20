@@ -32,7 +32,9 @@ Questa procedura si applica a:
 
 * Azure Active Directory
 * Azure Active Directory B2C
-* Azure Active Directory B2B Questo documento si basa sul presupposto che l'utente sappia come [effettuare il provisioning delle applicazioni del portale precedente per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l'applicazione con [l'SDK di Microsoft Identity Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+* Azure Active Directory B2B
+
+Si noti che il documento seguente presuppone che si sappia come [effettuare il provisioning delle applicazioni del portale legacy per Azure Active Directory](active-directory-how-to-integrate.md) nonché come integrare l’applicazione con [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Concetti di SSO nella piattaforma Microsoft Identity
 
@@ -93,7 +95,7 @@ Nei sistemi Android e Windows la selezione degli account viene visualizzata in a
 
 Se nel dispositivo è installato un broker compatibile, ad esempio l'applicazione Azure Authenticator, gli SDK di Microsoft Identity richiamano automaticamente il broker quando un utente indica che desidera accedere con un account qualunque dalla piattaforma Microsoft Identity. Può utilizzare un account Microsoft personale, un account scolastico o aziendale o un account fornito e ospitato in Azure tramite i prodotti B2C e B2B. Grazie all'uso della crittografia e di algoritmi estremamente sicuri, le credenziali vengono richieste e recapitate all'applicazione in modo sicuro. I particolari tecnici esatti di questi meccanismi non sono stati pubblicati ma sono stati sviluppati in collaborazione con Apple e Google.
 
-**Lo sviluppatore può scegliere se l'SDK di Microsoft Identity debba chiamare il broker o usare il flusso non assistito dal broker.** Se lo sviluppatore decide di non usare il flusso assistito dal broker, rinuncia al vantaggio dell'utilizzo delle credenziali SSO che l'utente potrebbe avere già aggiunto nel dispositivo, nonché impedisce di usare l'applicazione con le funzionalità aziendali fornite da Microsoft, ad esempio l'Accesso condizionale, le funzionalità di gestione di Intune e l'autenticazione basata su certificati.
+**Lo sviluppatore può scegliere se Microsoft Identity SDK deve chiamare il broker o usare il flusso non assistito dal broker.** Se lo sviluppatore decide di non usare il flusso assistito dal broker, rinuncia al vantaggio dell'utilizzo delle credenziali SSO che l'utente potrebbe avere già aggiunto nel dispositivo, nonché impedisce di usare l'applicazione con le funzionalità aziendali fornite da Microsoft, ad esempio l'Accesso condizionale, le funzionalità di gestione di Intune e l'autenticazione basata su certificati.
 
 Questi tipi di accessi offrono i seguenti vantaggi:
 
@@ -163,11 +165,11 @@ Per comunicare alla piattaforma Microsoft Identity che è consentita la condivis
 
 Ci si potrebbe chiedere come si fa a identificare le varie applicazioni nel servizio di gestione delle identità Microsoft se tutte utilizzano lo stesso ID applicazione. La risposta sono gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. La situazione potrebbe essere simile alla seguente:
 
-URI di reindirizzamento dell'applicazione 1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+URI di reindirizzamento dell’app 1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-URI di reindirizzamento dell'applicazione 2: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+URI di reindirizzamento dell'app 2: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-URI di reindirizzamento dell'applicazione 3: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+URI di reindirizzamento dell'app 3: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 
@@ -197,7 +199,7 @@ Gli URI vengono nidificati sotto lo stesso ID client / ID applicazione e cercati
 ```
 
 
-*Il formato degli URI di reindirizzamento viene spiegato di seguito. È possibile utilizzare qualsiasi URI di reindirizzamento ad eccezione del caso in cui si desideri supportare il broker, nel qual caso gli URI di reindirizzamento devono essere simili ai precedenti*
+*Il formato degli URI di reindirizzamento viene illustrato di seguito. È possibile utilizzare qualsiasi URI di reindirizzamento ad eccezione del caso in cui si desideri supportare il broker, nel qual caso gli URI di reindirizzamento devono essere simili ai precedenti*
 
 
 #### Passaggio 2: Configurazione dell'archiviazione condivisa in Android
@@ -213,7 +215,7 @@ L'operazione è terminata. L'SDK di Microsoft Identity condividerà le credenzia
 
 ### Attivazione di SSO per SSO assistito da broker
 
-La capacità di un'applicazione di utilizzare qualsiasi broker installato sul dispositivo è **disattivata per impostazione predefinita**. Per usare l'applicazione con il broker è necessario apportare alcune modifiche alla configurazione e aggiungere una parte di codice all'applicazione.
+La possibilità per un'applicazione di usare qualsiasi broker installato nel dispositivo è **disattivata per impostazione predefinita**. Per usare l'applicazione con il broker è necessario apportare alcune modifiche alla configurazione e aggiungere una parte di codice all'applicazione.
 
 Ecco i passaggi da seguire:
 
@@ -238,14 +240,14 @@ L'URI di reindirizzamento deve essere nel formato corretto:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-ad es: **msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+Ad esempio: **msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-L'URI di reindirizzamento deve essere specificato nella registrazione dell'applicazione tramite il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'applicazione Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
+L'URI di reindirizzamento deve essere specificato nella registrazione dell'app usando il [portale di Azure classico](https://manage.windowsazure.com/). Per altre informazioni sulla registrazione dell'app Azure AD, vedere [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md).
 
 
 #### Passaggio 3: Impostare le autorizzazioni corrette all'interno dell'applicazione
 
-L'applicazione broker in Android usa la funzionalità AccountManager del sistema operativo Android per gestire le credenziali nelle applicazioni. Per utilizzare il broker in Android, il manifesto dell'app deve disporre delle autorizzazioni per usare gli account di AccountManager. Questo argomento viene discusso in modo dettagliato nella [documentazione di Google documentazione relativa ad AccountManager qui](http://developer.android.com/reference/android/accounts/AccountManager.html)
+L'applicazione broker in Android usa la funzionalità AccountManager del sistema operativo Android per gestire le credenziali nelle applicazioni. Per utilizzare il broker in Android, il manifesto dell'app deve disporre delle autorizzazioni per usare gli account di AccountManager. Questo argomento viene discusso in modo dettagliato nella [documentazione di Google relativa ad AccountManager qui](http://developer.android.com/reference/android/accounts/AccountManager.html)
 
 In particolare, le autorizzazioni sono:
 
@@ -259,4 +261,4 @@ MANAGE_ACCOUNTS
 
 Ora l'SDK di Microsoft Identity condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

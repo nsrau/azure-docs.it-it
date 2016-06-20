@@ -280,7 +280,7 @@ Dopo aver configurato l'infrastruttura di base è possibile passare alla pianifi
 In Site Recovery è disponibile lo strumento Capacity Planner, che permettere di allocare le risorse appropriate all'ambiente di origine, i componenti di Site Recovery, la rete e l'archiviazione. Lo strumento di pianificazione può essere eseguito in modalità rapida, per ottenere stime basate su un numero medio di macchine virtuali, dischi e risorse di archiviazione, oppure in modalità dettagliata, in cui è necessario inserire le cifre a livello di carico di lavoro. Prima di iniziare è necessario:
 
 - Raccogliere informazioni sull'ambiente di replica, incluse le macchine virtuali, i dischi per ogni macchina virtuale e le risorse di archiviazione per ogni disco.
-- Stimare la frequenza di modifica giornaliera (varianza) prevista per i dati replicati. A tale scopo è possibile usare lo strumento [Capacity Planner per la replica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
+- Stimare la frequenza di modifica giornaliera (varianza) prevista per i dati replicati. A questo scopo è possibile utilizzare lo strumento [Capacity Planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057).
 
 1.	Fare clic su **Download** per scaricare lo strumento e quindi eseguirlo. [Leggere l'articolo](site-recovery-capacity-planner.md) relativo allo strumento.
 2.	Al termine scegliere **Sì** in **È stato eseguito lo strumento Capacity Planner?**
@@ -468,4 +468,4 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

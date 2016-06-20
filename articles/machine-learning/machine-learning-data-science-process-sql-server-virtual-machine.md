@@ -120,7 +120,7 @@ Le funzionalità basate su posizione descritte in precedenza possono essere usat
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
-La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare funzionalità o accedere a quelle già create usando il modulo di [importazione dati][reader] in Azure Machine Learning, come descritto di seguito:
+La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare funzionalità o accedere a quelle già create usando il modulo di [importazione dati][import-data] in Azure Machine Learning, come descritto di seguito:
 
 ![lettori azureml][1]
 
@@ -149,7 +149,7 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
