@@ -233,7 +233,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 1.  Nel portale di Azure classico (o dal passaggio precedente) selezionare **MACCHINE VIRTUALI**.
 
-2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da ****http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
+2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da **http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
 ##<a name="cde"></a>Eseguire la connessione al motore di database da un altro computer
 

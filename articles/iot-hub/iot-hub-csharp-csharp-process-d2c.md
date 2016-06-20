@@ -77,7 +77,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 Questa esercitazione ha illustrato come elaborare in modo affidabile i messaggi di punti dati e interattivi da dispositivo a cloud usando la classe [EventProcessorHost].
 
-L'esercitazione [Uploading files from devices] (Caricamento di file da dispositivi) si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
+L'esercitazione [Uploading files from devices] \(Caricamento di file da dispositivi) si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
 
 Altre informazioni sull'hub IoT:
 

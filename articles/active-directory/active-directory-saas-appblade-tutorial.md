@@ -133,7 +133,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto AppBlade all'indirizzo ****support@appblade.com** allegando al messaggio di posta elettronica il file di metadati scaricato. Richiedere inoltre al team di configurare il valore per **SSO Issuer URL** come ****https://appblade.com/saml**. Questa impostazione è necessaria per il corretto funzionamento dell'accesso Single Sign-On.
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto AppBlade all'indirizzo **support@appblade.com** allegando al messaggio di posta elettronica il file di metadati scaricato. Richiedere inoltre al team di configurare il valore per **SSO Issuer URL** come **https://appblade.com/saml**. Questa impostazione è necessaria per il corretto funzionamento dell'accesso Single Sign-On.
 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.

@@ -52,7 +52,7 @@ Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
 1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
 2.	È stato creato un nuovo esperimento ed è stato utilizzato il modulo [Select Columns in Dataset][select-columns] per selezionare le stesse funzionalità di dati utilizzate in Excel   
-3.	È stato usato il modulo [Split][split] (con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel  
+3.	È stato usato il modulo [Split][split] \(con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel  
 4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
 ### Rivedere i risultati iniziali

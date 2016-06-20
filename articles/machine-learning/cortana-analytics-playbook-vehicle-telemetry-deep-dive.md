@@ -387,7 +387,7 @@ Questo modello è anche applicabile a scenari di integrazione di un'applicazione
 
 Fare clic su [Download di RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) per scaricare la soluzione RealtimeDashboardApp di Visual Studio per le personalizzazioni.
 
-****Per eseguire l'applicazione dashboard in tempo reale**
+**Per eseguire l'applicazione dashboard in tempo reale**
 
 1.	Fare clic sul nodo Power BI nella vista diagramma e fare clic sul collegamento Download Real-time Dashboard Application (Scarica applicazione dashboard in tempo reale) nel riquadro delle proprietà. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17: Istruzioni per la configurazione del dashboard di Power BI*
 2.	Estrarre e salvare in locale. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 18: Cartella RealtimeDashboardApp*

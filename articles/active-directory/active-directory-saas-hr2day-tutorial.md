@@ -169,7 +169,7 @@ Prima di poter configurare l'asserzione SAML, è necessario contattare il team d
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto di HR2day by Merces all'indirizzo [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) allegando al messaggio di posta elettronica il file del certificato scaricato. Inoltre fornire URL SSO SAML, URL di disconnessione e URL dell’autorità di certificazione in modo da configurarli per l'integrazione SSO.
 
 
-> [AZURE.NOTE] Indicare al team Merces che questa integrazione richiede che l'ID entità sia impostato con questo modello ****https://hr2day.force.com/INSTANCENAME**
+> [AZURE.NOTE] Indicare al team Merces che questa integrazione richiede che l'ID entità sia impostato con questo modello **https://hr2day.force.com/INSTANCENAME**
 
 
 

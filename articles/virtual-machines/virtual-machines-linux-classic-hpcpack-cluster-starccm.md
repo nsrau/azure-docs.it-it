@@ -286,7 +286,7 @@ Sostituire **runner.java** con il servizio di avvio preferito per il modello Jav
     exit ${RTNSTS}
 ```
 
-Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su ****1999@flex.cd-adapco.com** e la chiave nell'opzione**-podkey** della riga di comando.
+Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su **1999@flex.cd-adapco.com** e la chiave nell'opzione**-podkey** della riga di comando.
 
 Dopo alcune operazioni di inizializzazione, lo script estrae l'elenco di nodi per la compilazione di un file host usato dal servizio di avvio MPI dalle variabili di ambiente **$CCP\_NODES\_CORES** impostate da HPC Pack . Il file host conterrà l'elenco di nomi di nodi di calcolo usati per il processo, un nome per ogni riga.
 

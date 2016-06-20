@@ -48,7 +48,7 @@ Si supponga che il modello di albero con boosting sia il modello più indicato. 
 
 - [Two-Class Support Vector Machine][two-class-support-vector-machine]
 - I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
-- [Normalize Data][normalize-data] (entrambi)
+- [Normalize Data][normalize-data] \(entrambi)
 - [Evaluate Model][evaluate-model]
 
 Selezionare il modulo e premere il tasto CANC oppure fare clic con il pulsante destro del mouse sul modulo e selezionare **Elimina**.

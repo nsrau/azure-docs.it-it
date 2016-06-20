@@ -163,7 +163,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] (livello gratuito + app del proxy di applicazione) | Nessun limite [2] (livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] (SaaS preintegrato e app integrate per gli sviluppatori)|
+| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [1] \(livello gratuito + app del proxy di applicazione) | Nessun limite [2] \(livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [1] \(SaaS preintegrato e app integrate per gli sviluppatori)|
 
 [1] Con Azure AD Free e Azure AD Basic, gli utenti finali a cui è stato assegnato l'accesso alle app SaaS possono visualizzare fino a 10 app nel proprio pannello di accesso e possono ottenere l'accesso SSO a tali app. Con le sottoscrizioni Free e Basic gli amministratori possono configurare l'accesso SSO e assegnare agli utenti l'accesso a qualsiasi numero di app SaaS, ma gli utenti finali possono vedere un massimo di 10 app alla volta nel proprio pannello di accesso.
 

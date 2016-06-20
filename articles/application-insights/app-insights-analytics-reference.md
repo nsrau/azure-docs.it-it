@@ -152,7 +152,7 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 
 **Sintassi**
 
-    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
 
 **Argomenti**
 
@@ -1394,7 +1394,17 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai | 
+| * | Moltiplica | 
+| / | Dividi | 
+| % | Modulo | 
+|| 
+|`<` |Minore 
+|`<=`|Minore o uguale a 
+|`>` |Maggiore 
+|`>=`|Maggiore o uguale a 
+|`<>`|Non uguale a 
+|`!=`|Non uguale a
 
 
 ### abs

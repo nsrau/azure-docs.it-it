@@ -21,7 +21,7 @@ Per usare la classe [EventProcessorHost], è necessario un account di archiviazi
 
 > [AZURE.NOTE] Quando si copia e incolla la stringa di connessione all'account di archiviazione, verificare che non siano presenti spazi al suo interno.
 
-Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di programmazione con una finestra di deduplicazione di un'ora, come illustrato in [How to use Service Bus Queues][Service Bus Queue] (Come usare le code del bus di servizio). In alternativa, è possibile usare il [portale di Azure classico], attenendosi alla procedura seguente:
+Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di programmazione con una finestra di deduplicazione di un'ora, come illustrato in [How to use Service Bus Queues][Service Bus Queue] \(Come usare le code del bus di servizio). In alternativa, è possibile usare il [portale di Azure classico], attenendosi alla procedura seguente:
 
 1. Fare clic su **Nuovo** nell'angolo inferiore sinistro. Quindi fare clic su **Servizi app** > **Bus di servizio** > **Coda** > **Creazione personalizzata**. Immettere il nome **d2ctutorial**, selezionare un'area e usare uno spazio dei nomi esistente o crearne uno nuovo. Nella pagina successiva selezionare **Abilita rilevamento duplicati** e quindi impostare **Finestra temporale cronologia di rilevamento duplicata** su un'ora. Fare clic sul segno di spunta nell'angolo in basso a destra per salvare la configurazione della coda.
 

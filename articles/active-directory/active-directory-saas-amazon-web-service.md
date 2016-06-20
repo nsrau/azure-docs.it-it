@@ -224,7 +224,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 	![Configura accesso Single Sign-On][24]
 
-    a. Nella casella di testo **Nome attributo** digitare ****https://aws.amazon.com/SAML/Attributes/Role**.
+    a. Nella casella di testo **Nome attributo** digitare **https://aws.amazon.com/SAML/Attributes/Role**.
 
     b. Nella casella di testo **Valore dell'attributo** , digitare **[valore ARN del ruolo], [valore ARN dell’entità trusted]**.
 
@@ -242,7 +242,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 	![Configura accesso Single Sign-On][25]
 
 
-     a. Nella casella di testo **Nome attributo** digitare ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     a. Nella casella di testo **Nome attributo** digitare **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
      b. Nella casella di testo **Valore dell'attributo**, digitare **userprincipalname**.
 
