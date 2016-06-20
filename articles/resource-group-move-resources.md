@@ -59,9 +59,11 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Operational Insights
 - Cache Redis
 - Utilità di pianificazione
-- Search
+- Ricerca
+- Archiviazione
 - Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
+- Macchine virtuali
 - Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 
 ## Servizi che supportano parzialmente lo spostamento
@@ -76,8 +78,6 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 - Application Insights
 - Express Route
-- Archiviazione
-- Macchine virtuali
 - Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 
 ## Limitazioni del servizio app
@@ -274,4 +274,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

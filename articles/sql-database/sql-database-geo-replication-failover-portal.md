@@ -25,14 +25,14 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-Questo articolo illustra come avviare il failover su un database SQL secondario con il [portale di Azure](http://portal.azure.com). Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure](sql-database-geo-replication-portal.md).
+Questo articolo illustra come avviare il failover su un database SQL secondario con il [portale di Azure](http://portal.azure.com). Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
 
 
 ## Avviare un failover
 
 Il database secondario può diventare il database primario.
 
-1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
+1. Nel [portale di Azure](http://portal.azure.com) passare al database primario nella relazione di replica geografica.
 2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Nell’elenco **SECONDARI**, selezionare il database che si vuole usare come nuovo database primario e fare clic su **Failover**.
 
@@ -51,7 +51,7 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 
 
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
-- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
@@ -61,4 +61,4 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

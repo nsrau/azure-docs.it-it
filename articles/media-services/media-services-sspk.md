@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016"  
+	ms.date="06/06/2016"  
 	ms.author="xpouyat"/>
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
@@ -89,22 +89,18 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Albis Technologies Ltd.
 - Alticast Corporation
 - Amazon Digital Services, Inc.
-- Amlogic, Co., Ltd.
 - AVC Multimedia Software Co., Ltd.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Fluendo S.A.
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
-- Inside Secure
 - Irdeto USA Inc.
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd.
 - Nintendo Co., Ltd.
 - OpenTV, Inc.
-- Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - SoftAtHome
@@ -131,7 +127,6 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Filmflex Movies Limited
 - Fluendo S.A.
 - Gibson Innovations Limited
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
@@ -141,10 +136,8 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - KDDI Corporation
 - Nintendo Co., Ltd.
 - Orange SA
-- PIXELA Corporation
 - Saffron Digital Limited
 - Sagemcom Broadband SAS
-- Sharp Corporation
 - Shenzhen Coship Electronics CO., LTD
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
@@ -155,7 +148,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited
 - Technicolor Delivery Technologies, SAS
 - Toshiba Lifestyle Products & Services Corporation
-- Virgin Media Limited
+- Universal Media Corporation /Slovakia/ s.r.o.
 - VIZIO, Inc.
 - Wistron Corporation
 - ZTE Corporation
@@ -168,4 +161,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

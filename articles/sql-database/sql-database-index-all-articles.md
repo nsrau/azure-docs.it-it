@@ -305,10 +305,10 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 ## Replica geografica
 
 
-| &nbsp; | Titolo | Descrizione |
+| & nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
-| 160 | [Configurare la replica geografica per il database SQL di Azure](sql-database-geo-replication-powershell.md) | Replica geografica per il database SQL di Azure con PowerShell |
-| 161 | [Configurare la replica geografica per il Database SQL di Azure con il Portale di Azure](sql-database-geo-replication-portal.md) | Configurare la replica geografica per il Database SQL di Azure tramite il Portale di Azure |
+| 160 | [Configurare la replica geografica per il database SQL di Azure con PowerShell](sql-database-geo-replication-powershell.md) | Replica geografica per il database SQL di Azure con PowerShell |
+| 161 | [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md) | Configurare la replica geografica per il database SQL di Azure con il portale di Azure |
 | 162 | [Configurare la replica geografica per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configurare la replica geografica per il database SQL di Azure con Transact-SQL |
 | 163 | [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) | Questo argomento descrive le considerazioni relative alla sicurezza per la gestione di scenari di replica geografica attiva per il database SQL. |
 | 164 | [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md) | La replica geografica attiva consente di configurare 4 repliche del database in qualsiasi data center di Azure. |
@@ -378,4 +378,4 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - Grafica del percorso di apprendimento: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

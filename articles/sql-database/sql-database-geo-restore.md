@@ -35,7 +35,7 @@ Il ripristino geografico è l'opzione di ripristino predefinita quando il databa
 
 ## Informazioni dettagliate sul ripristino geografico
 
-Il ripristino geografico usa la stessa tecnologia del ripristino temporizzato, con una differenza importante. Ripristina il database da una copia del backup giornaliero più recente nell'archivio BLOB con replica geografica (RA-GRS). Per ogni database attivo, il servizio mantiene una catena di backup che include un backup completo settimanale, più backup giornalieri differenziali e log delle transazioni salvati ogni 5 minuti. Questi BLOB con replica geografica garantiscono la disponibilità dei backup giornalieri anche in seguito a un errore di notevole entità nell'area primaria. Di seguito è mostrata la replica geografica di backup settimanali e giornalieri copiati nei contenitori di archiviazione.
+Il ripristino geografico usa la stessa tecnologia del ripristino temporizzato, con una differenza importante. Ripristina il database da una copia del backup giornaliero più recente nell'archivio BLOB con replica geografica (RA-GRS). Per ogni database attivo, il servizio mantiene una catena di backup che include un backup completo settimanale, più backup giornalieri differenziali e log delle transazioni salvati ogni 5 minuti. Questi BLOB con replica geografica garantiscono la disponibilità dei backup giornalieri anche in seguito a un errore di notevole entità nell'area primaria. La figura seguente mostra la replica geografica di backup settimanali e giornalieri copiati nei contenitori di archiviazione.
 
 ![ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)
 
@@ -54,7 +54,7 @@ Il tempo di recupero è influenzato da diversi fattori: le dimensioni del databa
 
 ## Riepilogo
 
-Il ripristino geografico, disponibile con tutti i livelli di servizio, è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per RPO e tempo di recupero stimato. Per i database di base con una dimensione massima di 2 GB, il ripristino geografico rappresenta una soluzione ragionevole per il ripristino di emergenza con un tempo di recupero stimato di 12 ore. Per i database Standard o Premium di dimensioni maggiori, se è auspicabile una riduzione significativa dei tempi di ripristino o per limitare le probabilità di perdita di dati, è consigliabile usare la replica geografica attiva. La replica geografica attiva offre un valore RPO e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per informazioni dettagliate, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
+Il ripristino geografico, disponibile con tutti i livelli di servizio, è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per RPO e tempo di recupero stimato. Per i database di base con una dimensione massima di 2 GB, il ripristino geografico rappresenta una soluzione ragionevole per il ripristino di emergenza con un tempo di recupero stimato di 12 ore. Per i database Standard o Premium di dimensioni maggiori, se è auspicabile una riduzione significativa dei tempi di ripristino o per limitare le probabilità di perdita di dati, è consigliabile usare la replica geografica attiva. La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per informazioni dettagliate, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
 
 ## Risorse aggiuntive
 
@@ -65,4 +65,4 @@ Il ripristino geografico, disponibile con tutti i livelli di servizio, è la pi�
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

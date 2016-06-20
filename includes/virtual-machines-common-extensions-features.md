@@ -45,7 +45,7 @@ Le estensioni in questa sezione forniscono funzionalità di sicurezza essenziali
 |**McAfeeEndpointSecurity**|Protegge la VM da software dannoso.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
 |**TrendMicroDSA**|Abilita il supporto della piattaforma Trend Micro Deep Security per fornire soluzioni per rilevamento e prevenzione delle intrusioni, firewall, antimalware, reputazione Web, ispezione dei log e monitoraggio dell'integrità.|[Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md)|
 |**PortalProtectExtension**|Protegge da minacce all'ambiente Microsoft SharePoint.|[Protezione della distribuzione SharePoint in Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso e offre avvisi configurabili per i casi in cui software dannoso o indesiderato prova l'installazione o l'esecuzione nel sistema.|[Download di documentazione antimalware](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**IaaSAntimalware**|Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso e offre avvisi configurabili per i casi in cui software dannoso o indesiderato prova l'installazione o l'esecuzione nel sistema.|[Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../articles/azure-security-antimalware.md)|
 |**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 consente di ottenere sicurezza e prestazioni in sistemi fisici e virtuali.|[Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 
 ##Operazioni e gestione delle macchine virtuali
@@ -78,7 +78,7 @@ Queste estensioni forniscono il supporto per altre funzionalità delle VM che po
 
 |Nome estensione VM|Descrizione della funzionalità|Altre informazioni|
 |---|---|---|
-|**BGInfo**|Quando si usa RDP, presenta sul desktop un'immagine consolidata delle informazioni utili sul server.|[Estensione BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**BGInfo**|Quando si usa RDP, presenta sul desktop un'immagine consolidata delle informazioni utili sul server.|[Estensione BGInfo](https://msdn.microsoft.com/library/mt589195.aspx)|
 |**HpcVmDrivers**|Installa, configura e mantiene i driver del dispositivo di rete (RDMA) d’accesso alla memoria diretto remoto in una macchina virtuale di dimensioni A8 o A9 che esegue il server di Windows 2012 R2 il server di Windows 2012. Abilita le macchine virtuali A8 o A9 con cluster ad utilizzare la rete RDMA durante l'esecuzione di applicazioni MPI parallele.|[Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

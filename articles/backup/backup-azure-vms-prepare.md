@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backup; eseguire il backup;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparare l'ambiente per il backup di macchine virtuali di Azure
 
 > [AZURE.SELECTOR]
-- [Preparare il backup di macchine virtuali ARM](backup-azure-arm-vms-prepare.md)
-- [Preparare il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md)
+- [Modello Resource Manager](backup-azure-arm-vms-prepare.md)
+- [Modello classico](backup-azure-vms-prepare.md)
 
 Prima di eseguire il backup di una macchina virtuale (VM) di Azure, devono verificarsi tre condizioni.
 
@@ -133,11 +133,11 @@ Questa procedura consente di impostare la configurazione del server proxy per l'
      ```
     Si apre la finestra di Explorer.
 3. Scegliere Strumenti -> Opzioni Internet -> Connessioni -> Impostazioni LAN.
-4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta. 
+4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta.
 5. Chiudere Internet Explorer.
 
 Questo comando esegue una configurazione proxy a livello di computer e verrà usato per tutto il traffico HTTP/HTTPS in uscita.
-   
+
 Se è stato installato un server proxy in un account utente corrente (non in un account di sistema locale), usare lo script seguente per applicare le impostazioni a SYSTEMACCOUNT:
 
 ```
@@ -151,7 +151,7 @@ Se è stato installato un server proxy in un account utente corrente (non in un 
 
 >[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel registro del server proxy, verificare che l'autenticazione sia impostata correttamente.
 
-######Per macchine Linux 
+######Per macchine Linux
 
 Aggiungere la riga seguente al file ```/etc/environment```:
 
@@ -160,7 +160,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Aggiungere le righe seguenti al file ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -238,4 +238,4 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 - [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Creare un'app Web Hello World per Azure in IntelliJ
@@ -120,7 +120,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
       * Fare clic su **OK**.
 
-  1. Il menu a discesa **App Service Plan** (Piano servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
+  1. Il menu a discesa **App Service Plan** (Piano di servizio app) elenca i piani di servizio app associati al gruppo di risorse selezionato.
 
         Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
@@ -128,13 +128,13 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
       * Fare clic su **New** (Nuovo).
 
-      * Viene visualizzata la finestra di dialogo **New App Service Plan** (Nuovo piano servizio app):
+      * Viene visualizzata la finestra di dialogo **New App Service Plan** (Nuovo piano di servizio app):
 
             ![][13]
 
       * Nella casella di testo **Name** (Nome) specificare un nome per il nuovo piano di servizio app.
 
-      * Nel menu a discesa **Location** (Posizione) selezionare la posizione del data center di Azure appropriata per il piano.
+      * Nel menu a discesa **Location** (Località) selezionare la posizione del data center di Azure appropriata per il piano.
 
       * Nel menu a discesa **Pricing Tier** (Piano tariffario) selezionare la tariffa appropriata per il piano. Ai fini del test è possibile scegliere **Free** (Gratuito).
 
@@ -215,18 +215,34 @@ Quando appare la visualizzazione **Azure Explorer**, per avviare o arrestare l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere i collegamenti seguenti:
+Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-* [Centro per sviluppatori Java]
-* [Panoramica delle app Web]
+- [Toolkit di Azure per Eclipse]
+  - [Installare il Toolkit di Azure per Eclipse.]
+  - [Creare un'app Web Hello World per Azure in Eclipse]
+  - [Novità di Azure Toolkit per Eclipse]
+- [Toolkit di Azure per IntelliJ]
+  - [Installazione del Toolkit di Azure per IntelliJ]
+  - *Creare un’app Web Hello World per Azure in IntelliJ (questo articolo)*
+
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
+
+Per ulteriori informazioni sulla creazione di applicazioni Web per Azure, vedere la [Panoramica delle app Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md
 [Azure Toolkit per IntelliJ]: ../azure-toolkit-for-intellij.md
+[Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
+[Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Installare il Toolkit di Azure per Eclipse.]: ../azure-toolkit-for-eclipse-installation.md
+[Installazione del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Installazione di Azure Toolkit per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Centro per sviluppatori Java]: https://azure.microsoft.com/develop/java/
+[Novità di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Panoramica delle app Web]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -251,4 +267,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

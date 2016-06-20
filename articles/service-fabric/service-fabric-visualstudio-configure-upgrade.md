@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="04/14/2016"
-   ms.author="cawaMS" />
+   ms.author="cawa" />
 
 # Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
 
@@ -94,4 +94,4 @@ Nell'esempio seguente viene illustrato come applicare un criterio di controllo d
 ## Passaggi successivi
 Per ulteriori informazioni sulla distribuzione di un'applicazione, vedere [Distribuire un'applicazione esistente in Infrastruttura di servizi di Azure](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

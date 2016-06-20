@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Creare un'immagine personalizzata dei lab di sviluppo/test da un file VHD
@@ -26,17 +26,17 @@ Dopo aver [creato un lab](devtest-lab-create-lab.md) è possibile [aggiungere ma
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
+1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall’elenco.
 
-1. Nell'elenco dei lab toccare il lab desiderato.
+1. Nell'elenco dei lab selezionare il lab desiderato.
 
 1. Verrà visualizzato il pannello **Impostazioni** del lab selezionato.
 
-1. Nel pannello **Impostazioni** del lab toccare **Immagini personalizzate**.
+1. Nel pannello **Impostazioni** del lab selezionare **Immagini personalizzate**.
 
     ![Opzione per le immagini personalizzate](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-1. Nel pannello **Immagini personalizzate** toccare **+ Immagine personalizzata**.
+1. Nel pannello **Immagini personalizzate** selezionare **+ Immagine personalizzata**.
 
     ![Aggiungere un'immagine personalizzata](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -44,23 +44,23 @@ Dopo aver [creato un lab](devtest-lab-create-lab.md) è possibile [aggiungere ma
 
 1. Immettere la descrizione dell'immagine personalizzata. La descrizione viene visualizzata nell'elenco delle immagini di base durante la creazione di una nuova macchina virtuale.
 
-1. Toccare **File VHD**.
+1. Selezionare **File VHD**.
 
 1. Se si ha accesso a un file VHD che non è elencato, aggiungerlo seguendo le istruzioni della sezione [Caricare un file VHD](#upload-a-vhd-file) e tornare qui al termine.
 
 1. Selezionare il file VHD desiderato.
 
-1. Toccare **OK** per chiudere il pannello **File VHD**.
+1. Selezionare **OK** per chiudere il pannello **File VHD**.
 
-1. Toccare **Configurazione sistema operativo**.
+1. Selezionare **Configurazione sistema operativo**.
 
 1. Nella scheda **Configurazione sistema operativo** selezionare **Windows** o **Linux**.
 
 1. Se si seleziona **Windows**, usare la casella di controllo per specificare se *Sysprep* è stato eseguito nel computer.
 
-1. Toccare **OK** per chiudere il pannello **Configurazione sistema operativo**.
+1. Selezionare **OK** per chiudere il pannello **Configurazione sistema operativo**.
 
-1. Toccare **OK** per creare l'immagine personalizzata.
+1. Selezionare **OK** per creare l'immagine personalizzata.
 
 1. Passare alla sezione [Passaggi successivi](#next-steps).
 
@@ -68,7 +68,7 @@ Dopo aver [creato un lab](devtest-lab-create-lab.md) è possibile [aggiungere ma
 
 Per aggiungere una nuova immagine personalizzata, è necessario accedere a un file VHD.
 
-1. Nel pannello **File VHD** toccare l'opzione per il **caricamento di un file VHD tramite PowerShell**.
+1. Nel pannello **File VHD** selezionare l'opzione per il **caricamento di un file VHD tramite PowerShell**.
 
     ![Caricare un'immagine](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
@@ -78,4 +78,4 @@ Per aggiungere una nuova immagine personalizzata, è necessario accedere a un fi
 
 Dopo aver aggiunto un'immagine personalizzata da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale nel lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

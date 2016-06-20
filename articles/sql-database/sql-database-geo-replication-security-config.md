@@ -41,7 +41,7 @@ Per fare in modo che il database secondario sia utilizzabile come database secon
 
 Le autorizzazioni specifiche per ogni passaggio sono descritte più avanti in questo argomento.
 
-La preparazione dell'accesso utente a un database secondario di replica geografica deve essere eseguita durante la configurazione della replica geografica. La preparazione dell'accesso utente ai database ripristinati con il ripristino geografico deve essere eseguita in qualsiasi momento quando il server originale è online, ad esempio nel contesto dell'analisi del ripristino di emergenza.
+La preparazione dell'accesso utente a un database secondario con replica geografica deve essere eseguita durante la configurazione della replica geografica. La preparazione dell'accesso utente ai database ripristinati con il ripristino geografico deve essere eseguita in qualsiasi momento quando il server originale è online, ad esempio nel contesto dell'analisi del ripristino di emergenza.
 
 >[AZURE.NOTE] Se si esegue il failover o il ripristino geografico in un server che non presenta account di accesso configurati adeguatamente, l'accesso sarà limitato all'account di amministratore del server.
 
@@ -100,4 +100,4 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

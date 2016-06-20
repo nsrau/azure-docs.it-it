@@ -60,7 +60,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
-È possibile utilizzare direttamente le query di esempio sopra menzionate nel modulo Reader di Azure ML per ricampionare i dati in tempo reale e inserirli in un esperimento di Azure ML. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
+È possibile utilizzare direttamente le query di esempio sopra menzionate nel modulo Import Data di Azure ML per ricampionare i dati in tempo reale e inserirli in un esperimento di Azure ML. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
    
 ![lettore sql][1]
 
@@ -83,7 +83,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 ###<a name="python-aml"></a>Connessione ad Azure Machine Learning
 
-È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure ML utilizzando il *modulo Lettore*. Attenersi alla procedura seguente:
+È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure ML utilizzando il *modulo Import Data*. Attenersi alla procedura seguente:
 
 1. Scrivere il frame di dati Pandas in un file locale
 
@@ -111,7 +111,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leggere i dati nel BLOB di Azure utilizzando il *modulo Lettore* di Azure ML come mostrato nella schermata riportata di seguito:
+3. Leggere i dati nel BLOB di Azure utilizzando il *modulo Import Data* di Azure ML come mostrato nella schermata riportata di seguito:
  
 ![lettore BLOB][2]
 
@@ -124,4 +124,4 @@ Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Proc
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

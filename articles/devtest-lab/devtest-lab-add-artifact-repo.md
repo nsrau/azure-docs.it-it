@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere un archivio elementi Git a un lab
 
-> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di aggiunta di un archivio privato di elementi in un lab di sviluppo/test](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+> [AZURE.NOTE] Visualizzare il video associato a questo articolo, relativo alla [procedura di aggiunta di un archivio privato di elementi in un lab di sviluppo/test](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Panoramica
 
@@ -37,11 +37,11 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 1. Nella home page dell'archivio GitHub che contiene gli elementi del team, salvare l’**url clone di HTTPS** per un utilizzo successivo.
 
-1. Toccare l'immagine del profilo nell'angolo superiore destro e selezionare **Impostazioni**.
+1. Selezionare l'immagine del profilo nell'angolo superiore destro e selezionare **Impostazioni**.
 
-1. Nel menu **Impostazioni personali** a sinistra, toccare **Token di accesso personali**.
+1. Nel menu **Impostazioni personali** a sinistra, selezionare **Token di accesso personali**.
 
-1. Toccare **Genera nuovo token**.
+1. Selezionare **Genera nuovo token**.
 
 1. Nella pagina **Nuovo token di accesso personale** immettere una **Descrizione del token**, accettare le voci predefinite in **Seleziona ambiti**, e quindi scegliere **Genera token**.
 
@@ -53,13 +53,13 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
+1. Selezionare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
-1. Dall'elenco dei lab, toccare il lab desiderato.
+1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Nel pannello del lab, toccare **Impostazioni**.
+1. Nel pannello del lab, selezionare **Impostazioni**.
 
-1. Nel pannello **Impostazioni** del lab, toccare **Archivio elementi**.
+1. Nel pannello **Impostazioni** del lab, selezionare **Archivio elementi**.
 
 1. Nel pannello **Archivio elementi**:
 
@@ -67,7 +67,7 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
     1. Immettere l’**Url clone di Git** salvato.
     2. Immettere il **Percorso della cartella** nell’archivio elementi che contiene gli elementi.
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
-    4. Toccare **Salva**.
+    4. Selezionare **Salva**.
 
 Gli elementi nell’archivio sono ora elencati nel pannello **Aggiungi elementi**.
 
@@ -77,19 +77,19 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
 
 ### Nella pagina web di Visual Studio del progetto dell’elemento
 
-1. Aprire la home page della raccolta del team (ad esempio, `https://contoso-web-team.visualstudio.com`), quindi toccare il progetto dell’elemento.
+1. Aprire la home page della raccolta del team (ad esempio, `https://contoso-web-team.visualstudio.com`), quindi selezionare il progetto dell’elemento.
 
-2. Nella home page del progetto, toccare **Codice**.
+2. Nella home page del progetto, selezionare **Codice**.
 
-1. Per visualizzare l'URL del clone, nella pagina **Codice** del progetto, toccare **Clone**.
+1. Per visualizzare l'URL del clone, nella pagina **Codice** del progetto, selezionare **Clone**.
 
 1. Salvare l'URL poichè sarà necessario più avanti in questa esercitazione.
 
-1. Per creare un Token di accesso personale, toccare **Il mio profilo** nel menu a discesa dell’account utente.
+1. Per creare un Token di accesso personale, selezionare **Il mio profilo** nel menu a discesa dell’account utente.
 
-1. Nella pagina delle informazioni del profilo toccare **Sicurezza**.
+1. Nella pagina delle informazioni del profilo selezionare **Sicurezza**.
 
-1. Nulla scheda **Sicurezza**, toccare **Aggiungi**.
+1. Nella scheda **Sicurezza** selezionare **Aggiungi**.
 
 1. Nella pagina **Crea un token di accesso personale**:
 
@@ -99,15 +99,15 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     4. Scegliere l’opzione **Tutti gli ambiti**.
     5. Scegliere **Crea token**.
 
-1. Al termine, verrà visualizzato il nuovo token nell’elenco **Token di accesso personale**. Toccare **Copia Token** e quindi salvare il valore del token in quanto verrà utilizzato al più presto.
+1. Al termine, verrà visualizzato il nuovo token nell’elenco **Token di accesso personale**. Selezionare **Copia Token** e quindi salvare il valore del token in quanto verrà utilizzato al più presto.
 
 ### Nel lab
 
-1. Nel proprio pannello del lab, toccare **Impostazioni**.
+1. Nel pannello del lab, selezionare **Impostazioni**.
 
     ![Scegliere impostazioni.](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
 
-1. Nel pannello **Impostazioni**, toccare **Archivio elementi**.
+1. Nel pannello **Impostazioni** selezionare **Archivio elementi**.
 
 1. Nel pannello **Archivio elementi**
 
@@ -115,6 +115,6 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     1. Immettere l’**Url clone di Git** salvato.
     2. Immettere il **Percorso della cartella** nell’archivio elementi che contiene gli elementi.
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
-    4. Toccare **Salva**.
+    4. Selezionare **Salva**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

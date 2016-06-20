@@ -100,24 +100,20 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
 
 15. Facoltativamente, è possibile configurare le **impostazioni cluster** di Service Fabric. Si tratta di un'opzione avanzata che consente di modificare le impostazioni predefinite del cluster di Service Fabric. È consigliabile non modificare le impostazioni predefinite, a meno che non sia indispensabile per l'applicazione e/o il cluster.
 
-
-
 ## Passaggio 3: Configurare la sicurezza
 
-A questo punto, Service Fabric supporta la sicurezza dei cluster solo tramite un certificato X.509. Prima di iniziare questo processo, quindi, è necessario caricare il certificato nell'insieme di credenziali delle chiavi. Per altre informazioni su come eseguire questa operazione, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
+Scenari e considerazioni sulla sicurezza sono disponibili in [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md). Al momento, Service Fabric supporta la protezione dei cluster solo mediante certificato X509; per ulteriori informazioni, fare riferimento a [Proteggere un cluster di Service Fabric in Azure con i certificati](service-fabric-secure-azure-cluster-with-certs.md).
 
 È consigliabile proteggere il cluster, anche se facoltativo. Se si sceglie di non proteggere il cluster, impostare la **modalità di sicurezza** su **Annulla protezione**. Nota: **non** è possibile aggiornare un cluster da non protetto a protetto in un secondo momento.
-
-Per istruzioni e considerazioni sulla sicurezza, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
 
 ![Schermata delle configurazioni di sicurezza nel portale di Azure.][SecurityConfigs]
 
 
 ## Passaggio 4: Completare la creazione del cluster
 
-Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni fornite oppure scaricare il modello di Azure Resource Manager da usare per distribuire il cluster. Dopo aver specificato le impostazioni obbligatorie, verrà abilitato il pulsante **OK**, che permette di avviare il processo di creazione del cluster.
+Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni fornite oppure scaricare il modello di Azure Resource Manager da utilizzare per distribuire il cluster. Dopo aver specificato le impostazioni obbligatorie, verrà abilitato il pulsante **OK**, che permette di avviare il processo di creazione del cluster.
 
-È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic sull'opzione **Aggiungi alla Schermata iniziale**, nella **schermata iniziale** verrà indicata la **distribuzione del cluster di Service Fabric**.
+È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale**, verrà aggiunta la voce **Distribuzione del cluster di Service Fabric** alla **schermata iniziale**.
 
 ![Schermata iniziale con la voce "Distribuzione di un cluster di Service Fabric" visualizzata.][Notifications]
 
@@ -229,4 +225,4 @@ Dopo aver creato un cluster, è possibile reperire altre informazioni sulla rela
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

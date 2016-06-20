@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch
 
 Azure Batch consente di eseguire carichi di lavoro di calcolo paralleli in macchine virtuali Linux e Windows. Questo articolo illustra in modo dettagliato come creare pool di nodi di calcolo Linux nel servizio Batch usando le librerie client [Batch Python][py_batch_package] e [Batch .NET][api_net].
 
-> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità illustrati in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti delle applicazioni](batch-application-packages.md) e le [attività a istanze multiple](batch-mpi.md) **non sono attualmente supportati** nei nodi di calcolo Linux.
+> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità illustrati in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti dell'applicazione](batch-application-packages.md) **non sono attualmente supportati** nei nodi di calcolo Linux.
 
 ## Configurazione macchina virtuale
 
@@ -51,11 +51,11 @@ L'agente del nodo Batch è un programma in esecuzione in ogni nodo del pool e fo
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] Non tutte le immagini di macchina virtuale disponibili nel Marketplace sono compatibili con gli agenti del nodo Batch attualmente disponibili. È necessario usare Batch SDK per elencare gli SKU dell'agente del nodo disponibili e le immagini di macchina virtuale con cui sono compatibili. Per altre informazioni, vedere [Elenco di immagini di macchina virtuale](#list-of-virtual-machine-images) più avanti.
+> [AZURE.IMPORTANT] Non tutte le immagini di macchina virtuale disponibili nel Marketplace sono compatibili con gli agenti del nodo Batch attualmente disponibili. È necessario usare Batch SDK per elencare gli SKU dell'agente del nodo disponibili e le immagini di macchina virtuale con cui sono compatibili. Per altre informazioni, vedere [Elenco di immagini di macchine virtuali](#list-of-virtual-machine-images) più avanti.
 
 ## Creare un pool Linux: Batch Python
 
-Il frammento di codice seguente illustra la creazione di un pool di nodi di calcolo Ubuntu Server mediante la [libreria client di Microsoft Azure Batch per Python][py_batch_package]. Documentazione di riferimento per il modulo Batch Python è disponibile nel[azure.batch package ][py_batch_docs] nella sezione relativa alla lettura dei documenti.
+Il frammento di codice seguente illustra la creazione di un pool di nodi di calcolo Ubuntu Server tramite la [libreria client di Microsoft Azure Batch per Python][py_batch_package]. Documentazione di riferimento per il modulo Batch Python è disponibile nel[azure.batch package ][py_batch_docs] nella sezione relativa alla lettura dei documenti.
 
 In questo frammento di codice si crea in modo esplicito un metodo [ImageReference][py_imagereference], specificando tutte le rispettive proprietà, ovvero server di pubblicazione, offerta, SKU, versione. È tuttavia consigliabile usare il metodo [list\_node\_agent\_skus][py_list_skus] nel codice di produzione per determinare e selezionare una delle combinazioni di immagine e SKU dell'agente del nodo disponibili in fase di esecuzione.
 
@@ -134,7 +134,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 
 ## Creare un pool Linux: Batch .NET
 
-Il frammento di codice seguente illustra la creazione di un pool di nodi di calcolo Ubuntu Server mediante la libreria client [Batch .NET][nuget_batch_net]. La [documentazione di riferimento per Batch .NET][api_net] è disponibile su MSDN.
+Il frammento di codice seguente illustra la creazione di un pool di nodi di calcolo Ubuntu Server tramite la libreria client [Batch .NET][nuget_batch_net]. La [documentazione di riferimento per Batch .NET][api_net] è disponibile su MSDN.
 
 Il frammento di codice seguente usa il metodo [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] per selezionare una delle combinazioni di immagine del Marketplace e SKU dell'agente del nodo attualmente supportate. Questa tecnica è consigliabile perché l'elenco di combinazioni supportate può cambiare nel tempo, in genere a causa dell'aggiunta di altre combinazioni supportate.
 
@@ -210,11 +210,13 @@ La tabella seguente elenca le immagini di macchina virtuale del Marketplace comp
 | Canonical | UbuntuServer | 14\.04.3-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 15\.10 | più recenti | batch.node.debian 8 |
+| Canonical | UbuntuServer | 16\.04.0-LTS | più recenti | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | più recenti | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | più recenti | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | più recenti | batch.node.centos 7 |
 | OpenLogic | CentOS | 7,2 | più recenti | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | più recenti | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7\.1 | più recenti | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7\.0 | più recenti | batch.node.centos 7 |
 | SUSE | SLES | 12 | più recenti | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | più recenti | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12 | più recenti | batch.node.opensuse 42.1 |
@@ -275,7 +277,7 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Si noti che, invece di una password, è possibile specificare una chiave pubblica SSH durante la creazione di un utente su un nodo. In Python SDK questa operazione viene eseguita mediante il parametro **ssh\_public\_key** su [ComputeNodeUser][py_computenodeuser] e in .NET mediante la proprietà [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
+Si noti che, invece di una password, è possibile specificare una chiave pubblica SSH durante la creazione di un utente su un nodo. In Python SDK questa operazione viene eseguita tramite il parametro **ssh\_public\_key** su [ComputeNodeUser][py_computenodeuser] e in .NET tramite la proprietà [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
 
 ## Prezzi
 
@@ -283,13 +285,17 @@ Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine v
 
 ## Passaggi successivi
 
+### Esercitazione su Python per Batch
+
+Per un'esercitazione più dettagliata sull'uso di Batch tramite Python, consultare [Introduzione al client Python di Azure Batch](batch-python-tutorial.md). L'[esempio di codice][github_samples_pyclient] complementare include una funzione di supporto, `get_vm_config_for_distro`, che mostra un'altra tecnica per ottenere una configurazione della macchina virtuale.
+
 ### Esempi di codice Batch Python
 
-Vedere gli [esempi di codice Python][github_samples_py] nel repository [azure-batch-samples][github_samples] su GitHub per ottenere alcuni script che illustrano come eseguire operazioni Batch comuni, ad esempio la creazione di pool, processi e attività e altro ancora. Il file [README][github_py_readme] associato agli esempi Python include dettagli sull'installazione dei pacchetti necessari.
+Vedere gli altri [esempi di codice Python][github_samples_py] nel repository [azure-batch-samples][github_samples] su GitHub per ottenere alcuni script che illustrano come eseguire operazioni Batch comuni, ad esempio la creazione di pool, processi e attività e altro ancora. Il file [README][github_py_readme] associato agli esempi Python include dettagli sull'installazione dei pacchetti necessari.
 
 ### Forum di Batch
 
-Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante lo sviluppo di soluzioni Batch.
+Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante lo sviluppo di soluzioni Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -299,6 +305,7 @@ Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
@@ -320,4 +327,4 @@ Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagramma di alto livello di pacchetti applicazione"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

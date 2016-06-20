@@ -12,11 +12,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/27/2016" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 
+## Alcuni dati di telemetria sono mancanti
+
+*In Application Insights, è visibile solo una frazione degli eventi generati dall'applicazione.*
+
+* Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](app-insights-sampling.md) adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione. 
+* In caso contrario, è possibile che sia stato raggiunto il [limite di velocità dati](app-insights-pricing.md#limits-summary) per il piano tariffario. Questi limiti vengono applicati per minuto.
 
 ## Problemi relativi a Status Monitor
 
@@ -29,7 +35,7 @@ Vedere [Risoluzione dei problemi relativi a Status Monitor](app-insights-monitor
 
 *Quando si crea un nuovo progetto in Visual Studio o si fa clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non è presente alcuna opzione di Application Insights.*
 
-+ Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un Application Insights SDK al progetto](app-insights-windows-desktop.md).
++ Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un SDK Application Insights al progetto](app-insights-windows-desktop.md).
 + Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](http://go.microsoft.com/fwlink/?LinkId=397827). È fornito con gli Strumenti Application Insights preinstallati.
 + Selezionare **Strumenti**, **Estensioni e aggiornamenti** e verificare che gli **Strumenti Application Insights** siano installati e abilitati. In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
 + Aprire la finestra di dialogo Nuovo progetto e scegliere Applicazione Web ASP.NET. Se l'opzione Application Insights è presente, gli strumenti sono installati. In caso contrario, provare a disinstallare e reinstallare Strumenti Application Insights.
@@ -139,7 +145,7 @@ Correzione:
 
     ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)
 
-+ Nel portale di Application Insights aprire [Ricerca diagnostica](app-insights-diagnostic-search.md). I dati vengono in genere visualizzati prima qui.
++ Nel portale di Application Insights aprire [Diagnostic Search](app-insights-diagnostic-search.md) (Ricerca diagnostica). I dati vengono in genere visualizzati prima qui.
 + Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
 + Verificare che le chiavi di strumentazione corrispondano. Nel pannello principale per l'app nel portale di Application Insights esaminare la **Chiave di strumentazione** nell'elenco a discesa **Informazioni di base**. Nel progetto in Visual Studio aprire quindi ApplicationInsights.config e trovare `<instrumentationkey>`. Verificare che le due chiavi siano identiche. In caso contrario:
  + Nel portale fare clic su Application Insights e cercare la risorsa dell'app con la chiave corretta.
@@ -189,7 +195,7 @@ I dati non sono disponibili per i siti Web di Azure.
 
 ## Non sono presenti tutti i dati previsti
 
-Se l'applicazione invia una grande quantità di dati ed è in uso l'SDK di Application Insights per ASP.NET 2.0.0 Beta3 o versioni successive, la funzionalità del [campionamento adattivo](app-insights-sampling.md) può operare e inviare solo una percentuale dei dati di telemetria.
+Se l'applicazione invia una grande quantità di dati e si sta usando la versione 2.0.0-beta3 o versioni successive dell'SDK di Application Insights per ASP.NET, la funzionalità del [campionamento adattivo](app-insights-sampling.md) può operare e inviare solo una percentuale dei dati di telemetria.
 
 È possibile disabilitarla, ma non è consigliabile. Il campionamento è progettato in modo che i dati di telemetria correlati vengano trasmessi correttamente per scopi diagnostici.
 
@@ -205,4 +211,4 @@ Le dimensioni relative alla città, all'area, al paese e alla regione vengono de
 
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

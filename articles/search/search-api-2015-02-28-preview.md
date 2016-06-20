@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
@@ -52,6 +52,10 @@ L'API del servizio di Ricerca di Azure supporta due sintassi di URL per le opera
 [Ottenere le statistiche di un indice](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Analizzatore di test](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Eliminare un indice](#DeleteIndex)
 
@@ -168,6 +172,7 @@ Le parti principali di un indice includono quanto segue:
 - `fields`: elementi che verranno inseriti nell'indice, tra cui il nome, il tipo di dati e le proprietà che definiscono le azioni consentite.
 - `suggesters`: elementi usati per le query con completamento automatico.
 - `scoringProfiles`:elementi usati per la classificazione personalizzata dei punteggi di ricerca. Per informazioni dettagliate, vedere [Aggiungere profili di punteggio a un indice di ricerca](https://msdn.microsoft.com/library/azure/dn798928.aspx).
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` usati per definire in che modo i documenti/query sono suddivisi in token indicizzabili/ricercabile. Per i dettagli, vedere la pagina relativa all'[analisi in Ricerca di Azure](https://aka.ms//azsanalysis).
 - `defaultScoringProfile`: elemento usato per sovrascrivere i comportamenti relativi ai punteggi predefiniti.
 - `corsOptions`: elemento usato per consentire query nell'indice basate su più origini.
 
@@ -233,6 +238,10 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -804,6 +813,10 @@ Per comodità, di seguito è riprodotta la sintassi dello schema usata per crear
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -817,6 +830,14 @@ Per comodità, di seguito è riprodotta la sintassi dello schema usata per crear
 Per una richiesta con esito positivo: "204 Nessun contenuto".
 
 Per impostazione predefinita, il corpo della risposta è vuoto. Se invece l'intestazione della richiesta `Prefer` è impostata su `return=representation`, il corpo della risposta conterrà il codice JSON per la definizione di indice aggiornata. In questo caso, il codice di stato di esito positivo sarà "200 OK".
+
+**Aggiornamento della definizione dell'indice con analizzatori personalizzati**
+
+Dopo che un analizzatore, un tokenizer, un filtro di token o un filtro di carattere è stato definito non può essere modificato. È possibile aggiungerne di nuovi a un indice esistente solo se il flag `allowIndexDowntime` è impostato su true nella richiesta di aggiornamento dell'indice:
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Si noti che questa operazione metterà l'indice offline almeno per alcuni secondi, causando la mancata riuscita dell'indicizzazione e delle richieste di query. Le prestazioni e la disponibilità alla scrittura dell'indice possono risultare inferiori per vari minuti dopo che l'indice è stato aggiornato o più a lungo per gli indici molto grandi.
 
 <a name="ListIndexes"></a>
 ## Elencare gli indici
@@ -989,6 +1010,100 @@ Il corpo della risposta è nel formato seguente:
 	  "storageSize": number (size of the index in bytes)
     }
 
+<a name="TestAnalyzer"></a>
+## Analizzatore di test
+
+L'**API di analisi** illustra come un analizzatore suddivide il testo in token.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Richiesta**
+
+Per tutte le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta dell'**API di analisi** può essere creata con il metodo POST.
+
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+
+
+**Intestazioni della richiesta**
+
+L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facoltative.
+
+- `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta dell'**API di analisi** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
+
+Per creare l'URL della richiesta, sono necessari anche il nome dell'indice e il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+
+**Corpo della richiesta**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+oppure
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+`analyzer_name`, `tokenizer_name`, `token_filter_name` e `char_filter_name` devono essere nomi validi di analizzatori, tokenizer, filtri di token e filtri char predefiniti o personalizzati per l'indice. Per ulteriori informazioni sul processo di analisi lessicale vedere la pagina relativa all'[analisi in Ricerca di Azure](https://aka.ms/azsanalysis).
+
+**Risposta**
+
+Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
+
+Il corpo della risposta è nel formato seguente:
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Esempio dell'API di analisi**
+
+**Richiesta**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Risposta**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
+    }
+
 ________________________________________
 <a name="DocOps"></a>
 ## Operazioni sui documenti
@@ -1045,7 +1160,7 @@ Il corpo della richiesta contiene uno o più documenti da indicizzare. I documen
       ]
     }
 
-> [AZURE.NOTE] Le chiavi di documenti possono contenere solo lettere, numeri, trattini ("-"), caratteri di sottolineatura ("\_") e segni di uguale ("="). Per altre informazioni, vedere la pagina relativa alle [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+> [AZURE.NOTE] Le chiavi di documenti possono contenere solo lettere, numeri, trattini ("-"), caratteri di sottolineatura ("\_") e segni di uguale ("="). Per altre informazioni, vedere la pagina relativa alle [regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
 **Azioni sui documenti**
 
@@ -1327,7 +1442,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 - Per i parametri di assegnazione dei punteggi, ad esempio per tag boosting che può contenere virgole, è possibile eseguire l'escape dei valori nell'elenco usando virgolette singole. Se i valori stessi contengono virgolette singole è possibile eseguire l'escape raddoppiandole.
   - Se ad esempio è presente un parametro di tag boosting denominato "mytag" e si vuole eseguire il boosting sui valori di tag "Hello, O'Brien" e "Smith", l'opzione della stringa di query sarà `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Si noti che le virgolette sono necessarie solo per i valori che contengono virgole.
 
-> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` anziché `scoringParameter`. Viene specificato come matrice di stringhe JSON, dove ogni stringa è una coppia `name-values` separata.
+> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` invece di `scoringParameter`. Viene specificato come matrice di stringhe JSON, dove ogni stringa è una coppia `name-values` separata.
 
 `minimumCoverage` (facoltativo, valore predefinito pari a 100): un numero compreso tra 0 e 100 che indica la percentuale di indice che deve essere inclusa nella query di ricerca in modo che l'esecuzione di quest'ultima venga segnalata come corretta. Per impostazione predefinita, deve essere disponibile l'intero indice. In caso contrario, `Search` restituirà il codice di stato HTTP 503. Se si imposta `minimumCoverage` e `Search` ha esito positivo, verrà restituito HTTP 200 che include un valore `@search.coverage` nella risposta; quest'ultimo indica la percentuale dell'indice che è stata inclusa nella query.
 
@@ -1853,4 +1968,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

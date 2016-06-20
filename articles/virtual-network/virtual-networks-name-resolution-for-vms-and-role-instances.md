@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="06/03/2016"
    ms.author="telmos" />
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
@@ -101,7 +101,7 @@ Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad e
 	- aggiungere "prepend domain-name-servers 127.0.0.1;" in "/etc/dhclient-eth0.conf"
 	- riavviare il servizio di rete ("service network restart") per impostare la cache come resolver DNS locale
 
-> [AZURE.NOTE]\: il pacchetto 'dnsmasq' è solo una delle cache DNS disponibili per Linux. Prima di usarla, verificare che sia adatta in base alle esigenze specifiche e assicurarsi che non siano installate altre cache.
+> [AZURE.NOTE] Il pacchetto 'dnsmasq' è solo una delle cache DNS disponibili per Linux. Prima di usarla, verificare che sia adatta in base alle esigenze specifiche e assicurarsi che non siano installate altre cache.
 
 **Ripetizione di tentativi sul lato client:**
 
@@ -131,13 +131,15 @@ In alcune situazioni le esigenze in termini di risoluzione dei nomi potrebbero a
 
 I server DNS all'interno di una rete virtuale possono inoltrare query DNS ai resolver ricorsivi di Azure per risolvere i nomi host all'interno di quella rete virtuale. Ad esempio, un controller di dominio in esecuzione in Azure può rispondere a query DNS per i relativi domini e inoltrare tutte le altre query ad Azure. Questo consente alle macchine virtuali di visualizzare sia le risorse locali, tramite il controller di dominio, sia i nomi host forniti da Azure, tramite il server di inoltro. L'accesso ai resolver ricorsivi di Azure viene fornito tramite l'indirizzo IP virtuale 168.63.129.16.
 
-L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette alle macchine virtuali locali di risolvere i nomi host forniti da Azure. Per risolvere il nome host di una macchina virtuale, la macchina virtuale del server DNS deve risiedere nella stessa rete virtuale ed essere configurata per inoltrare le query relative ai nomi host ad Azure. Poiché il suffisso DNS è diverso in ogni rete virtuale, è possibile usare le regole di inoltro condizionale per inviare le query DNS alla rete virtuale corretta per la risoluzione. L'immagine seguente mostra due reti virtuali e una rete locale che gestiscono la risoluzione DNS tra reti virtuali con questo metodo:
+L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette alle macchine virtuali locali di risolvere i nomi host forniti da Azure. Per risolvere il nome host di una macchina virtuale, la macchina virtuale del server DNS deve risiedere nella stessa rete virtuale ed essere configurata per inoltrare le query relative ai nomi host ad Azure. Poiché il suffisso DNS è diverso in ogni rete virtuale, è possibile usare le regole di inoltro condizionale per inviare le query DNS alla rete virtuale corretta per la risoluzione. L'immagine seguente mostra due reti virtuali e una rete locale che gestiscono la risoluzione DNS tra reti virtuali con questo metodo. Un esempio di server di inoltro DNS è disponibile nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e su [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS tra reti virtuali](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Quando si usa la risoluzione dei nomi di Azure, il suffisso DNS interno viene fornito a ogni macchina virtuale tramite DHCP. Quando si usa la soluzione di risoluzione dei nomi personalizzata, questo suffisso non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS. Per fare riferimento alle macchine virtuali usando il nome di dominio completo o per configurare il suffisso nelle macchine virtuali, è possibile determinare il suffisso tramite PowerShell o l'API:
+Quando si usa la risoluzione dei nomi di Azure, un suffisso DNS interno (*.internal.cloudapp.net) viene fornito a ogni macchina virtuale tramite DHCP. Ciò consente la risoluzione dei nomi host, perché i record relativi ai nomi host si trovano nell'area internal.cloudapp.net. Quando si usa la soluzione di risoluzione dei nomi personalizzata, il suffisso IDNS non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS, ad esempio gli scenari con aggiunta al dominio. Viene invece fornito un segnaposto non funzionante (reddog.microsoft.com).
 
--  Per le reti virtuali nei modelli di distribuzione di Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
+
+-  Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
 -  Nei modelli di distribuzione classica il suffisso è disponibile tramite una chiamata all'[API GetDeployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
@@ -148,7 +150,7 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà neces
 -  Essere accessibile (tramite TCP e UDP sulla porta 53) dai client che gestisce e in grado di accedere a Internet.
 -  Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
-> [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.mp) a ogni macchina virtuale del server DNS. Se si sceglie di usare Windows Server come server DNS, [questo articolo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) offre un'analisi delle prestazioni e ottimizzazioni aggiuntive.
+> [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.md) a ogni macchina virtuale del server DNS. Se si sceglie di usare Windows Server come server DNS, [questo articolo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) offre un'analisi delle prestazioni e ottimizzazioni aggiuntive.
 
 
 ### Specificare i server DNS
@@ -158,7 +160,7 @@ Quando si usano i propri server DNS, Azure offre la possibilità di specificare 
 > [AZURE.NOTE] Le proprietà di connessione di rete, ad esempio gli indirizzi IP del server DNS, non devono essere modificate direttamente all'interno delle VM di Windows in quanto possono essere cancellate durante il servizio di correzione quando la scheda di rete virtuale viene sostituita.
 
 
-Quando si usa il modello di distribuzione di Resource Manager, i server DNS possono essere specificati nel portale, nelle API, nei modelli ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) o in PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
+Quando si usa il modello di distribuzione Azure Resource Manager, i server DNS possono essere specificati nel portale, nelle API, nei modelli ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) o in PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
 Quando si usa il modello di distribuzione classica, i server DNS possono essere specificati per la rete virtuale nel portale o [ nel file di *configurazione di rete*](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, i server DNS vengono specificati tramite [il file di *configurazione del servizio*](https://msdn.microsoft.com/library/azure/ee758710) o in PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
 
@@ -181,4 +183,4 @@ Modello di distribuzione classica:
 - [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
 - [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

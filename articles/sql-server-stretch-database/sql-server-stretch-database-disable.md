@@ -24,9 +24,9 @@ Per disabilitare Database Estensione per una tabella, selezionare **Estensione**
 
 -   **Disabilita | Lascia i dati in Azure**. Disabilitare Database Estensione per la tabella. Abbandonare i dati remoti per la tabella in Azure.
 
-Dopo aver disabilitato Database Estensione per una tabella, la migrazione di dati viene interrotta e i risultati della query non includono più i risultati della tabella remota.
-
 È possibile usare anche Transact-SQL per disabilitare Database Estensione per una tabella o per un database.
+
+Dopo aver disabilitato Database Estensione per una tabella, la migrazione di dati viene interrotta e i risultati della query non includono più i risultati della tabella remota.
 
 Se si desidera sospendere la migrazione dei dati, vedere l'articolo su come [sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md).
 
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

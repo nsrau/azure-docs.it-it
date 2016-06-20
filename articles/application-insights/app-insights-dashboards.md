@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Dashboard del portale Application Insights"
-	description="Il dashboard consente di visualizzare i dati di telemetria provenienti da più componenti dell'applicazione."
+	pageTitle="Utilizzo del portale Application Insights"
+	description="Metriche, ricerca, dashboard e impostazioni nel portale Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Navigazione e dashboard nel portale Application Insights
@@ -34,11 +34,12 @@ Il pannello (pagina) Panoramica dell'app mostra un riepilogo della metrica di di
 
 Fare clic su:
 
-* **Qualsiasi grafico o riquadro** per visualizzare altri dettagli.
-* **Impostazioni** per passare alle pagine predefinite delle altre metriche.
+* **Qualsiasi grafico o riquadro** per visualizzare altri dettagli sui contenuti del grafico.
+* **Impostazioni** per ottenere pannelli predefiniti di altre metriche, nonché pagine di configurazione.
 * [**Esplora metriche**](app-insights-metrics-explorer.md) per creare pagine di metriche personalizzate.
 * [**Cerca**](app-insights-diagnostic-search.md) per analizzare istanze specifiche di eventi, ad esempio richieste, eccezioni o tracce di log.
 * [**Analisi**](app-insights-analytics.md) per eseguire query avanzate con i dati di telemetria.
+* [**Flusso live**](app-insights-metrics-explorer.md#live-stream) per un set fisso di metriche quasi istantanee, utile quando si distribuisce una nuova compilazione o si esegue il debug.
 
 
 ![Route principali per visualizzare i dati di telemetria](./media/app-insights-dashboards/010-oview.png)
@@ -109,4 +110,4 @@ Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

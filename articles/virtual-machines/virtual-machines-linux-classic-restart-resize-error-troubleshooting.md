@@ -57,7 +57,7 @@ Se si verifica un errore durante il tentativo di creare un nuovo servizio cloud,
 
 > [AZURE.IMPORTANT] Il nuovo servizio cloud avrà un nuovo nome e un indirizzo VIP, quindi si dovranno modificare tali informazioni per tutte le dipendenze che usano queste informazioni per il servizio cloud esistente.
 
-## Problema: Errore durante il riavvio di una VM esistente
+## Problema: Errore durante il ridimensionamento di una VM esistente
 
 Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
 
@@ -81,4 +81,4 @@ Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
 
 Se il servizio cloud esistente non è associato a una rete virtuale basata sull'area, è necessario eliminare le VM nel servizio cloud esistente e ricrearle nel nuovo servizio cloud dai relativi dischi. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

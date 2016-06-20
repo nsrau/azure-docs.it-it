@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ridimensionamento delle prestazioni per Azure SQL Data Warehouse | Microsoft Azure"
-   description="Comprendere le funzionalità relative al ridimensionamento delle prestazioni in Azure SQL Data Warehouse. Eseguire il ridimensionamento modificando le impostazioni DWU o sospendendo e riavviando le risorse di calcolo per ridurre i costi."
+   pageTitle="Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica) | Microsoft Azure"
+   description="Funzionalità relative alla scalabilità orizzontale delle prestazioni in Azure SQL Data Warehouse. Eseguire il ridimensionamento modificando le impostazioni DWU o sospendendo e riavviando le risorse di calcolo per ridurre i costi."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/26/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
-# Ridimensionamento delle prestazioni per Azure SQL Data Warehouse
+# Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-overview-scalability.md)
-- [Portale](sql-data-warehouse-manage-scale-out-tasks.md)
-- [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
-- [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
-- [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
+- [Panoramica](sql-data-warehouse-manage-compute-overview.md)
+- [Portale](sql-data-warehouse-manage-compute-portal.md)
+- [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+- [REST](sql-data-warehouse-manage-compute-rest-api.md)
+- [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 L'architettura di SQL Data Warehouse separa le risorse di archiviazione e calcolo consentendo a entrambe di eseguire il ridimensionamento in modo indipendente. Di conseguenza, è possibile ridimensionare le prestazioni e ridurre i costi pagando solo per le prestazioni necessarie.
 
 Questa panoramica descrive le funzionalità di ridimensionamento delle prestazioni di SQL Data Warehouse seguenti e fornisce indicazioni su come e quando usarle.
 
-- Ridimensionare le prestazioni modificando le Unità Data Warehouse (DWU)
+- Ridimensionare la potenza di calcolo modificando le Unità Data Warehouse (DWU)
 - Sospendere o riavviare le risorse di calcolo
 
 <a name="scale-performance-bk"></a>
@@ -56,16 +56,16 @@ Per un elenco delle DWU, vedere gli obiettivi del livello di servizio nell'artic
 
 ### Come ridimensionare le prestazioni?
 
-Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione Unità Data Warehouse (DWU) per il database. In background, SQL Data Warehouse arresta l'istanza, modifica le allocazioni della CPU e della memoria e quindi riavvia l'istanza.
+Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione Unità Data Warehouse (DWU) per il database. In background, SQL Data Warehouse modifica le allocazioni di memoria e CPU tramite funzionalità di distribuzione semplici e rapide del database SQL.
 
 Le DWU vengono allocate in blocchi di 100, ma non tutti i blocchi sono disponibili. Man mano che le DWU aumentano anche le prestazioni aumentano in modo lineare. A livelli superiori di DWU, è necessario aggiungere più di 100 DWU per osservare un miglioramento significativo delle prestazioni. Per consentire la selezione di variazioni di DWU significative, vengono forniti livelli di DWU in grado di offrire i migliori risultati.
  
 Per modificare le DWU, è possibile usare uno di questi metodi singoli.
 
-- [Ridimensionare le prestazioni con il portale di Azure][]
-- [Ridimensionare le prestazioni con PowerShell][]
-- [Ridimensionare le prestazioni con le API REST][]
-- [Ridimensionare le prestazioni con TSQL][]
+- [Scale compute power with Azure portal (Ridimensionare la potenza di calcolo con il portale di Azure)][]
+- [Scale compute power with PowerShell (Ridimensionare la potenza di calcolo con PowerShell)][]
+- [Scale compute power with REST APIs (Ridimensionare la potenza di calcolo con le API REST)][]
+- [Scale compute power with TSQL (Ridimensionare la potenza di calcolo con TSQL)][]
 
 ### Quante DWU è consigliabile usare?
  
@@ -128,25 +128,28 @@ Per comprendere più facilmente alcuni ulteriori concetti importanti sulle prest
 
 <!--Article references-->
 
-[Ridimensionare le prestazioni con il portale di Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-1-scale-performance
-[Ridimensionare le prestazioni con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-1-scale-performance
-[Ridimensionare le prestazioni con le API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-1-scale-performance
-[Ridimensionare le prestazioni con TSQL]: ./sql-data-warehouse-manage-scale-out-tasks-tsql.md
+[Scale compute power with Azure portal (Ridimensionare la potenza di calcolo con il portale di Azure)]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Scale compute power with PowerShell (Ridimensionare la potenza di calcolo con PowerShell)]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Scale compute power with REST APIs (Ridimensionare la potenza di calcolo con le API REST)]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Scale compute power with TSQL (Ridimensionare la potenza di calcolo con TSQL)]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Sospendere le risorse di calcolo con il portale di Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[Sospendere le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[Sospendere le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Riavviare le risorse di calcolo con il portale di Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[Riavviare le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[Riavviare le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Sospendere le risorse di calcolo con il portale di Azure]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Sospendere le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Sospendere le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Modello di concorrenza]: ./sql-data-warehouse-develop-concurrency.md
-[Progettazione di tabelle]: ./sql-data-warehouse-develop-table-design.md
-[Scegliere una chiave di distribuzione hash per la tabella]: ./sql-data-warehouse-develop-hash-distribution-key.md
-[Statistiche per migliorare le prestazioni]: ./sql-data-warehouse-develop-statistics.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[Riavviare le risorse di calcolo con il portale di Azure]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Riavviare le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Riavviare le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+
+[Modello di concorrenza]: sql-data-warehouse-develop-concurrency.md
+[Progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
+[Scegliere una chiave di distribuzione hash per la tabella]: sql-data-warehouse-develop-hash-distribution-key.md
+[Statistiche per migliorare le prestazioni]: sql-data-warehouse-develop-statistics.md
+[development overview]: sql-data-warehouse-overview-develop.md
+
+
 
 <!--MSDN references-->
 
@@ -155,4 +158,4 @@ Per comprendere più facilmente alcuni ulteriori concetti importanti sulle prest
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

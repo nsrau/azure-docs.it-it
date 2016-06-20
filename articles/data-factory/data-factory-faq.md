@@ -64,6 +64,11 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 ### È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
 
+### È possibile trasferire una data factory da una sottoscrizione di Azure a un’altra? 
+Sì. Utilizzare il pulsante **Sposta** nel pannello della data factory come mostrato di seguito:
+
+![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
+
 ## Attività - Domande frequenti
 ### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 
 
@@ -128,7 +133,7 @@ Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (pr
 Se la proprietà esterna è impostata correttamente, verificare che i dati di input siano presenti nel percorso specificato nella definizione del set di dati di input.
 
 ### In che modo è possibile eseguire una sezione in un momento diverso dalla mezzanotte quando tale sezione viene prodotta ogni giorno?
-Usare la proprietà **offset** per specificare l'ora desiderata per la produzione della sezione. Vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability) per maggiori dettagli su questa proprietà. Di seguito è riportato un rapido esempio:
+Utilizzare la proprietà **offset** per specificare l'ora desiderata per la produzione della sezione. Vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability) per maggiori dettagli su questa proprietà. Di seguito è riportato un rapido esempio:
 
 	"availability":
 	{
@@ -155,7 +160,7 @@ Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity
 
 È possibile anche eseguire le operazioni seguenti nel portale di Azure:
 
-1. Fare clic sul riquadro **Set di dati** nel pannello **DATA FACTORY** per l'istanza di Data Factory.
+1. Fare clic sul riquadro **Set di dati** nel pannello **DATA FACTORY** per l'istanza di Data factory.
 2. Fare clic sul set di dati specifico nel pannello **Set di dati**.
 3. Selezionare la sezione a cui si è interessati dall'elenco **Sezioni recenti** nel pannello **TABELLA**.
 4. Fare clic sull'esecuzione di attività nell'elenco **Esecuzioni attività** nel pannello **SEZIONE DATI**. 
@@ -182,4 +187,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/04/2016" 
 	ms.author="heidist"/>
 
 # Come usare i profili di assegnazione dei punteggi in Ricerca di Azure
@@ -47,7 +47,7 @@ Scegliere la scheda del codice sorgente, **Download** per ottenere un file zip d
 
 1. Dopo l'estrazione dei file, aprire la soluzione in Visual Studio per modificare il file di configurazione.
 1. In Esplora soluzioni fare doppio clic su **app. config**. Questo file specifica l'endpoint del servizio e un `api-key` utilizzato per autenticare la richiesta. È possibile ottenere questi valori dal portale classico.
-1. Accedere al [portale di Azure classico](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare al dashboard del servizio per Ricerca di Azure.
 1. Scegliere il **proprietà** riquadro per copiare l'URL del servizio
 1. Fare clic sui **chiavi** riquadro per copiare la `api-key`.
@@ -126,4 +126,4 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

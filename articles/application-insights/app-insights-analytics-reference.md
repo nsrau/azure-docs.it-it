@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Informazioni di riferimento sull'analisi
@@ -22,30 +22,32 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
-|[qualsiasi](#any)|[dcount](#dcount)|[Espressioni di percorso JSON](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[Clausola let](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[Direttiva render](#render-directive)|[todynamic](#todynamic)
-|[Operazioni aritmetiche](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Valori letterali di matrice e oggetto](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[Clausola restrict](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Confronti scalari](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Valori letterali booleani](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Operazioni booleane](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Cast](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Valori letterali numerici](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
-|[count op](#count-operator)|[gettype](#gettype)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[Confronti di stringhe](#string-comparisons)|[where op](#where-operator)
-|[Espressioni di data e ora](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[Valori letterali di stringa](#string-literals)
-|[Valori letterali di data e ora](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[Operatore project-away](#project-away-operator)|[sum](#sum)
+## Indice
+
+|Query e operatori|Aggregazioni|Scalari|Numeri|Data e ora|String|Matrici, oggetti e dynamic
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[qualsiasi](#any)|[Valori letterali booleani](#boolean-literals)|[Operatori aritmetici](#arithmetic-operators)|[Espressioni di data e ora](#date-and-time-expressions)|[GUID](#guids)|[Valori letterali di matrice e oggetto](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[Operatori booleani](#boolean-operators)|[Valori letterali numerici](#numeric-literals)|[Valori letterali di data e ora](#date-and-time-literals)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[Funzioni di oggetti dinamici](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Cast](#casts)|[abs](#abs)|[ago](#ago)|[Valori letterali di stringa](#string-literals)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)
+|[Clausola let](#let-clause)|[avg](#avg)|[Confronti scalari](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Confronti di stringhe](#string-comparisons)|[Espressioni di percorso JSON](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Nomi](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
+|[Direttiva render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[Clausola restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
+|[union](#union-operator)||||[todatetime](#todatetime)||
+|[dove](#where-operator)||||[totimespan](#totimespan)||
+|||||[weekofyear](#weekofyear)||
+
 
 
 
@@ -61,11 +63,11 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi i parametri sono [espressioni scalari](##scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
+Ogni filtro preceduto dal carattere di barra verticale `|` è un'istanza di un *operatore*, con alcuni parametri. L'input per l'operatore è la tabella risultante dalla pipeline precedente. Nella maggior parte dei casi i parametri sono [espressioni scalari](#scalars) sulle colonne dell'input. In alcuni casi, i parametri sono i nomi delle colonne di input e, in altri casi, il parametro è una seconda tabella. Il risultato di una query è sempre una tabella, anche se include solo una colonna e una riga.
 
 Le query possono contenere singole interruzioni di riga, ma terminano con una riga vuota. Possono includere commenti tra `//` e la fine della riga.
 
-Una query può essere preceduta da una o più [clausole let](#let-clause), che definiscono valori scalari, tabelle o funzioni che possono essere usati nella query.
+Una query può essere preceduta da una o più [clausole let](#let-clause), che definiscono valori scalari, tabelle o funzioni che è possibile usare nella query.
 
 ```AIQL
 
@@ -127,7 +129,7 @@ Una copia della tabella di input, con le colonne aggiuntive specificate.
 
 **Suggerimenti**
 
-* Usare invece [`project`](#project-operator) se si vuole anche rimuovere o rinominare alcune colonne.
+* Usare invece [`project`](#project-operator) se si vuole anche eliminare o rinominare alcune colonne.
 * Non usare `extend` per ottenere semplicemente un nome più breve da usare in un'espressione lunga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     Le colonne native della tabella sono state indicizzate. Il nuovo nome definisce una colonna aggiuntiva non indicizzata, quindi è probabile che la query venga eseguita più lentamente.
@@ -150,7 +152,7 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 
 **Sintassi**
 
-    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
 
 **Argomenti**
 
@@ -319,7 +321,7 @@ Il risultato è:
 * *ColumnName:* nel risultato le matrici nella colonna denominata vengono espanse su più righe. 
 * *ArrayExpression:* espressione che supporta una matrice. Se viene usato questo formato, viene aggiunta una nuova colonna e quella esistente viene mantenuta.
 * *Name:* nome della nuova colonna.
-* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare.
+* *Typename:* esegue il cast dell'espressione espansa in un tipo particolare
 * *RowLimit:* numero massimo di righe generate da ogni riga originale. Il valore predefinito è 128.
 
 **Restituisce**
@@ -368,7 +370,7 @@ Estrae i valori da una stringa. È possibile usare la corrispondenza con espress
 * `T`: tabella di input.
 * `kind`: 
  * `simple` (valore predefinito): le stringhe `Match` sono normali stringhe.
- * `relaxed`: se il testo non viene analizzato come tipo di una colonna, la colonna viene impostata su null e l'analisi continua. 
+ * `relaxed`: se il testo non viene analizzato come tipo di una colonna, la colonna viene impostata su null e l'analisi continua 
  * `regex`: le stringhe `Match` sono espressioni regolari.
 * `Text`: colonna o altra espressione che restituisce una stringa o può essere convertita in una stringa.
 * *Match:* trova la corrispondenza nella parte successiva della stringa e la rimuove.
@@ -571,13 +573,13 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-Illustra come l'operatore `range` possa essere usato per creare una piccola tabella delle dimensioni ad hoc che viene quindi usata per introdurre gli zeri dove i dati di origine sono senza valori.
+Illustra come l'operatore `range` possa essere usato per creare una piccola tabella di dimensioni ad hoc che viene quindi usata per introdurre zeri dove i dati di origine sono senza valori.
 
 ### Operatore reduce
 
     exceptions | reduce by outerMessage
 
-Cerca di raggruppare record simili. Per ogni gruppo, l'operatore restituisce l'oggetto `Pattern` che descrive meglio il gruppo e l'oggetto `Count` dei record del gruppo.
+Cerca di raggruppare record simili. Per ogni gruppo l'operatore restituisce l'oggetto `Pattern` che descrive meglio il gruppo e l'oggetto `Count` dei record del gruppo.
 
 
 ![](./media/app-insights-analytics-reference/reduce.png)
@@ -760,7 +762,7 @@ Considera due o più tabelle e restituisce le righe di tutte.
 
 * *Table1*, *Table2*...
  *  Il nome di una tabella, ad esempio `requests`, o una tabella definita in una [clausola let](#let-clause).
- *  Un'espressione di query, ad esempio `(requests | where success=="True")`.
+ *  Un'espressione di query, ad esempio `(requests | where success=="True")`
  *  Un set di tabelle specificato con un carattere jolly. Ad esempio, `e*` forma l'unione di tutte le tabelle definite nelle clausole let precedenti il cui nome inizia per "e", insieme alla tabella "exceptions".
 * `kind`: 
  * `inner`: il risultato include il subset di colonne comuni a tutte le tabelle di input.
@@ -827,7 +829,7 @@ Righe in *T* per cui *Predicate* è `true`.
 
 Per ottenere prestazioni ottimali:
 
-* **Usare confronti semplici** tra i nomi di colonna e le costanti. Con "costante" si intende costante nella tabella, quindi `now()` e `ago()` sono validi e sono dunque valori scalari assegnati con una clausola [`let`](#let-clause).
+* **Usare confronti semplici** tra i nomi di colonna e costanti. Con "costante" si intende costante nella tabella, quindi `now()` e `ago()` sono validi e sono dunque valori scalari assegnati con una clausola [`let`](#let-clause).
 
     Ad esempio, preferire `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -881,7 +883,7 @@ traces
 
 Trova una riga del gruppo che riduce al minimo o aumenta al massimo *ExprToMaximize* e restituisce il valore di *ExprToReturn* (o `*` per restituire l'intera riga).
 
-**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per verificare di usare i nomi corretti, esaminare i risultati con `take 5` prima di inviare pipe dei risultati in un altro operatore.
+**Suggerimento**: le colonne pass-through vengono rinominate automaticamente. Per assicurarsi di usare i nomi corretti, esaminare i risultati con `take 5` prima di inviare i risultati in pipe a un altro operatore.
 
 **esempi**
 
@@ -1007,7 +1009,7 @@ Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`. Se 
 
 **Suggerimento per le prestazioni**: usare `summarize count(filter)` anziché `where filter | summarize count()`
 
-> [AZURE.NOTE] Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> [AZURE.NOTE] Evitare di usare count() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati conservato in Application Insights sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
 
 ### countif
 
@@ -1228,7 +1230,7 @@ Controllare se una stringa può essere convertita in un tipo specifico:
 
 **Restituisce**
 
-Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. Questo è particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà come viene codificato un valore.
+Una stringa che rappresenta il tipo di archiviazione sottostante del relativo singolo argomento. Si tratta di una funzione particolarmente utile quando sono presenti valori di tipo `dynamic`: in questo caso `gettype()` indicherà la modalità di codifica di un valore.
 
 **esempi**
 
@@ -1361,7 +1363,6 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 
 
 
-## Boolean 
 
 ### Valori letterali booleani
 
@@ -1485,8 +1486,8 @@ Alias di [`bin()`](#bin).
 
 Generatore di numeri casuali.
 
-* `rand()`: numero reale compreso tra 0,0 e 1,0.
-* `rand(n)`: numero intero compreso tra 0 e n-1.
+* `rand()`: numero reale compreso tra 0,0 e 1,0
+* `rand(n)`: numero intero compreso tra 0 e n-1
 
 
 
@@ -1505,7 +1506,7 @@ Funzione della radice quadrata.
 
 **Restituisce**
 
-* Un numero positivo per cui `sqrt(x) * sqrt(x) == x`.
+* Un numero positivo per cui `sqrt(x) * sqrt(x) == x`
 * `null` se l'argomento è negativo o non può essere convertito in un valore `real`. 
 
 
@@ -1731,7 +1732,7 @@ Ora UTC corrente, con offset facoltativo di un intervallo di tempo specificato. 
 
 **Argomenti**
 
-* *offset:* `timespan` aggiunto all'ora UTC corrente. Valore predefinito: 0.
+* *offset:* `timespan`, aggiunto all'ora UTC corrente. Valore predefinito: 0.
 
 **Restituisce**
 
@@ -2091,7 +2092,7 @@ Converte una stringa in lettere maiuscole.
 
 
 
-## GUID
+### GUID
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2114,7 +2115,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 * Usare però `arraylength` e altre funzioni di analisi. Non usare ".length".
 
-**Cast:** in alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
+**Cast:** in alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo potrebbe variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
     exceptions 
     | summarize count() 
@@ -2199,7 +2200,7 @@ T
 ```
 
 
-## Funzioni di oggetti dinamici
+### Funzioni di oggetti dinamici
 
 |||
 |---|---|
@@ -2217,7 +2218,7 @@ T
 ### Oggetti dinamici nelle clausole let
 
 
-Poiché le [clausole let](#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
+Considerato le [clausole let](#let-clause) archiviano i valori dinamici come stringhe, le due clausole seguenti sono equivalenti e richiedono entrambe `parsejson` (o `todynamic`) prima di essere usate:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2290,7 +2291,7 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 
 **Suggerimenti per incrementare le prestazioni**
 
-* Applicare le clausole where prima di usare `extractjson()`.
+* Applicare le clausole where prima di usare `extractjson()`
 * Si consiglia di usare una corrispondenza di espressione regolare con [extract](#extract). L'esecuzione risulta molto più rapida ed è efficace se JSON è prodotto in base a un modello.
 * Usare `parsejson()` se è necessario estrarre più di un valore da JSON.
 * Considerare la possibilità di analizzare JSON al momento dell'inserimento dichiarando il tipo della colonna come dinamico.
@@ -2302,7 +2303,7 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 |`$`|Oggetto radice|
 |`@`|Oggetto corrente|
 |`[0]`|Indice inferiore di matrice|
-|`.` o `[0]` | Figlio|
+|`.` oppure `[0]` | Figlio|
 
 *(Attualmente non vengono implementati caratteri jolly, ricorsione, unione o sezioni).*
 
@@ -2400,7 +2401,7 @@ Una matrice di espressioni di percorso.
 
 Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice usato da un percorso specifico.
 
-## Nomi
+### Nomi
 
 I nomi possono contenere fino a 1024 caratteri. Fanno distinzione tra maiuscole e minuscole e possono contenere lettere, cifre e caratteri di sottolineatura (`_`).
 
@@ -2425,4 +2426,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

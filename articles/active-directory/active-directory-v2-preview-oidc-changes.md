@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Aggiornamenti importanti ai protocolli di autenticazione della versione 2.0
@@ -67,7 +67,8 @@ In precedenza, l'endpoint della versione 2.0 restituiva un oggetto JSON con codi
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-La risposta era simile all'oggetto JSON seguente: ```
+La risposta era simile all'oggetto JSON seguente:
+```
 { 
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -216,4 +217,4 @@ Buon lavoro.
 
 Microsoft Identity Division
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

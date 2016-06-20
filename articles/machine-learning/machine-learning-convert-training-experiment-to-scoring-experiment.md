@@ -54,7 +54,7 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
 
 - **Prep**: in base ai dati che verranno inviati per la classificazione, i moduli potrebbero non essere necessari per elaborare i dati in ingresso.
 
-	In questo esempio, nel set di dati di esempio potrebbero mancare dei valori e sono incluse delle colonne non necessarie per il eseguire il training del modello. Sono stati quindi inclusi un modulo [Clean Missing Data][clean-missing-data] per gestire i valori mancanti e un modulo [Project Columns][project-columns] per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentano valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Tuttavia, poiché il modulo [Project Columns][project-columns] consente di definire il set di funzionalità da classificare, il modulo deve essere mantenuto.
+	In questo esempio, nel set di dati di esempio potrebbero mancare dei valori e sono incluse delle colonne non necessarie per il eseguire il training del modello. Sono stati quini inclusi un modulo [Clean Missing Data][clean-missing-data] per gestire valori mancanti e un modulo [Select Columns in Dataset][select-columns] per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentano valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Tuttavia, poiché il modulo [Select Columns in Dataset][select-columns] consente di definire il set di funzionalità da classificare, il modulo deve essere mantenuto.
 
 - **Train**: dopo aver eseguito il training del modello, è necessario salvarlo come modulo del modello sottoposto a training singolo. Sarà poi possibile sostituire i singoli moduli con il modello sottoposto a training salvato.
 
@@ -78,7 +78,7 @@ I dati di input forniti tramite il servizio Web ora passano direttamente al modu
 
 In modo analogo, per impostazione predefinita, **Set Up Web Service** inserisce il modulo di output del servizio Web in fondo al flusso di dati. In questo esempio il servizio Web restituisce all'utente l'output del modulo [Score Model][score-model] che include il vettore dei dati di input completo, oltre ai risultati dell'assegnazione del punteggio.
 
-Se però si preferisce restituire un valore diverso, ad esempio solo i risultati dell'assegnazione del punteggio e non l'intero vettore dei dati di input, è possibile inserire un modulo [Project Columns][project-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare quindi il modulo **Web service output** nell'output del modulo [Project Columns][project-columns]\:
+Se però si preferisce restituire un valore diverso, ad esempio solo i risultati dell'assegnazione del punteggio e non l'intero vettore dei dati di input, è possibile inserire un modulo [Select Columns in Dataset][select-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare quindi il modulo **Web service output** nell'output del modulo [Select Columns in Dataset][select-columns]\:
 
 ![Spostamento del modulo web service output][figure5]
 
@@ -94,7 +94,7 @@ L'esperimento predittivo ora appare come illustrato di seguito:
 
 In alcuni casi, è possibile consentire all'utente del servizio Web di modificare il comportamento dei moduli quando si accede al servizio. *I parametri del servizio Web* consentono di eseguire questa operazione.
 
-Un esempio comune è la configurazione del modulo [Reader][reader] per consentire all'utente del servizio Web distribuito di specificare un'origine dati diversa quando si accede al servizio Web, oppure la configurazione del modulo [Writer][writer] in modo che sia possibile specificare una destinazione differente.
+Un esempio comune è la configurazione del modulo [Import Data][import-data] per consentire all'utente del servizio Web distribuito di specificare un'origine dati diversa quando si accede al servizio Web, oppure la configurazione del modulo [Export Data][export-data] in modo che sia possibile specificare una destinazione differente.
 
 È possibile definire i parametri del servizio Web e associarli a uno o più parametri di modulo e specificare se sono obbligatori o facoltativi. Effettuando l'accesso al servizio e modificando adeguatamente le azioni del modulo, l'utente del servizio Web può fornire valori per tali parametri.
 
@@ -124,11 +124,11 @@ Per altre informazioni sul processo di distribuzione completo, vedere [Distribui
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

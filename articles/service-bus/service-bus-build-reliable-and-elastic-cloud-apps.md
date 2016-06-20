@@ -29,7 +29,7 @@ La domanda dinamica è un fattore da considerare per le nuove applicazioni. Dall
  
 ## Compilazione
 
-- [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md) 
+- [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md) 
 - [Inserimento nella coda dei messaggi non recapitabili a scadenza nella messaggistica negoziata di Service Bus (post di blog del 21 ottobre 2011)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Procedure consigliate per la protezione delle applicazioni di Service Bus su Bus di servizio interruzioni ed emergenze](service-bus-outages-disasters.md)
 - [Messaggistica negoziata: Esempio di risposta richiesta](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@ La domanda dinamica è un fattore da considerare per le nuove applicazioni. Dall
 - [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@ Il routing basato su percorso URL consente di associare le route in base al perc
 
 Il routing basato su URL introduce un nuovo tipo di regola per i gateway applicazione. Per il gateway applicazione sono disponibili due tipi di regole: basic e PathBasedRouting. Il tipo di regola basic fornisce un servizio di tipo round robin per i pool back-end, mentre la regola PathBasedRouting oltre alla distribuzione round robin tiene conto del modello di percorso dell'URL della richiesta per la scelta del pool back-end.
 
->[AZURE.IMPORTANT] PathPattern: elenco dei modelli di percorso usati per la corrispondenza. Ognuno di essi deve iniziare con una barra / e l'unica posizione in cui è consentito il simbolo * è alla fine, dopo '/'. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo simbolo ? o # e questi caratteri non sono consentiti.
+>[AZURE.IMPORTANT] PathPattern: elenco dei modelli di percorso usati per la corrispondenza. Ognuno di loro deve iniziare con una barra / e l’unica posizione in cui è consentito il simbolo * è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo simbolo ? o # e questi caratteri non sono consentiti.
 
 ## Scenario
 Nell'esempio seguente il gateway applicazione gestisce il traffico per contoso.com con due pool di server back-end: pool di server video e pool di server immagini.
@@ -194,6 +194,6 @@ Creare un gateway applicazione con tutti gli oggetti di configurazione illustrat
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## Ottenere il gateway applicazione
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

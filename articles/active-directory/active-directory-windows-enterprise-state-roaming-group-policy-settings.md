@@ -5,7 +5,7 @@
     keywords="informazioni sulle impostazioni di Criteri di gruppo e gestione di dispositivi mobili per Enterprise State Roaming, Enterprise State Roaming, cloud windows"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili
@@ -24,20 +24,20 @@ Usare queste impostazioni di Criteri di gruppo e di gestione di dispositivi mobi
 Le aziende che vogliono gestire il roaming per dispositivi personali (non gestiti) possono usare il portale di Azure per abilitare o disabilitare il roaming, invece di usare Criteri di gruppo o gestione di dispositivi mobili. Le tabelle seguenti illustrano le impostazioni disponibili per i criteri.
 
 ## Impostazioni di gestione di dispositivi mobili
-Le impostazioni dei criteri di gestione di dispositivi mobili sono applicabili a Windows 10 e Windows 10 Mobile.
+Le impostazioni dei criteri di gestione di dispositivi mobili sono applicabili a Windows 10 e Windows 10 Mobile. Il supporto per Windows 10 Mobile esiste solo per il roaming basato su account Microsoft tramite l’account OneDrive dell’utente. Fare riferimento alla sezione "Dispositivi ed endpoint" per informazioni dettagliate sui dispositivi sono supportati per la sincronizzazione basata su Azure AD.
 
 | Nome | Descrizione |
 |------------------------------------|----------------------------------------------------------------------|
 | Allow Microsoft Account Connection | Consente agli utenti di effettuare l'autenticazione usando un account Microsoft account nel dispositivo |
-| Allow Sync My Settings | Consente agli utenti di eseguire il roaming delle impostazioni e dei dati delle app di Windows |
- 
+| Allow Sync My Settings | Consente agli utenti di eseguire il roaming delle impostazioni e dei dati delle app di Windows; la disabilitazione di questo criterio disabiliterà la sincronizzazione, nonché i backup su dispositivi mobili |
+
 ## Impostazioni di Criteri di gruppo
-Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 aggiunti a un dominio di Active Directory. La tabella include le impostazioni legacy che apparentemente gestiscono le impostazioni di sincronizzazione ma non funzionano per il servizio Enterprise State Roaming per Windows 10.
+Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 aggiunti a un dominio di Active Directory. La tabella include anche le impostazioni legacy che apparentemente gestiscono le impostazioni di sincronizzazione ma non funzionano per il servizio Enterprise State Roaming per Windows 10, che sono contrassegnate con "Non usare" nella descrizione.
 
 | Nome | Descrizione |
 |-------------------------------------|-------------|
 | Account: blocca gli account Microsoft |Questa impostazione dei criteri impedisce agli utenti di aggiungere nuovi account Microsoft nel computer|
-| Non sincronizzare |Consente agli utenti di eseguire il roaming delle impostazioni e dei dati delle app di Windows|
+| Non sincronizzare |Impedisce agli utenti di eseguire il roaming delle impostazioni e dei dati delle app di Windows|
 | Non sincronizzare gruppo personalizza |Disabilita la sincronizzazione del gruppo Temi|
 | Non sincronizzare impostazioni browser |Disabilita la sincronizzazione del gruppo Internet Explorer|
 | Non sincronizzare password |Disabilita la sincronizzazione del gruppo Password|
@@ -55,4 +55,4 @@ Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 
 - [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

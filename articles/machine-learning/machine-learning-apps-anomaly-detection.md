@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="03/07/2016" 
+	ms.date="06/01/2016" 
 	ms.author="pingf"/>
 
 
@@ -89,4 +89,4 @@ Time|Dati|Tspike|Zspike|Valori martingale|Indicatore di avviso|Valori martingale
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

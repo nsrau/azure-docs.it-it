@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
@@ -60,10 +60,15 @@ Usare il comando seguente per visualizzare i dettagli di un cluster specifico ne
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Eliminare cluster
+
 Utilizzare il comando seguente per eliminare un cluster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+È inoltre possibile eliminare un cluster rimuovendo il gruppo di risorse che lo contiene. Tenere presente che questa operazione eliminerà tutte le risorse nel gruppo, compreso l’account di archiviazione predefinito.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Ridimensionare i cluster
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
@@ -234,4 +239,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

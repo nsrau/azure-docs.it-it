@@ -73,7 +73,7 @@ Nella maggior parte dei concorsi si riceve un punteggio pubblico ogni volta che 
 
 * L'intero set di dati usato per il concorso viene suddiviso in modo casuale con una stratificazione in dati di training e il resto in dati di test. La suddivisione casuale è stratificata per garantire la coerenza delle distribuzioni di etichette dei dati di training e di test.
  
-* I dati di training vengono caricati e forniti come parte dell'esperimento iniziale nella configurazione del modulo Reader.
+* I dati di training vengono caricati e forniti come parte dell’esperimento iniziale nella configurazione del modulo Importazione dei dati.
 
 * I dati di test vengono suddivisi ulteriormente in dati di test pubblici e privati, usando la stessa stratificazione.
 
@@ -115,4 +115,4 @@ Attualmente la piattaforma del concorso supporta l'invio di contributi soltanto 
 
 I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -68,8 +68,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 - [Procedura: installare ed eseguire MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
-- [Procedura: come usare CoreOS in Azure](virtual-machines-linux-classic-coreos-howto.md)
-- [Procedura: guida introduttiva a Fleet e Docker su CoreOS in Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Procedura: come usare CoreOS in Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Pianificazione
@@ -193,4 +192,4 @@ Poiché l'ambito relativo a DevOps, gestione e ottimizzazione è in continua e r
 
 - [Plug-in di Packer per Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -303,7 +303,7 @@ Quando un utente viene autenticato dal servizio app, è possibile accedere all'I
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-Il SID è derivato dall'ID utente specifico del provider ed è statico per un determinato utente e provider di accesso.
+Il SID è derivato dall'ID utente specifico del provider ed è statico per un determinato utente e provider di accesso. Quando un utente accede a un endpoint in modo anonimo, la proprietà utente restituisce null.
 
 Il servizio app consente anche di richiedere le attestazioni specifiche dal provider di accesso. Ciò consente di richiedere altre informazioni dal provider, usando ad esempio le API Graph di Facebook. È possibile specificare le attestazioni nel pannello del provider nel portale. Alcune attestazioni richiedono una configurazione aggiuntiva con il provider.
 
@@ -332,6 +332,19 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
     }
 
 Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** funzioni, è necessario aggiungere un'istruzione using per `System.Security.Principal`.
+
+### <a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
+
+Nella sezione precedente, è stato illustrato come recuperare l'ID utente di un utente autenticato. È possibile limitare l'accesso ai dati e ad altre risorse in base a questo valore. Ad esempio, l'aggiunta di una colonna ID utente alle tabelle e l’applicazione di filtri ai risultati delle query dell'utente in base all'ID utente sono modi semplici per limitare i dati restituiti solo agli utenti autorizzati. Il codice seguente restituisce righe di dati solo quando l'ID dell'utente corrente corrisponde al valore nella colonna UserId nella tabella TodoItem:
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+A seconda dello scenario specifico, è possibile creare tabelle di utenti e ruoli al fine di tenere traccia delle informazioni di autorizzazione utente più dettagliate, ad esempio gli endpoint a cui un determinato utente può accedere.
 
 ## Procedura: Aggiungere notifiche push a un progetto server
 
@@ -465,4 +478,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

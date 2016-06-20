@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
 
-Ricerca di diagnostica è il pannello in [Application Insights][start] che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagina, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
+Ricerca diagnostica è una funzionalità di [Application Insights][start] che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
 
-## Quando viene visualizzata Ricerca diagnostica?
+## Dove viene visualizzata Ricerca diagnostica?
 
 
 ### Nel portale di Azure
@@ -52,10 +52,11 @@ La finestra di ricerca ha le stesse funzionalità del portale Web:
 ![](./media/app-insights-diagnostic-search/34.png)
 
 
-### Campionamento
+## Campionamento
 
 Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
-> [Informazioni sul campionamento](app-insights-sampling.md).
+
+[Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## Controllare i singoli elementi
@@ -157,8 +158,8 @@ Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n* AND r*
 Query di esempio | Effetto 
 ---|---
 lento|Individuazione di tutti gli eventi nell'intervallo di date i cui campi includono il termine "lento".
-database??|Trova la corrispondenza con database01, databaseAB, ...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
-database*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
+database|Trova la corrispondenza con database01, databaseAB, ...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
+database* |Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
 mela OR banana<br/>mela banana|Individuazione degli eventi che contengono uno dei termini. Usare "OR", non "or".</br/>Forma breve.
 mela NOT banana<br/>mela -banana|Individuare eventi che contengono un termine ma non l'altro.<br/>Forma breve.
@@ -216,8 +217,8 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

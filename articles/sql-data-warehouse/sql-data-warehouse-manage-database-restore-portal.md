@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/02/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Eseguire il backup e il ripristino di un database in Azure SQL Data Warehouse (portale di Azure)
@@ -30,8 +30,6 @@ Attività contenute in questo argomento:
 
 - Ripristino di un database attivo
 - Ripristino di un database eliminato
-- Ripristinare un database non accessibile da un'area geografica di Azure diversa
-
 
 ## Prima di iniziare
 
@@ -60,29 +58,18 @@ Per ripristinare un database eliminato:
 4. Scorrere verso il basso fino a Operazioni nel pannello del server e fare clic sul riquadro **Database eliminati**.
 5. Fare clic sul database eliminato che si desidera ripristinare.
 5. Specificare un nuovo **Nome database** e fare clic su **Crea**.
-6. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
+6. Il processo di ripristino del database inizierà e potrà essere monitorato con **NOTIFICHE**.
 
-
-## Eseguire il ripristino da un'area geografica di Azure
-
-Per eseguire un ripristino geografico:
-
-1. Accedere al [portale di Azure][].
-2. Sul lato sinistro della schermata fare clic su **+NEW** (+NUOVO), selezionare **Data and Storage** (Dati e archiviazione) e quindi **SQL Data Warehouse**.
-3. Selezionare **BACKUP** come origine e quindi selezionare il backup con ridondanza geografica dal quale eseguire il ripristino.
-4. Specificare il resto delle proprietà del database, quindi fare clic su **Crea**
-5. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
 
 ## Passaggi successivi
-Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica della gestione][].
+Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica sulla gestione][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Continuità aziendale del database SQL di Azure]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Panoramica della gestione]: sql-data-warehouse-overview-manage.md
+[Panoramica sulla gestione]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
@@ -92,4 +79,4 @@ Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure]
 <!--Other Web references-->
 [Portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

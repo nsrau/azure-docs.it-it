@@ -211,6 +211,6 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 ## Passaggi successivi
 
-- [Aggiungere una nuova macchina virtuale](virtual-machines-windows-create-powershell.md) alla subnet TestVNET, ad esempio una VM che esegue Microsoft SQL Server.
+- [Aggiungere una nuova macchina virtuale](virtual-machines-windows-ps-create.md) alla subnet TestVNET, ad esempio una VM che esegue Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

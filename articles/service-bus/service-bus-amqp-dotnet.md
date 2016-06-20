@@ -171,7 +171,7 @@ Per altre informazioni, vedere i collegamenti seguenti:
 - [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]
 - [AMQP nel bus di servizio per Windows Server]
 
-  [Come usare le code del bus di servizio]: service-bus-dotnet-how-to-use-queues.md
+  [Come usare le code del bus di servizio]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

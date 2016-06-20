@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere proprietari e utenti a un lab
 
-> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di impostazione della sicurezza nei lab di sviluppo/test](/documentation/videos/how-to-set-security-in-your-devtest-lab)
+> [AZURE.NOTE] Visualizzare il video associato a questo articolo, relativo alla [procedura di impostazione della sicurezza nei lab di sviluppo/test](/documentation/videos/how-to-set-security-in-your-devtest-lab).
 
 ## Panoramica
 L'accesso ai lab di sviluppo e test è controllato dal Controllo di accesso in base al ruolo (RBAC) di Azure. Cercare [Controllo degli accessi in base al ruolo (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) per altre informazioni.
@@ -40,29 +40,29 @@ Per aggiungere un proprietario a una sottoscrizione di Azure in cui si dispone d
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Nella finestra di navigazione a sinistra, toccare **Sottoscrizioni**.
+1. Nella finestra di navigazione a sinistra selezionare **Sottoscrizioni**.
 
 	![Collegamento a sottoscrizioni](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Toccare la sottoscrizione che conterrà il lab.
+1. Selezionare la sottoscrizione che conterrà il lab.
 
-1. Toccare l’icona **Accesso**.
+1. Selezionare l’icona **Accesso**.
 
 	![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)
 
-1. Nel pannello **Utenti** toccare **Aggiungi**.
+1. Nel pannello **Utenti** selezionare **Aggiungi**.
 
 	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. Nel pannello **Seleziona un ruolo** toccare **Proprietario**.
+1. Nel pannello **Seleziona un ruolo** selezionare **Proprietario**.
 
 1. Nella casella di testo **Utente** inserire l’indirizzo di posta elettronica dell'utente da aggiungere come proprietario. Se l'utente non viene trovato, si riceverà un messaggio di errore che spiega il problema. Se l'utente viene individuato, tale utente verrà elencato sotto la casella di testo **Utente**.
 
-1. Toccare il nome utente individuato.
+1. Selezionare il nome utente individuato.
 
-1. Toccare **Seleziona**.
+1. Scegliere **Seleziona**.
 
-1. Toccare **OK** per chiudere il pannello **Aggiungi accesso**.
+1. Selezionare **OK** per chiudere il pannello **Aggiungi accesso**.
 
 1. Quando si torna al pannello **Utenti**, si noterà che l'utente è stato aggiunto come proprietario. Questa persona sarà ora un proprietario di qualsiasi lab creato in questa sottoscrizione e pertanto sarà in grado di eseguire le attività del proprietario.
 
@@ -72,32 +72,32 @@ Per aggiungere un utente di lab di sviluppo e test al lab, seguire questi passag
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Fare clic su **Esplora**.
+1. Selezionare **Esplora**.
 
-1. Toccare **Lab di sviluppo e test**.
+1. Selezionare **Lab di sviluppo e test**.
 
-1. Dall'elenco dei lab, toccare il lab desiderato.
+1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Toccare l’icona **Accesso**.
+1. Selezionare l’icona **Accesso**.
 
 	![Accesso utente](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. Nel pannello **Utenti** toccare **Aggiungi**.
+1. Nel pannello **Utenti** selezionare **Aggiungi**.
 
 	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. Nel pannello **Seleziona un ruolo** toccare **utente di lab di sviluppo e test**.
+1. Nel pannello **Seleziona un ruolo** selezionare **utente di lab di sviluppo e test**.
 
 1. Nel pannello **Aggiungi utenti**:
 
-	1. Il pannello **Aggiungi utenti** mostra un elenco di utenti incorporati. Se l'utente desiderato è già nell'elenco, è possibile toccare semplicemente la riga utente per selezionarlo. Verrà visualizzato un segno di spunta a sinistra dell'utente per indicare che l'utente è stato selezionato. Per selezionare più utenti, tenere premuta la chiave**&lt;Ctrl>** durante la selezione di ogni utente. Per deselezionare un utente, tenere premuto la chiave **&lt;Ctrl>** e fare clic sull'utente. Un contatore nella parte inferiore del pannello indica il numero di utenti selezionati.
+	1. Il pannello **Aggiungi utenti** mostra un elenco di utenti incorporati. Se l'utente desiderato è già nell'elenco, è possibile selezionare semplicemente la riga utente per selezionarlo. Verrà visualizzato un segno di spunta a sinistra dell'utente per indicare che l'utente è stato selezionato. Per selezionare più utenti, tenere premuta la chiave**&lt;Ctrl>** durante la selezione di ogni utente. Per deselezionare un utente, tenere premuto la chiave **&lt;Ctrl>** e selezionare l'utente. Un contatore nella parte inferiore del pannello indica il numero di utenti selezionati.
 
-	1. Se l'utente desiderato non è presente nell'elenco, immettere un account di posta elettronica Microsoft valido nella casella di testo **Utenti**. Se l'indirizzo di posta elettronica è valido, l'utente verrà visualizzato sotto la casella di testo **Utente**. È sufficiente toccarlo per selezionarlo.
+	1. Se l'utente desiderato non è presente nell'elenco, immettere un account di posta elettronica Microsoft valido nella casella di testo **Utenti**. Se l'indirizzo di posta elettronica è valido, l'utente verrà visualizzato sotto la casella di testo **Utente**.
 
-	1. Dopo aver selezionato gli utenti che si desidera aggiungere al lab, toccare **Seleziona**.
+	1. Dopo aver selezionato gli utenti che si desidera aggiungere al lab, scegliere **Seleziona**.
 
-	1. Toccare **OK** per chiudere il pannello **Aggiungi accesso**.
+	1. Selezionare **OK** per chiudere il pannello **Aggiungi accesso**.
 
 1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

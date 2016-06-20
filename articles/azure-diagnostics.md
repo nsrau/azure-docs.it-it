@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
@@ -56,6 +56,7 @@ Si noti che le app Web non usano Diagnostica di Azure. Trovare le informazioni e
 - [Configurare Diagnostica di Azure in un'applicazione di servizi cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Per argomenti più avanzati, vedere
+
 - [Uso di Diagnostica di Azure con Application Insights per i servizi cloud](./application-insights/app-insights-cloudservices.md)
 - [Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Usare PowerShell per configurare la diagnostica nei servizi cloud](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@ Per argomenti più avanzati, vedere
 - [Configurare Diagnostica di Azure in una macchina virtuale di Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Per argomenti più avanzati, vedere
+
 - [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale di Azure](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
@@ -79,4 +81,4 @@ Per un'introduzione, vedere [Monitorare un'applicazione di Service Fabric](./ser
 - Informazioni su come [Configurare Diagnostica di Azure per inviare dati ad Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Se si riscontrano problemi di avvio della diagnostica o individuazione dei dati nelle tabelle di archiviazione di Azure, vedere [Risoluzione dei problemi di Diagnostica di Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

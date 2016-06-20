@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
+	ms.date="06/05/2016"
 	ms.author="heidist"/>
 
 #Novità dell’ultimo aggiornamento di Ricerca di Azure#
@@ -24,6 +24,7 @@ Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure
 
 Funzionalità|Rilasciata|Stato|Dettagli
 -------|--------|------|-------
+[Aggiornamenti SKU](search-limits-quotas-capacity.md)|Giugno 2016|Anteprima e GA|Gli SKU Basic e Standard 2 (S2), disponibili in versioni di anteprima da marzo 2016, sono ora disponibili a livello generale. <br/><br/>In questo aggiornamento vengono introdotte le versioni di anteprima dei nuovi SKU Standard 3 (S3) e S3 High Density (S3 HD). Per un confronto, vedere [Scegliere uno SKU o un livello per Ricerca di Azure](search-sku-tier.md).
 [.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Febbraio 2016|GA|Si tratta della prima versione disponibile a livello generale della libreria client .NET, `Microsoft.Azure.Search.dll`. Questa versione introduce modifiche di rilievo. Per informazioni aggiuntive sulla migrazione, vedere [Aggiornamento ad Azure Search .NET SDK versione 1.1](search-dotnet-sdk-migration.md).
 [Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Febbraio 2016|[GA](search-api-2015-02-28-preview.md)|La sintassi di query Lucene è ora disponibile a livello genere nell'API REST e in .NET SDK. Impostare il parametro `queryType` su `full` nell'API REST e la proprietà `SearchParameters.QueryType` su `QueryType.Full` in .NET SDK per abilitare la sintassi Lucene.
 [Analizzatori personalizzati](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|Gennaio 2016|[Anteprima](search-api-2015-02-28-preview.md)|Configurazioni di tokenizer e filtri di token definiti dall'utente. Vedere la pagina relativa all'[analisi in Ricerca di Azure](https://msdn.microsoft.com/library/azure/mt605304.aspx) su MSDN.
@@ -38,11 +39,11 @@ Funzionalità|Rilasciata|Stato|Dettagli
 -------|--------|------|-------
 Analizzatori di linguaggi Lucene|Ottobre 2015|GA|Questa funzionalità è ora disponibile a livello generale nell'API REST del servizio e in .NET SDK.
 [Processori del linguaggio naturale Microsoft](search-api-2015-02-28-preview.md)|Ottobre 2015|GA|Questa funzionalità è ora disponibile a livello generale nell'API REST del servizio e in .NET SDK.
-[Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Aggiunge l'analizzatore di query Lucene. Per usare la nuova sintassi, è necessario specificare `queryType` in un'operazione di ricerca dei documenti.
+[Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Aggiunge l'analizzatore di query Lucene. Per utilizzare la nuova sintassi, è necessario specificare `queryType` in un'operazione di ricerca dei documenti.
 [Processori del linguaggio naturale](search-language-support.md)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Sono stati aggiunti i processori del linguaggio Microsoft, aumentando il numero di linguaggi complessivi e offrendo un'implementazione alternativa per altri linguaggi.
 POST nella ricerca, nei suggerimenti e nelle query di ricerca|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Si applica all'API REST del servizio
 [API REST di gestione ](https://msdn.microsoft.com/library/azure/dn832684.aspx)|Settembre 2015|GA|Seconda versione dell'API REST di gestione. Include checkNameAvailability che verifica se un determinato nome di servizio è già in uso, l'intervallo di replica in precedenza era 1-6 e ora è 1-12, la proprietà SKU è stata spostata dal contenitore delle proprietà al livello superiore del payload del servizio, il corpo della risposta dell'operazione di creazione del servizio di ricerca è stato aggiornato per supportare la rilocazione dell'impostazione SKU.
-.NET SDK 0.10.0-anteprima|Agosto 2015|Preview|Questa è la seconda iterazione della libreria client .NET, Microsoft.Azure.Search.dll. Questa versione aggiunge il supporto per la creazione, la gestione e l'uso della [classe DataSource](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx) e della [classe Indexers](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) tramite le classi .NET. Inoltre, per gli indicizzatori di SQL Azure, esiste un nuovo supporto per l'indicizzazione dei punti geografici.
+.NET SDK 0.10.0-anteprima|Agosto 2015|Preview|Questa è la seconda iterazione della libreria client .NET, Microsoft.Azure.Search.dll. Questa versione aggiunge il supporto per la creazione, la gestione e l'utilizzo della [classe DataSource](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx) e della [classe Indexers](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) tramite le classi .NET. Inoltre, per gli indicizzatori di SQL Azure, esiste un nuovo supporto per l'indicizzazione dei punti geografici.
 Costrutti fieldMapping|Aprile 2015|Preview|Gli indicizzatori ora supportano i costrutti fieldMapping che forniscono le assegnazioni di campo quando i nomi di campo effettivi differiscono tra il database esterno e l'indice di Ricerca di Azure. Vedere [Indicizzatori](search-api-indexers-2015-02-28-Preview.md) per la versione `2015-02-28-preview` della documentazione degli indicizzatori.
 Trasformazioni di tipo di campo|Aprile 2015|Preview|Gli indicizzatori supportano ora le trasformazioni di tipo di campo per cui è possibile eseguire il mapping di un campo stringa in una tabella SQL a un campo di insieme di stringhe in un indice di ricerca, presumendo che il campo di origine rappresenti una matrice JSON.
 [API REST del servizio](https://msdn.microsoft.com/library/azure/dn798935.aspx)|Marzo 2015|GA|Prima versione disponibile a livello generale dell'API REST del servizio di Ricerca di Azure. Questa versione include funzionalità precedenti. Include inoltre gli [indicizzatori](http://go.microsoft.com/fwlink/p/?LinkID=528210). [Suggesters](https://msdn.microsoft.com/library/azure/dn798936.aspx) sostituisce il supporto più limitato della query di suggerimento per la digitazione fornito nell'implementazione precedente (in cui venivano trovate solo le corrispondenze dei prefissi) aggiungendo il supporto per la corrispondenza degli infissi. Con questa implementazione vengono trovate corrispondenze con qualsiasi punto di un termine e sono supportate anche le corrispondenze fuzzy. [Tag boosting](http://go.microsoft.com/fwlink/p/?LinkId=528212) offre a un nuovo scenario per i profili di punteggio. In particolare, sfrutta i dati persistenti (ad esempio le preferenze di acquisto) in modo da migliorare i risultati della ricerca per i singoli utenti in base ad informazioni personalizzate.
@@ -71,4 +72,4 @@ Le funzionalità di anteprima e disponibili a livello generale sono associate a 
 
 Le funzionalità che si basano esclusivamente su strumenti o sul portale in genere cambiano nel tempo e non sono classificate come di anteprima o disponibili a livello generale.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

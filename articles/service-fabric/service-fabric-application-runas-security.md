@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # RunAs: Eseguire un'applicazione di Service Fabric con varie autorizzazioni di sicurezza
 Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi, noti come **RunAs**. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni con l'account utente, ad esempio file, directory e certificati.
@@ -155,14 +155,14 @@ Nel file di PowerShell aggiungere quanto segue per impostare una variabile di am
 ~~~
 
 **Nota:** per impostazione predefinita, quando viene eseguito il file batch cerca i file nella cartella dell'applicazione denominata **work**. In questo caso, quando MySetup.bat viene eseguito si desidera che trovi MySetup.ps1 nella stessa cartella, ovvero la cartella **code package** dell'applicazione. Per modificare questa cartella, impostare la cartella di lavoro come illustrato di seguito.
-    
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## Uso dei criteri di reindirizzamento della console per il debug locale dei punti di ingresso
@@ -179,13 +179,13 @@ L'esempio seguente illustra come impostare il reindirizzamento della console con
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 Se si modifica il file MySetup.ps1 scrivendo un comando **Echo**, questo verrà scritto nel file di output a scopo di debug.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **Dopo aver eseguito il debug dello script, rimuovere immediatamente i criteri di reindirizzamento della console**
@@ -351,4 +351,4 @@ Il manifesto dell'applicazione riportato di seguito illustra molte delle imposta
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

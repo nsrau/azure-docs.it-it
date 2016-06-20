@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # Come creare un ambiente del servizio app #
@@ -36,7 +36,7 @@ Per ciascuno di questi elementi tenere presente le informazioni importanti che s
 - Tutte le app create in un ambiente saranno incluse nella stessa sottoscrizione dell'ambiente del servizio app
 - Se non si dispone dell'accesso alla sottoscrizione usata per l'ambiente del servizio app non è possibile usare l'ambiente per la creazione delle app
 - Le reti virtuali usate per l'hosting di un ambiente del servizio app devono essere reti virtuali regionali classiche "v1" 
-- La subnet usata per l'hosting dell'ambiente del servizio app non deve contenere altre risorse di calcolo
+- **La subnet usata per l'hosting dell'ambiente del servizio app non deve contenere altre risorse di calcolo**
 - Una subnet può includere un solo ambiente del servizio app
 - Attualmente sono supportate solo le reti virtuali con uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
 
@@ -165,4 +165,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Per configurare l'integrazione di Showpad in Azure AD, è necessario aggiungere 
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
 
-	![Active Directory][1]
+	![Applicazioni][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -80,10 +80,11 @@ Per configurare l'integrazione di Showpad in Azure AD, è necessario aggiungere 
 
 6. Nella casella di ricerca digitare **Showpad**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![Applicazioni](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. Nel riquadro dei risultati selezionare **Showpad** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
+	![Applicazioni](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Showpad con un utente test di nome "Britta Simon".
@@ -121,7 +122,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png)
 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Showpad adottando il modello seguente: `https://<company name>.showpad.biz/login`
+    a. Nella casella di testo **URL di accesso** digitare l'URL utilizzato dagli utenti per accedere all'applicazione Showpad adottando il modello seguente: `https://<company name>.showpad.biz/login`
 
 	b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company name>.showpad.biz`
 
@@ -162,7 +163,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 	e. Fare clic su **Submit**.
 
 
-10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -193,11 +194,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_05.png)
 
@@ -219,7 +220,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png)
 
@@ -229,7 +230,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Completa**.
+    b. Fare clic su **Complete**.
 
 
 ### Creazione di un utente test di Showpad
@@ -276,7 +277,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro **Showpad** nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Showpad.
+Quando si fa clic sul riquadro **Showpad** nel pannello di accesso, si dovrebbe accedere automaticamente all’applicazione Showpad.
 
 
 ## Risorse aggiuntive
@@ -303,4 +304,4 @@ Quando si fa clic sul riquadro **Showpad** nel pannello di accesso, si dovrebbe 
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -81,6 +81,6 @@ Per altre informazioni sulle code del bus di servizio, vedere gli articoli segue
 - [Esempio di inoltro automatico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Esempio di transazioni atomiche con il bus di servizio](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+- [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

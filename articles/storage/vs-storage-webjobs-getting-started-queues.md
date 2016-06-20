@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
@@ -515,15 +515,15 @@ Nell'esempio seguente vengono illustrati diversi modi per scrivere log:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-Nel dashboard di WebJobs SDK, viene visualizzato l'output dell'oggetto **TextWriter** quando si visita la pagina relativa a una chiamata di funzione specifica e si fa clic su **Attiva/Disattiva Output**:
+Nel dashboard di WebJobs SDK viene visualizzato l'output dell'oggetto **TextWriter** quando si visita la pagina relativa a una chiamata di funzione specifica e si fa clic su **Attiva/Disattiva Output**:
 
-![Fare clic sul collegamento della chiamata di funzione](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Collegamento della chiamata](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Log nella pagina di una chiamata di funzione](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 Nel dashboard di WebJobs SDK le 100 righe più recenti dell'output di Console vengono visualizzate quando si visita la pagina relativa al processo Web (non alla chiamata di funzione) e si fa clic su **Attiva/Disattiva output**.
 
-![Fare clic su Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Fare clic su Attiva/Disattiva Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job\_log.txt nel file system dell’app Web.
 
@@ -543,4 +543,4 @@ In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspet
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -336,7 +336,12 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
  
 
 ## Servizio collegato di Azure SQL
-
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Servizio collegato di Azure SQL Data Warehouse
+Si crea un servizio collegato di Azure SQL Data Warehouse e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+
+## Servizio collegato di SQL Server
+Si crea un servizio collegato di SQL Server e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+
+<!---HONumber=AcomDC_0608_2016-->
