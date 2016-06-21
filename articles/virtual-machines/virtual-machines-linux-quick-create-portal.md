@@ -23,7 +23,7 @@
 
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com/) per creare rapidamente una macchina virtuale Linux. Gli unici requisiti sono [un account Azure](https://azure.microsoft.com/pricing/free-trial/) e [file di chiavi SSH pubbliche e private](virtual-machines-linux-mac-create-ssh-keys.md).
 
-[AZURE.NOTE] Se si sceglie di usare una password per proteggere l'accesso alla VM, la password deve contenere almeno 12 caratteri, di cui almeno un carattere maiuscolo, almeno un carattere minuscolo, almeno un carattere speciale e almeno un numero.
+> [AZURE.NOTE] Se si sceglie di usare una password per proteggere l'accesso alla VM, la password deve contenere almeno 12 caratteri, di cui almeno un carattere maiuscolo, almeno un carattere minuscolo, almeno un carattere speciale e almeno un numero.
 
 
 1. Dopo avere eseguito l'accesso al portale di Azure con l'identità dell'account Azure, fare clic su **+ Nuovo** nell'angolo superiore sinistro:
@@ -34,7 +34,7 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
     ![schermata2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
-3. Nella pagina **Nozioni di base** immettere:
+3. Nella pagina **Informazioni di base** immettere:
     - Nome della macchina virtuale
     - Nome utente dell'utente amministratore
     - Tipo di autenticazione impostato su **Chiave pubblica SSH**
@@ -45,7 +45,7 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
     ![schermata3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-4. Scegliere **DS1** come dimensioni per installare Ubuntu su un'unità SSD Premium e fare clic su **Seleziona** per configurare le impostazioni.
+4. Scegliere **DS1** come dimensione per installare Ubuntu in un'unità SSD Premium e fare clic su **Seleziona** per configurare le impostazioni.
 
     ![schermata4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
@@ -81,4 +81,4 @@ A questo punto è stata creata rapidamente una VM Linux da usare per scopi di te
 
 Questi articoli illustrano come iniziare a compilare un'infrastruttura di Azure oltre a un numero qualsiasi di strumenti di orchestrazione, configurazione e distribuzione delle infrastrutture proprietarie e open source.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

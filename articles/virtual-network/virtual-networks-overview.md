@@ -95,4 +95,4 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

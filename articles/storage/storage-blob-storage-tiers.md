@@ -120,7 +120,7 @@ Gli account di archiviazione BLOB usano un nuovo modello di determinazione prezz
 - **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 - **Modifica del livello di accesso**: la modifica del livello di accesso da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di accesso da frequente a non frequente sarà gratuito.
 
-> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di accesso da non frequente a frequente non verrà effettuato fino al 30 giugno 2016. A partire dal 1ª luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di accesso da non frequente a frequente non verrà effettuato fino al 30 giugno 2016. A partire dal 1° luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Avvio rapido
 
@@ -135,33 +135,49 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel menu Hub selezionare **Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**.
+2. Nel menu Hub selezionare **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.
 
 3. Immettere un nome per l'account di archiviazione.
 
+	Questo nome deve essere globalmente univoco. Viene usato come parte dell'URL usato per accedere agli oggetti nell'account di archiviazione.
+
 4. Selezionare **Resource Manager** come modello di distribuzione.
 
-5. Selezionare **Archiviazione BLOB** come tipo di account di archiviazione.
+	L'archiviazione a livelli può essere usata solo con gli account di archiviazione di Resource Manager, che è il modello di distribuzione consigliato per le nuove risorse. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
-6. Selezionare il livello di accesso: **Frequente** o **Sporadico**. Il livello predefinito è **Frequente**.
+5. Nell'elenco a discesa Tipologia account selezionare **Archivio BLOB**.
 
-7. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+	Qui è possibile selezionare il tipo di account di archiviazione. L'archiviazione a livelli non è disponibile nell'archiviazione per utilizzo generico, ma solo nel tipo di account di archiviazione BLOB.
+
+	Si noti che, quando si seleziona questa opzione, il livello di prestazioni viene impostato su Standard. L'archiviazione a livelli non è disponibile con il livello di prestazioni Premium.
+
+6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**. L'opzione predefinita è **Archiviazione con ridondanza geografica e accesso in lettura**.
+ 
+	Archiviazione con ridondanza locale, archiviazione con ridondanza geografica (2 aree), archiviazione con ridondanza geografica e accesso in lettura (2 aree con accesso in lettura alla seconda).
+
+	Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+
+7. Selezionare il livello di accesso: **Sporadico** o **Frequente**. Il livello predefinito è **Frequente**.
 
 8. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
-10. Selezionare la posizione geografica dell'account di archiviazione.
+10. Selezionare l'area per l'account di archiviazione.
 
 11. Fare clic su **Crea** per creare l'account di archiviazione.
 
 #### Modificare il livello di accesso in un account di archiviazione BLOB usando il portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'account di archiviazione.
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
+2. Per passare all'account di archiviazione, selezionare Tutte le risorse, quindi selezionare l'account di archiviazione.
 
-3. Specificare il livello di accesso preferito: **Frequente** o **Sporadico**.
+3. Nel pannello Impostazioni fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
+
+4. Selezionare il livello di accesso preferito: **Frequente** o **Sporadico**.
+
+5. Fare clic su Salva nella parte superiore del pannello.
 
     > [AZURE.NOTE] La modifica del livello di accesso può comportare costi aggiuntivi. Per altri dettagli, vedere la sezione [Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
 
@@ -192,15 +208,15 @@ Per altre dettagli, vedere [Trasferire dati con l'utilità della riga di comando
 
 La libreria di spostamento dei dati di Archiviazione di Azure per .NET si basa sul framework di spostamento dei dati principali alla base di AzCopy. La libreria è progettata per operazioni di trasferimenti dati a prestazioni elevate, affidabili e semplici simili a quelle di AzCopy. In questo modo è possibile sfruttare pienamente i vantaggi delle funzionalità fornite da AzCopy nell'applicazione in modo nativo senza dover eseguire e monitorare istanze esterne di AzCopy.
 
-Per altri dettagli, vedere la pagina relativa alla [libreria di spostamento dei dati di Archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net-data-movement)
+Per altri dettagli, vedere la pagina relativa alla [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Libreria di spostamento dei dati di Archiviazione di Azure per .NET).
 
 #### API REST o libreria client
 
 È possibile creare un'applicazione personalizzata per eseguire la migrazione dei dati all'account di archiviazione BLOB usando una delle librerie client di Azure o l'API REST dei servizi di archiviazione di Azure. Archiviazione di Azure fornisce librerie client avanzate per più linguaggi e piattaforme, ad esempio .NET, Java, C++, Node.js, PHP, Ruby e Python. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
 
-Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure](storage-dotnet-how-to-use-blobs.md).
+Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] I BLOB crittografati mediante la crittografia lato client archiviano i metadati correlati alla crittografia archiviati con il BLOB. È assolutamente essenziale che qualsiasi meccanismo di copia assicuri che i metadati dei BLOB e, in particolare modo, i metadati correlati alla crittografia vengano conservati. Se si copiano i BLOB senza metadati, il contenuto dei BLOB non sarà più recuperabile. Per informazioni dettagliate sui metadati correlati alla crittografia, vedere [Crittografia lato client di Archiviazione di Azure](storage-client-side-encryption.md).
+> [AZURE.NOTE] I BLOB crittografati mediante la crittografia lato client archiviano i metadati correlati alla crittografia archiviati con il BLOB. È assolutamente essenziale che qualsiasi meccanismo di copia assicuri che i metadati dei BLOB e, in particolare modo, i metadati correlati alla crittografia vengano conservati. Se si copiano i BLOB senza metadati, il contenuto dei BLOB non sarà più recuperabile. Per informazioni dettagliate sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
 
 ## Domande frequenti
 
@@ -240,7 +256,7 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure](storage-dot
 
 9. **Sarà necessario modificare le applicazioni esistenti per usare gli account di archiviazione BLOB?**
 
-    Gli account di archiviazione BLOB offrono una coerenza API al 100% con gli account di archiviazione di uso generico per i BLOB in blocchi e i BLOB di aggiunta. Se l'applicazione usa BLOB in blocchi o i BLOB di aggiunta e si usa la versione 2014-02-14 dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) o versione successiva, l'applicazione dovrebbe funzionare correttamente. Se si usa una versione meno recente del protocollo, sarà necessario aggiornare l'applicazione per poter usare la nuova versione e lavorare quindi facilmente con entrambi i tipi di account di archiviazione. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal tipo di account di archiviazione usato.
+    Gli account di archiviazione BLOB offrono una coerenza API al 100% con gli account di archiviazione di uso generico per i BLOB in blocchi e i BLOB di aggiunta. Se l'applicazione usa BLOB in blocchi o BLOB di aggiunta e si usa la versione 2014-02-14 dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) o versione successiva, l'applicazione dovrebbe funzionare correttamente. Se si usa una versione meno recente del protocollo, sarà necessario aggiornare l'applicazione per poter usare la nuova versione e lavorare quindi facilmente con entrambi i tipi di account di archiviazione. In generale, è sempre consigliabile usare la versione più recente indipendentemente dal tipo di account di archiviazione usato.
 
 10. **L'esperienza utente sarà diversa?**
 
@@ -266,4 +282,4 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure](storage-dot
 
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

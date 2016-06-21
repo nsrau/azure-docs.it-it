@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
@@ -130,10 +130,9 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
 		IntelliSense per le entità di catalogo (Databases, Schemas, Tables, UDO, e così via) è correlato all'account di calcolo personale. È possibile controllare l'account di calcolo, il database e lo schema attualmente attivi nella barra degli strumenti superiore e sostituirli tramite gli elenchi a discesa.
 
-    - **Espandere le colonne con il simbolo dell'asterisco**
+    - **Espandere le colonne con il simbolo dell'asterisco * **
 
-        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.  
-	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso. ! [Strumenti di Data Lake per Visual Studio espande l'asterisco] (./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
 
@@ -216,7 +215,7 @@ Mediante l’esperienza di esecuzione di U-SQL in locale in Visual Studio, è po
 - Eseguire il debug di Assembly C# in locale.
 - Creare, eliminare o visualizzare le tabelle locali, gli assembly, gli schemi e le tabelle in Esplora Server esattamente come è possibile fare per il servizio Analisi Azure Data Lake.
 
-Verrà visualizzato un account *locale* in Visual Studio e il programma di installazione creerà una cartella *DataRoot* in *C:\LocalRunRoot*. Verrà utilizzata la cartella DataRoot:
+Verrà visualizzato un account *locale* in Visual Studio e il programma di installazione creerà una cartella *DataRoot* in *C:\\LocalRunRoot*. Verrà utilizzata la cartella DataRoot:
 
 - Archiviazione dei metadati, comprese tabelle, database, TVF e così via.
 - Per un determinato script: se si fa riferimento a un percorso relativo nei percorsi di input/output, si cercherà il DataRoot (nonché il percorso dello script se è quello di input)
@@ -236,8 +235,8 @@ Il video seguente illustra la funzionalità di esecuzione in locale di U-SQL:
 
     - Nell'input di script (ESTRARRE * DA "/percorso/abc") - verrà effettuata la ricerca sia nel percorso di DataRoot che nel percorso dello script.
     - Nell’output dello script (OUTPUT A "percorso/abc"): il percorso DataRoot verrà usato come cartella di output.
-    - Nella registrazione dell’assembly (CREARE ASSEMBLY xyz da "/ path/abc"): verrà ricercato il percorso dello script, ma non il DataRoot.
-    - In TVF/Visualizzazione o in altre entità di metadati registrate: verrà ricercato il percorso DataRoot, ma non il percorso dello script.
+    - Nella registrazione dell’assembly (CREATE ASSEMBLY xyz FROM "/ path/abc"): verranno eseguite ricerche nel percorso dello script, ma non in DataRoot.
+    - In TVF/View o in altre entità di metadati registrate: verrà ricercato il percorso DataRoot, ma non il percorso dello script.
 
     Per gli script eseguiti nel servizio di Data Lake, gli account di archiviazione predefiniti verranno utilizzati come cartella radice e ne verrà di conseguenza effettuata la ricerca.
 
@@ -292,7 +291,7 @@ Per visualizzare altri argomenti relativi allo sviluppo:
 
 ##Appendice: Esempio di PowerShell per la preparazione dell'esercitazione
 
-Lo script di PowerShell seguente prepara automaticamente i dati di origine e un account di Analisi Azure Data Lake, in modo da poter passare alla sezione [Sviluppare script U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+Lo script di PowerShell seguente prepara automaticamente i dati di origine e un account di Analisi Azure Data Lake, per poter passare alla sezione [Sviluppare script U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +361,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

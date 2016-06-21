@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Introduzione ad Archiviazione di Microsoft Azure
@@ -132,7 +132,11 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di access
 
 ## Replica per garantire la durabilità e la disponibilità elevata
 
-I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori hardware temporanei. Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
+I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori hardware temporanei.
+
+Per altre informazioni sui servizi disponibili in ogni area, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
+
+Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
 
 - **Archiviazione con ridondanza locale (LRS).** Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.  
   
@@ -149,6 +153,7 @@ I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati
 
 - **Archiviazione con ridondanza geografica (GRS)**. L'archiviazione con ridondanza geografica è abilitata per impostazione predefinita quando si crea l'account di archiviazione. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di archiviazione di Azure eseguirà il failover all'area secondaria. L'archiviazione con ridondanza geografica assicura la durabilità dei dati in due aree distinte.
 
+	Per informazioni sulle associazioni primarie e secondarie per area, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 - **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**. L'archiviazione con ridondanza geografica e accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. È possibile accedere ai dati dalla posizione primaria o secondaria, qualora una di queste diventi non disponibile.
 
@@ -158,7 +163,7 @@ Per altri dettagli sulle opzioni di replica di archiviazione, vedere [Replica di
 
 Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere il blog relativo al [documento su SOSP: Archiviazione di Microsoft Azure, un servizio di archiviazione cloud a disponibilità elevata con coerenza avanzata](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Documento su SOSP: Archiviazione di Microsoft Azure, un servizio di archiviazione cloud a disponibilità elevata con coerenza avanzata).
 
 
 ## Trasferimento dei dati da e verso Archiviazione di Azure
@@ -260,4 +265,4 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
 - [Come usare l'archiviazione file da Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

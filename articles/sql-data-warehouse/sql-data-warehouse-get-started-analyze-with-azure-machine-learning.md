@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/09/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Analizzare i dati con Azure Machine Learning
@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Azure Machine Learning][]
+- [SQLCMD][]
 
 Questa esercitazione descrive come compilare un modello predittivo di apprendimento automatico con Azure Machine Learning usando i dati di Azure SQL Data Warehouse. In questa esercitazione verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
 
@@ -136,5 +137,6 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

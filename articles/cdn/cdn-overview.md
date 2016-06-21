@@ -68,6 +68,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Per esaminare una funzionalità presente nella rete CDN di Azure, inviare [Commenti e suggerimenti](https://feedback.azure.com/forums/169397-cdn).
 
 ## Passaggi successivi
 
@@ -75,10 +76,8 @@ Per iniziare a usare la rete CDN, vedere [Uso della rete CDN di Azure](./cdn-cre
 
 I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete CDN attraverso il [portale di Microsoft Azure](https://portal.azure.com).
 
-Per informazioni sul funzionamento della rete CDN, guardare il [video della sessione Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Per informazioni sul funzionamento della rete CDN, guardare il [video della sessione di Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN) ](https://azure.microsoft.com/pricing/details/cdn/).
+Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-Per esaminare una funzionalità presente nella rete CDN di Azure, inviare [Commenti e suggerimenti](https://feedback.azure.com/forums/169397-cdn).
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

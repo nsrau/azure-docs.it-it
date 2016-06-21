@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="06/13/2016"
 	ms.author="garye"/>
 
 # Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
@@ -51,7 +51,9 @@ Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi]
 
 **Machine Learning offre una versione di valutazione gratuita?**
 
- Quando ci si iscrive a una versione di valutazione gratuita di Azure, è possibile provare tutti i servizi Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, visitare [Domande frequenti sulla versione di valutazione gratuita di Azure](/pricing/free-trial-faq/).
+ Azure Machine Learning offre un'opzione di sottoscrizione gratuita (vedere [Prezzi di Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) per informazioni dettagliate) e Machine Learning Studio offre una versione di valutazione rapida di 8 ore (per usarla, accedere a [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
+ 
+ Quando ci si iscrive a una versione di valutazione gratuita di Azure, è inoltre possibile provare tutti i servizi Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita di Azure, vedere [Domande frequenti sulla versione di valutazione gratuita di Azure](/pricing/free-trial-faq/).
 
 ## Domande su Machine Learning Studio
 
@@ -59,7 +61,7 @@ Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi]
 
 **Esiste il controllo della versione o l'integrazione Git per i grafici dell'esperimento?**
 
-No, tuttavia Machine Learning Studio mantiene ogni iterazione di un esperimento che non può essere modificato da altri utenti. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
+No, tuttavia Machine Learning Studio mantiene ogni iterazione di un esperimento che non può essere modificato da altri utenti. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
 
 ### Importazione ed esportazione dei dati per Machine Learning
 
@@ -95,7 +97,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Importa dati][import-data]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure e quindi usare il modulo [Importa dati][import-data] per passarli all'esperimento.
+Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Import Data][import-data]. Per quantità di dati maggiori, trasferirli prima di tutto in Archiviazione di Azure e quindi usare il modulo [Import Data][import-data] per passarli all'esperimento.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -108,7 +110,7 @@ Per informazioni sulla capacità di input dell'immagine, vedere [Importare immag
 
 **L'algoritmo, l'origine dati, il formato dei dati o l'operazione di trasformazione dei dati cercati non sono presenti in Azure Machine Learning Studio. Quali sono le opzioni disponibili?**
 
-È possibile visitare il [forum con i commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231) per visualizzare le richieste di funzionalità a cui stiamo dando seguito. Se una funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente. Oltre al supporto predefinito per R e Python, è possibile creare trasformazioni personalizzate in base alle proprie esigenze.
+È possibile visitare il [forum con i commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231) per visualizzare le richieste di funzionalità sotto esame. Se una funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. Sempre in questo forum, è possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente. Oltre al supporto predefinito per R e Python, è possibile creare trasformazioni personalizzate in base alle proprie esigenze.
 
 
 **È possibile trasferire un proprio codice esistente in Machine Learning Studio?**
@@ -188,7 +190,7 @@ Anche se non attualmente, è possibile usare uno o più moduli [Execute Python S
 
 **Esiste un ambiente REPL per Python?**
 
-È possibile usare Jupyter Notebook in Machine Learning Studio. Per altre informazioni, vedere [Introdurre Jupyter Notebook in Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
+È possibile usare Jupyter Notebook in Machine Learning Studio. Per altre informazioni, vedere [Introducing Jupyter Notebooks in Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx) (Introdurre Jupyter Notebook in Azure Machine Learning Studio).
 
 ## Servizio Web
 
@@ -223,7 +225,7 @@ Inoltre, è possibile utilizzare le API Retraining. Per altre informazioni, vede
 
 **Come monitorare il servizio Web distribuito in produzione?**
 
-Una volta distribuito un modello predittivo, è possibile monitorarlo dal portale di Azure classico. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio.
+Una volta distribuito un modello predittivo, è possibile monitorarlo dal portale di Azure classico. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio. Per altre informazioni sulla gestione dei servizi Web distribuiti, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
@@ -241,7 +243,7 @@ Vedere [Codici di errore dei moduli di Machine Learning](https://msdn.microsoft.
 
 **Che cos'è la scalabilità del servizio Web?**
 
-Attualmente, il provisioning dell'endpoint predefinito viene effettuato con 20 richieste RRS simultanee per ogni endpoint. È possibile ridimensionare le richieste simultanee a 200 per ogni endpoint ed è possibile ridimensionare ogni servizio Web a 10.000 endpoint per servizio Web come descritto in [Ridimensionamento degli endpoint API](machine-learning-scaling-endpoints.md). Per BES, ogni endpoint consente l'elaborazione di 40 richieste alla volta e richieste aggiuntive oltre 40 richieste vengono messe in coda. Queste richieste in coda verranno eseguite automaticamente allo svuotamento della coda.
+Attualmente, il provisioning dell'endpoint predefinito viene effettuato con 20 richieste RRS simultanee per ogni endpoint. È possibile ridimensionare le richieste simultanee a 200 per ogni endpoint ed è possibile ridimensionare ogni servizio Web a 10.000 endpoint per servizio Web come descritto in [Ridimensionamento degli endpoint dell'API](machine-learning-scaling-endpoints.md). Per BES, ogni endpoint consente l'elaborazione di 40 richieste alla volta e richieste aggiuntive oltre 40 richieste vengono messe in coda. Queste richieste in coda verranno eseguite automaticamente allo svuotamento della coda.
 
 
 **I processi R sono distribuiti in più nodi?**
@@ -302,7 +304,7 @@ Se sono state modificate le chiavi di accesso dell'account di archiviazione, sin
 
 ## Azure Marketplace
 
-Vedere [Domande frequenti sulla pubblicazione e sull'uso di app nel Marketplace di Machine Learning](machine-learning-marketplace-faq.md).
+Vedere [Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace](machine-learning-marketplace-faq.md).
 
 ## Supporto e training
 
@@ -316,7 +318,7 @@ I training sono disponibili anche in [Microsoft Virtual Academy](http://www.micr
 
 **Come si ottiene il supporto per Azure Machine Learning?**
 
-Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di supporto per Azure](/support/options/) e selezionare **Machine Learning**.
+Per ottenere supporto tecnico per Azure Machine Learning, passare a [Supporto tecnico di Azure](/support/options/) e selezionare **Machine Learning**.
 
 È anche disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande relative ad Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Visitare il [forum di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
@@ -332,4 +334,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

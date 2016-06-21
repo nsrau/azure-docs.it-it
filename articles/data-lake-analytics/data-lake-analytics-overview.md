@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Panoramica di Microsoft Azure Data Lake Analytics
@@ -77,4 +77,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

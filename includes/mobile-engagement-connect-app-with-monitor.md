@@ -8,8 +8,8 @@ Questa sezione descrive come connettere l'app al back-end di Mobile Engagement u
 
 3. Verranno visualizzati, in tempo reale, tutti i dispositivi in cui l'app verrà avviata.
 	 
-4. Avviare l'app nell’emulatore/simulatore o su un dispositivo connesso. Se l'integrazione è corretta si noterà una sessione di monitoraggio, che significa che l'app ora è collegata al back-end di Mobile Engagement e sta inviando dati ad esso.
+4. Avviare l'app. Se l'integrazione è corretta si noterà una sessione di monitoraggio, che significa che l'app ora è collegata al back-end di Mobile Engagement e sta inviando dati ad esso.
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0615_2016-->

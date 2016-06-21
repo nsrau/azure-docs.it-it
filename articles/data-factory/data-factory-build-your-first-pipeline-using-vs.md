@@ -30,19 +30,13 @@ Questo articolo descrive come usare Microsoft Visual Studio per creare la prima 
 ## Prerequisiti
 
 1. Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi richiesti.
-2. Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Si consiglia di leggere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) per una panoramica dettagliata del servizio.  
-
-## Creare e distribuire le entità della data factory  
-
-### Prerequisiti
-
-È necessario disporre dei seguenti prodotti installati nel computer in uso:
-
-- Visual Studio 2013 o Visual Studio 2015
-- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
-- Scaricare il plug-in Data Factory di Azure più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [2015 VS](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in nel modo seguente: nel menu fare clic su **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Strumenti di Data factory di Azure per Visual Studio** -> **Aggiorna**. 
-	
-	
+2. Per potere pubblicare entità di entità di Data Factory in Azure Data Factory, è necessario essere un **amministratore della sottoscrizione di Azure**. Si tratta di una limitazione attuale. Eventuali modifiche a questo requisito verranno segnalate immediatamente. 
+3. È necessario disporre dei seguenti prodotti installati nel computer in uso: 
+	- Visual Studio 2013 o Visual Studio 2015
+	- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
+	- Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [2015 VS](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in nel modo seguente: nel menu fare clic su **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Strumenti di Data factory di Azure per Visual Studio** -> **Aggiorna**. 
+ 
+Le procedure dettagliate seguenti illustrano come creare e distribuire entità di Data Factory.
 
 ## Creare un progetto di Visual Studio 
 1. Avviare **Visual Studio 2013** o **Visual Studio 2015**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Verrà visualizzata la finestra di dialogo **Nuovo progetto**.  
@@ -101,13 +95,13 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
 	Tenere presente quanto segue:
 	
-	- Data factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile fare in modo che crei un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
-	- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+	- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+	- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
 	
-		Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
+		Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datatimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
-	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+	Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Salvare il file **HDInsightOnDemandLinkedService1.json**.
 
 ## Creare set di dati
@@ -116,7 +110,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 #### Creare set di dati di input
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Tabelle**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
-2. Selezionare **Blob di Azure** dall'elenco, cambiare il nome del file in **InputDataSet.json** e quindi fare clic su **Aggiungi**.
+2. Selezionare **BLOB di Azure** dall'elenco, cambiare il nome del file in **InputDataSet.json** e quindi fare clic su **Aggiungi**.
 3. Sostituire il codice **JSON** nell'editor con quanto segue: 
 
 	Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobInput** che rappresenta i dati di input per un'attività nella pipeline. Si specifica anche che i dati di input si trovano nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **inputdata**.
@@ -289,7 +283,7 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 
 Tenere presente quanto segue:
 
-- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
+- Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
 
 	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 		
@@ -306,8 +300,7 @@ Tenere presente quanto segue:
 ## Monitorare la pipeline
 
 6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
-	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
-	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Fare clic su **Sfoglia** e selezionare **Data factory**. ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
@@ -331,7 +324,6 @@ Tenere presente quanto segue:
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**.
-
 	>[AZURE.IMPORTANT] La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -342,7 +334,7 @@ Tenere presente quanto segue:
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md).
 
-È anche possibile monitorare e gestire l'app per monitorare le pipeline di dati. Per i dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio](data-factory-monitor-manage-app.md).
+È anche possibile monitorare e gestire l'app per monitorare le pipeline di dati. Per i dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
  
@@ -489,4 +481,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

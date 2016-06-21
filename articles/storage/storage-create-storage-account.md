@@ -81,7 +81,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
-9. Selezionare la posizione geografica dell'account di archiviazione.
+9. Selezionare la posizione geografica dell'account di archiviazione. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 10. Fare clic su **Crea** per creare l'account di archiviazione.
 
@@ -95,17 +95,17 @@ Dopo aver creato l'account di archiviazione, è possibile modificarne la configu
 
 La modifica dell'opzione di replica modifica i prezzi. Per informazioni più dettagliate, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Per gli account di archiviazione BLOB, la modifica del livello di accesso potrebbe comportare costi per la modifica stessa oltre alla variazione dei prezzi. Per informazioni dettagliate, vedere la sezione relativa a [prezzi e fatturazione per gli account di archiviazione BLOB](storage-blob-storage-tiers.md#pricing-and-billing).
+Per gli account di archiviazione BLOB, la modifica del livello di accesso potrebbe comportare costi per la modifica stessa oltre alla variazione dei prezzi. Per informazioni dettagliate, vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico - Prezzi e fatturazione](storage-blob-storage-tiers.md#pricing-and-billing).
 
 ### Gestire le chiavi di accesso alle risorse di archiviazione
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 #### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
 
-Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi su **Chiavi di acceso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
+Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi su **Chiavi di accesso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
 
 #### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
 
@@ -157,4 +157,4 @@ Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure]
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

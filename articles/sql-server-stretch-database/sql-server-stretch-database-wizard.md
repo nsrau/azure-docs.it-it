@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione
@@ -190,4 +190,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/11/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualizzare i dati con Power BI
@@ -21,16 +21,18 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Azure Machine Learning][]
+- [SQLCMD][] 
 
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
-> [AZURE.NOTE] Per completare questa esercitazione, è necessario un database SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. In [Introduzione: effettuare il provisioning di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) viene illustrato come crearne uno.
->
-> Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare i dati di esempio manualmente][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Connettersi ad AdventureWorksDW
+## Prerequisiti
+
+Per completare questa esercitazione, è necessario SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. Quando si crea una nuova istanza di SQL Data Warehouse, è possibile creare un database vuoto, un database che include i dati di esempio di AdventureWorks o ripristinare un backup di un altro database. Vedere [Creare un Azure SQL Data Warehouse][] per altri dettagli su come creare un'istanza di SQL Data Warehouse con i dati di esempio già caricati. Se si ha già un'istanza di SQL Data Warehouse che si vuole usare, ma non i dati di esempio, seguire le istruzioni in [Caricare i dati di esempio in SQL Data Warehouse][].
+
+
+## Connettersi al database
 
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
@@ -51,13 +53,13 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 
     ![Accesso a Power BI][4]
 
-1. Dopo aver eseguito l'accesso a Power BI, fare clic sul set di dati AdventureWorksDW nel pannello sinistro. Verrà aperto il database.
+7. Dopo aver eseguito l'accesso a Power BI, fare clic sul set di dati AdventureWorksDW nel pannello sinistro. Verrà aperto il database.
 
     ![Apertura di AdventureWorksDW in Power BI][5]
 
 
 
-## Creare un report di Power BI per analizzare i dati di esempio
+## Creare un report
 
 È ora possibile usare Power BI per analizzare i dati di esempio di AdventureWorksDW. Per eseguire l'analisi, AdventureWorksDW dispone di una visualizzazione denominata VenditeAggregate. Questa visualizzazione contiene alcune metriche chiave per l'analisi delle vendite della società.
 
@@ -108,14 +110,16 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [migrazione]: ./sql-data-warehouse-overview-migrate.md
 [sviluppo]: ./sql-data-warehouse-overview-develop.md
 [caricamento]: ./sql-data-warehouse-overview-load.md
-[caricare i dati di esempio manualmente]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [portale di Azure]: https://portal.azure.com/
 [sito Web di Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -64,4 +64,8 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 - Informazioni su come [Monitorare, gestire e dimensionare un pool di database elastici](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni di database singoli](sql-database-single-database-monitor.md).
 - Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+## Risorse aggiuntive
+
+Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database di tipo software come un servizio (SaaS) multi-tenant, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

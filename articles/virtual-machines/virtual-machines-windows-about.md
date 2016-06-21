@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/10/2016"
+	ms.date="06/15/2016"
 	ms.author="cynthn"/>
 
 #Informazioni sulle macchine virtuali di Windows in Azure
@@ -39,7 +39,4 @@ Provare una macchina virtuale mediante la creazione di una macchina virtuale sem
 
 Poiché questa esercitazione consente di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l'esecuzione di questa operazione, invece di descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere [Diversi modi per creare una macchina virtuale Windows con Gestione risorse](virtual-machines-windows-creation-choices.md).
 
-[Servizio app]: app-service-choose-me.md
-[Servizi cloud]: cloud-services-choose-me.md
-[Macchine virtuali]: #tellmevm
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

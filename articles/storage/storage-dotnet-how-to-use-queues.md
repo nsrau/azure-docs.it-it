@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'archiviazione code di Azure con .NET | Microsoft Azure"
-	description="Inviare e ricevere messaggi in modo asincrono tra i componenti dell'applicazione usando l'archiviazione code di Azure. Introduzione a semplici operazioni di archiviazione code, incluse le operazioni di creazione ed eliminazione di code, nonché aggiunta, lettura ed eliminazione di messaggi in coda."
+	description="Le code di Azure forniscono una messaggistica asincrona affidabile tra i componenti dell'applicazione. La messaggistica cloud consente di ridimensionare i componenti dell'applicazione in modo indipendente."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="06/09/2016"
 	ms.author="gusapost"/>
 
 # Introduzione all'archiviazione code di Azure con .NET
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-Archiviazione code di Azure è un servizio che fornisce code di messaggi nel cloud. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, per poter essere scalati in modo indipendente. L'archiviazione di accodamento offre una soluzione di messaggistica affidabile per la comunicazione asincrona tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Archiviazione code supporta anche la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
+L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'applicazione. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, per poter essere scalati in modo indipendente. L'archivio code fornisce la messaggistica asincrona per la comunicazione tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Archiviazione code supporta anche la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
 
 ### Informazioni sull'esercitazione
 
@@ -275,4 +275,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

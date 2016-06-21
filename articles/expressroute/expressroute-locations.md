@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/05/2016"
+   ms.date="06/09/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -85,7 +85,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
 | **Telefonica** | Presto disponibile | Presto disponibile | Sao Paulo+ |
 | **Telenor** | Supportato | Supportato | Amsterdam, Londra |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne, Sydney |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Imminente | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **Vodafone** | Supportato | Non supportato | Londra | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Supportato | Supportato | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
@@ -161,4 +161,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

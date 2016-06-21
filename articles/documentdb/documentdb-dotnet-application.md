@@ -335,7 +335,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 	> [AZURE.TIP] Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta DocumentDB vedere [livelli di prestazioni DocumentDB](documentdb-performance-levels.md)
 
-3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file **Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
+3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file** Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
 	
 		<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
 		<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
@@ -405,7 +405,7 @@ Aprire ***App\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaul
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo repository e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views** **Item** **Index**.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo repository e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -581,7 +581,7 @@ Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazion
 
 Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure DocumentDB che è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
-Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [.NET per DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
+Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [DocumentDB .NET Library](https://msdn.microsoft.com/library/azure/dn948556.aspx) (Libreria .NET per DocumentDB), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -591,4 +591,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

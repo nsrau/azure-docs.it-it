@@ -44,7 +44,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console di Node.j
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-+ Node. js 0.12.x o versione successiva. <br/> L'articolo relativo alla [preparazione dell'ambiente di sviluppo][lnk-dev-setup] descrive come installare Node.js per questa esercitazione in Windows o Linux.
++ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
 
@@ -358,7 +358,7 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
@@ -367,4 +367,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
