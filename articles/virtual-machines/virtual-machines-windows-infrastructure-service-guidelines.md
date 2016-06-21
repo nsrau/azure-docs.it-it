@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="05/27/2016"
 	ms.author="rasquill"/>
 
 # Linee guida sull'implementazione dei servizi di infrastruttura di Azure
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-infrastructure-service-guidelines](../../includes/virtual-machines-common-infrastructure-service-guidelines.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Copiare un database SQL di Azure con PowerShell
 
-**Database singolo**
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-copy.md)
@@ -126,4 +125,4 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

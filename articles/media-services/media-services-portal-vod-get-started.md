@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure (anteprima)
+# Introduzione alla distribuzione di contenuto su richiesta con il portale di Azure
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando il portale di Azure.
 
@@ -229,4 +229,4 @@ Considerazioni applicabili:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

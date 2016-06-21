@@ -18,13 +18,18 @@
 
 #Note sulla versione
 
+##3\.2.3 (07/06/2016)
+
+-   Correzione del bug che causava la mancata segnalazione del feedback di recapito con l'applicazione in background.
+-   Ottimizzazione dell’invio di log tecnici.
+
 ##3\.2.2 (07/04/2016)
 
--   Correzione del bug sull'annullamento della richiesta HTTP che a volte provoca l'arresto anomalo del sistema. 
+-   Correzione del bug sull'annullamento della richiesta HTTP che a volte provoca l'arresto anomalo del sistema.
 
 ##3\.2.1 (12/11/2015)
 
--   Correzione del ritardo durante l’attivazione di una nuova istanza dell’app tramite notifica con collegamenti diretti 
+-   Correzione del ritardo durante l’attivazione di una nuova istanza dell’app tramite notifica con collegamenti diretti
 
 ##3\.2.0 (10/08/2015)
 
@@ -62,4 +67,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

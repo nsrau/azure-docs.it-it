@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Preparazione dell'ambiente per il backup di macchine virtuali di ARM | Microsoft Azure"
+	pageTitle="Preparazione dell’ambiente per il backup di macchine virtuali distribuite con Resource Manager | Microsoft Azure"
 	description="Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure"
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backup; eseguire il backup;"/>
 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Preparare l'ambiente per eseguire il backup di macchine virtuali di ARM
+# Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
 > [AZURE.SELECTOR]
 - [Modello Resource Manager](backup-azure-arm-vms-prepare.md)
 - [Modello classico](backup-azure-vms-prepare.md)
 
-Questo articolo illustra i passaggi per preparare un ambiente in cui eseguire il backup di una macchina virtuale (VM) di Azure Resource Manager (ARM). I passaggi descritti nelle procedure usano il portale di Azure.
+Questo articolo illustra i passaggi per preparare un ambiente in cui eseguire il backup di una macchina virtuale (VM) distribuita con Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure.
 
-Il servizio Backup di Azure offre due tipi di insiemi di credenziali (insieme di credenziali di backup e insiemi di credenziali dei servizi di ripristino) per proteggere le macchine virtuali. L'insieme di credenziali di backup protegge le macchine virtuali distribuite usando il modello di distribuzione classico. L'insieme di credenziali dei servizi di ripristino protegge **sia le macchine virtuali distribuite in modo classico sia le macchine virtuali distribuite con ARM**. È necessario usare un insieme di credenziali dei servizi di ripristino per proteggere una macchina virtuale distribuita con ARM.
+Il servizio Backup di Azure offre due tipi di insiemi di credenziali (insieme di credenziali di backup e insiemi di credenziali dei servizi di ripristino) per proteggere le macchine virtuali. L'insieme di credenziali di backup protegge le macchine virtuali distribuite usando il modello di distribuzione classico. L'insieme di credenziali dei servizi di ripristino protegge ** sia le macchine virtuali distribuite in modo classico sia le macchine virtuali distribuite con Resource Manager**. È necessario usare un insieme di credenziali dei servizi di ripristino per proteggere una macchina virtuale distribuita con Resource Manager.
 
 >[AZURE.NOTE] Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Vedere [Preparare l'ambiente per eseguire il backup delle macchine virtuali di Azure](backup-azure-vms-prepare.md) per informazioni dettagliate sull'uso delle macchine virtuali con il modello di distribuzione classica.
 
-Prima di proteggere o eseguire il backup di una macchina virtuale (VM) di ARM, verificare che siano disponibili i prerequisiti seguenti:
+Prima di proteggere o eseguire il backup di una macchina virtuale (VM) di Resource Manager, verificare che siano disponibili i prerequisiti seguenti:
 
 - Creare un insieme di credenziali dei servizi di ripristino (o identificare un insieme di credenziali dei servizi di ripristino esistente) *nella stessa posizione della macchina virtuale*.
 - Selezionare uno scenario, definire i criteri di backup e specificare gli elementi da proteggere.
@@ -238,11 +238,11 @@ Questa procedura consente di impostare la configurazione del server proxy per l'
      ```
     Si apre la finestra di Explorer.
 3. Scegliere Strumenti -> Opzioni Internet -> Connessioni -> Impostazioni LAN.
-4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta. 
+4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'IP del Proxy e la porta.
 5. Chiudere Internet Explorer.
 
 Questo comando esegue una configurazione proxy a livello di computer e verrà usato per tutto il traffico HTTP/HTTPS in uscita.
-   
+
 Se è stato installato un server proxy in un account utente corrente (non in un account di sistema locale), usare lo script seguente per applicare le impostazioni a SYSTEMACCOUNT:
 
 ```
@@ -256,7 +256,7 @@ Se è stato installato un server proxy in un account utente corrente (non in un 
 
 >[AZURE.NOTE] Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel registro del server proxy, verificare che l'autenticazione sia impostata correttamente.
 
-######Per macchine Linux 
+######Per macchine Linux
 
 Aggiungere la riga seguente al file ```/etc/environment```:
 
@@ -265,7 +265,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Aggiungere le righe seguenti al file ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -309,7 +309,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *Questi passaggi includono nomi e valori di esempio. Usare nomi e valori appropriati alla distribuzione specifica quando si aggiungono, tagliano e incollano i dettagli nel codice.*
 
 
-Dopo aver stabilito la connettività di rete, è possibile eseguire il backup di una macchina virtuale. Vedere [Eseguire il backup delle macchine virtuali di Azure Resource Manager (ARM) ](backup-azure-arm-vms.md).
+Dopo aver stabilito la connettività di rete, è possibile eseguire il backup di una macchina virtuale. Vedere [Eseguire il backup di macchine virtuali distribuite con Resource Manager](backup-azure-arm-vms.md).
 
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
@@ -321,4 +321,4 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 - [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

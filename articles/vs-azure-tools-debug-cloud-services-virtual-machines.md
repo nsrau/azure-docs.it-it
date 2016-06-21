@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher" />
 
 # Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
@@ -33,11 +33,11 @@ L'emulatore simula il servizio di calcolo di Azure e viene eseguito nell'ambient
 
     ![Emulatore di Azure nella barra delle applicazioni](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
 
-1. Per visualizzare l'interfaccia utente dell'emulatore di calcolo, aprire il menu di scelta rapida dell'icona di Azure nell'area di notifica e scegliere **Mostra interfaccia emulatore di calcolo**.
+1. Per visualizzare l'interfaccia utente dell'emulatore di calcolo, aprire il menu di scelta rapida dell'icona di Azure nell'area di notifica e selezionare **Show Compute Emulator UI** (Mostra interfaccia emulatore di calcolo).
 
     Il riquadro sinistro dell'interfaccia utente mostra i servizi attualmente distribuiti nell'emulatore di calcolo e le istanze del ruolo in esecuzione in ogni servizio. È possibile scegliere il servizio o i ruoli per visualizzare le informazioni di diagnostica, registrazione e ciclo di vita nel riquadro di destra. Se si seleziona il margine superiore di una finestra inclusa, essa si espande per riempire il riquadro destro.
 
-1. È possibile eseguire l'applicazione un'istruzione alla volta usando i comandi del menu **Debug** e impostando punti di interruzione nel codice. Mentre si esegue l'applicazione un'istruzione alla volta nel debugger, i riquadri vengono aggiornati con lo stato corrente dell'applicazione. Quando si arresta il debug, la distribuzione dell'applicazione viene eliminata. Se l'applicazione include un ruolo Web e la proprietà dell’Azione di avvio è stata impostata per avviare il browser Web, Visual Studio avvia l'applicazione Web nel browser. Se si modifica il numero di istanze di un ruolo nella configurazione del servizio, è necessario arrestare il servizio cloud e quindi riavviare il debug in modo che sia possibile eseguire il debug di queste nuove istanze del ruolo.
+1. È possibile eseguire l'applicazione un'istruzione alla volta selezionando i comandi del menu **Debug** e impostando punti di interruzione nel codice. Mentre si esegue l'applicazione un'istruzione alla volta nel debugger, i riquadri vengono aggiornati con lo stato corrente dell'applicazione. Quando si arresta il debug, la distribuzione dell'applicazione viene eliminata. Se l'applicazione include un ruolo Web e la proprietà dell’Azione di avvio è stata impostata per avviare il browser Web, Visual Studio avvia l'applicazione Web nel browser. Se si modifica il numero di istanze di un ruolo nella configurazione del servizio, è necessario arrestare il servizio cloud e quindi riavviare il debug in modo che sia possibile eseguire il debug di queste nuove istanze del ruolo.
 
     **Nota:** quando si arresta l'esecuzione o il debug del servizio, l'emulatore di calcolo locale e l'emulatore di archiviazione non vengono arrestati. È necessario arrestarli in modo esplicito dall'area di notifica.
 
@@ -52,7 +52,7 @@ Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzi
 
 ### Per abilitare il debug remoto per un servizio cloud
 
-1. Aprire il menu di scelta rapida per il progetto Azure e quindi fare clic su **Pubblica**.
+1. Aprire il menu di scelta rapida per il progetto Azure e quindi selezionare **Pubblica**.
 
 1. Selezionare l'ambiente di **Gestione temporanea** e la configurazione di **Debug**.
 
@@ -68,7 +68,7 @@ Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzi
 
 1. In Esplora server espandere il nodo del servizio cloud.
 
-1. Aprire il menu di scelta rapida per il ruolo o l'istanza del ruolo a cui si vuole collegarlo, quindi scegliere **Collega debugger**.
+1. Aprire il menu di scelta rapida per il ruolo o l'istanza del ruolo a cui si vuole collegarlo, quindi selezionare **Collega debugger**.
 
     Se si esegue il debug di un ruolo, il debugger di Visual Studio si connette a ogni istanza di tale ruolo. Il debugger si interrompe in un punto di interruzione per la prima istanza del ruolo che esegue la riga di codice e soddisfa le condizioni del punto di interruzione. Se si esegue il debug di un'istanza, il debugger si collega solo a tale istanza e si interrompe in un punto di interruzione solo quando l’istanza specifica esegue la riga di codice e soddisfa le condizioni del punto di interruzione.
 
@@ -78,13 +78,13 @@ Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzi
 
     ![Finestra di dialogo Seleziona tipo di codice](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. Per identificare i processi a cui è collegato il debugger, aprire la finestra di dialogo Processi, nella barra dei menu, selezionando Debug, Windows, Processi. (Tastiera: Ctrl+Alt+Z) Per disconnettere un processo specifico, aprire il menu di scelta rapida e quindi fare clic su Disconnetti processo. In alternativa, individuare il nodo dell'istanza in Esplora server, individuare il processo, aprire il relativo menu di scelta rapida e quindi fare clic su Disconnetti processo.
+1. Per identificare i processi a cui è collegato il debugger, aprire la finestra di dialogo Processi, nella barra dei menu, selezionando Debug, Windows, Processi. (Tastiera: Ctrl+Alt+Z) Per disconnettere un processo specifico, aprire il menu di scelta rapida e quindi selezionare **Disconnetti processo**. In alternativa, individuare il nodo dell'istanza in Esplora server, individuare il processo, aprire il relativo menu di scelta rapida e quindi selezionare **Disconnetti processo**.
 
     ![Debug di processi](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
 >[AZURE.WARNING] Evitare interruzioni prolungate in corrispondenza dei punti di interruzione durante il debug remoto. Azure considera un processo che è stato arrestato per più di pochi minuti come processo che non risponde e interrompe l'invio di traffico a tale istanza. Se si arresta per troppo tempo, msvsmon.exe si disconnette dal processo.
 
-Per disconnettere il debugger da tutti i processi nell'istanza o nel ruolo, aprire il menu di scelta rapida per il ruolo o l'istanza di cui si esegue il debug e quindi fare clic su Scollega debugger.
+Per disconnettere il debugger da tutti i processi nell'istanza o nel ruolo, aprire il menu di scelta rapida per il ruolo o l'istanza di cui si esegue il debug e quindi selezionare **Scollega debugger**.
 
 ## Limitazioni del debug remoto in Azure
 
@@ -108,7 +108,7 @@ Da Azure SDK 2.3, il debug remoto presenta le seguenti limitazioni.
 
 1. In Esplora server espandere il nodo Macchine virtuali e selezionare il nodo della macchina virtuale di cui si desidera eseguire il debug.
 
-1. Aprire il menu di scelta rapida e scegliere **Abilita debug**. Quando viene chiesto se si è certi di voler abilitare il debug nella macchina virtuale, fare clic su **Sì**.
+1. Aprire il menu di scelta rapida e selezionare **Abilita debug**. Quando viene chiesto se si è certi di voler abilitare il debug nella macchina virtuale, selezionare **Sì**.
 
     Azure installa l'estensione di debug remoto nella macchina virtuale per abilitare il debug.
 
@@ -116,17 +116,17 @@ Da Azure SDK 2.3, il debug remoto presenta le seguenti limitazioni.
 
     ![Finestra Log attività di Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-1. Al termine dell'installazione dell'estensione di debug remoto, aprire il menu di scelta rapida della macchina virtuale e scegliere **Collega debugger**.
+1. Al termine dell'installazione dell'estensione di debug remoto, aprire il menu di scelta rapida della macchina virtuale e selezionare **Collega debugger...**.
 
     Azure ottiene un elenco dei processi nella macchina virtuale e li visualizza nella finestra di dialogo Connetti a processo.
 
     ![Comando Collega debugger](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-1. Nella finestra di dialogo **Connetti a processo**, fare clic su **Seleziona** per limitare l'elenco di risultati in modo che visualizzi solo i tipi di codice da sottoporre a debug. È possibile eseguire il debug di codice gestito, codice nativo o entrambi a 32 o 64 bit.
+1. Nella finestra di dialogo **Connetti a processo** scegliere **Seleziona** per limitare l'elenco di risultati in modo che visualizzi solo i tipi di codice da sottoporre a debug. È possibile eseguire il debug di codice gestito, codice nativo o entrambi a 32 o 64 bit.
 
     ![Finestra di dialogo Seleziona tipo di codice](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. Fare clic sui processi da sottoporre a debug nella macchina virtuale e quindi fare clic su **Connetti**. Ad esempio, è possibile scegliere il processo w3wp.exe se si desidera eseguire il debug di un'applicazione Web nella macchina virtuale. Per altre informazioni, vedere [Debug di uno o più processi in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) e [Architettura del ruolo di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).
+1. Selezionare i processi da sottoporre a debug nella macchina virtuale e quindi scegliere **Connetti**. Ad esempio, è possibile scegliere il processo w3wp.exe se si desidera eseguire il debug di un'applicazione Web nella macchina virtuale. Per altre informazioni, vedere [Debug di uno o più processi in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) e [Architettura del ruolo di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).
 
 ## Creare un progetto Web e una macchina virtuale per il debug
 
@@ -138,7 +138,7 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 
 1. Creare un'applicazione Web ASP.NET in Visual Studio.
 
-1. Scegliere **Macchina virtuale** dall'elenco a discesa nella sezione Azure della finestra di dialogo Nuovo progetto ASP.NET. Lasciare selezionata la casella di controllo **Crea risorse remote**. Fare clic su **OK** per procedere.
+1. Scegliere **Macchina virtuale** dall'elenco a discesa nella sezione Azure della finestra di dialogo Nuovo progetto ASP.NET. Lasciare selezionata la casella di controllo **Crea risorse remote**. Selezionare **OK** per procedere.
 
     Verrà visualizzata la finestra di dialogo per la creazione di una macchina virtuale in Azure.
 
@@ -147,7 +147,7 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 
     **Nota:** verrà chiesto di accedere al proprio account Azure, se non è ancora stato effettuato l'accesso.
 
-1. Selezionare le varie impostazioni per la macchina virtuale e quindi fare clic su **OK**. Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/?LinkId=623033).
+1. Selezionare le varie impostazioni per la macchina virtuale e quindi scegliere **OK**. Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlink/?LinkId=623033).
 
     Il valore specificato per il nome DNS sarà il nome della macchina virtuale.
 
@@ -159,7 +159,7 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 
 1. Dopo aver configurato completamente la macchina virtuale, selezionare il relativo nodo in Esplora server.
 
-1. Aprire il menu di scelta rapida e scegliere **Abilita debug**. Quando viene chiesto se si è certi di voler abilitare il debug nella macchina virtuale, fare clic su **Sì**.
+1. Aprire il menu di scelta rapida e selezionare **Abilita debug**. Quando viene chiesto se si è certi di voler abilitare il debug nella macchina virtuale, selezionare **Sì**.
 
     Azure installa l'estensione di debug remoto nella macchina virtuale per abilitare il debug.
 
@@ -173,21 +173,21 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 
 1. In **Opzioni pubblicazione file**, selezionare **Rimuovi i file aggiuntivi nella destinazione** se il progetto è già stato distribuito in precedenza.
 
-1. Dopo la pubblicazione del progetto, scegliere **Collega debugger** dal menu di scelta rapida della macchina virtuale in Esplora server.
+1. Dopo la pubblicazione del progetto, selezionare **Collega debugger...** dal menu di scelta rapida della macchina virtuale in Esplora server.
 
     Azure ottiene un elenco dei processi nella macchina virtuale e li visualizza nella finestra di dialogo Connetti a processo.
 
     ![Comando Collega debugger](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-1. Nella finestra di dialogo **Connetti a processo**, fare clic su **Seleziona** per limitare l'elenco di risultati in modo che visualizzi solo i tipi di codice da sottoporre a debug. È possibile eseguire il debug di codice gestito, codice nativo o entrambi a 32 o 64 bit.
+1. Nella finestra di dialogo **Connetti a processo** scegliere **Seleziona** per limitare l'elenco di risultati in modo che visualizzi solo i tipi di codice da sottoporre a debug. È possibile eseguire il debug di codice gestito, codice nativo o entrambi a 32 o 64 bit.
 
     ![Finestra di dialogo Seleziona tipo di codice](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. Fare clic sui processi da sottoporre a debug nella macchina virtuale e quindi fare clic su **Connetti**. Ad esempio, è possibile scegliere il processo w3wp.exe se si desidera eseguire il debug di un'applicazione Web nella macchina virtuale. Per altre informazioni, vedere [Debug di uno o più processi in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx).
+1. Selezionare i processi da sottoporre a debug nella macchina virtuale e quindi scegliere **Connetti**. Ad esempio, è possibile scegliere il processo w3wp.exe se si desidera eseguire il debug di un'applicazione Web nella macchina virtuale. Per altre informazioni, vedere [Debug di uno o più processi in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx).
 
 ## Passaggi successivi
 
 - Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

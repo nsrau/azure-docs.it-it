@@ -26,20 +26,20 @@
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 
-Questo articolo illustra la creazione di record e set di record con PowerShell. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A questo scopo, occorre comprendere prima di tutto i record e i set di record DNS.
+Questo articolo illustra la creazione di record e set di record con Windows PowerShell. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## Prima di iniziare
+## Verificare che sia disponibile l'ultima versione di PowerShell
 
 Verificare di aver installato la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-## Creare un nuovo set di record e un record
+## Creare un set di record e un record
 
-Questa sezione mostra come creare record e un set di record.
+Questa sezione mostra come creare un record e un set di record.
 
 
-### 1\. Eseguire la connessione alla sottoscrizione 
+### 1\. Eseguire la connessione alla sottoscrizione
 
 Aprire la console di PowerShell e connettersi al proprio account. Per connettersi, usare l'esempio seguente:
 
@@ -47,7 +47,7 @@ Aprire la console di PowerShell e connettersi al proprio account. Per connetters
 
 Controllare le sottoscrizioni per l'account.
 
-	Get-AzureRmSubscription 
+	Get-AzureRmSubscription
 
 Specificare la sottoscrizione da usare.
 
@@ -60,9 +60,9 @@ Per altre informazioni sull'uso di PowerShell, vedere [Uso di Windows PowerShell
 
 I set di record vengono creati usando il cmdlet `New-AzureRmDnsRecordSet`. Quando si crea un set di record, è necessario specificare il nome, la zona, il Time-to-Live (TTL) e il tipo di record.
 
-Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
+Per creare un set di record nell'apice della zona, in questo caso "contoso.com", usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
 
-Nell'esempio seguente viene creato un set di record con il nome relativo *www* nella zona DNS *contoso.com*. Il nome completo dei record è *www.contoso.com*, il tipo di record è *A* e il valore TTL è 60 secondi. Con il completamento di questo passaggio si avrà un set di record *www* vuoto assegnato alla variabile *$rs*.
+L'esempio seguente illustra la creazione di un set di record con il nome relativo "www" nella zona DNS "contoso.com". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" e il valore TTL è 60 secondi. Con il completamento di questo passaggio si avrà un set di record "www" vuoto assegnato alla variabile *$rs*.
 
 	$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
@@ -74,7 +74,7 @@ Se un set di record esiste già, il comando non riuscirà a meno che non venga u
 	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
 
-Nell'esempio precedente la zona viene specificata mediante il nome della zona e il nome del gruppo di risorse. In alternativa, è possibile specificare un oggetto di zona, come restituito da `Get-AzureRmDnsZone` o `New-AzureRmDnsZone`.
+In questo esempio specificare la zona usando il nome della zona e del gruppo di risorse. In alternativa, è possibile specificare un oggetto di zona, come restituito da `Get-AzureRmDnsZone` o `New-AzureRmDnsZone`.
 
 	$zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
@@ -83,9 +83,9 @@ Nell'esempio precedente la zona viene specificata mediante il nome della zona e 
 
 ### 3\. Aggiungere un record
 
-Per poter usare il set di record *www* appena creato, è necessario aggiungervi record. È possibile aggiungere record IPv4 *A* al set di record *www* con l'esempio seguente: Questo esempio si basa sulla variabile $rs impostata nel passaggio precedente.
+Per usare il set di record "www" appena creato è necessario aggiungervi record. È possibile aggiungere record IPv4 *A* al set di record "www" usando l'esempio seguente. Questo esempio si basa sulla variabile *$rs* impostata nel passaggio precedente.
 
-L'aggiunta di record a un set di record usando `Add-AzureRmDnsRecordConfig` è un'operazione non in linea. Solo la variabile locale *$rs* viene aggiornata.
+L'aggiunta di record a un set di record usando `Add-AzureRmDnsRecordConfig` è un'operazione offline. Solo la variabile locale *$rs* viene aggiornata.
 
 
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
@@ -99,7 +99,7 @@ Eseguire il commit delle modifiche al set di record. Usare `Set-AzureRmDnsRecord
 
 ### 5\. Recuperare il set di record
 
-È possibile recuperare il set di record dal servizio DNS di Azure usando `Get-AzureRmDnsRecordSet`, come illustrato nell'esempio seguente:
+È possibile recuperare il set di record dal servizio DNS di Azure usando `Get-AzureRmDnsRecordSet`, come illustrato nell'esempio seguente.
 
 
 	Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -117,7 +117,7 @@ Eseguire il commit delle modifiche al set di record. Usare `Set-AzureRmDnsRecord
 
 È anche possibile usare nslookup o altri strumenti DNS per eseguire una query sul nuovo set di record.
 
-Se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita l'indirizzo del server dei nomi per la propria zona.
+Se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita il nome, il server e l'indirizzo per la propria zona.
 
 
 	nslookup www.contoso.com ns1-01.azure-dns.com
@@ -129,21 +129,20 @@ Se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sar�
 	Addresses:  134.170.185.46
     	        134.170.188.221
 
-## Altri esempi di tipi di record
+## Per creare un set di record di ogni tipo con un singolo record
 
 
-Gli esempi seguenti illustrano come creare un set di record per ogni tipo di record, ognuno contenente un singolo record.
+Gli esempi seguenti illustrano come creare un set di record di ogni tipo di record. Ogni set di record contiene un singolo record.
 
 [AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 
 ## Passaggi successivi
 
-[Come gestire le zone DNS](dns-operations-dnszones.md)
+[Come gestire le zone DNS usando PowerShell](dns-operations-dnszones.md)
 
-[Come gestire i record DNS](dns-operations-recordsets.md)
+[Gestire record e set di record DNS con PowerShell](dns-operations-recordsets.md)
 
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
- 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

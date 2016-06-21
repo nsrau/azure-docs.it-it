@@ -452,7 +452,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 	GO
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -499,7 +499,7 @@ Ecco lo script SQL che definisce la funzione della distanza.
 	GO
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -544,7 +544,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 
 ### Preparazione dei dati per la creazione del modello
 
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Reader][reader] di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza di database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Import Data][import-data] di [Azure Machine Learning Studio](https://studio.azureml.net) per l’inserimento diretto dei dati dall’istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -563,8 +563,8 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Lettore][reader] in Azure Machine Learning
-2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Reader][reader] in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Reader.
+1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] in Azure Machine Learning, oppure
+2. Salvare in modo definitivo i dati campionati e progettati che si prevede di utilizzare per la compilazione di modelli in una nuova tabella di SQL DW e utilizzare la nuova tabella nel modulo [Import Data][import-data] in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Import Data.
 
 
 ## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
@@ -869,9 +869,9 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 
 In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure ML. Ecco la procedura per compilare uno o più modelli di stima:
 
-1. Inserire i dati in Azure Machine Learning usando il modulo [Reader][reader], disponibile nella sezione **Input e output dei dati**. Per ulteriori informazioni, vedere la pagina di riferimento sul modulo [Lettore][reader].
+1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data], disponibile nella sezione **Input e output dei dati**. Per altre informazioni, vedere la pagina di riferimento sul [modulo Import Data][import-data].
 
-	![Lettore Azure ML][17]
+	![Import Data di Azure ML][17]
 
 2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
 
@@ -891,7 +891,7 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere le colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Project Columns][project-columns] o [Editor metadati][metadata-editor]. Per ulteriori informazioni, vedere le pagine di riferimento [Colonne progetto][project-columns] ed [Editor metadati][metadata-editor].
+> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile utilizzare il modulo [Select Columns in Dataset][select-columns] o l'[Editor metadati][edit-metadata]. Per altre informazioni, vedere le pagine di riferimento [Select Columns in Dataset][select-columns] e [Editor metadati][edit-metadata].
 
 ## <a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
 
@@ -912,7 +912,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo [Colonne progetto][project-columns].
+Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo [Select Columns in Dataset][select-columns].
 
 Nella figura di seguito viene fornito un esperimento di assegnazione dei punteggi di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
@@ -960,8 +960,8 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 
 <!-- Module References -->
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

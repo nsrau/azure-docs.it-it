@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Gestione risorse di Azure
@@ -190,7 +190,7 @@ Caricare la risorsa del gateway applicazione in una variabile di PowerShell usan
 
 Aggiungere un probe alla configurazione gateway esistente.
 
-	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+	$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
 Nell'esempio il probe personalizzato è configurato per cercare il percorso URL contoso.com/path/custompath.htm ogni 30 secondi. Una soglia di timeout di 120 secondi viene configurata con il numero massimo di 8 richieste probe non riuscite.
@@ -238,4 +238,4 @@ Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicati
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

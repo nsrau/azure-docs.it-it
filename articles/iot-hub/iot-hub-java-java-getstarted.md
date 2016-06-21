@@ -95,10 +95,10 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
     import java.net.URISyntaxException;
     ```
 
-7. Aggiungere le variabili a livello di classe seguenti alla classe **App**, sostituendo **{yourhubname}** e **{yourhubkey}** con i valori annotati prima:
+7. Aggiungere le variabili a livello di classe seguenti alla classe **App**, sostituendo **{yourhostname}** e **{yourhubkey}** con i valori annotati prima:
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,14 +190,10 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     import java.util.logging.*;
     ```
 
-7. Aggiungere le variabili a livello di classe seguenti alla classe **App**. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con Hub eventi** ed è espresso nel formato **xyznamespace**. In altre parole, rimuovere il prefisso **sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con Hub eventi fornito dal portale:
+7. Aggiungere le variabili a livello di classe seguenti alla classe **App**. Sostituire **{youriothubkey}**, **{youreventhubcompatibleendpoint}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza:
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
 8. Aggiungere il metodo **receiveMessages** seguente alla classe **App**. Questo metodo crea un'istanza **EventHubClient** per connettersi all'endpoint compatibile con Hub eventi e quindi crea in modo asincrono un'istanza **PartitionReceiver** per la lettura da una partizione di Hub eventi. Esegue il ciclo ininterrottamente e stampa i dettagli del messaggio finché l'applicazione non termina.
@@ -207,8 +203,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
@@ -225,7 +220,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
             System.out.println("** Created receiver on partition " + partitionId);
             try {
               while (true) {
-                Iterable<EventData> receivedEvents = receiver.receive().get();
+                Iterable<EventData> receivedEvents = receiver.receive(100).get();
                 int batchSize = 0;
                 if (receivedEvents != null)
                 {
@@ -354,7 +349,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 
     Questa applicazione di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. È possibile usare il protocollo HTTPS o AMQPS per comunicare con l'hub IoT.
 
-8. Aggiungere la classe **TelemetryDataPoint** nidificata seguente nella classe **App** per specificare i dati di telemetria inviati dal dispositivo all'hub IoT:
+8. Aggiungere la classe **TelemetryDataPoint** annidata seguente nella classe **App** per specificare i dati di telemetria inviati dal dispositivo all'hub IoT:
 
     ```
     private static class TelemetryDataPoint {
@@ -368,7 +363,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
     }
     ```
 
-9. Aggiungere la classe **EventCallback** nidificata seguente nella classe **App** per visualizzare lo stato di acknowledgement restituito dall'hub IoT quando elabora un messaggio proveniente dal dispositivo simulato. Questo metodo invia anche una notifica al thread principale dell'applicazione quando il messaggio è stato elaborato:
+9. Aggiungere la classe **EventCallback** annidata seguente nella classe **App** per visualizzare lo stato di acknowledgement restituito dall'hub IoT quando elabora un messaggio proveniente dal dispositivo simulato. Questo metodo invia anche una notifica al thread principale dell'applicazione quando il messaggio è stato elaborato:
 
     ```
     private static class EventCallback implements IotHubEventCallback
@@ -385,7 +380,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
     }
     ```
 
-10. Aggiungere la classe **MessageSender** nidificata seguente nella classe **App**. Il metodo **run** in questa classe genera dati di telemetria di esempio da inviare all'hub IoT e attende un acknowledgement prima di inviare il messaggio successivo:
+10. Aggiungere la classe **MessageSender** annidata seguente nella classe **App**. Il metodo **run** in questa classe genera dati di telemetria di esempio da inviare all'hub IoT e attende un acknowledgement prima di inviare il messaggio successivo:
 
     ```
     private static class MessageSender implements Runnable {
@@ -515,4 +510,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

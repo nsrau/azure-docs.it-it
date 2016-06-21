@@ -22,7 +22,7 @@
 ## Comandi rapidi
 È possibile [eseguire questi passaggi anche tramite Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
-Come prima operazione, creare il gruppo di sicurezza di rete. Selezionare un gruppo di risorse nel portale, fare clic su "Aggiungi", quindi cercare un determinato "Gruppo di sicurezza di rete":
+Come prima operazione, creare il gruppo di sicurezza di rete. Selezionare un gruppo di risorse nel portale, fare clic su "Aggiungi", quindi cercare e selezionare "Gruppo di sicurezza di rete":
 
 ![Aggiungere un gruppo di sicurezza di rete](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
@@ -38,7 +38,7 @@ Fornire un nome per la regola. Si noti che la porta 80 è già inserita per impo
 
 ![Creare una regola in entrata](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
-Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete con una subnet o un'interfaccia di rete specifica. Per associare il gruppo di sicurezza di rete con una subnet:
+Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete con una subnet o un'interfaccia di rete specifica. Per associare il gruppo di sicurezza di rete a una subnet:
 
 ![Associare un gruppo di sicurezza di rete con una subnet](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
 
@@ -52,9 +52,9 @@ Selezionare la rete virtuale, quindi selezionare la subnet appropriata:
 ## Altre informazioni sui gruppi di sicurezza di rete
 I comandi rapidi seguenti consentono di rendere operativo il traffico verso la VM. I gruppi di sicurezza di rete offrono numerose funzionalità efficienti e la necessaria granularità per controllare l'accesso alle risorse. Per altre informazioni, leggere l'articolo sulla [creazione di un gruppo di sicurezza di rete e di regole dell'elenco di controllo di accesso qui](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-Le regole dell'elenco di controllo di accesso e i gruppi di sicurezza di rete possono anche essere definiti come parte dei modelli di Azure Resouce Manager. Per altre informazioni, leggere l'articolo [Come creare NSG utilizzando un modello](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Le regole dell'elenco di controllo di accesso e i gruppi di sicurezza di rete possono anche essere definiti come parte dei modelli di distribuzione Azure Resource Manager. Per altre informazioni, leggere l'articolo [Come creare NSG utilizzando un modello](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna verso una porta interna nella VM, è necessario usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna a una porta interna nella VM, è necessario usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
@@ -63,4 +63,4 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 - [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 - [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

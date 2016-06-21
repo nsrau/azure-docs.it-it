@@ -543,20 +543,20 @@ Per visualizzare il contenuto di un file specifico, ad esempio 000000\_0, si use
 
 **Avviso:** in presenza di file di grandi dimensioni, l'operazione `copyToLocal` può essere molto lenta e non è quindi consigliabile.
 
-Uno dei vantaggi derivanti dalla disponibilità dei dati in un BLOB di Azure è la possibilità di esplorarli in Azure Machine Learning usando il modulo [Reader][reader].
+Uno dei vantaggi derivanti dalla disponibilità dei dati in un BLOB di Azure è la possibilità di esplorarli in Azure Machine Learning utilizzando il modulo [Import Data][import-data].
 
 
 ## <a name="#downsample"></a>Sottocampionare i dati e creare modelli in Azure Machine Learning
 
 **Nota:** in genere, questa attività viene svolta da un **data scientist**.
 
-Dopo la fase di analisi esplorativa, si passerà ora a eseguire il sottocampionamento dei dati per la creazione di modelli in Azure Machine Learning. Questa sezione illustra come usare una query Hive per eseguire il sottocampionamento dei dati, a cui sarà possibile accedere dal lettore [Reader][reader] di Azure Machine Learning.
+Dopo la fase di analisi esplorativa, si passerà ora a eseguire il sottocampionamento dei dati per la creazione di modelli in Azure Machine Learning. Questa sezione illustra come utilizzare una query Hive per eseguire il sottocampionamento dei dati, a cui sarà possibile accedere dal lettore [Import Data][import-data] di Azure Machine Learning.
 
 ### Sottocampionare i dati
 
 Questa procedura si articola in due passaggi. Innanzitutto è necessario aggiungere le tabelle **nyctaxidb.trip** e **nyctaxidb.fare** a tre chiavi presenti in tutti i record: "medallion", "hack\_license" e "pickup\_datetime". È quindi possibile generare un'etichetta di classificazione binaria **tipped** e un'etichetta di classificazione multiclasse **tip\_class**.
 
-Per poter usare il sottocampionamento dei dati direttamente dal modulo [Reader][reader] in Azure Machine Learning, è necessario archiviare i risultati della query precedente in una tabella interna di Hive. Di seguito viene creata una tabella interna di Hive e ne viene popolato il contenuto con i dati sottocampionati e sottoposti a join.
+Per poter utilizzare il sottocampionamento dei dati direttamente dal modulo [Import Data][import-data] in Azure Machine Learning, è necessario archiviare i risultati della query precedente in una tabella interna di Hive. Di seguito viene creata una tabella interna di Hive e ne viene popolato il contenuto con i dati sottocampionati e sottoposti a join.
 
 La query applica funzioni standard di Hive direttamente per generare l'ora del giorno, la settimana dell'anno, il giorno della settimana (1 indica lunedì e 7 indica domenica) dal campo "pickup\_datetime" e la distanza diretta tra i percorsi di partenza e arrivo. Per un elenco completo di queste funzionalità, gli utenti possono fare riferimento alla [funzionalità definita dall'utente LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
@@ -689,13 +689,13 @@ Per eseguire questa query, dal prompt della directory di Hive eseguire:
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-È ora disponibile una tabella interna "nyctaxidb.nyctaxi\_downsampled\_dataset" alla quale è possibile accedere tramite il modulo [Reader][reader] di Azure Machine Learning. Inoltre, sarà possibile usare questo set di dati per la creazione di modelli di Machine Learning.
+È ora disponibile una tabella interna "nyctaxidb.nyctaxi\_downsampled\_dataset" alla quale è possibile accedere tramite il modulo [Import Data][import-data] di Azure Machine Learning. Inoltre, sarà possibile usare questo set di dati per la creazione di modelli di Machine Learning.
 
-### Usare il modulo Reader in Azure Machine Learning per accedere ai dati sottocampionati
+### Utilizzare il modulo Import Data in Azure Machine Learning per accedere ai dati sottocampionati
 
-I prerequisiti necessari per l'inoltro di query Hive nel modulo [Reader][reader] di Azure Machine Learning sono l'accesso a un'area di lavoro di Azure Machine Learning e l'accesso alle credenziali del cluster e al relativo account di archiviazione.
+I prerequisiti necessari per l'inoltro di query Hive nel modulo [Import Data][import-data] di Azure Machine Learning sono l'accesso a un'area di lavoro di Azure Machine Learning e l'accesso alle credenziali del cluster e al relativo account di archiviazione.
 
-Di seguito sono elencate informazioni dettagliate sul modulo [Reader][reader] e sui parametri di input:
+Di seguito sono elencate informazioni dettagliate sul modulo [Import Data][import-data] e sui parametri di input:
 
 **URI del server HCatalog**: se il nome del cluster è abc123, l'URI è semplicemente: https://abc123.azurehdinsight.net
 
@@ -709,7 +709,7 @@ Di seguito sono elencate informazioni dettagliate sul modulo [Reader][reader] e 
 
 **Nome del contenitore di Azure**: nome del contenitore predefinito per il cluster, in genere corrisponde al nome del cluster. Per un cluster denominato "abc123", il nome del contenitore è semplicemente abc123.
 
-**Nota importante:** **qualsiasi tabella su cui si desidera eseguire una query mediante il modulo [Reader][reader] di Azure Machine Learning deve essere una tabella interna.** Di seguito è riportato un suggerimento per determinare se una tabella T in un database D.db è una tabella interna.
+**Nota importante:** **qualsiasi tabella su cui si desidera eseguire una query mediante il modulo [Import Data][import-data] di Azure Machine Learning deve essere una tabella interna.** Di seguito è riportato un suggerimento per determinare se una tabella T in un database D.db è una tabella interna.
 
 Al prompt della directory Hive eseguire il comando seguente:
 
@@ -717,7 +717,7 @@ Al prompt della directory Hive eseguire il comando seguente:
 
 Se la tabella è una tabella interna e viene popolata, il relativo contenuto deve essere visualizzato in questa posizione. Un altro modo per determinare se una tabella è una tabella interna consiste nell'usare Esplora archivi Azure. Questo strumento consente di passare al nome del contenitore del cluster predefinito e quindi filtrare in base al nome della tabella. Se la tabella e il relativo contenuto vengono visualizzati, allora si tratta di una tabella interna.
 
-Di seguito è riportato uno snapshot della query Hive e del modulo [Reader][reader]\:
+Di seguito è riportato uno snapshot della query Hive e del modulo [Import Data][import-data]\:
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -733,7 +733,7 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 
 **Strumento di apprendimento usato:** regressione logistica a due classi
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tipped". Il set di dati sottocampionati originale dispone di alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare: tip\_class, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Project Columns][project-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tipped". Il set di dati sottocampionati originale dispone di alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare: tip\_class, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra un esperimento in cui si prevede se per una corsa è stata pagata o meno una mancia.
 
@@ -753,7 +753,7 @@ Di conseguenza, si ottengono un valore di AUC di 0,987 come illustrato nella fig
 
 **Strumento di apprendimento usato:** regressione logistica multiclasse
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_class", che può assumere uno dei cinque valori (0,1,2,3,4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare: tipped, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Project Columns][project-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_class", che può assumere uno dei cinque valori (0,1,2,3,4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare: tipped, tip\_amount e total\_amount contengono informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra l'esperimento che stima la possibile collocazione di una mancia (Classe 0: mancia = $ 0, classe 1: mancia > $ 0 e <= $ 5, classe 2: mancia > $ 5 e <= $ 10, classe 3: mancia > $ 10 e <= $ 20, classe 4: mancia > $ 20)
 
@@ -774,7 +774,7 @@ Si noti che mentre la precisione è abbastanza efficace in relazione alle classi
 
 **Strumento di apprendimento usato:** albero delle decisioni con boosting
 
-a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_amount". In questo caso, le perdite di destinazione sono tipped, tip\_class, total\_amount e tutte queste variabili contengono informazioni sull'importo della mancia che non è in genere disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Project Columns][project-columns].
+a. Per questo problema, l'etichetta (o classe) di destinazione è "tip\_amount". In questo caso, le perdite di destinazione sono tipped, tip\_class, total\_amount e tutte queste variabili contengono informazioni sull'importo della mancia che non è in genere disponibile in fase di test. È possibile rimuovere queste colonne tramite il modulo [Select Columns in Dataset][select-columns].
 
 Lo snapshot seguente illustra l'esperimento che stima l'importo della mancia pagata.
 
@@ -794,9 +794,9 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 
 ## Riferimenti
 
-• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
-• [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
+•	[Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -807,7 +807,7 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

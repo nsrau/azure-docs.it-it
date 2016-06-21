@@ -55,8 +55,8 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
 
-## Altre informazioni
+## Risorse aggiuntive
 
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Come registrare un'app con l'endpoint v2.0
@@ -30,7 +30,8 @@ Accedere con un account Microsoft personale, aziendale o dell'istituto di istruz
 
 Dopo aver completato l'operazione, è possibile esaminare l'elenco delle app Microsoft, che probabilmente sarà vuoto. A tale scopo, seguire questa procedura.
 
-Fare clic sul pulsante per **aggiungere un'app** e attribuirle un nome. Il portale assegnerà all'app un ID applicazione univoco globale che verrà usato successivamente nel codice. Se l'app include un componente sul lato server che necessita di token di accesso per chiamare le API (ad esempio, Office, Azure o un'API Web), è opportuno creare anche un **segreto dell'applicazione**. <!-- TODO: Link for app secrets -->
+Fare clic sul pulsante per **aggiungere un'app** e attribuirle un nome. Il portale assegnerà all'app un ID applicazione univoco globale che verrà usato successivamente nel codice. Se l’app include un componente sul lato server che necessità di token di accesso per chiamare le API (ad esempio, Office, Azure o un’API Web), è opportuno creare anche un **segreto dell’applicazione**.
+<!-- TODO: Link for app secrets -->
 
 Successivamente, aggiungere le piattaforme usate dall'app.
 
@@ -46,4 +47,4 @@ Dopo aver creato un'app Microsoft, è possibile completare una delle esercitazio
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

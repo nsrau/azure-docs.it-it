@@ -28,7 +28,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
 -   Prima di configurare un database per l'estensione, è consigliabile eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle idonei per l'estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per Database Estensione](sql-server-stretch-database-identify-databases.md).
 
--   Leggere l'articolo sulle [limitazioni della superficie di attacco e i problemi di blocco per Database Estensione](sql-server-stretch-database-limitations.md).
+-   Vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
 -   Database Estensione esegue la migrazione dei dati in Azure. Per questo motivo è necessario disporre di un account Azure e di una sottoscrizione per la fatturazione. Per avere un account Azure, [fare clic qui](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +52,7 @@ GO
 Per altre informazioni, vedere l'articolo su come [configurare l'opzione di configurazione del server dell'archivio dati remoto](https://msdn.microsoft.com/library/mt143175.aspx) e su [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Con la procedura guidata abilitare Database Estensione in un database
-Per informazioni sulla procedura guidata per l'abilitazione dell'estensione per il database, incluse le informazioni da immettere e le opzioni da selezionare, vedere l'articolo relativo alla [procedura guidata per l'abilitazione dell'estensione per il database](sql-server-stretch-database-wizard.md).
+Per informazioni sulla procedura guidata Abilitare il database per l'estensione, incluse le informazioni da immettere e le opzioni da selezionare, vedere [Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](sql-server-stretch-database-wizard.md).
 
 ## <a name="EnableTSQLDatabase"></a>Con Transact-SQL abilitare Database Estensione in un database
 Prima di abilitare Database Estensione nelle singole tabelle, è necessario abilitarlo nel database.
@@ -133,4 +133,4 @@ Articolo relativo all'[identificazione di database e tabelle per l'estensione da
 
 [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

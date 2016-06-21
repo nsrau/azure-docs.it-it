@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Introduzione a Linux in Azure
@@ -69,7 +69,7 @@ Le immagini **Ubuntu** e **CoreOS** usano cloud-init in Azure, che offre capacit
  - [Come inserire dati personalizzati](virtual-machines-windows-classic-inject-custom-data.md)
  - [Dati personalizzati e cloud-init in Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Creare partizioni di scambio di Azure con cloud-init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Come usare CoreOS in Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [Come usare CoreOS in Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Acquisizione di immagini di macchine virtuali
@@ -98,4 +98,4 @@ In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In quest
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

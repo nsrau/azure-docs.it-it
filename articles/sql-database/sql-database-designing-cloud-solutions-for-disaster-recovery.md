@@ -24,7 +24,7 @@
 
 
 
-Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per progettare applicazioni di database resilienti a guasti a livello di area e interruzioni irreversibili. Per la pianificazione della continuità aziendale, è necessario prendere in considerazione la topologia di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Questo articolo esamina i modelli di applicazione comuni e illustra i vantaggi e gli svantaggi di ogni opzione.
+Informazioni su come utilizzare la [replica geografica attiva](sql-database-geo-replication-overview.md) nel database SQL per progettare applicazioni di database resilienti a guasti a livello di area e interruzioni irreversibili. Per la pianificazione della continuità aziendale, è necessario prendere in considerazione la topologia di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Questo articolo esamina i modelli di applicazione comuni e illustra i vantaggi e gli svantaggi di ogni opzione.
 
 ## Modello di progettazione 1: distribuzione attiva/passiva per il ripristino di emergenza cloud mediante un database con percorso condiviso
 
@@ -86,7 +86,7 @@ Se l'applicazione presenta queste caratteristiche, il bilanciamento del carico d
 
 > [AZURE.NOTE] Anche se questo modello usa più di un database secondario, per il failover ne verrà usato solo uno per i motivi evidenziati in precedenza. Poiché questo modello richiede l'accesso in sola lettura al database secondario, è necessaria la replica geografica attiva.
 
-Gestione traffico dovrebbe essere configurato per il routing delle prestazioni per poter indirizzare le connessioni utente all'istanza dell'applicazione più vicina alla posizione geografica dell'utente. Il diagramma seguente illustra questa configurazione prima di un'interruzione. ![Nessuna interruzione: routing delle prestazioni all'applicazione più vicina. Replica geografica](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+Gestione traffico dovrebbe essere configurato per il routing delle prestazioni per poter indirizzare le connessioni utente all'istanza dell'applicazione più vicina alla posizione geografica dell'utente. Il diagramma seguente illustra questa configurazione prima di un'interruzione. ![Nessuna interruzione: routing delle prestazioni all'applicazione più vicina. Replica geografica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Se viene rilevata l'interruzione di un database nell'area primaria, avviare il failover del database primario in una delle aree secondarie per modificare la posizione del database primario. Gestione traffico escluderà automaticamente l'endpoint offline dalla tabella di routing, ma continuerà a instradare il traffico dell'utente finale alle rimanenti istanze online. Poiché il database primario ora si trova in un'area diversa, tutte le istanze online devono modificare la stringa di connessione SQL in lettura/scrittura per connettersi al nuovo database primario. È importante apportare questa modifica prima di avviare il failover del database. Le stringhe di connessione SQL di sola lettura dovrebbero restare invariate perché puntano sempre al database nella stessa area. I passaggi del failover sono:
 
@@ -163,4 +163,4 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

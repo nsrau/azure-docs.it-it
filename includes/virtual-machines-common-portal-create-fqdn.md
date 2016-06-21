@@ -1,9 +1,6 @@
+## Azioni rapide 
 
-
-
-Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure.com) utilizzando il modello di distribuzione **Resource Manager**, il portale crea automaticamente una risorsa IP pubblica per la macchina virtuale. È possibile utilizzare questo indirizzo IP per accedere in remoto alla macchina virtuale. Anche se, per impostazione predefinita, il portale non consente la creazione di un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN (Fully Qualified Domain Name), è estremamente semplice crearne uno dopo aver creato la macchina virtuale. Questo articolo illustra i passaggi per creare un nome DNS o un FQDN.
-
-L'articolo presuppone che sia già stata effettuata la connessione alla sottoscrizione nel portale e che sia stata creata una macchina virtuale con le immagini disponibili tramite **Gestione risorse**. Una volta avviata la macchina virtuale, seguire questi passaggi.
+L'articolo presuppone che sia già stata effettuata la connessione alla sottoscrizione nel portale e che sia stata creata una macchina virtuale con le immagini disponibili tramite il modello di distribuzione Resource Manager. Una volta avviata la macchina virtuale, seguire questi passaggi.
 
 1.  Visualizzare le impostazioni della macchina virtuale nel portale e fare clic sull'indirizzo IP pubblico.
 
@@ -13,7 +10,7 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     ![impostazioni ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Aprire la scheda **Configurazione** nelle impostazioni dell'IP pubblico. Immettere l'etichetta del nome DNS scelto e **salvare** questa configurazione.
+3.  Aprire la scheda **Configurazione** nelle impostazioni dell'IP pubblico. Immettere l'etichetta del nome DNS da usare e **salvare** questa configurazione.
 
     ![immettere l'etichetta del nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
@@ -23,7 +20,4 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
 
     ![FQDN creato](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-    È ora possibile connettersi in remoto alla macchina virtuale utilizzando questo nome DNS. Ad esempio, utilizzare `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`, quando ci si connette a una macchina virtuale Linux che ha il nome di dominio completo di `testdnslabel.centralus.cloudapp.azure.com` e il nome utente di `adminuser`.
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

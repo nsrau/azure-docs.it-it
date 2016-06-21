@@ -701,7 +701,7 @@ Al termine dell'esecuzione della query, i risultati verranno visualizzati in mod
 
 È ora possibile creare e distribuire un modello in grado di stabilire se sia stata lasciata o meno una mancia mediante Azure Machine Learning. I dati di esempio stratificati sono pronti per essere usati in questo problema di classificazione binaria (mancia o no). Con Azure Machine Learning Studio è possibile anche creare e distribuire modelli predittivi che usano la classificazione multiclasse (tip\_class) e la regressione (tip\_amount), ma in questo caso ci si limiterà a illustrare come gestire il caso usando il modello di classificazione binaria.
 
-1. Inserire i dati in Azure Machine Learning usando il modulo **Reader**, disponibile nella sezione **Dati di Input e Output**. Per altre informazioni, vedere la pagina di riferimento sul [modulo Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Inserire i dati in Azure ML tramite il modulo **Import Data**, disponibile nella sezione **Input e output dei dati**. Per altre informazioni, vedere la pagina di riferimento sul [modulo Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Selezionare **Hive Query** (Query Hive) come **Data source** (Origine dati) nel riquadro **Properties** (Proprietà).
 3. Incollare lo script Hive seguente nell'editor **Hive database query** (Query di database Hive).
 
@@ -741,4 +741,4 @@ Nel percorso di apprendimento relativo al [processo di Cortana Analytics (CAP)](
 - [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

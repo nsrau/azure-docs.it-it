@@ -33,9 +33,6 @@ Selezionare **Attività | Estensione | Monitoraggio** per un database in SQL Ser
 Aprire la vista a gestione dinamica **sys.dm\_db\_rda\_migration\_status** per visualizzare il numero di batch e righe di dati migrati. Per altre informazioni, vedere [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Risoluzione dei problemi di migrazione dei dati
-**Il firewall di Azure blocca le connessioni dal server locale.**
-
-Potrebbe essere necessario aggiungere una regola nelle impostazioni del firewall di Azure per il server Azure per consentire a SQL Server di comunicare con il server Azure remoto.
 
 **Le righe della tabella con estensione abilitata non vengono migrate in Azure. Come mai?**
 
@@ -51,6 +48,10 @@ Esistono diversi problemi che possono influire sulla migrazione. Verificare quan
 
     -   Per altre informazioni sul contenuto di un messaggio di errore di SQL Server, vedere [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
+**Il firewall di Azure blocca le connessioni dal server locale.**
+
+Potrebbe essere necessario aggiungere una regola nelle impostazioni del firewall di Azure per il server Azure per consentire a SQL Server di comunicare con il server Azure remoto.
+
 ## Vedere anche
 
 [Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
@@ -58,4 +59,4 @@ Esistono diversi problemi che possono influire sulla migrazione. Verificare quan
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

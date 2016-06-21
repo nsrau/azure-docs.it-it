@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/15/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 #Come implementare l'esplorazione in base a facet in Ricerca di Azure
@@ -369,4 +369,4 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

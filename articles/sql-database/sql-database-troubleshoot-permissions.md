@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Come eseguire attività amministrative comuni nel database SQL di Azure
@@ -22,6 +22,8 @@ Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere 
 - [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 - [Protezione del database SQL](sql-database-security.md)
 - [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ##Per modificare la password amministrativa per un server logico
 - Nel [portale di Azure](https://portal.azure.com) fare clic su **SQL Server**, selezionare il server dall'elenco e quindi fare clic su **Reimposta password**.
@@ -32,9 +34,9 @@ Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere 
 - Usare l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) e vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Per autenticare gli utenti del database indipendente tramite Azure Active Directory
-- Vedere l'argomento [Connessione al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
+- Vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Per creare altri account di accesso per utenti con privilegi elevati nel database master virtuale
 -Usare l'istruzione [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e vedere la sezione Gestione degli account di accesso di [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md) per altri dettagli.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

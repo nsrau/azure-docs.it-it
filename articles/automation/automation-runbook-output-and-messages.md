@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags
    ms.service="automation"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="06/08/2016"
    ms.author="magoedte;bwren" />
 
 # Output di runbook e messaggi in automazione di Azure
 
 La maggior parte dei runbook di automazione Azure avrà qualche forma di output, ad esempio un messaggio di errore all'utente o un oggetto complesso destinato a essere utilizzato da un altro flusso di lavoro. Windows PowerShell fornisce [più flussi](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ciascuno di questi flussi in modo diverso ed è necessario seguire le procedure consigliate per utilizzarli quando si crea un runbook.
 
-La tabella seguente fornisce una breve descrizione di ciascuno dei flussi e il relativo comportamento nel portale di gestione di Azure durante l'esecuzione di un runbook pubblicato e quando si esegue il [test di un runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx). Nelle sezioni successive vengono forniti ulteriori dettagli su ogni flusso.
+La tabella seguente fornisce una breve descrizione di ciascuno dei flussi e il relativo comportamento nel portale di gestione di Azure durante l'esecuzione di un runbook pubblicato e quando si esegue il [test di un runbook](automation-testing-runbook.md). Nelle sezioni successive vengono forniti ulteriori dettagli su ogni flusso.
 
 | Stream | Descrizione | Pubblicato | Test|
 |:---|:---|:---|:---|
@@ -32,7 +32,7 @@ La tabella seguente fornisce una breve descrizione di ciascuno dei flussi e il r
 
 ## Flusso di output
 
-Il flusso di Output è destinato agli output degli oggetti creati da uno script o da un flusso di lavoro quando vengono eseguiti correttamente. In automazione di Azure, il flusso viene utilizzato principalmente per gli oggetti che devono essere utilizzati da [runbook padre che chiamano il runbook corrente](automation-child-runbooks.md). Quando si [chiama l’inline di un runbook](automation-child-runbooks.md/#InlineExecution) da un runbook padre, vengono restituiti i dati dal flusso di output per l'elemento padre. Utilizzare solo il flusso di output per comunicare informazioni generali all'utente se si è a conosce del fatto che il runbook non verrà mai chiamato da un altro runbook. Come procedura consigliata, tuttavia, è consigliabile in genere utilizzare il [Flusso dettagliato](#Verbose) per comunicare informazioni generali all'utente.
+Il flusso di Output è destinato agli output degli oggetti creati da uno script o da un flusso di lavoro quando vengono eseguiti correttamente. In automazione di Azure, il flusso viene utilizzato principalmente per gli oggetti che devono essere utilizzati da [runbook padre che chiamano il runbook corrente](automation-child-runbooks.md). Quando si [chiama l’inline di un runbook](automation-child-runbooks.md#InlineExecution) da un runbook padre, vengono restituiti i dati dal flusso di output per l'elemento padre. Utilizzare solo il flusso di output per comunicare informazioni generali all'utente se si è a conosce del fatto che il runbook non verrà mai chiamato da un altro runbook. Come procedura consigliata, tuttavia, è consigliabile in genere utilizzare il [Flusso dettagliato](#Verbose) per comunicare informazioni generali all'utente.
 
 È possibile scrivere i dati per il flusso di output tramite [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) o inserendo l'oggetto nella relativa riga nel runbook.
 
@@ -102,7 +102,7 @@ Creare un avviso o un messaggio di errore utilizzando il cmdlet [Write-Warning](
 
 Il flusso del messaggio dettagliato è destinato a informazioni generali sull'operazione del runbook. Poiché il [Flusso di Debug ](#Debug) non è disponibile in un runbook, i messaggi dettagliati devono essere utilizzati per le informazioni di debug. Per impostazione predefinita, i messaggi dettagliati da runbook pubblicati non vengono archiviati nella cronologia del processo. Per archiviare i messaggi dettagliati, configurare i runbook pubblicati su Log Verbose Records nella scheda Configura del runbook nel portale di gestione di Azure. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per motivi di prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook.
 
-Quando si esegue il[test di un runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), è necessario impostare la variabile $VerbosePreference su Continue. Con tale set di variabili, i messaggi dettagliati verranno visualizzati nel pannello Output del Test del portale di gestione di Azure.
+Quando si esegue il[test di un runbook](automation-testing-runbook.md), i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](automation-testing-runbook.md), è necessario impostare la variabile $VerbosePreference su Continue. Con tale set di variabili, i messaggi dettagliati verranno visualizzati nel pannello Output del Test del portale di Azure.
 
 Creare un messaggio dettagliato utilizzando il cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
@@ -116,7 +116,7 @@ Il flusso di Debug deve essere utilizzato con un utente interattivo e non deve e
 
 ## Record di stato
 
-Se si configura un runbook per registrare i record di stato di avanzamento (nella scheda Configura del runbook nel portale di gestione di Azure), verrà scritto un record per la cronologia dei processi prima e dopo l'esecuzione di ogni attività. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per massimizzare le prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook. Quando si esegue il test di un runbook, i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati.
+Se si configura un runbook per registrare i record di stato di avanzamento (nella scheda Configura del runbook nel portale di Azure), verrà scritto un record per la cronologia dei processi prima e dopo l'esecuzione di ogni attività. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra record dettagliati per un runbook per massimizzare le prestazioni. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook. Quando si esegue il test di un runbook, i messaggi dettagliati non vengono visualizzati anche se il runbook è configurato per registrare i record dettagliati.
 
 Il cmdlet [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) non è valido in un runbook, poiché questo deve essere utilizzato con un utente interattivo.
 
@@ -142,26 +142,29 @@ Nella tabella seguente è elencato il comportamento dei valori delle variabili d
 
 ## Recupero di messaggi e output di runbook
 
-### Portale di gestione di Azure
+### Portale di Azure
 
-È possibile visualizzare i dettagli di un processo di un runbook nel portale di gestione di Azure dalla scheda processi di un runbook. Il riepilogo del processo visualizzerà i parametri di input e il [flusso di Output](#Output) oltre alle informazioni generali sul processo e le eccezioni se si sono verificate. La cronologia includerà i messaggi dal [flusso di Output](#Output) e dai [flussi di errore e avviso](#WarningError) oltre al [Flusso dettagliato](#Verbose) e al [Record di stato](#Progress) se il runbook è configurato per i registri dettagliati e i record di stato.
+È possibile visualizzare i dettagli di un processo di un runbook nel portale di Azure dalla scheda processi di un runbook. Il riepilogo del processo visualizzerà i parametri di input e il [flusso di Output](#Output) oltre alle informazioni generali sul processo e le eccezioni se si sono verificate. La cronologia includerà i messaggi dal [flusso di Output](#Output) e dai [flussi di errore e avviso](#WarningError) oltre al [Flusso dettagliato](#Verbose) e al [Record di stato](#Progress) se il runbook è configurato per i registri dettagliati e i record di stato.
 
 ### Windows PowerShell
 
-In Windows PowerShell, è possibile recuperare i messaggi e gli output da un runbook tramite il cmdlet[Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx). Questo cmdlet richiede l'ID del processo e dispone di un parametro denominato flusso in cui è possibile specificare quale flusso restituire. È possibile specificare Any per restituire tutti i flussi per il processo.
+In Windows PowerShell, è possibile recuperare i messaggi e gli output da un runbook tramite il cmdlet[Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx). Questo cmdlet richiede l'ID del processo e dispone di un parametro denominato flusso in cui è possibile specificare quale flusso restituire. È possibile specificare Any per restituire tutti i flussi per il processo.
 
 Nell'esempio seguente viene avviato un runbook figlio e si attende il suo completamento. Una volta completato, il relativo output viene raccolto dal processo.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+	$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 	$doLoop = $true
 	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+	   $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
 	   $status = $job.Status
 	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
 
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+	Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
 ### Creazione grafica
 
@@ -169,15 +172,15 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
 
 ![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-È possibile osservare nella schermata precedente che quando si abilitano la registrazione e la traccia dettagliata per i runbook grafici sono disponibili molte più informazioni nella visualizzazione di flussi dei processi di produzione. Queste informazioni aggiuntive possono essere essenziali per la risoluzione dei problemi di produzione di un runbook e pertanto è consigliabile attivarle solo a tale scopo e non come regola generale. I record di traccia possono essere particolarmente numerosi. Con la traccia dei runbook grafici è possibile ottenere da due a quattro record per ogni attività a seconda che sia stato configurata la traccia di base o dettagliata. Se non sono necessarie queste informazioni per tenere traccia dell'avanzamento di un runbook per la risoluzione dei problemi, è consigliabile non abilitare la traccia.
+È possibile osservare nella schermata precedente che quando si abilitano la registrazione e la traccia dettagliata per i runbook grafici sono disponibili molte più informazioni nella visualizzazione di flussi dei processi di produzione. Queste informazioni aggiuntive possono essere essenziali per la risoluzione dei problemi di produzione di un runbook e pertanto è consigliabile attivarle solo a tale scopo e non come regola generale. I record di traccia possono essere particolarmente numerosi. Con la traccia dei runbook grafici è possibile ottenere da due a quattro record per ogni attività a seconda che sia stata configurata la traccia di base o dettagliata. Se non sono necessarie queste informazioni per tenere traccia dell'avanzamento di un runbook per la risoluzione dei problemi, è consigliabile non abilitare la traccia.
 
-**Per abilitare la traccia a livello di attività, eseguire la procedura seguente.**
+**Per abilitare la traccia a livello di attività, seguire questa procedura.**
 
  1. Nel portale di Azure aprire l'account di automazione.
 
  2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
 
- 3. Nel pannello Runbook, fare clic per selezionare un runbook grafico dall'elenco dei runbook.
+ 3. Nel pannello Runbook fare clic per selezionare un runbook grafico dall'elenco dei runbook.
 
  4. Nel pannello Impostazioni del runbook selezionato, fare clic su **Registrazione e traccia**.
 
@@ -185,9 +188,9 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
 
     ![Pannello Registrazione e traccia della creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-## Articoli correlati
+## Passaggi successivi
 
-- [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
-- [Runbook figlio](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- Per maggiori informazioni sull’esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
+- Per comprendere come progettare e utilizzare i runbook figlio, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

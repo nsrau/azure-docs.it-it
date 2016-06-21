@@ -156,9 +156,6 @@ Per rendere permanente la condivisione di montaggio:
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Aggiornare i driver Linux
-Non è escluso che si debba infine aggiornare i driver InfiniBand dei nodi di calcolo Linux. Per altre informazioni, vedere la sezione [Aggiornare i driver Linux RDMA per SLES 12](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12).
-
 ## Installare STAR-CCM+
 Le istanze A8 e A9 delle VM di Azure forniscono il supporto per InfiniBand e le funzionalità RDMA. I driver del kernel che abilitano tali funzionalità sono disponibili in Azure Marketplace per le immagini Windows Server 2012 R2, SUSE 12, CentOS 6.5 e CentOS 7.1. Microsoft MPI e Intel MPI (versione 5.x) sono le due librerie MPI che supportano questi driver in Azure.
 
@@ -212,7 +209,7 @@ Poiché STAR-CCM+ può consumare tutta la larghezza di banda della memoria, è i
 
 I nodi vengono allocati esclusivamente per il processo e non possono essere condivisi con altri processi. Il processo non viene avviato direttamente come un processo MPI. Lo script della shell **runstarccm.sh** avvierà il servizio di avvio MPI.
 
-Il modello di input e lo script **runstarccm.sh** vengono essere archiviati nella condivisione **/hpcdata** montata in precedenza.
+Il modello di input e lo script **runstarccm.sh** vengono archiviati nella condivisione **/hpcdata** montata in precedenza.
 
 Ai file di log viene assegnato l'ID del processo come nome e i file vengono archiviati nella **condivisione /hpcdata**, insieme ai file di output di STAR-CCM+.
 
@@ -289,7 +286,7 @@ Sostituire **runner.java** con il servizio di avvio preferito per il modello Jav
     exit ${RTNSTS}
 ```
 
-Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su ****1999@flex.cd-adapco.com** e la chiave nell'opzione**-podkey** della riga di comando.
+Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su **1999@flex.cd-adapco.com** e la chiave nell'opzione**-podkey** della riga di comando.
 
 Dopo alcune operazioni di inizializzazione, lo script estrae l'elenco di nodi per la compilazione di un file host usato dal servizio di avvio MPI dalle variabili di ambiente **$CCP\_NODES\_CORES** impostate da HPC Pack . Il file host conterrà l'elenco di nomi di nodi di calcolo usati per il processo, un nome per ogni riga.
 
@@ -301,11 +298,11 @@ Il formato della variabile **$CCP\_NODES\_CORES** segue questo modello:
 
 Dove:
 
-* `<Number of nodes>`: è il numero di nodi allocati a questo processo.
+* `<Number of nodes>` è il numero di nodi allocati a questo processo.
 
-* `<Name of node_n_...>`: è il nome di ogni nodo allocato a questo processo.
+* `<Name of node_n_...>` è il nome di ogni nodo allocato a questo processo.
 
-* `<Cores of node_n_...>`: è il numero di core nel nodo allocato a questo processo.
+* `<Cores of node_n_...>` è il numero di core nel nodo allocato a questo processo.
 
 Il numero di core **$NBCORES** viene calcolato anche in base al numero di nodi **$NBNODES** e al numero di core per nodo specificato come parametro **$NBCORESPERNODE**.
 
@@ -341,11 +338,11 @@ Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 
 * [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
-* [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+* [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

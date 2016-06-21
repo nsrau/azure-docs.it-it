@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="05/27/2016"
 	ms.author="chrande"/>
 
 # Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure
@@ -29,6 +29,7 @@ Gli articoli seguenti illustrano come configurare e scrivere il codice per trigg
 * [Trigger e associazioni di archiviazione di Azure (code, BLOB, tabelle)](functions-bindings-storage.md)
 * [Trigger e associazioni del bus di servizio di Azure per code e argomenti](functions-bindings-service-bus.md)
 * [Associazioni di Azure DocumentDB](functions-bindings-documentdb.md)
+* [Associazioni di Hub eventi di Azure](functions-bindings-event-hubs.md)
 * [Associazioni delle app per dispositivi mobili di Azure](functions-bindings-mobile-apps.md)
 * [Associazione di output di hub di notifica di Azure](functions-bindings-notification-hubs.md)
 
@@ -39,4 +40,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

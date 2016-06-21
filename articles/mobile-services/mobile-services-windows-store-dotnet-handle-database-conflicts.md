@@ -128,9 +128,9 @@ In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemen
 	> [AZURE.NOTE] Le applicazioni che utilizzano tabelle non tipizzate attivano la concorrenza ottimistica impostando il flag Version per SystemProperties della tabella, come mostrato di seguito.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. Aggiungendo la proprietà `Version` alla classe `TodoItem`, se il record è stato modificato dopo l'ultima query, l'applicazione riceverà un'eccezione `MobileServicePreconditionFailedException` durante un aggiornamento. Questa eccezione include l'ultima versione dell'elemento dal server. In MainPage.cs per il progetto condiviso aggiungere il codice seguente per gestire l'eccezione nel metodo `UpdateToDoItem()`.
@@ -369,4 +369,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

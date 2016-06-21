@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 # Creare un'app Web Hello World per Azure in Eclipse
@@ -193,18 +193,34 @@ Quando appare la visualizzazione **Azure Explorer**, per arrestare l'app Web seg
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere i collegamenti seguenti:
+Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-* [Centro per sviluppatori Java]
-* [Panoramica delle app Web]
+- [Toolkit di Azure per Eclipse]
+  - [Installare il Toolkit di Azure per Eclipse.]
+  - *Creare un’app Web Hello World per Azure in Eclipse (questo articolo)*
+  - [Novità di Azure Toolkit per Eclipse]
+- [Toolkit di Azure per IntelliJ]
+  - [Installazione del Toolkit di Azure per IntelliJ]
+  - [Creare un'App Web Hello World per Azure in IntelliJ]
+
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
+
+Per ulteriori informazioni sulla creazione di applicazioni Web per Azure, vedere la [Panoramica delle app Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse.md
+[Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md
+[Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
+[Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
+[Installare il Toolkit di Azure per Eclipse.]: ../azure-toolkit-for-eclipse-installation.md
 [Installazione di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Centro per sviluppatori Java]: https://azure.microsoft.com/develop/java/
+[Installazione del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Novità di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Panoramica delle app Web]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -225,4 +241,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

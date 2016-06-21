@@ -14,11 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="06/06/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata il 06/06/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+|HDP |Versione HDI |Versione Spark |Numero di compilazione Ambari |Numero di compilazione HDP|
+|-------|---------------|---------------|-----------------------|----------------|
+|2\.3 |3\.3.1000.0.7702215|	1\.5.2|	2\.2.1.8-2|	2\.3.3.1-18|
+|2\.4 |3\.4.1000.0.7702224|	1\.6.1|	2\.2.1.8-2|	2\.4.2.0|
+
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Spark in HDInsight è disponibile a livello generale | Questa versione offre miglioramenti di disponibilità, scalabilità e produttività per Apache Spark open source in HDInsight. <ul><li>Contratto di servizio leader di settore per una disponibilità del 99,9% che lo rende adatto per i carichi di lavoro aziendali impegnativi.</li><li>Livello di archiviazione scalabile mediante archivio Azure Data Lake.</li><li>Strumenti di produttività per ogni fase dell'esplorazione e dello sviluppo dei dati. I notebook Jupyter con kernel Spark personalizzato consentono l'esplorazione interattiva dei dati, l'integrazione con dashboard BI come Power BI, Tableau e Qlik è perfetta per la condivisione rapida dei dati e il reporting continuo, il plug-in IntelliJ è un'opzione affidabile per lo sviluppo e il debug a lungo termine di elementi di codice.</li></ul>| Servizio | Spark| N/D|
+| Strumenti di HDInsight per IntelliJ | Questo è un plug-in IntelliJ IDEA per cluster HDInsight Spark. Consente le funzionalità seguenti.<ul><li>Creare e scrivere facilmente un'applicazione Spark in Scala e Java con il supporto alla creazione avanzata per IntelliSense, la formattazione automatica, il controllo degli errori, ecc.</li><li>Testare l'applicazione Spark localmente.</li><li>Inviare processi al cluster HDInsight Spark e recuperare i risultati.</li><li>Connettersi ad Azure e accedere a tutti i cluster Spark associati con le sottoscrizioni di Azure.</li><li>Navigare in tutte le risorse di archiviazione associate del cluster HDInsight Spark.</li><li>Navigare in tutta la cronologia dei processi e le informazioni dei processi per il cluster HDInsight Spark.</li><li>Eseguire il debug remoto dei processi Spark dal computer desktop.</li></ul>| Strumenti | Spark| N/D
 
 ## Note sulla versione di HDInsight rilasciata il 13/05/2016
 
@@ -1312,7 +1329,7 @@ Per quanto riguarda Azure PowerShell e il messaggio di errore HDInsight SDK: "*C
 
 * Questo errore è un [problema di compatibilità](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) noto che può verificarsi a causa di una differenza tra la versione di SDK HDInsight o Azure PowerShell e la versione del cluster. Per i cluster creati sulla versione 8/15 o successiva esiste il supporto della nuova funzionalità di provisioning nelle reti virtuali, che però non viene interpretata correttamente dalle versioni precedenti di SDK HDInsight o Azure PowerShell. Il risultato è un errore in alcune operazioni di invio dei processi. Se si usano le API di HDInsight SDK o i cmdlet di Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**) per inviare i processi, è possibile che tali operazioni abbiano esito negativo e che venga generato il messaggio di errore "*Cluster <clustername> is not configured for HTTP services access*." In alternativa, a seconda dell'operazione, è possibile che venga generato un altro messaggio che informa che *non è possibile eseguire la connessione al cluster*.
 
-* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](../powershell-install-configure/).
+* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -1353,7 +1370,7 @@ Questi problemi di compatibilità sono stati risolti nelle versioni più recenti
 	* Asia orientale
 	* Stati Uniti centro-settentrionali
 	* Stati Uniti centro-meridionali
-* HDInsight versione 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versione 2.1 (HDP1.3 e Hadoop 1.2) verranno rimossi dal portale di gestione di Azure. È possibile continuare a creare cluster Hadoop per queste versioni usando il cmdlet di Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) oppure usando [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Per altre informazioni, fare riferimento alla pagina relativa al [controllo delle versioni del componente HDInsight](../hdinsight-component-versioning/).
+* HDInsight versione 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versione 2.1 (HDP1.3 e Hadoop 1.2) verranno rimossi dal portale di gestione di Azure. È possibile continuare a creare cluster Hadoop per queste versioni usando il cmdlet di Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) oppure usando [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Per altre informazioni, fare riferimento alla pagina relativa al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 * Modifiche a Hortonworks Data Platform (HDP) in questa versione:
 
 <table border="1">
@@ -1584,4 +1601,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

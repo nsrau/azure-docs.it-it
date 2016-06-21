@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # Impostazioni di configurazione personalizzate per gli ambienti del servizio app
@@ -85,7 +85,7 @@ Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco del
             }
         ],
 
-> Nota: se per il pacchetto di crittografia vengono impostati valori non corretti che non possono essere riconosciuti da SChannel, tutta la comunicazione TLS con il server potrebbe non funzionare. In tal caso, sarà necessario ridistribuire l'ambiente del servizio app incorrendo in tempi di inattività significativi e possibile perdita di dati. Usare questa funzionalità con cautela.
+> [AZURE.WARNING]  Se per il pacchetto di crittografia vengono impostati valori non corretti che non possono essere riconosciuti da SChannel, tutta la comunicazione TLS con il server potrebbe non funzionare. In tal caso, sarà necessario rimuovere la voce *FrontEndSSLCipherSuiteOrder* da **clusterSettings** e inviare il modello ARM aggiornato per tornare alle impostazioni predefinite del pacchetto di crittografia. Usare questa funzionalità con cautela.
 
 ## Introduzione
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -95,4 +95,4 @@ Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

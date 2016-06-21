@@ -40,10 +40,11 @@ Ecco un video che illustra come creare e usare Condivisioni file di Azure in Lin
 
 Quando si crea una macchina virtuale Linux in Azure, è possibile specificare un'immagine Linux che supporta SMB 2.1 o versione successiva dalla raccolta di immagini di Azure. Di seguito si trova un elenco di immagini Linux consigliate:
 
-- Ubuntu Server 14.04
-- Ubuntu Server 15.04
-- CentOS 7.1
-- Open SUSE 13.2
+- Ubuntu Server 14.04+
+- RHEL 7+
+- CentOS 7+
+- Debian 8
+- openSUSE 13.2+
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -126,7 +127,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 ### Supporto degli strumenti per Archiviazione file
 
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-- [Creare e gestire condivisioni file](storage-azure-cli.md#create-and-manage-file-shares) tramite l'interfaccia della riga di comando di Azure
+- [Creare e gestire condivisioni di file](storage-azure-cli.md#create-and-manage-file-shares) tramite l'interfaccia della riga di comando di Azure
 
 ### Riferimento
 
@@ -139,4 +140,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

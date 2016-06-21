@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/11/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -29,6 +29,15 @@ Argomento |
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.189.0
+Data di rilascio: giugno 2016
+
+**Problemi risolti e miglioramenti:**
+
+- Ora Azure AD Connect può essere installato su un server conforme a FIPS.
+    - Per la sincronizzazione della password, vedere [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+- Risolto un problema in cui un nome NetBIOS non poteva essere risolto nel FQDN in Active Directory Connector.
 
 ## 1\.1.180.0
 Data di rilascio: maggio 2016
@@ -89,7 +98,7 @@ Data di rilascio: febbraio 2016
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
 - [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
@@ -284,4 +293,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

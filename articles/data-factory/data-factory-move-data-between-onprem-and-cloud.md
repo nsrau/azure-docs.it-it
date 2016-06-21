@@ -521,6 +521,8 @@ Se si sceglie di non aprire la porta 8050 nel computer gateway, per configurare 
 
 Per copiare ad esempio da **un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse** è necessario consentire la comunicazione **TCP** in uscita sulla porta **1433** per Windows Firewall e il firewall aziendale. È anche necessario configurare le impostazioni per il firewall del server di Azure SQL per aggiungere l'indirizzo IP del computer gateway all'elenco di indirizzi IP consentiti.
 
+Notare che, durante il caricamento dei dati in SQL Data Warehouse, è possibile utilizzare la funzionalità [Copia di gestione temporanea](data-factory-copy-activity-performance.md#staged-copy) per evitare di aprire altre porte nel firewall aziendale.
+
 ### Considerazioni sui server proxy
 Per impostazione predefinita, Gateway di gestione dati userà le impostazioni del proxy da Internet Explorer e userà le credenziali predefinite per accedervi. Se questo non soddisfa le proprie esigenze, è possibile configurare ulteriormente le **impostazioni del server proxy**, come illustrato più avanti, per assicurarsi che il gateway possa connettersi ad Azure Data Factory:
 
@@ -625,9 +627,9 @@ Per crittografare le credenziali in Data Factory Editor, seguire questa procedur
 
 Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
 
-Quando si usa l'applicazione **Impostazione credenziali** avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda **Certificato** di **Gestione configurazione del Gateway di gestione dati** del computer gateway.
+Quando si usa l'applicazione **Impostazione credenziali** avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali utilizzando il certificato specificato nella scheda **Certificato** di **Gestione configurazione del Gateway di gestione dati** del computer gateway.
 
-Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento **EncryptedCredential** di **connectionString** nel file JSON da usare con il cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) oppure nel frammento di codice JSON dell'editor di Data Factory nel portale.
+Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento **EncryptedCredential** di **connectionString** nel file JSON da utilizzare con il cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) oppure nel frammento di codice JSON dell'editor di Data Factory nel portale.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -687,4 +689,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 	
 	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

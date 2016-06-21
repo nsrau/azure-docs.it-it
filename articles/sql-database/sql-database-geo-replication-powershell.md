@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configurare la replica geografica attiva per il database SQL di Azure con PowerShell | Microsoft Azure" 
-    description="Replica geografica per il database SQL di Azure con PowerShell" 
+    description="Configurare la replica geografica attiva per il database SQL di Azure con PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="04/27/2016"
     ms.author="sstein"/>
 
-# Configurare la replica geografica per il database SQL di Azure
+# Configurare la replica geografica per il database SQL di Azure con PowerShell
 
 
 
@@ -158,11 +158,11 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 ## Risorse aggiuntive
 
 - [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

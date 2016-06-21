@@ -36,13 +36,13 @@ In questo articolo viene usato un [esperimento di training](https://gallery.cort
 
 >[AZURE.NOTE] Per poter proseguire con l'esempio è consigliabile usare un'area di lavoro standard anziché una gratuita. Verrà creato un endpoint per ogni cliente, per un totale di 10 endpoint, e questo richiede l'uso di un'area di lavoro standard. Le aree di lavoro gratuite hanno un limite di tre endpoint. Se è disponibile soltanto un'area di lavoro gratuita, è sufficiente modificare gli script riportati di seguito in base a tre località.
 
-L'esperimento usa un modulo **Reader** per importare il set di dati di training *customer001.csv* da un account di archiviazione di Azure. Si supponga di aver raccolto i set di dati di training da tutti i punti di noleggio di biciclette e di averli archiviati nello stesso archivio BLOB con nomi di file da *rentalloc001.csv* a *rentalloc10.csv*.
+L’esperimento utilizza un modulo **Import Data** per importare il set di dati di training *customer001.csv* da un account di archiviazione di Azure. Si supponga di aver raccolto i set di dati di training da tutti i punti di noleggio di biciclette e di averli archiviati nello stesso archivio BLOB con nomi di file da *rentalloc001.csv* a *rentalloc10.csv*.
 
 ![immagine](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 Si noti che al modulo **Train Model** è stato aggiunto un modulo **Web service output**. Quando l'esperimento viene distribuito come servizio Web, l'endpoint associato a tale output restituisce il modello di cui è stato eseguito il training come file con estensione ilearner.
 
-Si noti anche che viene impostato un parametro del servizio Web per l'URL usato dal modulo **Reader**. Questo permette di usare il parametro per specificare singoli set di dati di training per eseguire il training del modello per ogni località. Questa stessa operazione può essere eseguita in altri modi, ad esempio usando una query SQL con un parametro del servizio Web per ottenere dati da un database SQL di Azure o semplicemente un modulo **Web service input** per passare un set di dati al servizio Web.
+Si noti anche che viene impostato un parametro del servizio Web per l'URL utilizzato dal modulo **Import Data**. Questo permette di usare il parametro per specificare singoli set di dati di training per eseguire il training del modello per ogni località. Questa stessa operazione può essere eseguita in altri modi, ad esempio usando una query SQL con un parametro del servizio Web per ottenere dati da un database SQL di Azure o semplicemente un modulo **Web service input** per passare un set di dati al servizio Web.
 
 ![immagine](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -159,4 +159,4 @@ Di seguito è riportato il listato del codice sorgente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

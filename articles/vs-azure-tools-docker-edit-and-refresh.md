@@ -3,7 +3,7 @@
    description="Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale, aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento e impostare i punti di interruzione del debug"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="AllenClark"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/13/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # Debug delle applicazioni in un contenitore Docker locale
@@ -29,7 +29,7 @@ Gli Strumenti di Visual Studio per Docker consentono di sviluppare e convalidare
 - [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
 
-Per eseguire i contenitori Docker in locale, è necessario un client di Docker locale. È possibile usare la [casella degli strumenti di Docker](https://www.docker.com/products/overview#/docker_toolbox) che richiede la disabilitazione di Hyper-V o in alternativa è possibile usare [Docker per la versione Beta di Windows](https://beta.docker.com) che usa Hyper-V e richiede Windows 10.
+Per eseguire i contenitori Docker in locale, è necessario un client di Docker locale. È possibile utilizzare la [casella degli strumenti di Docker](https://www.docker.com/products/overview#/docker_toolbox) che richiede la disabilitazione di Hyper-V o in alternativa è possibile utilizzare [Docker per la versione beta di Windows](https://beta.docker.com) che utilizza Hyper-V e richiede Windows 10.
 
 Nella casella degli strumenti di Docker, è necessario [configurare il client di Docker](./vs-azure-tools-docker-setup.md)
 
@@ -56,14 +56,18 @@ Gli Strumenti di Visual Studio 2015 per Docker consentono agli sviluppatori di A
 
 	![][1]
 
-> [AZURE.NOTE] Se si sta usando [Docker per la versione Beta di Windows](https://beta.docker.com), aprire Properties (Proprietà)\\Docker.props, eliminare il valore predefinito e riavviare Visual Studio in modo che il valore abbia effetto. ![][2]
+> [AZURE.NOTE] Se si sta usando [Docker per la versione Beta di Windows](https://beta.docker.com), aprire Properties (Proprietà)\\Docker.props, eliminare il valore predefinito e riavviare Visual Studio in modo che il valore abbia effetto.
+>
+> ![][2]
 
 ##Modifica e aggiornamento
 Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'applicazione in un contenitore e continuare ad apportare modifiche, visualizzandole come si farebbe con IIS Express.
 
-1. Impostare la configurazione della soluzione su `Debug` e premere **& lt;CTRL + F5 >** per creare l'immagine Docker ed eseguirla localmente. Visualizzare la finestra di output, usando la compilazione oppure
+1. Impostare la configurazione della soluzione su `Debug` e premere **& lt;CTRL + F5 >** per creare l'immagine Docker ed eseguirla localmente.
 
-1. Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio cercherà di avviare l'App Web nel browser predefinito. Se si usa il browser Microsoft Edge o se si verificano problemi, vedere l'articolo sulla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+    Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio avvierà l'App Web nel browser predefinito. Se si usa il browser Microsoft Edge o se si verificano problemi, vedere l'articolo sulla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+
+1. Passare alla pagina About, da dove verranno apportate le modifiche.
 
 1. Tornare a Visual Studio e aprire `Views\Home\About.cshtml`.
 
@@ -73,9 +77,14 @@ Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'ap
 	<h1>Hello from a Docker Container!</h1>
 	```
 
-1.	Visualizzare la finestra di output e, quando viene completata la compilazione di .NET e viene visualizzato `Application started. Press Ctrl+C to shut down`, tornare al browser e aggiornare la pagina.
+1.	Visualizzare la finestra di output e, quando viene completata la compilazione di .NET e vengono visualizzate queste righe, tornare al browser e aggiornare la pagina About.
 
-1.	Si dovrebbero vedere visualizzate le modifiche applicate.
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
+
+1.	Le modifiche sono state applicate.
 
 ##Punto di interruzione di debug
 Spesso è necessario analizzare le modifiche in modo più approfondito, sfruttando le funzionalità di debug di Visual Studio.
@@ -111,25 +120,25 @@ Con gli [Strumenti di Visual Studio 2015 per Docker](https://aka.ms/DockerToolsF
 - [Strumenti di Docker per Visual Studio Team Services](http://aka.ms/dockertoolsforvsts): compilare e distribuire contenitori Docker
 - [Strumenti di Docker per Visual Studio Code](http://aka.ms/dockertoolsforvscode): servizi di linguaggio per la modifica dei file di Docker, con altri scenari e2e presto disponibili
 - [Informazioni sul contenitore di Windows](http://aka.ms/containers): informazioni su Windows Server e Nano Server
-- [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/): [Introduzione al servizio contenitore di Azure](http://aka.ms/AzureContainerService)
+- [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/): [introduzione al servizio contenitore di Azure](http://aka.ms/AzureContainerService)
 
 ## Altri strumenti di Docker
 
-[Some great docker tools ](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/) (Importanti strumenti di Docker, blog di Steve Lasker)
+[Some great docker tools (Importanti strumenti di Docker, blog di Steve Lasker)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
 ## Articoli utili
 
-[Introduction to Microservices from NGINX](https://www.nginx.com/blog/introduction-to-microservices/) (Introduzione ai microservizi di NGINX)
+[Introduction to Microservices from NGINX (Introduzione ai microservizi di NGINX)](https://www.nginx.com/blog/introduction-to-microservices/)
 
 ## Presentazioni
 
-- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/) (Presentazione dal vivo a Las Vegas nel 2016: e2e di Docker)
-- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Introduzione ad ASP.NET Core build 2016 - Demo)
-- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/) (Sviluppo di applicazioni .NET in contenitori, Channel 9)
+- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e (Presentazione dal vivo a Las Vegas nel 2016: e2e di Docker)](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo (Introduzione ad ASP.NET Core build 2016 - Demo)](https://channel9.msdn.com/Events/Build/2016/B810)
+- [Developing .NET apps in containers, Channel 9 (Sviluppo di applicazioni .NET in contenitori, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
 [1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
 [3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

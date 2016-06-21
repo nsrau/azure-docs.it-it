@@ -581,7 +581,7 @@ Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazion
 
 Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure DocumentDB che è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
-Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [.NET per DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
+Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [DocumentDB .NET Library](https://msdn.microsoft.com/library/azure/dn948556.aspx) (Libreria .NET per DocumentDB), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -591,4 +591,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

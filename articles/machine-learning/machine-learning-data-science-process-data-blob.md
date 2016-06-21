@@ -180,7 +180,7 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Lettore][reader] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
+3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
 ![lettore BLOB][1]
 
@@ -188,7 +188,7 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

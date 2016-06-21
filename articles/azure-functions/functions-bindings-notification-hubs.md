@@ -3,7 +3,7 @@
 	description="Informazioni su come usare l'associazione di Hub di notifica di Azure in Funzioni di Azure."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="wesmc7777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.author="wesmc"/>
 
 # Associazione di output di Hub di notifica in Funzioni di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come configurare e scrivere il codice di associazioni d
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per le notifiche, vedere [Introduzione ad Hub di notifica per le app di Windows Store](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e fare clic sulla piattaforma client di destinazione nella parte superiore.
+Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Introduzione a Hub di notifica](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e fare clic sulla piattaforma cliente nella parte superiore.
 
 ## function.json per associazione di output di Hub di notifica di Azure
 
@@ -155,4 +155,4 @@ Codice di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
@@ -236,8 +236,8 @@ Il video seguente illustra la funzionalità di esecuzione in locale di U-SQL:
 
     - Nell'input di script (ESTRARRE * DA "/percorso/abc") - verrà effettuata la ricerca sia nel percorso di DataRoot che nel percorso dello script.
     - Nell’output dello script (OUTPUT A "percorso/abc"): il percorso DataRoot verrà usato come cartella di output.
-    - Nella registrazione dell’assembly (CREARE ASSEMBLY xyz da "/ path/abc"): verrà ricercato il percorso dello script, ma non il DataRoot.
-    - In TVF/Visualizzazione o in altre entità di metadati registrate: verrà ricercato il percorso DataRoot, ma non il percorso dello script.
+    - Nella registrazione dell’assembly (CREATE ASSEMBLY xyz FROM "/ path/abc"): verranno eseguite ricerche nel percorso dello script, ma non in DataRoot.
+    - In TVF/View o in altre entità di metadati registrate: verrà ricercato il percorso DataRoot, ma non il percorso dello script.
 
     Per gli script eseguiti nel servizio di Data Lake, gli account di archiviazione predefiniti verranno utilizzati come cartella radice e ne verrà di conseguenza effettuata la ricerca.
 
@@ -292,7 +292,7 @@ Per visualizzare altri argomenti relativi allo sviluppo:
 
 ##Appendice: Esempio di PowerShell per la preparazione dell'esercitazione
 
-Lo script di PowerShell seguente prepara automaticamente i dati di origine e un account di Analisi Azure Data Lake, in modo da poter passare alla sezione [Sviluppare script U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+Lo script di PowerShell seguente prepara automaticamente i dati di origine e un account di Analisi Azure Data Lake, per poter passare alla sezione [Sviluppare script U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +362,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

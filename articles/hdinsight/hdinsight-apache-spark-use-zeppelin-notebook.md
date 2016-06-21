@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Usare i notebook di Zeppelin con il cluster Spark in HDInsight Linux (anteprima)
+# Utilizzare i notebook di Zeppelin con cluster Apache Spark in HDInsight Linux
 
-Informazioni su come installare i notebook di Zeppelin in cluster Spark e su come usare i notebook di Zeppelin.
+Informazioni su come installare i notebook di Zeppelin in cluster Apache Spark e su come utilizzare i notebook di Zeppelin per eseguire i processi Spark.
 
 > [AZURE.IMPORTANT] I notebook di Zeppelin per cluster HDInsight Spark vengono proposti per illustrare l'uso di Zeppelin in un ambiente Azure HDInsight Spark. Se si vogliono usare i notebook con HDInsight Spark, è consigliabile usare i notebook di Jupyter. Anche i notebook di Jupyter offrono varie opzioni kernel, ad esempio Scala, e le funzionalità continuano a migliorare. Per istruzioni su come usare i notebook di Jupyter con HDInsight Spark, vedere [Eseguire query Spark SQL con un notebook di Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Prerequisiti:**
 
 * Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Un cluster Apache Spark. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 	> [AZURE.NOTE] Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
@@ -37,9 +37,9 @@ Informazioni su come installare i notebook di Zeppelin in cluster Spark e su com
 
 	> [AZURE.WARNING] Senza un plug-in come FoxyProxy, tutte le richieste effettuate tramite il browser possono essere instradate attraverso il tunnel. Ciò può comportare un caricamento più lento delle pagine web nel browser.
 
-## Installare Zeppelin come parte della creazione del cluster
+## Installare Zeppelin in un cluster Spark
 
-È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. È possibile usare lo script personalizzato per installare Zeppelin dal portale di Azure tramite HDInsight .NET SDK o Azure PowerShell.
+È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. È possibile usare lo script personalizzato per installare Zeppelin dal portale di Azure tramite HDInsight .NET SDK o Azure PowerShell. È possibile utilizzare lo script per installare Zeppelin sia nell’ambito della creazione del cluster che quando il cluster è in esecuzione. I collegamenti nelle sezioni seguenti forniscono le istruzioni.
 
 ### Uso del portale di Azure
 
@@ -201,7 +201,7 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 	* **Pattern Name** - **zeppelinnotebook**: si tratta di un nome descrittivo per il modello.
 
-	* **URL pattern** - **\*hn0\*** : definisce un modello che corrisponde al nome di dominio interno completo dell'endpoint in cui sono ospitati i notebook di Zeppelin. Poiché i notebook di Zeppelin sono disponibili solo sul nodo head 0 del cluster e l'endpoint è in genere `http://hn0-<string>.internal.cloudapp.net`, l'uso del modello **hn0** assicura che la richiesta venga reindirizzata all'endpoint Zeppelin.
+	* **URL pattern** - ***hn0***: definisce un modello che corrisponde al nome di dominio interno completo dell'endpoint in cui sono ospitati i notebook di Zeppelin. Poiché i notebook di Zeppelin sono disponibili solo sul nodo head 0 del cluster e l'endpoint è in genere `http://hn0-<string>.internal.cloudapp.net`, l'uso del modello **hn0** assicura che la richiesta venga reindirizzata all'endpoint Zeppelin.
 
 		![foxyproxy pattern](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -325,11 +325,19 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gestire le risorse
+* [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -342,4 +350,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

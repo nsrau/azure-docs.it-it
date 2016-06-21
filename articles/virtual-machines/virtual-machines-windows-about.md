@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/10/2016"
+	ms.date="06/15/2016"
 	ms.author="cynthn"/>
 
 #Informazioni sulle macchine virtuali di Windows in Azure
@@ -42,4 +42,4 @@ Poiché questa esercitazione consente di creare rapidamente una macchina virtual
 [Servizio app]: app-service-choose-me.md
 [Servizi cloud]: cloud-services-choose-me.md
 [Macchine virtuali]: #tellmevm
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

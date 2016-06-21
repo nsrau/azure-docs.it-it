@@ -89,6 +89,6 @@ while(true)
 Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
 
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Come usare le [code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+- Come utilizzare le [code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Fornire la registrazione e l’accesso agli utenti con account Facebook
@@ -34,11 +34,11 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (Az
 
     ![Facebook - Creare ID app](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
 
-4. Nel modulo, fornire un **Nome visualizzato**, scegliere la **Categoria** appropriata e fare clic su **Crea ID App**. È necessario accettare i criteri della piattaforma Facebook e completare un controllo di sicurezza online.
+4. Nel modulo, fornire un **nome visualizzato**, un **indirizzo di posta elettronica di contatto** valido, una **categoria** appropriata e fare clic su **Crea ID app**. È necessario accettare i criteri della piattaforma Facebook e completare un controllo di sicurezza online.
 
     ![Facebook - Creare un nuovo ID app](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
 
-5. Fare clic su **Impostazioni** nella barra di spostamento a sinistra. Immettere un valore valido **Email di contatto**.
+5. Fare clic su **Impostazioni** nella barra di spostamento a sinistra.
 6. Fare clic su **+ Aggiungi piattaforma** e quindi selezionare **sito Web**.
 
     ![Facebook - Impostazioni](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
@@ -46,15 +46,22 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (Az
     ![Facebook - Impostazioni - sito Web](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
 7. Immettere [https://login.microsoftonline.com/](https://login.microsoftonline.com/) nel campo **URL del sito** e quindi fare clic su **Salva modifiche**.
-8. Copiare il valore di **ID App**. Fare clic su **Mostra** e copiare il valore di **App segreta**. Sono necessari entrambi per configurare Facebook come provider di identità nel tenant. **App Segreta**è una credenziale di sicurezza importante.
 
     ![Facebook - URL del sito](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
-9. Fare clic sulla scheda **Avanzate** nella parte superiore e immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento OAuth validi** nella sezione **Sicurezza**, dove **{tenant}** deve essere sostituito con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
+8. Copiare il valore di **ID App**. Fare clic su **Mostra** e copiare il valore di **App segreta**. Sono necessari entrambi per configurare Facebook come provider di identità nel tenant. **App Segreta**è una credenziale di sicurezza importante.
+
+    ![Facebook - ID app e segreto app](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
+
+9. Fare clic su **+ Aggiungi prodotto** nella barra di spostamento sinistra, quindi sul pulsante **Inizia** accanto a **Accesso a Facebook**.
+
+    ![Facebook - Accesso a Facebook](./media/active-directory-b2c-setup-fb-app/fb-login.png)
+
+10. Immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento OAuth validi** nella sezione **Impostazioni OAuth client**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
 
     ![Facebook - URI di reindirizzamento OAuth](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-10. Per rendere l'applicazione Facebook utilizzabile da AD B2C di Azure, è necessario renderla pubblicamente disponibile. A questo scopo, fare clic su **App Review** nel riquadro di spostamento a sinistra, impostare l'opzione nella parte superiore della pagina su **YES** e quindi fare clic su **Confirm**.
+11. Per rendere l'applicazione Facebook utilizzabile da AD B2C di Azure, è necessario renderla pubblicamente disponibile. A questo scopo, fare clic su **Controllo app** nel riquadro di spostamento a sinistra, impostare l'opzione nella parte superiore della pagina su **SÌ** e quindi fare clic su **Conferma**.
 
     ![Facebook - App pubblica](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
@@ -68,4 +75,4 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (Az
 6. Fare clic su **Configura questo provider di identità**, immettere l'ID app e il segreto app dell'applicazione Facebook creata in precedenza rispettivamente nei campi **ID client** e **Segreto client**.
 7. Fare clic su **OK** e quindi su **Crea** per salvare la configurazione per Facebook.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

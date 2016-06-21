@@ -131,7 +131,7 @@ Per collegare ulteriori dischi dati, attenersi alla procedura illustrata in [Com
 
 ##<a name="SSMS"></a>Connessione a SQL Server Management Studio e attivazione dell'autenticazione in modalità mista
 
-Il motore di database di SQL Server non può usare l'Autenticazione di Windows senza ambiente di dominio. Per connettersi al motore di database da un altro computer, configurare SQL Server per l'autenticazione in modalità mista. L'autenticazione in modalità mista consente sia l'autenticazione di SQL Server sia l'autenticazione di Windows. La modalità di autenticazione di SQL è necessaria per inserire dati direttamente dai database della macchina virtuale di SQL Server in [Azure Machine Learning Studio](https://studio.azureml.net) tramite il modulo Lettore.
+Il motore di database di SQL Server non può usare l'Autenticazione di Windows senza ambiente di dominio. Per connettersi al motore di database da un altro computer, configurare SQL Server per l'autenticazione in modalità mista. L'autenticazione in modalità mista consente sia l'autenticazione di SQL Server sia l'autenticazione di Windows. La modalità di autenticazione di SQL è necessaria per inserire dati direttamente dai database della macchina virtuale di SQL Server VM in [Azure Machine Learning Studio](https://studio.azureml.net) tramite il modulo Import Data.
 
 1.  Durante la connessione alla macchina virtuale tramite Desktop remoto, usare il riquadro **Ricerca** di Windows e digitare **SQL Server Management Studio** (SMSS). Fare clic per avviare SQL Server Management Studio (SSMS). È possibile aggiungere un collegamento a SSMS sul desktop per utilizzi futuri.
 
@@ -164,7 +164,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo ** SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
 6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
@@ -251,9 +251,9 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 ##<a name="amlconnect"></a>Connettersi al motore di database da Azure Machine Learning
 
-Nelle fasi successive di Cortana Analytics Process verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, usare il modulo **Lettore** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). Questo argomento è descritto in modo più dettagliato tramite i collegamenti della guida di Cortana Analytics Process. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
+Nelle fasi successive di Cortana Analytics Process verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, utilizzare il modulo **Import Data** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). Questo argomento è descritto in modo più dettagliato tramite i collegamenti della guida di Cortana Analytics Process. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
-2.	Nel riquadro **Proprietà** del [modulo Lettore](https://msdn.microsoft.com/library/azure/dn905997.aspx) selezionare **Database SQL di Azure** dall'elenco a discesa **Origine dati**.
+2.	Nel riquadro **Proprietà** del [modulo Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) selezionare **Database SQL di Azure** dall'elenco a discesa **Origine dati**.
 
 3.	Nella casella di testo **Nome server database** immettere `tcp:<DNS name of your virtual machine>,1433`
 
@@ -261,7 +261,7 @@ Nelle fasi successive di Cortana Analytics Process verrà usato [Azure Machine L
 
 5.	Immettere la password dell'utente di SQL nella casella di testo **Password account utente server**.
 
-	![Lettore Azure ML][13]
+	![Import Data di Azure ML][13]
 
 ##<a name="shutdown"></a>Arresto e deallocazione della macchina virtuale quando non in uso
 
@@ -306,4 +306,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

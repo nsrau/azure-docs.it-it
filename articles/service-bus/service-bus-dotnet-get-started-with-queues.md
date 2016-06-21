@@ -1,25 +1,27 @@
 <properties
-   pageTitle="Introduzione alle code del bus di servizio | Microsoft Azure"
-   description="Come scrivere un'applicazione console C# per la messaggistica del bus di servizio"
-   services="service-bus"
-   documentationCenter=".net"
-   authors="jtaubensee"
-   manager="timlt"
-   editor="sethmanheim"/>
+    pageTitle="Introduzione alle code del bus di servizio | Microsoft Azure"
+    description="Come scrivere un'applicazione console C# per la messaggistica del bus di servizio"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="jtaubensee"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="tbd"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="dotnet"
-   ms.workload="na"
-   ms.date="06/07/2016"
-   ms.author="jotaub@microsoft.com"/>
+    ms.service="service-bus"
+    ms.devlang="tbd"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="dotnet"
+    ms.workload="na"
+    ms.date="06/07/2016"
+    ms.author="jotaub;sethm"/>
 
-#Introduzione alle code del bus di servizio
+# Introduzione alle code del bus di servizio
+
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-##Contenuto dell'esercitazione
+## Contenuto dell'esercitazione
+
 In questa esercitazione si completeranno questi passaggi:
 
 1. Creare uno spazio dei nomi del bus di servizio usando il portale di Azure.
@@ -30,42 +32,51 @@ In questa esercitazione si completeranno questi passaggi:
 
 4. Scrivere un'applicazione console per ricevere messaggi.
 
-##Prerequisiti
-1. [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com)
+## Prerequisiti
 
-2. Una sottoscrizione di Azure
+1. [Visual Studio 2013 o Visual Studio 2015](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2015.
 
-##1\. Creare uno spazio dei nomi tramite il portale di Azure
+2. Una sottoscrizione di Azure.
+
+[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+## 1\. Creare uno spazio dei nomi tramite il portale di Azure
+
 Se è già stato creato uno spazio dei nomi del bus di servizio, passare alla sezione [Creare una coda usando il portale di Azure](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-##2\. Creare una coda usando il portale di Azure
-Se è già stata creata una coda del bus di servizio, passare alla sezione [Invio di messaggi alla coda](#3-sending-messages-to-the-queue).
+## 2\. Creare una coda usando il portale di Azure
+
+Se è già stata creata una coda del bus di servizio, passare alla sezione [Inviare messaggi alla coda](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-##3\. Invio di messaggi alla coda
+## 3\. Inviare messaggi alla coda
+
 Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visual Studio.
 
-###Creare un'applicazione console
+### Creare un'applicazione console
+
 1. Avviare Visual Studio e creare una nuova applicazione console.
 
-###Aggiungere il pacchetto NuGet del bus di servizio
-1. Fare clic con il pulsante destro del mouse sul progetto appena creato e selezionare **Gestisci pacchetti NuGet**.
+### Aggiungere il pacchetto NuGet del bus di servizio
 
-2. Cercare "Bus di servizio di Microsoft Azure" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 
-    ![Selezionare un pacchetto NuGet][1]
+2. Fare clic sulla scheda **Esplora**, quindi cercare "Bus di servizio di Microsoft Azure" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
-###Scrivere il codice per inviare un messaggio alla coda
+    ![Selezionare un pacchetto NuGet][nuget-pkg]
+
+### Scrivere il codice per inviare un messaggio alla coda
+
 1. Aggiungere l'istruzione using seguente all'inizio del file Program.cs.
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Aggiungere il codice seguente al metodo Main e impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e **queueName** sul nome della coda usato durante la creazione della coda.
+2. Aggiungere il codice seguente al metodo `Main`, impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare **queueName** sul nome della coda usato durante la creazione della coda.
 
     ```
     var connectionString = "<Your connection string>";
@@ -74,7 +85,6 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
     client.Send(message);
-
     ```
 
     Ecco l'aspetto che avrà il file Program.cs.
@@ -101,20 +111,21 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
     }
     ```
   
-3. Eseguire il programma e verificare il portale di Azure. Si noti che ora il valore in **Lunghezza coda** è 1.
+3. Eseguire il programma e verificare il portale di Azure classico. Si noti che ora il valore in **Lunghezza coda** è 1.
     
-      ![Lunghezza coda][2]
+      ![Lunghezza coda][queue-length-send]
     
-##4\. Ricezione di messaggi dalla coda
-1. Creare una nuova applicazione console e aggiungere un riferimento al pacchetto NuGet del bus di servizio, come è stato fatto per l'applicazione di invio precedente.
+## 4\. Ricezione di messaggi dalla coda
 
-2. Aggiungere l'istruzione using seguente all'inizio del file Program.cs.
+1. Creare una nuova applicazione console e aggiungere un riferimento al pacchetto NuGet del bus di servizio, come per l'applicazione di invio precedente.
+
+2. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
   
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
   
-3. Aggiungere il codice seguente al metodo Main e impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e **queueName** sul nome della coda usato durante la creazione della coda.
+3. Aggiungere il codice seguente al metodo `Main`, impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare **queueName** sul nome della coda usato durante la creazione della coda.
 
     ```
     var connectionString = "";
@@ -131,7 +142,7 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
     Console.ReadLine();
     ```
 
-      Ecco l'aspetto che avrà il file Program.cs:
+	Ecco l'aspetto che avrà il file Program.cs:
 
     ```
     using System;
@@ -160,25 +171,25 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
     }
     ```
   
-4. Eseguire il programma e verificare il portale di Azure. Si noti che ora il valore in **Lunghezza coda** è 0.
+4. Eseguire il programma e verificare il portale. Si noti che ora il valore in **Lunghezza coda** è 0.
 
-    ![Lunghezza coda][3]
+    ![Lunghezza coda][queue-length-receive]
   
 Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un messaggio.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##Passaggi successivi
+## Passaggi successivi
 
-Per esempi che illustrano alcune delle funzionalità più avanzate di messaggistica del bus di servizio di Azure, vedere il repository GitHub. [https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples]
+Vedere il [repository GitHub con esempi](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio di Azure.
 
 <!--Image references-->
 
-[1]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[2]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[3]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
+[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
+[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

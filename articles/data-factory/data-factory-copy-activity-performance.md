@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/03/2016"
 	ms.author="spelluru"/>
 
 
@@ -168,6 +168,68 @@ Fare riferimento ai [casi d'uso di esempio](#case-study---parallel-copy) descrit
  
 È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Di conseguenza, se un processo di copia impiegava un'ora con 1 unità cloud e ora richiede 15 minuti con 4 unità cloud, la fattura complessiva sarà pressoché identica. Ecco un altro scenario. Supporre che si usino 4 unità cloud e che la prima impieghi 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti durante l'esecuzione di un'attività di copia. Verrà addebitato il tempo totale necessario per la copia,ossia per lo spostamento dei dati, ovvero 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sui costi.
 
+## Copia di staging
+Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile usare un archivio BLOB di Azure come archivio di staging provvisorio. Questa funzionalità di staging è particolarmente utile nei casi seguenti:
+
+1.	**A volte occorre tempo per eseguire lo spostamento di dati ibrido, ad esempio dall'archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta.** Per migliorare le prestazioni dello spostamento dei dati, è possibile comprimere i dati in locale, in modo da ridurre il tempo per spostare i dati tramite la rete all'archivio dati di staging nel cloud, e quindi decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione. 
+2.	**Si vogliono aprire solo le porte 80 e 443 nel firewall a causa dei criteri IT.** Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario abilitare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In questo scenario è possibile utilizzare Gateway di gestione dati per copiare inizialmente i dati in un archivio BLOB di Azure di staging, che avviene tramite HTTP(s) ovvero sulla porta 443, e quindi caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433. 
+3.	**Inserire dati da diversi archivi dati in Azure SQL Data Warehouse tramite PolyBase.** Azure SQL Data Warehouse fornisce PolyBase come meccanismo a velocità effettiva elevata per caricare grandi quantità di dati in SQL Data Warehouse. Richiede tuttavia che i dati di origine si trovino nell'archivio BLOB di Azure e soddisfi alcuni criteri aggiuntivi. Quando si caricano dati da un archivio dati diverso dall'archivio BLOB di Azure, è possibile abilitare la copia dei dati tramite un archivio BLOB di Azure di staging provvisorio. In questo caso Azure Data Factory eseguirà le trasformazioni richieste sui dati per assicurare che soddisfino i requisiti di PolyBase e quindi userà PolyBase per caricare i dati in SQL Data Warehouse. Per altri dettagli ed esempi, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+
+### Come funziona la copia di staging
+Quando si abilita la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine all'archivio dati di staging (Bring Your Own) e quindi copiati dall'archivio dati di staging all'archivio dati sink. Data Factory di Azure gestirà automaticamente il flusso della fase 2 e pulirà anche i dati temporanei dall'archivio di staging dopo aver completato lo spostamento dei dati.
+
+Nello **scenario di copia cloud** in cui gli archivi dati di origine e sink sono nel cloud e non utilizzano Gateway di gestione dati, le operazioni di copia vengono eseguite da **servizio Data Factory di Azure**.
+
+![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+
+Invece, nello **scenario di copia ibrido ** in cui l'origine è locale e il sink è nel cloud, lo spostamento dei dati dall'archivio dati di origine all'archivio dati di staging viene eseguito da **Gateway di gestione dati** e lo spostamento dei dati dall'archivio dati di staging all'archivio dati sink viene eseguito dal **servizio Data Factory di Azure**.
+
+![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+
+Quando si abilita lo spostamento dei dati usando l'archivio di staging, è possibile specificare se i dati devono essere compressi prima dello spostamento dall'archivio dati di origine all'archivio dati di staging/provvisorio e decompressi prima dello spostamento dall'archivio dati di staging/provvisorio all'archivio dati sink.
+
+La copia del dati da un archivio dati cloud a un archivio dati locale o tra due archivi dati locali con archivio di staging non è supportata al momento e verrà abilitata a breve.
+
+### Configurazione
+È possibile configurare l'impostazione **enableStaging** su Copia attività per specificare se si vuole che i dati siano inseriti in un archivio BLOB di Azure di staging prima di essere caricati in un archivio dati di destinazione. Quando si imposta enableStaging su true, è necessario specificare proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato Archiviazione di Azure o Firma di accesso condiviso di Archiviazione di Azure come risorsa di staging, se ancora non ne è disponibile uno.
+
+Proprietà | Descrizione | Valore predefinito | Obbligatorio
+--------- | ----------- | ------------ | --------
+enableStaging | Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. | False | No
+linkedServiceName | Specificare il nome di un servizio collegato [AzureStoage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento alla risorsa di archiviazione di Azure che sarà usata come archivio di staging provvisorio. <br/><br/> Si noti che una risorsa di archiviazione di Azure con firma di accesso condiviso non può essere usata per caricare dati in Azure SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. | N/D | Sì, quando enableStaging è impostato su true. 
+path | Specificare il percorso nell'archivio BLOB di Azure che conterrà i dati di staging. Se non si specifica un percorso, il servizio creerà un contenitore per archiviare i dati temporanei. <br/><br/> Non è necessario specificare il percorso, a meno che non si usi Archiviazione di Azure con firma di accesso condiviso o ci siano requisiti particolari riguardanti la posizione in cui devono risiedere i dati temporanei. | N/D | No
+enableCompression | Specificare se è necessario comprimere i dati quando vengono spostati dall'archivio dati di origine all'archivio dati sink, per ridurre il volume dei dati trasferiti in rete. | False | No
+
+Ecco una definizione di esempio di Copia attività con le proprietà precedenti:
+
+	"activities":[  
+	{
+		"name": "Sample copy activity",
+		"type": "Copy",
+		"inputs": [{ "name": "OnpremisesSQLServerInput" }],
+		"outputs": [{ "name": "AzureSQLDBOutput" }],
+		"typeProperties": {
+			"source": {
+				"type": "SqlSource",
+			},
+			"sink": {
+				"type": "SqlSink"
+			},
+	    	"enableStaging": true,
+			"stagingSettings": {
+				"linkedServiceName": "MyStagingBlob",
+				"path": "stagingcontainer/path",
+				"enableCompression": true
+			}
+		}
+	}
+	]
+
+### Impatto della fatturazione
+Il costo verrà addebitato in base alle due fasi di durata della copia e dell relativo tipo di copia rispettivamente, ovvero:
+
+- Quando si usa la funzionalità di staging durante una copia sul cloud, ovvero la copia dei dati da un archivio dati cloud a un altro archivio dati cloud, ad esempio, da Azure Data Lake a Azure SQL Data Warehouse, il costo addebitato sarà [somma della durata della copia per i passaggi 1 e 2] x [prezzo unitario della copia sul cloud]
+- Quando si usa la funzionalità di staging durante una copia ibrida, ovvero una copia dei dati da un archivio dati locale a un archivio dati cloud, ad esempio da SQL Server locale ad Azure SQL Data Warehouse, il costo addebitato sarà [durata della copia ibrida] x [prezzo unitario della copia ibrida] + [cloud della copia durata] x [prezzo unitario della copia sul cloud]
 
 
 ## Considerazioni sull'origine
@@ -176,7 +238,7 @@ Assicurarsi che l'archivio dati sottostante non venga sovraccaricato da altri ca
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#appendix-data-store-performance-tuning-reference) specifici degli archivi dati per informazioni sulle caratteristiche delle prestazioni degli archivi dati e su come ridurre i tempi di risposta e ottimizzare la velocità effettiva.
 
-Se i dati vengono copiati dall'**archiviazione BLOB di Azure** in **SQL Data Warehouse di Azure**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli.
+Se i dati vengono copiati da **Archivio BLOB di Azure** in **Azure SQL Data Warehouse**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Per altre informazioni, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse).
 
 
 ### Archivi dati basati su file
@@ -200,7 +262,7 @@ Assicurarsi che l'archivio dati sottostante non venga sovraccaricato da altri ca
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#appendix-data-store-performance-tuning-reference) specifici degli archivi dati per informazioni sulle caratteristiche delle prestazioni degli archivi dati e su come ridurre i tempi di risposta e ottimizzare la velocità effettiva.
 
-Se i dati vengono copiati dall'**archiviazione BLOB di Azure** in **SQL Data Warehouse di Azure**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli.
+Se i dati vengono copiati da **Archivio BLOB di Azure** in **Azure SQL Data Warehouse**, provare ad abilitare **PolyBase** per migliorare le prestazioni. Per altre informazioni, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse).
 
 
 ### Archivi dati basati su file
@@ -303,15 +365,15 @@ In questo caso, è possibile che la compressione dati BZIP2 stia rallentando l'i
 
 ## Case study: copia parallela  
 
-**Scenario I:** copiare 1000 file da 1 MB dal file system locale nell'archiviazione BLOB di Azure
+**Scenario I:** copiare 1000 file da 1 MB dal file system locale nell'archivio BLOB di Azure
 
-**Analisi e ottimizzazione delle prestazioni:** si supponga di aver installato il Gateway di gestione dati in un computer quad-core. Per impostazione predefinita Data Factory usa 16 copie parallele per spostare contemporaneamente i file dal file system al BLOB di Azure. La velocità in questo caso sarà buona. Se necessario, è anche possibile specificare il numero di copie parallele. Quando si copia un numero elevato di file di piccole dimensioni, le copie parallele aumentano considerevolmente la velocità grazie a un uso più efficiente delle risorse coinvolte.
+**Analisi e ottimizzazione delle prestazioni:** si supponga di aver installato Gateway di gestione dati in un computer quad-core. Per impostazione predefinita Data Factory usa 16 copie parallele per spostare contemporaneamente i file dal file system al BLOB di Azure. La velocità in questo caso sarà buona. Se necessario, è anche possibile specificare il numero di copie parallele. Quando si copia un numero elevato di file di piccole dimensioni, le copie parallele aumentano considerevolmente la velocità grazie a un uso più efficiente delle risorse coinvolte.
 
 ![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Scenario II:** copiare 20 BLOB di 500 MB ognuno dall'archiviazione BLOB di Azure in Azure Data Lake Store Analysis e ottimizzare le prestazioni.
+**Scenario II:** copiare 20 BLOB di 500 MB ognuno dall'archivio BLOB di Azure in Analisi Archivio Azure Data Lake e ottimizzare le prestazioni.
 
-**Analisi e ottimizzazione delle prestazioni:** in questo scenario Data Factory copia i dati dall'archiviazione BLOB di Azure in Azure Data Lake usando un'unica copia e un'unica unità di spostamento dei dati cloud. La proprietà parallelCopies è impostata su 1. La velocità effettiva si avvicina ai valori indicati nella [sezione riguardante i riferimenti di prestazioni](#performance-reference) precedente.
+**Analisi e ottimizzazione delle prestazioni:** in questo scenario Data Factory copia i dati dall'archivio BLOB di Azure in Azure Data Lake usando un'unica copia e un'unica unità di spostamento dei dati cloud. La proprietà parallelCopies è impostata su 1. La velocità effettiva si avvicina ai valori indicati nella sezione [Informazioni di riferimento sulle prestazioni](#performance-reference) precedente.
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
@@ -323,10 +385,10 @@ Se si copiano file di dimensioni superiori a decine di MB e il volume totale è 
 Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione delle prestazioni per alcuni archivi dati supportati:
 
 - Archiviazione di Azure (inclusi BLOB di Azure e Tabella di Azure): [Obiettivi di scalabilità per Archiviazione di Azure](../storage/storage-scalability-targets.md) ed [Elenco di controllo relativo a prestazioni e scalabilità di Archiviazione di Azure](../storage//storage-performance-checklist.md)
-- Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-service-tiers.md#monitoring-performance) e controllare la percentuale DTU (Database Transaction Unit).
-- Azure SQL Data Warehouse: la capacità viene misurata in unità Data Warehouse (DWU). Vedere [Scalabilità e prestazioni elastiche con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md).
+- Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-service-tiers.md#monitoring-performance) e controllare la percentuale di DTU (Database Transaction Unit).
+- Azure SQL Data Warehouse: la capacità viene misurata in unità Data Warehouse (DWU). Vedere [Scalabilità e prestazioni elastiche con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 - Azure DocumentDB: [Livello di prestazioni in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

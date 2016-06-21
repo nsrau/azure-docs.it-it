@@ -659,9 +659,9 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 - [Azure: nozioni fondamentali di telemetria e risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [Come usare le code del bus di servizio](./service-bus/service-bus-dotnet-how-to-use-queues.md)
+- [Come usare le code del bus di servizio](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server Business Intelligence in Macchine virtuali di Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Ricevere notifiche di avviso](./azure-portal/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -64,7 +64,7 @@ I database SQL di Azure possono essere configurati anche per mascherare i dati s
 
 ![Replica geografica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-I database SQL di Azure possono essere configurati per replicare in modo asincrono le transazioni sottoposte a commit in un database secondario. La parte della replica geografica del portale consente di selezionare l'area di Azure in cui si vuole far risiedere il database secondario.
+I database SQL di Azure possono essere configurati per replicare in modo asincrono le transazioni sottoposte a commit in un database secondario. La parte della replica geografica nel portale consente di selezionare l'area di Azure in cui si vuole far risiedere il database secondario.
 
 - [Replica geografica](sql-database-geo-replication-overview.md)
 
@@ -74,4 +74,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
 
 - [Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

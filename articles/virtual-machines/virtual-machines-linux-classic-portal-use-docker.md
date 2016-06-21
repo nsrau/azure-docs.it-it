@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="05/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -45,12 +45,12 @@ Creare il certificato e i file di chiave per la comunicazione di Docker seguendo
 Nella riga di comando, usare **`base64`** o un altro strumento di codifica per creare argomenti con codifica Base 64. L'esecuzione di questa operazione con un semplice set di file di chiave e certificati potrebbe avere un aspetto simile al seguente:
 
 ```
- ~/.docker$ l
+ ~/.docker$ ls
  ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
  ~/.docker$ base64 ca.pem > ca64.pem
  ~/.docker$ base64 server-cert.pem > server-cert64.pem
  ~/.docker$ base64 server-key.pem > server-key64.pem
- ~/.docker$ l
+ ~/.docker$ ls
  ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
@@ -79,11 +79,11 @@ Nei campi modulo, immettere le versioni con codifica Base 64 del certificato del
 > [AZURE.NOTE] Notare che (come nell'immagine precedente) il valore 2376 è inserito per impostazione predefinita. È possibile immettere qualsiasi endpoint in questa fase, ma il passaggio successivo consiste nell'aprire l'endpoint corrispondente. Se si modifica il valore predefinito, assicurarsi di aprire l'endpoint corrispondente nel passaggio successivo.
 
 ## Aggiungere l'endpoint di comunicazione del Docker
-Quando si visualizza la VM nel gruppo di risorse creato, scorrere verso il basso e fare clic su **Endpoint** per visualizzare gli endpoint sulla VM, come qui illustrato.
+Quando si visualizza il gruppo di risorse creato, selezionare il gruppo di sicurezza di rete associato alla VM, quindi fare clic su **Regole di sicurezza in ingresso** per visualizzare le regole, come illustrato di seguito.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
-Fare clic su **+ Aggiungi** per aggiungere un altro endpoint e, in caso di impostazione predefinita, immettere un nome per l'endpoint (in questo esempio, **docker**) e 2376 per entrambe le porte (privata e pubblica). Lasciare invariato il valore del protocollo **TCP** e fare clic su **OK** per creare l'endpoint.
+Fare clic su **+ Aggiungi** per aggiungere un'altra regola e, in caso di impostazione predefinita, immettere un nome per l'endpoint (in questo esempio **Docker**) e 2376 per 'Intervallo di porte di destinazione'. Impostare il valore del protocollo su **TCP**, quindi fare clic su **OK** per creare la regola.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
@@ -148,4 +148,4 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 [Esecuzione di Docker con https]: http://docs.docker.com/articles/https/
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

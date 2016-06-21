@@ -26,7 +26,7 @@ In questa guida dettagliata viene illustrato come utilizzare le funzionalità di
 
 ## Introduzione al bus di servizio
 
-In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata **coda1**. In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di Azure classico](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md).
+In questa guida si presuppone che si disponga già di uno spazio dei nomi del bus di servizio contenente una coda denominata **coda1**. In caso contrario, è necessario creare lo spazio dei nomi e la coda tramite il [portale di Azure classico](http://manage.windowsazure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
 
 ### Download della libreria client JMS basata su AMQP 1.0
 
@@ -329,7 +329,7 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](service-bus-amqp-overview.md)
 * [Come usare AMQP 1.0 con l'API .NET del bus di servizio](service-bus-dotnet-advanced-message-queuing.md)
 * [Guida per sviluppatori di AMQP 1.0 per il bus di servizio](service-bus-amqp-dotnet.md)
-* [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+* [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

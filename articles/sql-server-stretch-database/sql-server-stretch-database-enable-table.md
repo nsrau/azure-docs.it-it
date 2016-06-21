@@ -43,11 +43,11 @@ Esaminare lo scopo della procedura guidata e i prerequisiti.
 
 Verificare che la tabella da abilitare sia visualizzata e selezionata.
 
-È possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice basato sulla data nella procedura guidata. Se si vuole utilizzare un predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
+È possibile eseguire la migrazione di un'intera tabella o specificare un predicato del filtro semplice nella procedura guidata. Per usare un tipo di predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
 
 -   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare un predicato.
 
--   Eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata.
+-   Eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Per i passaggi necessari, vedere [Aggiungere un predicato del filtro dopo l'esecuzione della procedura guidata](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 La sintassi di ALTER TABLE è descritta più avanti in questo argomento.
 
@@ -59,13 +59,13 @@ Esaminare i valori immessi dall'utente e le opzioni selezionate nella procedura 
 
 Esaminare i risultati.
 
-## <a name="EnableTSQLTable"></a>Usare Transact-SQL per abilitare Database Estensione in una tabella
+## <a name="EnableTSQLTable"></a>Usare Transact-SQL per abilitare l'estensione database in una tabella
 È possibile usare Transact-SQL per abilitare l'estensione database in una tabella esistente o per creare una nuova tabella con l'estensione database abilitata.
 
 ### Opzioni
 Usare le opzioni seguenti quando si esegue CREATE TABLE o ALTER TABLE per abilitare l'estensione database in una tabella.
 
--   Facoltativamente, usare la clausola `FILTER_PREDICATE = <predicate>` per specificare un predicato e selezionare le righe da sottoporre a migrazione se la tabella contiene sia dati cronologici che dati attuali. Il predicato deve chiamare una funzione inline con valori di tabella. Per altre informazioni, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)](sql-server-stretch-database-predicate-function.md). Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
+-   È possibile usare la clausola `FILTER_PREDICATE = <predicate>` per specificare un predicato e selezionare le righe di cui eseguire la migrazione se la tabella contiene sia dati attuali che cronologici. Il predicato deve chiamare una funzione inline con valori di tabella. Per altre informazioni, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione](sql-server-stretch-database-predicate-function.md). Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
     >   [AZURE.NOTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
 
@@ -80,7 +80,7 @@ Ecco un esempio in cui viene eseguita la migrazione dell'intera tabella e viene 
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Ecco un esempio in cui viene eseguita la migrazione delle sole righe identificate dalla funzione con valori di tabella inline `dbo.fn_stretchpredicate` e viene posticipata la migrazione dei dati. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)](sql-server-stretch-database-predicate-function.md).
+Ecco un esempio in cui viene eseguita la migrazione delle sole righe identificate dalla funzione inline con valori di tabella `dbo.fn_stretchpredicate` e viene rimandata la migrazione dei dati. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 ALTER TABLE <table name>
@@ -100,7 +100,7 @@ Ecco un esempio in cui viene eseguita la migrazione dell'intera tabella e viene 
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Ecco un esempio in cui viene eseguita la migrazione delle sole righe identificate dalla funzione con valori di tabella inline `dbo.fn_stretchpredicate` e viene posticipata la migrazione dei dati. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)](sql-server-stretch-database-predicate-function.md).
+Ecco un esempio in cui viene eseguita la migrazione delle sole righe identificate dalla funzione inline con valori di tabella `dbo.fn_stretchpredicate` e viene rimandata la migrazione dei dati. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 CREATE TABLE <table name> ...
@@ -118,4 +118,4 @@ Per altre informazioni, vedere [CREATE TABLE (Transact-SQL)](https://msdn.micros
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

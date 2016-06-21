@@ -16,7 +16,7 @@
 	ms.date="05/15/2016"
 	ms.author="glenga"/>
 
-# Aggiungere notifiche push all'app universale di Windows Runtime 8.1
+# Aggiungere notifiche push all'app di Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -213,4 +213,4 @@ L'app dovrà quindi registrarsi per le notifiche push all'avvio. Se l'autenticaz
 <!-- Images. -->
 ))) )
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -77,7 +77,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 Questa esercitazione ha illustrato come elaborare in modo affidabile i messaggi di punti dati e interattivi da dispositivo a cloud usando la classe [EventProcessorHost].
 
-L'esercitazione [Uploading files from devices] (Caricamento di file da dispositivi) si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
+L'esercitazione [Uploading files from devices] \(Caricamento di file da dispositivi) si basa su questa esercitazione e fa uso di una logica di elaborazione dei messaggi analoga. Descrive anche un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
 
 Altre informazioni sull'hub IoT:
 
@@ -96,7 +96,7 @@ Altre informazioni sull'hub IoT:
 [Archivio BLOB di Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Data Factory di Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues/
+[Service Bus Queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
@@ -121,4 +121,4 @@ Altre informazioni sull'hub IoT:
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

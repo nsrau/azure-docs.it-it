@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="12/08/2015"
+ ms.date="05/27/2016"
  ms.author="rasquill"/>
 
 #Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-features](../../includes/virtual-machines-common-extensions-features.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

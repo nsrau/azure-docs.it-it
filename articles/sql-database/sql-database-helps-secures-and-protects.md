@@ -55,4 +55,4 @@ Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

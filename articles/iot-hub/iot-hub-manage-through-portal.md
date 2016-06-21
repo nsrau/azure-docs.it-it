@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="03/14/2016"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Gestire hub IoT tramite il portale di Azure
@@ -120,6 +120,24 @@ Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprie
 
 ![][11]
 
+## Caricamento di file
+
+Per utilizzare la funzionalità di caricamento di file nell'hub IoT, è innanzitutto necessario associare un account di archiviazione di Azure con l'hub. Selezionare le impostazioni di **caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l’hub IoT da modificare.
+
+**Account di archiviazione**: utilizzare il portale per selezionare un account di archiviazione nella sottoscrizione corrente da associare con l’hub IoT. L’hub IoT genererà URI di firma di accesso condiviso da questo account di archiviazione per i dispositivi da utilizzare durante il caricamento di file.
+
+![][14]
+
+**Ricezione di notifiche per i file caricati**: abilitare o disabilitare le notifiche di caricamento del file mediante l’apposita opzione.
+
+**TTL di firma di accesso condiviso**: questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Per impostazione predefinita è impostato su 1 ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+
+**TTL predefinito per le impostazioni di notifica dei file**: la durata di una notifica di caricamento del file. Per impostazione predefinita è impostato su 1 giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+
+**Numero massimo di recapiti per le notifiche dei file**: il numero di tentativi che l’hub IoT farà per distribuire una notifica di caricamento del file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+
+![][13]
+
 ## Prezzi e scalabilità
 
 I prezzi di un hub IoT esistente possono essere modificati tramite le impostazioni disponibili in **Prezzi**, con le eccezioni seguenti:
@@ -149,8 +167,10 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

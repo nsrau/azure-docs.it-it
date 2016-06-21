@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Spostare database tra server, tra sottoscrizioni e all'interno e all'esterno di Azure
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##Per spostare un database in un server diverso nella stessa sottoscrizione
 - Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare un database dall'elenco e quindi fare clic su **Copia**. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
@@ -24,9 +26,9 @@
 - Nel [portale di Azure](https://portal.azure.com) fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
 
 ## Per eseguire la migrazione di un database SQL in Azure
-- Determinare la compatibilità del database e quindi selezionare il metodo di migrazione appropriato in base alle esigenze. Seguire le linee guida e le opzioni disponibili nella pagina relativa alla [migrazione di un database SQL Server](sql-database-cloud-migrate.md).
+- Determinare la compatibilità del database e quindi selezionare il metodo di migrazione appropriato in base alle esigenze. Seguire le linee guida e le opzioni disponibili in [Migrazione di un database SQL Server al database SQL nel cloud](sql-database-cloud-migrate.md).
 
 ## Per creare una copia di un database da usare all'esterno di Azure
 - [Esportare un file BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

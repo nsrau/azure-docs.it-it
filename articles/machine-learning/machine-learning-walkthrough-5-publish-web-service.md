@@ -48,7 +48,7 @@ Si supponga che il modello di albero con boosting sia il modello più indicato. 
 
 - [Two-Class Support Vector Machine][two-class-support-vector-machine]
 - I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
-- [Normalize Data][normalize-data] (entrambi)
+- [Normalize Data][normalize-data] \(entrambi)
 - [Evaluate Model][evaluate-model]
 
 Selezionare il modulo e premere il tasto CANC oppure fare clic con il pulsante destro del mouse sul modulo e selezionare **Elimina**.
@@ -78,7 +78,7 @@ Quando si fa clic su **Distribuisci servizio Web**, vengono eseguite diverse ope
 
 > [AZURE.NOTE] L'esperimento è stato salvato in due parti in schede che sono state aggiunte in cima all'area di disegno dell'esperimento: l'esperimento di training originale si trova nella scheda **Training experiment** e l'esperimento di analisi predittiva appena creato si trova nella scheda **Predictive experiment**.
 
-Con questo particolare esperimento è necessario effettuare un'operazione aggiuntiva. Sono stati aggiunti due moduli [Execute R Script][execute-r-script] per fornire una funzione di ponderazione per i dati di training e di test, ma nel modello finale questo diventa superfluo. Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] quando ha rimosso il modulo [Split][split], pertanto ora è possibile rimuovere l'altro e connettere [Editor metadati][metadata-editor] direttamente a [Score Model][score-model].
+Con questo particolare esperimento è necessario effettuare un'operazione aggiuntiva. Sono stati aggiunti due moduli [Execute R Script][execute-r-script] per fornire una funzione di ponderazione per i dati di training e di test, ma nel modello finale questo diventa superfluo. Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] quando ha rimosso il modulo [Split][split], pertanto ora è possibile rimuovere l’altro e connettere [Edit Metadata][edit-metadata] direttamente a [Score Model][score-model].
 
 L'esperimento dovrebbe risultare simile al seguente:
 
@@ -108,9 +108,9 @@ Nella pagina **DASHBOARD** fare clic sul pulsante **Test** in **Default Endpoint
 
 Immettere un set di dati e quindi fare clic su **OK**.
 
-Nel servizio Web i dati entrano dal modulo **Web service input**, passano attraverso il modulo [Editor metadati][metadata-editor] e arrivano al modulo [Score Model][score-model] in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output**.
+Nel servizio Web i dati entrano dal modulo **Web service input**, passano attraverso il modulo [Edit Metadata][edit-metadata] e arrivano al modulo [Score Model][score-model] in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output**.
 
-> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Project Columns][project-columns] tra [Score Model][score-model] e **Web service output** per eliminare le colonne che non devono essere restituite.
+> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Select Columns in Dataset][select-columns] tra [Score Model][score-model] e **Web service output** per eliminare le colonne che non devono essere restituite.
 
 ## Gestire il servizio Web
 Dopo aver distribuito il servizio Web, è possibile gestirlo dal [portale di Azure classico](https://manage.windowsazure.com).
@@ -145,13 +145,13 @@ Per informazioni dettagliate, vedere:
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

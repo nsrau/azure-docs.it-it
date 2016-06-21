@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/14/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
@@ -30,7 +30,9 @@ Con un server in modalità di gestione temporanea è possibile apportare modific
 
 Durante l'installazione è possibile selezionare la **modalità di gestione temporanea** per il server. In questo modo il server sarà attivo per le operazioni di importazione e sincronizzazione, ma non potrà eseguire esportazioni. Un server in modalità di gestione temporanea non eseguirà la sincronizzazione password né abiliterà il writeback delle password, anche se si selezionano queste funzionalità. Quando si disabilita la modalità di gestione temporanea, il server avvierà l'esportazione e abiliterà la sincronizzazione password e il writeback delle password (se abilitati).
 
-Un server in modalità di gestione temporanea continuerà a ricevere modifiche da Active Directory e Azure AD. Avrà quindi sempre una copia delle ultime modifiche e potrà così assumere velocemente le responsabilità di un altro server. Se si apportano modifiche alla configurazione del server primario, è necessario apportare le stesse modifiche ai server in modalità di gestione temporanea.
+È comunque possibile forzare un’esportazione utilizzando Synchronization Service Manager.
+
+Un server in modalità di gestione temporanea continuerà a ricevere modifiche da Active Directory e Azure AD. Avrà sempre una copia delle ultime modifiche e potrà così assumere velocemente le responsabilità di un altro server. Se si apportano modifiche alla configurazione del server primario, è necessario apportare le stesse modifiche ai server in modalità di gestione temporanea.
 
 Coloro che hanno una conoscenza delle tecnologie di sincronizzazione precedenti tengano presente che la modalità di gestione temporanea è diversa, perché il server ha il proprio database SQL. Il server in modalità di gestione temporanea può quindi trovarsi in un altro data center.
 
@@ -51,15 +53,15 @@ Per applicare questo metodo, seguire questa procedura:
 
 1. Selezionare **Connettori** e quindi selezionare il primo connettore con il tipo **Servizi di dominio Active Directory**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**. Eseguire questa operazione per tutti i connettori di questo tipo.
 2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**.
-4. Assicurarsi che Connettori sia ancora selezionata e per ogni connettore con il tipo **Servizi di dominio Active Directory** fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e fare clic su **OK**.
-5. Selezionare il connettore con il tipo **Azure Active Directory** (Microsoft). Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
+3. Assicurarsi che Connettori sia ancora selezionata e per ogni connettore con il tipo **Servizi di dominio Active Directory** fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e fare clic su **OK**.
+4. Selezionare il connettore con il tipo **Azure Active Directory** (Microsoft). Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
 
-È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentiranno di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
+È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentono di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
 
 **Verificare**
 
-1. Avviare un prompt dei comandi e passare a `%Program Files%\Microsoft Azure AD Sync\bin`
-2. Eseguire: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> Si può trovare il nome del connettore nel servizio di sincronizzazione. Il nome sarà simile a "contoso.com - AAD" per Azure AD.
+1. Avviare un prompt dei comandi e passare a `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Eseguire: `csexport "Name of Connector" %temp%\export.xml /f:x` Il nome del connettore si trova nel servizio di sincronizzazione. Il nome sarà simile a "contoso.com - AAD" per Azure AD.
 3. Eseguire: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. A questo punto si avrà un file denominato export.csv in %temp%, che può essere esaminato in Microsoft Excel. Questo file contiene tutte le modifiche in fase di esportazione.
 5. Apportare le modifiche necessarie ai dati o alla configurazione ed eseguire di nuovo questi passaggi (Importare e sincronizzare e Verificare), finché le modifiche che stanno per essere esportate saranno quelle previste.
@@ -114,4 +116,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

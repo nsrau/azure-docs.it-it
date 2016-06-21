@@ -48,12 +48,12 @@ Il modulo [Partizione ed esempio][partition-and-sample] può essere utilizzato p
 
 
 ## Definizione della metrica
-Il modulo [Parametri di apertura][sweep-parameters] fornisce supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati determinati. Il riquadro delle proprietà di questo modulo include, oltre alle informazioni relative al training del modello, la metrica da utilizzare per determinare il miglior set di parametri. Dispone di due diversi elenchi a discesa per gli algoritmi di classificazione e regressione, rispettivamente. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico, è stato scelto **Accuratezza** come metrica.
+Il modulo [Ottimizzazione degli iperparametri del modello][tune-model-hyperparameters] fornisce supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati determinati. Il riquadro delle proprietà di questo modulo include, oltre alle informazioni relative al training del modello, la metrica da utilizzare per determinare il miglior set di parametri. Dispone di due diversi elenchi a discesa per gli algoritmi di classificazione e regressione, rispettivamente. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico, è stato scelto **Accuratezza** come metrica.
  
 ![Immagine5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Esecuzione del training, valutazione e confronto  
-Lo stesso modulo [Parametri di apertura][sweep-parameters] esegue il training di tutti i modelli corrispondenti al set di parametri, valuta differenti metriche e poi restituisce il miglior modello di training in base alla metrica scelta dall'utente. Tale modulo dispone di due input obbligatori
+Lo stesso modulo [Ottimizzazione degli iperparametri del modello][tune-model-hyperparameters] esegue il training di tutti i modelli corrispondenti al set di parametri, valuta differenti metriche e poi restituisce il miglior modello di training in base alla metrica scelta dall'utente. Tale modulo dispone di due input obbligatori
 
 * l'allievo non formato 
 * il set di dati 
@@ -67,7 +67,7 @@ e un set di dati di input facoltativi. Si effettua la connessione al set di dati
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

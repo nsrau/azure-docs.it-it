@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -176,6 +176,16 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 ![Nei pulsanti nella parte superiore di Esplora metriche](./media/app-insights-metrics-explorer/17-reset.png)
 
+## Live Stream: metriche istantanee per il monitoraggio dettagliato
+
+Live Stream mostra le metriche dell’applicazione in questo esatto momento, con una latenza quasi in tempo reale di 1 secondo. Ciò è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
+
+![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
+
+A differenza di Esplora metriche, Live Stream consente di visualizzare un set fisso di metriche. I dati vengono mantenuti solo intanto che si trovano nel grafico, poi vengono eliminati.
+
+Live Stream è disponibile con Application Insights SDK per ASP.NET, versione 2.1.0 o successiva.
+
 ## Impostare gli avvisi
 
 Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
@@ -197,7 +207,7 @@ Gli elementi esportati corrispondono a quelli visualizzati. È pertanto necessar
 
 *L'opzione Esporta attualmente funziona solo per Internet Explorer e Chrome. In futuro verrà aggiunto il supporto per altri browser.*
 
-### Esportazione continua
+## Esportazione continua
 
 Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare esternamente, considerare la possibilità di usare l'[esportazione continua](app-insights-export-telemetry.md).
 
@@ -236,4 +246,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->
