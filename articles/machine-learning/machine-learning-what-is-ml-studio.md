@@ -94,7 +94,7 @@ Per un elenco dei set di dati di esempio inclusi in Machine Learning Studio, ved
 Un modulo è un algoritmo che è possibile applicare ai dati. Machine Learning Studio include diversi moduli, da funzioni di inserimento dei dati a processi di training, valutazione e convalida. Ecco alcuni esempi di moduli inclusi:
 
 - [Convert to ARFF][convert-to-arff]\: converte un set di dati serializzato .NET nel formato ARFF (Attribute-Relation File Format).
-- [Compute Elementary Statistics][elementary-statistics] (Calcola statistiche elementari): calcola le statistiche elementari come media, deviazione standard e così via.
+- [Compute Elementary Statistics][elementary-statistics] \(Calcola statistiche elementari): calcola le statistiche elementari come media, deviazione standard e così via.
 - [Linear Regression][linear-regression]\: crea un modello di regressione lineare online basato su valori descent con sfumatura.
 - [Score Model][score-model]\: assegna un punteggio a un modello di classificazione sottoposto a training o di regressione.
 
