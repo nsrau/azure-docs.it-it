@@ -37,11 +37,11 @@ Il glossario di Azure con i due riferimenti indicati sopra offre una tassonomia 
 Account Microsoft aziendale, dell'istituto di istruzione o personale usato per l'accesso e la gestione di una sottoscrizione di Azure. Vedere anche [Associare le sottoscrizioni di Azure ad Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 
-### <a name="availabilityset"></a>set di disponibilità  
+### <a name="availability-set"></a>set di disponibilità  
 Raccolta di macchine virtuali gestite insieme per offrire ridondanza delle applicazioni e affidabilità. Durante un evento di manutenzione pianificato o non pianificato, l'uso di un set di disponibilità assicura la disponibilità di almeno una macchina virtuale. Vedere anche [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
-### <a name="classicmodel"></a>modello di distribuzione classica di Azure  
+### <a name="classic-model"></a>modello di distribuzione classica di Azure  
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Azure. Il nuovo modello è Azure Resource Manager. Alcune risorse di Azure possono essere distribuite con uno dei due modelli, mentre altre possono essere distribuite con entrambi i modelli. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.
 
 
@@ -53,7 +53,7 @@ Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usa
 [Interfaccia della riga di comando](powershell-install-configure.md) per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa. Vedere anche [Come installare e configurare Azure PowerShell](powershell-install-configure.md)
 
 
-### <a name="armmodel"></a>modello di distribuzione Azure Resource Manager  
+### <a name="arm-model"></a>modello di distribuzione Azure Resource Manager  
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcune risorse di Azure possono essere distribuite con uno dei due modelli, mentre altre possono essere distribuite con entrambi i modelli. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.
 
 
@@ -65,7 +65,7 @@ Raccolta di macchine virtuali di un set di disponibilità nelle quali può verif
 Limite definito per la residenza dei dati che contiene in genere due o più aree. I limiti possono essere compresi all'interno o superare i confini nazionali e sono influenzati dalla regolamentazione fiscale. Ogni area geografica include almeno un'area. Asia Pacifico e Giappone sono esempi di aree geografiche. Chiamata anche *geografia*. Vedere anche [Aree di Azure](best-practices-availability-paired-regions.md)
 
 
-### <a name="georeplication"></a>replica geografica  
+### <a name="geo-replication"></a>replica geografica  
 Processo di replica automatica del contenuto, ad esempio di BLOB, tabelle e code all'interno di una coppia di aree. Vedere anche [Replica geografica attiva per il database SQL di Azure](./sql-database/sql-database-geo-replication-overview.md)
 
 
@@ -77,7 +77,7 @@ File che contiene il sistema operativo e la configurazione delle applicazioni ch
 Numero di risorse che è possibile creare o benchmark delle prestazioni che può essere raggiunto. I limiti sono in genere associati a sottoscrizioni, servizi e offerte. Vedere anche [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md)
 
 
-### <a name="loadbalancer"></a>bilanciamento del carico  
+### <a name="load-balancer"></a>bilanciamento del carico  
 Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico . Il servizio di [bilanciamento del carico](./load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.
 
 
@@ -97,15 +97,15 @@ Area all'interno di un'area geografica che non supera i confini nazionali e incl
 Elemento incluso nella soluzione Azure. Ogni servizio di Azure consente di distribuire diversi tipi di risorse, ad esempio database o macchine virtuali. Vedere anche [Panoramica di Azure Resource Manager](resource-group-overview.md)
 
 
-### <a name="resourcegroup"></a>gruppo di risorse  
+### <a name="resource-group"></a>gruppo di risorse  
 Contenitore in Resource Manager che include le risorse correlate di un'applicazione. Il gruppo di risorse può includere tutte le risorse di un'applicazione o solo le risorse raggruppate logicamente. È possibile decidere come si desidera allocare le risorse a gruppi di risorse nel modo appropriato per l'organizzazione. Vedere anche [Panoramica di Azure Resource Manager](resource-group-overview.md)
 
 
-### <a name="rmtemplate"></a>modello di Resource Manager  
+### <a name="arm-template"></a>modello di Resource Manager  
 File JSON che definisce in modo dichiarativo una o più risorse di Azure e che definisce le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere anche [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md)
 
 
-### <a name="resourceprovider"></a>provider di risorse  
+### <a name="resource-provider"></a>provider di risorse  
 Servizio che fornisce le risorse da distribuire e gestire tramite Resource Manager. Ogni provider di risorse offre operazioni per l'uso delle risorse distribuite. È possibile accedere ai provider di risorse tramite il portale di Azure, Azure PowerShell e diversi SDK di programmazione. Vedere anche [Panoramica di Azure Resource Manager](resource-group-overview.md)
 
 
@@ -117,7 +117,7 @@ Mezzo per il controllo dell'accesso che può essere assegnato a utenti, gruppi e
 Contratto di servizio che definisce gli impegni di Microsoft in merito a tempi di attività e connettività. Ogni servizio di Azure ha un contratto di servizio specifico. Vedere anche [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 
 
-### <a name="storageaccount"></a>account di archiviazione  
+### <a name="storage-account"></a>account di archiviazione  
 Account di archiviazione che consente di accedere a BLOB di Azure e ai servizi di accodamento, tabelle e file in archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per gli oggetti dati dell'archiviazione di Azure. Vedere anche [Informazioni sugli account di archiviazione di Azure](./storage/storage-create-storage-account.md)
 
 
@@ -129,7 +129,7 @@ Contratto tra il cliente e Microsoft che consente di ricevere i servizi di Azure
 Termine di indicizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. È possibile usare i tag quando si ha un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse nel modo più razionale. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto. Vedere anche [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md)
 
 
-### <a name="updatedomain"></a>dominio di aggiornamento  
+### <a name="update-domain"></a>dominio di aggiornamento  
 Raccolta di macchine virtuali di un set di disponibilità che vengono aggiornate contemporaneamente. Le macchine virtuali nello stesso dominio di aggiornamento vengono riavviate contemporaneamente durante la manutenzione pianificata. Azure non riavvia mai più di un dominio di aggiornamento alla volta. Vedere anche [Gestire la disponibilità delle macchine virtuali Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Gestire la disponibilità delle macchine virtuali Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
@@ -137,7 +137,7 @@ Raccolta di macchine virtuali di un set di disponibilità che vengono aggiornate
 Implementazione del software di un computer fisico che esegue un sistema operativo. È possibile eseguire più macchine virtuali contemporaneamente nello stesso hardware. In Azure sono disponibili macchine virtuali di dimensioni diverse. Vedere anche [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 
-### <a name="vmextension"></a>estensione di macchina virtuale  
+### <a name="vm-extension"></a>estensione macchina virtuale  
 Risorsa che implementa comportamenti o funzionalità utili per il funzionamento di altri programmi o che consentono di interagire con un computer in esecuzione. È possibile ad esempio usare l'estensione di accesso della macchina virtuale per reimpostare o modificare i valori di accesso remoto in una macchina virtuale di Azure. Vedere anche [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](./virtual-machines/virtual-machines-windows-extensions-features.md) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](./virtual-machines/virtual-machines-linux-extensions-features.md)
 
 
@@ -150,4 +150,4 @@ Rete che offre la connettività tra le risorse di Azure e che è isolata da tutt
 - [Azure per le applicazioni aziendali](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [Azure nel data center](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

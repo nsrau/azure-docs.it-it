@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Pianificazione ed esecuzione con Data Factory
@@ -282,7 +282,7 @@ CopyActivity2: Inputs: Dataset3, Dataset2 Output: Dataset4
 
 Quando si specificano più input, solo il primo set di dati di input viene usato per la copia dei dati e gli altri set di dati vengono usati come dipendenze. L'esecuzione di CopyActivity2 si avvia solo quando le seguenti condizioni sono soddisfatte:
 
-- L'esecuzione di CopyActivity2 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
+- L’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
 - Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
 
 
@@ -702,4 +702,4 @@ Tenere presente quanto segue:
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

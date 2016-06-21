@@ -32,11 +32,15 @@ In questa esercitazione verranno effettuate le operazioni seguenti utilizzando V
 4. Creare una data factory e distribuire servizi collegati, tabelle e la pipeline.    
 
 ## Prerequisiti
-Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 
-È necessario disporre dei seguenti prodotti installati nel computer in uso:
-- Visual Studio 2013
-- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+1. Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) ed eseguire i passaggi richiesti.
+2. Per potere pubblicare entità di entità di Data Factory in Azure Data Factory, è necessario essere un **amministratore della sottoscrizione di Azure**. Si tratta di una limitazione attuale. Eventuali modifiche a questo requisito verranno segnalate immediatamente. 
+3. È necessario disporre dei seguenti prodotti installati nel computer in uso: 
+	- Visual Studio 2013 o Visual Studio 2015
+	- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
+	- Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [2015 VS](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in nel modo seguente: nel menu fare clic su **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Strumenti di Data factory di Azure per Visual Studio** -> **Aggiorna**. 
+ 
+
 
 ## Creare un progetto di Visual Studio 
 1. Avviare **Visual Studio 2013**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Si dovrebbe vedere la finestra di dialogo **Nuovo progetto**.  
@@ -221,7 +225,7 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 
 Tenere presente quanto segue:
 
-- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
+- Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
 
 	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 		
@@ -269,4 +273,4 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo illustra i set di dati in Data factory di Azure.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

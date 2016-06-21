@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
@@ -48,7 +48,7 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 
     ![Finestra di dialogo Aggiungi servizio connesso - Archiviazione](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. Nella finestra di dialogo **Archiviazione di Azure** scegliere un account di archiviazione esistente e quindi fare clic su **Aggiungi**.
+1. Nella finestra di dialogo **Archiviazione di Azure**, selezionare un account di archiviazione esistente, quindi **Aggiungi**.
 
     Se è necessario creare un nuovo account di archiviazione, andare al passaggio successivo. In caso contrario, andare direttamente al passaggio 6.
 
@@ -64,7 +64,7 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 
         Quando si torna nella finestra di dialogo **Archiviazione di Azure**, la nuova risorsa di archiviazione viene visualizzata nell'elenco.
 
-    1. Selezionare la nuova risorsa di archiviazione nell'elenco e fare clic su **Aggiungi**.
+    1. Selezionare la nuova risorsa di archiviazione nell'elenco e selezionare **Aggiungi**.
 
 1. Il servizio di archiviazione connesso viene visualizzato sotto il nodo Riferimenti servizio del progetto WebJob.
 
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -302,13 +302,16 @@ La procedura è stata completata. Il dashboard in tempo reale è stato creato co
 
 Nota: occorrono circa 2 ore dal completamento della distribuzione perché la pipeline di elaborazione batch end-to-end completi l'esecuzione ed elabori un anno di dati generati. Attendere prima di procedere con i passaggi successivi.
 
-**Scaricare il file di progettazione di Power BI** • Un file di progettazione di Power BI preconfigurato è incluso nella distribuzione • Fare clic sul nodo di Power BI nella visualizzazione diagramma e fare clic sul collegamento per scaricare il file di progettazione di Power BI nel riquadro delle proprietà ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Scaricare il file di progettazione PowerBI**
+-	Un file di progettazione PowerBI preconfigurato è incluso con la distribuzione
+-	Fare clic sul nodo PowerBI nella vista diagramma e fare clic sul collegamento "Scaricare il file di progettazione PowerBI" nel riquadro delle proprietà ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-• Salvare in locale
+-	Salvare in locale
 
-**Configurare i report di Power BI** • Aprire il file di progettazione "VehicleTelemetryAnalytics - Desktop Report.pbix" con Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop da [Installazione Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurare report di PowerBI**
+-	Aprire il file di progettazione "VehicleTelemetryAnalytics - Desktop Report.pbix" con PowerBI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop da [Installazione Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-• Fare clic su **Modifica query**.
+-	Fare clic su **Modifica query**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -393,4 +396,4 @@ Aggiungere grafici al dashboard esistente **Vehicle Telemetry Analytics Dashboar
 
 La procedura è stata completata. Sono stati creati il report e il dashboard per ottenere in tempo reale informazioni dettagliate in batch e predittive sullo stato di integrità dei veicoli e sulle abitudini di guida.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

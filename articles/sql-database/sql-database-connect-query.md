@@ -121,4 +121,4 @@ Dopo la connessione al server logico, è possibile connettersi a un database ed 
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

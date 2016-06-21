@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="06/01/2016"
    ms.author="hascipio" />
 
 # Come pubblicare un'offerta in Azure Marketplace
@@ -44,11 +44,12 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 | **Passaggio 4: Distribuire l'offerta nel marketplace** | [Distribuire l'offerta nel marketplace][link-pushprod] | Anteprima privata | [Distribuire l'offerta nel marketplace][link-pushprod] | [Distribuire l'offerta nel marketplace][link-pushprod] |
 
 ## Supporto
-- [Ottenere supporto come editore][suppt-general]
+- [Guida di post-produzione per le offerte di macchine virtuali](marketplace-publishing-vm-image-post-publishing.md)
 - [Informazioni sui report di Insights per i venditori][suppt-rpt-insights]
 - [Informazioni sui report sui proventi][suppt-rpt-payouts]
 - [Come modificare l'incentivo per i rivenditori per i Cloud Solution Provider](marketplace-publishing-csp-incentive.md)
 - [Risoluzione dei problemi di pubblicazione comuni in Marketplace][suppt-common]
+- [Ottenere supporto come editore][suppt-general]
 
 ## Risorse aggiuntive
 - Per altre informazioni sui portali usati, vedere [Portali necessari](marketplace-publishing-portals.md)
@@ -82,4 +83,4 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

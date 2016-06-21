@@ -30,7 +30,7 @@ Nel pannello di visualizzazione sono visibili non solo gli input ma anche la que
 
 Per accedere a questo visualizzatore è sufficiente fare clic sul pulsante Diagramma diagnosi nel pannello Impostazioni del processo di Analisi di flusso.
 
-![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 Ogni input e output è contraddistinto dal colore per indicare lo stato corrente del componente, come mostrato di seguito.
 
@@ -51,4 +51,4 @@ Se l'utente desidera esaminare i passaggi intermedi della query per comprendere 
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
@@ -38,7 +38,7 @@ Completamento dell'esercitazione, verranno eseguito il provisioning di due servi
 
 Questa esercitazione si basa su un'applicazione console di Windows scritta in C#, che è possibile modificare ed eseguire in Visual Studio 2012 o 2013.
 
-È possibile trovare l'applicazione client in Codeplex all'indirizzo [Demo API di gestione di Ricerca di Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
+È possibile trovare l’applicazione client in Github all’indirizzo [Demo API di gestione di Ricerca di Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configurare l'applicazione
@@ -208,4 +208,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

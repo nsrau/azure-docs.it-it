@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Eseguire il backup e il ripristino di un database in Azure SQL Data Warehouse (PowerShell)
 
@@ -30,7 +30,6 @@ Attività contenute in questo argomento:
 
 - Ripristino di un database attivo
 - Ripristino di un database eliminato
-- Ripristinare un database non accessibile da un'area geografica di Azure diversa
 
 [AZURE.INCLUDE [Criteri di conservazione dei backup di SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -42,11 +41,11 @@ SQL Data Warehouse si ripristina su un nuovo database nel server logico di SQL. 
 
 ### Installare PowerShell
 
-Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. È possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
+Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. È possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente utilizzando [Microsoft Web Platform Installer][]. Per altre informazioni sull’installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
 
 ## Ripristino di un database attivo
 
-Per ripristinare un database da uno snapshot, usare il cmdlet [Restore-AzureRmSqlDatabase][] di PowerShell.
+Per ripristinare un database da uno snapshot, utilizzare il cmdlet [Restore-AzureRmSqlDatabase][] di PowerShell.
 
 1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
@@ -94,7 +93,7 @@ Dopo aver completato il ripristino, sarà possibile configurare il database ripr
 
 ## Ripristino di un database eliminato
 
-Per ripristinare un database eliminato, usare il cmdlet [Restore-AzureRmSqlDatabase][].
+Per ripristinare un database eliminato, utilizzare il cmdlet [Restore-AzureRmSqlDatabase][].
 
 1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
@@ -130,47 +129,8 @@ $RestoredDatabase.status
 
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
 
-## Eseguire il ripristino da un'area geografica di Azure
-
-Per ripristinare un database, usare il cmdlet [Restore-AzureRmSqlDatabase][].
-
-1. Aprire Windows PowerShell.
-2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
-3. Selezionare la sottoscrizione che contiene il database da ripristinare.
-4. Selezionare il database che si desidera ripristinare.
-5. Creare la richiesta di ripristino per il database.
-6. Verificare lo stato del database recuperato con il ripristino geografico.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Configurare il database dopo l'esecuzione di un ripristino geografico
-Si tratta di un elenco di controllo che può essere utilizzato per avere pronta la produzione di database ripristinati.
-
-1. **Aggiornare le stringhe di connessione**: verificare che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
-2. **Modificare le regole del firewall**: verificare le regole del firewall sul server di destinazione, quindi assicurarsi che le connessioni tra i computer client o Azure e il server e il database appena ripristinato siano abilitate.
-3. **Verificare gli account di accesso al server e gli utenti del database**: controllare che tutti gli account di accesso usati dall'applicazione siano presenti sul server che ospita il database ripristinato. Ricreare gli account di accesso mancanti e concedere loro le autorizzazioni appropriate per il database ripristinato. 
-4. **Abilitare il controllo**: se è necessario il controllo di accesso al database, attivarlo dopo il ripristino.
-
-Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
-
-
 ## Passaggi successivi
-Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica della gestione][].
+Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica sulla gestione][].
 
 <!--Image references-->
 
@@ -178,7 +138,7 @@ Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure]
 [Continuità aziendale del database SQL di Azure]: sql-database-business-continuity.md
 [finalizzazione di un database ripristinato]: sql-database-recovered-finalize.md
 [Come installare e configurare Azure PowerShell]: powershell-install-configure.md
-[Panoramica della gestione]: sql-data-warehouse-overview-manage.md
+[Panoramica sulla gestione]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -192,6 +152,6 @@ Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure]
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
-[Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

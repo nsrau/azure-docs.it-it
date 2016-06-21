@@ -3,8 +3,8 @@
    description="Informazioni su come inviare report di integrità dal codice del servizio e su come verificare l'integrità del servizio usando gli strumenti di monitoraggio dell'integrità forniti da Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/07/2016"
    ms.author="toddabel"/>
 
 # Creare report e verificare l'integrità dei servizi
@@ -75,7 +75,7 @@ I modelli di progetto di Service Fabric in Visual Studio contengono codice di es
     using System.Fabric.Health;
     ```
 
-    b. Aggiungere il codice seguente dopo la chiamata di `myDictionary.TryGetValueAsync`.
+    b. Aggiungere il codice seguente dopo la chiamata di `myDictionary.TryGetValueAsync`
 
     ```csharp
     if (!result.HasValue)
@@ -86,7 +86,7 @@ I modelli di progetto di Service Fabric in Visual Studio contengono codice di es
     ```
     Viene segnalata l'integrità di una replica, perché la segnalazione viene eseguita da un servizio con stato. Il parametro `HealthInformation` archivia informazioni relative al problema di integrità segnalato.
 
-    Per un servizio senza stato usare il codice seguente.
+    Se è stato creato un servizio senza stato, utilizzare il codice seguente.
 
     ```csharp
     if (!result.HasValue)
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Passaggi successivi
 [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

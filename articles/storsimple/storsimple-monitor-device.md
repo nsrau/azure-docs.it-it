@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
@@ -27,11 +27,11 @@ Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, n
 
 **La prestazione I/O**tiene traccia delle metriche correlate al numero di operazioni di lettura e scrittura tra le interfacce dell'iniziatore iSCSI nel server host e il dispositivo o il dispositivo e il cloud. Questa operazione può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 
-Il grafico mostra gli i/o per l'iniziatore sul dispositivo per tutti i volumi per un dispositivo di produzione. Le metriche tracciate vengono letti e scrivere byte al secondo, leggere e scrivere le operazioni dei / o al secondo, leggere e scrivere le latenze.
+Il grafico seguente mostra le operazioni di I/O dall'iniziatore al dispositivo per tutti i volumi per un dispositivo di produzione. Le metriche tracciate vengono letti e scrivere byte al secondo, leggere e scrivere le operazioni dei / o al secondo, leggere e scrivere le latenze.
 
 ![Prestazioni dei / o dall'iniziatore a dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-Per lo stesso dispositivo IOs viene tracciato per i dati dal dispositivo al cloud per tutti i contenitori del volume. Su questo dispositivo, i dati solo nel livello lineare e non sono stati inseriti vuoti nel cloud. Non sono presenti operazioni di lettura / scrittura che si verificano dal dispositivo al cloud. Di conseguenza, i picchi nel grafico sono a intervalli di 5 minuti che corrisponde alla frequenza con cui viene controllato l'heartbeat tra il dispositivo e il servizio.
+Per lo stesso dispositivo vengono tracciate le operazioni di I/O per i dati dal dispositivo al cloud per tutti i contenitori del volume. Su questo dispositivo, i dati solo nel livello lineare e non sono stati inseriti vuoti nel cloud. Non sono presenti operazioni di lettura / scrittura che si verificano dal dispositivo al cloud. Di conseguenza, i picchi nel grafico sono a intervalli di 5 minuti che corrisponde alla frequenza con cui viene controllato l'heartbeat tra il dispositivo e il servizio.
 
 ![Prestazioni dei / o dal dispositivo al cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
@@ -76,9 +76,9 @@ I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria
 
 ![Utilizzo della capacità primario dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-Se si esegue l'aggiornamento 2 o versioni successive, è possibile suddividere l'utilizzo della capacità di archiviazione primaria per un singolo volume, tutti i volumi, tutti i volumi a livelli e tutti i volumi locali, come illustrato di seguito. La suddivisione in base a tutti i volumi locali consente di verificare rapidamente la quantità di livello locale usata.
+Se si esegue l'aggiornamento 2 o versioni successive, è possibile suddividere l'utilizzo della capacità di archiviazione primaria per un singolo volume, tutti i volumi, tutti i volumi a livelli e tutti i volumi aggiunti in locale, come illustrato di seguito. La suddivisione in base a tutti i volumi aggiunti in locale consente di verificare rapidamente la quantità di livello locale usata.
 
-![Utilizzo della capacità primaria per tutti i volumi locali](./media/storsimple-monitor-device/localvolumes.png)
+![Utilizzo della capacità primaria per tutti i volumi aggiunti in locale](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilizzo della capacità di archiviazione cloud
@@ -126,4 +126,4 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

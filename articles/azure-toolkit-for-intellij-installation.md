@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 # Installazione del Toolkit di Azure per IntelliJ
@@ -88,17 +88,28 @@ Esistono due metodi di installazione del Toolkit di Azure per IntelliJ: dalla fi
 
 ## Vedere anche
 
-[Toolkit di Azure per IntelliJ]
+Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-[Creare un'App Web Hello World per Azure in IntelliJ]
+- [Toolkit di Azure per Eclipse]
+  - [Installare il Toolkit di Azure per Eclipse.]
+  - [Creare un'app Web Hello World per Azure in Eclipse]
+  - [Novità di Azure Toolkit per Eclipse]
+- [Toolkit di Azure per IntelliJ]
+  - *Installazione del Toolkit di Azure per IntelliJ (questo articolo)*
+  - [Creare un'App Web Hello World per Azure in IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
+[Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md
-[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
+[Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
+[Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -112,4 +123,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

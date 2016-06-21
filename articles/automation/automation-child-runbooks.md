@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/31/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook figlio in Automazione di Azure
@@ -30,9 +30,19 @@ Quando viene pubblicato un runbook, tutti i runbook figlio chiamati devono già 
 
 I parametri di un runbook figlio chiamato inline possono essere costituiti da qualsiasi tipo di dati, inclusi gli oggetti complessi, e non esiste alcuna [serializzazione JSON](automation-starting-a-runbook.md#runbook-parameters) come quando si avvia il runbook usando il portale di gestione di Azure o il cmdlet Start-AzureAutomationRunbook.
 
+
 ### Tipi di runbook
 
-Non è possibile utilizzare un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o un [runbook grafico](automation-runbook-types.md#graphical-runbooks) come elemento figlio in un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) tramite l’esecuzione inline. Analogamente, non è possibile usare un runbook di PowerShell come elemento figlio con l'esecuzione inline in un runbook del flusso di lavoro PowerShell o in un runbook grafico. I runbook PowerShell possono utilizzare solo un altro PowerShell come figlio. I runbook grafici e del flusso di lavoro PowerShell si possono utilizzare tra loro come runbook figlio.
+Tipi che possono richiamarsi a vicenda:
+
+- Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) e i [runbook grafici](automation-runbook-types.md#graphical-runbooks) possono richiamarsi a vicenda inline (entrambi i tipi si basano su PowerShell).
+- Un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e i runbook grafici del flusso di lavoro PowerShell possono richiamarsi a vicenda inline (entrambi i tipi si basano su PowerShell).
+- I tipi PowerShell e i tipi di flusso di lavoro PowerShell non possono richiamarsi a vicenda online e devono utilizzare Start-AzureRmAutomationRunbook.
+	
+Quando è importante l’ordine di pubblicazione:
+
+- L'ordine di pubblicazione dei runbook è rilevante solo per i runbook del flusso di lavoro PowerShell e i runbook grafici del flusso di lavoro PowerShell.
+
 
 Quando si richiama un runbook figlio grafico o del flusso di lavoro PowerShell tramite l’esecuzione inline, è sufficiente utilizzare il nome del runbook. Quando si richiama un runbook figlio PowerShell, è necessario che il suo nome sia preceduto da *.\* per specificare che lo script si trova nella directory locale.
 
@@ -52,7 +62,7 @@ Di seguito si trova lo stesso esempio con un runbook di PowerShell come elemento
 
 ##  Avvio di un runbook figlio utilizzando cmdlet
 
-È possibile usare [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) per avviare un runbook come descritto in [Avvio di un Runbook con Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet. In una modalità, il cmdlet restituisce l'ID del processo non appena viene creato il processo figlio per il runbook figlio. Nell'altra modalità, che consente di specificare il parametro **-wait**, il cmdlet attende che l'elemento figlio finisca il processo e restituisce l'output dal runbook figlio.
+È possibile utilizzare il cmdlet [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) per avviare un runbook come descritto in [Avvio di un runbook con Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet. In una modalità, il cmdlet restituisce l'ID del processo non appena viene creato il processo figlio per il runbook figlio. Nell'altra modalità, che consente di specificare il parametro **-wait**, il cmdlet attende che l'elemento figlio finisca il processo e restituisce l'output dal runbook figlio.
 
 Verrà eseguito il processo da un runbook figlio avviato con un cmdlet in un processo separato dal runbook padre. Questo comporta più processi rispetto al richiamo del runbook inline e li rende più difficili da rilevare. L'elemento padre può avviare diversi runbook figli in modo asincrono senza attendere che ognuno di essi sia terminato. Per questa stessa tipologia di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +83,7 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 | | Inline| Cmdlet|
 |:---|:---|:---|
 |Job|I runbook figlio vengono eseguiti nello stesso processo dell’elemento padre.|Viene creato un processo separato per il runbook figlio.|
-|Esecuzione|Il runbook padre attende il completamento del runbook figlio prima di continuare.|Il runbook padre continua subito dopo l'avvio del runbook figlio *o* il runbook padre attende il completamento del processo figlio.|
+|Esecuzione|Il runbook padre attende il completamento del runbook figlio prima di continuare.|Il runbook padre continua subito dopo l'avvio del runbook figlio *o* attende il completamento del processo figlio.|
 |Output|Il runbook padre può ottenere output direttamente dal runbook figlio.|Il runbook padre deve recuperare l'output dal processo del runbook figlio *o* può ottenere direttamente l'output dal runbook figlio.|
 |Parametri|I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati.|I valori per i parametri di runbook figlio devono essere combinati in una singola tabella di hash e possono includere solo tipi di dati semplici, matrice e oggetto che sfruttano la serializzazione JSON.|
 |Account di automazione|Il runbook padre può utilizzare solo runbook figlio nello stesso account di automazione.|Il runbook padre può utilizzare runbook figlio da qualsiasi account di automazione dalla stessa sottoscrizione di Azure e anche da una sottoscrizione diversa se si dispone di una connessione ad essa.|
@@ -84,4 +94,4 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

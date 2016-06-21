@@ -85,7 +85,7 @@ Questo esempio usa il valore di una chiave Integer **CustomerID**, tramite un og
 
 Il metodo **OpenConnectionForKey** restituisce una nuova connessione già aperta al database corretto. Le connessioni usate in questo modo usufruiscono comunque del pool di connessioni ADO.Net. Fino a quando le transazioni e le richieste possono essere soddisfatti da una partizione alla volta, questa dovrebbe essere l'unica modifica necessaria in un'applicazione che già usa ADO.Net.
 
-È disponibile anche il metodo **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** se l'applicazione usa la programmazione asincrona con ADO.Net. Il comportamento di tale metodo è l'equivalente del routing dipendente dai dati del metodo ADO.Net **[Connection.OpenAsync]https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
+È disponibile anche il metodo **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** se l'applicazione usa la programmazione asincrona con ADO.Net. Il comportamento di tale metodo è l'equivalente del routing dipendente dai dati del metodo ADO.Net **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
 
 ## Integrazione con la gestione degli errori temporanei 
 

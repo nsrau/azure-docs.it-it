@@ -250,7 +250,7 @@ Per eliminare un BLOB, passare il nome del contenitore e il nome del BLOB a **Bl
 
 
 	try	{
-		// Delete container.
+		// Delete blob.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
@@ -308,4 +308,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -19,8 +19,6 @@
 
 # Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Visualizzazione dello stato dell'estensione
@@ -70,4 +68,4 @@ Se si eseguono gli script nella macchina virtuale usando l'estensione script per
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

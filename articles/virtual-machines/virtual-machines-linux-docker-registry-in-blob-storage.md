@@ -61,6 +61,7 @@ L'hosting dell'istanza del registro Docker in Microsoft Azure e la memorizzazion
 Per semplicità, questo argomento segue l'opzione 2 usando variabili di ambiente.
 
 Per eseguire un'istanza del registro Docker che:
+
 * usa l'account di Archiviazione di Azure per archiviare le immagini,
 * è in ascolto sulla porta 5000 della macchina virtuale,
 * non ha un'autenticazione configurata (scelta non consigliata, vedere la nota di seguito),
@@ -99,4 +100,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

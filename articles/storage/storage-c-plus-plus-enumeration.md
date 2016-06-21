@@ -80,7 +80,7 @@ Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un con
 	}
 	while (!token.empty());
 
-Si noti che il numero di risultati restituiti in una pagina può essere controllato dal parametro*max\_results*nell'overload di ogni API, ad esempio:
+Si noti che il numero di risultati restituiti in una pagina può essere controllato dal parametro *max\_results* nell'overload di ogni API, ad esempio:
 
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
 		blob_listing_details::values includes, int max_results, const continuation_token& token,

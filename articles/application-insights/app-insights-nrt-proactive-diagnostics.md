@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/05/2016" 
 	ms.author="awills"/>
  
 # Diagnostica proattiva quasi in tempo reale
@@ -23,9 +23,11 @@ Questa funzionalità funziona per le app Web Java e ASP.NET ospitate nel cloud o
 
 Dopo aver configurato [Application Insights per il progetto](app-insights-get-started.md) e non appena l’applicazione genera una determinata quantità minima di dati di telemetria, la funzionalità di diagnostica attiva quasi in tempo reale impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivata e inviare avvisi.
 
-Ecco un avviso di esempio:
+Ecco un avviso di esempio.
 
 ![Esempio di avviso intelligente che l'analisi del cluster riguardo all'errore](./media/app-insights-nrt-proactive-diagnostics/010.png)
+
+> [AZURE.NOTE] Per impostazione predefinita, si riceve un messaggio di posta elettronica più breve rispetto a quello dell’esempio. Tuttavia, è possibile [passare a questo formato dettagliato](#configure-alerts).
 
 Le informazioni fornite includono:
 
@@ -34,6 +36,8 @@ Le informazioni fornite includono:
 * Un modello caratteristico associato agli errori. In questo esempio sono presenti un codice di risposta, un nome di richiesta (operazione) e una versione dell’applicazione specifici. che indica immediatamente in quale punto del codice cercare. In alternativa si può usare un browser o un sistema operativo client specifico.
 * Eccezioni, tracce di log ed errori di dipendenza (database o altri componenti esterni) che sembrano associati alle particolari richieste non riuscite.
 * Collegamenti diretti alle ricerche rilevanti nei dati di telemetria in Application Insights.
+
+## Vantaggi degli avvisi proattivi
 
 I normali [avvisi relativi alla metrica](app-insights-alerts.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di diagnostica proattiva quasi in tempo reale avvia automaticamente i processi di diagnostica ed esegue diverse analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
 
@@ -53,11 +57,34 @@ I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la c
 
 Analogamente agli [avvisi impostati manualmente](app-insights-alerts.md), è possibile esaminare lo stato dell'avviso e configurarlo nel pannello Avvisi della risorsa di Application Insights. A differenza degli altri avvisi, tuttavia, non è necessario impostare o configurare la funzionalità di diagnostica attiva quasi in tempo reale. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
+
+## Configurare gli avvisi 
+
+È possibile disabilitare la diagnostica proattiva, modificare i destinatari di posta elettronica, creare un webhook o scegliere messaggi di avviso più dettagliati.
+
+Aprire la pagina degli avvisi. La funzionalità di diagnostica attiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente si trova in uno stato di avviso.
+
+![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+
+Fare clic sull'avviso per configurarlo.
+
+![Configurazione](./media/app-insights-nrt-proactive-diagnostics/031.png)
+
+
+Si noti che è possibile disabilitare la diagnostica attiva, ma non eliminarla (o crearne un'altra).
+
+#### Avvisi dettagliati
+
+Se si sceglie di ricevere un'analisi dettagliata, il messaggio di posta elettronica conterrà un maggior numero di informazioni di diagnostica. A volte è possibile individuare il problema basandosi solo sui dati contenuti nel messaggio di posta elettronica.
+
+Esiste un rischio limitato che un avviso più dettagliato possa contenere informazioni riservate poiché include i messaggi di eccezione e di traccia. Ciò si verifica tuttavia soltanto se il codice permette l'inserimento di informazioni riservate in tali messaggi.
+
+
 ## Valutazione e diagnosi di un avviso
 
 Un avviso indica che è stato rilevato un incremento anomalo nella frequenza delle richieste non riuscite. È probabile che si sia verificato un problema con l'app o il relativo ambiente.
 
-Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 15% rispetto alla percentuale normale dell'1,3% e ciò evidenzia sicuramente un'anomalia. L'errore interessava 22 utenti distinti in una particolare operazione. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
+Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 22,5% rispetto alla percentuale normale dell'1% e ciò evidenzia sicuramente un'anomalia. D'altra parte, solo 11 utenti sono stati interessati. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
 
 In molti casi è possibile diagnosticare rapidamente il problema in base al nome della richiesta, alle eccezioni, agli errori di dipendenza e ad altri dati di traccia forniti.
 
@@ -74,22 +101,16 @@ In questo esempio facendo clic sul collegamento per la visualizzazione dei detta
 
 Per esaminare gli avvisi nel portale, aprire **Impostazioni, Log di controllo**.
 
-![Riepilogo degli avvisi](./media/app-insights-nrt-proactive-diagnostics/040.png)
+![Riepilogo degli avvisi](./media/app-insights-nrt-proactive-diagnostics/041.png)
+
 
 Fare clic su un avviso per visualizzarne i dettagli completi.
 
+In alternativa, fare clic su **Rilevamento proattivo** per accedere direttamente all'avviso più recente:
 
-## Configurare gli avvisi 
+![Riepilogo degli avvisi](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-Aprire la pagina degli avvisi. La funzionalità di diagnostica attiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente si trova in uno stato di avviso.
 
-![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/021.png)
-
-Fare clic sull'avviso per configurarlo.
-
-![Configurazione](./media/app-insights-nrt-proactive-diagnostics/031.png)
-
-Si noti che è possibile disabilitare la diagnostica attiva, ma non eliminarla (o crearne un'altra).
 
 
 ## Qual è la differenza
@@ -136,6 +157,6 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 ## Inviare commenti e suggerimenti
 
-*L'invio di commenti e suggerimenti sarà molto apprezzato. Usare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+*L'invio di commenti e suggerimenti sarà molto apprezzato. Utilizzare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

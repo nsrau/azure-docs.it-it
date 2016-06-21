@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Problemi comuni che comportano il riciclo dei ruoli
 
 Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.
 
-## Contattare il supporto tecnico di Azure
-
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/).
-
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del supporto per Azure, vedere le [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Dipendenze di runtime mancanti
 
@@ -52,7 +48,7 @@ Eventuali eccezioni generate dai metodi della classe [RoleEntryPoint], che inclu
 
 ## Impostazione di DiagnosticsConnectionString errata
 
-Se l'applicazione usa Diagnostica Azure, il file cscfg deve specificare l'impostazione di configurazione `DiagnosticsConnectionString`. Questa impostazione deve specificare una connessione HTTPS all'account di archiviazione in Azure.
+Se l'applicazione usa Diagnostica di Azure, il file cscfg deve specificare l'impostazione di configurazione `DiagnosticsConnectionString`. Questa impostazione deve specificare una connessione HTTPS all'account di archiviazione in Azure.
 
 Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, prima di distribuire il pacchetto dell'applicazione in Azure, verificare quanto segue:
 
@@ -66,11 +62,11 @@ Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, p
 
 ## Chiave privata non inclusa nel certificato esportato
 
-Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato di gestione esportato sia inclusa la chiave privata. Se si usa *Gestione certificati di Windows* per esportare il certificato, assicurarsi di selezionare **Sì** per l'opzione **Esporta la chiave privata**. Il certificato deve essere esportato nel formato con estensione PFX, l'unico attualmente supportato.
+Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato di gestione esportato sia inclusa la chiave privata. Se si utilizza *Gestione certificati di Windows* per esportare il certificato, assicurarsi di selezionare **Sì** per l'opzione **Esporta la chiave privata**. Il certificato deve essere esportato nel formato con estensione PFX, l'unico attualmente supportato.
 
 ## Passaggi successivi
 
-Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
 
 Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
@@ -82,4 +78,4 @@ Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Willia
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

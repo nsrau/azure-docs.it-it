@@ -3,8 +3,8 @@
    description="Descrive i diversi tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni di cui tenere conto per determinare il tipo da usare."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,60 +12,38 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="05/31/2016"
    ms.author="bwren" />
 
 # Tipi di runbook di Automazione di Azure
 
-Automazione di Azure supporta tre tipi di runbook, descritti brevemente nella tabella seguente. Le sezioni seguenti forniscono altre informazioni su ogni tipo con alcune considerazioni sui casi in cui usarli.
+Automazione di Azure supporta quattro tipi di runbook, descritti brevemente nella tabella seguente. Le sezioni seguenti forniscono altre informazioni su ogni tipo con alcune considerazioni sui casi in cui usarli.
 
 
 | Tipo | Descrizione |
 |:---|:---|
-| [Grafico](#graphical-runbooks) | Basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. | 
+| [Grafico](#graphical-runbooks) | Basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. | 
+| [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks) | Basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. 
+| [PowerShell](#powershell-runbooks) | Runbook di testo basato su script di Windows PowerShell.
 | [Flusso di lavoro PowerShell](#powershell-workflow-runbooks) | Runbook di testo basato su flusso di lavoro Windows PowerShell. |
-| [PowerShell](#powershell-runbooks) | Runbook di testo basato su script di Windows PowerShell. |
+
 
 ## Runbook grafici
 
-I [runbook grafici](automation-runbook-types.md#graphical-runbooks) vengono creati e modificati con l'editor grafico nel portale di Azure. È possibile esportarli in un file e quindi importarli in un altro account di automazione, ma non è possibile crearli o modificarli con un altro strumento. I runbook grafici generano codice di flusso di lavoro PowerShell, ma non è possibile visualizzare o modificare direttamente il codice. I runbook grafici non possono essere convertiti in uno dei [formati di testo](automation-runbook-types.md), né un runbook di testo può essere convertito in formato grafico.
+I runbook [grafici](automation-runbook-types.md#graphical-runbooks) e grafici del flusso di lavoro di PowerShell vengono creati e modificati con l’editor grafico nel portale di Azure. È possibile esportarli in un file e quindi importarli in un altro account di automazione, ma non è possibile crearli o modificarli con un altro strumento. I runbook grafici generano codice di PowerShell, ma non è possibile visualizzare o modificare direttamente il codice. I runbook grafici non possono essere convertiti in uno dei [formati di testo](automation-runbook-types.md), né un runbook di testo può essere convertito in formato grafico. I runbook grafici possono essere convertiti in runbook grafici del flusso di lavoro di PowerShell durante l'importazione e viceversa.
 
 ### Vantaggi
 
-- Creazione di runbook con una conoscenza minima del [flusso di lavoro PowerShell](automation-powershell-workflow.md).
+- Creazione di runbook con una conoscenza minima di [PowerShell](automation-powershell-workflow.md).
 - Rappresentazione grafica dei processi di gestione.
-- Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
-- Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più attività in parallelo.
-- Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+- Inclusione di alti runbook come runbook figlio per creare flussi di lavoro di livello elevato.
 
 
 ### Limitazioni
 
 - Impossibilità di modificare il runbook all'esterno del portale di Azure.
-- Possibile necessità di un [controllo script del flusso di lavoro](automation-powershell-workflow.md#activities) contenente codice del flusso di lavoro PowerShell per l'esecuzione di logica complessa.
-- Impossibile visualizzare o modificare direttamente il codice del flusso di lavoro PowerShell creato dal flusso di lavoro con interfaccia grafica. Si noti che è possibile visualizzare il codice in qualsiasi attività di Script del flusso di lavoro.
-- Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
-- Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
-
-
-## Runbook del flusso di lavoro PowerShell
-
-I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flusso di lavoro Windows PowerShell](automation-powershell-workflow.md). È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure. È anche possibile usare un editor di testo offline e [importare il runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) in Automazione di Azure.
-
-### Vantaggi
-
-- Implementazione di tutta la logica complessa con codice del flusso di lavoro PowerShell.
-- Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
-- Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
-- Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
-
-
-### Limitazioni
-
-- Necessità che l'autore abbia familiarità con il flusso di lavoro PowerShell.
-- Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
-- Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
-- Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+- Potrebbe richiedere un'attività di codice contenente il codice di PowerShell per eseguire una logica complessa.
+- Impossibilità di visualizzare o modificare direttamente il codice di PowerShell creato dal flusso di lavoro grafico. Si noti che è possibile visualizzare il codice creato in qualsiasi attività di codice.
 
 
 ## Runbook di PowerShell
@@ -92,20 +70,38 @@ Di seguito sono descritti i problemi noti correnti relativi ai runbook di PowerS
 - Get-Process in un ciclo in un runbook di PowerShell può arrestarsi in modo anomalo dopo circa 80 iterazioni. 
 - Un runbook di PowerShell può avere esito negativo se tenta di scrivere una quantità elevata di dati nel flusso di output in una sola volta. È possibile risolvere questo problema in genere restituendo solo le informazioni necessarie quando si usano oggetti di grandi dimensioni. Anziché restituire ad esempio *Get-Process*, è possibile restituire solo i campi con *Get-Process | Select ProcessName, CPU*.
 
+## Runbook del flusso di lavoro PowerShell
+
+I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flusso di lavoro Windows PowerShell](automation-powershell-workflow.md). È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure. È anche possibile usare un editor di testo offline e [importare il runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) in Automazione di Azure.
+
+### Vantaggi
+
+- Implementazione di tutta la logica complessa con codice del flusso di lavoro PowerShell.
+- Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
+- Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
+- Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+
+
+### Limitazioni
+
+- Necessità che l'autore abbia familiarità con il flusso di lavoro PowerShell.
+- Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
+- Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
+- Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+
+
 ## Considerazioni
 
 È consigliabile tenere conto delle considerazioni aggiuntive seguenti per determinare quale tipo usare per un runbook specifico.
 
-- Non è possibile convertire i runbook da un tipo a all'altro.
+- Non è possibile convertire i runbook dal tipo grafico al tipo testuale e viceversa.
 - Esistono limitazioni di uso dei runbook di tipi diversi come runbook figlio. Per altre informazioni, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md).
 
-
-
   
-## Articoli correlati
+## Passaggi successivi
 
-- [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
-- [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
-- [Creazione o importazione di un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
+- Per altre informazioni sulla creazione grafica di runbook, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
+- Per comprendere le differenze tra PowerShell e i flussi di lavoro di PowerShell per i runbook, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
+- Per ulteriori informazioni su come creare o importare un runbook, vedere [Creazione o importazione di un runbook](automation-creating-importing-runbook.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0608_2016-->

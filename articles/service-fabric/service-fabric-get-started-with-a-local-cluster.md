@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
@@ -66,7 +66,7 @@ In questa esercitazione si userà un'applicazione di esempio esistente, denomina
     cd c:\ServiceFabric\
     ```
 
-4. [Scaricare l'applicazione WordCount](http://aka.ms/servicefabric-wordcountapp) nel percorso creato.
+4. [Scaricare l'applicazione WordCount](http://aka.ms/servicefabric-wordcountapp) nel percorso creato. Nota: il browser Microsoft Edge salverà il file con l'estensione *zip*. Sarà necessario modificare l'estensione di file in *sfpkg*.
 
 5. Connettersi al cluster locale:
 
@@ -88,7 +88,7 @@ In questa esercitazione si userà un'applicazione di esempio esistente, denomina
 
     ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]
 
-    L'applicazione WordCount è molto semplice. Include il codice JavaScript lato client per generare "parole" casuali di cinque caratteri, che vengono quindi inoltrate all'applicazione tramite l'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, che vengono partizionate in base al primo carattere della parola.
+    L'applicazione WordCount è molto semplice. Include il codice JavaScript lato client per generare "parole" casuali di cinque caratteri, che vengono quindi inoltrate all'applicazione tramite l'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, che vengono partizionate in base al primo carattere della parola. È possibile trovare il codice sorgente per l'app WordCount negli [esempi introduttivi](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     L'applicazione distribuita contiene quattro partizioni. Le parole che iniziano con le lettere dalla A alla G vengono archiviate nella prima partizione, quelle che iniziano con le lettere dalla H alla N nella seconda partizione e così via.
 
@@ -168,6 +168,33 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 
     ![Visualizzazione della nuova versione dell'applicazione nel browser][deployed-app-ui-v2]
 
+## + Cleaning up
+
+Prima di concludere, è importante ricordare che il cluster locale è molto reale. L'esecuzione delle applicazioni continuerà in background finché non verranno rimosse. A seconda della natura delle app, un'app in esecuzione può richiedere risorse significative del computer. A questo scopo, sono disponibili diverse opzioni di gestione:
+
+1. Per rimuovere una singola applicazione con tutti i dati, eseguire questo codice:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Oppure usare l'azione **Elimina applicazione** in Service Fabric Explorer con il menu **AZIONI** o il menu di scelta rapida nella vista elenco dell'applicazione nel riquadro a sinistra.
+
+    ![Eliminare un'applicazione in Service Fabric Explorer][sfe-delete-application]
+
+2. Dopo avere eliminato l'applicazione dal cluster, è possibile annullare la registrazione delle versioni 1.0.0 e 2.0.0 del tipo di applicazione WordCount. I pacchetti dell'applicazione, inclusi il codice e la configurazione, verranno rimossi dall'archivio immagini del cluster.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    In alternativa, in Service Fabric Explorer scegliere **Unprovision Type** (Annulla provisioning del tipo) per l'applicazione.
+
+3. Per arrestare il cluster mantenendo i dati dell'applicazione e le tracce, fare clic su **Stop Local Cluster** (Arresta cluster locale) nell'app dell'area di notifica.
+
+4. Per eliminare completamente il cluster, fare clic su **Remove Local Cluster** (Rimuovi cluster locale) nell'app dell'area di notifica. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Usarla solo se non si prevede di usare il cluster locale per un certo periodo o se è necessario recuperare risorse.
+
 ## Passaggi successivi
 - Dopo aver distribuito e aggiornato alcune applicazioni precompilate, è possibile [provare a creare un'applicazione personalizzata in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Tutte le azioni eseguite nel cluster locale nel corso di questa esercitazione, possono anche essere eseguite in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
@@ -189,5 +216,6 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

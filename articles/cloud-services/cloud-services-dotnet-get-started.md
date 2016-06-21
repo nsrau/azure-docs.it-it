@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/10/2016"
 	ms.author="adegeo"/>
 
 # Introduzione a Servizi cloud di Azure e ASP.NET
@@ -869,4 +869,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

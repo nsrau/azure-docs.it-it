@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/10/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -238,9 +238,18 @@ Aprire un singolo test per modificarlo o disabilitarlo.
 
 Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di manutenzione sul servizio.
 
+## Test delle prestazioni
+
+È possibile eseguire un test di carico nel sito Web. Analogamente al test di disponibilità, è possibile inviare semplici richieste o richieste in più passaggi da diversi punti in tutto il mondo. A differenza dei test di disponibilità, vengono inviate molte richieste, simulando più utenti simultanei.
+
+Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Quando si crea un test, si è invitati a connettersi o a creare un account di Visual Studio Team Services.
+
+Al termine del test verranno mostrati i tempi di risposta e le percentuali di successo.
+
+
 ## Automazione
 
-* È possibile [usare script di PowerShell per configurare un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
+* Vedere [Creating an Application Insights Web Test and Alert Programmatically](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) (Creazione di un test Web e di un avviso di Application a livello di programmazione) per usare script di PowerShell per configurare automaticamente un test Web. 
 * Configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) chiamato quando viene generato un avviso.
 
 ## Domande? Problemi?
@@ -421,4 +430,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configurazione del progetto Azure tramite più configurazioni del servizio
@@ -55,7 +55,7 @@ Se è già stato aggiunto un endpoint HTTPS, l'opzione Endpoint HTTPS è abilita
 
 **Diagnostica**
 
-Per impostazione predefinita, la diagnostica è abilitata per il ruolo Web. Il progetto di servizio cloud di Azure e l'account di archiviazione sono impostati per usare l'emulatore di archiviazione locale. Quando si è pronti a effettuare la distribuzione in Azure, è possibile fare clic sul pulsante del generatore (**…**) per aggiornare l'account di archiviazione in modo da usare l'archiviazione di Azure nel cloud. È possibile trasferire i dati di diagnostica nell'account di archiviazione a richiesta o a intervalli pianificati automaticamente. Per altre informazioni sulla diagnostica di Azure, vedere [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
+Per impostazione predefinita, la diagnostica è abilitata per il ruolo Web. Il progetto di servizio cloud di Azure e l'account di archiviazione sono impostati per usare l'emulatore di archiviazione locale. Quando si è pronti a effettuare la distribuzione in Azure, è possibile selezionare il pulsante del generatore (**…**) per aggiornare l’account di archiviazione in modo da utilizzare l’archiviazione di Azure nel cloud. È possibile trasferire i dati di diagnostica nell'account di archiviazione a richiesta o a intervalli pianificati automaticamente. Per altre informazioni sulla diagnostica di Azure, vedere [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Pagina Impostazioni
 
@@ -67,7 +67,7 @@ Una stringa di connessione è un'impostazione di configurazione che fornisce inf
 
 Una stringa di connessione che punta a un account di archiviazione di Azure deve essere in un formato definito. Per informazioni sulla creazione di stringhe di connessione, vedere [Configurazione delle stringhe di connessione di Archiviazione di Azure](./storage/storage-configure-connection-string.md).
 
-Quando si è pronti a testare il servizio rispetto ai servizi di archiviazione di Azure o a distribuire il servizio cloud in Azure, è possibile modificare il valore di qualsiasi stringa di connessione in modo che punti all'account di archiviazione di Azure. Fare clic su (**…**), quindi selezionare **Immettere le credenziali dell'account di archiviazione**. Immettere le informazioni sull'account, inclusi il nome e la chiave dell'account. Nella finestra di dialogo **Stringa di connessione a account di archiviazione** è possibile indicare anche se si vogliono usare gli endpoint HTTPS predefiniti (opzione predefinita), gli endpoint HTTP predefiniti o gli endpoint personalizzati. Se si è registrato un nome di dominio personalizzato per il servizio, è possibile scegliere di usare endpoint personalizzati, come descritto in [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure](./storage/storage-custom-domain-name.md).
+Quando si è pronti a testare il servizio rispetto ai servizi di archiviazione di Azure o a distribuire il servizio cloud in Azure, è possibile modificare il valore di qualsiasi stringa di connessione in modo che punti all'account di archiviazione di Azure. Selezionare (**…**), quindi **Immettere le credenziali dell'account di archiviazione**. Immettere le informazioni sull'account, inclusi il nome e la chiave dell'account. Nella finestra di dialogo **Stringa di connessione a account di archiviazione** è possibile indicare anche se si vogliono usare gli endpoint HTTPS predefiniti (opzione predefinita), gli endpoint HTTP predefiniti o gli endpoint personalizzati. Se si è registrato un nome di dominio personalizzato per il servizio, è possibile scegliere di usare endpoint personalizzati, come descritto in [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure](./storage/storage-custom-domain-name.md).
 
 >[AZURE.IMPORTANT] È necessario modificare le stringhe di connessione affinché puntino a un account di archiviazione di Azure prima di distribuire il servizio. Se non si esegue questa operazione, il ruolo potrebbe non essere avviato oppure potrebbe non passare per gli stati di inizializzazione, occupato e arresto.
 
@@ -110,4 +110,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 |Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
 |Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

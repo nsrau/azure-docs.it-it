@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/31/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
@@ -59,21 +59,7 @@ Per altre informazioni sulla configurazione della cache, vedere [Come configurar
 <a name="NuGet"></a>
 ## Configurare i client della cache
 
-Una cache creata con Cache Redis di Azure è accessibile da qualsiasi applicazione Azure. Le applicazioni .NET sviluppate in Visual Studio possono utilizzare il client di cache **StackExchange.Redis** , che può essere configurato con un pacchetto NuGet che semplifica la configurazione delle applicazioni client della cache.
-
->[AZURE.NOTE] Per ulteriori informazioni, vedere la pagina di Github [StackExchange.Redis][] e la documentazione del client della cache [StackExchange.Redis][].
-
-Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet StackExchange.Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
-
-![Manage NuGet packages][NuGetMenu]
-
-Digitare **StackExchange.Redis** o **StackExchange.Redis.StrongName** nella casella di testo di ricerca, selezionare la versione desiderata nei risultati e fare clic su **Installa**.
-
->[AZURE.NOTE] Se si preferisce usare una versione con nome sicuro della libreria client **StackExchange.Redis**, scegliere **StackExchange.Redis.StrongName**; in caso contrario, scegliere **StackExchange.Redis**.
-
-![StackExchange.Redis NuGet package][StackExchangeNuget]
-
-Il pacchetto NuGet scarica e aggiunge i riferimenti ad assembly necessari per consentire all'applicazione client di accedere a Cache Redis di Azure con il client della cache StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Dopo avere configurato il progetto client per la memorizzazione nella cache, è possibile usare le tecniche descritte nelle sezioni seguenti per usare la cache.
 
@@ -290,7 +276,6 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 [Using Resource groups to manage your Azure resources]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 [documentazione del client della cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
@@ -299,4 +284,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [come funzionano le stringhe applicazione e le stringhe di connessione]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

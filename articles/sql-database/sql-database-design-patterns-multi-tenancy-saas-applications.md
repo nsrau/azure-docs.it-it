@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure"
+   pageTitle="Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure | Microsoft Azure" 
    description="Questo articolo fornisce informazioni sui requisiti e sui modelli comuni di architettura dei dati delle applicazioni di database multi-tenant in esecuzione in un ambiente cloud, nonché sui compromessi associati a tali modelli. Illustra anche l'utilità del servizio database SQL di Azure, con i relativi pool di database elastici e strumenti elastici, nel rispondere a tali requisiti senza dover scendere a compromessi."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure
@@ -172,4 +172,4 @@ Per domande è possibile visitare il [forum sul database SQL](http://social.msdn
 
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

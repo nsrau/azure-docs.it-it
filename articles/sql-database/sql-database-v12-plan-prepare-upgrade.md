@@ -67,7 +67,7 @@ Per informazioni dettagliate sui livelli di servizio Basic, Standard e Premium, 
 ### Rivedere la configurazione della replica geografica
 
 
-Se il database SQL di Azure è configurato per la replica geografica, è necessario documentarne la configurazione corrente e interrompere la replica geografica prima di avviare i preparativi per l'aggiornamento. Al termine dell'aggiornamento occorre riconfigurare il database per la replica geografica.
+Se il database SQL di Azure è configurato per la replica geografica, è necessario documentarne la configurazione corrente e arrestare la replica geografica prima di iniziare i preparativi per l'aggiornamento. Al termine dell'aggiornamento occorre riconfigurare il database per la replica geografica.
 
 
 La strategia consiste nel lasciare inalterata l'origine ed eseguire il test su una copia del database.
@@ -100,10 +100,10 @@ In caso di incertezza sul livello di servizio a cui passare, il livello S2 del p
 ### Sospendere la replica geografica durante l'aggiornamento
 
 
-Non è possibile eseguire l'aggiornamento alla versione 12 se nel database è attiva la replica geografica. È innanzitutto necessario riconfigurare il database per interrompere l'uso della replica geografica.
+Non è possibile eseguire l'aggiornamento alla versione 12 se nel database è attiva la replica geografica. È necessario prima di tutto riconfigurare il database in modo che non venga usata la replica geografica.
 
 
-Al termine dell'aggiornamento sarà possibile configurare il database in modo che usi di nuovo la replica geografica.
+Al termine dell'aggiornamento sarà possibile configurare di nuovo il database per l'uso della replica geografica.
 
 
 ### Client in una macchina virtuale di Azure
@@ -167,7 +167,7 @@ Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento
 | Limitazione | Descrizione |
 | :--- | :--- |
 | Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Con una dimensione superiore a 50 GB oppure<br/>* A un livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
-| Replica geografica non supportata | La replica geografica non è supportata in un server 12 sottoposto a un aggiornamento dalla versione 11. |
+| Replica geografica non supportata | La replica geografica non è supportata in un server versione 12 di cui è in corso l'aggiornamento dalla versione 11. |
 | Il database è temporaneamente non disponibile nella fase finale dell'aggiornamento a V12 | I database che appartengono al server V11 restano disponibili durante il processo di aggiornamento. Tuttavia, la connessione al server e ai database è temporaneamente non disponibile nella fase finale, quando inizia la transizione da V11 al V12 pronto.<br/><br/>La durata del passaggio può variare da 40 secondi a 5 minuti. Per la maggior parte dei server, il passaggio avviene in 90 secondi. La durata del passaggio aumenta per i server che dispongono di un numero elevato di database, o quando i database hanno carichi di lavoro di scrittura pesanti. |
 
 
@@ -253,4 +253,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

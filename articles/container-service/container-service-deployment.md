@@ -26,57 +26,57 @@ Questo documento illustra come distribuire un cluster del servizio contenitore d
 
 ## Creare un servizio usando il portale di Azure
 
-Accedere al portale di Azure, selezionare Nuovo e cercare **Servizio contenitore di Azure** in Azure Marketplace.
+Accedere al portale di Azure, selezionare **Nuovo**, quindi cercare **Servizio contenitore di Azure** in Azure Marketplace.
 
-![Creare una distribuzione](media/acs-portal1.png) <br />
+![Creare una distribuzione 1](media/acs-portal1.png) <br />
 
 Selezionare **Servizio contenitore di Azure** e fare clic su **Crea**.
 
-![Creare una distribuzione](media/acs-portal2.png) <br />
+![Creare una distribuzione 2](media/acs-portal2.png) <br />
 
 Immettere le seguenti informazioni:
 
-- Nome utente: verrà usato per un account in ogni macchina virtuale e ogni set di scalabilità di macchine virtuali nel cluster del servizio contenitore di Azure.
-- Sottoscrizione: selezionare una sottoscrizione di Azure.
-- Gruppo di risorse: selezionare un gruppo di risorse esistente o crearne uno nuovo.
-- Località: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
-- Chiave pubblica SSH: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. Dovrà essere simile alla seguente, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**". Per istruzioni sulla creazione di chiavi SSH, vedere gli articoli relativi a [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Nome utente**: verrà usato per un account in ogni macchina virtuale e ogni set di scalabilità di macchine virtuali nel cluster del servizio contenitore di Azure.
+- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+- **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo.
+- **Località**: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
+- **Chiave pubblica SSH**: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. L'aspetto della chiave dovrebbe essere simile al seguente: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Per indicazioni sulla creazione di chiavi SSH (Secure Shell), vedere gli articoli per [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Quando si è pronti a continuare, fare clic su **OK**.
 
-![Creare una distribuzione](media/acs-portal3.png) <br />
+![Creare una distribuzione 3](media/acs-portal3.png) <br />
 
 Selezionare un tipo di orchestrazione. Le opzioni sono:
 
-- DC/OS: distribuisce un cluster DC/OS.
-- Swarm: distribuisce un cluster Docker Swarm.
+- **DC/OS**: distribuisce un cluster DC/OS.
+- **Swarm**: distribuisce un cluster Docker Swarm.
 
 Quando si è pronti a continuare, fare clic su **OK**.
 
-![Creare una distribuzione](media/acs-portal4.png) <br />
+![Creare una distribuzione 4](media/acs-portal4.png) <br />
 
 Immettere le seguenti informazioni:
 
-- Conteggio master: numero di master nel cluster.
-- Conteggio agenti: per Docker Swarm sarà il numero iniziale di agenti nel set di scalabilità degli agenti. Per DC/OS sarà il numero iniziale di agenti in un set di scalabilità privato. Viene creato anche un set di scalabilità pubblico contenente un numero predeterminato di agenti. Il numero di agenti in questo set di scalabilità pubblico incide sul numero di master creati nel cluster, 1 agente pubblico per 1 master e 2 agenti pubblici per 3 o 5 master.
-- Dimensioni macchina virtuale dell'agente: specifica le dimensioni delle macchine virtuali dell'agente.
-- Prefisso DNS: nome univoco globale che verrà usato come prefisso delle parti chiave dei nomi di dominio completo per il servizio. 
+- **Conteggio master**: numero di master nel cluster.
+- **Conteggio agenti**: per Docker Swarm sarà il numero iniziale di agenti nel set di scalabilità degli agenti. Per DC/OS sarà il numero iniziale di agenti in un set di scalabilità privato. Viene creato anche un set di scalabilità pubblico contenente un numero predeterminato di agenti. Il numero di agenti in questo set di scalabilità pubblico viene determinato in base al numero di master creati nel cluster, ovvero un agente pubblico per un master e due agenti pubblici per tre o cinque master.
+- **Dimensioni macchina virtuale dell'agente**: specifica le dimensioni delle macchine virtuali dell'agente.
+- **Prefisso DNS**: nome univoco globale che verrà usato come prefisso delle parti chiave dei nomi di dominio completo per il servizio.
 
 Quando si è pronti a continuare, fare clic su **OK**.
 
-![Creare una distribuzione](media/acs-portal5.png) <br />
+![Creare una distribuzione 5](media/acs-portal5.png) <br />
 
-Una volta completata la convalida del servizio, fare clic su **OK**.
+Al termine della convalida del servizio, fare clic su **OK**.
 
-![Creare una distribuzione](media/acs-portal6.png) <br />
+![Creare una distribuzione 6](media/acs-portal6.png) <br />
 
 Fare quindi clic su **Crea** per avviare il processo di distribuzione.
 
-![Creare una distribuzione](media/acs-portal7.png) <br />
+![Creare una distribuzione 7](media/acs-portal7.png) <br />
 
 Se si è scelto di aggiungere la distribuzione al portale di Azure, si potrà visualizzarne lo stato.
 
-![Creare una distribuzione](media/acs-portal8.png) <br />
+![Creare una distribuzione 8](media/acs-portal8.png) <br />
 
 Una volta completata la distribuzione, il cluster del servizio contenitore di Azure è pronto per l'uso.
 
@@ -110,10 +110,10 @@ Creare un gruppo di risorse e un cluster del servizio contenitore di Azure con i
 
 - **RESOURCE\_GROUP** è il nome del gruppo di risorse da usare per questo servizio.
 - **LOCATION** è l'area di Azure in cui verrà creata la distribuzione del gruppo di risorse e del servizio contenitore di Azure.
-- **TEMPLATE\_URI** è il percorso del file di distribuzione. **Nota**: deve essere il file RAW, non un puntatore all'interfaccia utente di GitHub. Per trovare questo URL, selezionare il file azuredeploy.json in GitHub e fare clic sul pulsante RAW:
+- **TEMPLATE\_URI** è il percorso del file di distribuzione. Si noti che deve trattarsi del file RAW, non di un puntatore all'interfaccia utente di GitHub. Per trovare questo URL, selezionare il file azuredeploy.json in GitHub e fare clic sul pulsante **RAW**.
 
-> Nota: quando si esegue questo comando, la shell richiede i valori dei parametri di distribuzione.
- 
+> [AZURE.NOTE] Quando si esegue questo comando, la shell richiede i valori dei parametri di distribuzione.
+
 ```bash
 # sample deployment
 
@@ -149,19 +149,19 @@ Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli seg
 * [Modello DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Modello Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Prima di creare un cluster nella sottoscrizione di Azure, verificare che la sessione di PowerShell sia stata registrata in Azure. A tale scopo, usare il comando `Get-AzureRMSubscription`:
+Prima di creare un cluster nella sottoscrizione di Azure, verificare che la sessione di PowerShell sia stata registrata in Azure. A questo scopo, usare il comando `Get-AzureRMSubscription`:
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Se è necessario accedere ad Azure, usare il comando `Login-AzureRMAccount`.
+Se è necessario accedere ad Azure, usare il comando `Login-AzureRMAccount`:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Se si esegue la distribuzione in un nuovo gruppo di risorse, è necessario creare prima di tutto il gruppo di risorse. Per creare un nuovo gruppo di risorse, usare il comando `New-AzureRmResourceGroup` specificando un'area di destinazione e il nome di un gruppo risorse.
+Se si esegue la distribuzione in un nuovo gruppo di risorse, è necessario creare prima di tutto il gruppo di risorse. Per creare un nuovo gruppo di risorse, usare il comando `New-AzureRmResourceGroup` e specificare un'area di destinazione e il nome di un gruppo risorse:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -188,9 +188,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Passaggi successivi
- 
-Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti per informazioni dettagliate sulla connessione e la gestione.
- 
-[Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md) [Utilizzo del servizio contenitore di Azure e del controller di dominio/sistema operativo](container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti per informazioni dettagliate sulla connessione e la gestione:
+
+- [Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md)
+- [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
+- [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -1880,13 +1880,15 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-d** o **--description** &lt;descrizione>: la descrizione dell’account di archiviazione.
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
 + **-a** o **--affinity-group** &lt;nome>: il gruppo di affinità a cui associare l’account di archiviazione.
-+ **--type**: indica il tipo di account da creare: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
++ **--kind**: Il tipo di account (archiviazione o blob di archiviazione) 
++ **--sku-name**: indica il tipo di account da creare: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
++ **--access-tier**: specifica il livello di archiviazione: Hot o Cool
 
 **storage account set [opzioni] <name>**
 
 Questo comando aggiorna l'account di archiviazione specificato.
 
-	~$ azure storage account set mybasestorage --type GRS
+	~$ azure storage account set mybasestorage --kind Storage --sku-name GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1896,7 +1898,8 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-e** o **--label** &lt;etichetta>: l’etichetta per l’account di archiviazione.
 + **-d** o **--description** &lt;descrizione>: la descrizione dell’account di archiviazione.
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
-+ **--type**: indica il nuovo tipo di account: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
++ **--sku-name**: indica il nuovo tipo di account: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
++ **--access-tier**: specifica il livello di archiviazione: Hot o Cool
 
 **storage account delete [opzioni] <name>**
 
@@ -2350,4 +2353,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

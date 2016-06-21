@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configurazione e uso dell'emulatore di archiviazione con Visual Studio
@@ -35,7 +35,7 @@ Per accedere all'emulatore di archiviazione dal codice in esecuzione in un ruolo
 
 In occasione della prima esecuzione o del primo debug del servizio da Visual Studio, l'emulatore di archiviazione avvia un processo di inizializzazione. Questo processo riserva le porte locali per l'emulatore di archiviazione e crea il relativo database. Una volta completato, questo processo non deve più essere eseguito a meno che non venga eliminato il database dell'emulatore di archiviazione.
 
->[AZURE.NOTE] A partire dalla versione di giugno 2012 di Strumenti di Azure, l'emulatore di archiviazione viene eseguito per impostazione predefinita in SQL Express LocalDB. Nelle versioni precedenti di Strumenti di Azure, l'emulatore di archiviazione viene eseguito su un'istanza predefinita di SQL Express 2005 o 2008 che deve essere installata prima di Azure SDK. L'emulatore di archiviazione può essere eseguito anche su un'istanza denominata di SQL Express o su un'istanza denominata o predefinita di Microsoft SQL Server. Se è necessario configurare l'emulatore di archiviazione per l'esecuzione con un'istanza diversa da quella predefinita, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](./storage/storage-use-emulator/).
+>[AZURE.NOTE] A partire dalla versione di giugno 2012 di Strumenti di Azure, l'emulatore di archiviazione viene eseguito per impostazione predefinita in SQL Express LocalDB. Nelle versioni precedenti di Strumenti di Azure, l'emulatore di archiviazione viene eseguito su un'istanza predefinita di SQL Express 2005 o 2008 che deve essere installata prima di Azure SDK. L'emulatore di archiviazione può essere eseguito anche su un'istanza denominata di SQL Express o su un'istanza denominata o predefinita di Microsoft SQL Server. Se è necessario configurare l'emulatore di archiviazione per l'esecuzione con un'istanza diversa da quella predefinita, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](./storage/storage-use-emulator.md).
 
 L'emulatore di archiviazione fornisce un'interfaccia utente per visualizzare lo stato dei servizi di archiviazione locale, nonché per avviarli, arrestarli e reimpostarli. Una volta avviato il servizio dell'emulatore di archiviazione, è possibile visualizzare l'interfaccia utente oppure avviare o arrestare il servizio facendo clic con il pulsante destro del mouse sull'icona dell'area di notifica relativa a Emulatore di Microsoft Azure sulla barra delle applicazioni di Windows.
 
@@ -43,4 +43,4 @@ L'emulatore di archiviazione fornisce un'interfaccia utente per visualizzare lo 
 
 Il nodo Archiviazione di Azure in Esplora Server consente di visualizzare i dati e modificare le impostazioni per i dati di BLOB e tabelle negli account di archiviazione, incluso l'emulatore di archiviazione. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

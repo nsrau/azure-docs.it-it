@@ -21,7 +21,7 @@
 
 # Connettersi a un cluster del servizio contenitore di Azure
 
-I cluster DC/OS e Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST. Questi endpoint, tuttavia, non sono aperti all'esterno. Per gestire questi endpoint, è necessario crear un tunnel Secure Shell (SSH). Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Questo documento illustra nel dettaglio la creazione di un tunnel SSH da Linux, OS X e Windows.
+I cluster DC/OS e Docker Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST. Questi endpoint, tuttavia, non sono aperti all'esterno. Per gestire questi endpoint, è necessario crear un tunnel Secure Shell (SSH). Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Questo documento illustra nel dettaglio la creazione di un tunnel SSH da Linux, OS X e Windows.
 
 >[AZURE.NOTE] È anche possibile creare una sessione SSH con un sistema di gestione cluster, ma non è consigliabile farlo. Lavorare direttamente in un sistema di gestione espone al rischio di modifiche accidentali della configurazione.
 
@@ -71,7 +71,7 @@ Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguent
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-A questo punto è possibile impostare la variabile di ambiente DOCKER\_HOST come indicato di seguito e continuare a usare l'interfaccia della riga di comando di Docker come di consueto.
+È ora possibile configurare la variabile di ambiente DOCKER\_HOST come indicato di seguito. È possibile continuare a usare l'interfaccia della riga di comando di Docker come di consueto.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -87,11 +87,11 @@ Immettere un nome host che include il nome utente dell'amministratore cluster e 
 
 ![Configurazione PuTTY 1](media/putty1.png)
 
-Selezionare `SSH` e `Authentication`. Aggiungere il file di chiave privata per l'autenticazione.
+Selezionare **SSH** e **Authentication** (Autenticazione). Aggiungere il file di chiave privata per l'autenticazione.
 
 ![Configurazione PuTTY 2](media/putty2.png)
 
-Selezionare `Tunnels` e configurare le porte inoltrate seguenti:
+Selezionare **Tunnels** (Tunnel) e configurare le porte inoltrate seguenti:
 - **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per il controller di dominio/sistema operativo o 2375 per Swarm.
 - **Destination:** usare localhost:80 per il controller di dominio/sistema operativo o localhost:2375 per Swarm.
 
@@ -115,8 +115,9 @@ Dopo avere configurato il tunnel per Docker Swarm, è possibile accedere al clus
 
 ## Passaggi successivi
 
-Distribuire e gestire contenitori con DC/OS o Swarm.
+Distribuire e gestire contenitori con DC/OS o Swarm:
 
-[Utilizzo del servizio contenitore di Azure e del controller di dominio/sistema operativo](container-service-mesos-marathon-rest.md) [Utilizzo del servizio contenitore di Azure e Docker Swarm](container-service-docker-swarm.md)
+- [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
+- [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

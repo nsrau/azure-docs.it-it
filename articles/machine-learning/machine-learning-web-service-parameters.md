@@ -20,7 +20,7 @@
 
 Un servizio Web di Azure Machine Learning viene creato mediante la pubblicazione di un esperimento contenente moduli con parametri configurabili. In alcuni casi può essere utile modificare il comportamento del modulo mentre è in esecuzione il servizio Web. *I parametri del servizio Web* consentono di eseguire questa operazione.
 
-Un esempio comune è la configurazione del modulo [Reader][reader] in modo che l'utente del servizio Web pubblicato possa specificare un'origine dati differente quando si accede al servizio Web, oppure la configurazione del modulo [Writer][writer] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection].
+Un esempio comune è la configurazione del modulo [Import Data][import-data] per consentire all’utente del servizio Web pubblicato di specificare un’origine dati diversa quando si accede al servizio Web oppure la configurazione del modulo [Export Data][export-data] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection].
 
 È possibile impostare i parametri del servizio Web e associarli a uno o più parametri di modulo nell’esperimento, e specificare se sono obbligatori o facoltativi. L'utente del servizio web può quindi fornire valori per questi parametri quando si chiama il servizio web.
 
@@ -40,9 +40,9 @@ La documentazione per il servizio Web, disponibile tramite il collegamento alla 
 
 ##Esempio
 
-Si supponga ad esempio di disporre di un esperimento con un modulo [Writer][writer] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
+Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data][export-data] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
 
-1.	In Machine Learning Studio fare clic sul modulo [Writer][writer] per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
+1.	In Machine Learning Studio fare clic sul modulo [Export Data][export-data] per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
 
 2.	Specificare il tipo di archiviazione:
 
@@ -57,7 +57,7 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Writer][writ
 
     Selezionare "Set as web service parameter".
 
-    Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome "Path to blob beginning with container". Questo sarà il parametro del servizio Web associato al parametro del modulo [Writer][writer] .
+    Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome "Path to blob beginning with container". Questo sarà il parametro del servizio Web associato al parametro del modulo [Export Data][export-data].
 
 4.	Per rinominare il parametro del servizio Web, fare clic sul nome, digitare "Blob path" e quindi premere **INVIO**.
  
@@ -69,7 +69,7 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Writer][writ
 
 7.	Fare clic su **PUBLISH WEB SERVICE** per pubblicare il servizio Web.
 
-È ora possibile specificare una nuova destinazione per il modulo [Writer][writer] quando si accede al servizio Web.
+È ora possibile specificare una nuova destinazione per il modulo [Export Data][export-data] quando si accede al servizio Web.
 
 ##Altre informazioni
 
@@ -87,8 +87,8 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

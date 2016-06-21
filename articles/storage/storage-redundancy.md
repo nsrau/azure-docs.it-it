@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/01/2016"
 	ms.author="tamram"/>
 
 # Replica di Archiviazione di Azure
@@ -36,6 +36,7 @@ Nella tabella seguente è riportata una breve panoramica delle differenze tra i 
 | I dati possono essere letti dalla posizione secondaria oltre che da quella primaria | No | No | No | Sì |
 | Numero di copie di dati mantenute in nodi distinti | 3 | 3 | 6 | 6 |
 
+Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Archiviazione con ridondanza locale
 
@@ -67,32 +68,8 @@ Per un account di archiviazione con l'archiviazione con ridondanza geografica ab
 
 > [AZURE.NOTE] Con l'archiviazione con ridondanza geografica, le richieste di scrittura dati vengono replicate in modo asincrono nell'area secondaria. È importante tenere presente che la scelta dell'archiviazione con ridondanza geografica non influisce sulla latenza delle richieste effettuate per l'area primaria. Tuttavia, poiché la replica asincrona implica un ritardo, in caso di un'emergenza locale è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
  
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie:
+L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. Per informazioni aggiornate sulle associazioni di aree primarie e secondarie, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
  
-| Primaria | Secondario |
-|---------------------|---------------------|
-| Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
-| Stati Uniti centro-meridionali | Stati Uniti centro-settentrionali |
-| Stati Uniti orientali | Stati Uniti occidentali |
-| Stati Uniti occidentali | Stati Uniti orientali |
-| Stati Uniti orientali 2 | Stati Uniti centrali |
-| Stati Uniti centrali | Stati Uniti orientali 2 |
-| Europa settentrionale | Europa occidentale |
-| Europa occidentale | Europa settentrionale |
-| Asia sudorientale | Asia orientale |
-| Asia orientale | Asia sudorientale |
-| Cina orientale | Cina settentrionale |
-| Cina settentrionale | Cina orientale |
-| Giappone orientale | Giappone occidentale |
-| Giappone occidentale | Giappone orientale |
-| Brasile meridionale | Stati Uniti centro-meridionali |
-| Australia orientale | Australia sudorientale |
-| Australia sudorientale | Australia orientale |
-| India meridionale | India centrale |
-| India centrale | India meridionale |
-| Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
-| Governo degli Stati Uniti - Virginia | Governo degli Stati Uniti - Iowa |
-
 ## Archiviazione con ridondanza geografica e accesso in lettura
 
 L'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) massimizza la disponibilità dell'account di archiviazione fornendo l'accesso in sola lettura ai dati nella posizione secondaria, oltre alla replica tra due aree assicurata dall'archiviazione con ridondanza geografica. Qualora i dati diventino non disponibili nell'area primaria, l'applicazione potrà leggerli dall'area secondaria.
@@ -101,10 +78,10 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 
 ## Passaggi successivi
 
+- [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
 - [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md)
 - [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
 - [Opzioni di ridondanza di Archiviazione di Microsoft Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

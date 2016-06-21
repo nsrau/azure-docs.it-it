@@ -133,12 +133,12 @@ Figura 8. Convalida incrociata di un modello di classificazione binaria.
 Figura 9. Risultati della convalida incrociata di un classificatore binario.
 
 ##Valutazione di un modello di classificazione multiclasse##
-In questo esperimento verrà usato il noto set di dati [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") che contiene istanze di 3 tipi diversi (classi) dell'iris. Esistono 4 valori caratteristici (lunghezza/larghezza sepalo e lunghezza/larghezza petalo) per ogni istanza. Negli esperimenti precedenti è stato eseguito il training e il test di modelli che usano gli stessi set di dati. In questo caso, verrà usato il modulo relativo alla [divisione dei dati][split] per creare 2 subset di dati, eseguire il training sul primo e classificare e valutare il secondo. Il set di dati Iris è disponibile pubblicamente nell'[archivio di Machine Learning UCI](http://archive.ics.uci.edu/ml/index.html) e può essere scaricato usando un modulo di [importazione dei dati][reader].
+In questo esperimento verrà usato il noto set di dati [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") che contiene istanze di 3 tipi diversi (classi) dell'iris. Esistono 4 valori caratteristici (lunghezza/larghezza sepalo e lunghezza/larghezza petalo) per ogni istanza. Negli esperimenti precedenti è stato eseguito il training e il test di modelli che usano gli stessi set di dati. In questo caso, verrà usato il modulo relativo alla [divisione dei dati][split] per creare 2 subset di dati, eseguire il training sul primo e classificare e valutare il secondo. Il set di dati Iris è disponibile pubblicamente nell'[archivio di Machine Learning UCI](http://archive.ics.uci.edu/ml/index.html) e può essere scaricato usando un modulo di [importazione dei dati][import-data].
 
 ###Creazione di un esperimento###
 Aggiungere i seguenti moduli all'area di lavoro in Azure Machine Learning Studio:
 
-- [Importazione dei dati][reader]
+- [Importazione dei dati][import-data]
 - [Multiclass Decision Forest][multiclass-decision-forest]
 - [Split Data][split]
 - [Train Model][train-model]
@@ -149,7 +149,7 @@ Connettere le porte come mostrato in basso nella figura 10.
 
 Impostare l'indice della colonna delle etichette del modulo [Train Model][train-model] su 5. Il set di dati non dispone di una riga di intestazione ma, com'è noto, le etichette delle classi si trovano nella quinta colonna.
 
-Fare clic sul modulo di [importazione dei dati][reader] e impostare la proprietà *Data source* su *Web URL via HTTP* e *URL* su http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Fare clic sul modulo di [importazione dei dati][import-data] e impostare la proprietà *Data source* su *Web URL via HTTP* e *URL* su http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Impostare la frazione delle istanze da usare per il training nel modulo relativo alla [divisione dei dati][split], ad esempio 0,7.
  
@@ -182,11 +182,11 @@ Figura 13. Risultati della convalida incrociata di un modello di classificazione
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

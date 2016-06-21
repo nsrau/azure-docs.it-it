@@ -50,8 +50,8 @@ Per il ripristino da interruzione del servizio, usare [Get Recoverable Database]
 
 Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
-## 8\. Informazioni sul ritardo di replica quando si usa la replica geografica attiva
+## 8\. Informazioni sul ritardo di replica quando si utilizza la replica geografica
 
 Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

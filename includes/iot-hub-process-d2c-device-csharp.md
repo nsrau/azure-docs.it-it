@@ -1,4 +1,4 @@
-## Inviare messaggi interattivi dal dispositivo simulato
+## Inviare messaggi interattivi da un dispositivo simulato
 
 In questa sezione verrà modificata l'applicazione del dispositivo simulato creata nell'esercitazione [Introduzione all'hub IoT] per inviare messaggi interattivi da dispositivo a cloud all'hub IoT.
 
@@ -22,9 +22,9 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
     }
     ```
 
-    Questo metodo è molto simile al metodo **SendDeviceToCloudMessagesAsync** nel progetto **SimulatedDevice**. Le uniche differenze sono l'impostazione della proprietà di sistema **MessageId** e una proprietà utente denominata **messageType**. Il codice assegna un identificatore univoco globale (GUID) alla proprietà **MessageId**, che il bus di servizio può usare per deduplicare i messaggi ricevuti. L'esempio usa la proprietà **messageType** per distinguere i messaggi interattivi dai messaggi del punto dati. L'applicazione trasferisce queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che il processore di eventi non abbia bisogno di deserializzare il messaggio per eseguirne il routing.
+    Questo metodo è molto simile al metodo **SendDeviceToCloudMessagesAsync** nel progetto **SimulatedDevice**. Le uniche differenze sono l'impostazione della proprietà di sistema **MessageId** e una proprietà utente denominata **messageType**. Il codice assegna un identificatore univoco globale (GUID) alla proprietà **MessageId**. Il bus di servizio può usare il GUID per deduplicare i messaggi ricevuti. L'esempio usa la proprietà **messageType** per distinguere i messaggi interattivi dai messaggi del punto dati. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che il processore di eventi non debba deserializzare il messaggio per eseguirne il routing.
 
-    > [AZURE.NOTE] È importante creare la proprietà **MessageId** usata per deduplicare i messaggi interattivi nel codice del dispositivo, poiché comunicazioni di rete intermittenti (o altri errori) possono comportare trasmissioni multiple dello stesso messaggio dal dispositivo. È anche possibile usare un ID semantico del messaggio, ad esempio un hash dei campi dati del messaggio pertinente, al posto di un GUID.
+    > [AZURE.NOTE] È importante creare il **MessageId** da usare per la deduplicazione dei messaggi interattivi nel codice del dispositivo. Comunicazioni di rete intermittenti o altri errori, possono dare luogo a più ritrasmissioni dello stesso messaggio dal dispositivo. È anche possibile usare un ID messaggio semantico, ad esempio un hash dei campi dati del messaggio pertinenti, anziché un GUID.
 
 2. Aggiungere il metodo seguente al metodo **Main** immediatamente prima della riga `Console.ReadLine()`:
 
@@ -38,4 +38,4 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
 [gestione degli errori temporanei]: https://msdn.microsoft.com/library/hh675232.aspx
 [Introduzione all'hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come scalare automaticamente un servizio cloud nel portale | Microsoft Azure"
-	description="Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure."
+	pageTitle="Configurazione della scalabilità automatica di un servizio cloud nel portale | Microsoft Azure"
+	description="(classico) Informazioni su come usare il portale classico per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -17,17 +17,21 @@
 	ms.author="adegeo"/>
 
 
-# Come eseguire la scalabilità automatica di un servizio cloud
+# Come configurare la scalabilità automatica di un servizio cloud
 
-Nella pagina per la scalabilità del portale di Azure classico è possibile scalare manualmente un ruolo Web o un ruolo di lavoro oppure abilitare la scalabilità automatica in base al carico della CPU o a una coda di messaggi.
+> [AZURE.SELECTOR]
+- [Portale di Azure](cloud-services-how-to-scale-portal.md)
+- [Portale di Azure classico](cloud-services-how-to-scale.md)
 
->[AZURE.NOTE] Questo articolo è incentrato sui ruoli Web e di lavoro del servizio cloud. Quando si crea una macchina virtuale direttamente, questa viene ospitata in un servizio cloud. Alcune delle presenti informazioni si applicano a questi tipi di macchine virtuali. Scalare un set di disponibilità di macchine virtuali significa semplicemente attivarle e disattivarle in base alle regole di scalabilità configurate. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
+Nella pagina Ridimensiona del portale di Azure classico è possibile ridimensionare manualmente un ruolo Web o un ruolo di lavoro oppure abilitare la scalabilità automatica in base al carico della CPU o a una coda di messaggi.
+
+>[AZURE.NOTE] Questo articolo è incentrato sui ruoli Web e di lavoro del servizio cloud. Quando si crea una macchina virtuale (distribuzione classica) direttamente, questa viene ospitata in un servizio cloud. Alcune delle presenti informazioni si applicano a questi tipi di macchine virtuali. Scalare un set di disponibilità di macchine virtuali significa semplicemente attivarle e disattivarle in base alle regole di scalabilità configurate. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
 
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:
 
-- La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due servizi cloud di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitato a sedici core. Per altre informazioni, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
+- La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo più ampie usano più core. È possibile ridimensionare il numero di istanze di un'applicazione solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due servizi cloud di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitato a sedici core. Per altre informazioni, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
 
-- È necessario creare una coda e associarla a un ruolo prima di scalare un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come utilizzare il servizio di archiviazione di accodamento](../storage/storage-dotnet-how-to-use-queues.md).
+- È necessario creare una coda e associarla a un ruolo prima di ridimensionare il numero di istanze di un'applicazione in base a una soglia di messaggi. Per altre informazioni, vedere [Come utilizzare il servizio di archiviazione di accodamento](../storage/storage-dotnet-how-to-use-queues.md).
 
 - È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
@@ -56,7 +60,7 @@ Fare clic sul pulsante **Imposta ore di pianificazione** per ogni ruolo che si d
 
 ## Scalabilità manuale
 
-Nella pagina per la **scalabilità** è possibile aumentare o diminuire manualmente il numero delle istanze in esecuzione in un servizio cloud. Questa configurazione è prevista per qualsiasi pianificazione creata o, in mancanza di una pianificazione, viene applicata sempre.
+Nella pagina **Ridimensiona** è possibile aumentare o diminuire manualmente il numero delle istanze in esecuzione in un servizio cloud. Questa configurazione è prevista per qualsiasi pianificazione creata o, in mancanza di una pianificazione, viene applicata sempre.
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 
@@ -66,11 +70,11 @@ Nella pagina per la **scalabilità** è possibile aumentare o diminuire manualme
 
 3. Selezionare la pianificazione di cui si desidera modificare le opzioni di scalabilità. In assenza di una pianificazione definita, l'impostazione predefinita è *Nessuna ora pianificata*.
 
-4. Trovare la sezione **Ridimensiona in base alla metrica** e selezionare **DISATTIVA**. Questa è l'impostazione predefinita per tutti i ruoli.
+4. Trovare la sezione **Ridimensiona in base alla metrica** e selezionare **Nessuna**. Questa è l'impostazione predefinita per tutti i ruoli.
 
 5. In ogni ruolo nel servizio cloud è presente un dispositivo di scorrimento che consente di modificare il numero di istanze da usare.
 
-    ![Scalare manualmente un ruolo del servizio cloud][manual_scale]
+    ![Ridimensionare manualmente un ruolo del servizio cloud][manual_scale]
 
     Se sono richieste altre istanze, potrebbe essere necessario modificare le [dimensioni di macchine virtuali e di servizi cloud](cloud-services-sizes-specs.md).
 
@@ -95,7 +99,7 @@ Questa configurazione è possibile se la percentuale media di uso della CPU supe
 
 5. A questo punto è possibile configurare un intervallo minimo e massimo di istanze dei ruoli, l'intervallo di destinazione per l'uso della CPU (per attivare un aumento) e il numero di istanze da aumentare o ridurre.
 
-![Scalare un ruolo del servizio cloud per carico CPU][cpu_scale]
+![Ridimensionare un ruolo del servizio cloud per carico CPU][cpu_scale]
 
 >[AZURE.TIP] Per informazioni sulla funzione di una specifica impostazione, spostare il mouse sull'icona ![][tip_icon] ogni volta che viene visualizzata.
 
@@ -113,11 +117,11 @@ Questa configurazione automatica è possibile se il numero di messaggi in una co
 
 2. Fare clic su **Scale**.
 
-3. Trovare la sezione **Ridimensiona in base alla metrica** e selezionare **CODA**.
+3. Trovare la sezione **Ridimensiona in base alla metrica** e selezionare **CPU**.
 
 4. A questo punto è possibile configurare un intervallo minimo e massimo di istanze dei ruoli, la coda, la quantità di messaggi in coda da elaborare per ogni istanza e il numero di istanze da aumentare o ridurre.
 
-![Scalare un ruolo del servizio cloud per coda di messaggi][queue_scale]
+![Ridimensionare un ruolo del servizio cloud per coda di messaggi][queue_scale]
 
 >[AZURE.TIP] Per informazioni sulla funzione di una specifica impostazione, spostare il mouse sull'icona ![][tip_icon] ogni volta che viene visualizzata.
 
@@ -147,4 +151,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

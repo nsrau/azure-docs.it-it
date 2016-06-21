@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Rollover della chiave di firma in Azure Active Directory
@@ -228,4 +228,4 @@ Se il tipo di applicazione o la piattaforma non supporta attualmente un meccanis
 
 È stato appena creato il certificato X509 usato come chiave pubblica per Azure AD. Usando i dettagli del certificato, ad esempio la data di scadenza e l'identificazione personale, è possibile verificare manualmente o a livello di codice che il certificato e l'identificazione personale usati attualmente dall'applicazione siano validi.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

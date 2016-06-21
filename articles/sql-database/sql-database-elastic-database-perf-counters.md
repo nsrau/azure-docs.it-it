@@ -36,7 +36,7 @@ Per creare i contatori, chiamare il metodo CreatePeformanceCategoryAndCounters d
 
 	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-Il metodo crea i contatori delle prestazioni seguenti:
+È inoltre possibile utilizzare [questo](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script di PowerShell per eseguire il metodo. Il metodo crea i contatori delle prestazioni seguenti:
 
 * **Mapping memorizzati nella cache**: numero di mapping memorizzati nella cache per la mappa partizioni.
 *  **Operazioni di routing dipendente dai dati al secondo**: frequenza delle operazioni di routing dipendente dai dati per la mappa partizioni. Questo contatore viene aggiornato quando una chiamata a [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) genera una connessione riuscita alla partizione di destinazione. 
@@ -73,4 +73,4 @@ I contatori delle prestazioni verranno aggiornati da tutte le operazioni della c
 <!--Anchors-->
 <!--Image references-->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

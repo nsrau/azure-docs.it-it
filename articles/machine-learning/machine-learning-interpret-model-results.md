@@ -79,7 +79,7 @@ Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare 
 
 Figura 3 Esperimento di assegnazione di punteggio per un problema di classificazione a due classi relativo ai fiori Iris
 
-A questo punto è necessario impostare l'input e output per il servizio Web. L'input è costituito, ovviamente, dalla porta di input di destra del modulo [Score Model][score-model], ovvero dalle caratteristiche del fiore Iris. La scelta dell'output varia a seconda che si sia interessati alla classe stimata (etichetta con punteggio), alla probabilità con punteggio o a entrambe. Si suppone in questo caso di essere interessati a entrambe. Per selezionare le colonne di output desiderate, è necessario usare un modulo [Project Columns][project-columns]. A questo scopo, fare clic sul modulo [Project Columns][project-columns] e quindi su **Launch column selector** nel pannello destro e selezionare **Scored Labels** e **Scored Probabilities**. Dopo aver impostato la porta di output del modulo [Project Columns][project-columns] e averlo eseguito di nuovo, dovrebbe essere possibile pubblicare l'esperimento di assegnazione del punteggio come servizio Web facendo clic sul pulsante **PUBLISH WEB SERVICE** nella parte inferiore. L'esperimento finale si presenta come nella figura 4.
+A questo punto è necessario impostare l'input e output per il servizio Web. L'input è costituito, ovviamente, dalla porta di input di destra del modulo [Score Model][score-model], ovvero dalle caratteristiche del fiore Iris. La scelta dell'output varia a seconda che si sia interessati alla classe stimata (etichetta con punteggio), alla probabilità con punteggio o a entrambe. Si suppone in questo caso di essere interessati a entrambe. Per selezionare le colonne di output desiderate, è necessario utilizzare un modulo [Select Columns in Dataset][select-columns]. A questo scopo, fare clic sul modulo [Select Columns in Dataset][select-columns] e quindi su **Launch column selector** nel pannello destro e selezionare **Scored Labels** e **Scored Probabilities**. Dopo aver impostato la porta di output del modulo [Select Columns in Dataset][select-columns] e averlo eseguito di nuovo, dovrebbe essere possibile pubblicare l'esperimento di assegnazione del punteggio come servizio Web facendo clic sul pulsante **PUBLISH WEB SERVICE** nella parte inferiore. L'esperimento finale si presenta come nella figura 4.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -116,7 +116,7 @@ Le sedici colonne di sinistra rappresentano i valori funzione del set di test. L
 
 **Pubblicazione come servizio Web**
 
-Questa volta, anziché avvalersi del modulo [Project Columns][project-columns] per selezionare le colonne da usare come output del servizio Web, per ogni voce si ottiene l'etichetta con punteggio e la relativa probabilità. La logica di base è trovare la probabilità più alta tra tutte le probabilità con punteggio. A questo scopo è necessario usare il modulo [Execute R Script][execute-r-script]. Il codice R è illustrato nella figura 8, l'esperimento nella figura 9.
+Questa volta, anziché avvalersi del modulo [Select Columns in Dataset][select-columns] per selezionare le colonne da utilizzare come output del servizio Web, per ogni voce si ottiene l'etichetta con punteggio e la relativa probabilità. La logica di base è trovare la probabilità più alta tra tutte le probabilità con punteggio. A questo scopo è necessario usare il modulo [Execute R Script][execute-r-script]. Il codice R è illustrato nella figura 8, l'esperimento nella figura 9.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -302,11 +302,11 @@ Figura 26 Risultato della pubblicazione come servizio Web del problema relativo 
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

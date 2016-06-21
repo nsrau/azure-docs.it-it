@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="06/02/2016"
    ms.author="sonyama;barbkess"/>
 
-# Procedure consigliate per SQL Data Warehouse
+# Procedure consigliate per Azure SQL Data Warehouse
 
 Questo articolo è una raccolta di numerose procedure consigliate che consentono di ottenere un rapporto prezzo/prestazioni ottimale da Azure SQL Data Warehouse. Alcuni concetti in questo articolo sono molto basilari e facili da spiegare, mentre altri sono più avanzati e verranno solo analizzati brevemente. Lo scopo dell'articolo è quello di offrire alcune indicazioni di base e di far capire quali sono gli aspetti importanti da prendere in considerazione per la creazione di un data warehouse. Ogni sezione presenta un concetto e rimanda ad articoli più dettagliati che analizzano il concetto in modo più approfondito.
 
@@ -43,12 +43,12 @@ Una singola operazione di caricamento in una tabella di piccole dimensioni con u
 
 Vedere anche [Insert (Transact-SQL)][]
  
-## Usare PolyBase per caricare ed esportare rapidamente i dati
+## Utilizzare PolyBase per caricare ed esportare rapidamente i dati
 SQL Data Warehouse supporta il caricamento e l'esportazione dei dati attraverso diversi strumenti, tra cui Azure Data Factory, PolyBase e BCP. Per piccole quantità di dati in cui le prestazioni non sono fondamentali, qualsiasi strumento può essere adeguato per soddisfare le esigenze. Quando tuttavia si caricano o si esportano grandi volumi di dati oppure sono necessarie prestazioni elevate, PolyBase è la scelta migliore. PolyBase è progettato per sfruttare l'architettura MPP (Massively Parallel Processing, elaborazione parallela massiva) di SQL Data Warehouse ed è quindi in grado di caricare ed esportare grandi volumi di dati più velocemente di qualsiasi altro strumento. Le operazioni di caricamento di PolyBase possono essere eseguite usando CTAS o INSERT INTO. **L'uso di CTAS riduce al minimo la registrazione delle transazioni e rappresenta il modo più rapido per caricare i dati.** Azure Data Factory supporta anche le operazioni di caricamento di PolyBase. PolyBase supporta una vasta gamma di formati di file, inclusi i file GZIP. **Per aumentare al massimo la velocità effettiva quando si usano file di testo GZIP, suddividere i file in 60 o più file per ottimizzare il parallelismo del caricamento.** Per una velocità effettiva totale maggiore, prendere in considerazione il caricamento simultaneo dei dati.
 
-Vedere anche [Caricare i dati in SQL Data Warehouse][], [Guida per l'uso di PolyBase in SQL Data Warehouse][], [Azure SQL Data Warehouse loading patterns and strategies][] \(Strategie e modelli di caricamento di Azure SQL Data Warehouse), \[Caricare i dati con Azure Data Factory][], [Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [Create Table As Select (CTAS) in SQL Data Warehouse][]
+Vedere anche [Caricare i dati in SQL Data Warehouse][], [Guida per l'uso di PolyBase in SQL Data Warehouse][], [Azure SQL Data Warehouse loading patterns and strategies][] \(Strategie e modelli di caricamento di Azure SQL Data Warehouse), [Caricare i dati con Azure Data Factory][], [Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [Create Table As Select (CTAS) in SQL Data Warehouse][]
 
-## Usare la distribuzione hash per le tabelle di grandi dimensioni
+## Utilizzare la distribuzione hash per le tabelle di grandi dimensioni
 Per impostazione predefinita, per le tabelle viene usata la distribuzione round robin. In questo modo, gli utenti possono iniziare a creare le tabelle in modo semplice senza dover decidere come devono essere distribuite. Le tabelle round robin possono funzionare bene per alcuni carichi di lavoro, ma spesso la selezione di una colonna di distribuzione offre prestazioni molto migliori. L'unione in join di due tabelle dei fatti di grandi dimensioni è l'esempio più comune di come una tabella distribuita in base a una colonna possa offrire prestazioni migliori rispetto a una tabella round robin. Se, ad esempio, sono presenti una tabella degli ordini, distribuita in base a id\_ordine, e una tabella delle transazioni, anch'essa distribuita in base a id\_ordine, quando si uniscono in join le due tabelle in base a id\_ordine, la query diventa una query pass-through, il che significa che si eliminano le operazioni di spostamento dei dati. Un numero inferiore di passaggi consente una maggiore velocità di esecuzione delle query. Anche un numero inferiore di operazioni di spostamento consente query più veloci. Questa spiegazione è molto generica. Durante il caricamento di una tabella distribuita, assicurarsi che i dati in entrata non siano ordinati nella chiave di distribuzione, perché questo rallenterebbe il caricamento. Vedere i collegamenti seguenti per informazioni più dettagliate su come la selezione di una colonna di distribuzione possa migliorare le prestazioni e su come definire una tabella distribuita nella clausola WITH dell'istruzione CREATE TABLES.
 
 Vedere anche [Distribuzione hash e relativo effetto sulle prestazioni delle query in SQL Data Warehouse][], [Confronto tra la scelta di una tabella con distribuzione hash o round robin][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
@@ -63,12 +63,12 @@ Le istruzioni INSERT, UPDATE e DELETE vengono eseguite in una transazione e quan
 
 Vedere anche [Transazioni in SQL Data Warehouse][], [Ottimizzazione delle transazioni per SQL Data Warehouse][], [Partizioni della tabella in SQL Data Warehouse][], [TRUNCATE TABLE (Transact-SQL)][], [ALTER TABLE (Transact-SQL)][], [Create Table As Select (CTAS) in SQL Data Warehouse][]
 
-## Usare colonne con dimensioni il più piccole possibili
+## Utilizzare colonne con dimensioni il più piccole possibili
 Quando si definisce il codice DDL, per migliorare le prestazioni di query usare il più piccolo tipo di dati in grado di supportare i dati. Questo aspetto è particolarmente importante per le colonne CHAR e VARCHAR. Se il valore più lungo in una colonna è di 25 caratteri, definire la colonna come VARCHAR(25). Evitare di definire tutte le colonne di tipo carattere impostando una lunghezza predefinita elevata. Definire inoltre le colonne come VARCHAR quando è sufficiente, invece di usare NVARCHAR.
 
 Vedere anche [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][]
 
-## Usare tabelle heap temporanee per i dati temporanei
+## Utilizzare tabelle heap temporanee per i dati temporanei
 Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, una tabella heap potrebbe rendere più veloce il processo complessivo. Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap sarà molto più rapido del caricamento dei dati in una tabella columnstore cluster. Inoltre, il caricamento dei dati in una tabella temporanea sarà molto più veloce del caricamento di una tabella in un archivio permanente. Le tabelle temporanee iniziano con "#" e sono accessibili solo dalla sessione in cui sono state create, quindi potrebbero non funzionare in alcuni scenari. Le tabelle heap sono definite nella clausola WITH di CREATE TABLE. Se si usa una tabella temporanea, ricordarsi di creare le statistiche anche su tale tabella temporanea.
 
 Vedere anche [Tabelle temporanee in SQL Data Warehouse][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
@@ -76,13 +76,13 @@ Vedere anche [Tabelle temporanee in SQL Data Warehouse][], [CREATE TABLE (Azure 
 ## Ottimizzare le tabelle columnstore cluster
 Gli indici columnstore cluster rappresentano uno dei modi più efficienti per archiviare i dati in Azure SQL Data Warehouse. Per impostazione predefinita, le tabelle in SQL Data Warehouse vengono create come tabelle columnstore cluster. Per ottenere prestazioni ottimali per le query sulle tabelle columnstore è importante che la qualità dei segmenti sia buona. Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne. La qualità del segmento può essere misurata in base al numero di righe in un gruppo di righe compresso. Vedere la sezione **Qualità del segmento columnstore cluster** in [Risoluzione dei problemi][] per istruzioni dettagliate su come individuare e migliorare la qualità dei segmenti per le tabelle columnstore cluster. Poiché ottenere una buona qualità dei segmenti columnstore è piuttosto importante, in genere è consigliabile creare un ID utente speciale solo per il caricamento, che utilizza una classe di risorse di medie o grandi dimensioni. Minore è il numero di unità DWU usate, maggiori saranno le dimensioni della classe di risorse da assegnare all'utente incaricato del caricamento.
 
-Poiché le tabelle columnstore in genere non effettuano il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella di SQL Data Warehouse è suddivisa in 60 tabelle, come regola generale le tabelle columnstore non risultano vantaggiose per una query a meno che non contengano più di 60 milioni di righe. Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile, ma potrebbe anche non avere effetti negativi. Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster. Se una tabella ha 100 partizioni, dovrà contenere almeno 6 miliardi di righe per trarre vantaggio da un archivio colonne cluster (60 distribuzioni * 100 partizioni * 1 milione di righe). Se la tabella non contiene 6 miliardi di righe come in questo esempio, ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap. Potrebbe anche essere utile fare delle prove per verificare se è possibile ottenere prestazioni migliori con una tabella heap con indici secondari al posto di una tabella columnstore. Le tabelle columnstore al momento non supportano gli indici secondari.
+Poiché le tabelle columnstore in genere non effettuano il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella di SQL Data Warehouse è suddivisa in 60 tabelle, come regola generale le tabelle columnstore non risultano vantaggiose per una query a meno che non contengano più di 60 milioni di righe. Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile, ma potrebbe anche non avere effetti negativi. Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster. Se una tabella ha 100 partizioni, dovrà contenere almeno 6 miliardi di righe per trarre vantaggio da un archivio colonne cluster (60 distribuzioni * 100 partizioni * 1 milione di righe). Se la tabella non contiene 6 miliardi di righe come in questo esempio, ridurre il numero di partizioni o prendere in considerazione l'utilizzo di una tabella heap. Potrebbe anche essere utile fare delle prove per verificare se è possibile ottenere prestazioni migliori con una tabella heap con indici secondari al posto di una tabella columnstore. Le tabelle columnstore al momento non supportano gli indici secondari.
 
 Quando si esegue una query su una tabella columnstore, l'esecuzione sarà più rapida se si selezionano solo le colonne necessarie.
 
 Vedere anche [Risoluzione dei problemi][], [Gestire gli indici columnstore in Azure SQL Data Warehouse][], [Descrizione degli indici columnstore][]
 
-## Usare una classe di risorse più grande per migliorare le prestazioni delle query
+## Utilizzare una classe di risorse più grande per migliorare le prestazioni delle query
 SQL Data Warehouse usa i gruppi di risorse per allocare la memoria per le query. Per impostazione predefinita, tutti gli utenti vengono assegnati alla classe di risorse piccola, che garantisce 100 MB di memoria per distribuzione. Poiché ci sono sempre 60 distribuzioni e a ogni distribuzione viene assegnato un minimo di 100 MB, l'allocazione di memoria totale a livello di sistema è di 6.000 MB o poco meno di 6 GB. Alcune query, ad esempio i join di grandi dimensioni oppure le operazioni di caricamento in tabelle columnstore cluster, risultano avvantaggiate da allocazioni di una quantità maggiore di memoria. Alcune query, come le operazioni di sola analisi, non traggono alcun vantaggio. D'altra parte, l'uso di classi di risorse più grandi influisce sulla concorrenza, quindi sarà necessario tenere in considerazione questo aspetto prima di spostare tutti gli utenti in una classe di risorse di grandi dimensioni.
  
 Vedere anche [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][]
@@ -92,12 +92,12 @@ Se si nota che le query utente sembrano avere un lungo ritardo, è possibile che
 
 Vedere anche [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][], [sys.dm\_pdw\_waits (Transact-SQL)][]
 
-## Usare DMV per monitorare e ottimizzare le query
+## Utilizzare DMV per monitorare e ottimizzare le query
 SQL Data Warehouse offre diverse viste a gestione dinamica che è possibile usare per monitorare l'esecuzione delle query. L'articolo relativo al monitoraggio indicato di seguito fornisce istruzioni dettagliate su come esaminare i dati di una query in esecuzione. Per trovare rapidamente le query in queste DMV, può essere utile usare l'opzione LABEL con le query.
 
 Vedere anche [Monitoraggio del carico di lavoro mediante DMV][], [Usare etichette per instrumentare query in SQL Data Warehouse][], [Clausola OPTION (Transact-SQL)][], [sys.dm\_exec\_sessions (Transact-SQL)][], [sys.dm\_pdw\_exec\_requests (Transact-SQL)][], [sys.dm\_pdw\_request\_steps (Transact-SQL)][], [sys.dm\_pdw\_sql\_requests (Transact-SQL)][], [sys.dm\_pdw\_dms\_workers (Transact-SQL)], [DBCC PDW\_SHOWEXECUTIONPLAN (Transact-SQL)][], [sys.dm\_pdw\_waits (Transact-SQL)][]
 
-## Altre risorse
+## Altre risorse:
 Ci sono molte posizioni in cui cercare informazioni su come usare Azure SQL Data Warehouse. Questo articolo fa parte della documentazione di Azure e include molti collegamenti ad altri articoli di Azure e articoli MSDN. Tutti questi articoli vengono monitorati esaminando i commenti e i suggerimenti degli utenti e vengono aggiornati di frequente. Se si ritiene utile un articolo, è possibile segnalarlo rispondendo alla domanda "Questa pagina è stata utile?". Dopo aver risposto Sì o No, è possibile aggiungere commenti. Se si ritiene che un articolo sia utile ma si vuole aggiungere un commento o un suggerimento, fare clic su Sì e aggiungere il commento indicando come sarebbe possibile migliorare l'articolo. Se la domanda non viene visualizzata, è sempre possibile trovarla alla fine di ogni articolo di Azure, mentre per gli articoli MSDN è disponibile un collegamento per i suggerimenti nell'angolo in alto a destra di ogni pagina MSDN. I commenti e i suggerimenti degli utenti sono molto importanti e offrono uno spunto per migliorare i contenuti.
 
 Per **suggerimenti sulle funzionalità** per SQL Data Warehouse, usare la pagina di [commenti e suggerimenti su Azure SQL Data Warehouse][]. Le richieste aggiunte o i voti per altre richieste sono utili per definire le priorità per le funzionalità.
@@ -121,9 +121,9 @@ Il [forum di MSDN su Azure SQL Data Warehouse][] è stato creato per offrire un 
 [Monitoraggio del carico di lavoro mediante DMV]: sql-data-warehouse-manage-monitor.md
 [Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Ottimizzazione delle transazioni per SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Sospendere l'attività delle risorse di calcolo]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
-[Ripristinare l'attività delle risorse di calcolo]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
-[Ridimensionare le risorse di calcolo]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[Sospendere l'attività delle risorse di calcolo]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Ripristinare l'attività delle risorse di calcolo]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Ridimensionare le risorse di calcolo]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Partizioni della tabella in SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Tabelle temporanee in SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md
@@ -157,4 +157,4 @@ Il [forum di MSDN su Azure SQL Data Warehouse][] è stato creato per offrire un 
 [forum di Stack Overflow su Azure SQL Data Warehouse]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

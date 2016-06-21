@@ -5,7 +5,7 @@
     keywords="enterprise state roaming, cloud windows"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Riferimento alle impostazioni di roaming di Windows 10
@@ -33,7 +33,7 @@ La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account 
 
 
 ##Cosa si intende per backup
-Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.
+Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.
 
 ## Panoramica sulle impostazioni di Windows
 I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o disabilitare la sincronizzazione delle impostazioni nei dispositivi Windows 10.
@@ -46,6 +46,10 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 - Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+
+La sincronizzazione del gruppo di impostazioni del browser Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Edge.
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
  
 ## Dettagli relativi alle impostazioni di Windows
 Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa riferimento alle impostazioni che possono essere disabilitate da Impostazioni > Account > Sincronizza le impostazioni > Altre impostazioni di Windows.
@@ -57,11 +61,11 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 |----------------------------------|---------|---------|-------|
 | **Account**: immagine dell'account | sincronizzazione |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
-| **Banda larga mobile avanzata**: nome della rete di Condivisione connessione Internet, che consente il rilevamento automatico degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth|sincronizzazione |sincronizzazione |Password |
+| **Banda larga mobile avanzata**: nome della rete di Condivisione connessione Internet, che consente il rilevamento automatico degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth|X |X |Password |
 |**Dati app**: singole app possono sincronizzare i dati|backup sincronizzazione | backup sincronizzazione|Interne |
 |**Elenco app**: elenco delle app installate |X |backup |Altre |
 |**Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
-|**Prompt dei comandi**: tutte le impostazioni del prompt dei comandi |sincronizzazione| |X |Altre
+|**Prompt dei comandi**: tutte le impostazioni del prompt dei comandi |sincronizzazione |X | |
 |**Cortana**: abilitazione/disabilitazione |X |X | |
 |**Cortana**: abilitazione di Cortana nella schermata di blocco |X |X | |
 |**Cortana**: nome utente |sincronizzazione |sincronizzazione |Interne|
@@ -70,7 +74,7 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 |**Cortana**: ricerca di informazioni sui voli e altro|X |sincronizzazione |Interne|
 |**Credenziali**: Casella di sicurezza delle credenziali |sincronizzazione |sincronizzazione |password|
 |**Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sincronizzazione |sincronizzazione |Lingua|
-|**Data, ora e opzioni internazionali**: formato a 24 ore|sincronizzazione |sincronizzazione |Lingua|
+|**Data, ora e opzioni internazionali**: formato a 24 ore|sync |X |Lingua|
 |**Data, ora e opzioni internazionali**: data e ora|sincronizzazione |X |Lingua|
 |**Data, ora e opzioni internazionali**: fuso orario | |X |Lingua|
 |**Data, ora e opzioni internazionali**: ora legale|sincronizzazione |X |Lingua|
@@ -84,8 +88,8 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 |**Personalizzazione del desktop**: tema del desktop (sfondo, colore di sistema, segnali acustici sistema predefiniti, screen saver) |sincronizzazione |X |Tema|
 |**Personalizzazione del desktop**: sfondo presentazione |sincronizzazione |X |Tema|
 |**Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sincronizzazione |X |Tema|
-|**Personalizzazione del desktop**: layout della schermata Start |sincronizzazione |backup ||
-|**Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |sincronizzazione | X |Altro |
+|**Personalizzazione del desktop**: layout della schermata Start |X |backup ||
+|**Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X | X |Altro |
 |**Browser Edge**: Elenco di lettura |sincronizzazione |sincronizzazione |Interne|
 |**Browser Edge**: Preferiti |sincronizzazione |sincronizzazione |Interne|
 |**Browser Edge**: tutte le altre impostazioni di Edge|X |X ||
@@ -104,18 +108,18 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 |**Tastiera**: Attiva Filtro tasti (disabilitato per impostazione predefinita)|sincronizzazione |X |Accessibilità|
 |**Tastiera**: Attiva Segnali acustici (disabilitati per impostazione predefinita)|sincronizzazione |X |Accessibilità|
 |**Internet Explorer**: cinese (QWERTY), abilitazione dell'apprendimento automatico della lingua del dominio|sincronizzazione |X |Lingua|
-|**Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati|sincronizzazione |X |Lingua|
+|**Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati|sync |X |Lingua|
 |**Lingua**: cinese (QWERTY), set di caratteri cinese semplificato|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), set di caratteri cinese tradizionale|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), Pinyin fuzzy|sincronizzazione |sincronizzazione |Lingua|
 |**Lingua**: cinese (QWERTY), coppie fuzzy|sincronizzazione |sincronizzazione |Lingua|
-|**Lingua**: cinese (QWERTY), Pinyin completo||sincronizzazione |X |Lingua|
+|**Lingua**: cinese (QWERTY), Pinyin completo|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), Pinyin doppio|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), correzione automatica lettura|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), cambio tastiera C/E, MAIUSC|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (QWERTY), cambio tastiera C/E, CTRL|sincronizzazione |X |Lingua|
 |**Lingua**: cinese (WUBI), Modalità di input a singolo carattere |sincronizzazione |X |Lingua|
-|**Lingua**: cinese (WUBI), Mostra il codice rimanente dei candidati |sincronizzazione |X |Lingua|
+|**Lingua**: cinese (WUBI), Mostra il codice rimanente dei candidati |sync |X |Lingua|
 |**Lingua**: cinese (WUBI), Emetti un segnale acustico se la codifica 4 non è valida|sincronizzazione |X |Lingua|
 |**Lingua**: Bopomofo cinese, inclusione di CJK, estensione A|sincronizzazione |X |Lingua|
 |**Lingua**: IME giapponese, digitazione predittiva e parole personalizzate|sincronizzazione |sincronizzazione |Lingua|
@@ -125,7 +129,7 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 |**Lingua**: controllo ortografico, correzione automatica ed evidenziazione degli errori di ortografia|sincronizzazione |backup |Lingua|
 |**Lingua**: elenco delle tastiere|sincronizzazione |backup |Lingua|
 |**Schermata di blocco**: tutte le impostazioni della schermata di blocco|X |X ||
-|**Lente di ingrandimento**: abilitazione/disabilitazione (master)|X |backup |Accessibilità|
+|**Lente di ingrandimento**: abilitazione/disabilitazione (master)|X |X |Accessibilità|
 |**Lente di ingrandimento**: Attiva inversione colori (disattivata per impostazione predefinita)|sincronizzazione |X |Accessibilità|
 |**Lente di ingrandimento**: rilevamento, Segui la tastiera|sincronizzazione |X |Accessibilità|
 |**Lente di ingrandimento**: rilevamento, Segui il puntatore del mouse|sincronizzazione |X |Accessibilità|
@@ -172,4 +176,4 @@ La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle imposta
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

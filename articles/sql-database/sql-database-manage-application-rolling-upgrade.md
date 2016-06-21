@@ -131,4 +131,4 @@ I due metodi di aggiornamento descritti nell'articolo differiscono in termini di
 - [Copiare un database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Impostare il database in modalità di sola lettura o lettura/scrittura](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

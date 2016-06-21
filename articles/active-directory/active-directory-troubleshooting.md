@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/04/2015"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 # Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
@@ -40,7 +40,7 @@ La voce Active Directory viene visualizzata nel menu di navigazione sinistro se 
 
     OPPURE
 
-* Il tenant di Azure ha almeno un provider di Azure Multi-Factor Authentication. Per altre informazioni, vedere [Amministrazione dei provider di Azure Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider).
+* Il tenant di Azure ha almeno un provider di Azure Multi-Factor Authentication. Per altre informazioni, vedere [Amministrazione dei provider di Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Per creare un oggetto Spazio dei nomi di Access Control o un provider di Multi-Factor Authentication, fare clic su **+Nuovo** > **Servizi app** > **Active Directory**.
 
@@ -54,4 +54,4 @@ Tuttavia, durante il caricamento della pagina, la voce viene visualizzata in gri
 
 ![Schermata: Active Directory non disponibile](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0608_2016-->

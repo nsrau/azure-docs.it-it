@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Esplorare le esercitazioni per il database SQL"
+   pageTitle="Esplorare le esercitazioni sul database SQL di Azure | Microsoft Azure"
    description="Informazioni sulle caratteristiche e sulle funzionalità del database SQL"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Esplorare le esercitazioni per il database SQL
+# Esplorare le esercitazioni sul database SQL di Azure
 
-I collegamenti seguenti indirizzano a una panoramica delle aree di funzionalità elencate e a un'esercitazione di avvio rapido per ogni area.
+I collegamenti seguenti indirizzano a una panoramica delle aree di funzionalità elencate e a una semplice esercitazione introduttiva per ogni area. Per esercitazioni introduttive nell'ambito della soluzione che illustrano l'uso del database SQL in una soluzione completa basata su scenari reali, vedere [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md) (Procedure di avvio rapido per la soluzione di database SQL di Azure).
 
 ## Utilizzare SQL Server Management Studio
 
@@ -33,7 +33,7 @@ Le esercitazioni seguenti spiegano come usare SQL Server Management Studio per g
 
 ## Pool elastici
 
-Questa esercitazione mostra come usare i [pool elastici](sql-database-elastic-pool.md) per gestire gli obiettivi di prestazioni per più database con modelli di utilizzo estremamente variabili e imprevedibili.
+Le esercitazioni seguenti mostrano come usare i [pool elastici](sql-database-elastic-pool.md) per gestire gli obiettivi di prestazioni per più database con modelli di utilizzo estremamente variabili e imprevedibili.
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -47,7 +47,7 @@ Questa esercitazione mostra come usare i [pool elastici](sql-database-elastic-po
 
 ## Processi di database elastici
 
-Le esercitazioni seguenti mostrano come usare i [processi di database elastici](sql-database-elastic-jobs-overview.md).
+Le esercitazioni seguenti mostrano come usare i [processi di database elastico](sql-database-elastic-jobs-overview.md).
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -92,12 +92,12 @@ Le esercitazioni seguenti mostrano come [eseguire la migrazione di un database S
 | [Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) | Questa esercitazione mostra come eseguire la migrazione di un database SQL Server compatibile nel database SQL di Azure tramite la distribuzione guidata del database nel database di Microsoft Azure in SQL Server Management Studio.
 | [Esportare un database SQL Server in un file BACPAC mediante SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) | Questa esercitazione mostra come esportare un database SQL Server compatibile in un file BACPAC tramite l'esportazione guidata dell'applicazione del livello dati in SQL Server Management Studio.|
 | [Esportare un database SQL Server in un file BACPAC mediante SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) | Questa esercitazione mostra come esportare un database SQL Server compatibile in un file BACPAC con l'utilità della riga di comando SQLPackage.exe.|
-| [Importare un file BACPAC in un database SQL di Azure con PowerShell](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Questa esercitazione mostra come importare un database nel database SQL di Azure da un file BACPAC tramite l'esportazione guidata dell'applicazione del livello dati in SQL Server Management Studio. |
+| [Importare da BACPAC al database SQL tramite SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Questa esercitazione mostra come importare un database nel database SQL di Azure da un file BACPAC tramite l'esportazione guidata dell'applicazione del livello dati in SQL Server Management Studio. |
 | [Importare un file BACPAC nel database SQL di Azure con SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) | Questa esercitazione mostra come importare un database nel database SQL di Azure da un file BACPAC con l'utilità della riga di comando SQLPackage. |
 | [Importare un file BACPAC nel database SQL di Azure tramite il portale di Azure](sql-database-import.md) | Questa esercitazione mostra come importare un database nel database SQL di Azure da un file BACPAC archiviato in un BLOB di Azure tramite il portale di Azure.|
 | [Importare un file BACPAC in un database SQL di Azure con PowerShell](sql-database-import-powershell.md) | Questa esercitazione mostra come importare un database nel database SQL di Azure da un file BACPAC con PowerShell.|
 | [Archiviare un database SQL di Azure tramite il portale di Azure](sql-database-export.md#export-your-database) | Questa esercitazione mostra come archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure. |
-| [Archiviare un database SQL di Azure con PowerShell](sql-database-export-powershell.md) | Questa esercitazione mostra come archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure. |
+| [Archiviare un database SQL di Azure con PowerShell](sql-database-export-powershell.md) | Questa esercitazione mostra come archiviare un database SQL di Azure in un file BACPAC usando PowerShell. |
 | [Copiare un database SQL di Azure tramite il portale di Azure](sql-database-copy.md#copy-your-sql-database) | Questa esercitazione mostra come copiare un database SQL di Azure tramite il portale di Azure. |
 | [Copiare un database SQL di Azure con PowerShell](sql-database-copy-powershell#copy-your-sql-database) | Questa esercitazione mostra come copiare un database SQL di Azure con PowerShell. |
 | [Copiare un database SQL di Azure con Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) | Questa esercitazione mostra come copiare un database SQL di Azure con Transact-SQL. |
@@ -151,7 +151,7 @@ Le esercitazioni seguenti mostrano come [proteggere i dati del database SQL di A
 
 ## Continuità aziendale e aumento delle istanze di query
 
-Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino geografico e di replica geografica attiva](sql-database-business-continuity.md) per eseguire operazioni di ripristino a seguito di errori, per la continuità aziendale e per l'aumento delle istanze di query.
+Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino geografico e replica geografica attiva](sql-database-business-continuity.md) per eseguire operazioni di ripristino a seguito di errori, per la continuità aziendale e per l'aumento delle istanze di query.
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -159,9 +159,9 @@ Le esercitazioni seguenti mostrano come usare le funzionalità di [ripristino ge
 | [Ripristinare un database SQL di Azure a un momento precedente con PowerShell](sql-database-point-in-time-restore-powershell.md) | Questa esercitazione mostra come ripristinare un database a un momento precedente tramite PowerShell|
 | [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md) | Questa esercitazione mostra come ripristinare un database eliminato tramite il portale di Azure.|
 | [Ripristinare un database SQL di Azure eliminato tramite PowerShell](sql-database-restore-deleted-database-powershell.md) | Questa esercitazione mostra come ripristinare un database eliminato tramite PowerShell.|
-| [Configurare la replica geografica per il Database SQL di Azure tramite il Portale di Azure](sql-database-geo-replication-portal.md)| Questa esercitazione mostra come configurare la replica geografica attiva tramite il portale di Azure.|
-| [Configurare la replica geografica per il database SQL di Azure tramite PowerShell](sql-database-geo-replication-powershell.md)| Questa esercitazione mostra come configurare la replica geografica attiva con Transact-SQL.|
-| [Configurare la replica geografica per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)| Questa esercitazione mostra come configurare la replica geografica attiva con Transact-SQL.|
+| [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md)| Questa esercitazione mostra come configurare la replica geografica attiva usando il portale di Azure.|
+| [Configurare la replica geografica per il database SQL di Azure con PowerShell](sql-database-geo-replication-powershell.md)| Questa esercitazione mostra come configurare la replica geografica attiva usando PowerShell.|
+| [Configurare la replica geografica per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)| Questa esercitazione mostra come configurare la replica geografica attiva usando Transact-SQL.|
 | [Avviare un failover pianificato o non pianificato per il database SQL di Azure usando il portale di Azure](sql-database-geo-replication-failover-portal.md) | Questa esercitazione mostra come eseguire il failover in una replica secondaria con replica geografica tramite il portale di Azure.|
 | [Avviare un failover pianificato o non pianificato per il database SQL di Azure usando PowerShell](sql-database-geo-replication-failover-powershell.md) | Questa esercitazione mostra come eseguire il failover in una replica secondaria con replica geografica con PowerShell.|
 | [Avviare un failover pianificato o non pianificato per il database SQL di Azure usando Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) | Questa esercitazione mostra come eseguire il failover in una replica secondaria con replica geografica con Transact-SQL.|
@@ -176,4 +176,8 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 | [Introduzione all'anteprima di sincronizzazione dati di SQL Azure](sql-database-get-started-sql-data-sync.md) | In questa esercitazione vengono fornite le nozioni di base della sincronizzazione dati SQL Azure tramite il portale di Azure classico. |
 ||||
 
-<!---HONumber=AcomDC_0518_2016-->
+## Passaggi successivi
+
+[Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
+
+<!---HONumber=AcomDC_0608_2016-->

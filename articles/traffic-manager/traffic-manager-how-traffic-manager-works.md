@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
+   ms.date="06/07/2016"
    ms.author="jonatul"/>
 
 # Modalità di funzionamento di Gestione traffico
@@ -64,6 +64,63 @@ Quando un utente richiede la pagina https://partners.contoso.com/login.aspx (com
 
 Si noti che il servizio DNS ricorsivo memorizza nella cache le risposte DNS che riceve, così come agirà il client DNS sul dispositivo dell'utente finale. In questo modo le query DNS successive riceveranno risposte più rapide usando i dati dalla cache al posto di query ad altri server dei nomi. La durata della memorizzazione nella cache è determinata dalla proprietà "Durata" (TTL) di ogni record DNS. I valori più brevi generano una scadenza più rapida della cache e quindi un numero maggiore di round trip al server dei nomi di Gestione traffico, mentre una lunghezza superiore dei valori può richiedere più tempo per l'allontanamento del traffico da un endpoint compromesso. Gestione traffico consente di configurare la durata (TTL) delle risposte DNS di Gestione traffico al fine di permettere all'utente di scegliere il valore ideale per bilanciare meglio le esigenze dell'applicazione.
 
+## Domande frequenti
+
+### Quale indirizzo IP viene usato da Gestione traffico?
+
+Come spiegato nella sezione Modalità di funzionamento di Gestione traffico, Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
+
+Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Pertanto, se ad esempio è richiesto un indirizzo IP statico, questo deve essere configurato nel servizio, non in Gestione traffico.
+
+### Gestione traffico supporta sessioni "permanenti"?
+
+Come spiegato [in precedenza](#how-clients-connect-using-traffic-manager), Gestione traffico lavora a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Pertanto, Gestione traffico non vede il traffico HTTP tra client e server, compresi i cookie.
+
+Si noti anche che l'indirizzo IP di origine della query DNS ricevuta da Gestione traffico è l'indirizzo IP del servizio DNS ricorsivo e non quello del client.
+
+Il servizio Gestione traffico non può quindi identificare o tracciare client singoli e, pertanto, non può implementare sessioni "permanenti". Ciò è comune a tutti i sistemi di gestione del traffico basati su DNS e non è una restrizione all'uso specifica di Gestione traffico.
+
+### Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?
+
+Come spiegato [in precedenza](#how-clients-connect-using-traffic-manager), Gestione traffico lavora a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
+
+Pertanto, il servizio Gestione traffico non vede il traffico HTTP tra client e server e non può generare errori a livello HTTP. Ogni errore HTTP visualizzato proviene dall'applicazione. Poiché il client si connette all'applicazione, questo significa anche che è necessario che la risoluzione DNS, incluso il ruolo di Gestione traffico, sia stata completata.
+
+Eventuali verifiche più approfondite dovranno quindi concentrarsi sull'applicazione.
+
+Un problema comune è che, quando si usa Gestione traffico, l'intestazione HTTP "host" passata dal browser all'applicazione mostra il nome di dominio usato nel browser. Potrebbe essere il nome di dominio di Gestione traffico (ad esempio myprofile.trafficmanager.net) se questo viene usato durante il test oppure potrebbe trattarsi del dominio personalizzato CNAME configurato in modo da fare riferimento al nome di dominio di Gestione traffico. In entrambi i casi, controllare che l'applicazione sia configurata per accettare l'intestazione host.
+
+Se l'applicazione è ospitata nel servizio app di Azure, vedere [Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+
+### Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?
+
+Come spiegato [in precedenza](#how-clients-connect-using-traffic-manager), Gestione traffico lavora a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
+
+Dal momento che i client si connettono direttamente agli endpoint di servizio, dopo che è stata stabilita la connessione non si verifica alcun impatto sulle prestazioni.
+
+Poiché Gestione traffico si integra con le applicazioni a livello di DNS, richiede l'inserimento di una ricerca DNS aggiuntiva nella catena di risoluzione DNS (vedere [Modalità di funzionamento di Gestione traffico](#traffic-manager-example)). L'impatto di Gestione traffico sul tempo di risoluzione DNS è minimo. Gestione traffico usa una rete globale di server dei nomi e reti Anycast per garantire che le query DNS vengano sempre indirizzate al server dei nomi più vicino disponibile. Inoltre, la memorizzazione nella cache delle risposte DNS significa che la latenza DNS aggiuntiva associata all'uso di Gestione traffico si applica solo a una frazione di sessioni.
+
+Il risultato è che l'impatto sulle prestazioni complessive associato all'inclusione di Gestione traffico nell'applicazione dovrebbe essere minimo.
+
+Inoltre, quando si usa il [metodo di routing del traffico "Prestazioni"](traffic-manager-routing-methods.md#performance-traffic-routing-method) di Gestione traffico, l'incremento nella latenza DNS dovrebbe essere abbondantemente compensato dal miglioramento nelle prestazioni ottenuto tramite il routing degli utenti finali all'endpoint disponibile più vicino.
+
+### Quali protocolli di applicazione possono essere usati con Gestione traffico?
+Come spiegato [in precedenza](#how-clients-connect-using-traffic-manager), Gestione traffico lavora a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare un protocollo dell'applicazione.
+
+Tuttavia, i controlli dell'integrità degli endpoint di Gestione traffico richiedono un endpoint HTTP o HTTPS. Questo può essere distinto dall'endpoint dell'applicazione a cui si connettono i client specificando una porta TCP diversa o un percorso URI nelle impostazioni di controllo dell'integrità del profilo di Gestione traffico.
+
+### È possibile usare Gestione traffico con un nome di dominio "naked" (senza www)?
+
+No, per il momento.
+
+Il tipo di record DNS CNAME viene usato per creare un mapping da un nome DNS a un altro nome. Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](#traffic-manager-example), Gestione traffico richiede un record DNS CNAME per eseguire il mapping di un nome DNS personalizzato (ad esempio www.contoso.com) al nome DNS del profilo di Gestione traffico (ad esempio contoso.trafficmanager.net). Inoltre, il profilo stesso di Gestione traffico restituisce un secondo record DNS CNAME per indicare l'endpoint a cui il client dovrebbe collegarsi.
+
+Gli standard DNS non consentono la coesistenza tra record CNAME e altri record DNS dello stesso tipo. Poiché il vertice (o radice) di una zona DNS contiene sempre due record DNS esistenti (i record SOA ed NS autorevoli), non è possibile creare un record CNAME al vertice della zona senza violare gli standard DNS.
+
+Per risolvere il problema, è consigliabile che i servizi con dominio naked (senza www) che vogliono usare Gestione traffico usino un reindirizzamento HTTP per indirizzare il traffico dal dominio naked a un URL diverso, che potrà quindi usare Gestione traffico. Ad esempio, il dominio naked "contoso.com" può reindirizzare gli utenti al dominio "www.contoso.com", che può quindi usare Gestione traffico.
+
+Il supporto completo per i domini naked in Gestione traffico è riportato nel backlog delle funzionalità. Se si è interessati a questa funzionalità, registrare il supporto [votandolo sul sito dei commenti della community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+
 ## Passaggi successivi
 
 Altre informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md) di Gestione traffico.
@@ -74,4 +131,4 @@ Altre informazioni sui [metodi di routing](traffic-manager-routing-methods.md) d
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,9 +22,9 @@ Informazioni su come pianificare il provisioning di cluster HDInsight.
 
 > [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure classico. Per la creazione di nuovi servizi, Microsoft non consiglia di usare il portale classico. Per una spiegazione dei vantaggi del portale di Azure, vedere [Portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Questo documento include anche informazioni sull'uso di Azure PowerShell e dell'interfaccia della riga di comando di Azure. I frammenti indicati, che si basano su comandi che usano Azure Service Management (ASM) compatibili con HDInsight, sono __deprecati__ e verranno rimossi dall'1 gennaio 2017.
+> Questo documento include anche informazioni sull’utilizzo di Azure PowerShell, dell’interfaccia della riga di comando di Azure e di .NET SDK per HDInsight. I frammenti indicati, che si basano su comandi che usano Azure Service Management (ASM) compatibili con HDInsight, sono __deprecati__ e verranno rimossi dall'1 gennaio 2017.
 >
->Per una versione di questo documento che usa il portale di Azure e i frammenti di .PowerShell e della dell'interfaccia della riga di comando di Azure con Azure Resource Manager (ARM), vedere [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
+>Per una versione di questo documento che utilizza il portale di Azure e i frammenti di PowerShell, dell'interfaccia della riga di comando di Azure e di .NET SDK per HDInsight con Azure Resource Manager (ARM), vedere [Provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
 
 **Prerequisiti:**
 
@@ -300,7 +300,7 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base] e l
 ### Uso di Azure PowerShell
 Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questa sezione include le istruzioni su come effettuare il provisioning di un cluster HDInsight con Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet di Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-> [AZURE.NOTE] Gli script di questa sezione possono essere usati per configurare un cluster HDInsight in una rete virtuale di Azure, ma non possono creare una rete virtuale di Azure. Per informazioni sulla creazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
+> [AZURE.NOTE] Gli script di questa sezione possono essere usati per configurare un cluster HDInsight in una rete virtuale di Azure, ma non possono creare una rete virtuale di Azure. Per informazioni sulla creazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight con Azure PowerShell:
 
@@ -815,4 +815,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->
