@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -28,6 +28,8 @@ In questa procedura dettagliata verrà descritto il processo di sviluppo di un m
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+<!-- -->
+
 >[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Per creare una soluzione di valutazione del rischio di credito, seguire la procedura seguente:
@@ -39,6 +41,6 @@ Per creare una soluzione di valutazione del rischio di credito, seguire la proce
 5.	[Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
-Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
+Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Classificazione binaria: previsione del rischio di credito) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

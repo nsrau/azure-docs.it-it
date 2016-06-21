@@ -65,7 +65,11 @@ Se è stato [configurato il monitoraggio delle eccezioni](app-insights-asp-net-e
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/17.png)
+
+Nella riga CodeLens sopra ogni metodo viene inoltre visualizzato un conteggio delle eccezioni registrate da Application Insights nelle ultime 24 ore.
+
+![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/21.png)
 
 
 ## Monitoraggio locale
@@ -86,8 +90,6 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
 
 
 
-
-
 ## Per eseguire l'aggiornamento a future versioni di SDK
 
 Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
@@ -100,10 +102,10 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
 ||
 |---|---
-|**[Aggiungere altri dati](app-insights-asp-net-more.md)**<br/>Monitorare l'uso, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-asp-net/64.png)
-|**[Uso del portale di Application Insights](app-insights-dashboards.md)**<br/>Dashboard, potenti strumenti di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-asp-net/62.png)
+|**[More telemetry from Application Insights](app-insights-asp-net-more.md)**<br/> (Altri dati di telemetria da Application Insights) Monitorare l'uso, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-asp-net/64.png)
+|**[Spostamento e dashboard nel portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

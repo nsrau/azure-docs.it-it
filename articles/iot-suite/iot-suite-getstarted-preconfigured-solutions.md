@@ -29,33 +29,7 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 > [AZURE.NOTE]  Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 
-## Effettuare il provisioning della soluzione preconfigurata di monitoraggio remoto
-
-1.  Accedere a [azureiotsuite.com][lnk-azureiotsuite] con le credenziali dell'account Azure e fare clic su **+** per creare una nuova soluzione.
-
-    > [AZURE.NOTE] Per informazioni aggiuntive in caso di problemi con le autorizzazioni necessarie per effettuare il provisioning di una soluzione, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions].
-
-2.  Fare clic su **Seleziona** nel riquadro **Monitoraggio remoto**.
-
-3.  Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.
-
-4.  Selezionare l'**Area** e la **Sottoscrizione** da usare per effettuare il provisioning della soluzione.
-
-5.  Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere l'esecuzione del processo richiede alcuni minuti.
-
-## Attendere il completamento del processo di provisioning.
-
-1. Fare clic sul riquadro per la soluzione con stato **Provisioning**.
- 
-2. Notare gli stati **Provisioning** man mano che i servizi di Azure vengono distribuiti nella sottoscrizione di Azure.
-
-3. Al termine del provisioning lo stato cambia in **Pronto**.
-
-4. Fare clic sul riquadro per visualizzare i dettagli della soluzione nel riquadro di destra.
-
-> [AZURE.NOTE] In caso di problemi di distribuzione della soluzione preconfigurata, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions] e le [domande frequenti][lnk-faq]. Se i problemi persistono, creare un ticket di servizio nel [portale][lnk-portal].
-
-Se ci sono dettagli importanti non elencati per la soluzione, è possibile segnalarlo e inviare suggerimenti sulle funzionalità usando il [forum di Azure IoT](https://feedback.azure.com/forums/321918-azure-iot).
+[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 ## Visualizzare il dashboard della soluzione di monitoraggio remoto
 
@@ -125,7 +99,7 @@ La soluzione tiene traccia dello stato di ogni comando inviato. All'inizio il ri
 
     ![][img-addnew]
     
-    Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **Dispositivo personalizzato**. Per altre informazioni in proposito, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite][lnk-connecting-devices].
+    Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **Dispositivo personalizzato**. Per altre informazioni in proposito, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto (Windows)][lnk-connecting-devices].
 
 4.  Selezionare **Definire l'ID dispositivo** e aggiungere un nome di ID dispositivo univoco, ad esempio **mydevice\_01**.
 
@@ -151,7 +125,7 @@ La soluzione tiene traccia dello stato di ogni comando inviato. All'inizio il ri
 
     ![][img-editdevice]
 
-3. Scorrere verso il basso e modificare i valori di latitudine e longitudine. Fare quindi clic su **Save changes to device registry**.
+3. Scorrere verso il basso e modificare i valori di latitudine e longitudine. Fare quindi clic su **Save changes to device registry** (Salva le modifiche al registro dei dispositivi).
 
     ![][img-editdevice2]
 
@@ -171,17 +145,17 @@ Non sono presenti regole per il nuovo dispositivo appena aggiunto. In questa sez
 
     ![][img-adddevicerule]
 
-4. Fare clic su **Save and View Rules** per salvare le modifiche.
+4. Fare clic su **Save and View Rules** (Salva e visualizza le regole) per salvare le modifiche.
 
 5.  Fare clic su **Comandi** nel riquadro dei dettagli del nuovo dispositivo.
 
     ![][img-adddevicerule2]
 
-6.  Selezionare **ChangeSetPointTemp** nell'elenco dei comandi e impostare **SetPointTemp** su 45. Fare quindi clic su **Send Command**:
+6.  Selezionare **ChangeSetPointTemp** nell'elenco dei comandi e impostare **SetPointTemp** su 45. Fare quindi clic su **Send Command** (Invia comando):
 
     ![][img-adddevicerule3]
 
-7.  Tornare al dashboard della soluzione. Poco dopo verrà visualizzata una nuova voce nel riquadro **Alarm History** quando la temperatura segnalata dal nuovo dispositivo supera la soglia di 47 gradi:
+7.  Tornare al dashboard della soluzione. Poco dopo verrà visualizzata una nuova voce nel riquadro **Alarm History** (Cronologia degli avvisi) quando la temperatura segnalata dal nuovo dispositivo supera la soglia di 47 gradi:
 
     ![][img-adddevicerule4]
 
@@ -254,4 +228,4 @@ Ora che è stata compilata una soluzione preconfigurata funzionante, è possibil
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
