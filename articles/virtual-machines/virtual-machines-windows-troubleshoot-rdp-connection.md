@@ -71,7 +71,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 
 Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la riconnessione alla VM.
 
-- Reimpostare il servizio Desktop remoto dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia** > **Macchine virtuali (classico)** > *VM personale* > **Reset Remote...** (Reimposta Desktop remoto).
+- Reimpostare il servizio Desktop remoto dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia** > **Macchine virtuali (classico)** > *VM personale* > **Reimposta accesso remoto**.
 
 - Riavviare la VM per risolvere altri problemi di avvio. Selezionare **Sfoglia** > **Macchine virtuali (classico)** > *VM personale* > **Riavvia**.
 
@@ -141,7 +141,7 @@ La parte dell'indirizzo del file RDP contiene:
 
 Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *AutoritàSicurezza*\\*NomeUtente* (esempio: CORP\\User1), la parte *AutoritàSicurezza* indica o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *AutoritàSicurezza*\*NomeUtente* (esempio: CORP\\User1), la parte *AutoritàSicurezza* indica o il nome del computer della VM (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
 
 Possibili soluzioni:
 
@@ -158,8 +158,8 @@ Causa: la macchina virtuale di destinazione non può convalidare il nome e la pa
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\\*NomeUtente* (ad esempio: SQL1\\Admin4798).
-- Per gli account di dominio, usare la sintassi *NomeDominio*\\*NomeUtente* (ad esempio: CONTOSO\\johndoe).
+- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio, usare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 
