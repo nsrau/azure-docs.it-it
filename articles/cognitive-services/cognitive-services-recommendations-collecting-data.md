@@ -53,7 +53,11 @@ Con funzionalità:
 
 | Nome | Obbligatorio | Tipo | Descrizione |
 |:---|:---|:---|:---|
-| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | | Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | | Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | | Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | | Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 ; numero massimo di funzionalità: 20| Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello.
+| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | 
+| Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | 
+| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | 
+| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | 
+| Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 ; numero massimo di funzionalità: 20| Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello.
 
 #### Caricamento di un file di catalogo
 
@@ -93,7 +97,10 @@ Il file di dati di utilizzo presenta il formato CSV (valori delimitati da virgol
 
 | Nome | Obbligatorio | Tipo | Descrizione
 |-------|------------|------|---------------
-|User Id| Sì|[A-z], [a-z], [0-9], [\_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 255 |Identificatore univoco di un utente. |ID elemento|Sì|[A-z], [a-z], [0-9], [&#95;] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 50|Identificatore univoco di un elemento. |Ora|Sì|Data nel formato: AAAA/MM/GGTOO:MM:SS (ad es. 2013/06/20T10:00:00)|Ora dei dati. |Evento|No | Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| Il tipo di transazione. |
+|User Id| Sì|[A-z], [a-z], [0-9], [\_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 255 |Identificatore univoco di un utente. 
+|ID elemento|Sì|[A-z], [a-z], [0-9], [&#95;] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 50|Identificatore univoco di un elemento. 
+|Ora|Sì|Data nel formato: AAAA/MM/GGTOO:MM:SS (ad es. 2013/06/20T10:00:00)|Ora dei dati. 
+|Evento|No | Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| Il tipo di transazione. |
 
 #### Righe di esempio in un file di dati di utilizzo
 
