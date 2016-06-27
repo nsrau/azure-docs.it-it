@@ -109,7 +109,7 @@ Decomprimere il file in una cartella con un nome di percorso breve, ad esempio C
 
 In alternativa, per rimanere aggiornati sul codice o fornire il proprio contributo, clonare il repository come segue:
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Ottenere una chiave API di Bing Mappe
 

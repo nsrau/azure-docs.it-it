@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Gigya** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.gigya.com*" e fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Gigya** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.gigya.com*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configura URL app")
 

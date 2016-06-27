@@ -73,7 +73,7 @@ L'esempio seguente illustra come creare un Database Oracle in una macchina virtu
 
 ##Conferma dell’installazione del database
 
-1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start**, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
+1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start*, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
 
 2.	Quando richiesto, accedere con il nome utente di **SISTEMA** e la password specificata durante la creazione del database Oracle.
 

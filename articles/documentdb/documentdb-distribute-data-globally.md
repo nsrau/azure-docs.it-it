@@ -60,11 +60,11 @@ Infine, dato che DocumentDB è completamente [senza schema][vldb], non è necess
 
 Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vedere gli articoli seguenti:
 
-* [Provisioning throughput and storage for a collection][throughputandstorage] (Provisioning della velocità effettiva e dello spazio di archiviazione per una raccolta)
-* [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs][developingwithmultipleregions] (API multihosting tramite gli SDK REST. .NET, Java, Python e Node)
+* [Provisioning throughput and storage for a collection][throughputandstorage] \(Provisioning della velocità effettiva e dello spazio di archiviazione per una raccolta)
+* [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs][developingwithmultipleregions] \(API multihosting tramite gli SDK REST. .NET, Java, Python e Node)
 * [Livelli di coerenza in DocumentDB][consistency]
 * [Contratti di servizio relativi alla disponibilità][sla]
-* [Managing database account][manageaccount] (Gestione di un account di database)
+* [Managing database account][manageaccount] \(Gestione di un account di database)
 
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
@@ -79,9 +79,9 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/it-IT/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/it-IT/regions/#services
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf

@@ -110,7 +110,7 @@ No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È t
 
 ## Quote del bus di servizio
 
-Per un elenco di limiti e quote del bus di servizio, vedere [Service Bus quotas][] (Quote del bus di servizio).
+Per un elenco di limiti e quote del bus di servizio, vedere [Service Bus quotas][] \(Quote del bus di servizio).
 
 ### Sono previste quote di utilizzo per il bus di servizio?
 

@@ -68,7 +68,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 	![Individuazione dell'indirizzo IP del nodo head](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
 
-3. Verrà visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno il prefisso **hn***. Fare clic sul primo nodo head.
+3. Verrà visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno il prefisso **hn**. Fare clic sul primo nodo head.
 
 	![Individuazione dell'indirizzo IP del nodo head](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 

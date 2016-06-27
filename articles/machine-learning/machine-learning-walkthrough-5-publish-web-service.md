@@ -48,7 +48,7 @@ Si supponga che il modello di albero con boosting sia il modello più indicato. 
 
 - [Two-Class Support Vector Machine][two-class-support-vector-machine]
 - I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
-- [Normalize Data][normalize-data] (entrambi)
+- [Normalize Data][normalize-data] \(entrambi)
 - [Evaluate Model][evaluate-model]
 
 Selezionare il modulo e premere il tasto CANC oppure fare clic con il pulsante destro del mouse sul modulo e selezionare **Elimina**.
@@ -91,7 +91,8 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-## Distribuire il servizio web
+##
+Distribuire il servizio web
 
 Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distribuisci servizio web** sotto l'area di disegno. Machine Learning Studio distribuisce l'esperimento come servizio Web e apre il dashboard del servizio. Da qui è possibile ritornare all'esperimento (**View snapshot** o **View latest**) ed eseguire un test semplice del servizio Web (pulsante **Test**: vedere **Testare il servizio Web** di seguito). Qui sono inoltre disponibili informazioni per la creazione di applicazioni in grado di accedere al servizio Web (altre informazioni nella sezione successiva di questa procedura dettagliata).
 
@@ -112,9 +113,9 @@ Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input
 
 Immettere un set di dati e quindi fare clic su **OK**.
 
-Nel servizio Web i dati entrano dal modulo **Web service input** (Input del servizio Web), passano attraverso il modulo [Edit Metadata][edit-metadata] (Modifica metadati) e arrivano al modulo [Score Model][score-model] (Modello di punteggio) in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output** (Output del servizio Web).
+Nel servizio Web i dati entrano dal modulo **Web service input** (Input del servizio Web), passano attraverso il modulo [Edit Metadata][edit-metadata] \(Modifica metadati) e arrivano al modulo [Score Model][score-model] \(Modello di punteggio) in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output** (Output del servizio Web).
 
-> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model] (Modello di punteggio). Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) tra [Score Model][score-model] (Modello di punteggio) e **Web service output** (Output del servizio Web) per eliminare le colonne che non devono essere restituite.
+> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model] (Modello di punteggio). Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) tra [Score Model][score-model] \(Modello di punteggio) e **Web service output** (Output del servizio Web) per eliminare le colonne che non devono essere restituite.
 
 ## Gestire il servizio Web
 Dopo aver distribuito il servizio Web, è possibile gestirlo dal [portale di Azure classico](https://manage.windowsazure.com).

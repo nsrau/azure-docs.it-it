@@ -24,7 +24,7 @@ Gli sviluppatori che desiderano compilare in modo indipendente l'esperienza inte
 
 ## Prerequisiti
 
-Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] (Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
+Prima di iniziare questa esercitazione, è necessario completare le procedure contenute nell'articolo [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure). Se non è stata eseguita la procedura, tornare e completare tutti i passaggi descritti in questo articolo prima di procedere.
 
 Al termine dell'esercitazione "Introduzione", è necessario disporre degli elementi seguenti nel sistema di test:
 

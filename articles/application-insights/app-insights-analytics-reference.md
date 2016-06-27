@@ -141,7 +141,7 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 
 **Sintassi**
 
-    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
 
 **Argomenti**
 
@@ -1426,7 +1426,17 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a 
+|`>` |Maggiore 
+|`>=`|Maggiore o uguale a 
+|`<>`|Non uguale a 
+|`!=`|Non uguale a
 
 
 ### abs
@@ -2356,7 +2366,7 @@ Nell'esempio che segue quando `context_custom_metrics` è un valore `string` sim
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-then the following fragment retrieves the value of the `duration` slot in the object, and from that it retrieves two slots, `duration.value` and `duration.min` (`118.0` and `110.0`, respectively).
+il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 T

@@ -43,6 +43,7 @@ Individuare l'URL BLOB dal nuovo [portale di Microsoft Azure](https://portal.azu
 
 ### Scaricare il VHD
 Quando si conosce l'URL BLOB, è possibile scaricare il VHD utilizzando il [portale di Azure](http://manage.windowsazure.com/) o PowerShell.
+
 > [AZURE.NOTE] Al momento della creazione della guida, la funzionalità per scaricare un VHD non è ancora presente nel nuovo portale di Microsoft Azure.
 
 **Scaricare il VHD del sistema operativo tramite il [portale di Azure](http://manage.windowsazure.com/) corrente**

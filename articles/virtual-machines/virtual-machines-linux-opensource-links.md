@@ -23,7 +23,7 @@
 
 Tutta la documentazione necessaria per creare e gestire macchine virtuali basate su Linux nel modello di distribuzione classica.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 ## Attività iniziali
 - [Introduzione a Linux in Azure](virtual-machines-linux-intro-on-azure.md)

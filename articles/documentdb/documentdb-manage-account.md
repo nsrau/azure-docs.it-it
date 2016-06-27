@@ -87,8 +87,12 @@ Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di
 ### Visualizzare e copiare una chiave di accesso nel portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
+
 2. Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
-3. Nel pannello **Chiavi** fare clic sul pulsante **Copia** a destra della chiave da copiare. ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
+
+3. Nel pannello **Chiavi** fare clic sul pulsante **Copia** a destra della chiave da copiare.
+
+  ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
 
 ### Per rigenerare le chiavi di accesso
 
@@ -99,10 +103,15 @@ Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di
 Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e si rigenerano le chiavi, si perderanno le connessioni, a meno che non si registrino le chiavi. I passaggi seguenti illustrano il processo necessario per la registrazione delle chiavi.
 
 1. Aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla chiave di accesso secondaria dell'account DocumentDB.
+
 2. Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
+
 3. Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
+
 4. Nel pannello **Keys** fare clic sul comando **Regenerate Primary** e quindi su **OK** per confermare che si vuole generare una nuova chiave.
+
 5. Dopo aver verificato che la nuova chiave sia disponibile per l'utilizzo (circa 5 minuti dopo la rigenerazione), aggiornare la chiave di accesso nel codice dell'applicazione in modo che faccia riferimento alla nuova chiave di accesso primaria.
+
 6. Rigenerare la chiave di accesso secondaria.
 
 > [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una chiave appena generata possa essere usata per accedere all'account DocumentDB.
@@ -114,8 +123,11 @@ Per rimuovere un account DocumentDB non più in uso dal portale di Azure, utiliz
 
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare.
+
 2. Nel pannello **Account DocumentDB** fare clic su **Elimina account**.
+
 3. Nel pannello di conferma risultante, digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
+
 4. Fare clic sul pulsante **Elimina** nel pannello di conferma.
 
 ## <a id="next"></a>Passaggi successivi
@@ -136,7 +148,7 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/it-IT/regions/#services
-[offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0615_2016-->

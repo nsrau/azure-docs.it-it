@@ -19,7 +19,7 @@
 
 # Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 
 

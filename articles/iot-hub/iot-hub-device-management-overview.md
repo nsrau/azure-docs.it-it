@@ -105,7 +105,7 @@ Per altre informazioni su queste responsabilità e sull'implementazione nel disp
 
 ## Passaggio successivo
 
-Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Get started with Azure IoT Hub device management][lnk-get-started] (Introduzione a Gestione dei dispositivi dell'hub IoT di Azure).
+Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure).
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png

@@ -1,4 +1,11 @@
-<properties pageTitle="Asset di variabili in Automazione di Azure | Microsoft Azure" description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra i dettagli delle variabili e come usarle nella creazione sia testuale che grafica." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<properties
+pageTitle="Asset di variabili in Automazione di Azure | Microsoft Azure"
+  description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra i dettagli delle variabili e come usarle nella creazione sia testuale che grafica.
+   services="automation"
+   documentationCenter=""
+   authors="mgoedtel"
+    manager="jwhit"
+   editor="tysonn" />
 <tags  
    ms.service="automation"
    ms.devlang="na"

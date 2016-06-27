@@ -672,7 +672,7 @@ Queste due funzioni calcolano un percentile in base a una distribuzione continua
 
 **Sintassi**
 
-    [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
+    [PERCENTILE_CONT | PERCENTILE_DISC] \( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
         OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
 
