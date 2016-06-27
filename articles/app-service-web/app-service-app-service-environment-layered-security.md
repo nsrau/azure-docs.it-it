@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/14/2016" 
 	ms.author="stefsch"/>
 
 # Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
@@ -89,7 +89,9 @@ Con il gruppo di sicurezza di rete applicato alla subnet, solo ai tre ambienti d
 
 
 ## Informazioni e collegamenti aggiuntivi ##
-Configurazione di [gruppi di sicurezza di rete][NetworkSecurityGroupsClassic] in reti virtuali classiche.
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+
+Configurare [gruppi di sicurezza di rete][NetworkSecurityGroupsClassic] in reti virtuali classiche.
 
 Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambienti del servizio app.
 
@@ -109,4 +111,4 @@ Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambient
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

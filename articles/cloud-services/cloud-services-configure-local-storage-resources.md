@@ -17,9 +17,9 @@ ms.author="cristyg"/>
 
 # Configurare le risorse di archiviazione locale
 
-Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale in cui è in esecuzione un'istanza di un ruolo. È possibile archiviare le informazioni nell'istanza della macchina virtuale in modo che il codice in esecuzione nell'istanza possa accedere alla risorsa di archiviazione locale quando è necessario scrivere o leggere da un file. Ad esempio, una risorsa di archiviazione locale può essere utilizzata per memorizzare i dati a cui potrebbe essere necessario accedere nuovamente mentre il servizio è in esecuzione in Azure. È inoltre possibile configurare la risorsa di archiviazione locale per archiviare i file durante l'avvio. Per ulteriori informazioni sulla configurazione delle risorse di archiviazione locale per l'avvio, vedere [Utilizzo dell’archiviazione locale per archiviare i file durante l'avvio](https://msdn.microsoft.com/library/azure/hh974419.aspx)
+Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale in cui è in esecuzione un'istanza di un ruolo. È possibile archiviare le informazioni nell'istanza della macchina virtuale in modo che il codice in esecuzione nell'istanza possa accedere alla risorsa di archiviazione locale quando è necessario scrivere o leggere da un file. Ad esempio, una risorsa di archiviazione locale può essere utilizzata per memorizzare i dati a cui potrebbe essere necessario accedere nuovamente mentre il servizio è in esecuzione in Azure. È inoltre possibile configurare la risorsa di archiviazione locale per archiviare i file durante l'avvio. Per ulteriori informazioni sulla configurazione delle risorse di archiviazione locale per l'avvio, vedere [Utilizzo dell’archiviazione locale per archiviare i file durante l'avvio](cloud-services-startup-tasks-common.md#create-files-in-local-storage-from-a-startup-task)
 
-Una risorsa di archiviazione locale viene dichiarata nel file di definizione del servizio. È possibile dichiarare qualsiasi numero di risorse di archiviazione locale per un ruolo. Ogni risorsa di archiviazione locale è riservata per ogni istanza di tale ruolo. La quantità minima di spazio su disco che è possibile allocare per una risorsa di archiviazione locale è 1 MB. La quantità massima che è possibile allocare per qualsiasi risorsa locale data dipende dalla dimensione della macchina virtuale specificata per il ruolo. Ogni dimensione della macchina virtuale ha un'allocazione di spazio di archiviazione totale corrispondente e lo spazio totale allocato per tutte le risorse di archiviazione locale dichiarate per un ruolo non può superare le dimensioni massime assegnate per la dimensione della macchina virtuale. Per ulteriori informazioni sulla quantità massima di spazio su disco locale assegnato per ogni dimensione della macchina virtuale, vedere [Configurare le dimensioni dei servizi cloud](https://msdn.microsoft.com/library/azure/ee814754.aspx).
+Una risorsa di archiviazione locale viene dichiarata nel file di definizione del servizio. È possibile dichiarare qualsiasi numero di risorse di archiviazione locale per un ruolo. Ogni risorsa di archiviazione locale è riservata per ogni istanza di tale ruolo. La quantità minima di spazio su disco che è possibile allocare per una risorsa di archiviazione locale è 1 MB. La quantità massima che è possibile allocare per qualsiasi risorsa locale data dipende dalla dimensione della macchina virtuale specificata per il ruolo. Ogni dimensione della macchina virtuale ha un'allocazione di spazio di archiviazione totale corrispondente e lo spazio totale allocato per tutte le risorse di archiviazione locale dichiarate per un ruolo non può superare le dimensioni massime assegnate per la dimensione della macchina virtuale. Per altre informazioni sulla quantità massima di spazio sul disco locale assegnata per ogni dimensione della macchina virtuale, vedere l'articolo sulle [dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
 
 > [AZURE.NOTE]
 >
@@ -56,7 +56,7 @@ Il seguente file di definizione del servizio mostra due risorse di archiviazione
 
 Per ulteriori informazioni sui file di definizione del servizio, vedere [Schema di definizione dei servizi di Azure (file .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE] Se si utilizzano gli strumenti di Azure per Microsoft Visual Studio, è possibile definire una risorsa di archiviazione locale all'interno delle pagine **Properties** per il ruolo. Per ulteriori informazioni, vedere [Configurazione dell'applicazione Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Se si utilizzano gli strumenti di Azure per Microsoft Visual Studio, è possibile definire una risorsa di archiviazione locale all'interno delle pagine **Properties** per il ruolo.
 
 ## Accesso a una risorsa di archiviazione locale a livello di programmazione
 
@@ -102,6 +102,6 @@ Il codice in esecuzione un'istanza del ruolo può accedere a una risorsa di arch
 
 ## Passaggi successivi
 
-- [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
+- [Configurare un servizio cloud per Azure](cloud-services-model-and-package.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

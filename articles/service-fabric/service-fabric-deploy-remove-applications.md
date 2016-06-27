@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # Distribuire un'applicazione
@@ -30,7 +30,9 @@ Dopo aver creato un [pacchetto di un tipo di applicazione][10], è possibile dis
 
 Quando si carica il pacchetto dell’applicazione, la si inserisce in un percorso accessibile ai componenti interni di Service Fabric. È possibile utilizzare PowerShell per eseguire il caricamento. Prima di eseguire qualsiasi comando di PowerShell incluso in questo articolo, iniziare sempre utilizzando **Connect-ServiceFabricCluster** per connettersi al cluster di Service Fabric.
 
-Si supponga di disporre di una cartella denominata *MyApplicationType* contenente il manifesto dell'applicazione necessaria, i manifesti del servizio e i pacchetti di codice/configurazione/dati. Il comando **Copy-ServiceFabricApplicationPackage** consente di caricare il pacchetto. Ad esempio:
+Si supponga di disporre di una cartella denominata *MyApplicationType* contenente il manifesto dell'applicazione necessaria, i manifesti del servizio e i pacchetti di codice/configurazione/dati. Il comando **Copy-ServiceFabricApplicationPackage** consente di caricare il pacchetto nell'archivio immagini del cluster. Il cmdlet **Get-ImageStoreConnectionStringFromClusterManifest**, che fa parte del modulo PowerShell Service Fabric SDK, viene usato per ottenere la stringa di connessione dell'archivio immagini. Per importare il modulo SDK, eseguire *Import-Module "$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1"*.
+
+Nell'esempio seguente viene caricato il pacchetto:
 
 ~~~
 PS D:\temp> dir
@@ -175,12 +177,6 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## Risoluzione dei problemi
 
 ### Copy-ServiceFabricApplicationPackage chiede un parametro ImageStoreConnectionString
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

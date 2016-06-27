@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="06/06/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Informazioni sul manifesto dell'applicazione in Azure Active Directory
@@ -26,7 +26,7 @@ Per l'aggiornamento delle proprietà di configurazione dell'identità di un'appl
 
 - L'**interfaccia utente Web del [portale di Azure classico][AZURE-CLASSIC-PORTAL]** consente di aggiornare le proprietà più comuni di un'applicazione. Questo è il modo più rapido e meno soggetto a errori di aggiornare le proprietà dell'applicazione, ma non consente l'accesso completo a tutte le proprietà come i due metodi seguenti.
 - Per gli scenari più avanzati in cui è necessario aggiornare proprietà non esposte nel portale di Azure classico, si può modificare il **manifesto dell'applicazione**. Questo è l'argomento su cui verte questo articolo, che verrà illustrato più dettagliatamente nella sezione successiva.
-- È anche possibile **scrivere un'applicazione che usa l'[API Graph][GRAPH-API]** per aggiornare l'applicazione, cosa che richiede l'impegno maggiore. Questa può tuttavia essere un'opzione interessante se si scrive software di gestione o se è necessario aggiornare le proprietà dell'applicazione a intervalli regolari e in modo automatico.
+- È anche possibile ** scrivere un'applicazione che usa l'[API Graph][GRAPH-API]** per aggiornare l'applicazione, cosa che richiede l'impegno maggiore. Questa può tuttavia essere un'opzione interessante se si scrive software di gestione o se è necessario aggiornare le proprietà dell'applicazione a intervalli regolari e in modo automatico.
 
 ## Uso del manifesto dell'applicazione per aggiornare la configurazione dell'identità di un'applicazione
 Tramite il [portale di Azure classico][AZURE-CLASSIC-PORTAL] è possibile gestire la configurazione dell'identità dell'applicazione scaricando e caricando la rappresentazione di un file JSON, detto manifesto dell'applicazione. Nella directory non viene archiviato un file effettivo, perché il manifesto dell'applicazione è semplicemente un'operazione GET HTTP sull'entità dell'applicazione API Graph di Azure AD e il caricamento è un'operazione PATCH HTTP sull'entità dell'applicazione.
@@ -37,7 +37,7 @@ Per comprendere il formato e le proprietà del manifesto dell'applicazione, sar�
 - **Dichiarare i ruoli applicazione (appRoles) esposti dall'app**. La proprietà appRoles dell'entità dell'applicazione è una raccolta di tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Per un esempio di implementazione, vedere l'articolo relativo al [Controllo di accesso basato sui ruoli nelle applicazioni cloud tramite Azure AD][RBAC-CLOUD-APPS-AZUREAD].
 - **Dichiarare le applicazioni client note (knownClientApplications)** che consentono di associare in modo logico il consenso delle applicazioni client specificate all'API Web o della risorsa.
 - **Richiedere ad Azure AD di rilasciare l'attestazione di appartenenza al gruppo** per l'utente connesso (groupMembershipClaims). NOTA: è possibile configurare anche il rilascio di attestazioni relative alle appartenenze ai ruoli della directory. Per un esempio di implementazione, vedere l'articolo relativo all'[Autorizzazione nelle applicazioni cloud usando i gruppi di AD][AAD-GROUPS-FOR-AUTHORIZATION].
-- **Consentire all'applicazione di supportare flussi di concessione implicita OAuth 2.0** (oauth2AllowImplicitFlow). Questo tipo di flusso di concessione viene usato con pagine Web con JavaScript incorporato o con applicazioni a pagina singola (Single Page Applications, SPA).
+- **Consentire all'applicazione di supportare flussi di concessione implicita OAuth 2.0** (oauth2AllowImplicitFlow). Questo tipo di flusso di concessione viene usato con pagine Web con JavaScript incorporato o con applicazioni a pagina singola (Single Page Applications, SPA). Per ulteriori informazioni sulla concessione dell'autorizzazione implicita, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory][IMPLICIT-GRANT].
 - **Abilitare l'uso di certificati X509 come chiave privata** (keyCredentials). Per degli esempi di implementazione, vedere gli articoli [Servizio di creazione e app daemon in Office 365][O365-SERVICE-DAEMON-APPS] e [Guida per gli sviluppatori all’autorizzazione con l'API di Gestione risorse di Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM].
 - **Aggiungere un nuovo URI ID app** per l'applicazione (identifierURIs). Gli URI ID app vengono usati per identificare in modo univoco un'applicazione nel tenant di Azure AD (o in più tenant di Azure AD, per gli scenari multi-tenant quando vengono qualificati tramite un dominio personalizzato verificato). Vengono usati quando si richiedono autorizzazioni a un'applicazione della risorsa o si acquisisce un token di accesso per un'applicazione della risorsa. Quando si aggiorna questo elemento, lo stesso aggiornamento viene eseguito nella raccolta servicePrincipalNames dell'entità servizio corrispondente, che si trova nel tenant home dell'applicazione.
 
@@ -141,9 +141,10 @@ Usare la sezione dei commenti DISQUS di seguito per fornire commenti e suggerime
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
+[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

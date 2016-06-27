@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/06/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrazione di applicazioni con Azure Active Directory
@@ -51,7 +51,9 @@ Per creare un'applicazione Web che richiede solo il supporto dell'accesso per gl
 
 ## Aggiornamento di un'applicazione
 
-Una volta registrata con Azure AD, l'applicazione potrebbe dover essere aggiornata per fornire l'accesso ad API Web, essere resa disponibile in altre organizzazioni e altro ancora. Questa sezione descrive come configurare ulteriormente l'applicazione. Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
+Una volta registrata con Azure AD, l'applicazione potrebbe dover essere aggiornata per fornire l'accesso ad API Web, essere resa disponibile in altre organizzazioni e altro ancora. In questa sezione sono descritte le varie configurazioni aggiuntive dell'applicazione che potrebbero rendersi necessarie. Per prima cosa verrà presentata una panoramica del framework di consenso, importante per capire se le applicazioni delle API/risorse in fase di compilazione verranno utilizzate dalle applicazioni client compilate dagli sviluppatori della propria organizzazione o di un'altra.
+
+Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
 
 ### Panoramica del framework di consenso
 
@@ -109,9 +111,9 @@ Quando un'applicazione client viene configurata per accedere a un'API Web espost
 
 ### Configurazione di un'applicazione della risorsa per esporre le API Web
 
-È possibile sviluppare un'API Web e renderla disponibile alle applicazioni client esponendo gli ambiti di autorizzazione. Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365. Gli ambiti di autorizzazione vengono esposti con il manifesto dell'applicazione, ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione. Per esporre gli ambiti di autorizzazione, è possibile passare all'applicazione nel portale di Azure classico e fare clic sul pulsante Manifesto applicazione sulla barra dei comandi.
+È possibile sviluppare un'API Web e renderla disponibile alle applicazioni client esponendo gli ambiti di accesso. Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365. Gli ambiti di accesso vengono esposti con il manifesto dell'applicazione, ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione. Per esporre gli ambiti, è possibile passare all'applicazione nel portale di Azure classico e fare clic sul pulsante Manifesto applicazione sulla barra dei comandi.
 
-#### Aggiunta di ambiti di autorizzazione all'applicazione della risorsa
+#### Aggiunta di ambiti di accesso all'applicazione della risorsa
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
@@ -121,7 +123,7 @@ Quando un'applicazione client viene configurata per accedere a un'API Web espost
 
 1. Fare clic sul pulsante **Gestisci manifesto** sulla barra dei comandi e selezionare **Scarica manifesto**.
 
-1. Aprire il file manifesto dell'applicazione JSON e sostituire il nodo "oauth2Permissions" con il frammento di codice JSON seguente. Questo frammento è un esempio di come esporre un ambito di autorizzazione noto come rappresentazione dell'utente. Verificare di avere modificato il testo e i valori per la propria applicazione:
+1. Aprire il file manifesto dell'applicazione JSON e sostituire il nodo "oauth2Permissions" con il frammento di codice JSON seguente. Questo frammento di codice è un esempio di come esporre un ambito noto come "rappresentazione dell'utente", che consente a un proprietario di risorse di assegnare a un'applicazione client un tipo di accesso delegato a una risorsa. Verificare di avere modificato il testo e i valori per la propria applicazione:
 
 		"oauth2Permissions": [
 		{
@@ -136,9 +138,9 @@ Quando un'applicazione client viene configurata per accedere a un'API Web espost
 			}
 		],
 
-    Il valore ID deve essere un nuovo GUID generato, creato usando uno [strumento di generazione di GUID](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) o a livello di codice. Rappresenta un identificatore univoco per l'autorizzazione esposta dall'API Web. Una volta che il client è configurato in modo appropriato per richiedere l'accesso all'API Web e chiama l'API Web, presenta un token JWT OAuth 2.0 con l'attestazione scope (scp) impostata sul parametro value indicato sopra, in questo caso user\_impersonation.
+    Il valore Il valore ID deve essere un nuovo GUID generato, creato utilizzando uno [strumento di generazione di GUID](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) o a livello di codice. Rappresenta un identificatore univoco per l'autorizzazione esposta dall'API Web. Una volta che il client è configurato in modo appropriato per richiedere l'accesso all'API Web e chiama l'API Web, presenta un token JWT OAuth 2.0 con l'attestazione scope (scp) impostata sul parametro value indicato sopra, in questo caso user\_impersonation.
 
-	>[AZURE.NOTE] Se necessario, è possibile esporre altri ambiti di autorizzazione successivamente. Tenere presente che l'API Web può esporre più autorizzazioni associate a molte funzioni diverse. A questo punto, è possibile controllare l'accesso all'API Web usando l'attestazione scope (scp) nel token JWT OAuth 2.0 ricevuto.
+	>[AZURE.NOTE] Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. A questo punto, è possibile controllare l'accesso all'API Web usando l'attestazione scope (scp) nel token JWT OAuth 2.0 ricevuto.
 
 1. Salvare il file JSON aggiornato e caricarlo facendo clic sul pulsante **Gestisci manifesto** sulla barra dei comandi, selezionando **Carica manifesto**, passando al file manifesto aggiornato e quindi selezionandolo. Una volta caricato il manifesto, l'API Web è configurata per essere usata da altre applicazioni nella directory.
 
@@ -151,7 +153,7 @@ Quando un'applicazione client viene configurata per accedere a un'API Web espost
 ![Visualizzazione di autorizzazioni Elenco azioni](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Altre informazioni sul manifesto dell'applicazione
-Il manifesto dell'applicazione è in realtà un meccanismo per l'aggiornamento dell'entità applicazione, che definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD, inclusi gli ambiti di autorizzazione API di cui si è parlato sopra. Per altre informazioni sull'entità applicazione, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity), che include informazioni di riferimento complete sui membri dell'entità applicazione usati per specificare le autorizzazioni per l'API:
+Il manifesto dell'applicazione è in realtà un meccanismo per l'aggiornamento dell'entità applicazione, che definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD, inclusi gli ambiti di accesso API di cui si è parlato sopra. Per altre informazioni sull'entità applicazione, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity), che include informazioni di riferimento complete sui membri dell'entità applicazione usati per specificare le autorizzazioni per l'API:
 
 - Il membro appRoles, che è una raccolta di entità [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) che possono essere usate per definire le **Autorizzazioni applicazione** per un'API Web.  
 - Il membro oauth2Permissions, che è una raccolta di entità [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) che possono essere usate per definire le **Autorizzazioni delegate** per un'API Web.
@@ -162,7 +164,7 @@ Per altre informazioni sui concetti generali relativi al manifesto dell'applicaz
 
 Come accennato in precedenza, oltre a esporre/accedere alle API nelle applicazioni della risorsa, è possibile aggiornare l'applicazione client per accedere alle API esposte dalle risorse Microsoft. L'API Graph di Azure AD, chiamata "Azure Active Directory" nell'elenco di autorizzazioni per le altre applicazioni, per impostazione predefinita, è disponibile per tutte le applicazioni registrate con Azure AD. Se si sta registrando l'applicazione client in un tenant di Azure AD di cui è stato effettuato il provisioning da Office 365, è anche possibile accedere a tutte le autorizzazioni esposte dalle API per diverse risorse di Office 365.
 
-Per informazioni dettagliate sugli ambiti di autorizzazione esposti da:
+Per informazioni dettagliate sugli ambiti di accesso esposti da:
 
 - API Graph di Azure, vedere l'articolo [Ambiti di autorizzazione | Concetti sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 - API Office 365, vedere l'articolo [Autenticazione e autorizzazione con il framework di consenso comune](https://msdn.microsoft.com/office/office365/howto/application-manifest). Vedere [Configurare l'ambiente di sviluppo di Office 365](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) per informazioni più dettagliate su come compilare un'app client che si integra con le API di Office 365.
@@ -178,13 +180,13 @@ Quando si aggiunge un'applicazione ad Azure AD, potrebbe essere necessario conse
 - Un'applicazione single-tenant è destinata all'uso in un'organizzazione. In genere si tratta di un'applicazione line-of-business scritte da uno sviluppatore aziendale. Un'applicazione con un singolo tenant deve essere accessibile solo agli utenti di una directory e quindi è necessario eseguirne il provisioning in una sola directory.
 - Un'applicazione multi-tenant è destinata all'uso in più organizzazioni. Si tratta di un'applicazione Web SaaS (Software-as-a-Service) scritta in genere da un fornitore di software indipendente (ISV). È necessario effettuare il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle, supportato dal framework di consenso di Azure AD. Si noti che, per impostazione predefinita, tutte le applicazioni client native sono multi-tenant perché sono installate nel dispositivo del proprietario della risorsa. Vedere sopra la sezione Panoramica del framework di consenso per altri dettagli sul framework di consenso.
 
-#### Consentire agli utenti esterni di concedere l'accesso
+#### Abilitazione degli utenti esterni a concedere l'accesso alle proprie risorse da parte dell'applicazione
 
 Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partner esterni all'organizzazione, è necessario aggiornare la definizione dell'applicazione nel portale di Azure classico.
 
 >[AZURE.NOTE] Se si abilita il multi-tenant, è necessario assicurarsi che l'URI ID app dell'applicazione faccia parte di un dominio verificato. Inoltre, l'URL restituito deve iniziare con https://. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md).
 
-##### Per abilitare l'accesso all'app per gli utenti esterni
+Per abilitare l'accesso all'app per gli utenti esterni:
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
@@ -198,7 +200,7 @@ Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partne
 
 Una volta apportata la modifica indicata sopra, utenti e amministratori di altre organizzazioni potranno concedere all'applicazione l'accesso alla propria directory e ad altri dati.
 
-### Attivazione del framework di consenso di Azure AD in fase di esecuzione
+#### Attivazione del framework di consenso di Azure AD in fase di esecuzione
 
 Per usare il framework di consenso, l'applicazione client multi-tenant deve richiedere l'autorizzazione con OAuth 2.0. Sono disponibili [esempi di codice](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) per indicare in che modo un'applicazione Web, un'applicazione nativa o un'applicazione server/daemon richiede i codici di autorizzazione e i token di accesso per chiamare le API Web.
 
@@ -206,11 +208,13 @@ L'applicazione Web può offrire anche un'esperienza di iscrizione agli utenti. I
 
 In alternativa, l'applicazione Web può offrire anche un'esperienza che permette agli amministratori di iscrivere la propria società. Anche in questa esperienza l'utente viene reindirizzato all'endpoint di autorizzazione OAuth 2.0 di Azure AD. In questo caso, si passa un parametro prompt=admin\_consent all'endpoint di autorizzazione per forzare l'esperienza di consenso da parte dell'amministratore, per cui l'amministratore concederà il consenso per conto della propria organizzazione. Solo un utente che esegue l'autenticazione con un account che appartiene al ruolo Amministratore globale può fornire il consenso. Gli altri riceveranno un errore. Una volta concesso il consenso, la risposta conterrà admin\_consent=true. Quando si riscatta un token di accesso, si riceve anche un id\_token che contiene informazioni sull'organizzazione e l'amministratore che ha effettuato l'iscrizione per l'applicazione.
 
-#### Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a singola pagina
+### Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a singola pagina
 
-Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow`" nel relativo [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
+Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per ulteriori informazioni sulla concessione di autorizzazione implicita e per stabilire se sia adatta allo scenario della propria applicazione, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-##### Per abilitare la concessione implicita OAuth 2.0
+Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow`" nel relativo [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
+
+#### Per abilitare la concessione implicita OAuth 2.0 
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 1. Scegliere l'icona **Active Directory** dal menu a sinistra, quindi fare clic sulla directory desiderata.
@@ -347,4 +351,4 @@ Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo ave
 
 - Visitare la[Guida per gli sviluppatori di Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -89,7 +89,7 @@ Se si desidera mantenere le impostazioni personalizzate, usare [ALTER DATABASE c
 
 [Informazioni dettagliate sulle prestazioni del database SQL](sql-database-performance.md)
 
-## Altre informazioni
+## Risorse aggiuntive
 
 Per altre informazioni, vedere gli articoli dedicati ai seguenti argomenti:
 
@@ -101,4 +101,4 @@ Per altre informazioni, vedere gli articoli dedicati ai seguenti argomenti:
 
 - [Monitoraggio delle prestazioni mediante l'archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

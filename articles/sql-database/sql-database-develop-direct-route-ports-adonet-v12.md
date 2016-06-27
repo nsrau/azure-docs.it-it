@@ -112,7 +112,7 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 - [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
+- [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 
 
 - [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
@@ -120,4 +120,4 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

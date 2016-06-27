@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager
@@ -29,9 +29,11 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
+È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Durante la distribuzione è inoltre possibile registrare ulteriori informazioni su richieste e risposte potenzialmente utili per la risoluzione di eventuali problemi successivi. Per ulteriori informazioni sulla convalida e su come registrare informazioni di richiesta e risposta, vedere come [distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy-rest.md).
+
 ## Eseguire la risoluzione dei problemi con l'API REST
 
-1. Distribuire le risorse con l'operazione [Creare una distribuzione modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Per mantenere informazioni che potrebbero essere utili per il debug, impostare la proprietà **debugSetting** nella richiesta JSON su **requestContent** e/o **responseContent**. 
+1. Distribuire le risorse eseguendo la [creazione di un modello di distribuzione](https://msdn.microsoft.com/library/azure/dn790564.aspx). Per mantenere informazioni che potrebbero essere utili per il debug, impostare la proprietà **debugSetting** nella richiesta JSON su **requestContent** e/o **responseContent**. 
 
         PUT https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
           <common headers>
@@ -110,7 +112,7 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
 ## Passaggi successivi
 
 - Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Per altre informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima dell'esecuzione, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

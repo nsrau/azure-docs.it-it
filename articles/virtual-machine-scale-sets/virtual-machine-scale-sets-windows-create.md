@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Creare un set di scalabilità di macchine virtuali Windows tramite Azure PowerShell
@@ -84,7 +84,7 @@ Un set di scalabilità di macchine virtuali deve trovarsi all'interno di un grup
 
 ### Account di archiviazione
 
-Le macchine virtuali create in un set di scalabilità richiedono un account di archiviazione per l'archiviazione dei dischi associati.
+Un account di archiviazione viene usato da una macchina virtuale per archiviare il disco del sistema operativo e i dati di diagnostica usati per la scalabilità. Se possibile, è consigliabile avere un account di archiviazione per ogni macchina virtuale creata in un set di scalabilità. Se questo non è possibile, pianificare un massimo di 20 macchine virtuali per ogni account di archiviazione. L'esempio riportato in questo articolo mostra la creazione di tre account di archiviazione per tre macchine virtuali in un set di scalabilità.
 
 1. Sostituire il valore di **saName** con il nome che si vuole usare per l'account di archiviazione e quindi creare la variabile: 
 
@@ -127,11 +127,13 @@ Le macchine virtuali create in un set di scalabilità richiedono un account di a
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
+5. Ripetere i passaggi da 1 a 4 per creare tre account di archiviazione, ad esempio myst1, myst2 e myst3.
+
 ### Rete virtuale
 
 Per le macchine virtuali nel set di scalabilità è necessaria una rete virtuale.
 
-1. Sostituire il valore di **$subName** con il nome che si vuole usare per la subnet della rete virtuale e quindi creare la variabile: 
+1. Sostituire il valore di **$subName** con il nome da usare per la subnet nella rete virtuale e quindi creare la variabile: 
 
         $subName = "subnet name"
         
@@ -141,7 +143,7 @@ Per le macchine virtuali nel set di scalabilità è necessaria una rete virtuale
         
     Il prefisso dell'indirizzo potrebbe essere diverso nella rete virtuale.
 
-3. Sostituire il valore di **$netName** con il nome che si vuole usare per la rete virtuale e quindi creare la variabile:
+3. Sostituire il valore di **$netName** con il nome da usare per la rete virtuale e quindi creare la variabile:
 
         $netName = "virtual network name"
         
@@ -153,7 +155,7 @@ Per le macchine virtuali nel set di scalabilità è necessaria una rete virtuale
 
 Prima di creare un'interfaccia di rete, è necessario creare un indirizzo IP pubblico.
 
-1. Sostituire il valore di **$domName** con l'etichetta di nome di dominio che si vuole usare con l'indirizzo IP pubblico e quindi creare la variabile:  
+1. Sostituire il valore di **$domName** con l'etichetta del nome di dominio da usare con l'indirizzo IP pubblico e quindi creare la variabile:  
 
         $domName = "domain name label"
         
@@ -165,7 +167,7 @@ Prima di creare un'interfaccia di rete, è necessario creare un indirizzo IP pub
 
     Se la risposta è **True**, il nome proposto è univoco.
 
-3. Sostituire il valore di **$pipName** con il nome che si vuole usare per l'indirizzo IP pubblico e quindi creare la variabile.
+3. Sostituire il valore di **$pipName** con il nome da usare per l'indirizzo IP pubblico e quindi creare la variabile.
 
         $pipName = "public ip address name"
         
@@ -177,7 +179,7 @@ Prima di creare un'interfaccia di rete, è necessario creare un indirizzo IP pub
 
 Ora che l'indirizzo IP pubblico è disponibile, è possibile creare l'interfaccia di rete.
 
-1. Sostituire il valore di **$nicName** con il nome che si vuole usare per l'interfaccia di rete e quindi creare la variabile: 
+1. Sostituire il valore di **$nicName** con il nome da usare per l'interfaccia di rete e quindi creare la variabile: 
 
         $nicName = "network interface name"
         
@@ -189,7 +191,7 @@ Ora che l'indirizzo IP pubblico è disponibile, è possibile creare l'interfacci
 
 Sono disponibili tutte le risorse necessarie per la configurazione del set di scalabilità, si procederà quindi alla sua creazione.
 
-1. Sostituire il valore di **$ipName** con il nome che si vuole usare per la configurazione IP e quindi creare la variabile: 
+1. Sostituire il valore di **$ipName** con il nome da usare per la configurazione IP e quindi creare la variabile: 
 
         $ipName = "IP configuration name"
         
@@ -197,7 +199,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Sostituire il valore di **$vmssConfig** con il nome che si vuole usare per la configurazione del set di scalabilità e quindi creare la variabile:
+2. Sostituire il valore di **$vmssConfig** con il nome da usare per la configurazione del set di scalabilità e quindi creare la variabile:
 
         $vmssConfig = "Scale set configuration name"
         
@@ -205,7 +207,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
 
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    Questo esempio mostra un set di scalabilità creato con 3 macchine virtuali. Per altre informazioni sulla capacità dei set di scalabilità, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md). Questo passaggio prevede anche l'impostazione delle dimensioni, indicata come SkuName, delle macchine virtuali nel set. Vedere la pagina relativa alle [dimensioni delle macchine virtuali](..\virtual-machines\virtual-machines-windows-sizes.md) per individuare dimensioni in grado di soddisfare le proprie esigenze.
+    Questo esempio mostra un set di scalabilità creato con 3 macchine virtuali. Per altre informazioni sulla capacità dei set di scalabilità, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md). Questo passaggio prevede anche l'impostazione delle dimensioni, indicata come SkuName, delle macchine virtuali nel set. Per determinare la dimensione più adatta elle esigenze, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md).
     
 4. Aggiungere la configurazione dell'interfaccia di rete alla configurazione del set di scalabilità:
         
@@ -226,7 +228,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
 
 #### Profilo del sistema operativo
 
-1. Sostituire il valore di **$computerName** con il prefisso del nome del computer che si vuole usare e quindi creare la variabile: 
+1. Sostituire il valore di **$computerName** con il prefisso del nome computer da usare e quindi creare la variabile: 
 
         $computerName = "computer name prefix"
         
@@ -244,7 +246,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
 
 #### Profilo di archiviazione
 
-1. Sostituire il valore di **$storageProfile** con il nome che si vuole usare per il profilo di archiviazione e quindi creare la variabile:  
+1. Sostituire il valore di **$storageProfile** con il nome da usare per il profilo di archiviazione e quindi creare la variabile:  
 
         $storeProfile = "storage profile name"
         
@@ -254,15 +256,15 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Vedere [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) (Esplorare e selezionare immagini di macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure) per trovare le informazioni su altre immagini da usare.
+    Per informazioni su altre immagini da usare, vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
-3. Sostituire il valore di **$vhdContainer** con il percorso in cui sono archiviati i dischi rigidi virtuali, ad esempio "https://mystorage.blob.core.windows.net/vhds", quindi creare la variabile:
+3. Sostituire il valore di **$vhdContainers** con un elenco contenente i percorsi di archiviazione dei dischi rigidi virtuali, ad esempio "https://mystorage.blob.core.windows.net/vhds" e quindi creare la variabile:
        
-        $vhdContainer = "URI of storage container"
+        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
 4. Creare il profilo di archiviazione:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Set di scalabilità di macchine virtuali
 
@@ -299,11 +301,16 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 - Azure PowerShell: per ottenere informazioni, usare il comando seguente:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or 
+        
+        Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
 
 ## Passaggi successivi
 
-- Gestire il set di scalabilità appena creato usando le informazioni contenute in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md) (Gestire macchine virtuali in un set di scalabilità di macchine virtuali).
-- Prendere in considerazione la possibilità di impostare il ridimensionamento automatico del set di scalabilità usando le informazioni contenute in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md) (Ridimensionamento automatico e set di scalabilità di macchine virtuali)
-- Altre informazioni sul ridimensionamento verticale sono disponibili in [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Per gestire il set di scalabilità appena creato, usare le informazioni disponibili in [Gestire le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-manage.md).
+- È consigliabile impostare il ridimensionamento automatico del set di scalabilità. A tale scopo, usare le informazioni disponibili in [Ridimensionamento automatico e set di scalabilità di macchine virtuali](virtual-machine-scale-sets-autoscale-overview.md).
+- Altre informazioni sull'aumento delle prestazioni sono disponibili in [Scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

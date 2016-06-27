@@ -194,7 +194,7 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 1.	Scaricare agent.zip. A tale scopo, effettuare l'operazione seguente:
 
-    a. Accedere al progetto team, ad esempio **https://[your-VSTS-account-name].visualstudio.com**.
+    a. Accedere al progetto team, ad esempio ****https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Selezionare l'icona a forma di ingranaggio nell'angolo in alto a destra della schermata.
 
@@ -261,13 +261,15 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 3. Aggiungere i nuovi file al controllo del codice sorgente ed eseguire il push in VSTS.
 
+>[AZURE.NOTE] Se si usa un certificato diverso per la gestione dei cluster di Service Fabric, ripetere i passaggi in "Importare il certificato di automazione" tramite il certificato.
+
 ### Creare la definizione di compilazione
 
 1.	Creare una definizione di compilazione vuota. A tale scopo, effettuare l'operazione seguente:
 
     a. Aprire il progetto in Visual Studio Team Services.
 
-    b. Scegliere la scheda **Compilazione**.
+    b. Selezionare la scheda **Compilazione**.
 
     c. Scegliere il segno **+** verde per creare una nuova definizione di compilazione.
 
@@ -275,7 +277,7 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
     e. Verificare che siano selezionati il repository e il ramo corretti.
 
-    f. Controllare la casella di controllo **Integrazione continua** per assicurarsi che la compilazione venga attivata ogni volta che si aggiorna il ramo.
+    f. Selezionare la casella di controllo **Integrazione continua** per assicurarsi che la compilazione venga attivata ogni volta che si aggiorna il ramo.
 
     g. Scegliere la coda di agenti su cui è stato registrato l'agente di compilazione.
 
@@ -292,9 +294,9 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 1. Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione**.
 
-2. Scegliere **Pacchetto** > **Programma di installazione NuGet**
+2. Scegliere **Pacchetto** > **Programma di installazione NuGet**.
 
-3. Scegliere l'icona a forma di matita accanto al nome dell'istruzione di compilazione e rinominare l'istruzione **Ripristina pacchetti NuGet**.
+3. Scegliere l'icona a forma di matita accanto al nome dell'istruzione di compilazione e rinominarla in **Ripristina pacchetti NuGet**.
 
 4. Scegliere il pulsante **…** accanto al campo **Soluzione** e quindi selezionare il file SLN.
 
@@ -302,11 +304,11 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 ### Aggiungere un passaggio "Compilazione"
 
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
 
 2.	Selezionare **Compila** > **MSBuild**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Compilazione**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione in **Compilazione**.
 
 4. Selezionare questi valori:
 
@@ -320,39 +322,41 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 ### Aggiungere un passaggio "Pacchetto"
 
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
 
 2.	Selezionare **Compila** > **MSBuild**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Pacchetto**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Pacchetto**.
 
 4. Selezionare questi valori:
 
     |Nome dell'impostazione|Valore|
     |---|---|
-    |Soluzione|Fare clic sul pulsante **...** e selezionare il file del progetto applicazione `.sfproj`.|
+    |Soluzione|Fare clic sul pulsante **...** e selezionare il file del progetto di applicazione `.sfproj`.|
     |Piattaforma|`$(BuildPlatform)`|
     |Configurazione|`$(BuildConfiguration)`|
     |Argomenti MSBuild|`/t:Package`|
 
 5.	Salvare la definizione di compilazione.
 
-### <a name="RemoveClusterResourceGroup"></a> Aggiungere un passaggio "Rimuovere il gruppo di risorse cluster"
+### <a name="RemoveClusterResourceGroup"></a> Aggiungere un'istruzione "Remove cluster resource group" (Rimuovi il gruppo di risorse cluster)
 
 Se una compilazione precedente non si è pulita automaticamente al termine dell'esecuzione, ad esempio perché è stata annullata prima di poter eseguire la pulizia, è possibile che un gruppo di risorse esistente entri in conflitto con quello nuovo. Per evitare conflitti, pulire gli eventuali gruppi di risorse rimasti e le risorse associate prima di crearne uno nuovo.
 
-1.	Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione...**.
+>[AZURE.NOTE] Ignorare questo passaggio se si vuole creare e riutilizzare lo stesso cluster per ogni compilazione.
+
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
 
 2.	Selezionare **Distribuisci** > **Distribuzione gruppo di risorse di Azure**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Rimuovere il gruppo di risorse cluster**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Remove cluster resource group** (Rimuovi il gruppo di risorse cluster).
 
 4. Selezionare questi valori:
 
     |Nome dell'impostazione|Valore|
     |---|---|
     |AzureConnectionType|**Gestione risorse di Azure**|
-    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione che è stato creato nella sezione relativa alla **Creazione di un'entità servizio**.|
+    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione creato nella sezione **Creare un'entità servizio**.|
     |Azione|**Elimina gruppo di risorse**|
     |Gruppo di risorse|Immettere un qualsiasi nome che non sia già stato usato. Nel passaggio successivo sarà necessario usare lo stesso nome.|
     |Continuare in caso di errore|Questo passaggio avrà esito negativo se il gruppo di risorse è inesistente. Abilitare **Continua in caso di errore** nella sezione **Opzioni di controllo** per evitare questo problema.|
@@ -361,18 +365,18 @@ Se una compilazione precedente non si è pulita automaticamente al termine dell'
 
 ### Aggiungere il passaggio "Effettuare il provisioning in un cluster sicuro"
 
-1.	Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione...**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
 
 2.	Selezionare **Distribuisci** > **Distribuzione gruppo di risorse di Azure**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Effettuare il provisioning in un cluster sicuro**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Provision secure cluster** (Effettua il provisioning di un cluster sicuro).
 
 4. Selezionare questi valori:
 
     |Nome dell'impostazione|Valore|
     |---|---|
     |AzureConnectionType|**Gestione risorse di Azure**|
-    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione che è stato creato nella sezione relativa alla **Creazione di un'entità servizio**.|
+    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione creato nella sezione **Creare un'entità servizio**.|
     |Azione|**Creare o aggiornare un gruppo di risorse**|
     |Gruppo di risorse|Deve corrispondere al nome usato nel passaggio precedente.|
     |Località|Deve corrispondere al percorso dell'insieme di credenziali delle chiavi.|
@@ -383,19 +387,23 @@ Se una compilazione precedente non si è pulita automaticamente al termine dell'
 
 ### Aggiungere un passaggio "Distribuzione"
 
-1.	Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione...**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
 
 2.	Selezionare **Utilità** > **PowerShell**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Distribuzione**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Distribuzione**.
 
-4. Selezionare questi valori:
+4. Selezionare i valori, sostituendo -PublishProfile e -ApplicationPackagePath con i percorsi effettivi:
 
     |Nome dell'impostazione|Valore|
     |---|---|
     |Tipo|**File Path**|
-    |Nome file di script|Fare clic sul pulsante **...** e passare alla directory **Script** all'interno del progetto dell'applicazione. Selezionare `Deploy-FabricApplication.ps1`.|
+    |Nome file di script|Fare clic sul pulsante **...** e passare alla directory **Script** all'interno del progetto di applicazione. Selezionare `Deploy-FabricApplication.ps1`.|
     |Argomenti|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] Per creare in modo semplice un file XML di lavoro del profilo di pubblicazione, crearlo in Visual Studio, come illustrato di seguito: https://azure.microsoft.com/it-IT/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] Se si vuole supportare la distribuzione dell'applicazione in un cluster sovrascrivendo l'applicazione esistente invece di aggiornarla, aggiungere questo argomento di Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Assicurarsi anche che il profilo di pubblicazione selezionato non sia configurato per abilitare un aggiornamento. Questa operazione rimuoverà qualsiasi ApplicationType esistente prima di installare la compilazione più recente.
 
 5.	Salvare la definizione di compilazione.
 
@@ -405,7 +413,7 @@ Se una compilazione precedente non si è pulita automaticamente al termine dell'
   
 ### Aggiungere un passaggio finale "Pulizia"
 
-1. Seguire le stesse istruzioni da [Aggiungere un passaggio "Rimuovere il gruppo di risorse cluster"](#RemoveClusterResourceGroup). Questo consentirà di pulire tutte le risorse di Azure di cui viene eseguito il provisioning durante la compilazione.
+1. Seguire le stesse istruzioni in [Aggiungere un'istruzione "Remove cluster resource group"](#RemoveClusterResourceGroup) (Rimuovi il gruppo di risorse cluster). Questo consentirà di pulire tutte le risorse di Azure di cui viene eseguito il provisioning durante la compilazione.
 
 ### Prova
 
@@ -415,11 +423,11 @@ Selezionare **Accoda compilazione** per avviare una compilazione. Le compilazion
 
 Le istruzioni precedenti creano un nuovo cluster per ogni compilazione e lo rimuovono al termine dell'operazione. Se invece si preferisce che ogni compilazione esegua l'aggiornamento di un'applicazione, in un cluster esistente, seguire questa procedura:
 
-1.	Creare manualmente un cluster di test tramite il portale di Azure o Azure PowerShell seguendo [queste istruzioni](service-fabric-cluster-creation-via-portal.md).
+1.	Creare manualmente un cluster di test con il portale di Azure o Azure PowerShell seguendo [queste istruzioni](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configurare il profilo di pubblicazione per supportare l'aggiornamento dell'applicazione seguendo [queste istruzioni](service-fabric-visualstudio-configure-upgrade.md).
 
-4.	Rimuovere le istruzioni di compilazione **Rimuovere il gruppo di risorse cluster** e **Provisioning del cluster** dalla definizione di compilazione.
+4.	Rimuovere le istruzioni di compilazione **Remove cluster resource group** (Rimuovi il gruppo di risorse cluster) e **Provision cluster** (Effettua provisioning del cluster) dalla definizione di compilazione.
 
 ## Passaggi successivi
 
@@ -429,4 +437,4 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
  - [Articolo sulla distribuzione di un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Articolo sulla creazione e configurazione di una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

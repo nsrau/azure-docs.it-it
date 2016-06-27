@@ -57,7 +57,7 @@ Quando si crea un cluster, si creano risorse di calcolo di Azure che includono H
 
 **Per creare un cluster Hadoop**
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **NUOVO**, selezionare **Analisi dei dati** e quindi fare clic su **HDInsight**. Nel portale verrà aperto il pannello **Nuovo cluster HDInsight**.
 
     ![Creare un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Creare un nuovo cluster nel portale di Azure")
@@ -97,7 +97,7 @@ Dopo la creazione di un cluster HDInsight, il passaggio successivo consiste nell
 
 **Per eseguire un processo Hive dal dashboard del cluster**
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **ESPLORA TUTTO** e poi su **Cluster HDInsight** per visualizzare un elenco di cluster, tra cui il cluster appena creato nella sezione precedente.
 3. Fare clic sul nome del cluster che si vuole usare per eseguire il processo Hive e poi fare clic su **Dashboard** nella parte superiore del pannello.
 4. Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante la creazione del cluster.
@@ -222,7 +222,7 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

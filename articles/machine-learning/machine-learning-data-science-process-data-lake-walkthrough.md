@@ -82,19 +82,19 @@ Questa sezione fornisce istruzioni per la creazione di tutte queste risorse. Se 
 
 ### Creare un Archivio Azure Data Lake
 
-Creare un Archivio Azure Data Lake dal [portale di Azure](http://ms.portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** descritto in questo articolo.
+Creare un Archivio Azure Data Lake dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** descritto in questo articolo.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Creare un account di Analisi Azure Data Lake
-Creare un account di Analisi Azure Data Lake dal [portale di Azure](http://ms.portal.azure.com). Per informazioni dettagliate, vedere [Esercitazione: Introduzione ad Analisi Azure Data Lake con il portale di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Creare un account di Analisi Azure Data Lake dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Esercitazione: Introduzione ad Analisi Azure Data Lake con il portale di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Creare un account di archiviazione BLOB di Azure
-Creare un account di archiviazione BLOB di Azure dal [portale di Azure](http://ms.portal.azure.com). Per informazioni dettagliate, vedere la sezione Creare un account di archiviazione in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+Creare un account di archiviazione BLOB di Azure dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere la sezione Creare un account di archiviazione in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -158,7 +158,7 @@ Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Prog
 
 ### <a name="ingest"></a>Inserimento di dati: leggere dati dal BLOB pubblico
 
-La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta mediante **Extractors.Csv()**. Sostituire con il nome del contenitore e il nome dell'account di archiviazione personali i valori container_name@blob_storage_account_name negli script seguenti dell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data\_{*}.csv** per leggere in tutti i 12 file relativi alle corse.
+La posizione dei dati nel BLOB di Azure viene indicata come ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta mediante **Extractors.Csv()**. Sostituire con il nome del contenitore e il nome dell'account di archiviazione personali i valori container_name@blob_storage_account_name negli script seguenti dell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data\_{*}.csv** per leggere in tutti i 12 file relativi alle corse.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_n
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Archivio Azure Data Lake usando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ oppure nell'account di archiviazione BLOB di Azure usando **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Archivio Azure Data Lake usando ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ oppure nell'account di archiviazione BLOB di Azure usando ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -640,7 +640,7 @@ Azure Machine Learning Studio può leggere i dati direttamente da Archivio Azure
 
 ### Creare un cluster HDInsight Linux
 
-Creare un cluster HDInsight (Linux) dal [portale di Azure](http://ms.portal.azure.com). Per informazioni dettagliate, vedere la sezione **Creare un cluster Azure HDInsight con accesso ad Archivio Azure Data Lake** in [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Creare un cluster HDInsight (Linux) dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere la sezione **Creare un cluster Azure HDInsight con accesso ad Archivio Azure Data Lake** in [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -658,7 +658,7 @@ Fare quindi clic su **Dashboard** accanto al pulsante **Impostazioni**. Verrà v
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Incollare gli script Hive seguenti per creare una tabella. La posizione dell'origine dati è specificata nel riferimento ad Archivio Azure Data Lake in questo modo: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Incollare gli script Hive seguenti per creare una tabella. La posizione dell'origine dati è specificata nel riferimento ad Archivio Azure Data Lake in questo modo: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -741,4 +741,4 @@ Nel percorso di apprendimento relativo al [processo di Cortana Analytics (CAP)](
 - [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

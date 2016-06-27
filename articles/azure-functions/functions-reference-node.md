@@ -20,9 +20,13 @@
 
 # Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure
 
+> [AZURE.SELECTOR]
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
+
 L'esperienza Node/JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 
-Questo articolo presuppone che l'utente abbia già letto la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
 ## Esportazione di una funzione
 
@@ -42,11 +46,11 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Associazioni di `direction === "in"` vengono passate come argomenti della funzione, ovvero è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) gestire in modo dinamico nuovi input, ad esempio il metodo `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è molto utile se si ha un solo trigger senza input aggiuntivi, perché è possibile accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
+Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, ovvero è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio il metodo `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è molto utile se si ha un solo trigger senza input aggiuntivi, perché è possibile accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
 
 Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Ad esempio, se si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[3]`.
 
-Tutte le associazioni, indipendentemente dalla direzione, vengono passate anche insieme all'oggetto `context` (vedere di seguito).
+Tutte le associazioni, indipendentemente dalla direzione, vengono passate anche sull'oggetto `context` (vedere di seguito).
 
 ## Oggetto context
 
@@ -101,7 +105,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ## context.log(messaggio)
 
-Il metodo `context.log` consente di generare istruzioni log correlate tra di esse a scopo di registrazione. Se si usa `console.log`, i messaggi verranno visualizzati solo per la registrazione a livello di processo, che non è particolarmente utile.
+Il metodo `context.log` consente di generare istruzioni log correlate tra loro a scopo di registrazione. Se si usa `console.log`, i messaggi saranno visualizzati solo per la registrazione a livello di processo, che non è particolarmente utile.
 
 ```javascript
 /* You can use context.log to log output specific to this 
@@ -109,7 +113,7 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-Il metodo `context.log` supporta lo stesso formato di parametro supportato dal [metodo util.format](https://nodejs.org/api/util.html#util_util_format_format) in Node. Ad esempio, un codice simile al seguente:
+Il metodo `context.log` supporta lo stesso formato di parametri supportato dal [metodo util.format](https://nodejs.org/api/util.html#util_util_format_format) in Node. Ad esempio, un codice simile al seguente:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -138,7 +142,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
 
-È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
+È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file, vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate).
 
 È anche possibile usare `npm install` nell'interfaccia della riga di comando SCM (Kudu) dell'app per le funzioni:
 
@@ -150,7 +154,7 @@ La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la 
 
 4. Eseguire `npm install`.
 
-Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali (ad esempio con `require('packagename')`).
+Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali (ad esempio con `require('packagename')`)
 
 ```javascript
 // Import the underscore.js library
@@ -165,7 +169,7 @@ module.exports = function(context) {
 
 ## Variabili di ambiente
 
-Per ottenere una variabile di ambiente o un valore dell'impostazione dell'app, usare `process.env`, come illustrato nell'esempio di codice seguente:
+Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usare `process.env` come illustrato nell'esempio di codice seguente:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -196,4 +200,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

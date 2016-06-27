@@ -1,18 +1,11 @@
-<properties 
-   pageTitle="Asset di tipo variabile in Automazione di Azure | Microsoft Azure"
-   description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra nel dettaglio le variabili e spiega come usarle nella creazione testuale e grafica."
-   services="automation"
-   documentationCenter=""
-   authors="mgoedtel"
-   manager="stevenka"
-   editor="tysonn" />
-<tags 
+<properties pageTitle="Asset di variabili in Automazione di Azure | Microsoft Azure" description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le configurazioni DSC in Automazione di Azure. Questo articolo illustra i dettagli delle variabili e come usarle nella creazione sia testuale che grafica." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<tags  
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren" />
 
 # Asset di tipo variabile in Automazione di Azure
@@ -183,9 +176,9 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 ![Ottenere una variabile complessa filtrata](media/automation-variables/get-complex-variable-filter.png)
 
 
-## Articoli correlati
+## Passaggi successivi
 
-- [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
- 
+- Per altre informazioni su come collegare attività insieme nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
+- Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md) 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

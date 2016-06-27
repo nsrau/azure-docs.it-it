@@ -38,6 +38,8 @@ Per visualizzare le impostazioni attuali della configurazione, passare a PowerSh
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è disponibile il comando o il cmdlet di sincronizzazione**, il modulo PowerShell non viene caricato. Questo problema può verificarsi se si esegue Azure AD Connect in un controller di dominio o in un server con livelli di restrizione di PowerShell più elevati rispetto alle impostazioni predefinite. Se si visualizza questo errore, eseguire `Import-Module ADSync` per rendere disponibile il cmdlet.
+
 - **AllowedSyncCycleInterval**: frequenza massima consentita da Azure AD per l'esecuzione della sincronizzazione. La sincronizzazione con una frequenza superiore a quella specificata non è supportata.
 - **CurrentlyEffectiveSyncCycleInterval**: pianificazione attualmente applicata. Avrà lo stesso valore di CustomizedSyncInterval (se impostato), se non ha una frequenza superiore ad AllowedSyncInterval. Se si modifica il valore di CustomizedSyncCycleInterval, la modifica verrà applicata dopo il ciclo di sincronizzazione successivo.
 - **CustomizedSyncCycleInterval**: se si vuole che l'utilità di pianificazione sia eseguita con una frequenza diversa dal valore predefinito di 30 minuti, è possibile configurare questa impostazione. Nell'immagine precedente l'utilità di pianificazione è stata impostata per essere eseguita ogni ora. Se si imposta un valore inferiore a quello di AllowedSyncInterval, verrà usato quest'ultimo valore.
@@ -142,4 +144,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

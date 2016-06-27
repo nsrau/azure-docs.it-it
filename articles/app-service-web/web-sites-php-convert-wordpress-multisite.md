@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
@@ -30,7 +30,7 @@ Si presuppone che sia già disponibile un'installazione esistente di WordPress. 
 
 La conversione di un'installazione per singolo sito WordPress esistente in una multisito è in genere un'operazione abbastanza semplice. Alcuni dei passaggi iniziali sono in pratica identici a quelli della pagina relativa alla [creazione di una rete][wordpress-codex-create-a-network] di [WordPress Codex](http://codex.wordpress.org).
 
-Di seguito verrà descritta la procedura dettagliata.
+Di seguito sono riportati i requisiti iniziali.
 
 ## Abilitare il multisito
 
@@ -153,4 +153,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

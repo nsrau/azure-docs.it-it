@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Distribuire set di scalabilità di macchine virtuali tramite Visual Studio
@@ -75,7 +75,7 @@ Nota: queste istruzioni presuppongono l'uso di Visual Studio 2015 con [Azure SDK
 
 	![Nuovo gruppo di risorse][new_resource]
 
-9. Selezionare quindi il pulsante **Modifica parametri** per immettere i parametri che verranno trasferiti al modello. Sono necessari determinati valori (ad esempio il nome utente e la password) per il sistema operativo per creare la distribuzione.
+9. Selezionare quindi il pulsante **Modifica parametri** per immettere i parametri che verranno trasferiti al modello. Sono necessari determinati valori (ad esempio il nome utente e la password) per il sistema operativo per creare la distribuzione. Se PowerShell Tools for Visual Studio non è installato, è consigliabile selezionare "Salva password" per evitare un prompt della riga di comando di PowerShell nascosto, oppure usare il [supporto dell'insieme di credenziali delle chiavi](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
 	![Modifica parametri][edit_parameters]
 
@@ -85,7 +85,7 @@ Nota: queste istruzioni presuppongono l'uso di Visual Studio 2015 con [Azure SDK
 
 ## Esplorazione del set di scalabilità della macchina virtuale
 
-Dopo aver completato la distribuzione, è possibile visualizzare il nuovo set di scalabilità della macchina virtuale in **Cloud Explorer** di Visual Studio (aggiornare l'elenco). Cloud Explorer consente di gestire le risorse di Azure in Visual Studio durante lo sviluppo di applicazioni. È anche possibile visualizzare il set di scalabilità della VM nel [portale di Azure](https://portal.azure.com) e in [Esplora risorse di Azure](https://resources.azure.com/).
+Dopo aver completato la distribuzione, è possibile visualizzare il nuovo set di scalabilità della macchina virtuale in **Cloud Explorer** di Visual Studio (aggiornare l'elenco). Cloud Explorer consente di gestire le risorse di Azure in Visual Studio durante lo sviluppo di applicazioni. È anche possibile visualizzare il set di scalabilità di macchine virtuali nel [portale di Azure](https://portal.azure.com) e in [Esplora risorse di Azure](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Dopo aver distribuito i set di scalabilità della macchina virtuale tramite Visu
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

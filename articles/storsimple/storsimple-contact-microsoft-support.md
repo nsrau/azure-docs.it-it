@@ -34,7 +34,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. Si verrà reindirizzati al nuovo portale di Azure, ms.portal.azure.com. Fare clic sul riquadro **Nuova richiesta di supporto**.
+2. Si verrà reindirizzati al nuovo portale di Azure, portal.azure.com. Fare clic sul riquadro **Nuova richiesta di supporto**.
 
 	![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
@@ -102,4 +102,4 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 > [AZURE.IMPORTANT] È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni di riferimento sull'analisi in Application Insights" 
+	pageTitle="Informazioni di riferimento sull'analisi in Application Insights | Microsoft Azure" 
 	description="Informazioni di riferimento sulle istruzioni nello strumento di ricerca avanzato per l'analisi incluso in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -20,33 +20,22 @@
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 ## Indice
 
-|Query e operatori|Aggregazioni|Scalari|Numeri|Data e ora|String|Matrici, oggetti e dynamic
-|---|---|---|---|---|---|---
-|[count](#count-operator)|[qualsiasi](#any)|[Valori letterali booleani](#boolean-literals)|[Operatori aritmetici](#arithmetic-operators)|[Espressioni di data e ora](#date-and-time-expressions)|[GUID](#guids)|[Valori letterali di matrice e oggetto](#array-and-object-literals)
-|[extend](#extend-operator)|[argmax](#argmax)|[Operatori booleani](#boolean-operators)|[Valori letterali numerici](#numeric-literals)|[Valori letterali di data e ora](#date-and-time-literals)|[Valori letterali di stringhe offuscate](#obfuscated-string-literals)|[Funzioni di oggetti dinamici](#dynamic-object-functions)
-|[join](#join-operator)|[argmin](#argmin)|[Cast](#casts)|[abs](#abs)|[ago](#ago)|[Valori letterali di stringa](#string-literals)|[Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses)
-|[Clausola let](#let-clause)|[avg](#avg)|[Confronti scalari](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Confronti di stringhe](#string-comparisons)|[Espressioni di percorso JSON](#json-path-expressions)
-|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Nomi](#names)
-|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
-|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
-|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
-|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
-|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
-|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
-|[Direttiva render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
-|[Clausola restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
-|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
-|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[dove](#where-operator)||||[totimespan](#totimespan)||
-|||||[weekofyear](#weekofyear)||
+**Query e operatori** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Scalari** [Valori letterali booleani](#boolean-literals) | [Operatori booleani](#boolean-operators) | [Cast](#casts) | [Confronti scalari](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Numeri** [Operatori aritmetici](#arithmetic-operators) | [Valori letterali numerici](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Data e ora** [Espressioni di data e ora](#date-and-time-expressions) | [Valori letterali di data e ora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**Stringa** [GUID](#guids) | [Valori letterali stringa offuscati](#obfuscated-string-literals) | [Valori letterali stringa](#string-literals) | [Confronto tra stringhe](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Array, oggetti e valori dinamici** [Valori letterali array e oggetti](#array-and-object-literals) | [Funzioni oggetti dinamici](#dynamic-object-functions) | [Oggetti dinamici in clausole let](#dynamic-objects-in-let-clauses) | [Espressioni percorsi JSON](#json-path-expressions) | [Nomi](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
 
 
 
@@ -79,7 +68,7 @@ Una query può essere preceduta da una o più [clausole let](#let-clause), che d
     req(city) | count
 ```
 
-> `T` viene usato negli esempi di query seguenti per indicare la tabella di origine o la pipeline precedente.
+> `T` viene utilizzato negli esempi di query seguenti per indicare la tabella di origine o la pipeline precedente.
 > 
 
 ### Operatore count
@@ -120,7 +109,7 @@ Aggiunge una o più colonne calcolate a una tabella.
 **Argomenti**
 
 * *T:* tabella di input.
-* *ColumnName:* nome di una colonna da aggiungere. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o '\_'. Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
+* *ColumnName:* nome di una colonna da aggiungere. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Expression:* calcolo eseguito sulle colonne esistenti.
 
 **Restituisce**
@@ -152,14 +141,14 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 
 **Sintassi**
 
-    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
 
 **Argomenti**
 
 * *Table1*: "lato sinistro" del join.
 * *Table2*: "lato destro" del join. Può trattarsi di un'espressione di query annidata che restituisce una tabella.
 * *CommonColumn*: colonna con lo stesso nome nelle due tabelle.
-* *Kind*: specifica come associare le righe delle due tabelle.
+* *Kind* - specifies how rows from the two tables are to be matched.
 
 **Restituisce**
 
@@ -239,7 +228,7 @@ Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore 
 
     let name = (parameterName : type [, ...]) { plain_query }; query
 
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *digitare:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
 * *plain\_query:* una query non preceduta da una clausola let.
 
 **esempi**
@@ -351,7 +340,7 @@ Divide il record di un'eccezione in righe per ogni elemento nel campo dei dettag
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -676,7 +665,7 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 
 **Argomenti**
 
-* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o '\_'. Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione. I [nomi](#names) fanno distinzione tra maiuscole e minuscole e possono contenere caratteri alfabetici, numerici o "\_". Usare `['...']` o `["..."]` per racchiudere tra virgolette parole chiave o nomi con altri caratteri.
 * *Aggregation:* chiamata a una funzione di aggregazione, ad esempio `count()` o `avg()`, con nomi di colonna come argomenti. Vedere [aggregazioni](#aggregations).
 * *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 
@@ -1019,7 +1008,7 @@ Restituisce un conteggio delle righe per cui *Predicate* restituisce `true`.
 
 **Suggerimento per le prestazioni**: usare `summarize countif(filter)` anziché `where filter | summarize count()`
 
-> [AZURE.NOTE] Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Usare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
+> [AZURE.NOTE] Evitare di usare countif() per trovare i numeri di richieste, eccezioni o altri eventi che si sono verificati. Quando [sampling](app-insights-sampling.md) è attivo, il numero di punti dati sarà minore del numero di eventi effettivi. Utilizzare invece `summarize sum(itemCount)...`. La proprietà itemCount indica il numero di eventi originali rappresentati da ogni punto dati mantenuto.
 
 ### dcount
 
@@ -1046,7 +1035,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui *Predicate* è true. Per visualizzare un elenco dei valori distinct, usare [`makeset`](#makeset).
+Restituisce una stima del numero di valori distinct di *Expr* nel gruppo per cui *Predicate* è true. Per visualizzare un elenco dei valori distinct, utilizzare [`makeset`](#makeset).
 
 *Accuracy*, se specificato, controlla il rapporto tra velocità e precisione.
 
@@ -1101,21 +1090,29 @@ Calcola il valore minimo di *Expr*.
 **Suggerimento**: viene restituito solo il valore minimo o massimo, ad esempio il prezzo più alto o più basso. Per inserire invece altre colonne nella riga, ad esempio il nome del fornitore con il prezzo più basso, usare [argmin o argmax](#argmin-argmax).
 
 
-<a name="percentile"></a> <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Restituisce una stima per *Expression* del percentile specificato nel gruppo. L'accuratezza dipende dalla densità della popolazione nell'area del percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Simile a `percentile()`, ma calcola un numero di valori di percentile, operazione più rapida rispetto al calcolo separato di ogni percentile.
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Percentile ponderato. Da utilizzare per i dati preaggregati. `WeightExpression` è un numero intero che indica il numero di righe originali rappresentate da ogni riga aggregata.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Ad esempio `percentilew()`, ma vengono calcolati numerosi valori di percentile.
 
 **esempi**
 
 
-Valore di `duration` maggiore del 95% del set di esempio e minore del 5% del set di esempio, calcolato per ogni nome richiesta:
+Valore di `duration`, maggiore del 95% del set di esempio e minore del 5% del set di esempio, calcolato per ogni nome richiesta:
 
     request 
     | summarize percentile(duration, 95)
@@ -1135,7 +1132,6 @@ Calcolare contemporaneamente più percentili per nomi richiesta diversi:
 
 I risultati mostrano che per la richiesta /Events/Index, il 5 % delle richieste riceve una risposta in meno di 2,44,s, la metà di esse in 3,52 s, mentre il 5 % risulta più lento di 6,85 s.
 
-
 Calcolare più statistiche:
 
     requests 
@@ -1145,9 +1141,45 @@ Calcolare più statistiche:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Errore di stima nei percentili
+#### Percentili ponderati
 
-L'aggregazione dei percentili fornisce un valore approssimativo usando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
+Utilizzare le funzioni di percentile ponderato in quei casi in cui i dati sono stati preaggregati.
+
+Ad esempio, se l'applicazione esegue molte migliaia di operazioni al secondo e si desidera conoscerne la latenza. La soluzione più semplice sarebbe generare una richiesta di Application Insights o un evento personalizzato per ogni operazione. Verrebbe a crearsi molto traffico, anche se verrebbe applicato il campionamento adattivo per ridurlo. Una soluzione ancora migliore consisterebbe invece nello scrivere codice nell'app per aggregare i dati prima di inviarli ad Application Insights. Verrà inviato il riepilogo aggregato a intervalli regolari, riducendo la frequenza di dati anche a pochi punti al minuto.
+
+Il codice registra il flusso delle misurazioni di latenza in millisecondi, ad esempio:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+Conta le misurazioni nei seguenti bin: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodicamente, esegue una serie di chiamate TrackEvent, una per ogni bucket, con misure personalizzate in ogni chiamata:
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, si noterà un gruppo di eventi simile al seguente:
+
+`opCount` | `latency`| significato
+---|---|---
+8 | 10 | = 8 operazioni nel bin 10 ms
+6 | 20 | = 6 operazioni nel bin 20 ms
+3 | 30 | = 3 operazioni nel bin 30 ms
+1 | 40 | = 1 operazione nel bin 40 ms
+
+Per ottenere un quadro preciso della distribuzione originale delle latenze di evento, utilizziamo `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+I risultati sono gli stessi dell'utilizzo di un `percentiles` normale sul set di misure originale.
+
+> [AZURE.NOTE] I percentili ponderati non sono applicabili ai [dati campionati](app-insights-sampling.md), in cui ogni riga campionata rappresenta un campione casuale di righe originali, piuttosto che un bin. Le funzioni del percentile normale sono appropriate per i dati campionati.
+
+#### Errore di stima nei percentili
+
+L'aggregazione dei percentili fornisce un valore approssimativo utilizzando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
 Tenere presente le seguenti considerazioni importanti:
 
@@ -1394,17 +1426,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | 
-| * | Moltiplica | 
-| / | Dividi | 
-| % | Modulo | 
-|| 
-|`<` |Minore 
-|`<=`|Minore o uguale a 
-|`>` |Maggiore 
-|`>=`|Maggiore o uguale a 
-|`<>`|Non uguale a 
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 ### abs
@@ -1502,7 +1524,7 @@ Funzione della radice quadrata.
 
 **Argomenti**
 
-* *x:* numero reale >= 0.
+* *x:* Numero reale >= 0.
 
 **Restituisce**
 
@@ -2064,7 +2086,7 @@ Estrarre una sottostringa da una stringa di origine specificata a partire da un 
 
 * *source:* stringa di origine da cui viene ricavata la sottostringa.
 * *startingIndex:* posizione del carattere iniziale in base zero della sottostringa richiesta.
-* *length:* parametro facoltativo che può essere usato per specificare il numero di caratteri richiesto nella sottostringa. 
+* *length:* An optional parameter that can be used to specify the requested number of characters in the substring. 
 
 **Restituisce**
 
@@ -2113,7 +2135,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Usare però `arraylength` e altre funzioni di analisi. Non usare ".length".
+* Utilizzare però `arraylength` e altre funzioni di analisi. Non usare ".length".
 
 **Cast:** in alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto perché il tipo potrebbe variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
@@ -2334,7 +2356,7 @@ Nell'esempio che segue quando `context_custom_metrics` è un valore `string` sim
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
+then the following fragment retrieves the value of the `duration` slot in the object, and from that it retrieves two slots, `duration.value` and `duration.min` (`118.0` and `110.0`, respectively).
 
 ```AIQL
 T
@@ -2356,7 +2378,7 @@ La funzione `range()`, da non confondere con l'operatore `range`, genera una mat
 **Argomenti**
 
 * *start:* valore del primo elemento nella matrice risultante. 
-* *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore dell'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
+* *stop:* valore dell'ultimo elemento nella matrice risultante o valore minimo maggiore rispetto all'ultimo elemento nella matrice risultante e all'interno di un numero intero multiplo di *step* da *start*.
 * *step:* differenza tra due elementi consecutivi della matrice.
 
 **esempi**
@@ -2426,4 +2448,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

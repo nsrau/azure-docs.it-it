@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare gruppi di disponibilità AlwaysOn (GUI) | Microsoft Azure"
+	pageTitle="Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure - Versione classica"
 	description="Creare un gruppo di disponibilità AlwaysOn con le macchine virtuali di Azure. Questa esercitazione usa principalmente l'interfaccia utente e gli strumenti invece dello scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,14 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configurare i gruppi di disponibilità AlwaysOn in una VM di Azure (GUI)
+# Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure - Versione classica
 
 > [AZURE.SELECTOR]
-- [Portale](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: automatica](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: manuale](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
@@ -28,8 +30,6 @@
 
 
 Questa esercitazione end-to-end illustra come implementare i gruppi di disponibilità tramite SQL Server AlwaysOn in esecuzione in macchine virtuali di Azure.
-
->[AZURE.NOTE] Nel portale di gestione di Azure è disponibile una nuova impostazione della raccolta per i gruppi di disponibilità AlwaysOn con un listener. In questo modo, tutto il necessario per i gruppi di disponibilità AlwaysOn viene configurato automaticamente. Per altre informazioni, vedere l'[offerta SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure classico](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Per usare PowerShell, vedere l'esercitazione dello stesso scenario in [Configurare gruppi di disponibilità AlwaysOn nelle VM di Azure (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
 
 Al termine dell'esercitazione la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
@@ -544,8 +544,8 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 >[AZURE.WARNING] Non tentare di eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere le [restrizioni relative all'uso di Gestione cluster di failover WSFC con i gruppi di disponibilità](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Passaggi successivi
-SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere l'articolo [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -68,7 +68,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 	![Individuazione dell'indirizzo IP del nodo head](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
 
-3. Verrà visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno il prefisso **hn**. Fare clic sul primo nodo head.
+3. Verrà visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno il prefisso **hn***. Fare clic sul primo nodo head.
 
 	![Individuazione dell'indirizzo IP del nodo head](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 
@@ -130,6 +130,10 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 	È anche possibile creare un elemento personalizzato facendo clic sull'icona **+** evidenziata nell'immagine precedente.
 
+4. Nella finestra di dialogo **Project Structure** (Struttura progetto) fare clic su **Progetto**. Se **Project SDK** (SDK progetto) è impostato su 1.8, verificare che **Project language level** (Livello del linguaggio di progetto) sia impostato su **7 - Diamonds, ARM, multi-catch, etc** (7 - Diamonds, ARM, multi-catch e così via).
+
+	![Impostazione del livello del linguaggio di progetto](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+
 4. Aggiungere librerie al progetto. Per aggiungere una libreria, fare clic con il pulsante destro del mouse sul nome del progetto nell'albero del progetto e quindi scegliere **Open Module Settings** (Apri impostazioni modulo). Nella finestra di dialogo **Project Structure** (Struttura progetto) fare clic su **Libraries** (Librerie) nel riquadro sinistro, quindi sul simbolo (+) e infine su **From Maven** (Da Maven).
 
 	![Aggiunta di una libreria](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
@@ -178,11 +182,11 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 	3. Salvare il file.
 
-7. Aggiungere la classe principale per l'applicazione. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi **Scala class** (Classe Scala).
+7. Aggiungere la classe principale per l'applicazione. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi fare clic su **Scala class**(Classe Scala).
 
 	![Aggiunta di un codice sorgente](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-8. Nella finestra di dialogo **Create New Scala Class** (Crea nuova classe Scala) specificare un nome, selezionare **Object** (Oggetto) nel campo **Kind** (Tipologia) e quindi fare clic su **OK**.
+8. Nella finestra di dialogo **Create New Scala Class** (Crea nuova classe Scala) immettere un nome, selezionare **Object** (Oggetto) per il campo **Kind** (Tipologia) e quindi fare clic su **OK**.
 
 	![Aggiunta di un codice sorgente](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
@@ -203,7 +207,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 		  }
 		}
 
-10. Ripetere i precedenti passaggi 7 e 8 per aggiungere un nuovo oggetto Scala denominato `SparkSample`. Aggiungere il codice seguente a questa classe. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe con una sola cifra nella settima colonna del file CSV e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
+10. Ripetere i precedenti passaggi 8 e 9 per aggiungere un nuovo oggetto Scala denominato `SparkSample`. Aggiungere il codice seguente a questa classe. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe con una sola cifra nella settima colonna del file CSV e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
 
 		import org.apache.spark.SparkContext
 	
@@ -223,7 +227,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 		
 		}
 
-11. Ripetere i precedenti passaggi 7 e 8 per aggiungere una nuova classe denominata `RemoteClusterDebugging`. Questa classe implementa il framework di test Spark usato per il debug delle applicazioni. Aggiungere il codice seguente alla classe `RemoteClusterDebugging`.
+11. Ripetere i precedenti passaggi 8 e 9 per aggiungere una nuova classe denominata `RemoteClusterDebugging`. Questa classe implementa il framework di test Spark usato per il debug delle applicazioni. Aggiungere il codice seguente alla classe `RemoteClusterDebugging`.
 
 		import org.apache.spark.{SparkConf, SparkContext}
 		import org.scalatest.FunSuite
@@ -267,7 +271,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 ## Passaggio 5: Eseguire l'applicazione in modalità di debug
 
-1. Nel progetto IntelliJ IDEA aprire `SparkSample.scala` e creare un punto di interruzione accanto a 'val rdd1'. Nel menu a comparsa per la creazione di un punto di interruzione selezionare **line in function executeJob** (riga in funzione executeJob).
+1. Nel progetto IntelliJ IDEA aprire `SparkSample.scala` e creare un punto di interruzione accanto a "val rdd1". Nel menu a comparsa per la creazione di un punto di interruzione selezionare **line in function executeJob** (riga in funzione executeJob).
 
 	![Aggiunta di un punto di interruzione](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
 
@@ -332,12 +336,12 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter Notebook nel computer e connetterlo al cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on Apache Spark cluster in HDInsight Linux](hdinsight-apache-spark-job-debugging.md) (Tenere traccia ed eseguire il debug di processi in esecuzione in cluster Apache Spark in HDInsight Linux)
+* [Track and debug jobs running on Apache Spark cluster in HDInsight Linux (Tenere traccia ed eseguire il debug di processi in esecuzione in cluster Apache Spark in HDInsight Linux)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

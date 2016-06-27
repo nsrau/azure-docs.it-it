@@ -1,7 +1,8 @@
 > [AZURE.SELECTOR]
 - [Panoramica](../articles/application-insights/app-insights-analytics.md)
-- [Presentazione dello strumento Analisi in Application Insights](../articles/application-insights/app-insights-analytics-tour.md)
-- [Uso di Analisi in Application Insights](../articles/application-insights/app-insights-analytics-using.md)
+- [Presentazione](../articles/application-insights/app-insights-analytics-tour.md)
+- [Se si usa](../articles/application-insights/app-insights-analytics-using.md)
 - [Informazioni di riferimento sul linguaggio](../articles/application-insights/app-insights-analytics-reference.md)
+- [Risoluzione dei problemi](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
@@ -26,7 +26,7 @@ I problemi di connettività più comuni comprendono:
 - Si utilizzano strumenti/protocolli non supportati
 
 ### Regole del firewall
-I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti accedano a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere. Per configurare il firewall per l'accesso, attenersi alla procedura riportata in [Configurare l'accesso al firewall del server per l'indirizzo IP del client][] nella [Procedura di configurazione del provisioning][].
+I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti accedano a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere. Per configurare il firewall per l'accesso, seguire la procedura di [configurazione dell'accesso al firewall del server per l'indirizzo IP del client][] nelle [istruzioni per il provisioning][].
 
 ### Si utilizzano strumenti/protocolli non supportati
 SQL Data Warehouse consiglia di usare [Visual Studio 2013 o 2015][] per eseguire query sui dati. Per la connettività client, si consigliano [SQL Server Native Client 10/11 (ODBC)][]. SQL Server Management Studio (SSMS) non è ancora supportato e laddove funziona in modo parziale, l'albero Esplora oggetti non funziona con SQL Data Warehouse e la query può funzionare dopo aver ignorato alcuni messaggi di errore.
@@ -115,8 +115,8 @@ Consultare l'articolo sulle [Procedure consigliate per SQL Data Warehouse][] per
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [imparare a monitorare le query]: ./sql-data-warehouse-manage-monitor.md
 [Gestire le statistiche in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
-[Procedura di configurazione del provisioning]: ./sql-data-warehouse-get-started-provision.md
-[Configurare l'accesso al firewall del server per l'indirizzo IP del client]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[istruzioni per il provisioning]: ./sql-data-warehouse-get-started-provision.md
+[configurazione dell'accesso al firewall del server per l'indirizzo IP del client]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
 [Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [statistiche]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ Consultare l'articolo sulle [Procedure consigliate per SQL Data Warehouse][] per
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

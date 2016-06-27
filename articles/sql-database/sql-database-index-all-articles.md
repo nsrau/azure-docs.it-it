@@ -103,7 +103,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 44 | [Connettersi al Database SQL tramite Node.js](sql-database-develop-nodejs-simple.md) | Presentazione di un esempio di codice Node.js che è possibile usare per connettersi al database SQL di Azure. |
 | 45 | [Connettersi al database SQL tramite Python](sql-database-develop-python-simple.md) | Presentazione di un esempio di codice Python che è possibile usare per connettersi al database SQL di Azure. |
 | 46 | [Connettersi al database SQL tramite Ruby](sql-database-develop-ruby-simple.md) | Specificare un esempio di codice Ruby che è possibile eseguire per connettersi al database SQL di Azure. |
-| 47 | [Connessione al database SQL: procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md) | Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP. |
+| 47 | [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md) | Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP. |
 | 48 | [Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in Azure App Service](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | Questa esercitazione illustra come compilare un'app Web Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure. |
 | 49 | [Ottenere l'ID client e la chiave per la connessione al database SQL dal codice](sql-database-client-id-keys.md) | Come ottenere l'ID client e la chiave per l'accesso al database SQL dal codice. |
 | 50 | [Introduzione alle tabelle temporali nel database SQL di Azure](sql-database-temporal-tables.md) | Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure. |
@@ -351,7 +351,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 180 | [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md) | In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure. |
 | 181 | [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) | Istruzioni Transact-SQL non completamente supportate nel Database SQL di Azure |
 | 182 | [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) | In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. È disponibile un collegamento per le informazioni sulla versione relative ai driver rilasciati dalla community anziché da Microsoft. |
-| 183 | [Ricerca con filtri](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
+| 183 | [Ricerca con filtri](https://azure.microsoft.com/it-IT/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
 
 
 ## Miscellaneous
@@ -378,4 +378,4 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - Grafica del percorso di apprendimento: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

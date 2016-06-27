@@ -24,7 +24,7 @@ Docker è un motore contenitore leggero, simile in qualche modo a una macchina v
 ## 1\. Prerequisiti
 Per completare questa esercitazione sarà necessario svolgere le operazioni seguenti:
 
-- Creare una macchina virtuale host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- Creare una VM host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](./virtual-machines/virtual-machines-linux-docker-machine.md).
 - Installare [Visual Studio 2015](https://www.visualstudio.com/it-IT/downloads/download-visual-studio-vs.aspx)
 - Installare [Visual Studio 2015 Tools per Docker - Preview](http://aka.ms/DockerToolsForVS)
 
@@ -96,4 +96,4 @@ I risultati visualizzati dovrebbero essere simili ai seguenti.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distribuire un eseguibile esistente in Service Fabric di Azure | Microsoft Azure"
-   description="Procedura dettagliata su come creare un pacchetto di un'applicazione esistente in modo che possa essere distribuito in un cluster di infrastruttura di servizi di Azure"
+   description="Procedura dettagliata su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -12,13 +12,13 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.workload="na"
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 # Distribuire un eseguibile guest in Service Fabric
 
-In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione, ad esempio Node.js, Java o applicazioni native. La terminologia di Service Fabric fa riferimento a tali tipi di applicazioni come eseguibili guest. Gli eseguibili guest vengono considerati da Service Fabric come servizi senza stato. Di conseguenza verranno inseriti nei nodi in un cluster in base a disponibilità e altre metriche. Questo articolo descrive come creare un pacchetto e distribuire un eseguibile guest in un cluster di Service Fabric.
+In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione, ad esempio Node.js, Java o applicazioni native. La terminologia di Service Fabric fa riferimento a questi tipi di applicazioni come eseguibili guest. Gli eseguibili guest vengono considerati da Service Fabric come servizi senza stato. Di conseguenza verranno inseriti nei nodi di un cluster in base a disponibilità e altre metriche. Questo articolo descrive come creare un pacchetto e distribuire un eseguibile guest in un cluster di Service Fabric, usando Visual Studio o un'utilità della riga di comando.
 
 ## Vantaggi dell'esecuzione di un'eseguibile guest in Service Fabric
 
@@ -31,25 +31,21 @@ L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta num
 
 Questo articolo illustra i passaggi di base per creare il pacchetto di un eseguibile guest e distribuirlo in Service Fabric.
 
-
 ## Breve panoramica dei file manifesto dell'applicazione e del servizio
 
-Prima di esaminare i dettagli della distribuzione di un eseguibile guest, è utile comprendere il modello di creazione del pacchetto e di distribuzione di Service Fabric. Il modello di distribuzione del pacchetto di Service Fabric si basa principalmente su due file XML: l'applicazione e i manifesti del servizio. La definizione dello schema per i file ApplicationManifest.xml e ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
-
+Come parte della distribuzione di un eseguibile guest, è utile comprendere il modello di creazione del pacchetto e di distribuzione di Service Fabric. Il modello di distribuzione del pacchetto di Service Fabric si basa principalmente su due file XML: l'applicazione e i manifesti del servizio. La definizione dello schema per i file ApplicationManifest.xml e ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 * **Manifesto dell'applicazione**
 
   Il manifesto dell'applicazione viene usato per descrivere l'applicazione ed elenca i servizi che la compongono, nonché altri parametri, ad esempio il numero di istanze, che consentono di definire la modalità di distribuzione dei servizi.
 
-  Nell’ambito di Service Fabric un'applicazione è "l'unità aggiornabile". Un'applicazione può essere aggiornata come una singola unità in cui i potenziali errori (e i potenziali ripristini) vengono gestiti nella piattaforma in modo da garantire che il processo di aggiornamento abbia un esito completamente positivo o in caso contrario, che non lasci l'applicazione in uno stato sconosciuto/instabile.
-
+  Nell’ambito di Service Fabric un'applicazione è "l'unità aggiornabile". Un'applicazione può essere aggiornata come una singola unità in cui i potenziali errori (e i potenziali ripristini) vengono gestiti nella piattaforma in modo da garantire che il processo di aggiornamento venga completato o, in caso contrario, che non lasci l'applicazione in uno stato sconosciuto/instabile.
 
 * **Manifesto del servizio**
 
   Il manifesto del servizio descrive i componenti di un servizio. Include dati, come ad esempio nome e tipo di servizio (informazioni che Service Fabric usa per gestire il servizio), il relativo codice, componenti di dati e di configurazione più alcuni parametri aggiuntivi usati per configurare il servizio una volta distribuito.
 
-  Non verranno esaminati tutti i diversi parametri disponibili nel manifesto del servizio, ma verrà esaminata la sotto-categoria necessaria ad eseguire un eseguibile guest in Service Fabric.
-
+  Non verranno esaminati tutti i diversi parametri disponibili nel manifesto del servizio, ma verrà esaminato il subset necessario per l'esecuzione di un eseguibile guest in Service Fabric.
 
 ## Struttura del file del pacchetto dell'applicazione
 Per distribuire un'applicazione nell'infrastruttura di servizi, l'applicazione deve seguire una struttura di directory predefinita. Di seguito è riportato un esempio di tale struttura.
@@ -59,9 +55,9 @@ Per distribuire un'applicazione nell'infrastruttura di servizi, l'applicazione d
 	|-- code
 		|-- existingapp.exe
 	|-- config
-		|--Settings.xml
-    |--data    
-    |-- ServiceManifest.xml
+		|-- Settings.xml
+  |-- data    
+  |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -75,7 +71,9 @@ Nota: non occorre creare le directory `config` e `data` se non sono necessarie.
 
 ## Processo di creazione di un pacchetto di un'applicazione esistente
 
-Il processo di creazione di un pacchetto di un eseguibile guest si basa sulla procedura seguente:
+Quando si crea il pacchetto di un file eseguibile guest, è possibile scegliere di usare un modello di progetto di Visual Studio o di creare manualmente il pacchetto dell'applicazione. Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dalla Creazione guidata nuovo progetto. Per una guida dettagliata su come creare il pacchetto di un eseguibile guest con Visual Studio, vedere di seguito.
+
+Il processo per la creazione manuale del pacchetto di un eseguibile guest si basa sulla procedura seguente:
 
 1. Creare la struttura di directory del pacchetto.
 2. Aggiungere i file di codice e di configurazione dell'applicazione.
@@ -163,7 +161,7 @@ L'elemento `Name` consente di specificare il nome della directory nel pacchetto 
 ```
 L'elemento SetupEntrypoint consente di specificare un file eseguibile o un file batch da eseguire prima dell'avvio del codice del servizio. È un elemento facoltativo perciò non è necessario includerlo se non esiste alcuna inizializzazione/installazione richiesta. L'elemento SetupEntryPoint viene eseguito ogni volta che il servizio viene riavviato.
 
-Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. Analogamente all'elemento Entrypoint, l'elemento SetupEntrypoint può eseguire qualsiasi tipo di file, ovvero file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente, l'elemento SetupEntrypoint è basato su un file batch LaunchConfig.cmd, che si trova nella sottodirectory `scripts` della directory Code, presupponendo che l'elemento WorkingDirectory sia impostato su codice.
+Esiste solo un SetupEntrypoint, quindi gli script di installazione/configurazione devono essere raggruppati in un singoli file batch se l'installazione/configurazione dell'applicazione richiede più script. Analogamente all'elemento SetupEntryPoint, SetupEntrypoint può eseguire qualsiasi tipo di file, ad esempio file eseguibili, file batch e cmdlet di PowerShell. Nell'esempio precedente l'elemento SetupEntrypoint è basato su un file batch LaunchConfig.cmd, che si trova nella sottodirectory `scripts` della directory code, presupponendo che l'elemento WorkingFolder sia impostato su code.
 
 ### Entrypoint
 
@@ -184,7 +182,7 @@ L'elemento `Entrypoint` nel manifesto del servizio consente di specificare la mo
 - `WorkingFolder` specifica la directory di lavoro per il processo che sta per essere avviato. È possibile specificare due valori:
 	- `CodeBase` specifica che la directory di lavoro dovrà essere impostata sulla directory Code nel pacchetto dell'applicazione (directory `Code` nella struttura riportata di seguito).
 	- `CodePackage` specifica che la directory di lavoro verrà impostata sulla radice del pacchetto dell'applicazione (`MyServicePkg`).
-- `WorkingDirectory` è utile per impostare la directory di lavoro corretta, in modo che i percorsi relativi possano essere usati dagli script di applicazione o da quelli di inizializzazione.
+- `WorkingFolder` è utile per impostare la directory di lavoro corretta, in modo che i percorsi relativi possano essere usati dagli script di applicazione o da quelli di inizializzazione.
 
 ### Endpoint
 
@@ -282,6 +280,24 @@ Se si passa alla directory tramite Esplora server è possibile trovare la direct
 
 ![Percorso del log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## Uso di Visual Studio per creare il pacchetto di un'applicazione esistente
+
+Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric. Per completare la pubblicazione, è necessario eseguire queste operazioni:
+
+1. Scegliere File -> Nuovo progetto e creare una nuova applicazione di Service Fabric.
+2. Scegliere Eseguibile guest come modello di servizio.
+3. Fare clic su Sfoglia per selezionare la cartella con il file eseguibile e compilare il resto dei parametri per creare il nuovo servizio.
+  - *Comportamento del pacchetto di codice*: si può impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Una scelta utile se il file eseguibile non verrà modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella.
+  - *Programma*: consente di specificare il nome del file eseguibile da eseguire per avviare il servizio.
+  - *Argomenti*: consente di specificare gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.
+  - *WorkingFolder* (Cartella di lavoro): scegliere la directory di lavoro per il processo da avviare. È possibile specificare due valori:
+  	- *CodeBase*: specifica che la directory di lavoro dovrà essere impostata sulla directory code nel pacchetto dell'applicazione, ovvero la directory `Code` nella struttura riportata di seguito.
+    - *CodePackage* (Pacchetto di codice): specifica che la directory di lavoro verrà impostata sulla radice del pacchetto dell'applicazione (`MyServicePkg`).
+4. Assegnare un nome del servizio e fare clic su OK.
+5. Se il servizio richiede un endpoint per la comunicazione, è possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml, ad esempio: ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```.
+6. È ora possibile provare il pacchetto e l'azione di pubblicazione con il cluster locale tramite il debug della soluzione in Visual Studio. Quando si è pronti, è possibile pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente.
+
+>[AZURE.NOTE] Quando si crea il progetto di applicazione in Visual Studio, si possono usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione originale e ottenendo che gli aggiornamenti diventino parte del pacchetto dell'applicazione in fase di compilazione.
 
 ## Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
@@ -290,4 +306,4 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 - [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

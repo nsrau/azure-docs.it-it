@@ -46,10 +46,10 @@ In questo articolo viene illustrato come esportare un database SQL Server in un 
 - [Importare un file BACPAC nel database SQL di Azure tramite il portale di Azure](sql-database-import.md)
 - [Importare un file BACPAC nel database SQL di Azure tramite PowerShell](sql-database-import-powershell.md)
 
-## Altre informazioni
+## Risorse aggiuntive
 
 - [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

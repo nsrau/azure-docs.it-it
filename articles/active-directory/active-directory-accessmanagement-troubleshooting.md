@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
-# Risoluzione dei problemi di appartenenza dinamica ai gruppi
+# Risoluzione dei problemi di appartenenza dinamica per i gruppi
 
 **Ho configurato una regola in un gruppo ma le appartenenze nel gruppo non vengono aggiornate**<br/>Verificare che l'impostazione **Abilita gestione gruppi delegata** sia impostata su **Sì** nella scheda **Configura**. Questa impostazione verrà visualizzato solo se si è connessi come utente a cui è assegnata una licenza di Azure Active Directory Premium. Verificare i valori degli attributi utente della regola: sono presenti utenti che soddisfano la regola?
 
@@ -34,4 +34,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

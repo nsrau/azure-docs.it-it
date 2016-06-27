@@ -44,8 +44,7 @@ Per iscriversi per ottenere una sottoscrizione della versione di valutazione gra
 
 1. Aprire la [pagina della versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) e quindi selezionare **Prova subito**.
 2. Accedere al proprio account Microsoft o all'account aziendale o dell'istituto di istruzione.
-3. Nella sezione **Informazioni personali** immettere le informazioni personali.
-![Schermata delle informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. Nella sezione **Informazioni personali** immettere le informazioni personali. ![Schermata delle informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Nota** L'indirizzo di posta elettronica e le informazioni relative al paese specificati al momento dell'iscrizione a una sottoscrizione di Azure saranno sempre associati alla sottoscrizione e non potranno essere modificati in un secondo momento.</br>
 4. Nella sezione **Verifica tramite telefono** è necessario specificare un numero di telefono per ricevere un codice di verifica che è possibile fornire per completare il processo di verifica.
@@ -62,11 +61,11 @@ Per iscriversi per ottenere una sottoscrizione della versione di valutazione gra
  ![Verifica tramite carta](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. Nella sezione **Contratto** selezionare la casella corrispondente se si accettano il contratto di sottoscrizione, i dettagli dell'offerta e l'informativa sulla privacy. Selezionare quindi **Iscrizione**. La schermata di esempio fa riferimento alla versione italiana del contratto. Il modulo di contratto può variare in base al paese.
 
- ![Iscrizione](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> La configurazione della sottoscrizione può richiedere alcuni minuti. Se la configurazione della sottoscrizione non viene completata entro 15 minuti, contattare il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza. </br> Se viene visualizzato un messaggio di errore, seguire i passaggi indicati nel messaggio per risolvere il problema. Un tipico messaggio di errore è:
+ ![Iscrizione](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> La configurazione della sottoscrizione può richiedere alcuni minuti. Se la configurazione della sottoscrizione non viene completata entro 15 minuti, contattare il [supporto tecnico di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza. </br> Se viene visualizzato un messaggio di errore, seguire i passaggi indicati nel messaggio per risolvere il problema. Un tipico messaggio di errore è:
 
  **Non è possibile completare l'operazione. Riprovare più tardi o ricaricare la pagina Web** </br>
 
- In questo caso, provare a usare un altro browser per completare il processo di iscrizione. Se il problema si verifica ancora, contattare il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza.</br>
+ In questo caso, provare a usare un altro browser per completare il processo di iscrizione. Se il problema si verifica ancora, contattare il [supporto tecnico di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ricevere assistenza.</br>
 7. Quando la sottoscrizione è pronta, selezionare **Inizia a gestire il servizio** per iniziare.</br> ![Avvio del servizio](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 <a name="UpgradeFreeToPYG"></a>
@@ -89,4 +88,4 @@ Se sono stati acquistati crediti Azure in Open da un rivenditore e si possiede u
 
 3. Immettere il codice Product Key e quindi selezionare l'opzione del contratto.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="03/16/2016" 
+    ms.date="06/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Kintone
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Kintone** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://company.kintone.com*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Kintone** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.kintone.com*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configura URL app")
 
@@ -165,4 +165,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

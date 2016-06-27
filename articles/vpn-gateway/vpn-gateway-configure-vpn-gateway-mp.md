@@ -52,7 +52,7 @@ Nella procedura riportata di seguito verrà illustrata la configurazione del gat
 
 Prima di configurare il gateway, è necessario innanzitutto creare la rete virtuale. Per i passaggi necessari per creare una rete virtuale per la connettività cross-premise, vedere l'articolo relativo alla [configurazione di una rete virtuale con connessione VPN Site-to-Site](vpn-gateway-site-to-site-create.md) o l'articolo relativo alla [configurazione di una rete virtuale con connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md). Seguire quindi i passaggi descritti di seguito per configurare il gateway VPN e raccogliere le informazioni necessarie per configurare il dispositivo VPN.
 
-Se si dispone già di un gateway VPN e si desidera modificare il tipo di routing, vedere [Come modificare il tipo di gateway VPN](#how-to-change-your-vpn-gateway-type).
+Se si ha già di un gateway VPN e si vuole modificare il tipo di routing, vedere [Come modificare il tipo di routing VPN per il gateway](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 ## Creare un gateway VPN
 
@@ -168,4 +168,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

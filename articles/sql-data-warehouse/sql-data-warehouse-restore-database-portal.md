@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ripristinare un database in Azure SQL Data Warehouse (Portale) | Microsoft Azure"
-   description="Attività del portale di Azure per il ripristino di un database attivo o eliminato in Azure SQL Data Warehouse."
+   pageTitle="Ripristinare un'istanza di Azure SQL Data Warehouse (portale) | Microsoft Azure"
+   description="Attività del portale di Azure per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,40 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Ripristinare un database in Azure SQL Data Warehouse (Portale)
+# Ripristinare un'istanza di Azure SQL Data Warehouse (portale)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-restore-database-overview.md)
-- [Portale](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Panoramica][]
+- [Portale][]
+- [PowerShell][]
+- [REST][]
 
-Attività di PowerShell per il ripristino di un database attivo o eliminato in Azure SQL Data Warehouse.
-
-Attività contenute in questo argomento:
-
-- Ripristino di un database attivo
-- Ripristino di un database eliminato
+Questo articolo illustra come ripristinare un'istanza di Azure SQL Data Warehouse tramite il portale di Azure.
 
 ## Prima di iniziare
 
-Verificare la capacità DTU del database SQL. SQL Data Warehouse si ripristina su un nuovo database nel server logico di SQL. Per questo motivo, è importante verificare che il server SQL di cui si esegue il ripristino abbia una capacità DTU sufficiente per il nuovo database SQL Server. Vedere questo post di blog per altre informazioni su [come visualizzare e aumentare la quota DTU][].
+**Verificare la capacità in DTU.** Ogni istanza di SQL Data Warehouse è ospitata da un server logico SQL, il cui limite di capacità è misurato in DTU. Prima di ripristinare un'istanza di SQL Data Warehouse, è importante assicurarsi che il server logico SQL che ospita il database abbia una capacità in DTU sufficiente per il database da ripristinare. Per altre informazioni su [come visualizzare e aumentare la quota DTU][], vedere il relativo post di blog.
 
 
-## Ripristino di un database attivo
+## Ripristinare un database attivo o sospeso
 
 Per ripristinare un database:
 
 1. Accedere al [Portale di Azure][].
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Database SQL**.
 3. Individuare e selezionare il database.
-4. Nella parte superiore del pannello database fare clic su **Ripristina**.
-5. Specificare un nuovo **Nome database**, quindi selezionare un **Punto di ripristino** e fare clic su **Crea**.
+4. Nella parte superiore del pannello del database fare clic su **Ripristina**.
+5. Specificare un nuovo **Nome database**, selezionare un **Punto di ripristino** e quindi fare clic su **Crea**.
 6. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
-
 
 ## Ripristino di un database eliminato
 
@@ -62,14 +56,16 @@ Per ripristinare un database eliminato:
 
 
 ## Passaggi successivi
-Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica sulla gestione][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Continuità aziendale del database SQL di Azure]: sql-database-business-continuity.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Panoramica sulla gestione]: sql-data-warehouse-overview-manage.md
+[Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md
+[Panoramica]: ./sql-data-warehouse-restore-database-overview.md
+[Portale]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
@@ -79,4 +75,4 @@ Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure]
 <!--Other Web references-->
 [Portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -150,13 +150,17 @@ Per un'app di esempio che illustra la libreria client, vedere l'[introduzione ag
 
 Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Per creare un nuovo pool, vedere l'[esercitazione](sql-database-elastic-pool-create-portal.md).
+Per creare un nuovo pool, vedere il [Creare un nuovo pool di database elastici con il portale di Azure](sql-database-elastic-pool-create-portal.md).
 
-## Altre informazioni
+Per monitorare e gestire un pool di database elastici, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
 
-[Che cos'è un pool di database elastici di Azure?](sql-database-elastic-pool.md)
+## Risorse aggiuntive
 
-[Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
+- [Che cos'è un pool di database elastici di Azure?](sql-database-elastic-pool.md)
+- [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
+- [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticazione in app multi-tenant con Azure AD e OpenID Connect)
+- [Informazioni sull'applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Domande e richieste di funzionalità
 
@@ -172,4 +176,4 @@ Per domande è possibile visitare il [forum sul database SQL](http://social.msdn
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

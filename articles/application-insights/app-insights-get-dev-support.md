@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come ottenere supporto tecnico dal team di sviluppo di Application Insights" 
+	pageTitle="Come ottenere supporto tecnico dal team di sviluppo di Application Insights | Microsoft Azure" 
 	description="Questo articolo illustra come inviare i dettagli dei casi che richiedono uno speciale supporto da parte del team di sviluppo di Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@ Se non si ha un piano di supporto, il team di sviluppo può offrire il miglior s
 
 1. Nel [portale di Application Insights](https://portal.azure.com) fare clic sullo smile nell'angolo in alto a destra:  
 
-    ![immagine](./media/app-insights-get-dev-support/01.png)
+    ![Pulsante commenti e suggerimenti](./media/app-insights-get-dev-support/01.png)
 
 2. Nella casella per i commenti verificare di specificare **AppInsights** come prima riga e quindi di includere le informazioni seguenti:
 
@@ -51,17 +51,16 @@ Se non si ha un piano di supporto, il team di sviluppo può offrire il miglior s
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![immagine](./media/app-insights-get-dev-support/02.png)
+    ![Finestra di dialogo commenti e suggerimenti](./media/app-insights-get-dev-support/02.png)
 
 3. Selezionare "Sì, accetto di ricevere un messaggio di posta elettronica".
 
-    ![immagine](./media/app-insights-get-dev-support/03.png)
+    ![Invia sezione](./media/app-insights-get-dev-support/03.png)
 
 A breve si verrà contattati da un tecnico del team di Application Insights. Poiché questo servizio viene fornito con il massimo impegno, per il momento non è disponibile alcun contratto di servizio formale.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -53,6 +53,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Analisi Data Lake](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Hub eventi](#event-hubs-limits)
 - [Hub IoT](#iot-hub-limits)
 - [Insieme di credenziali di chiave](#key-vault-limits)
 - [Servizi multimediali](#media-services-limits)
@@ -177,6 +178,7 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](./documentdb/documentdb-increase-limits.md).
 
 ### Limiti relativi a Mobile Engagement
 
@@ -188,7 +190,7 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
 - *Gratuito*, offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
-- *Basic* fornisce risorse di calcolo dedicate per i carchi di lavoro di produzione su scala più ridotto, con un massimo di 3 repliche per i carichi di lavoro di query da alta disponibilità.
+- *Basic* fornisce risorse di calcolo dedicate per i carchi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query da alta disponibilità.
 - *Standard (S1, S2, S3, S3 ad alta densità)* è per i carichi di lavoro di produzione più consistenti. All’interno del livello standard esistono più livelli per consentire di scegliere una configurazione delle risorse per scenari specifici.
 
 **Limiti per sottoscrizione**
@@ -217,6 +219,9 @@ Per informazioni più dettagliate su altri limiti, quali le dimensioni dei docum
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Limiti relativi all'hub eventi
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Limiti relativi al bus di servizio
 
@@ -300,4 +305,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

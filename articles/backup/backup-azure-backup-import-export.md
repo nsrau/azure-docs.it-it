@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="01/28/2016"
-   ms.author="jimpark;nkolli;trinadhk"/>
+   ms.date="06/14/2016"
+   ms.author="jimpark;nkolli;trinadhk;saurse"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 In Backup di Azure sono integrate molte funzionalità che consentono di ridurre in modo efficiente i costi di rete e archiviazione. Backup di Azure non solo comprime i dati, ma esegue anche il backup dell'intero contenuto una sola volta e quindi solo backup incrementali/differenziali. Di conseguenza, se viene eseguito il backup di un volume di file di 10 TB, Backup di Azure invierà 10 TB come parte della replica iniziale e solo il contenuto differenziale come parte della replica differenziale. Durante la replica iniziale è quindi necessaria la massima larghezza di banda WAN. Per ridurre la dipendenza della WAN durante la replica iniziale, Backup di Azure supporta il backup offline con il servizio di importazione/esportazione di Azure.
@@ -119,4 +119,4 @@ Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazio
 - Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage/storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -145,4 +145,4 @@ Gli esempi seguenti illustrano come creare un set di record di ogni tipo di reco
 
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

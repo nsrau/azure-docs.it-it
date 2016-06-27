@@ -38,4 +38,8 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 [Modello di verifica della connessione a SQL tramite Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+## Risorse aggiuntive
+
+Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

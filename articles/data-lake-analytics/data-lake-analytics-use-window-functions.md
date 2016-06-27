@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -23,7 +23,7 @@ Le funzioni finestra sono state introdotte nello Standard SQL ISO/ANSI nel 2003.
 
 Le funzioni finestra vengono usate per eseguire calcoli in set di righe chiamati *finestre*. Le finestre vengono definite dalla clausola OVER. Le funzioni finestra risolvono alcuni scenari chiave in modo estremamente efficiente.
 
-Questa esercitazione/guida all'apprendimento usa due set di dati di esempio per illustrare in dettaglio alcuni scenari di esempio in cui è possibile applicare le funzioni finestra. Per altre informazioni, vedere [Riferimento al linguaggio U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+Questa guida all'apprendimento usa due set di dati di esempio per illustrare in dettaglio alcuni scenari di esempio in cui è possibile applicare le funzioni finestra. Per altre informazioni, vedere [Riferimento al linguaggio U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 Le funzioni finestra sono classificate come segue:
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC non esegue l'interpolazione dei valori, quindi il valore median
 - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

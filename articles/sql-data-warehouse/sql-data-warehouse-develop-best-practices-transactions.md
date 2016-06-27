@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/13/2016"
    ms.author="jrj;barbkess"/>
 
 # Ottimizzazione delle transazioni per SQL Data Warehouse
@@ -420,7 +420,7 @@ Per altri suggerimenti di sviluppo e contenuti correlati agli esempi appena illu
 - [Partizionamento delle tabelle][]
 - [Concorrenza][]
 - [CTAS][]
-- [RENAME OBJECT][]
+- [RENAME (Transact-SQL)][]
 
 <!--Image references-->
 
@@ -431,9 +431,10 @@ Per altri suggerimenti di sviluppo e contenuti correlati agli esempi appena illu
 [table partition]: sql-data-warehouse-develop-table-partitions.md
 [concorrenza]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]: https://msdn.microsoft.com/it-IT/library/ms188388.aspx
+[alter index]: https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

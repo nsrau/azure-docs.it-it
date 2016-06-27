@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Usare il catalogo di U-SQL
@@ -73,7 +73,7 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
 - U-SQL e sviluppo
     - [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
     - [Usare le funzioni finestra U-SQL per i processi di Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
-    - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - gestione
     - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
@@ -84,4 +84,4 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
     - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

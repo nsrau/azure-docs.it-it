@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# ANTEPRIMA: Creare un cluster di Service Fabric usando Azure Active Directory per l'autenticazione client
+# Creare un cluster di Service Fabric usando Azure Active Directory per l'autenticazione client
 
 È possibile proteggere l'accesso agli endpoint di gestione di un cluster di Service Fabric usando Azure Active Directory (AAD). Questo articolo descrive come creare gli elementi di AAD necessari, come popolarli durante la creazione del cluster e come connettersi al cluster in un secondo momento.
-
->[AZURE.IMPORTANT] L'integrazione di AAD con i cluster di Service Fabric è attualmente in fase di anteprima. Quanto descritto in questo articolo è disponibile nel runtime di Service Fabric 5.0, ma non è consigliabile usarlo per i cluster di produzione in questo momento.
 
 ## Modellare un cluster di Service Fabric in AAD
 
@@ -35,11 +33,11 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 
 1. [Scaricare gli script][sf-aad-ps-script-download] sul computer.
 
-2. Fare clic con il pulsante destro del mouse sul file con estensione zip, scegliere **Proprietà**, quindi selezionare la casella di controllo **Sblocca**.
+2. Fare clic con il pulsante destro del mouse sul file ZIP, scegliere **Proprietà**, quindi selezionare la casella di controllo **Sblocca**.
 
 3. Estrarre il file con estensione zip.
 
-4. Eseguire `SetupApplications.ps1`, fornendo i parametri TenantId, ClusterName e WebApplicationReplyUrl. Ad esempio:
+4. Eseguire `SetupApplications.ps1`, indicando i parametri TenantId, ClusterName e WebApplicationReplyUrl. Ad esempio:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -68,7 +66,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 
 Ora che sono state create le applicazioni AAD, è possibile creare il cluster di Service Fabric. Attualmente, il portale di Azure non supporta la configurazione dell'autenticazione AAD per i cluster di Service Fabric. Per farlo sarà quindi necessario usare un modello di Azure Resource Manager in Visual Studio o in PowerShell.
 
-Si noti che AAD viene usato soltanto per l'autenticazione client nel cluster. Per creare un cluster protetto è necessario fornire anche un certificato, che verrà usato per proteggere le comunicazioni tra i nodi del cluster e per fornire l'autenticazione server per gli endpoint di gestione del cluster. È disponibile un [modello di Azure Resource Manager per un cluster protetto nella raccolta di avvio rapido di Azure][secure-cluster-arm-template]. In alternativa è possibile seguire le istruzioni fornite nel file Leggimi del [progetto di gruppo di risorse di Service Fabric in Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+Si noti che AAD viene usato soltanto per l'autenticazione client nel cluster. Per creare un cluster protetto è necessario fornire anche un certificato, che verrà usato per proteggere le comunicazioni tra i nodi del cluster e per fornire l'autenticazione server per gli endpoint di gestione del cluster. È disponibile un [modello di Azure Resource Manager per un cluster sicuro nella raccolta di avvio rapido di Azure][secure-cluster-arm-template]. In alternativa è possibile seguire le istruzioni fornite nel file Leggimi del [progetto di gruppo di risorse di Service Fabric in Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
 Aggiungere l'output del frammento di codice del modello di Azure Resource Manager dallo script `SetupApplication` come peer di fabricSettings, managementEndpoint e così via. Se la finestra è stata chiusa, il frammento di codice è disponibile di seguito:
 
@@ -97,7 +95,7 @@ Dopo aver creato le applicazioni per rappresentare il cluster, è necessario ass
 
     ![Assegnare utenti ai ruoli][assign-users-to-roles-dialog]
 
->[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](service-fabric-cluster-security-roles.md).
+>[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## Connettersi al cluster
 
@@ -139,14 +137,14 @@ Come accade in Visual Studio, anche in PowerShell viene visualizzata una finestr
 
 Durante l'autenticazione da un client nativo, ad esempio Visual Studio o PowerShell, potrebbe essere visualizzato un messaggio di errore simile al seguente:
 
-*L'indirizzo di risposta http://localhost/ non corrisponde all'indirizzo di risposta configurato per l'applicazione &lt;GUID dell'applicazione client del &lt;cluster*
+*L'indirizzo di risposta http://localhost/ non corrisponde all'indirizzo di risposta configurato per l'applicazione &lt;GUID dell'applicazione client del cluster&gt;*
 
-Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di reindirizzamento alla definizione dell'applicazione client del cluster in AAD, oltre all'indirizzo "urn:ietf:wg:oauth:2.0:oob" che è già presente.
+Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di reindirizzamento alla definizione dell'applicazione client del cluster in AAD, oltre all'indirizzo 'urn:ietf:wg:oauth:2.0:oob' che è già presente.
 
 ## Passaggi successivi
 
-- Altre informazioni su come [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
-- Informazioni su come [Pubblicare un'applicazione in un cluster remoto tramite Visual Studio](service-fabric-publish-app-remote-cluster.md).
+- Altre informazioni sulla [sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
+- Informazioni su come [pubblicare un'applicazione in un cluster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
 <!-- Links -->
 [sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
@@ -160,4 +158,4 @@ Per risolvere il problema, aggiungere **http://<i></i>localhost** come URI di re
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

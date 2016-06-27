@@ -3,7 +3,7 @@
 	description="Informazioni su come abilitare la distribuzione continua nel servizio app di Azure."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Distribuzione continua nel servizio app di Azure
 
-L'integrazione del [servizio app di Azure] con BitBucket, GitHub e Visual Studio Team Services (VSTS) consente un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti più recenti dal progetto pubblicato in uno di questi servizi. La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti.
+Questa esercitazione illustra come configurare un flusso di lavoro di distribuzione continua per l'app del [Servizio App di Azure]. L'integrazione del servizio app con BitBucket, GitHub e Visual Studio Team Services (VSTS) consente un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti più recenti dal progetto pubblicato in uno di questi servizi. La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti.
 
 ## <a name="overview"></a>Abilitare la distribuzione continua
 
@@ -30,6 +30,8 @@ Per abilitare la distribuzione continua,
 
 	![](./media/app-service-continous-deployment/cd_options.png)
 	
+    > [AZURE.NOTE] Per configurare un account VSTS per la distribuzione del servizio app, vedere questa [esercitazione](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+    
 3. Completare il flusso di lavoro di autorizzazione.
 
 4. Nel pannello **Origine distribuzione** scegliere il progetto e il ramo da cui eseguire la distribuzione. Al termine, fare clic su **OK**.
@@ -77,11 +79,11 @@ Per disabilitare la distribuzione continua,
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-[servizio app di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-changes-existing-services/
+[Servizio App di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-changes-existing-services/
 [portale di Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/it-IT/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Come usare PowerShell per Azure]: ../articles/install-configure-powershell.md
+[Come usare PowerShell per Azure]: ../articles/powershell-install-configure.md
 [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../articles/xplat-cli-install.md
 [Documentazione su Git]: http://git-scm.com/documentation
 
@@ -90,4 +92,4 @@ Per disabilitare la distribuzione continua,
 [introduzione a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->
