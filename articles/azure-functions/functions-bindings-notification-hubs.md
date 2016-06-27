@@ -131,7 +131,7 @@ Questo esempio illustra come usare il tipo `Notification` definito nella [librer
 	  }
 	}
 
-Per altre informazioni sul caricamento del file project.json, vedere [Uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions) (Caricamento di un file project.json).
+Per altre informazioni sul caricamento del file, vedere la sezione relativa al [caricamento di un file project.json](functions-reference.md#fileupdate).
 
 Codice di esempio:
 
@@ -155,4 +155,4 @@ Codice di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

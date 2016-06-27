@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -54,7 +54,7 @@ Fare clic sulla freccia a destra di **Account di archiviazione** per selezionare
 
 Dopo aver configurate le impostazioni di diagnostica, fare clic su **Salva** per salvare la configurazione. Si noti che per rendere effettive le modifiche potrebbero essere necessari alcuni minuti.
 
->[AZURE.IMPORTANT] Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
+>[AZURE.IMPORTANT] Le cache nella stessa area e nella stessa sottoscrizione condividono le stesse impostazioni di archiviazione di diagnostica e, quando viene modificata la configurazione (abilitazione/disabilitazione della diagnostica o cambio dell'account di archiviazione), la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
 Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per altre informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l'esempio relativo all'[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
@@ -259,4 +259,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

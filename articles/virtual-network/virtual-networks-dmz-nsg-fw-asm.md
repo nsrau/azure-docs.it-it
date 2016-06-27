@@ -28,7 +28,7 @@ Questo esempio illustra come creare una rete perimetrale con un firewall, quattr
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
 - Due servizi cloud, "FrontEnd001" e "BackEnd001"
-- Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd".
+- Una rete virtuale, "CorpNetwork", con due subnet: "FrontEnd" e "BackEnd"
 - Un singolo gruppo di sicurezza di rete applicato a entrambe le subnet.
 - Un dispositivo virtuale di rete, in questo esempio Barracuda NextGen Firewall, connesso alla subnet FrontEnd
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
@@ -566,4 +566,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

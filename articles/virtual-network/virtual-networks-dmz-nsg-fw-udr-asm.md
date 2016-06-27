@@ -28,7 +28,7 @@ Questo esempio illustra come creare una rete perimetrale con un firewall, quattr
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
 - Tre servizi cloud, "SecSvc001", "FrontEnd001" e "BackEnd001".
-- Una rete virtuale, "CorpNetwork", con tre subnet, "SecNet", "FrontEnd" e "BackEnd".
+- Una rete virtuale, "CorpNetwork", con tre subnet: "SecNet", "FrontEnd" e "BackEnd"
 - Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet SecNet.
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
 - Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
@@ -110,22 +110,22 @@ Per questo esempio si usano i comandi seguenti per compilare la tabella di route
 
 2.	Una volta creata la tabella di route, si possono aggiungere route definite dall'utente specifiche. In questo frammento di codice, tutto il traffico (0.0.0.0/0) verrà instradato tramite il dispositivo virtuale. Per passare l'indirizzo IP assegnato quando è stato creato il dispositivo virtuale nella parte precedente dello script, viene usata una variabile, $VMIP[0]. Nello script viene anche creata una regola corrispondente nella tabella front-end.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. La voce della route precedente sovrascrive la route predefinita "0.0.0.0/0", ma esiste ancora la regola predefinita per 10.0.0.0/16 che consente il routing del traffico della rete virtuale direttamente alla destinazione e non al dispositivo virtuale di rete. Per correggere questo comportamento, è necessario aggiungere la regola seguente.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. A questo punto occorre fare una scelta. Con le due route precedenti tutto il traffico viene instradato al firewall per la valutazione, anche quello all'interno di una singola subnet. Questo comportamento potrebbe risultare utile, tuttavia per consentire il routing locale del traffico all'interno di una subnet senza coinvolgere il firewall, è possibile aggiungere una terza regola molto specifica. Questa route stabilisce che qualsiasi indirizzo destinato alla subnet locale può essere instradato direttamente alla subnet (NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	Infine, dopo aver creato la tabella di routing e averla popolata con le route definite dall'utente, è necessario associarla a una subnet. Nello script la tabella di route front-end è associata anche alla subnet front-end. Ecco lo script di associazione per la subnet back-end.
@@ -145,8 +145,8 @@ La configurazione dell'inoltro IP è costituita da un singolo comando e può ess
 
 1.	Chiamare l'istanza della macchina virtuale corrispondente al dispositivo virtuale, in questo caso il firewall, e abilitare l'inoltro IP. Notare che qualsiasi elemento formattato in rosso che inizia con un segno di dollaro, ad esempio $VMName[0], è una variabile definita dall'utente contenuta nello script disponibile nella sezione Riferimenti di questo documento. Lo zero tra parentesi quadre, [0], rappresenta la prima macchina virtuale dell'array di VM. Per il funzionamento dello script di esempio senza modifiche, la prima macchina virtuale (VM 0) deve essere il firewall:
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## Gruppi di sicurezza di rete
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui viene poi caricata una singola regola. Questo gruppo viene quindi associato solo alle subnet front-end e back-end, non a SecNet. La regola seguente viene creata in modo dichiarativo:
@@ -941,4 +941,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

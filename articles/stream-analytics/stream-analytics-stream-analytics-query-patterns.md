@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 
@@ -432,25 +432,29 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Output**:
 
-| Inizio errore | Fine errore | Durata errore in secondi |
-| --- | --- | --- |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| Inizio errore | Fine errore |
+| --- | --- |
+| 2015-01-01T00:00:02.000Z | 2015-01-01T00:00:07.000Z |
 
 **Soluzione**:
 
 ````
-SELECT 
-    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
-    [time] [EndFault]
-FROM input
-WHERE
-    [weight] < 20000
-    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+	WITH SelectPreviousEvent AS
+	(
+	SELECT
+	*,
+		LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+		LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+	FROM input TIMESTAMP BY [time]
+	)
+
+	SELECT 
+    	LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+    	previousTime [EndFault]
+	FROM SelectPreviousEvent
+	WHERE
+    	[weight] < 20000
+	    AND previousWeight > 20000
 ````
 
 **Spiegazione**: usare LAG per visualizzare il flusso di input per 24 ore e cercare le istanze in cui StartFault e StopFault vengono intervallati per peso < 20000.
@@ -469,7 +473,7 @@ WHERE
 | "2014-01-01T06:01:30" | 5 |
 | "2014-01-01T06:01:35" | 6 |
 
-**Output (first 10 rows)**:
+**Output (prime 10 righe)**:
 
 | windowend | lastevent.t | lastevent.value |
 |--------------------------|--------------------------|--------|
@@ -495,7 +499,7 @@ WHERE
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Spiegazione**: questa query genererà eventi ogni 5 secondi e restituirà l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Finestra di salto - Analisi di flusso di Azure") determina fino a quando la query cercherà di trovare l'evento più recente (300 secondi in questo esempio).
+**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Finestra di salto - Analisi di flusso di Azure") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio 300 secondi.
 
 
 ## Ottenere aiuto
@@ -510,4 +514,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

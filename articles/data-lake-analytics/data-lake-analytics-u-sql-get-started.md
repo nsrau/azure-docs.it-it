@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Esercitazione: Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure
@@ -112,7 +112,7 @@ Usare l'istruzione **SELECT** per trasformare set di righe:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-La clausola WHERE usa l'[espressione booleana C#](https://msdn.microsoft.com/library/6a71f45d.aspx). È possibile usare il linguaggio di espressione C# per creare espressioni e funzioni personali. È anche possibile combinarle con congiunzioni logiche (and) e disgiunzioni (or) per eseguire operazioni di filtraggio più complesse.
+La clausola WHERE usa l'[espressione booleana C#](https://msdn.microsoft.com/library/6a71f45d.aspx). È possibile usare il linguaggio di espressione C# per creare espressioni e funzioni personali. È anche possibile combinarle con congiunzioni (AND) e disgiunzioni (OR) logiche per eseguire operazioni di filtro più complesse.
 
 Lo script seguente usa il metodo DateTime.Parse() e una congiunzione.
 
@@ -408,8 +408,8 @@ Gli argomenti coperti in questa esercitazione costituiscono solo una piccola par
 ## Vedere anche 
 
 - [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
-- [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Usare le funzioni finestra di U-SQL e i processi di Analisi Data Lake di Azure](data-lake-analytics-use-window-functions.md)
+- [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Feedback
@@ -419,4 +419,4 @@ Gli argomenti coperti in questa esercitazione costituiscono solo una piccola par
 - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 - [Fornire feedback su U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

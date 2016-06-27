@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,13 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Domande frequenti sull'accesso condizionale
 
-**È possibile usare le condizioni dei dispositivi in Azure AD se si usa la gestione di dispositivi mobili per Office 365?**
- 
-Con la gestione di dispositivi mobili per O365 tutti i criteri dei dispositivi vengono gestiti come parte di Office 365. Per evitare conflitti tra i criteri impostati in Office 365 e quelli impostati in Azure AD, non è attualmente consentito configurare questi criteri in Azure AD se si usa la gestione di dispositivi mobili per O365.
+## Quali applicazioni funzionano con i criteri di accesso condizionale?
+Vedere l'argomento [Accesso condizionale - Applicazioni supportate](active-directory-conditional-access-supported-apps.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+## I criteri di accesso condizionale vengono applicati a Collaborazione B2B e agli utenti guest?
+I criteri vengono applicati agli utenti di Collaborazione B2B. Tuttavia, in alcuni casi l'utente potrebbe non soddisfare i criteri richiesti, ad esempio se l'organizzazione non supporta l'autenticazione Multi-Factor Authentication. Al momento i criteri non sono applicati agli utenti guest di SharePoint. La relazione guest viene comunque mantenuta all'interno di SharePoint, pertanto gli account degli utenti guest non sono soggetti a criteri di accesso al server di autenticazione. L'accesso guest può essere gestito in SharePoint.
+
+## I criteri di SharePoint Online si applicano anche a OneDrive for Business?
+Sì.
+ 
+## Perché non è possibile impostare criteri nelle app client, ad esempio Word o Outlook?
+I criteri di accesso condizionale stabiliscono requisiti per l'accesso a un servizio e vengono applicati al momento dell'autenticazione al servizio in questione. Pertanto, i criteri non sono impostati direttamente su un'applicazione client, ma vengono applicati quando quest'ultima effettua una chiamata a un servizio. Ad esempio, i criteri impostati in SharePoint verranno applicate ai client che chiamano SharePoint e i criteri impostati in Exchange verranno applicati ad Outlook.
+
+<!---HONumber=AcomDC_0615_2016-->

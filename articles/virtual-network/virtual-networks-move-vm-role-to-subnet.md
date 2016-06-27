@@ -31,7 +31,7 @@ Per spostare una macchina virtuale, eseguire il cmdlet di PowerShell Set-AzureSu
 	| Set-AzureSubnet –SubnetNames Subnet-2 `
 	| Update-AzureVM
 
-Se è stato specificato un indirizzo DIP statico per la macchina virtuale, sarà necessario cancellare tale impostazione prima di poter spostare la macchina virtuale in una nuova subnet. In questo caso, usare quanto segue:
+Se è stato specificato un indirizzo IP privato interno statico per la macchina virtuale, sarà necessario cancellare tale impostazione prima di poter spostare la macchina virtuale in una nuova subnet. In questo caso, usare quanto segue:
 
 	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
 	| Remove-AzureStaticVNetIP `
@@ -53,4 +53,4 @@ Per spostare un'istanza del ruolo, modificare il file CSCFG. Nell'esempio seguen
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

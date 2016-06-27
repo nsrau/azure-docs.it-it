@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 Questo articolo illustra come avviare il failover su un database SQL secondario con il [portale di Azure](http://portal.azure.com). Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
@@ -61,4 +61,4 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

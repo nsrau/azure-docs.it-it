@@ -171,10 +171,9 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | -------- | ----------- | -------- | 
 | type | La proprietà type deve essere impostata su: **Web** | Sì | 
 | Url | URL dell'origine Web | Sì |
+| authenticationType | Anonima o di base. | Sì |
 | userName | Nome utente dell'autenticazione di base | Sì (per l'autenticazione di base)
 | password | Password dell'autenticazione di base | Sì (per l'autenticazione di base)
-| authenticationType | Anonima, di base o WebApi. | Sì |
-| apiKey | Chiave API per l'autenticazione di WebAPI. | Sì (per l'autenticazione di WebAPI).|   
 
 ### Uso dell'autenticazione anonima
 
@@ -214,7 +213,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti.
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
 
 Proprietà | Descrizione | Obbligatorio
 :-------- | :----------- | :--------
@@ -244,7 +243,7 @@ index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice
 
 ## Proprietà del tipo di attività di copia WebSource
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
@@ -261,7 +260,7 @@ Per attività di copia con origine di tipo **WebSource** non sono attualmente su
 	![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
 	URL usato nell'esempio: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, **autenticazione** e fare clic su **Connetti**. 
+4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, l'**autenticazione** e fare clic su **Connetti**. 
 
 	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5.  Fare clic su un elemento **tabella** nella visualizzazione struttura ad albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.  
@@ -286,4 +285,4 @@ Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Exc
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

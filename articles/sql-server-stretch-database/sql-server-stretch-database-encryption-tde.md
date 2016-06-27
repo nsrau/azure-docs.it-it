@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/17/2016"
+   ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
 # Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure
@@ -58,4 +58,4 @@ Per disabilitare TDE per un database di Azure che archivia i dati migrati da un 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

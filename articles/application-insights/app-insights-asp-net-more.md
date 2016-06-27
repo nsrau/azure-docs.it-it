@@ -40,7 +40,7 @@ Di seguito è riportato un riepilogo delle funzionalità che l'utente potrebbe n
 |[**Ricerca diagnostica per i dati dell'istanza**](app-insights-visual-studio.md)<br/>Consente di cercare e filtrare eventi quali richieste, eccezioni, chiamate di dipendenza, analisi dei log e visualizzazioni di pagina. In Visual Studio, passare al codice dall'analisi dello stack.|![Visual Studio](./media/app-insights-asp-net/61.png)
 |[**Esplora metriche per i dati aggregati**](app-insights-metrics-explorer.md)<br/>Consente di esplorare, filtrare e segmentare i dati aggregati, ad esempio la frequenza delle richieste, gli errori e le eccezioni, i tempi di risposta e i tempi di caricamento della pagina.|![Visual Studio](./media/app-insights-asp-net-more/060.png)
 |[**Dashboard**](app-insights-dashboards.md#dashboards)<br/>Consente di combinare dati da più risorse e di condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-asp-net/62.png)
-|[**Flusso live**](app-insights-metrics-explorer.md#live-stream)<br/>Quando si distribuisce una nuova compilazione,è possibile controllare questi indicatori di prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto.|![Esempio di analisi](./media/app-insights-asp-net-more/050.png)
+|[**Flusso di metriche live**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>Quando si distribuisce una nuova compilazione,è possibile controllare questi indicatori di prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto.|![Esempio di analisi](./media/app-insights-asp-net-more/050.png)
 |[**Analisi**](app-insights-analytics.md)<br/>Consente di rispondere a domande approfondite sull'uso e sulle prestazioni dell'applicazione tramite l'efficiente linguaggio delle query.|![Esempio di analisi](./media/app-insights-asp-net-more/010.png)
 |[**Avvisi automatici e manuali**](app-insights-alerts.md)<br/>Gli avvisi automatici si adattano ai modelli di telemetria dell'applicazione e si attivano quando si verificano eventi diversi dal modello normale. È anche possibile impostare avvisi su livelli particolari delle metriche standard o personalizzate.|![Esempio di avviso](./media/app-insights-asp-net-more/020.png)
 
@@ -52,4 +52,4 @@ Di seguito è riportato un riepilogo delle funzionalità che l'utente potrebbe n
 |**API di accesso ai dati**<br/>Presto disponibile.|
 |[**Campionamento**](app-insights-sampling.md)<br/>Riduce la velocità dei dati e permette di rimanere entro il limite del piano tariffario.|![Riquadro del campionamento](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

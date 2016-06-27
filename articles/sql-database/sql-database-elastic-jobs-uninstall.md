@@ -21,7 +21,7 @@ I componenti dei**Processi di database elastici** possono essere disinstallati u
 
 ##Disinstallare i componenti dei processi di database elastici utilizzando il portale di Azure
 
-1. Aprire il [portale di Azure](https://ms.portal.azure.com/).
+1. Aprire il [portale di Azure](https://portal.azure.com/).
 2. Passare alla sottoscrizione che contiene i componenti dei **processi di database elastici**, vale a dire la sottoscrizione in cui i componenti dei processi di database elastici sono stati installati.
 3. Fare clic su **Sfoglia** e fare clic su **Gruppi di risorse**.
 4. Selezionare il gruppo di risorse denominato "\_\_ElasticDatabaseJob".
@@ -64,4 +64,4 @@ Per ulteriori informazioni sui processi dei database elastici, vedere [Panoramic
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -454,8 +454,8 @@ In questo passaggio si useranno le classi [ResourceGroup](https://msdn.microsoft
           credential,
           groupName",
           storageName,
-          deploymentName}",
-          subscriptionId}");
+          deploymentName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Passaggio 7: Aggiungere il codice per eliminare le risorse
@@ -497,4 +497,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 - Se si sono verificati problemi con la distribuzione, è consigliabile leggere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

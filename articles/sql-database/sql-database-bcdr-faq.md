@@ -3,7 +3,7 @@
    description="Domande frequenti, con relative risposte, poste dai clienti sulle funzionalità incorporate e facoltative per la continuità aziendale e il ripristino di emergenza con il database SQL di Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Domande frequenti sulla continuità aziendale
 
@@ -54,4 +54,4 @@ Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo
 
 Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

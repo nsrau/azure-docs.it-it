@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -28,7 +28,7 @@ Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio ch
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ### In che modo è possibile accedere al Centro sicurezza di Azure?
-Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). ([Accedere al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino a **Centro sicurezza**). È possibile visualizzare subito alcuni suggerimenti per la sicurezza nel dashboard. Ciò avviene poiché il servizio consente di valutare lo stato di sicurezza di alcuni controlli in base alla relativa configurazione in Azure. Per attivare il set completo delle funzionalità di monitoraggio di sicurezza, dei suggerimenti e degli avvisi, è necessario [abilitare la raccolta dati](#data-collection).
+Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). ([Accedere al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino a **Centro sicurezza**).
 
 ## Fatturazione
 
@@ -37,24 +37,27 @@ Per informazioni, vedere la pagina relativa ai [prezzi del Centro sicurezza](htt
 
 ## Raccolta dei dati
 
-### Come è possibile abilitare la raccolta dei dati?<a name=data-collection></a>
-È possibile abilitare la raccolta dei dati per le sottoscrizioni di Azure in Criteri di sicurezza. Per abilitare la raccolta dei dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, **Centro sicurezza** e quindi **Criteri di sicurezza**. Impostare **Raccolta dei dati** su **Attiva** e configurare gli account di archiviazione in cui raccogliere i dati (vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"). Quando viene abilitata l'opzione **Raccolta dei dati**, le informazioni sulla configurazione e sugli eventi di sicurezza vengono raccolte automaticamente da tutte le macchine virtuali supportate nella sottoscrizione.
+Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, fornire raccomandazioni sulla sicurezza e avvisare delle minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente [disattivandola](#how-do-i-disable-data-collection) nei criteri del Centro di sicurezza.
+
+### Come si disabilita la raccolta dati?
+
+È possibile disabilitare la **raccolta dati** per una sottoscrizione in Criteri di sicurezza in qualunque momento. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e **Criteri di sicurezza**. Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la **raccolta dati**. Selezionare l'opzione **Elimina agenti** nella barra multifunzione superiore per rimuovere gli agenti dalle macchine virtuali esistenti.
+
+> [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dati.
+
+### Come si abilita la raccolta dati?
+È possibile abilitare la raccolta dei dati per le sottoscrizioni di Azure in Criteri di sicurezza. Per abilitare la raccolta dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e quindi **Criteri di sicurezza**. Impostare **Raccolta dei dati** su **Attiva** e configurare gli account di archiviazione in cui raccogliere i dati (vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"). Quando viene abilitata l'opzione **Raccolta dei dati**, le informazioni sulla configurazione e sugli eventi di sicurezza vengono raccolte automaticamente da tutte le macchine virtuali supportate nella sottoscrizione.
 
 > [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dei dati viene eseguita solo a livello di sottoscrizione.
 
-### Cosa accade quando si abilita la raccolta dei dati?
-La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure esegue l'analisi delle varie configurazioni pertinenti per la sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza. Per ulteriori informazioni sull'account di archiviazione, vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"
+### Cosa accade quando si abilita la raccolta dati?
+La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure esegue l'analisi delle varie configurazioni relative alla sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza. Per ulteriori informazioni sull'account di archiviazione, vedere la domanda "[Dove vengono archiviati i dati?](#where-is-my-data-stored)"
 
 ### L'agente di monitoraggio o l'estensione di monitoraggio di sicurezza influiscono sulle prestazioni dei server?
 L'agente e l'estensione utilizzano una quantità nominale delle risorse di sistema e dovrebbero avere un impatto minimo sulle prestazioni.
 
-### In che modo è possibile eseguire il rollback se non si intende più abilitare la raccolta dei dati?
-È possibile disabilitare la **raccolta dei dati** per una sottoscrizione in Criteri di sicurezza. ([Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, **Centro sicurezza** e **Criteri di sicurezza**). Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la raccolta dei dati. Selezionare l'opzione **Elimina agenti** nella barra multifunzione superiore per rimuovere gli agenti dalle macchine virtuali esistenti.
-
-> [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
-
-### Dove vengono archiviati i dati?<a name=where-is-my-data-stored></a>
-Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. In Criteri di sicurezza, selezionare l'account di archiviazione per una sottoscrizione. ([Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, **Centro sicurezza** e **Criteri di sicurezza**). Quando si fa clic su una sottoscrizione, viene aperto un nuovo pannello. Selezionare **Scegliere gli account di archiviazione** per selezionare un'area. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
+### Dove vengono archiviati i dati?
+Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. In Criteri di sicurezza, selezionare l'account di archiviazione per una sottoscrizione. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Esplora**, **Centro sicurezza** e **Criteri di sicurezza**. Quando si fa clic su una sottoscrizione, viene aperto un nuovo pannello. Selezionare **Scegliere gli account di archiviazione** per selezionare un'area.
 
 > [AZURE.NOTE] I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la selezione di un'area per l'account di archiviazione viene eseguita solo a livello di sottoscrizione.
 
@@ -127,4 +130,4 @@ Macchine virtuali Linux supportate:
 - Versioni di Red Hat Enterprise Linux (RHEL) 6.*, 7.*
 - Versioni di SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="06/10/2016"
    ms.author="alkohli" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
@@ -23,7 +23,7 @@
 
 Questa esercitazione illustra come usare il servizio StorSimple Manager per creare e gestire i volumi nel dispositivo StorSimple e nel dispositivo virtuale StorSimple con l'aggiornamento 2 installato.
 
-Il servizio StorSimple Manager è un’estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da una singola interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
+Il servizio StorSimple Manager è un'estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da un'unica interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
 
 ## Tipi di volume
 
@@ -40,15 +40,15 @@ Se necessario, è possibile passare da un tipo di volume locale a uno a livelli 
 
 I volumi aggiunti in locale sono volumi con provisioning completo che non dispongono i dati su livelli nel cloud, assicurando così garanzie locali per i dati primari, indipendentemente dalla connettività cloud. I dati nei volumi aggiunti in locale non vengono deduplicati e compressi, mentre gli snapshot dei volumi aggiunti in locale vengono deduplicati.
 
-Poiché viene effettuato il provisioning completo dei volumi aggiunti in locale, è necessario avere spazio sufficiente nel dispositivo quando li si crea. È possibile effettuare il provisioning dei volumi aggiunti in locale fino a una dimensione massima di 8 TB nel dispositivo StorSimple 8100 e di 20 TB nel dispositivo 8600. StorSimple riserva lo spazio locale restante nel dispositivo a snapshot, metadati ed elaborazione dati. È possibile aumentare la dimensione di un volume aggiunto in locale fino alla massima quantità di spazio disponibile, ma non è possibile ridurre la dimensione di un volume una volta creato.
+Poiché viene effettuato il provisioning completo dei volumi aggiunti in locale, è necessario avere spazio sufficiente nel dispositivo quando li si crea. È possibile effettuare il provisioning dei volumi aggiunti in locale fino a una dimensione massima di 8 TB nel dispositivo StorSimple 8100 e di 20 TB nel dispositivo 8600. StorSimple riserva lo spazio locale restante nel dispositivo a snapshot, metadati ed elaborazione dati. È possibile aumentare la dimensione di un volume aggiunto in locale fino alla massima quantità di spazio disponibile, ma non è possibile ridurre la dimensione di un volume una volta creato.
 
-Quando si crea un volume aggiunto in locale, viene ridotto lo spazio disponibile per la creazione di volumi a livelli. È anche vero il contrario: se esistono già volumi a livelli, lo spazio disponibile per la creazione di volumi aggiunti in locale sarà inferiore ai limiti massimi definiti prima.
+Quando si crea un volume aggiunto in locale, viene ridotto lo spazio disponibile per la creazione di volumi a livelli. È anche vero il contrario: se esistono già volumi a livelli, lo spazio disponibile per la creazione di volumi aggiunti in locale sarà inferiore ai limiti massimi definiti prima. Per altre informazioni sui volumi locali, vedere le [domande frequenti sui volumi aggiunti in locale](storsimple-local-volume-faq.md).
 
 ### Volumi a livelli
 
 I volumi a livelli sono volumi con thin provisioning in cui i dati a cui si accede più spesso rimangono in locale nel dispositivo, mentre quelli usati meno spesso vengono automaticamente disposti su livelli nel cloud. Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo spazio di archiviazione sufficiente, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni nella domanda.
 
-Se si usa il volume a livelli per i dati, selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** si modifica la dimensione del blocco di deduplicazione per il volume a 512 KB. Se non si seleziona questa opzione, il volume a livelli corrispondente utilizzerà una dimensione del blocco di 64 KB. Una dimensione maggiore del blocco di deduplicazione consente al dispositivo di accelerare il trasferimento dei dati di archivio di grandi dimensioni nel cloud.
+Se si usa il volume a livelli per i dati di archiviazione, selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** si porta a 512 KB la dimensione del blocco di deduplicazione per il volume. Se non si seleziona questa opzione, il volume a livelli corrispondente utilizzerà una dimensione del blocco di 64 KB. Una dimensione maggiore del blocco di deduplicazione consente al dispositivo di accelerare il trasferimento dei dati di archivio di grandi dimensioni nel cloud.
 
 >[AZURE.NOTE] I volumi di archivio creati con una versione precedente all'aggiornamento 2 di StorSimple verranno importati a livelli con la casella di controllo dell'archivio selezionata.
 
@@ -271,7 +271,7 @@ Completare la procedura seguente per eliminare un volume.
 
 5. Alla richiesta di conferma fare clic su **Sì**. Il volume verrà eliminato e nella pagina **Volumi** sarà visualizzato l’elenco aggiornato di volumi presenti nel contenitore.
 
-    >[AZURE.NOTE] Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+    >[AZURE.NOTE] Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.<br> Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
  
 ## Monitorare a volume
 
@@ -299,4 +299,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

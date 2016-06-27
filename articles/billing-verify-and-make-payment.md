@@ -40,6 +40,6 @@
 
 Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento verrà effettuato automaticamente. Per modificare la carta in qualsiasi momento, vedere [Come modificare i pagamenti o i crediti per una sottoscrizione di Azure](billing-how-to-change-credit-card.md).
 
-Se si utilizza una modalità di pagamento con fattura, inviare il pagamento al destinatario indicato nella parte inferiore della fattura. Per ulteriore assistenza, contattare [il supporto tecnico Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se si utilizza una modalità di pagamento con fattura, inviare il pagamento al destinatario indicato nella parte inferiore della fattura. Per ulteriore assistenza, contattare [il supporto tecnico Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -32,8 +32,24 @@ Questa procedura di avvio rapido offre una soluzione per uno scenario SaaS (Soft
 
 [Saas-scenario-with-elastic-pools](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) nel repository degli esempi GitHub di SQL Server è disponibile un'app per la generazione di carico e il monitoraggio insieme alla documentazione su cosa fa e come usarla.
 
+## Creazione di un database SQL di Azure tramite Entity Framework e sviluppo con Code First
+
+Nel video e nell'esempio seguente viene fornita un'introduzione allo sviluppo con Code First destinato alla creazione di un nuovo database. Questo scenario prevede di specificare come destinazione un database che non esiste e che verrà creato da Code First oppure un database vuoto a cui Code First aggiungerà nuove tabelle. Code First consente di definire il modello usando classi C# o VB.Net. È possibile eseguire facoltativamente una configurazione aggiuntiva con gli attributi delle classi e proprietà o usando un'API Fluent. Vedere [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx).
+
+## Integrare strumenti di database elastici in un'applicazione Entity Framework
+
+Questo esempio descrive le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md). Vengono descritti in particolare la [gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio Code First di Entity Framework. [Code First per un nuovo database per Entity Framework](http://msdn.microsoft.com/data/jj193542.aspx) servirà da esempio per questo articolo. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio. Vedere la libreria client di database elastici con Entity Framework in [Introduzione agli strumenti di database elastici](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md).
+
+## Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
+
+Questo esempio descrive le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) con [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131). Questo esempio illustra come usare insieme queste tecnologie per compilare un'applicazione con un livello dati altamente scalabile che supporta partizioni multi-tenant, tramite ADO.NET SqlClient e/o Entity Framework. Questo esempio estende la [Libreria client dei database elastici con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) aggiungendo il supporto per i database con partizioni multi-tenant. Viene compilata una semplice applicazione console per la creazione di blog e post, con quattro tenant e due database con partizioni multi-tenant. Vedere le informazioni relative ad applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga in [Introduzione agli strumenti di database elastici](sql-database-elastic-tools-multi-tenant-row-level-security.md).
+
+## Applicazione Tailspin Surveys
+
+Questo esempio è un'applicazione Web multi-tenant, chiamata Surveys, che consente agli utenti di creare sondaggi online. L'esempio illustra alcuni dei principali problemi quando si gestiscono le identità utente in un'applicazione multi-tenant, tra cui iscrizione, autenticazione, autorizzazione e i ruoli dell'app. Per eseguire questo esempio, vedere [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) (Come eseguire l'applicazione di esempio Tailspin Surveys).
+
 ## Passaggi successivi
 
 [Esplorare le esercitazioni del database SQL di Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

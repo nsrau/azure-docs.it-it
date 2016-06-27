@@ -35,6 +35,7 @@ Riepilogo del processo di caricamento:
 2. Spostare i dati nell’archiviazione BLOB di Azure e archiviarli in file di testo.
 3. Configurare gli oggetti esterni in SQL Data Warehouse per definire il percorso e il formato dei dati.
 4. Eseguire un comando T-SQL per caricare i dati in parallelo in una nuova tabella di database.
+
 <!-- 5. Schedule and run a loading job. --> 
 
 Per un’esercitazione, vedere l’articolo relativo al [caricamento dei dati dall’archiviazione BLOB di Azure in SQL Data Warehouse (PolyBase)][].
@@ -133,4 +134,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 <!--Other Web references-->
 [Importazione/Esportazione]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

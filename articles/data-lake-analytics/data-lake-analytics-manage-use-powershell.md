@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -335,7 +335,7 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-##Appendice A - Modello ARM di Data Lake Analytics
+##Appendice A - Modello ARM di Analisi Data Lake
 
 Il seguente modello ARM può essere usato per distribuire un account di Data Lake Analytics e il relativo account di Data Lake Store dipendente. Salvarlo come file con estensione JSON e quindi usare uno script di PowerShell per chiamare il modello. Per altre informazioni, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md#deploy-with-powershell) e [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
@@ -392,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 	  }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

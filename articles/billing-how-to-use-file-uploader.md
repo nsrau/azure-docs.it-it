@@ -19,9 +19,9 @@
 
 # Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
 
-Quando si [crea una nuova richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support), l'utilità Caricamento file permette di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.
+Quando si [crea una nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'utilità Caricamento file permette di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.
 
->[AZURE.NOTE]Per proteggere la privacy degli utenti, si consiglia di non includere informazioni personali nel caricamento.
+>[AZURE.NOTE] Per proteggere la privacy degli utenti, si consiglia di non includere informazioni personali nel caricamento.
 
 Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 
@@ -63,4 +63,4 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | | | | | | | zix |
 | | | | | | | zzz |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0615_2016-->

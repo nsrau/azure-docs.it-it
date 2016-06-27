@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/25/2016"
+ms.date="06/14/2016"
 ms.author="garye;krishnan"/>
 
 # Eseguire analisi avanzate con Azure Machine Learning usando i dati di un database SQL Server locale
@@ -57,14 +57,14 @@ Il gateway presenta i prerequisiti seguenti:
 
 - È necessario usare Gateway di gestione dati per Azure Machine Learning anche se si sta usando Azure ExpressRoute per altri dati. È necessario considerare l'origine dati come un'origine dati locale, ovvero come se fosse protetta da firewall, anche quando si usa ExpressRoute. È necessario inoltre usare Gateway di gestione dati per stabilire la connessione tra Machine Learning e l'origine dati.
 
-Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway), a partire dalla sezione [Considerazioni per l'uso del Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Inserire dati del database SQL Server locale in Azure Machine Learning
 
 
 In questa procedura dettagliata si installerà Gateway di gestione dati in un'area di lavoro di Azure Machine Learning, lo si configurerà e quindi si leggeranno i dati da un database SQL Server locale.
 
-> [AZURE.TIP] Prima di iniziare, disabilitare il blocco popup del browser per `studio.azureml.net`. Se si usa il browser Google Chrome, scaricare e installare uno dei diversi plug-in [Click Once App Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions) disponibili in Google Chrome WebStore.
+> [AZURE.TIP] Prima di iniziare, disabilitare il blocco popup del browser per `studio.azureml.net`. Se si usa il browser Google Chrome, scaricare e installare uno dei diversi plug-in disponibili nella sezione dell'[estensione per app ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions) in Google Chrome WebStore.
 
 ### Passaggio 1: Creare un gateway
 
@@ -78,7 +78,7 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  Nella finestra di dialogo **New data gateway** (Nuovo gateway dati), compilare il campo **Gateway Name** (Nome gateway) e, facoltativamente, il campo **Description** (Descrizione). Fare clic sulla freccia nell'angolo inferiore destro per passare al passaggio successivo della configurazione.
+4.  Nella finestra di dialogo **New data gateway** (Nuovo gateway dati) compilare il campo **Gateway Name** (Nome gateway) e, facoltativamente, il campo **Description** (Descrizione). Fare clic sulla freccia nell'angolo inferiore destro per passare al passaggio successivo della configurazione.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
@@ -90,7 +90,7 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 
 7.  Dopo aver installato il gateway, verrà aperto Gestione configurazione di Gateway di gestione dati e verrà visualizzata la finestra di dialogo **Registra gateway**. Incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **Registra**.
 
-8.  Se si ha già un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati, fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** incollata negli Appunti e fare clic su **OK**.
+8.  Se si ha già un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati, fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **OK**.
 
 9.  Al termine dell'installazione verrà visualizzata la finestra di dialogo **Registra gateway** di Gestione configurazione di Gateway di gestione dati. Incollare la chiave di registrazione del gateway copiata negli Appunti e fare clic su **Registra**.
 
@@ -126,11 +126,11 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 
 Il processo di configurazione del gateway in Azure Machine Learning è ora completato ed è quindi possibile iniziare a usare i dati locali.
 
-In Studio è possibile creare e configurare più gateway per ogni area di lavoro. Può essere utile, ad esempio, creare un gateway da connettere alle origini dati di test in fase di sviluppo e un gateway per le origini dati di produzione. Azure Machine Learning offre la possibilità di configurare più gateway in base al tipo di ambiente aziendale. Attualmente, tuttavia, non è possibile condividere un gateway tra più aree di lavoro e in un computer è possibile installare un solo gateway. Per altre considerazione sull'installazione del gateway, vedere la sezione [Considerazioni per l'uso del Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway) dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+In Studio è possibile creare e configurare più gateway per ogni area di lavoro. Può essere utile, ad esempio, creare un gateway da connettere alle origini dati di test in fase di sviluppo e un gateway per le origini dati di produzione. Azure Machine Learning offre la possibilità di configurare più gateway in base al tipo di ambiente aziendale. Attualmente, tuttavia, non è possibile condividere un gateway tra più aree di lavoro e in un computer è possibile installare un solo gateway. Per altre considerazioni sull'installazione del gateway, vedere la sezione [Considerazioni per l'uso del Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway) dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Passaggio 2: Usare il gateway per leggere dati da un'origine dati locale
 
-Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data ** (Importa dati) a un esperimento in cui si inseriscono i dati letti dal database SQL Server locale.
+Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data** (Importa dati) a un esperimento in cui si inseriscono i dati letti dal database SQL Server locale.
 
 1.  In Machine Learning Studio selezionare la scheda **EXPERIMENTS** (ESPERIMENTI), fare clic su **+NEW** (+NUOVO) nell'angolo inferiore sinistro e selezionare **Blank Experiment** (Esperimento vuoto) oppure selezionare uno degli esperimenti di esempio disponibili.
 
@@ -142,11 +142,11 @@ Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data
 
 4.  Fare clic sul modulo **Import Data** (Importa dati) per selezionarlo, quindi sul pannello **Properties** (Proprietà) a destra dell'area di disegno e selezionare "On-Premises SQL Database" (Database SQL locale) dall'elenco a discesa **Data source** (Origine dati).
 
-5.  Selezionare il gateway dati precedentemente installato e registrato. È possibile configurare un altro gateway selezionando l'opzione che consente di aggiungere un nuovo gateway dati.
+5.  Selezionare il **gateway dati** precedentemente installato e registrato. È possibile configurare un altro gateway selezionando l'opzione che consente di aggiungere un nuovo gateway dati.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\import-data-select-on-premises-data-source.png)
 
-6.  Compilare i campi **Database server name** (Nome server database) e **Database name** (Nome database) e **Database query** (Query database) e specificare la query di database SQL che si vuole eseguire.
+6.  Compilare i campi **Database server name** (Nome server database) e **Database name** (Nome database) insieme a **Database query** (Query database) e specificare la query di database SQL che si vuole eseguire.
 
 7.  Fare clic su **Enter values** (Immetti valori) in **User name and password** (Nome utente e password) e specificare le credenziali del database. È possibile usare Autenticazione integrata di Windows o Autenticazione di SQL Server, in base al tipo di configurazione del database SQL Server locale.
 
@@ -162,4 +162,4 @@ Al termine dell'esecuzione dell'esperimento è possibile visualizzare i dati imp
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. I dati del database SQL Server locale configurati nel modulo **Import Data** (Importa dati) verranno letti e usati per l'assegnazione dei punteggi tramite il servizio Esecuzione batch. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](machine-learning-excel-add-in-for-web-services.md). La scrittura in un database SQL Server locale tramite **Export data** (Esporta dati) non è attualmente supportata, né negli esperimenti né nei servizi Web pubblicati.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

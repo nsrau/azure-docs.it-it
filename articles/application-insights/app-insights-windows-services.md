@@ -127,7 +127,7 @@ Gli eventi vengono anche visualizzati nelle finestre di diagnostica e di output.
 
 Tornare al pannello dell'applicazione nel portale di Azure.
 
-I primi eventi verranno visualizzati nella finestra del flusso live.
+I primi eventi verranno visualizzati nel [Flusso di metriche live](app-insights-metrics-explorer.md#live-metrics-stream).
 
 
 ## Canale di persistenza 
@@ -256,4 +256,4 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

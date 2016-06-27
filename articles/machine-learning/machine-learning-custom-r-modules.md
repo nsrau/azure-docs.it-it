@@ -26,7 +26,7 @@ In questo argomento viene descritto come creare e distribuire un modulo R person
 ## In cosa consiste un modulo R personalizzato?
 Un **modulo personalizzato** è un modulo definito dall'utente che può essere caricato nell'area di lavoro ed eseguito come parte di un esperimento di Azure Machine Learning. Un **modulo R personalizzato** è un modulo personalizzato che esegue una funzione R definita dall'utente. R è un linguaggio di programmazione per il calcolo e statistico e la grafica ampiamente utilizzato in campo statistico e di analisi dei dati per l'implementazione degli algoritmi. Attualmente, R è l'unico linguaggio supportato in moduli personalizzati, ma il supporto per lingue aggiuntive verrà aggiunto in versioni future.
 
-In Azure Machine Learning, i moduli personalizzati presentano uno **stato di prima classe** nel senso che possono essere usati esattamente come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono controllare l'algoritmo implementato dal modulo, le porte di input e output da utilizzare, i parametri di modellazione e altri comportamenti di runtime. Un modulo personalizzato è disponibile solo nell'area di lavoro in cui è stato creato e non può essere pubblicato in esperimenti della community.
+In Azure Machine Learning, i moduli personalizzati presentano uno **stato di prima classe** nel senso che possono essere usati esattamente come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono controllare l'algoritmo implementato dal modulo, le porte di input e output da utilizzare, i parametri di modellazione e altri comportamenti di runtime. Per una semplice condivisione è anche possibile pubblicare un esperimento contenente moduli personalizzati in Cortana Intelligence Gallery.
 
 ## File in un modulo R personalizzato
 Un modulo R personalizzato viene definito da un file ZIP che contiene almeno due file:
@@ -362,4 +362,4 @@ Le **limitazioni dell'ambiente di esecuzione** includono:
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

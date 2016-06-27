@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="micurd"/>
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
@@ -357,7 +357,7 @@ L'opzione `/EntityOperation` indica come inserire le entità nella tabella. I va
 
 Si noti che non è possibile specificare l'opzione `/PKRS`nello scenario di importazione. Diversamente dallo scenario di esportazione, in cui è necessario specificare l'opzione `/PKRS` per avviare operazioni simultanee, quando si importa una tabella AzCopy avvia l'esecuzione di operazioni simultanee per impostazione predefinita. Il numero predefinito di operazioni simultanee avviate è uguale al numero di processori core. Tuttavia, è possibile specificare un numero diverso di operazioni simultanee con l'opzione`/NC`. Per ulteriori dettagli, digitare `AzCopy /?:NC`nella riga di comando.
 
-Si noti che AzCopy supporta solo l'importazione per JSON, non per CSV.
+Si noti che AzCopy supporta solo l'importazione per JSON, non per CSV. AzCopy non supporta l'importazione di tabelle da file JSON e file manifesto creati dall'utente. Entrambi questi file devono provenire da un'esportazione di tabella di AzCopy. Per evitare errori, non modificare il file JSON o il file manifesto esportato.
 
 ### Importare entità nella tabella usando i BLOB
 
@@ -866,4 +866,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

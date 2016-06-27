@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali
@@ -37,8 +37,6 @@ In questa esercitazione verranno distribuite le risorse e le estensioni seguenti
 
 Per altre informazioni sulle risorse di Gestione risorse, vedere [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
 
-Il modello creato in questa esercitazione è simile a un modello disponibile nella raccolta modelli. Per altre informazioni, vedere l'articolo [Distribuire un semplice set di scalabilità con VM Linux e un jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/).
-
 Prima di iniziare con i passaggi illustrati in questa esercitazione, [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## Passaggio 1: Creare un gruppo di risorse e un account di archiviazione
@@ -49,11 +47,11 @@ Prima di iniziare con i passaggi illustrati in questa esercitazione, [installare
 
 2. **Creare un gruppo di risorse**: tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione assegnare al gruppo di risorse il nome **vmsstest1**.
 
-        azure group create vmsstestrg1 westus
+        azure group create vmsstestrg1 centralus
 
 3. **Distribuire un account di archiviazione nel nuovo gruppo di risorse**: questa esercitazione usa diversi account di archiviazione per semplificare la creazione del set di scalabilità di macchine virtuali. Creare un account di archiviazione denominato **vmsstestsa**. Mantenere aperta la finestra dell'interfaccia dei comandi per i passaggi successivi in questa esercitazione.
 
-        azure storage account create --type LRS -g vmsstestrg1 -l westus vmsstestsa
+        azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
 ## Passaggio 2: Creare il modello
 Un modello di Gestione risorse di Azure permette di distribuire e gestire le risorse di Azure insieme tramite una descrizione JSON delle risorse e dei parametri di distribuzione associati.
@@ -100,9 +98,8 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 
 3. Le variabili in un modello possono essere usate per specificare valori che possono subire modifiche frequenti o che devono essere creati da una combinazione di valori dei parametri. Aggiungere queste variabili all'interno dell'elemento padre delle variabili aggiunto al modello:
 
-        "apiVersion": "2016-03-30"
-        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
-        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
+        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
         "vmSize": "Standard_A0",
         "imagePublisher": "Canonical",
         "imageOffer": "UbuntuServer",
@@ -124,10 +121,10 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
         "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
-        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
         "wadlogs": "<WadCfg><DiagnosticMonitorConfiguration>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="it-IT"/></PerformanceCounterConfiguration>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="it-IT"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -144,7 +141,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "name": "[concat(parameters('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
+          "name": "[concat(parameters('resourcePrefix'), variables('storageAccountSuffix')[copyIndex()])]",
           "apiVersion": "2015-06-15",
           "copy": {
             "name": "storageLoop",
@@ -159,7 +156,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 5. Aggiungere la risorsa rete virtuale. Per altre informazioni, vedere [Provider di risorse di rete](../virtual-network/resource-groups-networking.md).
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
@@ -183,7 +180,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 6. Aggiungere le risorse indirizzo IP pubblico usate dal servizio di bilanciamento del carico e l'interfaccia di rete.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP1')]",
           "location": "[resourceGroup().location]",
@@ -195,7 +192,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP2')]",
           "location": "[resourceGroup().location]",
@@ -210,7 +207,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 7. Aggiungere la risorsa servizio di bilanciamento del carico usata dal set di scalabilità. Per altre informazioni, vedere [Supporto di Gestione risorse di Azure per il servizio di bilanciamento del carico](../load-balancer/load-balancer-arm.md).
         
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
           "type": "Microsoft.Network/loadBalancers",
           "location": "[resourceGroup().location]",
@@ -253,7 +250,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 8. Aggiungere la risorsa interfaccia di rete usata dalla macchina virtuale separata. Poiché non è possibile accedere direttamente alle macchine virtuali di un set di scalabilità tramite un indirizzo IP pubblico, viene creata una macchina virtuale separata nella stessa rete virtuale del set di scalabilità, che verrà usata per accedere in modalità remota alle macchine virtuali nel set.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "[variables('nicName1')]",
           "location": "[resourceGroup().location]",
@@ -282,7 +279,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 9. Aggiungere la macchina virtuale separata nella stessa rete del set di scalabilità.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
@@ -309,7 +306,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
               "osDisk": {
                 "name": "osdisk1",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"
@@ -329,7 +326,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "[variables('apiVersion')]",
+              "apiVersion": "2016-03-30",
               "name": "[parameters('vmSSName')]",
               "location": "[resourceGroup().location]",
               "dependsOn": [
@@ -350,11 +347,11 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
@@ -417,7 +414,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
                           },
                           "protectedSettings": {
                             "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey":"[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+                            "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
                             "storageAccountEndPoint":"https://core.windows.net"
                           }
                         }
@@ -478,7 +475,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
     
     Per questa esercitazione, i valori importanti sono i seguenti:
     
-    - **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter. Con questa variabile, l'estensione della diagnostica raccoglie il contatore **Processor\\PercentProcessorTime**.
+    - **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter. Con questa variabile, l'estensione Diagnostica raccoglie i dati del contatore **Processor\\PercentProcessorTime**.
     - **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali.
     - **timeGrain**: corrisponde alla granularità delle metriche che vengono raccolte. In questo modello il valore è impostato su 1 minuto.
     - **statistic**: determina il modo in cui vengono combinate le metriche per consentire l'azione di ridimensionamento automatico. I valori possibili sono: Average, Min, Max. In questo modello si vuole visualizzare il valore dell'utilizzo medio di CPU totale tra le macchine virtuali nel set di scalabilità.
@@ -546,7 +543,7 @@ Per ottenere informazioni sui set di scalabilità di macchine virtuali, è possi
 
  - Connettersi alla macchina virtuale jumpbox esattamente come a qualsiasi altra macchina virtuale e quindi accedere in modalità remota alle macchine virtuali nel set di scalabilità per monitorare i singoli processi.
 
->[AZURE.NOTE]Nell'articolo relativo ai [set di scalabilità di macchine virtuali](https://msdn.microsoft.com/library/mt589023.aspx) è disponibile un'API REST completa che consente di ottenere informazioni sui set di scalabilità.
+>[AZURE.NOTE]Nell'articolo [Set di scalabilità di macchine virtuali](https://msdn.microsoft.com/library/mt589023.aspx) è disponibile un'API REST completa per ottenere informazioni sui set di scalabilità.
 
 ## Passaggio 6: Rimuovere le risorse
 
@@ -556,6 +553,8 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 ## Passaggi successivi
 
-Vedere il modello di [ridimensionamento automatico di un set di scalabilità di VM che esegue un'app Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) che consente di impostare uno stack LAMP per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
+- Per alcuni esempi delle funzionalità di monitoraggio di Azure Insights, vedere [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights](../azure-portal/insights-cli-samples.md).
+- Per informazioni sulle funzionalità di notifica, vedere [Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Vedere il modello di [scalabilità automatica di un set di scalabilità di macchine virtuali che esegue un'app Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) che consente di impostare uno stack LAMP per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

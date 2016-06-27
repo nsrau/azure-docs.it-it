@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/19/2015"
+   ms.date="06/10/2016"
    ms.author="yuemlu"/>
 
 
@@ -81,4 +81,4 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 ## Passaggi successivi
 Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

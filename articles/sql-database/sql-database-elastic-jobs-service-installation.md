@@ -156,7 +156,7 @@ Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create
 
 **Tempo previsto per il completamento:** 10 minuti
 
-1. Dalla vista dashboard del pool di database elastici, tramite il [portale di Azure](https://ms.portal.azure.com/#) fare clic su **Crea processo**.
+1. Dalla vista dashboard del pool di database elastici, tramite il [portale di Azure](https://portal.azure.com/#) fare clic su **Crea processo**.
 2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**.
 3. Accettare i termini selezionando la casella di controllo.
 4. Nella vista "Installa servizi", fare clic su **CREDENZIALI PROCESSO**.
@@ -187,4 +187,4 @@ Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di sc
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

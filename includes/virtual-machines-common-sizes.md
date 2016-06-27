@@ -1,21 +1,21 @@
 
 Per i limiti generali delle macchine virtuali di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 
-Le dimensioni standard sono costituite da più serie: A, D, DS, F, G e GS. Si tengano presenti le considerazioni seguenti per alcune di queste dimensioni:
+Le dimensioni standard sono costituite da più serie: A, D, DS, F, Fs, G e GS. Si tengano presenti le considerazioni seguenti per alcune di queste dimensioni:
 
 *   Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 *   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
-* La serie F è basata sul processore Intel Xeon® E5-2673 v3 (Haswell) a 2,4 GHz che può raggiungere velocità di clock fino a 3,1 GHz con la tecnologia Intel Turbo Boost 2.0. Si tratta delle stesse prestazioni CPU della serie Dv2 di VM. Con un prezzo di listino orario più basso, la serie F presenta il migliore rapporto prezzo-prestazioni nel portfolio Azure basato sull'unità di elaborazione di Azure (ACU, Azure Compute Unit) per ogni core. Le dimensioni della serie F variano da 1 a 16 core della CPU con opzioni per dimensioni ottimizzate di archiviazione Standard e Premium.
+* La serie F è basata sul processore Intel Xeon® E5-2673 v3 (Haswell) a 2,4 GHz che può raggiungere velocità di clock fino a 3,1 GHz con la tecnologia Intel Turbo Boost 2.0. Si tratta delle stesse prestazioni CPU della serie Dv2 di VM. Con un prezzo di listino orario più basso, la serie F presenta il migliore rapporto prezzo-prestazioni nel portfolio Azure basato sull'unità di elaborazione di Azure (ACU, Azure Compute Unit) per ogni core.
 
- La serie F introduce inoltre un nuovo standard di denominazione delle dimensioni delle VM per Azure. Per questa serie e per le dimensioni delle VM rese disponibili in futuro, il valore numerico dopo la lettera indicante il nome di famiglia corrisponderà al numero di core della CPU. Funzionalità aggiuntive, ad esempio ottimizzate per l'archiviazione Premium, verranno designate da lettere dopo il numero di core della CPU. Questo formato di denominazione verrà usato per le dimensioni di VM future ma non cambierà in modo retroattivo i nomi delle dimensioni delle VM esistenti che sono state rilasciate.
+	La serie F introduce inoltre un nuovo standard di denominazione delle dimensioni delle VM per Azure. Per questa serie e per le dimensioni delle VM rese disponibili in futuro, il valore numerico dopo la lettera indicante il nome di famiglia corrisponderà al numero di core della CPU. Funzionalità aggiuntive, ad esempio ottimizzate per l'archiviazione Premium, verranno designate da lettere dopo il numero di core della CPU. Questo formato di denominazione verrà usato per le dimensioni di VM future ma non cambierà in modo retroattivo i nomi delle dimensioni delle VM esistenti che sono state rilasciate.
 
 
 *   Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 
 
-*   Le VM serie DS, DSv2, F e GS possono usare l'archiviazione Premium, che offre alte prestazioni e bassa latenza per carichi di lavoro con uso intensivo di I/O. Usano le unità SSD (Solid State Drive) per ospitare i dischi della macchina virtuale e offrono una cache del disco SSD locale. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+*   Le VM serie DS, DSv2, Fs e GS possono utilizzare l'archiviazione Premium, che offre alte prestazioni e bassa latenza per carichi di lavoro con uso intensivo di I/O. Usano le unità SSD (Solid State Drive) per ospitare i dischi della macchina virtuale e offrono una cache del disco SSD locale. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
 *   Le VM di serie A possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
@@ -49,18 +49,18 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 |Famiglia SKU |ACU/Core |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series) |50 |
-|[Standard\_A1-4](#standard-tier-a-series) |100 |
-|[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225*|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250*|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-15v2](#standard-tier-dsv2-series) |210-250* |
-|[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
-|[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
-|[G1-5](#standard-tier-g-series) |180 - 240*|
-|[GS1-5](#standard-tier-gs-series) |180 - 240*|
+|[Standard\_A0](#a-series) |50 |
+|[Standard\_A1-4](#a-series) |100 |
+|[Standard\_A5-7](#a-series) |100 |
+|[A8-A11](#a-series) |225*|
+|[D1-14](#d-series) |160 |
+|[D1-15v2](#dv2-series) |210 - 250*|
+|[DS1-14](#ds-series) |160 |
+|[DS1-15v2](#dsv2-series) |210-250* |
+|[F1-F16](#f-series) | 210-250*|
+|[F1s-F16s](#fs-series) | 210-250*|
+|[G1-5](#g-series) |180 - 240*|
+|[GS1-5](#gs-series) |180 - 240*|
 
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
@@ -74,7 +74,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 * La larghezza di banda della rete massima è la larghezza di banda aggregata massima allocata e assegnata a ogni tipo di VM. La larghezza di banda massima fornisce indicazioni per selezionare il tipo di VM corretto per garantire la disponibilità della capacità di rete adeguata. Quando si passa da bassa, moderata, alta e molto alta, la velocità effettiva aumenta di conseguenza. Le prestazioni di rete effettive dipenderanno da molti fattori, tra cui carichi di rete e dell’applicazione e le impostazioni di rete dell’applicazione.
 
 
-## Livello Standard: serie A
+## Serie A
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
@@ -89,9 +89,9 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 
 
-## Livello standard: serie A - Istanze a elevato utilizzo di calcolo
+## Serie A - Istanze a elevato utilizzo di calcolo
 
-Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
@@ -100,7 +100,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 |Standard\_A10|8|56 GB|2| Temporaneo = 382 GB |16|16x500| alto |
 |Standard\_A11|16|112 GB|4| Temporaneo = 382 GB |16|16x500| molto alta |
 
-## Livello Standard: serie D
+## Serie D
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
@@ -114,7 +114,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 |Standard\_D14 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
 
 
-## Livello standard: serie Dv2
+## Serie Dv2
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
@@ -130,7 +130,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 |Standard\_D15\_v2 |20|140 GB|10|Temporaneo (SSD) = 1 TB |40|40x500| molto alta |
 
 
-## Livello Standard: serie DS*
+## Serie DS*
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|---|
@@ -146,7 +146,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 **Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
-## Livello standard: serie DSv2*
+## Serie DSv2*
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|---|
@@ -165,38 +165,38 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 **Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
-## Serie F ottimizzata con archiviazione Standard
+## Serie F
 
 
 | Dimensione | Core CPU | Memoria | NIC (Max) | Dimensioni disco | Dischi di dati max. (1023 GB ciascuno) | IOPS max. (500 per disco) | Larghezza di banda della rete max |
-|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
-| Standard\_F1 | 1 | 2 GB | 1 | Temporaneo (SSD) = 16 GB | 2 | 2x500 | 500 Mbps |
-| Standard\_F2 | 2 | 4 GB | 2 | Temporaneo (SSD) = 32 GB | 4 | 4x500 | 1000 Mbps |
-| Standard\_F4 | 4 | 8 GB | 4 | Temporaneo (SSD) = 64 GB | 8 | 8x500 | 2000 Mbps |
-| Standard\_F8 | 8 | 16 GB | 8 | Temporaneo (SSD) = 128 GB | 16 | 16x500 | 4000 Mbps |
-| Standard\_F16 | 16 | 32 GB | 8 | Temporaneo (SSD) = 256 GB | 32 | 32x500 | 8000 Mbps |
+|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
+| Standard\_F1 | 1 | 2 GB | 1 | Temporaneo (SSD) = 16 GB | 2 | 2x500 | moderata |
+| Standard\_F2 | 2 | 4 GB | 2 | Temporaneo (SSD) = 32 GB | 4 | 4x500 | alto |
+| Standard\_F4 | 4 | 8 GB | 4 | Temporaneo (SSD) = 64 GB | 8 | 8x500 | alto |
+| Standard\_F8 | 8 | 16 GB | 8 | Temporaneo (SSD) = 128 GB | 16 | 16x500 | alto |
+| Standard\_F16 | 16 | 32 GB | 8 | Temporaneo (SSD) = 256 GB | 32 | 32x500 | molto alta |
 
 
 
-## Serie F ottimizzata con archiviazione Premium*
+## Serie Fs*
 
 | Dimensione | Core CPU | Memoria | NIC (Max) | Dimensioni disco | Dischi di dati max. (1023 GB ciascuno) | Dimensione cache (GB) | IOPS disco max. e larghezza di banda | Larghezza di banda della rete max |
-|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
-| Standard\_F1s | 1 | 2 | 1 | Disco SSD locale = 4 GB | 2 | 12 | 3\.200 48 MB al secondo | 500 Mbps |
-| Standard\_F2s | 2 | 4 | 2 | Disco SSD locale = 8 GB | 4 | 24 | 6\.400 96 MB al secondo | 1000 Mbps |
-| Standard\_F4s | 4 | 8 | 4 | Disco SSD locale = 16 GB | 8 | 48 | 12\.800 192 MB al secondo | 2000 Mbps |
-| Standard\_F8s | 8 | 16 | 8 | Disco SSD locale = 32 GB | 16 | 96 | 25\.600 384 MB al secondo | 4000 Mbps |
-| Standard\_F16s | 16 | 32 | 8 | Disco SSD locale = 64 GB | 32 | 192 | 51\.200 768 MB al secondo | 8000 Mbps |
+|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
+| Standard\_F1s | 1 | 2 | 1 | Disco SSD locale = 4 GB | 2 | 12 | 3\.200 48 MB al secondo | moderata |
+| Standard\_F2s | 2 | 4 | 2 | Disco SSD locale = 8 GB | 4 | 24 | 6\.400 96 MB al secondo | alto |
+| Standard\_F4s | 4 | 8 | 4 | Disco SSD locale = 16 GB | 8 | 48 | 12\.800 192 MB al secondo | alto |
+| Standard\_F8s | 8 | 16 | 8 | Disco SSD locale = 32 GB | 16 | 96 | 25\.600 384 MB al secondo | alto |
+| Standard\_F16s | 16 | 32 | 8 | Disco SSD locale = 64 GB | 32 | 192 | 51\.200 768 MB al secondo | molto alta |
 
 
 
-**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
+**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una VM serie Fs dipende dalla dimensione del disco. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
 
 
 
-## Livello Standard: serie G
+## Serie G
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
@@ -209,7 +209,7 @@ Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [I
 
 
 
-## Livello Standard: serie GS
+## Serie GS
 
 |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|---|
@@ -239,4 +239,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Altre informazioni sulle [istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

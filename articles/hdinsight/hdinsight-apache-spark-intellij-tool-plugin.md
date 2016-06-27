@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -82,9 +82,13 @@ Per iniziare, è anche possibile guardare un video disponibile [qui](https://mix
 
 	È anche possibile creare un proprio elemento facendo clic sull'icona **+**, evidenziata nell'immagine precedente.
 
-4. Aggiungere il codice sorgente dell'applicazione.
+4. Nella finestra di dialogo **Project Structure** (Struttura progetto) fare clic su **Progetto**. Se **Project SDK** (SDK progetto) è impostato su 1.8, verificare che **Project language level** (Livello del linguaggio di progetto) sia impostato su **7 - Diamonds, ARM, multi-catch, etc** (7 - Diamonds, ARM, multi-catch e così via).
 
-	1. In **Project Explorer** (Explorer progetto) fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi fare clic su **Scala class**(Classe Scala).
+	![Impostazione del livello del linguaggio di progetto](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
+
+5. Aggiungere il codice sorgente dell'applicazione.
+
+	1. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi fare clic su **Scala class**(Classe Scala).
 
 		![Aggiunta di un codice sorgente](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
@@ -92,7 +96,7 @@ Per iniziare, è anche possibile guardare un video disponibile [qui](https://mix
 
 		![Aggiunta di un codice sorgente](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-	3. Nel file **MyClusterApp.scala** incollare il codice seguente. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo una cifra nella settima colonna del file CSV e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
+	3. Nel file **MyClusterApp.scala** incollare il codice seguente. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe con una sola cifra nella settima colonna del file CSV e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
 
 
 			import org.apache.spark.SparkConf
@@ -115,7 +119,7 @@ Per iniziare, è anche possibile guardare un video disponibile [qui](https://mix
 
 5. Eseguire l'applicazione in un cluster HDInsight Spark.
 
-	1. In **Project Explorer** (Explorer progetto) fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Submit Spark Application to HDInsight** (Invia applicazione Spark a HDInsight).
+	1. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse sul nome del progetto e quindi scegliere **Submit Spark Application to HDInsight** (Invia applicazione Spark a HDInsight).
 
 		![Invio di un'applicazione Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
@@ -168,7 +172,7 @@ Per iniziare, è anche possibile guardare un video disponibile [qui](https://mix
 
 	![Accesso alla visualizzazione dei processi](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
-3. Le caselle per **messaggio di errore**, **output del processo**, **log dei processi Livy** e **log dei driver Spark** vengono popolate in base all'applicazione selezionata.
+3. Le caselle **Error Message** (messaggio d'errore), **Job Output** (Output del processo), **Livy Job Logs** (Log dei processi Livy) e **Spark Driver Logs** (log dei driver Spark) vengono popolate in base all'applicazione selezionata.
 
 4. È anche possibile aprire **Spark History UI** (UI cronologia Spark) e **YARN UI** (UI YARN) (a livello di applicazione) facendo clic sui rispettivi pulsanti nella parte superiore della schermata.
 
@@ -193,7 +197,7 @@ Per impostazione predefinita, nel plug-in HDInsight sono elencati i cluster Spar
 
 ### Prerequisito
 
-Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è possibile che venga restituita un'eccezione, come spiegato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso simile a **C:\\WinUtils\\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP\_HOME** e impostare il valore della variabile su **C\\WinUtils**.
+Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è possibile che venga restituita un'eccezione, come spiegato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\\WinUtils\\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP\_HOME** e impostare il valore della variabile su **C\\WinUtils**.
 
 ### Eseguire un'applicazione Spark in Scala locale	 
 
@@ -208,12 +212,12 @@ Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è
 2. Nella finestra successiva specificare i dettagli del progetto.
 
 	* Specificare un nome per il progetto e il relativo percorso.
-	* Per **Project SDK** (SDK progetto) assicurarsi di specificare una versione di Java successiva alla 7.
+	* In **Project SDK** (SDK progetto) assicurarsi di specificare una versione di Java superiore alla 7.
 	* Per **Scala SDK** (SDK Scala) fare clic su **Crea**, quindi su **Scarica** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. Questo esempio usa la versione **2.10.6**.
 
 		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* Per **Spark SDK** scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). È anche possibile ignorare questo passaggio e usare il [repository Maven per Spark](http://mvnrepository.com/search?q=spark), assicurandosi tuttavia di aver installato il repository Maven corretto per sviluppare le applicazioni Spark. Ad esempio, è necessario verificare di aver installato la parte Spark Streaming, se si usa Spark Streaming e di usare il repository contrassegnato come Scala 2.10. Non usare il repository Scala 2.11.
+	* Per **Spark SDK** (SDK Spark) scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). È anche possibile ignorare questo passaggio e usare il [repository Maven per Spark](http://mvnrepository.com/search?q=spark), verificando tuttavia di aver installato il repository Maven corretto per sviluppare le applicazioni Spark. Ad esempio, è necessario verificare di aver installato la parte Spark Streaming, se si usa Spark Streaming e di usare il repository contrassegnato come Scala 2.10. Non usare il repository Scala 2.11.
 
 		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
 
@@ -301,7 +305,7 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 ### Strumenti ed estensioni
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -309,7 +313,7 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
@@ -317,4 +321,4 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

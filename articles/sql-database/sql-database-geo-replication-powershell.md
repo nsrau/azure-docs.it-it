@@ -13,31 +13,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il database SQL di Azure con PowerShell
 
-
-
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-geo-replication-overview.md)
 - [Portale di Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
+Questo articolo illustra come configurare la replica geografica attiva per il database SQL con PowerShell.
 
-Questo articolo illustra come configurare la replica geografica per il database SQL con PowerShell.
-
-Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-powershell.md).
+Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
 
-È possibile configurare fino a 4 database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
 
-Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare all'articolo.
-- Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
+Per configurare la replica geografica attiva tramite PowerShell, sono necessari gli elementi seguenti:
+
+- Una sottoscrizione di Azure. 
+- Un database SQL di Azure: il database primario che si vuole replicare.
 - Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -158,11 +156,11 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 ## Risorse aggiuntive
 
 - [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Nuove funzionalità di replica geografica in evidenza)
+- [Spotlight on new Geo-Replication capabilities (Nuove funzionalità di replica geografica in evidenza)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

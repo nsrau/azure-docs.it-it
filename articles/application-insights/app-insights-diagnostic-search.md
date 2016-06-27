@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilizzo della ricerca diagnostica" 
+	pageTitle="Utilizzare la ricerca diagnostica | Microsoft Azure" 
 	description="Cercare e filtrare singoli eventi, richieste e traccie dei log." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
@@ -63,9 +63,22 @@ Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-be
 
 Selezionare qualsiasi elemento di dati di telemetria per visualizzare i campi chiave e gli elementi correlati. Se si intende visualizzare il set completo di campi, fare clic su "...".
 
-![Aprire la ricerca diagnostica](./media/app-insights-diagnostic-search/10-detail.png)
+
+![Fare clic su Nuovo elemento di lavoro, modificare i campi e quindi fare clic su OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 Per trovare il set completo di campi, usare stringhe normali (senza caratteri jolly). I campi disponibili dipendono dal tipo di dati di telemetria.
+
+## Creare un elemento di lavoro
+
+È possibile creare un bug in Visual Studio Team Services con i dettagli provenienti da qualsiasi elemento di dati di telemetria.
+
+![Fare clic su Nuovo elemento di lavoro, modificare i campi e quindi fare clic su OK.](./media/app-insights-diagnostic-search/42.png)
+
+La prima volta che si esegue questa operazione viene chiesto di configurare un collegamento all'account e al progetto di Team Services.
+
+![Immettere l'URL del server di Team Services e il nome del progetto, quindi fare clic su Autorizza.](./media/app-insights-diagnostic-search/41.png)
+
+Il pannello di configurazione è disponibile anche in Impostazioni > Elementi di lavoro.
 
 ## I tipi di eventi sono i seguenti:
 
@@ -159,7 +172,7 @@ Query di esempio | Effetto
 ---|---
 lento|Individuazione di tutti gli eventi nell'intervallo di date i cui campi includono il termine "lento".
 database|Trova la corrispondenza con database01, databaseAB, ...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
-database* |Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
+database* |Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
 mela OR banana<br/>mela banana|Individuazione degli eventi che contengono uno dei termini. Usare "OR", non "or".</br/>Forma breve.
 mela NOT banana<br/>mela -banana|Individuare eventi che contengono un termine ma non l'altro.<br/>Forma breve.
@@ -221,4 +234,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

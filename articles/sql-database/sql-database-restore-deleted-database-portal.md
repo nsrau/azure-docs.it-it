@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,23 +19,17 @@
 
 # Ripristinare un database SQL di Azure con il portale di Azure
 
-
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-restore-deleted-database.md)
 - [Portale di Azure](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-Questo articolo illustra come ripristinare un database SQL di Azure eliminato.
-
-Nel caso in cui venisse eliminato un database, il database SQL di Azure consente di ripristinare il database eliminato al momento dell'eliminazione. Il database SQL di Azure archivia il backup del database eliminato per il periodo di conservazione del database.
-
-Il periodo di conservazione di un database eliminato è determinato dal livello di servizio associato al database prima della rimozione o dal numero di giorni in cui il database esiste ancora (viene usato il valore più basso). Per altre informazioni sulla conservazione dei database, leggere la [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 ## Selezionare il database da ripristinare 
 
 Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
 1.	Aprire il [portale di Azure](https://portal.azure.com).
-2.  Sul lato sinistro della schermata fare clic su **SFOGLIA** > **Server SQL**.
+2.  Sul lato sinistro della schermata fare clic su **ESPLORA** > **Server SQL**.
 3.  Passare al server con il database eliminato che si vuole ripristinare e selezionare il server
 4.  Scorrere verso il basso fino alla sezione **Operazioni** nel pannello del server selezionare **Database eliminati**: ![Ripristinare un database SQL di Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
 5.  Fare clic sul database eliminato che si desidera ripristinare.
@@ -46,13 +40,17 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 ## Passaggi successivi
 
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-
-
+- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
+- [Ripristinare un database SQL di Azure con PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Ripristinare un database eliminato con l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Backup automatici del database SQL](sql-database-automated-backups.md)
 
 ## Risorse aggiuntive
 
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -62,7 +62,6 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 [Etichette]: sql-data-warehouse-develop-label.md
 [Cicli]: sql-data-warehouse-develop-loops.md
 [Trasformazione dei dati tramite pivot]: sql-data-warehouse-develop-pivot-unpivot.md
-[Ridenominazione di oggetti]: sql-data-warehouse-develop-rename.md
 [Statistiche]: sql-data-warehouse-develop-statistics.md
 [Stored procedure]: sql-data-warehouse-develop-stored-procedures.md
 [Progettazione tabella]: sql-data-warehouse-develop-table-design.md
@@ -76,7 +75,8 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 [argomenti di riferimento per Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[Ridenominazione di oggetti]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

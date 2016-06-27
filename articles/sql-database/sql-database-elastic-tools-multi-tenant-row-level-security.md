@@ -18,7 +18,9 @@
 
 # Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga 
 
-Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) offrono un potente set di funzionalità per ridimensionare in modo flessibile ed efficace il livello dati di un'applicazione multi-tenant con database SQL di Azure. In questo articolo viene illustrato come utilizzare queste tecnologie insieme per compilare un’applicazione con un livello di dati altamente scalabile che supporta partizioni multi-tenant, utilizzando **ADO.NET SqlClient** e/o **Entity Framework**.
+Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) offrono un potente set di funzionalità per ridimensionare in modo flessibile ed efficace il livello dati di un'applicazione multi-tenant con database SQL di Azure. Vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+In questo articolo viene illustrato come utilizzare queste tecnologie insieme per compilare un’applicazione con un livello di dati altamente scalabile che supporta partizioni multi-tenant, utilizzando **ADO.NET SqlClient** e/o **Entity Framework**.
 
 * Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati di un'applicazione tramite procedure di partizionamento orizzontale standard del settore, utilizzando un set di librerie .NET e i modelli di servizio di Azure. La gestione delle partizioni mediante la libreria client di database elastici consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale. 
 
@@ -304,7 +306,18 @@ GO
 
 Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere utilizzate per archiviare i dati in modo più efficiente (in particolare nei casi in cui un gran numero di tenant dispone solo di poche righe di dati), mentre le partizioni con tenant singolo possono essere utilizzate per supportare i tenant premium con requisiti di prestazioni e isolamento più rigidi. Per altre informazioni, vedere [Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Risorse aggiuntive
+
+- [Che cos'è un pool di database elastici di Azure?](sql-database-elastic-pool.md)
+- [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
+- [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticazione in app multi-tenant con Azure AD e OpenID Connect)
+- [Informazioni sull'applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+## Domande e richieste di funzionalità
+
+Per domande è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
@@ -312,4 +325,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

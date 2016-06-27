@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-geo-restore.md)
 - [Portale di Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
 Questo articolo illustra come ripristinare un database in un nuovo server con il ripristino geografico tramite il portale di Azure.
-
-Il [ripristino geografico](sql-database-geo-restore.md) consente di ripristinare un database da un backup con ridondanza geografica per crearne uno nuovo. Il database può essere creato su qualunque server in qualsiasi area di Azure. Poiché usa un backup con ridondanza geografica come origine, è possibile usarlo per ripristinare un database anche se il database è inaccessibile a causa di un'interruzione del servizio. Il ripristino geografico è abilitato automaticamente per tutti i livelli di servizio senza costi aggiuntivi.
 
 ## Selezionare il database da ripristinare
 
@@ -34,7 +33,7 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
 1.	Aprire il [portale di Azure](https://portal.azure.com).
 2.  Sul lato sinistro della schermata fare clic su **Nuovo** > **Dati e archiviazione** > **Database SQL**.
-3.  Selezionare **Backup** come origine e quindi selezionare il backup con ridondanza geografica dal quale eseguire il ripristino.
+3.  Selezionare **Backup** come origine e quindi selezionare il backup con ridondanza geografica da ripristinare.
 
     ![Ripristinare un database SQL di Azure](./media/sql-database-geo-restore-portal/geo-restore.png)
 
@@ -52,4 +51,4 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

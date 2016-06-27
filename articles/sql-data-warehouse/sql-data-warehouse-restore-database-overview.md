@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ripristinare un database in Azure SQL Data Warehouse (Panoramica) | Microsoft Azure"
+   pageTitle="Ripristinare un'istanza di Azure SQL Data Warehouse (panoramica) | Microsoft Azure"
    description="Panoramica delle opzioni di ripristino del database per ripristinare un database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Ripristinare un database in Azure SQL Data Warehouse (Panoramica)
+# Ripristinare un'istanza di Azure SQL Data Warehouse (panoramica)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-restore-database-overview.md)
-- [Portale](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Panoramica][]
+- [Portale][]
+- [PowerShell][]
+- [REST][]
 
-Questo argomento descrive le opzioni per il ripristino di un database in Azure SQL Data Warehouse. Sono inclusi il ripristino di un data warehouse in tempo reale e di un data warehouse eliminato. I data warehouse in tempo reale ed eliminati vengono ripristinati dagli snapshot automatici creati da tutti i data warehouse.
+Azure SQL Data Warehouse protegge i dati tramite l'archiviazione con ridondanza locale e i backup automatici. I backup automatici consentono di proteggere i database dal danneggiamento o dall'eliminazione accidentale senza l'intervento dell'amministratore. Nel caso in cui un utente modifichi o elimini dati inavvertitamente o accidentalmente, è possibile garantire la continuità aziendale ripristinando il database da un momento precedente nel tempo. SQL Data Warehouse usa snapshot di Archiviazione di Azure per eseguire facilmente il backup del database senza richiedere tempi di inattività.
 
-## Scenari di ripristino
+## Backup automatizzati
 
-**Ripristino da errori dell'infrastruttura:** questo scenario si riferisce al ripristino da problemi dell'infrastruttura, ad esempio errori del disco e così via. Un cliente vuole garantire la continuità aziendale con un'infrastruttura con tolleranza di errore e disponibilità elevata.
+Il backup del database **attivo** verrà eseguito automaticamente con un intervallo minimo di ogni 8 ore e conservato per 7 giorni. Ciò consente di ripristinare il database attivo a uno dei diversi punti di ripristino degli ultimi 7 giorni.
 
-**Ripristino da errori dell'utente:** questo scenario si riferisce al ripristino da danneggiamento o eliminazione di dati non intenzionale o accidentale. Nel caso in cui un utente modifichi o elimini dati inavvertitamente o accidentalmente, è possibile che un cliente voglia garantire la continuità aziendale ripristinando il database da un punto precedente nel tempo.
+Quando un database viene sospeso, i nuovi snapshot vengono arrestati e quelli precedenti vengono mantenuti fino alla scadenza di 7 giorni. Se un database viene sospeso per più di 7 giorni, l'ultimo snapshot verrà salvato, per garantire di avere sempre almeno un backup.
 
-## Criteri dello snapshot
+Quando un database viene eliminato, l'ultimo snapshot viene salvato per 7 giorni.
 
-[AZURE.INCLUDE [Criteri di conservazione dei backup di SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+Eseguire la query per vedere quando è stato eseguito l'ultimo backup dell'istanza:
 
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-## Funzionalità di ripristino del database
+Se è necessario conservare una copia di backup per più di 7 giorni, è possibile ripristinare semplicemente uno dei punti di ripristino in un nuovo database e quindi sospendere facoltativamente il database, in modo da pagare solo per lo spazio di archiviazione di quel backup.
 
-Si osservi come SQL Data Warehouse migliora l'affidabilità del database e consente la recuperabilità e il funzionamento continuo negli scenari descritti in precedenza.
+## Ridondanza dei dati
 
+Oltre ai backup, SQL Data Warehouse protegge i dati anche con l'archiviazione Premium di Azure [con ridondanza locale][]. Nel data center locale vengono mantenute più copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati. La ridondanza dei dati garantisce che i dati non subiscano l'impatto di problemi dell'infrastruttura, ad esempio errori del disco e così via. La ridondanza dei dati assicura la continuità aziendale con un'infrastruttura a tolleranza di errore e disponibilità elevata.
 
-### Ridondanza dei dati
+## Per ripristinare un database
 
-SQL Data Warehouse archivia tutti i dati nell’archiviazione Premium di Azure [con ridondanza locale](../storage/storage-redundancy.md), conservando 3 copie dei dati.
+Il ripristino di SQL Data Warehouse è un'operazione semplice che può essere eseguita nel portale di Azure o automatizzata tramite PowerShell o le API REST.
 
-### Ripristino del database
-
-La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio Azure SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica almeno ogni 8 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Le funzionalità di snapshot e ripristino automatici consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero. Per altre informazioni sul ripristino di database, vedere l’articolo [Attività di ripristino del database][].
 
 ## Passaggi successivi
-Per altre importanti attività di gestione, vedere [Panoramica sulla gestione][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Panoramica sulla gestione]: sql-data-warehouse-overview-management.md
-[Attività di ripristino del database]: sql-data-warehouse-manage-database-restore-portal.md
+[Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md
+[con ridondanza locale]: ../storage/storage-redundancy.md
+[Panoramica]: ./sql-data-warehouse-restore-database-overview.md
+[Portale]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -181,7 +181,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 ### Ripristino
 - VMM non è in grado di completare l'operazione di host
     -   [Failover sul punto di ripristino selezionato per la macchina virtuale: errore generico di accesso negato.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
-    -   [Hyper-V: impossibile eseguire il failover al punto di ripristino selezionato per la macchina virtuale. L'operazione è stata interrotta. Provare un punto di ripristino più recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Hyper-V: impossibile eseguire il failover al punto di ripristino selezionato per la macchina virtuale. L’operazione è stata interrotta. Provare un punto di ripristino più recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
     -   Impossibile stabilire una connessione con il server (0x00002EFD)
         -   [Hyper-V: impossibile abilitare la replica inversa per la macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
         -   [Hyper-V: impossibile abilitare la replica per la macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
@@ -192,12 +192,14 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 -   [Si è verificata un'operazione fuori banda in una macchina virtuale e il failover del commit non è riuscito](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Failover di test
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+-   <span style="color:green;">NUOVO</span> Timeout del failover con un messaggio "PreFailoverWorkflow task WaitForScriptExecutionTask timed out" a causa di impostazioni di configurazione nel gruppo di sicurezza di rete associato alla macchina virtuale o alla subnet a cui appartiene la macchina virtuale. Per informazioni dettagliate, vedere ["PreFailoverWorkflow task WaitForScriptExecutionTask timed out"](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) (Timeout di WaitForScriptExecutionTask dell'attività PreFailoverWorkflow).
+
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
-Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): 
--   [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Server di configurazione, server di elaborazione, server master di destinazione
+-   [L'host ESXi in cui è ospitato PS/CS come macchina virtuale ha esito negativo con una schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0615_2016-->

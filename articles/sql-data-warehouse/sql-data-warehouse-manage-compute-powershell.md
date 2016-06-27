@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (PowerShell)
@@ -41,7 +41,7 @@ Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][].
 
 ### Installare la versione più recente di Azure PowerShell.
 
-> [AZURE.NOTE]  Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell 1.0.3 o versione successiva. Per verificare la versione corrente, eseguire il comando **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente usando [Microsoft Web Platform Installer][]. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell][].
+> [AZURE.NOTE]  Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell 1.0.3 o versione successiva. Per verificare la versione corrente, eseguire il comando **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente da [Installazione guidata piattaforma Web][]. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell][].
 
 ### Introduzione ai cmdlet di Azure PowerShell
 
@@ -124,16 +124,15 @@ Per altre attività di gestione, vedere [Panoramica della gestione][].
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-
+[Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Installazione guidata piattaforma Web]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

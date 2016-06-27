@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # Connettersi a SQL Data Warehouse
-Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query. È consigliabile vedere anche l'articolo [Proteggere un database in SQL Data Warehouse][] per altre informazioni sulla sicurezza e sull'attivazione di connessioni a SQL Data Warehouse.
+Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query. Per altre informazioni sulla sicurezza e sull'attivazione di connessioni a SQL Data Warehouse, è consigliabile vedere anche l'articolo [Proteggere un database in SQL Data Warehouse][].
 
 In questo articolo vengono illustrati i seguenti aspetti della connessione a SQL Data Warehouse:
 
@@ -155,10 +155,10 @@ Una volta connessi, è possibile iniziare a progettare le tabelle. Per ulteriori
 <!--Azure.com references-->
 [Connettersi ed eseguire query]: ./sql-data-warehouse-get-started-connect.md
 [progettazione della tabella]: ./sql-data-warehouse-develop-table-design.md
-[Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
+[Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

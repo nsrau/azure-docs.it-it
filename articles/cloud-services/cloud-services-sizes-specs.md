@@ -143,11 +143,10 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 | Standard\_D12\_v2 | 4 | 28 GB | Elevata | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | Elevata | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | Molto elevata | 800 GB |
-| Standard\_D15\_v2 | 20 | 140 GB | Molto elevata | 1000 GB |
 
 ## Configurare le dimensioni per i servizi Cloud
 
-È possibile specificare le dimensioni di un'istanza del ruolo delle macchine virtuali nell'ambito del modello del servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
+È possibile specificare la dimensione della macchina virtuale di un'istanza del ruolo come parte del modello di servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
 Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standard\_D2](#general-purpose-d) per un'istanza del ruolo Web:
 
@@ -157,4 +156,4 @@ Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standar
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

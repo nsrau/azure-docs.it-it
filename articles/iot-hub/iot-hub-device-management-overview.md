@@ -3,7 +3,7 @@
  description="Panoramica di Gestione dei dispositivi dell'hub IoT di Azure: dispositivi gemelli, query su dispositivi, processi del dispositivo"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Panoramica di Gestione dei dispositivi dell'hub IoT di Azure (anteprima)
 
@@ -24,7 +24,7 @@ La gestione dei dispositivi in IoT di Azure include tre concetti principali:
 
 1.  **Dispositivo gemello:** rappresentazione del dispositivo fisico nell'hub IoT.
 
-2.  **Query su dispositivi**: consente di trovare dispositivi gemelli e generare informazioni aggregate dei dispositivi gemelli. È ad esempio possibile trovare tutti i dispositivi gemelli con la versione firmware 1.0.
+2.  **Query su dispositivi**: consente di trovare dispositivi gemelli e generare informazioni aggregate di più dispositivi gemelli. È ad esempio possibile eseguire query per trovare tutti i dispositivi gemelli con la versione firmware 1.0.
 
 3.  **Processi del dispositivo**: azione da eseguire in uno o più dispositivi fisici, ad esempio aggiornamento del firmware, riavvio e ripristino delle impostazioni predefinite.
 
@@ -103,17 +103,9 @@ La libreria client di Gestione dei dispositivi ha due responsabilità principali
 
 Per altre informazioni su queste responsabilità e sull'implementazione nel dispositivo fisico, vedere l'[introduzione alla libreria client di Gestione dei dispositivi dell'hub IoT di Azure per C][lnk-library-c].
 
-## Passaggi successivi
+## Passaggio successivo
 
-Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere le esercitazioni seguenti:
-
-- [Introduzione a Gestione dei dispositivi dell'hub IoT di Azure (anteprima)][lnk-get-started]
-
-- [Come usare il dispositivo gemello][lnk-tutorial-twin]
-
-- [Come trovare dispositivi gemelli tramite query][lnk-tutorial-queries]
-
-- [Come usare processi del dispositivo per aggiornare il firmware del dispositivo][lnk-tutorial-jobs]
+Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione [Get started with Azure IoT Hub device management][lnk-get-started] \(Introduzione a Gestione dei dispositivi dell'hub IoT di Azure).
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

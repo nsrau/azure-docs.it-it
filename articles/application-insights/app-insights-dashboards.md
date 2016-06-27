@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="awills"/>
 
 # Navigazione e dashboard nel portale Application Insights
@@ -79,7 +79,7 @@ Dopo aver aggiunto un riquadro al dashboard, è possibile modificarlo.
 
 1. Aggiungere un grafico al riquadro. 
 2. Impostare la metrica, la dimensione group-by e lo stile (tabella, grafico) di un grafico.
-3. Impostare le proprietà timespan e filter per i grafici nel riquadro.
+3. Impostare le proprietà timespan e filter per i grafici nel riquadro. È possibile impostare l'intervallo di tempo del grafico oppure ereditarlo dal dashboard.
 4. Impostare il titolo del riquadro.
 
 I riquadri aggiunti dai pannelli di Esplora metriche hanno più opzioni di modifica rispetto ai riquadri aggiunti da un pannello Panoramica.
@@ -110,4 +110,40 @@ Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Impostazioni
+
+Il pulsante Impostazioni nel pannello di panoramica non riguarda solo la configurazione, ma permette anche di accedere a svariati tipi di grafici.
+
+* **Registri di controllo**: esaminare gli avvisi e le azioni eseguite nella risorsa app.
+* [Nuova richiesta di supporto](app-insights-get-dev-support.md): opzioni per ricevere assistenza su qualsiasi aspetto di Azure. Per ottenere supporto per Application Insights, è inoltre possibile fare clic sul pulsante Decorazione faccina in alto a destra.
+* [Mappa delle applicazioni](app-insights-dependencies.md#application-map): mappe attive che mostrano i componenti dell'applicazione, ricavate dalle informazioni sulle dipendenze.
+* [Flusso di metriche live](app-insights-metrics-explorer.md#live-metrics-stream): metriche chiave con circa 1 s di latenza per il monitoraggio di una nuova versione.
+* **Errori**: richieste non riuscite, chiamate a dipendenze non riuscite ed eccezioni. [Pannello delle metriche modificabile](app-insights-metrics-explorer.md).
+* **Prestazioni**: tempo di risposta, tempo di risposta delle dipendenze. [Pannello delle metriche modificabile](app-insights-metrics-explorer.md).
+* [Server](app-insights-web-monitor-performance.md): contatori delle prestazioni. Disponibile se si [installa Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Browser**: visualizzazione di pagine e prestazioni AJAX. Disponibile se si [instrumentano le pagine Web](app-insights-javascript.md).
+* **Utilizzo**: visualizzazione del numero di pagine, utenti e sessioni. Disponibile se si [instrumentano le pagine Web](app-insights-javascript.md).
+* **Introduzione**: esercitazione inline.
+* **Proprietà**: chiave di strumentazione, sottoscrizione e ID risorsa.
+* [Disponibilità](app-insights-monitor-web-app-availability.md): configurazione e risultati del test Web.
+* [Avvisi](app-insights-alerts.md): configurazione degli avvisi sulle metriche.
+* [Esportazione continua](app-insights-export-telemetry.md): configurazione dell'esportazione dei dati di telemetria nell'archiviazione di Azure.
+* [Test delle prestazioni](app-insights-monitor-web-app-availability.md#performance-tests): impostazione di un carico sintetico sul sito Web.
+* [Quota e prezzi](app-insights-pricing.md) e [campionamento per inserimento](app-insights-sampling.md).
+* **Accesso API**: attualmente utilizzato per creare [annotazioni sul rilascio](app-insights-annotations.md) e per l'API di accesso ai dati.
+* [**Elementi di lavoro**](app-insights-diagnostic-search.md#create-work-item): connessione a un sistema di tracciamento dei lavori per poter creare bug durante l'analisi dei dati di telemetria.
+* [**Utenti**](app-insights-resources-roles-access-control.md): gestione degli utenti che possono accedere alla risorsa app.
+* [**Ruoli**](app-insights-resources-roles-access-control.md): gestione delle operazioni eseguibili dagli utenti.
+* [**Tag**](..\resource-group-using-tags.md): organizzazione delle risorse di Azure.
+* [**Blocchi**](..\resource-group-lock-resources.md): blocco delle risorse di Azure.
+* [**Esportazione modello**](app-insights-powershell.md): esportazione di una definizione della risorsa di Azure al fine di renderla utilizzabile come modello per la creazione di nuove risorse.
+
+## Passaggi successivi
+
+||
+|---|---
+|[Esplora metriche](app-insights-metrics-explorer.md)<br/>Metriche di filtro e segmento|![Esempio di ricerca](./media/app-insights-dashboards/64.png)
+|[Ricerca diagnostica](app-insights-diagnostic-search.md)<br/>Ricerca e analisi di eventi ed eventi correlati e creazione di bug |![Esempio di ricerca](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>linguaggio di query avanzato| ![Esempio di ricerca](./media/app-insights-dashboards/63.png)
+
+<!---HONumber=AcomDC_0615_2016-->
