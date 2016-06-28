@@ -482,15 +482,15 @@ Copiare e incollare il metodo **ReplaceFamilyDocument** sotto il metodo **Execut
 	// ADD THIS PART TO YOUR CODE
 	private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 	{
-			try
-			{
-					await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-					this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-			}
-			catch (DocumentClientException de)
-			{
-					throw de;
-			}
+		try
+		{
+			await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+			this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
+		}
+		catch (DocumentClientException de)
+		{
+			throw;
+		}
 	}
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della query. Dopo aver sostituito il documento, verrà eseguita di nuovo la stessa query per visualizzare il documento modificato.
@@ -520,15 +520,15 @@ Copiare e incollare il metodo **DeleteFamilyDocument** sotto il metodo **Replace
 	// ADD THIS PART TO YOUR CODE
 	private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 	{
-			try
-			{
-					await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-					Console.WriteLine("Deleted Family {0}", documentName);
-			}
-			catch (DocumentClientException de)
-			{
-							throw de;
-			}
+		try
+		{
+			await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+			Console.WriteLine("Deleted Family {0}", documentName);
+		}
+		catch (DocumentClientException de)
+		{
+			throw;
+		}
 	}
 
 Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il codice di esecuzione della seconda query.
@@ -612,4 +612,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

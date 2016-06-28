@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/21/2016"
 	ms.author="jroth" />
 
 # Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure
@@ -251,4 +251,6 @@ Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Ma
 
 Per una panoramica su SQL Server in Macchine virtuali di Azure, guardare il video sulla [VM di Azure come piattaforma ottimale per SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0608_2016-->
+[Esplorare il percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) per SQL Server nelle macchine virtuali di Azure.
+
+<!---HONumber=AcomDC_0622_2016-->

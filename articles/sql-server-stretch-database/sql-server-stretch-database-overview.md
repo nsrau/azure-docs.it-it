@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Panoramica del Database Estensione | Microsoft Azure"
-	description="Informazioni sul modo in cui il Database Estensione esegue la migrazione dei dati cronologici in modo trasparente e sicuro al cloud di Microsoft Azure."
+	description="Informazioni su come Estensione database esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -18,7 +18,7 @@
 
 # Panoramica del Database Estensione
 
-Il Database Estensione esegue la migrazione dei dati cronologici in modo trasparente e sicuro al cloud di Microsoft Azure.
+Estensione database esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure.
 
 Per iniziare subito a usare l'estensione database, vedere [Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](sql-server-stretch-database-wizard.md).
 
@@ -34,17 +34,17 @@ Il Database Estensione offre i vantaggi seguenti:
 **Protegge i dati anche durante la migrazione.** L'estensione nel cloud delle applicazioni più importanti può essere eseguita in modo sicuro e senza problemi. Crittografia sempre attiva di SQL Server fornisce la crittografia per i dati in movimento. La sicurezza a livello di riga e altre funzionalità di sicurezza avanzate di SQL Server sono utilizzabili anche con Database Estensione per proteggere i dati.
 
 ## Funzionalità del Database Estensione
-Dopo avere abilitato il Database Estensione per un'istanza di SQL Server, un database e almeno una tabella, inizia automaticamente la migrazione dei dati cronologici in Azure.
+Dopo avere abilitato il Estensione database per un'istanza di SQL Server, un database e almeno una tabella, inizia automaticamente la migrazione dei dati non attivi in Azure.
 
 -   Se si archiviano dati cronologici in una tabella separata, è possibile eseguire la migrazione dell'intera tabella.
 
--   Se la tabella contiene dati attuali e cronologici, è possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione.
+-   Se la tabella contiene dati attuali e cronologici è possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione.
 
 Database Estensione assicura che nessun dato venga perso se si verifica un errore durante la migrazione. È disponibile anche una logica di ripetizione dei tentativi per gestire i problemi di connessione che possono verificarsi durante la migrazione. Una vista a gestione dinamica fornisce lo stato della migrazione.
 
 È possibile sospendere la migrazione dei dati per risolvere i problemi nel server locale o per ottimizzare la larghezza di banda di rete disponibile.
 
-Non è necessario modificare le query e le app client esistenti. Si continuerà ad avere accesso trasparente ai dati locali e remoti, anche durante la migrazione dei dati. Esiste una piccola quantità di latenza per le query remote, ma questa latenza si verifica solo quando si esegue una query sui dati cronologici.
+Non è necessario modificare le query e le app client esistenti. Si continuerà ad avere accesso trasparente ai dati locali e remoti, anche durante la migrazione dei dati. Esiste una piccola latenza per le query remote, ma questa latenza si verifica solo quando si esegue una query sui dati cronologici.
 
 ![Panoramica del Database Estensione][StretchOverviewImage1]
 
@@ -59,7 +59,7 @@ Se è possibile fare le seguenti affermazioni, Database estensione può soddisfa
 |Si vuole trovare un modo per risparmiare sull'archiviazione.|Non è possibile eseguire il backup o ripristino di tali tabelle di grandi dimensioni entro i limiti del contratto di servizio.|
 
 ## Tipi di database e tabelle candidati per il Database estensione
-Il Database Estensione è destinato a database transazionali con grandi quantità di dati cronologici, in genere archiviati in un numero limitato di tabelle. Queste tabelle possono contenere più di un miliardo di righe.
+Estensione database è destinato a database transazionali con grandi quantità di dati cronologici, in genere archiviati in un numero limitato di tabelle. Queste tabelle possono contenere più di un miliardo di righe.
 
 Se si usa la funzionalità tabella temporale di SQL Server 2016, usare il Database Estensione per eseguire la migrazione di tutta o parte della tabella della cronologia associata per un'archiviazione economica in Azure. Per altre informazioni, vedere l'articolo su come [gestire la conservazione dei dati cronologici nelle tabelle temporali con controllo delle versioni di sistema](https://msdn.microsoft.com/library/mt637341.aspx).
 
@@ -123,4 +123,4 @@ Il Database Estensione non modifica il modello di autorizzazioni di un database 
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

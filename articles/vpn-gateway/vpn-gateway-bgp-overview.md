@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Panoramica di BGP con i gateway VPN di Azure
@@ -35,7 +35,9 @@ BGP offre nuove funzionalità e numerosi vantaggi, illustrati di seguito.
 
 Con BGP, è sufficiente dichiarare un prefisso minimo a un peer BGP specifico attraverso il tunnel VPN S2S IPsec. La dimensione minima consentita è quella di un prefisso dell'host (/32) dell'indirizzo IP del peer BGP per il dispositivo VPN locale. È possibile controllare quali prefissi di rete locale segnalare in Azure per consentire alla rete virtuale di Azure di accedere.
 	
-È anche possibile segnalare prefissi più grandi che possono includere alcuni dei prefissi di indirizzo della rete virtuale, come la route predefinita (0.0.0.0/0), o uno spazio di indirizzi IP privato di grandi dimensioni, ad esempio 10.0.0.0/8. Si noti che i prefissi non possono essere identici a uno qualsiasi dei prefissi della rete virtuale. Le route identiche ai prefissi della rete virtuale verranno rifiutate.
+È anche possibile segnalare prefissi più grandi che possono includere alcuni dei prefissi di indirizzo della rete virtuale, come uno spazio di indirizzi IP privato di grandi dimensioni, ad esempio 10.0.0.0/8. Si noti che i prefissi non possono essere identici a uno qualsiasi dei prefissi della rete virtuale. Le route identiche ai prefissi della rete virtuale verranno rifiutate.
+
+>[AZURE.IMPORTANT] La segnalazione della route predefinita (0.0.0.0/0) ai gateway VPN di Azure è attualmente bloccata. Verranno forniti ulteriori aggiornamenti una volta abilitata questa funzionalità.
 
 #### Supporto di più tunnel tra una rete virtuale e un sito locale con failover automatico basato su BGP
 
@@ -63,6 +65,6 @@ Il diagramma seguente illustra un esempio di una topologia multihop con più per
 
 ## Passaggi successivi
 
-Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra reti virtuali, vedere l'[Introduzione a BGP in gateway VPN di Azure](./vpn-gateway-bgp-resource-manager-ps.md).
+Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra reti virtuali, vedere [Introduzione a BGP nei gateway VPN di Azure](./vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

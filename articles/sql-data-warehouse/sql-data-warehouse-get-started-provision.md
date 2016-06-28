@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare un Azure SQL Data Warehouse
@@ -32,7 +32,7 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
+2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > **SQL Data Warehouse**.
 
     ![Creazione](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -40,11 +40,11 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
     ![Creazione del database](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-    - **Server**: è consigliabile selezionare prima di tutto il server. È possibile selezionare un server esistente o [crearne uno nuovo](./sql-data-warehouse-get-started-new-server.md). 
+	- **Server**: è consigliabile selezionare prima di tutto il server. È possibile selezionare un server esistente o [crearne uno nuovo](./sql-data-warehouse-get-started-new-server.md). 
 
-        - **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse. Il nome deve essere univoco per il server.
+	- **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse. Il nome deve essere univoco per il server.
 	
-        - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
     - **Sottoscrizione**: selezionare la sottoscrizione per la fatturazione di questa istanza di SQL Data Warehouse.
 
@@ -62,10 +62,10 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
 ## Passaggi successivi
 
-Dopo aver creato un'istanza di SQL Data Warehouse, è possibile [connettersi](./sql-data-warehouse-get-started-connect.md) e iniziare a eseguire query.
+Dopo aver creato un'istanza di SQL Data Warehouse è possibile [connettersi](./sql-data-warehouse-connect-overview.md) e iniziare a eseguire query.
 
 Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
 Se si sta cercando di eseguire la migrazione di un database esistente in SQL Data Warehouse, vedere i [cenni preliminari sulla migrazione](./sql-data-warehouse-overview-migrate.md) o usare l'[utilità di migrazione](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
