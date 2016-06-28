@@ -44,9 +44,9 @@ Durante l'accesso iniziale, viene fornita una password dell’app che è possibi
 
 Come utilizzare l’autenticazione a più fattori|Descrizione
 :------------- | :------------- | 
-[Utilizzo con Office 365](#creating-and-deleting-app-passwords-with-office-365)| Significa che si desidera creare le password dell’app tramite il portale di Office 365.
+[Utilizzo con Office 365](#Creazione ed eliminazione di password delle app con Office 365)| Significa che si desidera creare le password dell’app tramite il portale di Office 365.
 [Non so](#creating-and-deleting-app-passwords-with-myapps-portal)|Significa che è possibile creare password dell’app tramite [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[Utilizzarlo con Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Significa che è possibile creare le password dell’app tramite il portale di Azure.
+[Utilizzarlo con Microsoft Azure](#Creazione ed eliminazione di password delle app con il portale Myapps)| Significa che è possibile creare le password dell’app tramite il portale di Azure.
 
 ## Creazione ed eliminazione di password delle app con Office 365 
 
