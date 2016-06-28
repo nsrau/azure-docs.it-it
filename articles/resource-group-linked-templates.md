@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modelli collegati con Resource Manager | Microsoft Azure"
-   description="Descrive come usare i modelli collegati in un modello di Gestione risorse di Azure per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
+   description="Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,9 +16,9 @@
    ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
-# Uso di modelli collegati con Gestione risorse di Azure
+# Uso di modelli collegati con Azure Resource Manager
 
-Dall'interno di un modello di Gestione risorse di Azure, è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in un numero di classi di codice, la scomposizione offre vantaggi in termini di test, riuso e leggibilità.
+Dall'interno di un modello di Azure Resource Manager, è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in un numero di classi di codice, la scomposizione offre vantaggi in termini di test, riuso e leggibilità.
 
 È possibile passare parametri da un modello principale a un modello collegato. Tali parametri possono venire associati direttamente ai parametri e alle variabili esposti dal modello chiamante. Il modello collegato può inoltre passare una variabile di output al modello di origine, consentendo un scambio bidirezionale di dati tra modelli.
 
@@ -44,7 +44,7 @@ Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzi
       } 
     ] 
 
-Il servizio di Gestione risorse deve essere in grado di accedere al modello collegato, il che significa che non è possibile specificare un file locale per il modello collegato che sia disponibile solo nella rete locale. È possibile fornire solo un valore URI che includa **http** o **https**. Una possibilità è quella di collocare il modello collegato in un account di archiviazione e utilizzare l'URI per tale elemento, come illustrato di seguito.
+Il servizio di Resource Manager deve essere in grado di accedere al modello collegato, il che significa che non è possibile specificare un file locale per il modello collegato che sia disponibile solo nella rete locale. È possibile fornire solo un valore URI che includa **http** o **https**. Una possibilità è quella di collocare il modello collegato in un account di archiviazione e utilizzare l'URI per tale elemento, come illustrato di seguito.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -196,7 +196,7 @@ Nell'interfaccia della riga di comando di Azure, ottenere un token per il conten
 Verrà richiesto di fornire il token con firma di accesso condiviso come parametro. È necessario che il token sia preceduto da **?**.
 
 ## Passaggi successivi
-- Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di gestione risorse di Azure](resource-group-define-dependencies.md)
-- Per informazioni su come definire una sola risorsa ma creare molte istanze di essa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
+- Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
+- Per informazioni su come definire una sola risorsa ma creare molte istanze di essa, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
 
 <!---HONumber=AcomDC_0615_2016-->
