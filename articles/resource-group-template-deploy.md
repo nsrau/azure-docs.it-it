@@ -26,7 +26,7 @@
 - [API REST](resource-group-template-deploy-rest.md)
 
 
-In questo argomento viene illustrato come utilizzare Azure PowerShell con i modelli di Gestione risorse di Azure per distribuire le risorse in Azure.
+In questo argomento viene illustrato come utilizzare Azure PowerShell con i modelli di Resource Manager per distribuire le risorse in Azure.
 
 > [AZURE.TIP] Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 >
@@ -165,7 +165,7 @@ Per distribuire un modello privato in un account di archiviazione, recuperare un
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
-Per un esempio sull'utilizzo di un token SAS con i modelli collegati, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md).
+Per un esempio sull'utilizzo di un token SAS con i modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 

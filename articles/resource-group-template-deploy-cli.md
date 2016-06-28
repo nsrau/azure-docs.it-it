@@ -36,7 +36,7 @@ In questo argomento viene illustrato come utilizzare l'interfaccia della riga di
 
 ## Distribuire con l'interfaccia della riga di comando di Azure
 
-Se l’interfaccia della riga comando di Azure non è stata usata in precedenza con Gestione risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
+Se l’interfaccia della riga comando di Azure non è stata usata in precedenza con Resource Manager, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce il risultato dell'accesso.
 
@@ -49,7 +49,7 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Passare al modulo Gestione risorse di Azure. Si riceverà la conferma della nuova modalità.
+3. Passare al modulo Azure Resource Manager. Si riceverà la conferma della nuova modalità.
 
         azure config mode arm
    
