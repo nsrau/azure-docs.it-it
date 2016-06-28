@@ -113,7 +113,7 @@ Fare clic con il pulsante destro del mouse sul pannello di visualizzazione di un
 
 ![Condividi modello](media/share-template-portal1a.png) <br />
 
- È possibile scegliere un ruolo e un utente o un gruppo a cui fornire l'accesso a un **modello** specifico. I ruoli disponibili sono Proprietario, Lettore e Collaboratore. Per altre informazioni sul [controllo di accesso](#access-control-for-a-tenant-resource-provider), vedere la relativa sezione più avanti in questo articolo.
+ È possibile scegliere un ruolo e un utente o un gruppo a cui fornire l'accesso a un **modello** specifico. I ruoli disponibili sono Proprietario, Lettore e Collaboratore. Per altre informazioni sul [controllo di accesso](#access-control-for-a-tenant-resource-provider), vedere la relativa sezione precedente.
 
 ![Condividi modello](media/share-template-portal2b.png) <br />
 
@@ -131,4 +131,4 @@ Fare clic su **Seleziona** e quindi su **OK**. Ora è possibile visualizzare gli
 - Per informazioni sulle funzioni disponibili in un modello di Resource Manager, vedere [Funzioni del modello](../resource-group-template-functions.md).
 - Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

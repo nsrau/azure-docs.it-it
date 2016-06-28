@@ -10,11 +10,18 @@ No, BGP è supportato unicamente nei gateway VPN basati su route.
 
 Sì, è possibile usare il proprio ASN privato o ASN pubblici sia per le reti locali che per le reti virtuali di Azure.
 
+#### Esistono ASN riservati da Azure?
+
+Sì, gli ASN seguenti sono riservati da Azure per peering interno ed esterno:
+
+- ASN pubblici: 8075, 8076, 12076
+- ASN privati: 65515, 65517, 65518, 65519, 65520
+
+Non è possibile specificare questi ASN per i dispositivi VPN locali nella connessione ai gateway VPN di Azure.
+
 ### È possibile usare lo stesso ASN sia per le reti VPN locali che per le reti virtuali di Azure?
 
 No, è necessario assegnare ASN diversi alle reti locali e alle reti virtuali di Azure, se vengono connesse insieme tramite BGP. Ai gateway VPN di Azure è assegnato un ASN predefinito di 65515, sia che BGP sia abilitato o meno per la connettività cross-premise. È possibile eseguire l'override di questo valore predefinito assegnando un ASN diverso durante la creazione del gateway VPN. In alternativa è possibile modificare l'ASN dopo aver creato il gateway. Sarà necessario assegnare gli ASN locali ai gateway di rete locali di Azure corrispondenti.
-
-
 
 ### Quali prefissi di indirizzo vengono segnalati all'utente dai gateway VPN di Azure?
 
@@ -22,7 +29,15 @@ Il gateway VPN di Azure segnala le route seguenti ai dispositivi BGP locali:
 
 - Prefissi di indirizzo di rete virtuale.
 - Prefissi di indirizzo per ogni gateway di rete locale connesso al gateway VPN di Azure.
-- Route ottenute da altre sessioni di peering BGP connesse al gateway VPN di Azure, **ad eccezione delle route predefinite sovrapposte a qualsiasi prefisso di rete virtuale**.
+- Route ottenute da altre sessioni di peering BGP connesse al gateway VPN di Azure, **ad eccezione delle route predefinite o sovrapposte a qualsiasi prefisso di rete virtuale**.
+
+#### È possibile segnalare la route predefinita (0.0.0.0/0) ai gateway VPN di Azure?
+
+Attualmente non è possibile.
+
+#### È possibile segnalare gli stessi prefissi della propria rete virtuale?
+
+No, la segnalazione degli stessi prefissi degli indirizzi della rete virtuale verrà bloccata o filtrata dalla piattaforma Azure.
 
 ### È possibile usare BGP con le connessioni tra reti virtuali?
 
@@ -63,3 +78,5 @@ Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali pe
 ### Cosa è necessario aggiungere al dispositivo VPN locale per la sessione di peering BGP?
 
 È necessario aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositivo VPN che punta al tunnel VPN S2S IPsec. Ad esempio, se l'indirizzo IP del peer VPN di Azure è "10.12.255.30", è necessario aggiungere una route host per "10.12.255.30" con un'interfaccia nexthop dell'interfaccia del tunnel IPsec corrispondente nel dispositivo VPN.
+
+<!---HONumber=AcomDC_0622_2016-->

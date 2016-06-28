@@ -20,15 +20,19 @@
 
 # Creare un servizio Marathon specifico per un'applicazione o un'utente
 
-Il servizio contenitore di Azure fornisce un set di server master in cui vengono preconfigurati Apache Mesos e Marathon. È possibile usarli per orchestrare le applicazioni sul cluster, ma è consigliabile non usare i server master per questa finalità. La modifica della configurazione di Marathon richiede ad esempio l'accesso ai server master stessi per apportare modifiche. Per questa operazione sono consigliabili server master univoci, che risultano leggermente diversi dai server standard e devono essere gestiti in modo specifico e indipendente. La configurazione necessaria per un team, inoltre, potrebbe non essere ottimale per un altro team. Questo articolo illustra come aggiungere un servizio Marathon specifico per un utente o un'applicazione.
+Il servizio contenitore di Azure fornisce un set di server master in cui vengono preconfigurati Apache Mesos e Marathon. È possibile usarli per orchestrare le applicazioni nel cluster, ma è consigliabile non usare i server master a questo scopo. La modifica della configurazione di Marathon richiede ad esempio l'accesso ai server master stessi per apportare modifiche. Per questa operazione sono consigliabili server master univoci, che risultano leggermente diversi dai server standard e devono essere gestiti in modo specifico e indipendente. La configurazione necessaria per un team potrebbe non essere ottimale per un altro team.
 
-Poiché questo servizio apparterrà a un singolo utente o team, sarà possibile configurarlo in base alle esigenze specifiche dell'utente o del team. Il servizio contenitore di Azure assicurerà inoltre la continuazione dell'esecuzione del servizio. In caso di errore, il servizio verrà riavviato dal servizio contenitore di Azure. Nella maggior parte dei casi il tempo di inattività non verrà percepito dall'utente.
+Questo articolo illustra come aggiungere un servizio Marathon specifico per un'applicazione o un'utente.
+
+Dato che il servizio apparterrà a un singolo utente o team, sarà possibile configurarlo in base alle esigenze specifiche dell'utente o del team. Il servizio contenitore di Azure assicurerà la continuazione dell'esecuzione del servizio. In caso di errore, il servizio verrà riavviato dal servizio contenitore di Azure. Nella maggior parte dei casi il tempo di inattività non verrà percepito dall'utente.
 
 ## Prerequisiti
 
-[Distribuire un'istanza del servizio contenitore di Azure](container-service-deployment.md) con agente di orchestrazione di tipo DCOS, [assicurarsi che il client possa connettersi al cluster](container-service-connect.md) e[AZURE.INCLUDE [installare l'interfaccia della riga di comando del controller di dominio/sistema operativo](../../includes/container-service-install-dcos-cli-include.md)].
+[Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](container-service-connect.md). Seguire anche questa procedura.
 
-## Creazione di un servizio Marathon specifico per un'applicazione o un'utente
+[AZURE.INCLUDE [installare l'interfaccia della riga di comando del controller di dominio/sistema operativo](../../includes/container-service-install-dcos-cli-include.md)]
+
+## Creare un servizio Marathon specifico per un'applicazione o un'utente
 
 Creare prima di tutto un file di configurazione JSON che definisce il nome del servizio dell'applicazione da creare. In questo caso viene usato `marathon-alice` come nome del framework. Salvare il file con un nome analogo a `marathon-alice.json`:
 
@@ -42,16 +46,16 @@ Usare quindi l'interfaccia della riga di comando del controller di dominio/siste
 dcos package install --options=marathon-alice.json marathon
 ```
 
-Dovrebbe essere visualizzato il servizio `marathon-alice` in esecuzione nella scheda dei servizi dell'interfaccia della riga di comando del controller di dominio/sistema operativo. L'interfaccia utente sarà `http://<hostname>/service/marathon-alice/`, se si vuole accedervi direttamente.
+Dovrebbe essere visualizzato il servizio `marathon-alice` in esecuzione nella scheda dei servizi dell'interfaccia della riga di comando del controller di dominio/sistema operativo. L'interfaccia utente sarà `http://<hostname>/service/marathon-alice/`, se si vuole accedere direttamente.
 
-## Impostazione dell'interfaccia della riga di comando del controller di dominio/sistema operativo per accedere al servizio
+## Impostare l'interfaccia della riga di comando di DC/OS per accedere al servizio
 
-È facoltativamente possibile configurare l'interfaccia della riga di comando del controller di dominio/sistema operativo per accedere a questo nuovo servizio, impostando la proprietà `marathon.url` in modo che faccia riferimento all'istanza `marathon-alice`, come illustrato di seguito:
+Facoltativamente è possibile configurare l'interfaccia della riga di comando del controller di dominio/sistema operativo per accedere a questo nuovo servizio. A tale scopo, impostare la proprietà `marathon.url` in modo che punti all'istanza `marathon-alice`, come illustrato di seguito:
 
 ```bash
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-È possibile verificare l'istanza di Marathon usata dall'interfaccia della riga di comando eseguendo il comando `dcos config show` ed è possibile ripristinare l'uso del servizio Marathon master con il comando `dcos config unset marathon.url`.
+Per verificare quale istanza di Marathon stia usando l'interfaccia della riga di comando, è possibile usare il comando `dcos config show`. Per ripristinare l'uso del servizio Marathon master, è possibile usare il comando `dcos config unset marathon.url`.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

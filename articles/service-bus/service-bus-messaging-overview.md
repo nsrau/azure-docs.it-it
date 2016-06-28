@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/20/2016"
 	ms.author="sethm"/>
 
 
 # Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud
 
-La messaggistica del bus di servizio è un servizio di recapito di informazioni affidabile. Lo scopo di questo servizio è semplificare la comunicazione. Quando due o più parti desiderano scambiarsi informazioni, è necessario un meccanismo di comunicazione. La messaggistica del bus di servizio è un meccanismo di comunicazione negoziata o di terze parti. È simile a un servizio postale nel mondo fisico. I servizi postali semplificano l'invio di diversi tipi di lettere e pacchetti con una serie di garanzie di recapito, in qualsiasi parte del mondo.
+La messaggistica del bus di servizio di Microsoft Azure è un servizio di recapito di informazioni affidabile. Lo scopo di questo servizio è semplificare la comunicazione. Quando due o più parti desiderano scambiarsi informazioni, è necessario un meccanismo di comunicazione. La messaggistica del bus di servizio è un meccanismo di comunicazione negoziata o di terze parti. È simile a un servizio postale nel mondo fisico. I servizi postali semplificano l'invio di diversi tipi di lettere e pacchetti con una serie di garanzie di recapito, in qualsiasi parte del mondo.
 
 La messaggistica del bus di servizio di Azure Service, analogamente al servizio postale di recapito lettere, fornisce flessibilità di recapito delle informazioni sia per il mittente sia per il destinatario. Il servizio di messaggistica garantisce che le informazioni vengano recapitate anche se le due parti non sono mai in linea contemporaneamente o se non sono disponibili nello stesso momento. In questo modo, la messaggistica è simile all'invio di una lettera, mentre la comunicazione non negoziata è simile a una chiamata telefonica del passato, prima dell'introduzione dell'attesa di chiamata e dell'ID chiamate, che la rendono simile alla messaggistica negoziata.
 
@@ -39,7 +39,7 @@ La messaggistica inoltrata offre numerosi vantaggi, ma richiede che il server e 
 
 ## Messaggistica negoziata
 
-A differenza dello schema della messaggistica inoltrata, la [messaggistica negoziata](service-bus-fundamentals-hybrid-solutions.md) può essere considerata come asincrona o "temporaneamente separata". Produttori (mittenti) e utenti (ricevitori) non devono essere necessariamente online contemporaneamente. L'infrastruttura di messaggistica archivia in modo affidabile i messaggi in un "broker" (ad esempio una coda) fino a quando l’utente è pronto a riceverli. Questo consente la disconnessione volontaria (ad esempio, per attività di manutenzione) o involontaria (a seguito di un guasto) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. Inoltre, l'applicazione ricevente deve solo essere in linea durante determinate ore del giorno, ad esempio un sistema di gestione inventario che deve essere eseguito alla fine della giornata lavorativa.
+A differenza dello schema della messaggistica inoltrata, la [messaggistica negoziata](service-bus-queues-topics-subscriptions.md) può essere considerata come asincrona o "temporaneamente separata". Produttori (mittenti) e utenti (ricevitori) non devono essere necessariamente online contemporaneamente. L'infrastruttura di messaggistica archivia in modo affidabile i messaggi in un "broker" (ad esempio una coda) fino a quando l’utente è pronto a riceverli. Questo consente la disconnessione volontaria (ad esempio, per attività di manutenzione) o involontaria (a seguito di un guasto) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. Inoltre, l'applicazione ricevente deve solo essere in linea durante determinate ore del giorno, ad esempio un sistema di gestione inventario che deve essere eseguito alla fine della giornata lavorativa.
 
 I componenti principali dell'infrastruttura di messaggistica negoziata del Bus di servizio sono code, argomenti e sottoscrizioni. La differenza principale è che gli argomenti supportano funzionalità di pubblicazione/sottoscrizione, utilizzabili per la logica di instradamento e recapito sofisticata basata sul contenuto, tra cui l'invio a più destinatari. Questi componenti consentono nuovi scenari di messaggistica asincrona, ad esempio disaccoppiamento temporale, pubblicazione/sottoscrizione e bilanciamento del carico. Per altre informazioni sulle entità di messaggistica vedere [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md).
 
@@ -49,11 +49,11 @@ Come per l'infrastruttura di messaggistica inoltrata, la funzionalità di messag
 
 Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
-- [Sottoscrizioni, argomenti e code del Bus di servizio](service-bus-queues-topics-subscriptions.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
+- [Sottoscrizioni, argomenti e code del Bus di servizio](service-bus-queues-topics-subscriptions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-- [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

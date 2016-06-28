@@ -56,13 +56,13 @@ Azure AD Connect Health per la sincronizzazione monitora e fornisce informazioni
 
 Il video seguente fornirà una panoramica di Azure AD Connect Health per la sincronizzazione.
 
-[Azure Active Directory Connect Health: monitoraggio del motore di sincronizzazione](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 
 ## Introduzione ad Azure AD Connect Health
 Le operazioni per iniziare a usare Azure AD Connect Health sono molto semplici. Attenersi ai passaggi indicati di seguito:
 
-1. [Ottenere Azure AD Premium](active-directory-get-started-premium) o [avviare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/).
+1. Vedere l'[Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md) o [attivare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 2. [Scaricare e installare gli agenti di Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) nei server di identità.
 
@@ -80,7 +80,7 @@ Le operazioni per iniziare a usare Azure AD Connect Health sono molto semplici. 
 
 
 ## Portale di Azure AD Connect Health
-Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e le analisi di utilizzo. https://aka.ms/aadconnecthealth visualizza il pannello principale di Azure AD Connect Health. Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento. Dopo la distribuzione degli agenti, vengono visualizzati gli identificatori dei servizi monitorati da Azure AD Connect Health.
+Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e le analisi di utilizzo. https://aka.ms/aadconnecthealth visualizza il pannello principale di Azure AD Connect Health. Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento. Dopo la distribuzione degli agenti, il servizio integrità identifica automaticamente gli identificatori dei servizi monitorati da Azure AD Connect Health.
 
 ![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -106,4 +106,4 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

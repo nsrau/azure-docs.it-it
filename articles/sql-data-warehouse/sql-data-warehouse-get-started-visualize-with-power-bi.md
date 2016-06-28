@@ -13,15 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualizzare i dati con Power BI
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
-- [SQLCMD][] 
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
@@ -29,10 +30,12 @@ Questa esercitazione illustra come usare Power BI per connettersi a SQL Data War
 
 ## Prerequisiti
 
-Per completare questa esercitazione, è necessario SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. Quando si crea una nuova istanza di SQL Data Warehouse, è possibile creare un database vuoto, un database che include i dati di esempio di AdventureWorks o ripristinare un backup di un altro database. Vedere [Creare un Azure SQL Data Warehouse][] per altri dettagli su come creare un'istanza di SQL Data Warehouse con i dati di esempio già caricati. Se si ha già un'istanza di SQL Data Warehouse che si vuole usare, ma non i dati di esempio, seguire le istruzioni in [Caricare i dati di esempio in SQL Data Warehouse][].
+Per eseguire questa esercitazione, è necessario:
+
+- Un'istanza di SQL Data Warehouse in cui sia precaricato il database AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][].
 
 
-## Connettersi al database
+## 1\. Connettersi al database
 
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
@@ -59,7 +62,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 
 
 
-## Creare un report
+## 2\. Creare un report
 
 È ora possibile usare Power BI per analizzare i dati di esempio di AdventureWorksDW. Per eseguire l'analisi, AdventureWorksDW dispone di una visualizzazione denominata VenditeAggregate. Questa visualizzazione contiene alcune metriche chiave per l'analisi delle vendite della società.
 
@@ -93,33 +96,29 @@ Per salvare lo stato in qualsiasi momento, fare clic su **File** e selezionare *
 Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo][], [caricamento][] o [migrazione][]. In alternativa, vedere il [sito Web di Power BI][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrazione]: ./sql-data-warehouse-overview-migrate.md
-[sviluppo]: ./sql-data-warehouse-overview-develop.md
-[caricamento]: ./sql-data-warehouse-overview-load.md
-[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
-[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[migrazione]: sql-data-warehouse-overview-migrate.md
+[sviluppo]: sql-data-warehouse-overview-develop.md
+[caricamento]: sql-data-warehouse-overview-load.md
+[caricare manualmente i dati di esempio]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Creare un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [portale di Azure]: https://portal.azure.com/
 [sito Web di Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
