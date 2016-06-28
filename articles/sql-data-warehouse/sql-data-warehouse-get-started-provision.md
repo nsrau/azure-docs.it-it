@@ -44,7 +44,7 @@ Questa esercitazione mostra come usare il portale di Azure per creare un'istanza
 
 	- **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse. Il nome deve essere univoco per il server.
 	
-    - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/it-IT/pricing/details/sql-data-warehouse/).
+    - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione. Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](./sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
     - **Sottoscrizione**: selezionare la sottoscrizione per la fatturazione di questa istanza di SQL Data Warehouse.
 
