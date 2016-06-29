@@ -31,7 +31,7 @@ L’app Azure Authenticator è disponibile per [Windows Phone](http://www.window
 ![Impostazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Selezionare Notifica o Password monouso e fare clic su Imposta.
-- Sul telefono in cui è installata l'app Azure Authenticator, avviare l'applicazione e fare clic su analisi del codice a barre. Per aggiungere un account che ha già Azure MFA o un account di terze parti, vedere [# Ajout d'un compte manuellement](#aggiunta-manuale-di-un-account).
+- Sul telefono in cui è installata l'app Azure Authenticator, avviare l'applicazione e fare clic su analisi del codice a barre. Per aggiungere un account che ha già Azure MFA o un account di terze parti, vedere <a href="#compte">Ajout d'un compte manuellement</a>.
 
 ![Impostazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -54,7 +54,7 @@ L’app Azure Authenticator è disponibile per [Windows Phone](http://www.window
 - Fare clic su Done.
 
 
-## Aggiunta manuale di un account
+<h2 id="compte">Aggiunta manuale di un account</h2>
 Per aggiungere un account manualmente, selezionare il pulsante Immetti manualmente.
 
 ![Impostazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
