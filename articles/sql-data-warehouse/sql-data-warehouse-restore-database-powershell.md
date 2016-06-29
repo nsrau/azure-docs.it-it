@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Eseguire il ripristino di un database in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="Attività di PowerShell per il ripristino di un database attivo, eliminato o inaccessibile in Azure SQL Data Warehouse."
+   pageTitle="Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="Attività di PowerShell per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,40 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Eseguire il backup e il ripristino di un database in Azure SQL Data Warehouse (PowerShell)
+# Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-overview-manage-database-restore.md)
-- [Portale](sql-data-warehouse-manage-database-restore-portal.md)
-- [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
-- [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
+- [Panoramica][]
+- [Portale][]
+- [PowerShell][]
+- [REST][]
 
-Attività di PowerShell per il ripristino di un database attivo, eliminato o inaccessibile in SQL Data Warehouse.
-
-Attività contenute in questo argomento:
-
-- Ripristino di un database attivo
-- Ripristino di un database eliminato
-- Ripristinare un database non accessibile da un'area geografica di Azure diversa
-
-[AZURE.INCLUDE [Criteri di conservazione dei backup di SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
+Questo articolo illustra come ripristinare un'istanza di Azure SQL Data Warehouse usando PowerShell.
 
 ## Prima di iniziare
 
 ### Verificare la capacità DTU del database SQL. 
-SQL Data Warehouse si ripristina su un nuovo database nel server logico di SQL. Per questo motivo, è importante verificare che il server SQL di cui si esegue il ripristino abbia una capacità DTU sufficiente per il nuovo database SQL Server. Vedere questo post di blog per altre informazioni su [come visualizzare e aumentare la quota DTU][].
+
+Ogni istanza di SQL Data Warehouse è ospitata da un server logico SQL, il cui limite di capacità è misurato in DTU. Prima di ripristinare un'istanza di SQL Data Warehouse, è importante assicurarsi che il server logico SQL che ospita il database abbia una capacità in DTU sufficiente per il database da ripristinare. Per altre informazioni su [come visualizzare e aumentare la quota DTU][], vedere il relativo post di blog.
 
 ### Installare PowerShell
 
-Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. È possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
+Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva. È possibile controllare la versione in uso eseguendo **Get-Module -ListAvailable -Name Azure**. È possibile installare la versione più recente da [Installazione guidata piattaforma Web Microsoft][]. Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][].
 
-## Ripristino di un database attivo
+## Ripristinare un database attivo o sospeso
 
-Per ripristinare un database da uno snapshot, usare il cmdlet [Restore-AzureRmSqlDatabase][] di PowerShell.
+Per ripristinare un database da uno snapshot, usare il cmdlet di PowerShell [Restore-AzureRmSqlDatabase][].
 
 1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
@@ -88,8 +80,6 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Per il server foo.database.windows.net, usare "foo" come -ServerName nei cmdlet di PowerShell sopraindicati.
-
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
 
 ## Ripristino di un database eliminato
@@ -126,9 +116,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Per il server foo.database.windows.net, usare "foo" come -ServerName nei cmdlet di PowerShell sopraindicati.
-
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
+Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
 
 ## Eseguire il ripristino da un'area geografica di Azure
 
@@ -159,6 +147,7 @@ $GeoRestoredDatabase.status
 ```
 
 ### Configurare il database dopo l'esecuzione di un ripristino geografico
+
 Si tratta di un elenco di controllo che può essere utilizzato per avere pronta la produzione di database ripristinati.
 
 1. **Aggiornare le stringhe di connessione**: verificare che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
@@ -170,21 +159,21 @@ Il database ripristinato sarà abilitato TDE se il database di origine è abilit
 
 
 ## Passaggi successivi
-Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure][] e [Panoramica della gestione][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere la [panoramica sulla continuità aziendale per database SQL di Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Continuità aziendale del database SQL di Azure]: sql-database-business-continuity.md
+[panoramica sulla continuità aziendale per database SQL di Azure]: sql-database-business-continuity.md
+[Finalizzare il database SQL di Azure ripristinato]: sql-database-recovered-finalize.md
 [finalizzazione di un database ripristinato]: sql-database-recovered-finalize.md
 [Come installare e configurare Azure PowerShell]: powershell-install-configure.md
-[Panoramica della gestione]: sql-data-warehouse-overview-manage.md
+[Panoramica]: ./sql-data-warehouse-restore-database-overview.md
+[Portale]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
@@ -194,4 +183,4 @@ Per altre informazioni, vedere [Continuità aziendale del database SQL di Azure]
 [Azure Portal]: https://portal.azure.com/
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

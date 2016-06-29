@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Anteprima dell'accesso condizionale di Azure per app SaaS
 
-L'accesso condizionale di Azure per app SaaS è disponibile per l'anteprima pubblica. La versione di anteprima consente la configurazione di una regola di accesso con autenticazione a più fattori per ogni applicazione e la possibilità di bloccare l'accesso agli utenti su una rete non affidabile.
+L'accesso condizionale di Azure per app SaaS è disponibile per l'anteprima pubblica. La versione di anteprima consente la configurazione di una regola di accesso con autenticazione Multi-Factor Authentication (MFA) per ogni applicazione e la possibilità di bloccare l'accesso agli utenti su una rete non affidabile.
 
 La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione. Queste funzionalità saranno disponibili per i clienti che hanno acquistato una licenza di Azure Active Directory Premium.
 
 ## Prerequisiti dello scenario
-* Sottoscrizione di Azure Active Directory Premium
+* Licenza di Azure Active Directory Premium
 
 * Tenant Azure Active Directory federato o gestito
 
-* Autenticazione a più fattori (MFA) abilitata per i tenant federati.
+* I tenant federati richiedono l'abilitazione dell'autenticazione Multi-Factor Authentication.
 
 ## Problemi noti di questa versione di anteprima
-Questa versione di anteprima si applica alle applicazioni SaaS federate preintegrate, alle applicazioni che usano l'accesso Single-Sign On basato su password, applicazioni registrate, sviluppate e line-of-business e Proxy applicazione di Azure AD. Altre applicazioni sono ancora in fase di abilitazione.
+Questa versione di anteprima si applica alle applicazioni SaaS federate preintegrate, alle applicazioni che usano l'accesso Single Sign-On basato su password, applicazioni registrate, sviluppate e line-of-business e Proxy applicazione di Azure AD. Altre applicazioni sono ancora in fase di abilitazione.
 
-##Configurare le regole di accesso per ogni applicazione
+## Configurare le regole di accesso per ogni applicazione
 
 Questa sezione descrive come configurare le regole di accesso per ogni applicazione.
 
-1. Accedere al portale di Microsoft Azure come Amministratore.
+1. Accedere al portale di Azure classico utilizzando un account amministratore globale in Azure AD.
 2. Nel riquadro sinistro selezionare **Active Directory**.
 3. Selezionare la propria directory nella scheda Directory.
 4. Selezionare la scheda **Applicazioni**.
@@ -58,24 +58,24 @@ Per impostazione predefinita, i criteri verranno applicati a tutti gli utenti ch
 
 ![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
-##Regole di accesso condizionale con MFA
-Se un utente è stato configurato usando la funzionalità di autenticazione a più fattori per utente, questa impostazione per l'utente avrà la precedenza rispetto alle regole di autenticazione a più fattori per l'app. Di conseguenza, un utente configurato per l'autenticazione a più fattori per utente dovrà eseguire l'autenticazione a più fattori anche se è stato escluso dalle regole di autenticazione a più fattori per l'applicazione. Altre informazioni sull'autenticazione a più fattori e le impostazioni per utente.
+## Regole di accesso condizionale con MFA
+Se un utente è stato configurato usando la funzionalità di autenticazione Multi-Factor Authentication per utente, questa impostazione per l'utente andrà ad aggiungersi alle regole di Multi-Factor Authentication dell'app. Di conseguenza, un utente configurato per l'autenticazione a più fattori per utente dovrà eseguire l'autenticazione a più fattori anche se è stato escluso dalle regole di autenticazione a più fattori per l'applicazione. Altre informazioni sull'autenticazione a più fattori e le impostazioni per utente.
 
-###Opzioni delle regole di accesso
+### Opzioni delle regole di accesso
 La versione di anteprima corrente supporta le opzioni seguenti:
 
-* **Richiedi autenticazione a più fattori**: questa opzione consente agli utenti a cui si applicano le regole di accesso di completare l'autenticazione a più fattori prima di accedere all'applicazione a cui si applicano i criteri.
+* **Richiedi autenticazione Multi-Factor Authentication**: questa opzione consente agli utenti a cui si applicano le regole di accesso di completare l'autenticazione Multi-Factor Authentication prima di accedere all'applicazione a cui si applicano i criteri.
 
-* **Richiedi autenticazione a più fattori quando non al lavoro**: con questa opzione un utente che accede da un indirizzo IP attendibile non deve eseguire l'autenticazione a più fattori. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina delle impostazioni dell'autenticazione a più fattori.
+* **Richiedi Multi-Factor Authentication quando non al lavoro**: con questa opzione un utente che accede da un indirizzo IP attendibile non deve eseguire l'autenticazione Multi-Factor Authentication. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina delle impostazioni dell'autenticazione Multi-Factor Authentication oppure utilizzando gli appositi intervalli di indirizzi IP pubblici nella scheda di configurazione della directory.
 
-* **Blocca l'accesso quando non al lavoro**: con questa opzione un utente che non accede da un indirizzo IP attendibile verrà bloccato. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina delle impostazioni dell'autenticazione a più fattori.
+* **Blocca l'accesso quando non al lavoro**: con questa opzione un utente che non accede da un indirizzo IP attendibile verrà bloccato. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
 
-###Impostazione dello stato delle regole
-Lo stato delle regole di accesso permette di attivare o disattivare le regole. Quando le regole di accesso sono disattivate, il requisito di autenticazione a più fattori non viene applicato.
+### Impostazione dello stato delle regole
+Lo stato delle regole di accesso permette di attivare o disattivare le regole. Quando le regole di accesso sono disattivate, il requisito di autenticazione Multi-Factor Authentication non viene applicato.
 
 ### Valutazione delle regole di accesso
 
-Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenID Connect, SAML o WS-Federation, vengono valutate le regole di accesso. Le regole di accesso vengono valutate anche quando con OAuth 2.0 e OpenID Connect viene usato un token di aggiornamento per acquisire un token di accesso. Se la valutazione dei criteri non riesce quando si usa un token di aggiornamento, viene restituito l'errore invalid\_grant, che indica che l'utente deve eseguire di nuovo l'autenticazione al client. Configurare i servizi federativi per fornire l'autenticazione a più fattori
+Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenID Connect, SAML o WS-Federation, vengono valutate le regole di accesso. Inoltre, vengono valutate le regole di accesso quando OAuth 2.0 e OpenID si collegano quando viene utilizzato un token di aggiornamento per acquisire un token di accesso. Se la valutazione dei criteri non riesce quando si usa un token di aggiornamento, viene restituito l'errore invalid\_grant, che indica che l'utente deve eseguire di nuovo l'autenticazione al client. Configurare i servizi federativi per fornire l'autenticazione a più fattori
 
 Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale.
 
@@ -87,9 +87,9 @@ L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-M
 
 Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la distribuzione locale di Azure Multi-Factor Authentication.
 
-##Articoli correlati
+## Articoli correlati
 
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

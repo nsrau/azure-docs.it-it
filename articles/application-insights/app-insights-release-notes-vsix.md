@@ -3,7 +3,7 @@
 	description="Aggiornamenti più recenti per Strumenti di Visual Studio per Developer Analytics"
 	services="application-insights"
     documentationCenter=""
-	authors="aruna"
+	authors="acearun"
 	manager="douge"/>
 <tags
 	ms.service="application-insights"
@@ -11,11 +11,26 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/09/2016"
 	ms.author="acearun"/>
 
 # Note sulla versione: Strumenti di analisi per sviluppatori
 ##### Analisi di Application Insights e di HockeyApp in Visual Studio
+## Versione 7.0.1
+Application Insights ora supporta i progetti ASP.NET Core RC2 in Visual Studio. Application Insights può essere aggiunto ai nuovi progetti ASP.NET Core RC2 dalla finestra di dialogo Nuovo progetto oppure a un progetto esistente facendo clic sul progetto con il pulsante destro del mouse in Esplora soluzioni e scegliendo "Aggiungi Application Insights Telemetry..."
+
+![Supporto di .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+
+Inoltre, i progetti ASP.NET 5 RC1 e ASP.NET Core RC2 presentano un nuovo supporto nella finestra degli strumenti di diagnostica. In fase di debug locale, tramite l'app ASP.NET sarà possibile visualizzare gli eventi di Application Insights, quali richieste ed eccezioni. Da ciascun evento sarà possibile accedere a ulteriori informazioni facendo clic su "Cerca".
+
+![Supporto degli strumenti di diagnostica](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+
+Altre nuove funzionalità:
+
+* L'esperienza di ricerca in Application Insights è più veloce e intuitiva, grazie all'applicazione automatica degli intervalli di tempo e dei filtri di dettagli nel momento stesso in cui vengono selezionati.
+* Nello strumento di ricerca di Application Insights è ora disponibile un'opzione per passare al codice dai dati di telemetria della richiesta.
+* Sono stati apportati miglioramenti all'esperienza di accesso a HockeyApp.
+
 ## Versione 5.2
 Microsoft è lieta di annunciare l'introduzione di scenari di HockeyApp in Visual Studio. La prima integrazione abilitata è la distribuzione beta delle app Windows universale e Windows Form in VS.
 
@@ -85,23 +100,17 @@ In questa versione sono state aggiunte funzionalità per semplificare la ricerca
 Se si usa il sistema di traccia NLog, Log4Net o System.Diagnostics non è necessario spostare le tracce in AI. Gli adattatori di accesso di Application Insights sono integrati nel normale processo di configurazione. Se si dispone già di uno di questi framework di registrazione configurato:
 ####Se Application Insights è già stato aggiunto
 - Fare clic con il pulsante destro del mouse su Nodo progetto->Application Insights->Configura Application Insights. Assicurarsi che venga visualizzata l'opzione che consente di aggiungere l'adattatore appropriato nella finestra di configurazione.
-- In alternativa, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura.
-![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
+- In alternativa, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura. ![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-Dopo aver installato l'adattatore di registrazione, è possibile eseguire l'applicazione e verificare di visualizzare i dati nella scheda degli strumenti di diagnostica come indicato di seguito:
-![Tracce](./media/app-insights-release-notes-vsix/Traces.png)
+Dopo aver installato l'adattatore di registrazione, è possibile eseguire l'applicazione e verificare di visualizzare i dati nella scheda degli strumenti di diagnostica come indicato di seguito: ![Tracce](./media/app-insights-release-notes-vsix/Traces.png)
 ###- L'utente può trovare/passare al codice in cui viene generata la proprietà dell'evento di telemetria
-Con la nuova versione l'utente può fare clic su qualsiasi valore nei dettagli dell'evento per ricercare una stringa corrispondente nella soluzione aperta. I risultati verranno visualizzati nell'elenco "Risultati ricerca" di Visual Studio come illustrato di seguito:
-![Ricerca della corrispondenza](./media/app-insights-release-notes-vsix/FindMatch.png)
+Con la nuova versione l'utente può fare clic su qualsiasi valore nei dettagli dell'evento per ricercare una stringa corrispondente nella soluzione aperta. I risultati verranno visualizzati nell'elenco "Risultati ricerca" di Visual Studio come illustrato di seguito: ![Ricerca della corrispondenza](./media/app-insights-release-notes-vsix/FindMatch.png)
 ###- Nuova schermata per l'utente che non ha eseguito l'accesso nella finestra di ricerca
-La finestra di ricerca è stata modificata per consentire agli utenti di ricercare i dati nell'ambiente di produzione.
-![Finestra di ricerca](./media/app-insights-release-notes-vsix/SearchWindow.png)
+La finestra di ricerca è stata modificata per consentire agli utenti di ricercare i dati nell'ambiente di produzione. ![Finestra di ricerca](./media/app-insights-release-notes-vsix/SearchWindow.png)
 ###- L'utente può visualizzare tutti gli eventi di telemetria associati all'evento
-È stata aggiunta una nuova scheda accanto ai dettagli dell'evento contenente query predefinite per la visualizzazione di tutti i dati correlati all'evento di telemetria visualizzato dall'utente. Ad esempio: la richiesta include un campo denominato ID operazione e ogni evento associato alla richiesta avrà lo stesso ID operazione. In questo modo, se si è verificata un'eccezione durante l'elaborazione della richiesta, l'eccezione avrà lo stesso ID operazione della richiesta per facilitare la ricerca, ecc. L'utente che visualizza la richiesta potrà fare clic su "Tutti i dati di telemetria per questa operazione" per aprire una nuova scheda con i nuovi risultati della ricerca.
-![Elementi correlati](./media/app-insights-release-notes-vsix/RelatedItems.png)
+È stata aggiunta una nuova scheda accanto ai dettagli dell'evento contenente query predefinite per la visualizzazione di tutti i dati correlati all'evento di telemetria visualizzato dall'utente. Ad esempio: la richiesta include un campo denominato ID operazione e ogni evento associato alla richiesta avrà lo stesso ID operazione. In questo modo, se si è verificata un'eccezione durante l'elaborazione della richiesta, l'eccezione avrà lo stesso ID operazione della richiesta per facilitare la ricerca, ecc. L'utente che visualizza la richiesta potrà fare clic su "Tutti i dati di telemetria per questa operazione" per aprire una nuova scheda con i nuovi risultati della ricerca. ![Elementi correlati](./media/app-insights-release-notes-vsix/RelatedItems.png)
 ### - Aggiunta dell'opzione di passaggio alla schermata successiva/ritorno all'ultima schermata nella finestra di ricerca
-L'utente può ora passare alla schermata successiva o tornare a quella precedente dei risultati di ricerca.
-![Tornare alla schermata precedente](./media/app-insights-release-notes-vsix/GoBAck.png)
+L'utente può ora passare alla schermata successiva o tornare a quella precedente dei risultati di ricerca. ![Tornare alla schermata precedente](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##Versione 4.1
 Questa versione include numerose nuove funzionalità e miglioramenti per quelle esistenti. Per ottenere questa versione è necessario avere installato Update 1 nel computer.
@@ -155,4 +164,4 @@ Al *Connect();* 2015 [è stato annunciato](https://azure.microsoft.com/blog/deep
 
 Nelle versioni future dell'estensione Application Insights saranno introdotte nuove funzionalità per consentire un'esperienza maggiormente integrata tra HockeyApp e Visual Studio. Per ora è possibile iniziare a usare HockeyApp semplicemente aggiungendo il riferimento NuGet. Per altre informazioni, vedere la [documentazione](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

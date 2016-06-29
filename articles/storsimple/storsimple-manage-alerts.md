@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="06/09/2016"
+   ms.author="anbacker" />
 
 # Utilizzare il servizio StorSimple Manager per visualizzare e gestire gli avvisi di StorSimple.
 
@@ -254,4 +254,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

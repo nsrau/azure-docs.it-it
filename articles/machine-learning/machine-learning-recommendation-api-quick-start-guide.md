@@ -140,7 +140,7 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole)  |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
 | apiVersion | 1.0 |
 |||
@@ -189,7 +189,7 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
 | apiVersion | 1.0 |
 |||
@@ -302,12 +302,12 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 		<SessionId>11112222</SessionId>
 		<EventData>
 		<EventData>
-			<Name>Purchase</Name>
+			<Name>Purchase</Name> 
 			<PurchaseItems>
 			<PurchaseItems>
 				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
 				<Count>3</Count>
-		</PurchaseItems>
+			</PurchaseItems>
 		</PurchaseItems>
 		</EventData>
 		</EventData>
@@ -343,7 +343,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1\.0 |
 |||
@@ -419,7 +419,7 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 |	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
 |	apiVersion |	1\.0 |
 
@@ -504,7 +504,7 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni.<br>Lunghezza massima: 1024 caratteri |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
@@ -687,7 +687,7 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 | apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere l'intero tag. |
@@ -714,4 +714,4 @@ Il presente documento non fornisce all'utente alcun diritto legale rispetto a qu
 È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

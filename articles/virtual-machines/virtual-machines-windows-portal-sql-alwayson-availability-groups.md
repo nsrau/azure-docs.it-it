@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare i gruppi di disponibilità AlwaysOn con Azure Resource Manager | Microsoft Azure"
+	pageTitle="Configurare automaticamente il gruppo di disponibilità AlwaysOn in macchine virtuali di Azure con Resource Manager"
 	description="Creare un gruppo di disponibilità AlwaysOn con macchine virtuali di Azure in modalità Azure Resource Manager. Questa esercitazione usa principalmente l'interfaccia utente per creare automaticamente l'intera soluzione."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,20 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali in Azure Resource Manager (GUI)
+# Configurare automaticamente il gruppo di disponibilità AlwaysOn in macchine virtuali di Azure con Resource Manager
 
 > [AZURE.SELECTOR]
-- [Modello](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manuale](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: automatica](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: manuale](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
 Questa esercitazione end-to-end mostra come creare un gruppo di disponibilità di SQL Server con macchine virtuali di Gestione risorse di Azure. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
 
->[AZURE.NOTE] Nel portale di gestione di Azure è disponibile una nuova impostazione della raccolta per i gruppi di disponibilità AlwaysOn con un listener. In questo modo, tutto il necessario per i gruppi di disponibilità viene configurato automaticamente. Per altre informazioni, vedere l'[offerta SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure classico](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 Al termine dell'esercitazione, la soluzione per gruppi di continuità SQL Server in Azure sarà composta dagli elementi seguenti:
 
@@ -50,7 +51,7 @@ Nell’esercitazione si presuppongono le condizioni seguenti:
 
 - Si dispone già di un account Azure. In caso contrario, [iscriversi per ottenere un account di valutazione](http://azure.microsoft.com/pricing/free-trial/).
 
-- Si conosce già la modalità di provisioning di una macchina virtuale SQL Server dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
+- Si conosce già la modalità di provisioning di una macchina virtuale SQL Server dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica. Per altre informazioni, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 - Si ha già una conoscenza approfondita dei gruppi di disponibilità. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -66,19 +67,19 @@ In questa esercitazione verrà usato il portale di Azure per i seguenti scopi:
 
 - Connettersi a uno dei controller di dominio e quindi a uno dei server SQL
 
-## Effettuare il provisioning di un gruppo di disponibilità dalla raccolta con il modello di distribuzione Resource Manager
+## Effettuare il provisioning del cluster dalla raccolta
 
 Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare il modello:
 
 1. 	Accedere al portale di Azure con il proprio account.
 1.	Nel portale di Azure fare clic su **+Nuovo**. Nel portale si aprirà il pannello Nuovo.
 1.	Nel pannello Nuovo cercare **AlwaysOn**. ![Individuare il modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	Nei risultati della ricerca individuare il **Cluster SQL Server AlwaysOn**. ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	Nei risultati della ricerca trovare **SQL Server AlwaysOn Cluster**. ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	In **Selezionare un modello di distribuzione** scegliere **Resource Manager**.
 
 ### Nozioni di base
 
-Fare clic su **Nozioni di base** e configurare quanto segue:
+Fare clic su **Informazioni di base** e configurare quanto segue:
 
 - **Nome utente amministratore**: account utente con autorizzazioni di amministratore di dominio. È anche membro del ruolo del server predefinito sysadmin di SQL Server in entrambe le istanze di SQL Server. Per questa esercitazione usare **DomainAdmin**.
 
@@ -90,7 +91,7 @@ Fare clic su **Nozioni di base** e configurare quanto segue:
 
 - **Località**: l'area di Azure in cui verranno create le risorse per questa esercitazione. Selezionare un'area di Azure per ospitare l'infrastruttura.
 
-Il pannello **Nozioni di base** avrà un aspetto simile al seguente:
+Il pannello **Informazioni di base** avrà un aspetto simile al seguente:
 
 ![Nozioni di base](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
@@ -110,7 +111,7 @@ Nel pannello **Impostazioni di dominio e di rete** rivedere i valori predefiniti
 
 - **Nome subnet di SQL Server**: il nome della parte della rete virtuale che ospita i server SQL Server e il controllo di condivisione file. Per questa esercitazione usare **subnet-2**. Questa subnet userà il prefisso dell'indirizzo **10.0.1.0/26**.
 
-Per altre informazioni sulle reti virtuali in Azure, vedere l'articolo sulla [panoramica delle reti virtuali](../virtual-network/virtual-networks-overview.md).
+Per altre informazioni sulle reti virtuali in Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
 Il pannello **Impostazioni di dominio e di rete** ha un aspetto simile al seguente:
 
@@ -140,9 +141,9 @@ Se necessario, questi valori possono essere modificati. Per questa esercitazione
 
 In **Dimensioni macchina virtuale, impostazioni di archiviazione** scegliere la dimensione della macchina virtuale di SQL Server e rivedere le altre impostazioni.
 
-- **Dimensioni macchina virtuale di SQL Server**: indica la dimensione della macchina virtuale di Azure per entrambi i server SQL. Scegliere la dimensione della macchina virtuale più adatta al proprio carico di lavoro. Se si compila l'ambiente per questa esercitazione, usare **DS2**. Per i carichi di lavoro di produzione, scegliere una dimensione della macchina virtuale in grado di supportare il carico. Molti carichi di lavoro di produzione richiedono dimensioni **DS4** o superiori. Il modello creerà due macchine virtuali di questa dimensione e installerà SQL Server su ciascuna di esse. Per altre informazioni, vedere l'articolo sulle [dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md).
+- **Dimensioni macchina virtuale di SQL Server**: indica la dimensione della macchina virtuale di Azure per entrambi i server SQL. Scegliere la dimensione della macchina virtuale più adatta al proprio carico di lavoro. Se si compila l'ambiente per questa esercitazione, usare **DS2**. Per i carichi di lavoro di produzione, scegliere una dimensione della macchina virtuale in grado di supportare il carico. Molti carichi di lavoro di produzione richiedono dimensioni **DS4** o superiori. Il modello creerà due macchine virtuali di questa dimensione e installerà SQL Server su ciascuna di esse. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-linux-sizes.md).
 
->[AZURE.NOTE]Azure installerà SQL Server Enterprise Edition. Il costo dipende dalla versione e dalla dimensione della macchina virtuale. Per informazioni dettagliate sui costi attuali, vedere l'articolo sui [prezzi delle macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure installerà SQL Server Enterprise Edition. Il costo dipende dalla versione e dalla dimensione della macchina virtuale. Per informazioni dettagliate sui costi attuali, vedere [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Dimensioni macchina virtuale del controller di dominio**: indica la dimensione della macchina virtuale per i controller di dominio. Per questa esercitazione usare **D2**.
 
@@ -154,7 +155,7 @@ In **Dimensioni macchina virtuale, impostazioni di archiviazione** scegliere la 
 
 - **Dimensioni del disco dati di SQL Server**: indica la dimensione del disco dati di SQL Server espressa in TB. Specificare un numero compreso tra 1 e 4. Questa è la dimensione del disco dati che verrà associata a ciascun server SQL. Per questa esercitazione usare **1**.
 
-- **Ottimizzazione dell'archiviazione**: specifica le impostazioni di configurazione dell'archiviazione specifiche per le macchine virtuali di SQL Server in base al tipo di carico di lavoro. Tutti i server SQL di questo scenario usano account di archiviazione Premium con la cache dell'host del disco dati di Azure impostata su Sola lettura. È inoltre possibile ottimizzare le impostazioni di SQL Server in base al carico di lavoro scegliendo una delle tre opzioni seguenti:
+- **Ottimizzazione dell'archiviazione**: definisce le impostazioni di configurazione dell'archiviazione specifiche per le macchine virtuali di SQL Server in base al tipo di carico di lavoro. Tutti i server SQL di questo scenario usano account di archiviazione Premium con la cache dell'host del disco dati di Azure impostata su Sola lettura. È inoltre possibile ottimizzare le impostazioni di SQL Server in base al carico di lavoro scegliendo una delle tre opzioni seguenti:
 
     - **Carico di lavoro generale**: non definisce impostazioni di configurazione specifiche.
 
@@ -186,7 +187,7 @@ Per altre informazioni sullo spazio di archiviazione e sui pool di archiviazione
 
 - [Windows Server Backup e pool di archiviazione](http://technet.microsoft.com/library/dn390929.aspx)
 
-Per altre informazioni sulle procedure consigliate per la configurazione di SQL Server, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md)
+Per altre informazioni sulle procedure consigliate per la configurazione di SQL Server, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 
 ###Impostazioni di SQL Server
@@ -256,4 +257,4 @@ A questo punto si è connessi al controller di dominio primario. Per connettersi
 
 A questo punto si è connessi al server SQL mediante RDP. È possibile aprire SQL Server Management Studio, connettersi all'istanza predefinita di SQL Server e verificare che il gruppo di disponibilità sia configurato.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

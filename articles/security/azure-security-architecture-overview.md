@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
 
 # Panoramica dell'architettura della sicurezza
@@ -24,6 +24,6 @@ In questa sezione sono disponibili articoli sull'architettura della sicurezza di
 
 - [Classificazione dei dati in preparazione al cloud](azure-security-data-classification.md)
 - [Architettura delle applicazioni in Microsoft Azure](security-application-architecture-on-azure.md)
-- [Procedure consigliate e modelli per la sicurezza di Azure](azure-security-best-practices-and-patterns.md)
+- [Procedure consigliate e modelli per la sicurezza di Azure](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

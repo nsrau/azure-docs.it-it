@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="06/10/2016" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
@@ -49,8 +49,8 @@ Da sito VMM ad Azure | Supportato | Supportato | Supportato
 Da Azure a sito VMM | Non supportato | Supportato | Non supportato 
 Da sito Hyper-V ad Azure | Supportato | Supportato | Supportato
 Da Azure a sito Hyper-V | Non supportato | Supportato | Non supportato
-Da sito VMware ad Azure | Supportato (scenario avanzato)<br/><br/> Non supportato (scenario legacy) |In questo scenario viene utilizzata la replica continua per cui non esiste alcuna distinzione tra failover pianificato e non pianificato. Si seleziona **Failover** | ND
-Da server fisico ad Azure | Non supportato | In questo scenario viene utilizzata la replica continua per cui non esiste alcuna distinzione tra failover pianificato e non pianificato. Si seleziona **Failover** | ND
+Da sito VMware ad Azure | Supportato (scenario avanzato)<br/><br/> Non supportato (scenario legacy) |Non supportato | Supportato
+Da server fisico ad Azure | Supportato (scenario avanzato)<br/><br/> Non supportato (scenario legacy) | Non supportato | Supportato
 
 ## Failover e failback
 
@@ -256,4 +256,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 	>[AZURE.NOTE] Se si annulla il processo di failback mentre durante la fase di sincronizzazione dei dati, la macchina virtuale locale verrà corrotta. Questo avviene perché la sincronizzazione dei dati copia i dati più recenti dai dischi della macchina virtuale di Azure sui dischi dei dati locali e, fino al completamento della sincronizzazione, il disco dati potrebbe non trovarsi in uno stato coerente. La macchina virtuale locale potrebbe non avviarsi dopo aver annullato la sincronizzazione dei dati. Riattivare il failover per completare la sincronizzazione dei dati.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

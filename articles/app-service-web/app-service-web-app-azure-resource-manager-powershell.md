@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/14/2016"
 	ms.author="aelnably"/>
 
 # Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure#
@@ -42,11 +42,22 @@ Esempio di uso del cmdlet:
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### Creare un piano di servizio app in un ambiente del servizio app ###
+Per creare un nuovo piano di servizio app in un ambiente del servizio app, è possibile utilizzare lo stesso comando **New-AzureRmAppServicePlan** con parametri aggiuntivi per specificare il nome dell'ambiente del servizio app e il nome del gruppo di risorse a cui appartiene.
+
+Esempio di uso del cmdlet:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+Per altre informazioni sull'ambiente del servizio app, vedere [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md).
+
 ### Visualizzare un elenco dei piani di servizio app esistenti ###
 
 Per visualizzare un elenco dei piani di servizio app esistenti, usare il cmdlet **Get-AzureRmAppServicePlan**.
 
-Per visualizzare un elenco di tutti i piani di servizio app della propria sottoscrizione, usare **Get-AzureRmAppServicePlan**.
+Per visualizzare un elenco di tutti i piani di servizio app della propria sottoscrizione, utilizzare:
+
+    Get-AzureRmAppServicePlan
 
 Per visualizzare un elenco di tutti i piani di servizio app di uno specifico gruppo di risorse, usare:
 
@@ -204,4 +215,4 @@ Per informazioni sulla gestione dei certificati delle app Web, vedere l'articolo
 - Per informazioni sulla gestione dei certificati SSL del servizio app con PowerShell, vedere l'articolo relativo all'[associazione di certificati SSL con PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 - Per l'elenco completo dei cmdlet di PowerShell basati su Azure Resource Manager per le app Web di Azure, vedere le [informazioni di riferimento](https://msdn.microsoft.com/library/mt619237.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

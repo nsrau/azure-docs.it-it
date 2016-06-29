@@ -130,8 +130,8 @@ La lingua di visualizzazione è indipendente dalla lingua impostata tramite l'op
 
 È possibile utilizzare HTTP o HTTPS per connettersi tramite la comunicazione remota di Windows PowerShell. Utilizzare le istruzioni nelle esercitazioni seguenti:
 
-- [Connessione remota tramite HTTP](storsimple-remote-connect.md#connect-through-http)
-- [Connessione remota tramite HTTPS](storsimple-remote-connect.md#connect-through-https)
+- [Connessione tramite HTTP](storsimple-remote-connect.md#connect-through-http)
+- [Connessione tramite HTTPS](storsimple-remote-connect.md#connect-through-https)
 
 ## Considerazioni sulla sicurezza di connessione
 
@@ -175,7 +175,7 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 
 - Per ottenere la guida in linea per tutti i cmdlet, utilizzare il cmdlet precedente con il parametro `-Online`: `Get-Help <cmdlet-name> -Online`
 
-- Per la guida completa, è possibile utilizzare il parametro –Full e, per gli esempi, il parametro `–Examples`.
+- Per la Guida completa, è possibile usare il parametro `–Full` e, per gli esempi, il parametro `–Examples`.
 
 #### Per aggiornare la guida:
 
@@ -197,4 +197,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

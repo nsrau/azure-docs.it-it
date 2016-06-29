@@ -81,14 +81,12 @@ Le funzionalità indicate di seguito non sono supportate per l'anteprima pubblic
 
 Provider di risorse | Funzionalità
 ---------- | ------------
-Calcolo | Diagnostica di avvio.
 Calcolo | Dischi di macchine virtuali non associati.
 Calcolo | Immagini di macchine virtuali.
 Rete | IP riservati non associati (se non collegati a una VM). Sono supportati gli IP riservati collegati alle VM.
 Rete | Gruppi di sicurezza di rete non associati (se non collegati a una rete virtuale o a un'interfaccia di rete). Sono supportati NSG a cui fanno riferimento reti virtuali.
 Rete | ACL endpoint.
 Rete | Gateway di rete virtuale (da sito a sito, Azure ExpressRoute, da punto a sito).
-Archiviazione | Account di archiviazione.
 
 ### Configurazioni non supportate
 
@@ -103,7 +101,6 @@ Calcolo | Macchine virtuali con avvisi e criteri di ridimensionamento automatico
 Calcolo | Estensioni XML della VM (Visual Studio Debugger, Web Deploy e Remote Debugging) | Questa operazione non è supportata. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione.
 Calcolo | Servizi cloud che includono ruoli Web/di lavoro | Non supportato attualmente.
 Rete | Reti virtuali contenenti macchine virtuali e ruoli Web/di lavoro | Non supportato attualmente.
-Rete | Subnet contenenti spazi nel nome | Non supportato attualmente.
 Servizio app di Azure | Rete virtuale contenente ambienti del servizio app | Non supportato attualmente.
 HDInsight di Azure | Rete virtuale contenente servizi HDInsight | Non supportato attualmente.
 Servizi del ciclo di vita Microsoft Dynamics | Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services | Non supportato attualmente.
@@ -139,7 +136,7 @@ La piattaforma eseguirà sempre prima di tutto un'analisi dei dati in background
 
 La piattaforma avvierà quindi la migrazione dei metadati dal modello di distribuzione classica ad Azure Resource Manager per le risorse in fase di migrazione.
 
-Al termine dell'operazione di preparazione, sarà possibile visualizzare le risorse nel modello classico e nel modello di Resource Manager. Per ogni servizio cloud nel modello di distribuzione classica verrà creato un nome di gruppo di risorse che ha come modello `cloud-service-name>-migrated`.
+Al termine dell'operazione di preparazione, sarà possibile visualizzare le risorse nel modello classico e nel modello di Resource Manager. Per ogni servizio cloud nel modello di distribuzione classica verrà creato un nome di gruppo di risorse nel formato `cloud-service-name>-migrated`.
 
 ### Verifica (manuale o tramite script)
 
@@ -161,7 +158,7 @@ L'interruzione è un passaggio facoltativo che consente di annullare le modifich
 
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non saranno più mostrate nel modello classico e saranno disponibili solo nel modello di distribuzione di Resource Manager. Questo significa anche che le risorse migrate possono essere gestite solo nel nuovo portale.
 
-Se questa operazione ha esito negativo, è consigliabile riprovare a eseguirla un paio di volte. Se l'esito continua a essere negativo, creare un ticket di supporto o creare un post con il tag ClassicIaaSMigration nel nostro [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows).
+Se questa operazione ha esito negativo, è consigliabile riprovare a eseguirla un paio di volte. Se l'esito continua a essere negativo, creare un ticket di supporto o creare un post con il tag ClassicIaaSMigration nel [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows).
 
 ## Domande frequenti
 
@@ -171,7 +168,7 @@ No. Le VM (classiche) sono servizi completamente supportati con disponibilità g
 
 **Che cosa accade alle macchine virtuali se non è prevista la migrazione a breve?**
 
-Le API classiche e il modello di risorse classico non saranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È quindi consigliabile esaminare [alcuni miglioramenti](virtual-machines-windows-compare-deployment-models.md) apportati come parte di IaaS in Resource Manager.
+Le API classiche e il modello di risorse classico non saranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È quindi consigliabile esaminare [alcuni dei miglioramenti](virtual-machines-windows-compare-deployment-models.md) apportati come parte di IaaS in Resource Manager.
 
 **Qual è l'impatto di questo piano di migrazione per gli strumenti esistenti?**
 
@@ -187,11 +184,11 @@ Dipende dal numero di risorse sottoposte a migrazione. Per le distribuzioni di d
 
 **È possibile eseguire il rollback della migrazione in caso di esito negativo dell'operazione di commit?**
 
-Non è possibile interrompere la migrazione in caso di esito negativo dell'operazione di commit. Tutte le operazioni di migrazione, inclusa l'operazione Commit, sono idempotenti. È quindi consigliabile provare a ripetere l'operazione dopo breve tempo. Se l'errore persiste, creare un ticket di supporto o creare un post con il tag ClassicIaaSMigration nel nostro [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows).
+Non è possibile interrompere la migrazione in caso di esito negativo dell'operazione di commit. Tutte le operazioni di migrazione, inclusa l'operazione Commit, sono idempotenti. È quindi consigliabile provare a ripetere l'operazione dopo breve tempo. Se l'errore persiste, creare un ticket di supporto o creare un post con il tag ClassicIaaSMigration nel [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows).
 
 **In caso si debba usare le risorse IaaS in Resource Manager, è necessario acquistare un altro circuito ExpressRoute?**
 
-No. È stata recentemente abilitata la [coesistenza di un circuito ExpressRoute nel modello classico e nel modello di Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). Se si dispone già di un circuito ExpressRoute, non è necessario acquistare un nuovo.
+No. È stata recentemente abilitata la [coesistenza di un circuito ExpressRoute tra il modello di distribuzione classica e il modello di distribuzione Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). Se si dispone già di un circuito ExpressRoute, non è necessario acquistare un nuovo.
 
 **Che cosa succede se sono stati configurati criteri di controllo degli accessi in base al ruolo per le risorse IaaS classiche?**
 
@@ -211,11 +208,11 @@ Si consiglia di interrompere la migrazione e quindi inviare una richiesta di sup
 
 **Come si segnala un problema?**
 
-Pubblicare i problemi e le domande sulla migrazione sul nostro [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows) con la parola chiave ClassicIaaSMigration. Si consiglia di pubblicare tutte le eventuali domande in questo forum. Se si dispone di un contratto di supporto, è possibile anche registrare un ticket di supporto.
+Pubblicare i problemi e le domande sulla migrazione nel [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WAVirtualMachinesforWindows) con la parola chiave ClassicIaaSMigration. Si consiglia di pubblicare tutte le eventuali domande in questo forum. Se si dispone di un contratto di supporto, è possibile anche registrare un ticket di supporto.
 
 **Che cosa succede se non si vogliono usare i nomi scelti dalla piattaforma per le risorse durante la migrazione?**
 
-Tutti i nomi di risorse specificati in modo esplicito nel modello di distribuzione classica verranno mantenuti durante la migrazione. In alcuni casi verranno create nuove risorse. Ad esempio, verrà creata un'interfaccia di rete per ogni VM. Non è attualmente supportata la possibilità di controllare i nomi delle nuove risorse create durante la migrazione. Registrare i voti per questa funzionalità nel [forum dei commenti di Azure](http://feedback.azure.com).
+Tutti i nomi di risorse specificati in modo esplicito nel modello di distribuzione classica verranno mantenuti durante la migrazione. In alcuni casi verranno create nuove risorse. Ad esempio, verrà creata un'interfaccia di rete per ogni VM. Non è attualmente supportata la possibilità di controllare i nomi delle nuove risorse create durante la migrazione. Registrare i voti per questa funzionalità nel [forum di commenti e suggerimenti su Azure](http://feedback.azure.com).
 
 
 ## Passaggi successivi
@@ -226,4 +223,4 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 - [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -37,6 +37,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+<a id="connectsecurecluster"></a>
 ## Connettersi a un cluster sicuro mediante PowerShell
 
 Eseguire il comando di PowerShell seguente per connettersi a un cluster sicuro. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
@@ -60,7 +61,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ## Connettersi a un cluster sicuro mediante le API FabricClient
-Il [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN sia mostrato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo consente l'autenticazione reciproca tra il client e il nodo del cluster.
+Il [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) seguente. I nodi del cluster devono disporre di certificati validi il cui nome comune o nome DNS nella rete SAN venga visualizzato nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata su [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo consente l'autenticazione reciproca tra il client e il nodo del cluster.
 
 ```csharp
 string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
@@ -108,4 +109,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 - [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

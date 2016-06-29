@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/09/2016"
     ms.author="awills"/>
 
 # Annotazioni sulla versione in Application Insights
 
-Le annotazioni sulla versione nei grafici di [Esplora metriche](app-insights-metrics-explorer.md) indicano dove è stata distribuita una nuova build e consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere create automaticamente dal [sistema di generazione di Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/build/build-your-app-vs) ed è anche possibile [crearle da PowerShell](#create-annotations-from-powershell).
+Le annotazioni sulla versione nei grafici di [Esplora metriche](app-insights-metrics-explorer.md) indicano dove è stata distribuita una nuova build e consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere create automaticamente dal [sistema di compilazione di Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/build/build-your-app-vs) ed è anche possibile [crearle da PowerShell](#create-annotations-from-powershell).
 
 ![Esempi di annotazioni con correlazione visibile con il tempo di risposta del server](./media/app-insights-annotations/00.png)
 
@@ -69,13 +69,13 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
 5. Infine fare clic su **Salva** per salvare la definizione della versione.
 
-## Creazione di annotazioni da PowerShell
+## Creare annotazioni da PowerShell
 
-È altresì possibile creare le annotazioni da qualsiasi processo desiderato (senza usare VS Team System).
+È anche possibile creare le annotazioni da qualsiasi processo desiderato, senza usare VS Team System.
 
 Ottenere lo [script di Powershell da GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
-Usarlo nel seguente modo:
+Usarlo nel modo seguente:
 
     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
@@ -96,4 +96,4 @@ Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versi
 
 ![Fare clic su un marcatore di annotazione della versione.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Livelli di coerenza in DocumentDB | Microsoft Azure"
-	description="Esaminare il modo in cui DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza."
+	description="DocumentDB ha quattro livelli di coerenza per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza."
 	keywords="coerenza finale, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	authors="mimig1"
@@ -14,53 +14,80 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="06/15/2016"
 	ms.author="mimig"/>
 
-# Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB
+# Livelli di coerenza in DocumentDB
 
-Gli sviluppatori devono spesso far fronte alla sfida posta dalla scelta tra due estremi: coerenza assoluta e coerenza finale. In realtà vi sono diversi stadi intermedi di coerenza tra questi due estremi. Nella maggior parte degli scenari reali, le applicazioni traggono vantaggio dai compromessi granulari tra coerenza, disponibilità e latenza. DocumentDB offre quattro livelli di coerenza ben definiti, a cui sono associati dei livelli di prestazioni. Ciò consente agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza.
+DocumentDB è stato progettato da zero pensando alla distribuzione globale. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Attualmente DocumentDB offre quattro livelli di coerenza: assoluta, con obsolescenza associata, sessione e finale. Oltre ai modelli di **coerenza assoluta** e **finale** offerti dai database NoSQL, DocumentDB offre anche due modelli di coerenza attentamente codificati e operativi: **con obsolescenza associata** e **sessione** e ha convalidato la loro utilità in casi reali. Questi quattro livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza.
 
-Tutte le risorse di sistema, inclusi gli account di database, i database, le raccolte, gli utenti e le autorizzazioni, sono sempre fortemente coerenti per letture e query. I livelli di coerenza si applicano unicamente alle risorse definite dall'utente. Per query e operazioni di lettura sulle risorse definite dall'utente, tra cui documenti, allegati, stored procedure, trigger e funzioni definite dall'utente, DocumentDB offre quattro livelli di coerenza distinti:
+## Ambito di coerenza
 
- - Coerenza assoluta
- - Coerenza obsolescenza limitata
- - Coerenza di sessione
- - Coerenza finale
+L'ambito di granularità della coerenza è limitato alla richiesta del singolo utente. Una richiesta di scrittura può corrispondere a una transazione di inserimento, sostituzione, upsert o eliminazione (con o senza l'esecuzione di un trigger associato di tipo pre o post). Oppure una richiesta di scrittura può corrispondere all'esecuzione transazionale di una stored procedure JavaScript che opera su più documenti all'interno di una partizione. Come per le operazioni di scrittura, anche per una transazione di lettura/query l'ambito equivale alla richiesta del singolo utente. Potrebbe essere chiesto all'utente di scorrere le pagine di un ampio set di risultati, che occupa varie partizioni, ma ciascuna transazione di lettura ha come ambito una singola pagina ed è servita dall'interno di una singola partizione.
 
-Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza, disponibilità e prestazioni e sono supportati da livelli di prestazioni prevedibili, che garantiscono risultati coerenti per l'applicazione.
+## Livelli di coerenza
 
-## Livelli di coerenza per i database
+È possibile configurare un livello di coerenza predefinito per l'account di database che si applica a tutte le raccolte (in tutti i database) nel proprio account di database. Per impostazione predefinita, tutte le letture e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account di database. Tuttavia, è possibile abbassare il livello di coerenza di una determinata richiesta di lettura/query specificando l'intestazione di richiesta [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx). Esistono quattro tipi di livelli di coerenza supportati dal protocollo di replica di DocumentDB che forniscono un chiaro compromesso tra garanzie di coerenza specifiche e prestazioni, come descritto di seguito.
 
-È possibile configurare un livello di coerenza predefinito per l'account di database che si applica a tutte le raccolte (in tutti i database) nel proprio account di database. Per impostazione predefinita, tutte le letture e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account di database. Tuttavia, è possibile abbassare il livello di coerenza di una richiesta di lettura/query specifica specificando l'intestazione della richiesta [x-ms-coerenza-level]. Il protocollo di replica di DocumentDB supporta quattro tipi di livelli di coerenza, descritti in breve qui di seguito.
+![DocumentDB offre numerosi modelli di coerenza, ampi e ben definiti, tra cui scegliere][1]
 
->[AZURE.NOTE] L'override del livello di coerenza predefinito per le singole raccolte potrebbe essere supportato in una versione futura.
+**Assoluta**:
 
-**Sicuro**: la coerenza assoluta garantisce che un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dalla maggioranza delle repliche secondarie oppure viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
+- la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un documento. 
+- la coerenza assoluta garantisce che una scrittura sia visibile solo dopo che ne è stato eseguito il commit in modo permanente dal quorum di maggioranza delle repliche. Una scrittura può ottenere o il commit sincrono e permanente da parte della replica primaria e della maggioranza delle repliche secondarie o l'interruzione. Una lettura viene sempre confermata dalla quorum di maggioranza per le letture: un client non potrà mai vedere una scrittura parziale o di cui non sia stato eseguito il commit e leggerà sempre la più recente scrittura confermata. 
+- Gli account DocumentDB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account DocumentDB. 
+- Il costo di un'operazione di lettura (in termini di [unità richiesta](documentdb-request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con obsolescenza associata.
+ 
 
-La coerenza assoluta offre la garanzia totale sulla coerenza dei dati, ma il livello più basso di prestazioni in lettura e scrittura.
+**Obsolescenza associata**:
 
-**Obsolescenza associata**: la coerenza con obsolescenza associata garantisce l’ordine totale di propagazione delle operazioni di scrittura con la possibilità di leggere il ritardo rispetto alle scritture in corrispondenza di gran parte dei prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di K). Con l’obsolescenza associata è possibile impostare una soglia configurabile di obsolescenza (come i prefissi o l'ora) per le letture di compromesso tra latenza e coerenza nello stato continuo.
+- La coerenza con obsolescenza associata garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un documento o all'intervallo di tempo *t*. 
+- Perciò, quando si sceglie l'obsolescenza associata, tale “obsolescenza” può essere configurata in due modi: 
+    - Numero di versioni *K* del documento di cui le letture possono essere in ritardo rispetto alle scritture
+    - Intervallo di tempo *t* 
+- L'obsolescenza associata offre un ordine globale totale tranne all'interno della "finestra di obsolescenza". Si noti che la garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di obsolescenza". 
+- L'obsolescenza associata offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare l'obsolescenza associata per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza. 
+- Gli account DocumentDB configurati con la coerenza con obsolescenza associata possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB. 
+- Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
-L'obsolescenza associata offre un comportamento più prevedibile per la coerenza delle letture, con latenza minima per le scritture. Poiché le letture vengono confermate da un quorum di maggioranza, la latenza di lettura non è quella minima offerta dal sistema. L’Obsolescenza associata è un'opzione per gli scenari in cui si desidera coerenza assoluta, ma laddove la coerenza assoluta non è pratica. Se si configura l'“intervallo di obsolescenza” per far sì che la coerenza obsolescenza associata sia arbitrariamente di dimensioni, preserverà comunque l'ordine globale totale delle scritture. Ciò fornisce una garanzia più elevata rispetto a quella di sessione o finale.
+**Sessione**:
 
->[AZURE.NOTE] L’obsolescenza vincolata garantisce solo le letture monotona esplicite richieste di lettura. La risposta del server visualizzati per le richieste di scrittura non offre garanzie obsolescenza vincolato.
+- a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con obsolescenza associata, la coerenza di "sessione" ha come ambito una sessione del client. 
+- La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW). 
+- La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura. 
+- Gli account DocumentDB configurati con la coerenza di sessione possono associare qualsiasi numero di aree di Azure con il proprio account DocumentDB. 
+- Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza di sessione è minore rispetto ai livelli assoluto e con obsolescenza associata, ma maggiore rispetto al livello finale
+ 
 
-**Sessione**: a differenza dei modelli di coerenza globale offerti dai livelli di coerenza obsolescenza sicuri e vincolati, la coerenza di "sessione" è progettata per una sessione client specifico. La coerenza di sessione è di solito sufficiente in quanto fornisce letture e scritture monotoniche garantite, oltre alla capacità di leggere le proprie scritture. Una richiesta di lettura per la coerenza di sessione viene rilasciata a fronte di una replica che può gestire la versione richiesta dal cliente (parte del cookie di sessione).
+**Finale**:
 
-La coerenza di sessione offre una coerenza prevedibile dei dati delle letture per una sessione, con latenza minima per le scritture. Anche la latenza delle letture è bassa, tranne in rari casi in cui la lettura viene gestita da una singola replica.
+- la coerenza finale garantisce che, in assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno. 
+- La coerenza finale è la forma più debole di coerenza, in cui un client può ottenere nel tempo valori obsoleti rispetto a quelli già visualizzati in passato.
+- La coerenza finale rappresenta il livello più debole, ma offre la latenza più bassa sia per le letture sia le per scritture.
+- Gli account DocumentDB che sono configurati con coerenza finale possono associare un numero qualsiasi di aree di Azure con il proprio account DocumentDB. 
+- Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza finale è il più basso fra tutti i livelli di coerenza di DocumentDB.
 
-**Eventual**: la coerenza finale è la coerenza più debole in cui un client possa ottenere i valori che sono meno recenti rispetto a quelli ha visto in precedenza, nel corso del tempo. In assenza di ulteriori scritture, alla fine le repliche all'interno del gruppo convergeranno. La richiesta di lettura viene gestita da qualsiasi indice secondario.
 
-La coerenza finale rappresenta il livello più debole, ma offre la latenza più bassa sia per le letture sia le per scritture.
+## Garanzie di coerenza
 
-### Modifica del livello di coerenza del database
+La tabella seguente descrive varie garanzie di coerenza che corrispondono ai quattro livelli di coerenza.
+
+| Garanzia | Assoluta | Obsolescenza associata | Session | Finale |
+|----------------------------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
+| **Ordine globale totale** | Sì | Sì, all'esterno della "finestra di obsolescenza" | No, ordine di “sessione” parziale | No |
+| **Garanzia di coerenza prefisso** | Sì | Sì | Sì | Sì |
+| **Letture monotone** | Sì | Sì, tra aree all'esterno della finestra di obsolescenza e all'interno di un'area per tutto il tempo. | Sì, per la sessione data | No |
+| **Scritture monotone** | Sì | Sì | Sì | Sì |
+| **Lettura delle proprie scritture** | Sì | Sì | Sì (nell'area della scrittura) | No |
+
+
+## Configurazione del livello di coerenza predefinito
 
 1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**.
 
 2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
-3. Nel pannello dell'account, se il pannello delle **impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
+3. Nel pannello dell'account, se il pannello **Tutte le impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
 
 4. Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
 
@@ -72,23 +99,27 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 ## Livelli di coerenza per le query
 
-Per impostazione predefinita, per le risorse definite dall'utente, il livello di coerenza delle query è identico a quello delle letture. Per impostazione predefinita, l'indice viene aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco quando un carico di lavoro presenta principalmente un'intensa attività di lettura.
+Per impostazione predefinita, per le risorse definite dall'utente, il livello di coerenza per le query è identico a quello delle letture. Per impostazione predefinita, l'indice viene aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco quando un carico di lavoro presenta principalmente un'intensa attività di lettura.
 
 Modalità di indicizzazione|	Letture|	Query  
 -------------|-------|---------
 Coerente (impostazione predefinita)|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|
 Differita|	Selezionare tra assoluta, con obsolescenza associata, sessione o finale|	Finale  
 
-Come per le richieste di lettura, è possibile abbassare il livello di coerenza per una particolare richiesta di query specificando l'intestazione di richiesta x-ms-consistency-level.
+Come per le richieste di lettura, è possibile abbassare il livello di coerenza per una particolare richiesta di query specificando l'intestazione di richiesta [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx).
 
 ## Passaggi successivi
 
 Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compromessi, è consigliabile che le risorse seguenti:
 
+-	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball (video). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 -	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball.[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garanzie di sessione per i dati replicati con tipizzazione debole e coerente.[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica delimitata obsolescenza (PBS) per pratiche quorum parziale.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!---HONumber=AcomDC_0601_2016-->
+
+[1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
+
+<!---HONumber=AcomDC_0615_2016-->

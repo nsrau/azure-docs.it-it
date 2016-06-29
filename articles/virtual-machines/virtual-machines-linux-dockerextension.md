@@ -22,7 +22,8 @@ Docker è una nota piattaforma di creazione dell'immagine e gestione di contenit
 
 - Per creare rapidamente il prototipo di un'app o se già si conosce e si usa Docker Machine, è possibile [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md) per distribuire host Docker in Azure.
 - Per una distribuzione del modello di base, è possibile usare l'estensione della VM Docker per le macchine virtuali di Azure. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso di base di ruolo, diagnostica e configurazione post-distribuzione.
-- È anche possibile [distribuire un cluster Docker Swarm completo su servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che sfruttano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
+- L'estensione della VM Docker supporta anche Docker Compose, che usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.  
+- È anche possibile [distribuire un cluster Docker Swarm completo in servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che sfruttano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
 
 Questo articolo illustra l'uso di modelli di Resource Manager per distribuire l'estensione di VM Docker in un ambiente personalizzato, di produzione, definito dall'utente.
 
@@ -34,9 +35,9 @@ Con Azure Resource Manager è possibile creare e distribuire modelli che definis
 
 ## Distribuire un modello con l'estensione di VM Docker:
 
-Per mostrare come distribuire una VM Ubuntu su cui è installata l'estensione di VM Docker, si userà un modello di avvio rapido esistente. È possibile visualizzare il modello qui: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) (Distribuzione semplice di una VM Ubuntu con Docker)
+Per mostrare come distribuire una VM Ubuntu su cui è installata l'estensione di VM Docker, si userà un modello di avvio rapido esistente. Per visualizzare il modello, vedere [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) (Distribuzione semplice di una VM Ubuntu con Docker).
 
-Distribuire il modello tramite l'interfaccia della riga di comando di Azure, specificando un nome per il nuovo gruppo di risorse (in questo caso `myDockerResourceGroup`) insieme al modello URI:
+Distribuire il modello tramite l'interfaccia della riga di comando di Azure specificando un nome per il nuovo gruppo di risorse, in questo caso `myDockerResourceGroup`, insieme all'URI del modello:
 
 ```
 azure group create --name myDockerResourceGroup --location "West US" \
@@ -90,7 +91,7 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Esaminare il contenitore in esecuzione sull'host tramite `docker ps`:
+Esaminare il contenitore in esecuzione nell'host usando `docker ps`:
 
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
@@ -101,7 +102,7 @@ Aprire un Web browser e immettere il nome DNS specificato durante la distribuzio
 
 ![Esecuzione di un contenitore ngnix](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-Per altre informazioni sull'estensione della VM Docker, ad esempio la configurazione della porta TCP del daemon Docker, la configurazione della sicurezza e la distribuzione di contenitori con Docker Compose, vedere l'articolo relativo all'[estensione della macchina virtuale Azure per il progetto GitHub Docker](https://github.com/Azure/azure-docker-extension/).
+Per altre informazioni sull'estensione della VM Docker, ad esempio la configurazione della porta TCP del daemon Docker, la configurazione della sicurezza e la distribuzione di contenitori con Docker Compose, vedere [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/) (Estensione della macchina virtuale di Azure per il progetto GitHub Docker).
 
 ## Riferimento al modello JSON per l'installazione dell'estensione di VM Docker
 
@@ -127,7 +128,7 @@ In questo esempio viene usato un modello di avvio rapido. È possibile usare i p
 }
 ```
 
-Per altre procedure dettagliate sull'uso di modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
+Per altre procedure dettagliate relative all'uso di modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 ## Passaggi successivi
 
@@ -135,6 +136,7 @@ Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 
 1. [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md)  
 2. [Uso dell'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

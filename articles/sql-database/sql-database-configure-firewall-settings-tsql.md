@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-firewall-configure.md)
 - [Portale di Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -56,7 +57,7 @@ Solo l'account di accesso dell'entità di livello server e l'amministratore di A
 
 ## Regole del firewall a livello di database
 
-Solo un utente del database con l'autorizzazione **CONTROL** sul database, ad esempio il proprietario del database, può creare una regola firewall a livello di database.
+Solo un utente del database con l'autorizzazione **CONTROL** sul database, ad esempio il proprietario del database, può creare una regola del firewall a livello di database.
 
 1. Dopo la creazione di un firewall a livello di server per l'indirizzo IP, avviare una finestra di query tramite il portale classico o tramite SQL Server Management Studio.
 2. Connettersi al database per cui si desidera creare una regola del firewall a livello di database.
@@ -74,6 +75,6 @@ Per altre informazioni su queste stored procedure, vedere [sp\_set\_database\_fi
 
 ## Passaggi successivi
 
-Per un'esercitazione sulla creazione di un database, vedere [Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open-source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Per un'esercitazione sulla creazione di un database, vedere [Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

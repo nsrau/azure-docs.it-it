@@ -16,63 +16,73 @@
    ms.date="05/13/2016"
    ms.author="patw;jroth;aglick"/>
 
-#Indicazioni tecniche sulla resilienza di Azure - Ripristino dopo un'interruzione di servizio di un'area di Azure
+#Materiale sussidiario sulla resilienza di Azure: ripristino dopo un'interruzione di servizio di un'area
 
-Dal punto di vista fisico e logico, Azure è suddiviso in unità chiamate aree. Un'area è costituita da uno o più data center che si trovano in posizioni molto vicine. Al momento della stesura di questo articolo, Azure ha ventiquattro aree nel mondo. In rari casi è possibile che le strutture di un'intera area diventino inaccessibili, ad esempio a causa di errori di rete, oppure vadano completamente perse, ad esempio a causa di una calamità naturale. Questa sezione descrive le funzionalità di Azure per la creazione di applicazioni distribuite tra aree. Le aree sono progettate per ridurre al minimo la possibilità che un errore che si verifica in un'area possa interessarne altre.
+Dal punto di vista fisico e logico, Azure è suddiviso in unità chiamate aree. Un'area è costituita da uno o più data center che si trovano in posizioni molto vicine. Al momento della stesura di questo articolo, Azure ha ventiquattro aree nel mondo.
+
+In rari casi è possibile che le strutture di un'intera area diventino inaccessibili, ad esempio a causa di errori di rete. È anche possibile che le strutture vadano completamente perse, ad esempio a causa di una calamità naturale. Questa sezione descrive le funzionalità di Azure per la creazione di applicazioni distribuite tra aree. Questa distribuzione riduce al minimo la possibilità che un errore che si verifica in un'area possa interessarne altre.
 
 ##Servizi cloud
 
-###Gestione delle risorse
-La distribuzione di istanze di calcolo tra aree viene eseguita creando un servizio cloud separato in ogni area di destinazione e pubblicando il pacchetto di distribuzione in ogni servizio cloud. Si noti tuttavia che la distribuzione del traffico tra i servizi cloud in diverse aree deve essere implementata dallo sviluppatore dell'applicazione o con un servizio di gestione del traffico.
+###Resource management
 
-Determinare il numero di istanze del ruolo di riserva da distribuire in anticipo per il ripristino di emergenza è un aspetto importante della pianificazione della capacità. La presenza di una distribuzione secondaria completa assicura che la capacità sia già disponibile quando necessario; i costi tuttavia raddoppiano. Un modello comune consiste nel disporre di una piccola distribuzione secondaria sufficiente a eseguire i servizi critici. È consigliabile creare almeno una piccola distribuzione secondaria per la capacità di riserva e per verificare la configurazione dell'ambiente secondario.
+È possibile distribuire le istanze di calcolo tra aree creando un servizio cloud separato in ogni area di destinazione e quindi pubblicando il pacchetto di distribuzione in ogni servizio cloud. Si noti tuttavia che la distribuzione del traffico tra i servizi cloud in diverse aree deve essere implementata dallo sviluppatore dell'applicazione o con un servizio di gestione del traffico.
+
+Determinare il numero di istanze del ruolo di riserva da distribuire in anticipo per il ripristino di emergenza è un aspetto importante della pianificazione della capacità. La presenza di una distribuzione secondaria completa assicura che la capacità sia già disponibile quando necessario; i costi tuttavia raddoppiano. Un modello comune consiste nell'avere una piccola distribuzione secondaria sufficiente a eseguire i servizi critici. Questa piccola distribuzione secondaria è un'opzione consigliabile, sia per la capacità di riserva, sia per verificare la configurazione dell'ambiente secondario.
 
 >[AZURE.NOTE]La quota di sottoscrizione non è una garanzia di capacità. La quota è semplicemente un limite di credito. Per garantire la capacità è necessario definire il numero di ruoli nel modello del servizio e distribuire i ruoli.
 
-###Bilanciamento del carico.
+###Bilanciamento del carico
+
 Per bilanciare il carico del traffico tra le aree è necessario usare una soluzione di gestione del traffico. Azure offre [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/). È anche possibile usufruire di servizi di terze parti che offrono funzionalità di gestione del traffico simili.
 
 ###Strategie
-Sono disponibili molte strategie alternative per implementare il calcolo distribuito in aree diverse. Queste strategie devono essere adattate agli specifici requisiti aziendali e ai casi di ciascuna applicazione. Gli approcci possono essere in generale suddivisi in 3 categorie:
+
+Sono disponibili molte strategie alternative per implementare il calcolo distribuito in aree diverse. Queste strategie devono essere adattate agli specifici requisiti aziendali e ai casi di ciascuna applicazione. Gli approcci possono essere in generale suddivisi nelle categorie seguenti:
 
   * __Ridistribuire in caso di emergenza__: in questo approccio, l'applicazione viene ridistribuita da zero al momento dell'emergenza. Questo approccio è adatto per applicazioni non critiche che non richiedono un tempo di ripristino garantito.
 
   * __Warm Spare (attiva/passiva)__: viene creato un servizio ospitato secondario in un'area alternativa e i ruoli vengono distribuiti per garantire la capacità minima; i ruoli non ricevono tuttavia il traffico di produzione. Questo approccio è utile per le applicazioni che non sono state progettate per distribuire il traffico tra le aree.
 
-  * __Riserva a caldo (attiva/attiva)__: l'applicazione è progettata per ricevere il carico di produzione in più aree. I servizi cloud di ogni area possono essere configurati per una capacità superiore a quella richiesta per scopi di ripristino di emergenza. In alternativa è possibile aumentare il numero di istanze dei servizi cloud in base alle esigenze al momento di un'emergenza e di un failover. Questo approccio richiede un investimento sostanziale nella progettazione dell'applicazione, ma presenta vantaggi significativi inclusi tempo di ripristino garantito e ridotto, test continuo di tutti i percorsi di ripristino e uso efficiente della capacità.
+  * __Riserva a caldo (attiva/attiva)__: l'applicazione è progettata per ricevere il carico di produzione in più aree. I servizi cloud di ogni area possono essere configurati per una capacità superiore a quella richiesta per scopi di ripristino di emergenza. In alternativa è possibile aumentare il numero di istanze dei servizi cloud in base alle esigenze al momento di un'emergenza e di un failover. Questo approccio richiede un investimento sostanziale nella progettazione dell'applicazione, ma presenta vantaggi significativi. I vantaggi includono tempo di ripristino garantito e ridotto, test continuo di tutti i percorsi di ripristino e utilizzo efficiente della capacità.
 
 La descrizione completa della progettazione distribuita non rientra nell'ambito di questo documento. Per altre informazioni vedere [Ripristino di emergenza e disponibilità elevata per le applicazioni di Azure](https://aka.ms/drtechguide).
 
 ##Macchine virtuali
-Il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) è simile al ripristino del calcolo delle piattaforme distribuite come servizio (PaaS) sotto molti aspetti, tuttavia esistono alcune differenze importanti dovute al fatto che una macchina virtuale IaaS è costituita dalla macchina stessa e dal relativo disco.
 
-  * __Usare Backup di Azure per creare backup tra le aree coerenti con l'applicazione__: [Backup di Azure](https://azure.microsoft.com/services/backup/) consente ai clienti di creare backup coerenti con l'applicazione di più dischi di macchine virtuali e di supportare la replica del backup tra le aree. Questa operazione viene eseguita optando per la replica geografica dell'insieme di credenziali di backup al momento della creazione. Si noti che la replica dell'insieme di credenziali di backup deve essere configurata al momento della creazione, non può essere impostata in un secondo momento. In caso di perdita di un'area, Microsoft preparerà i backup disponibili per i clienti. I clienti potranno eseguire il ripristino da uno dei punti di ripristino configurati.
+Il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) è simile al ripristino del calcolo delle piattaforme distribuite come servizio (PaaS) sotto molti aspetti. Esistono tuttavia alcune differenze importanti dovute al fatto che una macchina virtuale IaaS è costituita dalla macchina stessa e dal relativo disco.
 
-  * __Separare il disco dati dal disco del sistema operativo__: una considerazione importante per le macchine virtuali IaaS è l'impossibilità di modificare il disco del sistema operativo senza creare di nuovo la macchina virtuale. Ciò non costituisce un problema se la strategia di ripristino prevede la ridistribuzione dopo l'emergenza. Può tuttavia rappresentare un problema se si usa l'approccio Warm Spare per la capacità di riserva. Per implementare correttamente questo approccio è necessario che il disco del sistema operativo sia distribuito sulle località primarie e secondarie e che i dati dell'applicazione siano archiviati in un'unità separata. Usare se possibile una configurazione del sistema operativo standard che possa essere messa a disposizione in entrambe le località. Dopo un failover sarà quindi necessario collegare l'unità di dati alle macchine virtuali IaaS esistenti nel controller di dominio secondario. Usare AzCopy per copiare gli snapshot dei dischi di dati in un sito remoto.
+  * __Usare Backup di Azure per creare backup tra le aree coerenti con l'applicazione__. [Backup di Azure](https://azure.microsoft.com/services/backup/) consente ai clienti di creare backup coerenti con l'applicazione di più dischi di macchine virtuali e di supportare la replica del backup tra le aree. Questa operazione viene eseguita optando per la replica geografica dell'insieme di credenziali di backup al momento della creazione. Si noti che la replica dell'insieme di credenziali di backup deve essere configurata al momento della creazione. Non può essere impostata in un secondo momento. In caso di perdita di un'area, Microsoft renderà disponibili i backup ai clienti. I clienti potranno eseguire il ripristino da uno dei punti di ripristino configurati.
 
-  * __Potenziali problemi di coerenza dopo un failover geografico di più dischi delle macchine virtuali__: i dischi delle macchine virtuali vengono implementati come BLOB di archiviazione di Azure e hanno la stessa caratteristica di replica geografica, come descritto di seguito. A meno che non venga usato [Backup di Azure](https://azure.microsoft.com/services/backup/), non ci sono garanzie di coerenza tra dischi perché la replica geografica è asincrona e viene eseguita in modo indipendente. I singoli dischi delle macchine virtuali sono garantiti come coerenti per arresto anomalo dopo un failover geografico, ma non come coerenti tra loro. Ciò può causare problemi in alcuni casi, ad esempio in caso di striping del disco.
+  * __Separare i dischi dati dal disco del sistema operativo__. Una considerazione importante per le macchine virtuali IaaS è l'impossibilità di modificare il disco del sistema operativo senza creare di nuovo la macchina virtuale. Ciò non costituisce un problema se la strategia di ripristino prevede la ridistribuzione dopo l'emergenza. Può tuttavia rappresentare un problema se si usa l'approccio Warm Spare per la capacità di riserva. Per implementare correttamente questo approccio è necessario che il disco del sistema operativo sia distribuito sulle località primarie e secondarie e che i dati dell'applicazione siano archiviati in un'unità separata. Usare se possibile una configurazione del sistema operativo standard che possa essere messa a disposizione in entrambe le località. Dopo un failover sarà quindi necessario collegare l'unità di dati alle macchine virtuali IaaS esistenti nel controller di dominio secondario. Usare AzCopy per copiare gli snapshot dei dischi di dati in un sito remoto.
+
+  * __Possono verificarsi problemi di coerenza dopo un failover geografico di più dischi delle macchine virtuali__. I dischi delle macchine virtuali vengono implementati come BLOB di archiviazione di Azure e hanno la stessa caratteristica di replica geografica. A meno che non venga usato [Backup di Azure](https://azure.microsoft.com/services/backup/), non ci sono garanzie di coerenza tra dischi perché la replica geografica è asincrona e viene eseguita in modo indipendente. I singoli dischi delle macchine virtuali sono garantiti come coerenti per arresto anomalo dopo un failover geografico, ma non come coerenti tra loro. Ciò può causare problemi in alcuni casi, ad esempio in caso di striping del disco.
 
 ##Archiviazione
 
 ###Ripristino tramite archiviazione con ridondanza geografica di BLOB, tabelle, code e dischi di macchine virtuali
+
 In Azure, BLOB, tabelle, code e dischi delle macchine virtuali sono tutti con replica geografica per impostazione predefinita. Questo approccio è denominato archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica replica i dati di archiviazione in un data center abbinato a centinaia di chilometri di distanza, in una specifica area geografica. L'archiviazione con ridondanza geografica è progettata per offrire un livello di durabilità aggiuntivo in caso di grave emergenza in un data center. Microsoft determina quando si verifica il failover, che è limitato alle emergenze gravi nelle quali la località primaria originale è ritenuta irrecuperabile in un intervallo di tempo ragionevole. In alcuni scenari può trattarsi di più giorni. I dati vengono in genere replicati entro pochi minuti, anche se l'intervallo di sincronizzazione non è ancora coperto da un contratto di servizio.
 
-In caso di failover geografico, la modalità di accesso all'account rimarrà invariata perché l'URL e la chiave dell'account non cambiano, ma l'account di archiviazione si troverà in un'area diversa dopo il failover e ciò potrebbe influire sulle applicazioni che richiedono affinità di area con l'account di archiviazione. Anche per i servizi e le applicazioni che non richiedono un account di archiviazione nello stesso data center, i costi di larghezza di banda e latenza tra data center possono costituire un valido motivo per trasferire temporaneamente il traffico all'area di failover. Ciò potrebbe essere un elemento da prendere in considerazione in una strategia globale di ripristino di emergenza.
+In caso di failover geografico, la modalità di accesso all'account rimarrà invariata perché l'URL e la chiave dell'account non cambiano. L'account di archiviazione si troverà tuttavia in un'area diversa dopo il failover. Ciò potrebbe influire sulle applicazioni che richiedono affinità di area con l'account di archiviazione. Anche per i servizi e le applicazioni che non richiedono un account di archiviazione nello stesso data center, i costi di larghezza di banda e latenza tra data center possono costituire un valido motivo per trasferire temporaneamente il traffico all'area di failover. Ciò potrebbe essere un elemento da prendere in considerazione in una strategia globale di ripristino di emergenza.
 
 Oltre al failover automatico offerto dall'archiviazione con ridondanza geografica, Azure ha introdotto un servizio che fornisce l'accesso in lettura alla copia dei dati nella località di archiviazione secondaria. Questo approccio è denominato archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 
-Per altre informazioni sull'archiviazione GRS e RA-GRS vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
+Per altre informazioni sull'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
 
 ###Mapping delle aree di replica geografica:
-È importante comprendere dove i dati vengono replicati geograficamente per sapere dove distribuire le altre istanze dei dati che richiedono affinità di area con l'archiviazione. La tabella seguente descrive le associazioni di località primarie e secondarie:
+
+È importante comprendere dove viene eseguita la replica geografica dei dati, per sapere dove distribuire le altre istanze dei dati che richiedono affinità di area con l'archiviazione. La tabella seguente descrive le associazioni di località primarie e secondarie:
 
 [AZURE.INCLUDE [elenco di aree associate](../../includes/paired-region-list.md)]
 
 ###Prezzi della replica geografica:
-La replica geografica è inclusa nel prezzo corrente di Archiviazione di Azure. Si tratta del servizio di archiviazione con ridondanza geografica. Se non si intende usufruire della replica geografica dei dati è possibile disabilitare questa funzionalità per l'account. Il servizio sarà in questo caso un'archiviazione con ridondanza locale e avrà un prezzo scontato rispetto all'archiviazione con replica geografica.
+
+La replica geografica è inclusa nel prezzo corrente di Archiviazione di Azure. Si tratta del servizio di archiviazione con ridondanza geografica (GRS). Se non si intende usufruire della replica geografica dei dati è possibile disabilitare questa funzionalità per l'account. Il servizio sarà in questo caso un'archiviazione con ridondanza locale e avrà un prezzo scontato rispetto al servizio GRS.
 
 ###Determinare se si è verificato un failover geografico
-Un eventuale failover geografico verrà indicato nel [dashboard sull'integrità dei servizi di Azure](https://azure.microsoft.com/status/); le applicazioni possono tuttavia implementare una modalità automatica per rilevare questo evento monitorando l'area geografia dell'account di archiviazione. Questa funzionalità può essere usata per attivare altre operazioni di ripristino, ad esempio l'attivazione di risorse di calcolo nell'area geografica in cui è stata trasferita l'archiviazione. È queryable dall'API Gestione dei servizi usando [Get Storage Account Properties](https://msdn.microsoft.com/library/ee460802.aspx). Le proprietà specifiche sono:
+
+Un eventuale failover geografico verrà indicato nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Le applicazioni possono tuttavia implementare una modalità automatica per rilevare questo evento monitorando l'area geografica dell'account di archiviazione. Questa funzionalità può essere usata per attivare altre operazioni di ripristino, ad esempio l'attivazione di risorse di calcolo nell'area geografica in cui è stata trasferita l'archiviazione. È possibile eseguire una query a questo scopo da Service Management API usando l'operazione [GET sulle proprietà dell'account di archiviazione](https://msdn.microsoft.com/library/ee460802.aspx). Le proprietà specifiche sono:
 
     <GeoPrimaryRegion>primary-region</GeoPrimaryRegion>
     <StatusOfPrimary>[Available|Unavailable]</StatusOfPrimary>
@@ -81,113 +91,127 @@ Un eventuale failover geografico verrà indicato nel [dashboard sull'integrità 
     <StatusOfSecondary>[Available|Unavailable]</StatusOfSecondary>
 
 ###Dischi delle macchine virtuali e failover geografico
+
 Come descritto nella sezione sui dischi delle macchine virtuali, la coerenza dei dati tra dischi delle macchine virtuali non viene garantita dopo un failover. Per garantire la correttezza dei backup è opportuno usare un prodotto di backup, ad esempio Data Protection Manager, per eseguire il backup e ripristino dei dati dell'applicazione.
 
 ##Database
 
 ###Database SQL
-Il database SQL di Azure offre due tipi di ripristino, il ripristino geografico e la replica geografica attiva.
+
+Il database SQL di Azure offre due tipi di ripristino: il ripristino geografico e la replica geografica attiva.
 
 ####Ripristino geografico
-Il [ripristino geografico](../sql-database/sql-database-geo-restore.md) è disponibile anche per i database di livello Basic, Standard e Premium. È l'opzione di ripristino predefinita quando anche il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Analogamente alla funzionalità di ripristino temporizzato, quella di ripristino geografico si basa sui backup di database in Archiviazione di Azure con ridondanza geografica. Esegue il ripristino della copia di backup con replica geografica ed è quindi resiliente alle interruzioni dell'archiviazione nell'area primaria. Per informazioni dettagliate su come usare la funzionalità di ripristino geografico, vedere [Ripristino dopo un'interruzione del servizio](../sql-database/sql-database-disaster-recovery.md).
+
+Il [ripristino geografico](../sql-database/sql-database-geo-restore.md) è disponibile anche con i database di livello Basic, Standard e Premium. È l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Analogamente al ripristino temporizzato, il ripristino geografico si basa sui backup di database nell'archiviazione di Azure con ridondanza geografica. Esegue il ripristino della copia di backup con replica geografica ed è quindi resiliente alle interruzioni dell'archiviazione nell'area primaria. Per altre informazioni, vedere [Ripristino dopo un'interruzione del servizio](../sql-database/sql-database-disaster-recovery.md).
 
 ####Replica geografica attiva
-La [replica geografica attiva](../sql-database/sql-database-geo-replication-overview.md) è disponibile per i database di tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Vedere [Progettazione per la continuità aziendale](../sql-database/sql-database-business-continuity-design.md) per informazioni su come [configurare la replica geografica](../sql-database/sql-database-geo-replication-portal.md) ed eseguire il [failover nel database secondario](../sql-database/sql-database-geo-replication-failover-portal.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](../sql-database/sql-database-business-continuity-application-upgrade.md).
+
+La [replica geografica attiva](../sql-database/sql-database-geo-replication-overview.md) è disponibile per i database a tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Vedere [Progettazione per la continuità aziendale](../sql-database/sql-database-business-continuity-design.md) per informazioni su come [configurare la replica geografica](../sql-database/sql-database-geo-replication-portal.md) ed eseguire il [failover nel database secondario](../sql-database/sql-database-geo-replication-failover-portal.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](../sql-database/sql-database-business-continuity-application-upgrade.md).
 
 ###SQL Server nelle macchine virtuali
+
 Sono disponibili numerose opzioni per il ripristino e la disponibilità elevata per SQL Server 2012 e versioni successive in esecuzione in macchine virtuali di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ##Altri servizi della piattaforma Azure
+
 Quando si prova a eseguire il servizio cloud in più aree di Azure è necessario considerare le implicazioni per ognuna delle dipendenze. Nelle sezioni seguenti, il materiale sussidiario specifico del servizio presuppone che sia necessario usare lo stesso servizio Azure in un data center di Azure alternativo. Ciò comporta attività di configurazione e di replica dei dati.
 
 >[AZURE.NOTE]In alcuni casi, questi passaggi consentono di attenuare un'interruzione specifica del servizio anziché un evento dell'intero data center. Dalla prospettiva dell'applicazione, un'interruzione specifica del servizio potrebbe essere altrettanto limitante e richiedere la migrazione temporanea del servizio in un'altra area di Azure.
 
 ###Bus di servizio
-Il bus di servizio di Azure usa uno spazio dei nomi univoco che non si estende su più aree di Azure. Il primo requisito consiste quindi nel configurare gli spazi dei nomi del bus di servizio nell'area alternativa. Esistono tuttavia anche considerazioni per la durata dei messaggi in coda. Sono disponibili diverse strategie per la replica dei messaggi tra aree di Azure. Per informazioni dettagliate su queste strategie di replica e altre strategie di ripristino di emergenza, vedere [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio](../service-bus/service-bus-outages-disasters.md). Per altre considerazioni sulla disponibilità vedere [Bus di servizio (disponibilità)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
+
+Il bus di servizio di Azure usa uno spazio dei nomi univoco che non si estende su più aree di Azure. Il primo requisito consiste quindi nel configurare gli spazi dei nomi del bus di servizio nell'area alternativa. Esistono tuttavia anche considerazioni per la durata dei messaggi in coda. Sono disponibili diverse strategie per la replica dei messaggi tra aree di Azure. Per informazioni dettagliate su queste strategie di replica e altre strategie di ripristino di emergenza, vedere [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio](../service-bus/service-bus-outages-disasters.md). Per altre considerazioni sulla disponibilità del bus di servizio, vedere [Bus di servizio](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
 
 ###App Web
+
 Per eseguire la migrazione di un'app Web di Azure in un'area di Azure secondaria è necessario avere un backup del sito Web disponibile per la pubblicazione. Se l'interruzione non interessa l'intero data center di Azure, è possibile usare l'FTP per scaricare un backup recente del contenuto del sito. Creare quindi una nuova app Web nell'area alternativa, se non è già stato fatto per riservare la capacità. Pubblicare il sito nella nuova area e apportare le modifiche di configurazione necessarie. Queste modifiche possono riguardare le stringhe di connessione del database o altre impostazioni specifiche dell'area. Aggiungere se necessario il certificato SSL del sito e modificare il record DNS CNAME in modo che il nome di dominio personalizzato punti all'URL dell'app Web di Azure ridistribuita.
 
 ###Servizi mobili
-Nell'area secondaria di Azure creare un servizio mobile di backup per l'applicazione. Ripristinare il database SQL di Azure anche nell'area alternativa. Usare quindi gli strumenti da riga di comando di Azure per trasferire il servizio mobile nell'area alternativa. Configurare quindi il servizio mobile per l'uso del database ripristinato. Per altre informazioni su questo processo vedere [Ripristinare il servizio mobile in caso di emergenza](../mobile-services/mobile-services-disaster-recovery.md). Per altre considerazioni sulla disponibilità vedere [Servizi mobili (disponibilità)](./resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
+
+Nell'area secondaria di Azure creare un servizio mobile di backup per l'applicazione. Ripristinare il database SQL di Azure anche nell'area alternativa. Usare quindi gli strumenti da riga di comando di Azure per trasferire il servizio mobile nell'area alternativa. Configurare quindi il servizio mobile per l'uso del database ripristinato. Per altre informazioni su questo processo, vedere [Ripristinare il servizio mobile in caso di emergenza](../mobile-services/mobile-services-disaster-recovery.md). Per altre considerazioni sulla disponibilità dei servizi mobili, vedere [Servizi mobili](./resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
 
 ###HDInsight
-I dati associati a HDInsight vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure. HDInsight richiede che un cluster Hadoop che elabora processi MapReduce si trovi nella stessa area dell'account di archiviazione che contiene i dati analizzati. Se si usa la funzionalità di replica geografica disponibile in Archiviazione di Azure è possibile accedere ai dati nell'area secondaria in cui i dati sono stati replicati, se per qualche motivo l'area primaria non è più disponibile. È possibile creare un nuovo cluster Hadoop nell'area in cui i dati sono stati replicati e continuare l'elaborazione. Per altre considerazioni sulla disponibilità vedere [HDInsight (disponibilità)](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight).
+
+I dati associati a HDInsight vengono archiviati per impostazione predefinita nell'archivio BLOB di Azure. HDInsight richiede che un cluster Hadoop che elabora processi MapReduce si trovi nella stessa area dell'account di archiviazione che contiene i dati analizzati. Se si usa la funzionalità di replica geografica disponibile in Archiviazione di Azure è possibile accedere ai dati nell'area secondaria in cui i dati sono stati replicati, se per qualche motivo l'area primaria non è più disponibile. È possibile creare un nuovo cluster Hadoop nell'area in cui i dati sono stati replicati e continuare l'elaborazione. Per altre considerazioni sulla disponibilità di HDInsight, vedere [HDInsight](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight).
 
 ###Report SQL
+
 Il ripristino dopo la perdita di un'area di Azure richiede al momento più istanze di report SQL in diverse aree di Azure. Queste istanze di report SQL devono accedere agli stessi dati e questi dati devono disporre di un proprio piano di ripristino in caso di emergenza. È anche possibile mantenere copie di backup esterne del file RDL per ogni report.
 
 ###Servizi multimediali
+
 Servizi multimediali di Azure ha un approccio di ripristino diverso per la codifica e lo streaming. Lo streaming è in genere più critico durante un'interruzione di area. A tale scopo è necessario disporre di un account di Servizi multimediali in due diverse aree di Azure. Il contenuto codificato deve trovarsi in entrambe le aree. In caso di errore è possibile reindirizzare il traffico di streaming nell'area alternativa. La codifica può essere eseguita in qualsiasi area di Azure. Se i tempi di codifica sono importanti, ad esempio durante l'elaborazione di eventi in tempo reale, è necessario predisporre l'invio di processi a un data center alternativo durante gli errori.
 
 ###Rete virtuale
+
 I file di configurazione offrono il modo più rapido per configurare una rete virtuale in un'area alternativa di Azure. Dopo aver configurato la rete virtuale nell'area primaria di Azure, [esportare le impostazioni di rete virtuale](../virtual-network/virtual-networks-create-vnet-classic-portal.md) della rete corrente in un file di configurazione di rete. In caso di interruzione nell'area primaria, [ripristinare la rete virtuale](../virtual-network/virtual-networks-create-vnet-classic-portal.md) dal file di configurazione archiviato. Configurare quindi altri servizi cloud, macchine virtuali o impostazioni cross-premise per l'uso con la nuova rete virtuale.
 
 ##Elenchi di controllo per il ripristino di emergenza
 
 ##Elenco di controllo per i servizi cloud
-  1. Esaminare la sezione [Servizi Cloud](#cloud-services) di questo documento
-  2. Creare una strategia di ripristino di emergenza tra le aree
-  3. Identificare i compromessi quando si riserva capacità in aree alternative
-  4. Usare strumenti di routing del traffico, ad esempio Gestione traffico di Azure
+  1. Vedere la sezione [Servizi Cloud](#cloud-services) di questo documento.
+  2. Creare una strategia di ripristino di emergenza tra le aree.
+  3. Identificare i compromessi quando si riserva capacità in aree alternative.
+  4. Usare strumenti di routing del traffico, ad esempio Gestione traffico di Azure.
 
 ##Elenco di controllo per le macchine virtuali
-  1. Esaminare la sezione [Macchine virtuali](#virtual-machines) di questo documento
-  2. Usare [Backup di Azure](https://azure.microsoft.com/services/backup/) per creare backup coerenti con l'applicazione tra le aree
+  1. Vedere la sezione [Macchine virtuali](#virtual-machines) di questo documento.
+  2. Usare [Backup di Azure](https://azure.microsoft.com/services/backup/) per creare backup coerenti con l'applicazione tra le aree.
 
 ##Elenco di controllo per l'archiviazione
-  1. Esaminare la sezione [Archiviazione](#storage) di questo documento
-  2. Non disabilitare la replica geografica delle risorse di archiviazione
-  3. Identificare l'area alternativa per la replica geografica in caso di failover
-  4. Creare strategie di backup personalizzate per approcci di failover gestiti dall'utente
+  1. Vedere la sezione [Archiviazione](#storage) di questo documento.
+  2. Non disabilitare la replica geografica delle risorse di archiviazione.
+  3. Identificare l'area alternativa per la replica geografica in caso di failover.
+  4. Creare strategie di backup personalizzate per approcci di failover gestiti dall'utente.
 
 ##Elenco di controllo per il database SQL
-  1. Esaminare la sezione [Database SQL](#sql-database) di questo documento
-  2. Usare il [ripristino geografico](../sql-database/sql-database-geo-restore.md) o la [replica geografica](../sql-database/sql-database-geo-replication-overview.md) in base alle esigenze
+  1. Vedere la sezione [Database SQL](#sql-database) di questo documento.
+  2. Usare il [ripristino geografico](../sql-database/sql-database-geo-restore.md) o la [replica geografica](../sql-database/sql-database-geo-replication-overview.md) in base alle esigenze.
 
 ##Elenco di controllo per SQL Server nelle macchine virtuali
-  1. Esaminare la sezione [SQL Server nelle macchine virtuali](#sql-server-on-virtual-machines) di questo documento
-  2. Usare Gruppi di disponibilità AlwaysOn tra aree o il mirroring del database
-  3. In alternativa usare backup e ripristino con l'archivio BLOB
+  1. Vedere la sezione [SQL Server nelle macchine virtuali](#sql-server-on-virtual-machines) di questo documento.
+  2. Usare i gruppi di disponibilità AlwaysOn tra aree o il mirroring del database.
+  3. In alternativa usare backup e ripristino con l'archivio BLOB.
 
 ##Elenco di controllo per il bus di servizio
-  1. Esaminare la sezione [Bus di servizio](#service-bus) di questo documento
-  2. Configurare uno spazio dei nomi del bus di servizio in un'area alternativa
-  3. Prendere in considerazione strategie di replica personalizzate per i messaggi tra le aree
+  1. Vedere la sezione [Bus di servizio](#service-bus) di questo documento.
+  2. Configurare uno spazio dei nomi del bus di servizio in un'area alternativa.
+  3. Prendere in considerazione strategie di replica personalizzate per i messaggi tra le aree.
 
 ##Elenco di controllo per app Web
-  1. Esaminare la sezione [App Web](#web-apps) di questo documento
-  2. Mantenere backup dei siti Web all'esterno dell'area primaria
-  3. Se l'interruzione è parziale, provare a recuperare il sito corrente con l'FTP
-  4. Pianificare la distribuzione del sito Web su un sito Web nuovo o esistente in un'area alternativa
-  5. Pianificare le modifiche di configurazione per i record di applicazione e DNS CNAME
+  1. Esaminare la sezione [App Web](#web-apps) di questo documento.
+  2. Mantenere backup dei siti Web all'esterno dell'area primaria.
+  3. Se l'interruzione è parziale, provare a recuperare il sito corrente con l'FTP.
+  4. Pianificare la distribuzione del sito Web su un sito Web nuovo o esistente in un'area alternativa.
+  5. Pianificare le modifiche di configurazione per i record di applicazione e DNS CNAME.
 
 ##Elenco di controllo per i servizi mobili
-  1. Esaminare la sezione [Servizi mobili](#mobile-services) di questo documento
-  2. Creare un servizio mobile di backup in un'area alternativa
-  3. Gestire i backup del database SQL di Azure associato per il ripristino durante il failover
-  4. Usare gli strumenti da riga di comando di Azure per trasferire il servizio mobile
+  1. Vedere la sezione [Servizi mobili](#mobile-services) di questo documento.
+  2. Creare un servizio mobile di backup in un'area alternativa.
+  3. Gestire i backup del database SQL di Azure associato per il ripristino durante il failover.
+  4. Usare gli strumenti da riga di comando di Azure per trasferire il servizio mobile.
 
 ##Elenco di controllo per HDInsight
-  1. Esaminare la sezione [HDInsight](#hdinsight) di questo documento
-  2. Creare un nuovo cluster Hadoop nell'area con i dati replicati
+  1. Vedere la sezione [HDInsight](#hdinsight) di questo documento.
+  2. Creare un nuovo cluster Hadoop nell'area con i dati replicati.
 
 ##Elenco di controllo per report SQL
-  1. Esaminare la sezione [Report SQL](#sql-reporting) di questo documento
-  2. Mantenere un'istanza di report SQL alternativa in un'area diversa
-  3. Mantenere un piano separato per replicare la destinazione in quell'area
+  1. Vedere la sezione [Report SQL](#sql-reporting) di questo documento.
+  2. Mantenere un'istanza di report SQL alternativa in un'area diversa.
+  3. Mantenere un piano separato per replicare la destinazione in quell'area.
 
 ##Elenco di controllo per Servizi multimediali
-  1. Esaminare la sezione [Servizi multimediali](#media-services) di questo documento
-  2. Creare un account di Servizi multimediali in un'area alternativa
-  3. Codificare lo stesso contenuto in entrambe le aree per supportare il failover dello streaming
-  4. Inviare i processi di codifica a un'area alternativa in caso di interruzione
+  1. Vedere la sezione [Servizi multimediali](#media-services) di questo documento.
+  2. Creare un account di Servizi multimediali in un'area alternativa.
+  3. Codificare lo stesso contenuto in entrambe le aree per supportare il failover dello streaming.
+  4. Inviare i processi di codifica a un'area alternativa in caso di interruzione.
 
 ##Elenco di controllo per rete virtuale
-  1. Esaminare la sezione [Rete virtuale](#virtual-network) di questo documento
-  2. Usare le impostazioni di rete virtuale esportate per creare di nuovo la rete in un'altra area
- 
-##Passaggi successivi
-Questo articolo fa parte di una serie relativa alle [indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). Il prossimo articolo di questa serie riguarda il [ripristino da un data center locale ad Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
+  1. Vedere la sezione [Rete virtuale](#virtual-network) di questo documento.
+  2. Usare le impostazioni di rete virtuale esportate per creare di nuovo la rete in un'altra area.
 
-<!---HONumber=AcomDC_0525_2016-->
+##Passaggi successivi
+
+Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). Il prossimo articolo di questa serie riguarda il [ripristino da un data center locale ad Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
+
+<!---HONumber=AcomDC_0615_2016-->

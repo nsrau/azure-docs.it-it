@@ -176,15 +176,16 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 ![Nei pulsanti nella parte superiore di Esplora metriche](./media/app-insights-metrics-explorer/17-reset.png)
 
-## Live Stream: metriche istantanee per il monitoraggio dettagliato
+<a name="live-metrics-stream"></a>
+## Flusso di metriche live: metriche istantanee per un monitoraggio dettagliato
 
-Live Stream mostra le metriche dell’applicazione in questo esatto momento, con una latenza quasi in tempo reale di 1 secondo. Ciò è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
+Flusso di metriche live mostra le metriche dell’applicazione in questo esatto momento, con una latenza quasi in tempo reale di 1 secondo. Ciò è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
 
 ![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
-A differenza di Esplora metriche, Live Stream consente di visualizzare un set fisso di metriche. I dati vengono mantenuti solo intanto che si trovano nel grafico, poi vengono eliminati.
+A differenza di Esplora metriche, Flusso di metriche live consente di visualizzare un set fisso di metriche. I dati vengono mantenuti solo intanto che si trovano nel grafico, poi vengono eliminati.
 
-Live Stream è disponibile con Application Insights SDK per ASP.NET, versione 2.1.0 o successiva.
+Flusso di metriche live è disponibile con Application Insights SDK per ASP.NET, versione 2.1.0 o successiva.
 
 ## Impostare gli avvisi
 
@@ -246,4 +247,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

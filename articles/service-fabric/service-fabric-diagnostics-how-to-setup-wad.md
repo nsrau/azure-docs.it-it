@@ -47,7 +47,9 @@ Per distribuire l'estensione di diagnostica nelle VM del cluster come parte dell
 
 ![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati in uno degli account di archiviazione creato nel gruppo di risorse. L'impostazione di Diagnostica consente di configurare eventi a livello di applicazione, inclusi eventi [Attore](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da memorizzare in Archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. Quando si crea un cluster tramite il portale, è consigliabile esportare il modello al termine della distribuzione. I modelli possono essere esportati dal portale in questo modo
+I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati in uno degli account di archiviazione creato nel gruppo di risorse. L'impostazione di Diagnostica consente di configurare eventi a livello di applicazione, inclusi eventi [Attore](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da memorizzare in Archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare.
+
+Quando si crea un cluster tramite il portale, è consigliabile scaricare il modello *prima di fare clic su OK* per creare il cluster. Per informazioni dettagliate, vedere [Configurare un cluster di Service Fabric usando un modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Si otterrà un modello di Azure Resource Manager utilizzabile per il cluster che si intende creare. Questo modello è necessario per apportare modifiche in un secondo momento, perché non tutte possono essere fatte tramite il portale. I modelli possono essere esportati dal portale attenendosi alla procedura seguente, ma questi modelli possono risultare più difficili da usare, perché possono presentare un certo numero di valori Null, per cui si dovranno fornire i valori, o non mancare di tutte le informazioni necessarie.
 
 1. Aprire il gruppo di risorse
 2. Selezionare Impostazioni per visualizzare il pannello Impostazioni
@@ -56,12 +58,12 @@ I log di supporto sono **necessari** affinché il team di supporto tecnico di Az
 5. Selezionare Esporta modello per visualizzare il pannello Modello
 6. Selezionare Salva su file per esportare un file con estensione zip contenente i file del modello, dei parametri e di PowerShell.
 
-Dopo l'esportazione dei file, è necessario apportare una modifica. Modificare il file **parameters.json** e rimuovere l'elemento **adminPassword**. In questo modo viene richiesta la password quando viene eseguito lo script di distribuzione. Per usare il modello scaricato per aggiornare una configurazione
+Dopo l'esportazione dei file, è necessario apportare una modifica. Modificare il file **parameters.json** e rimuovere l'elemento **adminPassword**. In questo modo viene richiesta la password quando viene eseguito lo script di distribuzione. Quando si esegue lo script di distribuzione, è necessario correggere i valori dei parametri Null. Per usare il modello scaricato per aggiornare una configurazione
 
 1. Estrarre il contenuto in una cartella nel computer locale
 2. Modificare il contenuto in modo da riflettere la nuova configurazione
 3. Avviare PowerShell e passare alla cartella in cui è stato estratto il contenuto
-4. Eseguire **deploy.ps1** e immettere ID sottoscrizione, nome gruppo di risorse (usare lo stesso nome per aggiornare la configurazione) e un nome univoco di distribuzione
+4. Eseguire **deploy.ps1** e immettere ID sottoscrizione, nome gruppo di risorse (usare lo stesso nome per aggiornare la configurazione) e un nome di distribuzione univoco
 
 
 ### Distribuire l'estensione di diagnostica come parte della creazione di cluster tramite Azure Resource Manager
@@ -119,7 +121,7 @@ Aggiungere una nuova risorsa di archiviazione al modello nella sezione risorse.
       }
     },
 ```
-Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**, aggiungendo quanto segue all'interno dell'array "estensioni". Assicurarsi di aggiungere una virgola all'inizio o alla fine, a seconda del punto di inserimento.
+Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**, aggiungendo quanto segue all'interno della matrice "extensions". Assicurarsi di aggiungere una virgola all'inizio o alla fine, a seconda del punto di inserimento.
 
 ##### Aggiungere alla matrice di estensioni di VirtualMachineProfile
 ```json
@@ -177,11 +179,11 @@ Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**,
 }
 ```
 
-Dopo aver modificato il file **template.json** come descritto, pubblicare nuovamente il modello di Azure Resource Manager. Se il modello è stato esportato, eseguire il file **deploy.ps1** per pubblicare nuovamente il modello. Dopo la distribuzione, assicurarsi che il valore di *ProvisioningState* sia *Operazione riuscita*.
+Dopo aver modificato il file **template.json** come descritto, pubblicare nuovamente il modello di Azure Resource Manager. Se il modello è stato esportato, eseguire il file **deploy.ps1** per pubblicarlo di nuovo. Dopo la distribuzione, assicurarsi che il valore di *ProvisioningState* sia *Operazione riuscita*.
 
 
 ## Aggiornare Diagnostica per raccogliere e caricare log da nuovi canali EventSource
-Per aggiornare la diagnostica in modo da raccogliere log da un nuovo canale EventSource che rappresenta una nuova applicazione da distribuire, è sufficiente eseguire gli stessi passaggi illustrati nella [sezione precedente](#deploywadarm), che descrive la configurazione della diagnostica per un cluster esistente. Sarà necessario aggiornare la sezione *EtwEventSourceProviderConfiguration* nel file **template.json** per aggiungere voci relative al nuovo canale EventSources prima di applicare l'aggiornamento della configurazione con il comando *New-AzureRmResourceGroupDeployment* di PowerShell.
+Per aggiornare la diagnostica in modo da raccogliere log da nuovi canali EventSource che rappresentano una nuova applicazione da distribuire, è sufficiente eseguire gli stessi passaggi illustrati nella [sezione precedente](#deploywadarm), che descrive la configurazione della diagnostica per un cluster esistente. Sarà necessario aggiornare la sezione *EtwEventSourceProviderConfiguration* nel file **template.json** per aggiungere voci relative ai nuovi canali EventSource prima di applicare l'aggiornamento della configurazione con il comando di PowerShell *New-AzureRmResourceGroupDeployment*. Il nome dell'origine evento è definito come parte del codice del file **ServiceEventSource.cs** generato da Visual Studio.
 
 
 ## Passaggi successivi
@@ -191,4 +193,4 @@ Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric
 ## Articoli correlati
 * [Informazioni su come raccogliere i contatori delle prestazioni o i registri mediante le estensioni di diagnostica](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

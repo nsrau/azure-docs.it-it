@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="sethm" />
 
 # Informazioni sul prezzo e la fatturazione del Bus di servizio
 
 Il Bus di servizio è disponibile nei livelli Basic, Standard, e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del Bus di servizio che si crea e si applica questa selezione del livello in tutte le code, argomenti/sottoscrizioni, inoltri e hub di eventi creati all'interno di tale spazio dei nomi.
 
->[AZURE.NOTE] Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la pagina [Prezzi di Bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e le [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
 
 I Bus di servizio utilizzano i due controlli seguenti per le code e gli argomenti/sottoscrizioni:
 
@@ -106,7 +106,7 @@ Il livello di base include ed è rigorosamente limitato a 100 connessioni negozi
 |---|
 |Le connessioni negoziate non vengono addebitate nel livello Premium.|
 
-Per ulteriori informazioni sulle connessioni negoziate, vedere la sezione [domande frequenti](#FAQ) più avanti in questo argomento.
+Per ulteriori informazioni sulle connessioni negoziate, vedere la sezione [domande frequenti](#faq) più avanti in questo argomento.
 
 ## Relay
 
@@ -121,7 +121,7 @@ Gli inoltri sono disponibili solo negli spazi dei nomi di livello Standard. In c
 
 ### Come vengono calcolate le unità di ore di inoltro?
 
-Vedere [questo argomento](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
+Vedere [questo argomento](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### Quali sono le connessioni negoziate e come viene effettuato l'addebito?
 
@@ -147,8 +147,8 @@ Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, 
 
 - Per altre informazioni sui prezzi del bus di servizio, vedere la pagina [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- Per le risposte alle domande più frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere le [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
+- Per le risposte alle domande frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

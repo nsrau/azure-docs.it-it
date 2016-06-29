@@ -29,7 +29,7 @@ L'ultima cosa che uno sviluppatore vorrebbe fare è apprendere nuovi concetti so
 
 Quando si sceglie un database, non è necessario imparare un nuovo linguaggio. Il database SQL offre molti esempi di codice per iniziare a usare la piattaforma su cui si sta lavorando. (ad esempio Linux, Mac OS o Windows). Inoltre, il portale di gestione di Azure, PowerShell e le API REST consentono di aumentare la produttività aggiuntiva durante lo sviluppo.
 
-[Leggere la documentazione](https://msdn.microsoft.com/library/mt654049%28v=sql.1%29.aspx)
+[Leggere la documentazione](sql-database-develop-overview.md)
 
 ## Gli strumenti giusti per il processo
 
@@ -39,7 +39,7 @@ Con un database SQL non è necessario imparare a usare un nuovo strumento quando
 
 Grazie a risorse garantite, esercitazioni sulla creazione del primo database SQL, risoluzione dei problemi relativi alle query ed esempio di codice di avvio rapido ottenere la risposta giusta alla propria domanda sui database non è mai difficile.
 
-[Leggere la documentazione](sql-database-connect-central-recommendations.md)
+[Leggere la documentazione](sql-database-technical-overview.md)
 
 Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare clic qui per provare](https://azure.microsoft.com/services/sql-database/)
 
@@ -47,10 +47,10 @@ Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare 
 
 Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
 
-## Altre informazioni
+## Risorse aggiuntive
 
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

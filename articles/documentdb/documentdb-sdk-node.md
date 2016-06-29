@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="06/14/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB SDK
@@ -37,11 +37,16 @@
 
 ##Note sulla versione
 
+###<a name="1.8.0"/>1.8.0</a>
+
+  - Aggiunta del supporto per gli account di database con più aree.
+
 ###<a name="1.7.0"/>1.7.0</a>
 
 - Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
 
 ###<a name="1.6.0"/>1.6.0</a>
+
 - Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md). 
 
 ###<a name="1.5.6"/>1.5.6</a>
@@ -88,7 +93,7 @@
 ### <a name="1.2.1"/>1.2.1</a>
 
 - Implementazione del routing basato su ID
-- Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49): conflitto tra la proprietà current e il metodo current()
+- Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49): conflitto tra la proprietà current e il metodo current().
 
 ### <a name="1.2.0"/>1.2.0</a>
 
@@ -102,7 +107,7 @@
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40): implementazione delle configurazioni eslint e grunt nell'SDK core e promise
+- Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40): implementazione delle configurazioni eslint e grunt nell'SDK core e promise.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -112,7 +117,7 @@
 
 - Implementazione della possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
 - Aggiornamento della documentazione relativa alle API
-- Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41): errore client.createDocumentAsync
+- Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41): errore client.createDocumentAsync.
 
 ### <a name="1.0.0"/>1.0.0</a>
 
@@ -132,29 +137,30 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |--- 
-| [1\.5.6](#1.5.6) | 08 marzo 2016 |--- 
-| [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- 
-| [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 settembre 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 agosto 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 luglio 2015 |--- 
-| [1\.0.3](#1.0.3) | 04 giugno 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 maggio 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 maggio 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
-| 0.9.4-versione non definitiva | 06 aprile 2015 | 29 febbraio 2016 
-| 0.9.3-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 
-| 0.9.2-versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016 
-| 0.9.1-versione non definitiva | 22 agosto 2014 | 29 febbraio 2016 
+| [1\.8.0](#1.8.0) | 14 giungo 2016 |---
+| [1\.7.0](#1.7.0) | 26 aprile 2016 |---
+| [1\.6.0](#1.6.0) | 29 marzo 2016 |---
+| [1\.5.6](#1.5.6) | 08 marzo 2016 |---
+| [1\.5.5](#1.5.5) | 02 febbraio 2016 |---
+| [1\.5.4](#1.5.4) | 01 febbraio 2016 |---
+| [1\.5.2](#1.5.2) | 26 gennaio 2016 |---
+| [1\.5.2](#1.5.2) | 22 gennaio 2016 |---
+| [1\.5.1](#1.5.1) | 4 gennaio 2016 |---
+| [1\.5.0](#1.5.0) | 31 dicembre 2015 |---
+| [1\.4.0](#1.4.0) | 06 ottobre 2015 |---
+| [1\.3.0](#1.3.0) | 06 ottobre 2015 |---
+| [1\.2.2](#1.2.2) | 10 settembre 2015 |---
+| [1\.2.1](#1.2.1) | 15 agosto 2015 |---
+| [1\.2.0](#1.2.0) | 05 agosto 2015 |---
+| [1\.1.0](#1.1.0) | 09 luglio 2015 |---
+| [1\.0.3](#1.0.3) | 04 giungo 2015 |---
+| [1\.0.2](#1.0.2) | 23 maggio 2015 |---
+| [1\.0.1](#1.0.1) | 15 maggio 2015 |---
+| [1\.0.0](#1.0.0) | 08 aprile 2015 |---
+| 0.9.4-versione non definitiva | 06 aprile 2015 | 29 febbraio 2016
+| 0.9.3-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016
+| 0.9.2-versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016
+| 0.9.1-versione non definitiva | 22 agosto 2014 | 29 febbraio 2016
 | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
 
 
@@ -165,4 +171,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

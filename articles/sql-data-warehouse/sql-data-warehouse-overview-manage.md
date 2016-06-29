@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gestire i database in Azure SQL Data Warehouse
@@ -85,11 +85,11 @@ Per trovare le query con esecuzione prolungata, vedere [Monitoraggio del carico 
 
 Per mantenere un sistema sicuro, è necessario vigilare e proteggersi da qualsiasi tipo di accesso non autorizzato. Un sistema di sicurezza deve accertare che siano state applicate le regole del firewall, in modo che solo gli indirizzi IP autorizzati possano connettersi. È necessaria l'autenticazione corretta delle credenziali dell'utente. Dopo che un utente si è connesso al database, l'utente deve avere le autorizzazioni solo per eseguire un numero minimo di azioni. Per proteggere i dati, è possibile usare la crittografia. È anche importante predisporre azioni di controllo e rilevamento, in modo che sia possibile ripercorrere gli eventi in caso di eventuali attività sospette.
 
-Per altre informazioni sulla gestione della sicurezza, vedere la [Panoramica della sicurezza][].
+Per altre informazioni sulla gestione della sicurezza, vedere la [Proteggere un database in SQL Data Warehouse][].
 
 ## Backup e ripristino
 
-Eseguire backup affidabili dei dati è una parte fondamentale di qualsiasi database di produzione. SQL Data Warehouse tiene al sicuro i dati eseguendo automaticamente il backup dei database attivi a intervalli regolari. Questi backup consentono di eseguire il ripristino dagli scenari in cui sono stati corrotti i dati oppure sono stati eliminati accidentalmente i dati o il database. Per i criteri di conservazione e pianificazione dei backup dei dati, vedere [Affidabilità elevata][]. Per altre informazioni sul ripristino di database, vedere l’articolo relativo al [ripristino da snapshot][].
+Eseguire backup affidabili dei dati è una parte fondamentale di qualsiasi database di produzione. SQL Data Warehouse tiene al sicuro i dati eseguendo automaticamente il backup dei database attivi a intervalli regolari. Questi backup consentono di eseguire il ripristino dagli scenari in cui sono stati corrotti i dati oppure sono stati eliminati accidentalmente i dati o il database. Per informazioni relative a pianificazione del backup dei dati, criteri di conservazione e come ripristinare un database, vedere l'articolo relativo al [ripristino da snapshot][].
 
 ## Passaggi successivi
 L'uso di buoni principi di progettazione dei database semplificherà la gestione dei database in SQL Data Warehouse. Per altre informazioni, vedere la [panoramica sullo sviluppo][].
@@ -103,13 +103,12 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 [Connettersi a SQL Data Warehouse con Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connettersi ed eseguire query con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-development.md
-[Affidabilità elevata]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitoraggio del carico di lavoro mediante DMV]: sql-data-warehouse-manage-monitor.md
 [Sospendere il calcolo]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[ripristino da snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[ripristino da snapshot]: sql-data-warehouse-restore-database-overview.md
 [Riprendere il calcolo]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Scalare le prestazioni]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Panoramica della sicurezza]: sql-data-warehouse-overview-security.md
+[Proteggere un database in SQL Data Warehouse]: sql-data-warehouse-overview-manage-security.md
 [Procedure consigliate per SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 [Viste di sistema]: sql-data-warehouse-reference-tsql-system-views.md
 
@@ -119,4 +118,4 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

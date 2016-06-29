@@ -724,29 +724,31 @@ Per accedere a una macchina virtuale di Azure che esegue Linux dopo il failover 
 - È necessario creare un endpoint pubblico per consentire le connessioni in ingresso sulla porta SSH, che per impostazione predefinita è la porta TCP 22.
 - Se la macchina virtuale è accessibile tramite una connessione VPN, Express Route o VPN da sito a sito, il client può essere usato per connettersi direttamente alla macchina virtuale tramite SSH.
 
+**Nella macchina virtuale Windows/Linux di Azure dopo il failover**:
 
+Se è disponibile un gruppo di sicurezza di rete associato alla macchina virtuale o alla subnet a cui appartiene il computer, assicurarsi che il gruppo di sicurezza di rete abbia una regola in uscita che consente HTTP/HTTPS. Assicurarsi anche che il DNS della rete alla quale viene eseguito il failover della macchina virtuale sia configurato correttamente. In caso contrario potrebbe verificarsi il timeout con l'errore: "PreFailoverWorkflow task WaitForScriptExecutionTask timed out" (Timeout di WaitForScriptExecutionTask dell'attività PreFailoverWorkflow). Per comprendere questo in dettaglio, vedere la sezione sul ripristino nella [Guida al monitoraggio e alla risoluzione dei problemi](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Eseguire un failover di test
 
-1. Per eseguire il failover di una singola macchina virtuale, in **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale e quindi su **+Failover di test**.
+1. Per eseguire il failover di una singola macchina virtuale, in **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale e quindi sull'icona **+Failover di test**.
 
 	![Failover di test](./media/site-recovery-vmware-to-azure/test-failover1.png)
 
 2. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).
 
 3. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le macchine virtuali di Azure dopo il failover.
-4. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla macchina virtuale per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+4. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla macchina virtuale per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Site Recovery jobs** (Processi di Site Recovery).
 5. Quando il failover raggiunge la fase **Completa test**, seguire questa procedura:
 
 	1. Visualizzare la macchina virtuale di replica nel portale di Azure. Verificare che la macchina virtuale venga avviata correttamente.
 	2. Se è stato impostato l'accesso alle macchine virtuali dalla rete locale, è possibile inizializzare una Connessione Desktop remoto alla macchina virtuale.
-	3. Fare clic su **Completa il test** per portarlo a termine.
+	3. Fare clic su **Completa test** per portarlo a termine.
 
 		![Failover di test](./media/site-recovery-vmware-to-azure/test-failover6.png)
 
 
 	4. Fare clic su **Note** per registrare e salvare eventuali commenti associati al failover di test.
-	5. Fare clic su **Failover di test completato** per pulire automaticamente l'ambiente di test. Al termine, lo stato del failover di test indicherà che l'operazione è **completata**.
+	5. Fare clic su **Failover di test completato** per pulire automaticamente l'ambiente di test. Al termine, lo stato del failover di test sarà **Operazione completata**.
 	6.  A questo punto, eventuali macchine virtuali o elementi creati automaticamente da Site Recovery durante il failover di test vengono eliminati. Gli elementi aggiuntivi creati per il failover di test non vengono eliminati.
 
 	> [AZURE.NOTE] Se un failover di test continua per più di due settimane, ne viene forzato il completamento.
@@ -764,38 +766,38 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 ![Informazioni di base](./media/site-recovery-vmware-to-azure/essentials.png)
 
 2. Nel riquadro **Integrità** è possibile monitorare i server VMM o di configurazione del sito in cui si verifica il problema e gli eventi generati da Site Recovery nelle ultime 24 ore.
-3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per analizzare i processi, accedere a **Impostazioni** -> **Processi** -> **Processi di Site Recovery**.
+3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Site Recovery Jobs** (Processi di Site Recovery). Per eseguire il drill-down dei processi, accedere a **Impostazioni** -> **Processi** -> **Site Recovery Jobs** (Processi di Site Recovery).
 
 
 ## Distribuire server di elaborazione aggiuntivi
 
 Se è necessario ridimensionare la distribuzione oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico.
 
-Vedere le [raccomandazioni relative alle dimensioni per i server di elaborazione](#size-recommendations-for-the-process-server) e quindi seguire queste istruzioni per configurare il server di elaborazione. Dopo aver configurato il server è possibile eseguire la migrazione dei computer di origine per usarlo.
+Vedere [Dimensioni consigliate per il server di elaborazione](#size-recommendations-for-the-process-server) e quindi seguire queste istruzioni per configurare il server di elaborazione. Dopo aver configurato il server è possibile eseguire la migrazione dei computer di origine per usarlo.
 
 ### Installare un server di elaborazione aggiuntivo
 
-1. In **Impostazioni** > **Server di Site Recovery** fare clic sul server di configurazione > **Server di elaborazione**.
+1. In **Impostazioni** > **Site Recovery servers** (Server di Site Recovery) fare clic sul server di configurazione > **Server di elaborazione**.
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
 
-2. In **Tipo di server** fare clic su **Server di elaborazione (locale)**.
+2. In **Tipo di server** fare clic su **Process server (on-premises)** (Server di elaborazione (locale).
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
-3. Scaricare il ile di installazione per l'Installazione unificata di Site Recovery ed eseguirlo per installare il server di elaborazione e registrarlo nell'insieme di credenziali.
-4. In **Prima di iniziare** selezionare **Aggiungere server di elaborazione per aumentare le istanze di distribuzione**.
+3. Scaricare il file di installazione per l'Installazione unificata di Site Recovery ed eseguirlo per installare il server di elaborazione e registrarlo nell'insieme di credenziali.
+4. In **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
 5. Completare la procedura guidata come per la [configurazione](#step-2-set-up-the-source-environment) del server di configurazione.
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure/add-ps1.png)
 
-6. In **Dettagli del nuovo server di configurazione** specificare l'indirizzo IP del server di configurazione e la passphrase. Per ottenere la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di configurazione.
+6. In **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di configurazione e la passphrase. Per ottenere la passphrase, eseguire **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** nel server di configurazione.
 
 	![Aggiungere il server di elaborazione](./media/site-recovery-vmware-to-azure/add-ps2.png)
 
 ### Eseguire la migrazione dei computer per usare il nuovo server di elaborazione
 
-1. In **Impostazioni** > **Server di Site Recovery** fare clic sul server di configurazione e quindi espandere **Server di elaborazione**.
+1. In **Impostazioni** > **Site Recovery servers** (Server di Site Recovery) fare clic sul server di configurazione e quindi espandere **Server di elaborazione**.
 
 	![Aggiornare il server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
@@ -812,8 +814,8 @@ Il server di elaborazione può rilevare automaticamente le macchine virtuali in 
 **Ruolo** | **Dettagli** | **Autorizzazioni**
 --- | --- | ---
 Ruolo Azure\_Site\_Recovery | Individuazione di macchine virtuali VMware |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Datastore -> Allocate space, Browse datastore, Low level file operations, Remove file, Update virtual machine files<br/><br/>Rete -> Network assign<br/><br/>Risorsa -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Attività -> Create task, Update task<br/><br/>Macchina virtuale -> Configuration<br/><br/>Macchina virtuale -> Interact -> Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Macchina virtuale -> Inventory -> Create, Register, Unregister<br/><br/>Macchina virtuale -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Macchina virtuale -> Snapshots -> Remove snapshots
-Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio (host vSphere, archivi dati, VM e reti).
-Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio (host vSphere, archivi dati, VM e reti). 
+Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio, quali host vSphere, archivi dati, VM e reti.
+Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child** agli oggetti figlio, quali host vSphere, archivi dati, VM e reti. 
 ## Passaggi successivi
 
 - [Altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
@@ -831,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

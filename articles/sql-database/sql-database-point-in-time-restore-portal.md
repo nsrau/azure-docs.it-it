@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-point-in-time-restore.md)
 - [Portale di Azure](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-Questo articolo illustra come ripristinare un database a un momento precedente tramite il portale di Azure.
-
-Il [**ripristino temporizzato**](sql-database-point-in-time-restore.md) è una funzionalità self-service che consente di ripristinare un database dai backup automatici effettuati per tutti i database a un momento precedente all'interno del periodo di conservazione del database. Per altre informazioni sui backup automatici e sui periodi di conservazione dei database, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
+Questo articolo illustra come ripristinare un database a un momento precedente da [Backup automatici del database SQL](sql-database-automated-backups.md) tramite il portale di Azure.
 
 ## Selezionare un database da ripristinare a un momento precedente
 
@@ -47,13 +46,16 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 ## Passaggi successivi
 
 - [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-
-
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristino temporizzato tramite l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Backup automatici del database SQL](sql-database-automated-backups.md)
 
 ## Risorse aggiuntive
 
+- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

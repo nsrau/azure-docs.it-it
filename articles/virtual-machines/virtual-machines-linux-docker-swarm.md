@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Introduzione all'uso di docker con swarm in Azure"
    description="Viene descritto come creare un gruppo di macchine virtuali con l'estensione della VM Docker e usare swarm per creare un cluster Docker."
@@ -20,12 +19,12 @@
 
 # Come usare docker con swarm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 
 In questo argomento viene descritto un modo molto semplice di utilizzare [Docker](https://www.docker.com/) con [Swarm](https://github.com/docker/swarm) per creare un cluster gestito da Swarm in Azure. Vengono create quattro macchine virtuali in Azure, una da usare come gestore di swarm e tre come parte del cluster di host docker. Al termine dell'operazione, sarà possibile usare swarm per visualizzare il cluster e quindi iniziare a usare docker con swarm. Inoltre, le chiamate dell’interfaccia della riga di comando di Azure in questo argomento utilizzano la modalità di gestione servizi (asm).
 
-> [AZURE.NOTE] Questo argomento usa Docker con Swarm e l'interfaccia della riga di comando di Azure *senza* usare **Docker Machine** per illustrare come i diversi strumenti interagiscano pur restando indipendenti. **Docker Machine** offre inoltre opzioni **--swarm**, che consentono di usare **Docker Machine** per aggiungere direttamente i nodi a uno Swarm. Per un esempio, vedere la documentazione di [Docker Machine](https://github.com/docker/machine). Per informazioni sull’esecuzione di **Docker Machine** con Macchine virtuali di Azure, vedere [Come usare Docker Machine in Azure](virtual-machines-linux-classic-docker-machine.md).
+> [AZURE.NOTE] Questo argomento usa Docker con Swarm e l'interfaccia della riga di comando di Azure *senza* usare **Docker Machine** per illustrare come i diversi strumenti interagiscano pur restando indipendenti. **Docker Machine** offre inoltre opzioni **--swarm**, che consentono di usare **Docker Machine** per aggiungere direttamente i nodi a uno Swarm. Per un esempio, vedere la documentazione di [Docker Machine](https://github.com/docker/machine). Per informazioni sull’esecuzione di **Docker Machine** con Macchine virtuali di Azure, vedere [Come usare Docker Machine in Azure](virtual-machines-linux-docker-machine.md).
 
 ## Creare host docker con macchine virtuali di Azure
 
@@ -135,7 +134,7 @@ Iniziare a eseguire operazioni sullo swarm. Per trarre ispirazione, vedere [http
 
 <!-- links -->
 
-[docker-machine-azure]: virtual-machines-linux-classic-docker-machine.md
+[docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

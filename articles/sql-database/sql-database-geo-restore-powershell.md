@@ -19,12 +19,12 @@
 # Ripristinare un database SQL di Azure da un backup con ridondanza geografica tramite PowerShell
 
 > [AZURE.SELECTOR]
+- [Panoramica](sql-database-geo-restore.md)
 - [Portale di Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-Questo articolo illustra come ripristinare un database in un nuovo server con il ripristino geografico tramite PowerShell.
 
-Il [ripristino geografico](sql-database-geo-restore.md) consente di ripristinare un database da un backup con ridondanza geografica per crearne uno nuovo. Il database può essere creato su qualunque server in qualsiasi area di Azure. Poiché usa un backup con ridondanza geografica come origine, è possibile usarlo per ripristinare un database anche se il database è inaccessibile a causa di un'interruzione del servizio. Il ripristino geografico è abilitato automaticamente per tutti i livelli di servizio senza costi aggiuntivi.
+Questo articolo illustra come ripristinare un database in un nuovo server con il ripristino geografico tramite PowerShell.
 
 [AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -60,4 +60,4 @@ Il [ripristino geografico](sql-database-geo-restore.md) consente di ripristinare
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

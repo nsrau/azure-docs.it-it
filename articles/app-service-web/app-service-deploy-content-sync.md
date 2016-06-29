@@ -3,7 +3,7 @@
 	description="Informazioni su come distribuire l'app nel servizio app di Azure tramite la sincronizzazione dei contenuti da una cartella nel cloud."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 
-Una delle opzioni per la distribuzione nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) è la sincronizzazione dei contenuti dai servizi di archiviazione cloud più diffusi come ad esempio Dropbox e OneDrive.
+Questa esercitazione spiega come effettuare una distribuzione nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizzando i contenuti dai servizi di archiviazione cloud più diffusi, come Dropbox e OneDrive.
 
 ## <a name="overview"></a>Panoramica della distribuzione per la sincronizzazione dei contenuti
 
@@ -41,4 +41,4 @@ Per abilitare la sincronizzazione del contenuto dal [portale di Azure](https://p
  
 Altre informazioni sulla distribuzione con Dropbox sono disponibili in [Distribuzione tramite Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

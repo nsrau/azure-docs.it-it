@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Diversi modi per creare una macchina virtuale Linux | Microsoft Azure"
-	description="Elenca i diversi modi per creare una macchina virtuale Linux in Azure e fornisce collegamenti ad altre istruzioni."
+	description="Elenca i diversi modi per creare una macchina virtuale Linux in Azure e indica collegamenti a strumenti ed esercitazioni per ogni metodo"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,18 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Diversi modi per creare una macchina virtuale Linux con Resource Manager
 
 In Azure sono disponibili diversi modi per creare una macchina virtuale con il modello di distribuzione Resource Manager, adatti a obiettivi e utenti diversi. Questo articolo riepiloga le differenze e le opzioni disponibili per la creazione di macchine virtuali (VM) Linux.
 
-## Opzioni dello strumento
+## Interfaccia della riga di comando di Azure 
 
-### Shell dei comandi: interfaccia della riga di comando di Azure 
-
-Dall'interfaccia della riga di comando usare l'interfaccia della riga di comando di Azure. Sono disponibili altre informazioni su [come installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) tramite npm, contenitore Docker o script di installazione. Le esercitazioni seguenti offrono esempi relativi all'uso dell'interfaccia della riga di comando di Azure:
+Sono disponibili altre informazioni su [come installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) tramite npm, contenitore Docker o script di installazione. Le esercitazioni seguenti offrono esempi relativi all'uso dell'interfaccia della riga di comando di Azure:
 
 * [Creare una VM Linux dall'interfaccia della riga di comando di Azure per sviluppo e test](virtual-machines-linux-quick-create-cli.md) 
 
@@ -33,7 +31,7 @@ Dall'interfaccia della riga di comando usare l'interfaccia della riga di comando
 
 * [Creare una VM Linux da zero con l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
 
-### Interfaccia utente grafica: Nuovo portale di Azure
+## Portale di Azure
 
 L'interfaccia utente grafica del [portale di Azure](https://portal.azure.com) è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure, perché non richiede installazioni nel sistema. Usare il portale di Azure per creare la VM:
 
@@ -45,24 +43,24 @@ Con entrambi i metodi, scegliere un'immagine in base al sistema operativo da ese
 
 ### Immagini di Azure
 
-In tutti gli articoli indicati in precedenza è possibile usare con facilità un'immagine di Azure esistente per creare una macchina virtuale e personalizzarne la rete, il bilanciamento del carico e così via. Il portale offre Azure Marketplace per le immagini fornite da Azure. È possibile ottenere simili elenchi con la riga di comando. Ad esempio, nell'interfaccia della riga di comando di Azure eseguire `azure vm image list` per ottenere un elenco di tutte le immagini disponibili per posizione ed editore. Per esempi sull'esplorazione e l'uso delle immagini disponibili, vedere [Trovare e selezionare immagini di macchine virtuali di Azure con l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
+In tutti gli articoli indicati in precedenza è possibile usare con facilità un'immagine di Azure esistente per creare una macchina virtuale e personalizzarne la rete, il bilanciamento del carico e così via. Il portale offre Azure Marketplace per le immagini fornite da Azure. È possibile ottenere simili elenchi con la riga di comando. Nell'interfaccia della riga di comando di Azure eseguire ad esempio `azure vm image list` per ottenere un elenco di tutte le immagini disponibili per posizione ed editore. Per esempi sull'esplorazione e l'uso delle immagini disponibili, vedere [Esplorare e selezionare immagini di macchina virtuale di Azure con l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
 
 ### Usare la propria immagine
 
-Per personalizzazioni specifiche, è possibile usare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo* tale VM oppure caricare un'immagine personalizzata e archiviata in un disco rigido virtuale. Per altre informazioni sulle distribuzioni supportate e su come usare immagini personalizzate, vedere gli articoli seguenti:
+Per personalizzazioni specifiche è possibile usare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo* tale VM oppure caricare un'immagine personalizzata e archiviata in un disco rigido virtuale. Per altre informazioni sulle distribuzioni supportate e su come usare immagini personalizzate, vedere gli articoli seguenti:
 
 * [Distribuzioni approvate per Azure](virtual-machines-linux-endorsed-distros.md)
 
 * [Informazioni per distribuzioni non approvate](virtual-machines-linux-create-upload-generic.md)
 
-* [Come acquisire una macchina virtuale Linux da usare come modello di distribuzione Resource Manager](virtual-machines-linux-capture-image.md).
+* [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager](virtual-machines-linux-capture-image.md).
 
 ## Passaggi successivi
 
-* Provare a eseguire una delle esercitazioni per creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) o usando un [modello](virtual-machines-linux-cli-deploy-templates.md) di distribuzione di Azure Resource Manager.
+* Provare a eseguire una delle esercitazioni per creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) o usando un [modello](virtual-machines-linux-cli-deploy-templates.md) di Azure Resource Manager.
 
-* Dopo aver creato una VM Linux, è possibile [aggiungere un disco dati](virtual-machines-linux-add-disk.md) con facilità.
+* Dopo aver creato una VM Linux è possibile [aggiungere un disco dati](virtual-machines-linux-add-disk.md) con facilità.
 
-* Procedura rapida per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
+* Azioni rapide per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

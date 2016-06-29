@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
@@ -36,7 +36,7 @@ In questo argomento vengono illustrate le funzionalità disponibili con il Datab
 
 ## Funzionalità parzialmente supportate nella versione 12 di Database SQL
 
-La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presenti nelle istruzioni di Transact-SQL di SQL Server 2016 corrispondenti. Ad esempio, è disponibile l'istruzione CREA PROCEDURA anche se l'opzione CON CRITTOGRAFIA di CREA PROCEDURA non è disponibile. Vedere gli argomenti collegati relativi alla sintassi per informazioni dettagliate sulle aree supportate di ogni istruzione.
+La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presenti nelle istruzioni di Transact-SQL di SQL Server 2016 corrispondenti. Ad esempio, è disponibile l'istruzione CREATE PROCEDURE, anche se non sono disponibili tutte le opzioni di CREATE PROCEDURE. Vedere gli argomenti collegati relativi alla sintassi per informazioni dettagliate sulle aree supportate di ogni istruzione.
 
 - Database: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - I DMV sono generalmente disponibili per le funzionalità disponibili
@@ -64,7 +64,7 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - Gestione degli eventi: eventi, notifiche degli eventi, notifiche di query
 - Funzionalità relative al posizionamento dei file di database, dimensioni e file di database che vengono gestiti automaticamente da Microsoft Azure.
 - Funzionalità relative alla disponibilità elevata che viene gestita tramite l’account Microsoft Azure: backup, ripristino, AlwaysOn, mirroring del database, log shipping, modalità di ripristino. Per ulteriori informazioni, vedere Backup e ripristino del database SQL di Azure.
-- Funzionalità che si basano sull’agente di lettura log: replica, Change Data Capture.
+- Funzionalità che si basano sull'agente di lettura log nel database SQL: Replica push, Change Data Capture.
 - Funzionalità che si basano su SQL Server Agent o sul database MSDB: processi, avvisi, operatori, gestione basata su criteri, posta elettronica database, server di gestione centrale.
 - FILESTREAM
 - Funzioni: fn\_get\_sql, fn\_virtualfilestats, fn\_virtualservernodes
@@ -108,4 +108,4 @@ Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQ
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

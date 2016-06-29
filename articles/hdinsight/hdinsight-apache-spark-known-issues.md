@@ -65,15 +65,6 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 
 Seguito alcuni problemi noti relativi ai notebook Jupyter.
 
-### Non è possibile scaricare i notebook Jupyter nel formato ipynb
-
-Se si esegue la versione più recente dei notebook Jupyter per HDInsight Spark e si tenta di scaricare una copia del notebook in formato **ipynb** dall'interfaccia utente del notebook Jupyter, si potrebbe visualizzare un errore interno del server.
-
-**Soluzione:**
-
-1.	Un metodo efficace è scaricare il notebook in un formato diverso da ipynb, ad esempio con estensione txt.  
-2.	Se occorre il file ipynb, è possibile scaricarlo dal contenitore del cluster nell'account di archiviazione nel percorso **/HdiNotebooks**. Ciò vale solo per la versione più recente dei notebook Jupyter per HDInsight, che supporta i backup del notebook nell'account di archiviazione. Questo problema non si verifica con le versioni precedenti dei notebook Jupyter per HDInsight Spark.
-
 
 ### Notebook con nomi di file contenenti caratteri non ASCII
 
@@ -112,10 +103,6 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
     - Arrestando altre applicazioni Spark da YARN.
 
 2. Riavviare il notebook che si stava cercando di avviare. Ora dovrebbero essere disponibili risorse sufficienti per creare una sessione.
-
-### Il ripristino del checkpoint potrebbe non riuscire
-
-È possibile creare i checkpoint nei notebook Jupyter per ripristinare una versione precedente del notebook. Se però lo stato corrente del notebook ha una query SQL con visualizzazione automatica, il ripristino di un checkpoint memorizzato in precedenza potrebbe provocare un errore.
 
 ##Vedere anche
 
@@ -159,4 +146,4 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

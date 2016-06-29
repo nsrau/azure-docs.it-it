@@ -37,12 +37,11 @@ Questa funzione consente di migliorare la percentuale di riuscita del provisioni
 Se si disattiva il provisioning eccessivo, è possibile usare senza problemi un numero maggiore di VM per account di archiviazione. Non è tuttavia consigliabile superare le 40 macchine virtuali.
 
 
-## Limiti (immagine di piattaforma e immagine personalizzata)
-Un set di scalabilità basato su un'immagine di piattaforma ha un limite di 100 VM, per le quali è consigliabile usare 5 account di archiviazione. Un set di scalabilità basato su un'immagine personalizzata (creata dall'utente) deve creare tutti i VHD del disco del sistema operativo all'interno di un unico account di archiviazione. Di conseguenza, il numero massimo di VM in un set di scalabilità basato su un'immagine personalizzata è 20. Se si disattiva il provisioning eccessivo, è possibile arrivare a 40.
+## Limiti
+Un set di scalabilità basato su un'immagine personalizzata creata dall'utente deve creare tutti i dischi rigidi virtuali del disco del sistema operativo all'interno di un unico account di archiviazione. Di conseguenza, il numero massimo consigliato di VM in un set di scalabilità basato su un'immagine personalizzata è 20. Se si disattiva il provisioning eccessivo, è possibile arrivare a 40.
 
+Un set di scalabilità basato su un'immagine di piattaforma ha un limite di 100 VM, per le quali è consigliabile usare 5 account di archiviazione.
 
-## Larga scala
+Per un numero di macchine virtuali superiore a tali limiti, è necessario distribuire più set di scalabilità. Per informazioni su come eseguire questa operazione, [vedere questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-Un set di scalabilità ha un limite di 100 VM per le immagini di piattaforma e di 20 per immagini personalizzate (di 40 senza provisioning eccessivo). Per poter usare un maggior numero di macchine virtuali è necessario distribuire più set di scalabilità. Per un esempio relativo a come eseguire questa operazione, vedere questo modello: https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

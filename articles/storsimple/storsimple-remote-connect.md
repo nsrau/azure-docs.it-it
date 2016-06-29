@@ -112,9 +112,9 @@ Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 
 7. Avviare una sessione di Windows PowerShell sul dispositivo digitando questo comando:
 
-     `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
+     `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] Per creare una sessione di Windows PowerShell per l'utilizzo con il dispositivo virtuale StorSimple, aggiungere il parametro `–port` e specificare la porta pubblica configurata nella comunicazione remota per il dispositivo virtuale StorSimple.
+     >[AZURE.NOTE] Per creare una sessione di Windows PowerShell per l'utilizzo con il dispositivo virtuale StorSimple, aggiungere il parametro `–Port` e specificare la porta pubblica configurata nella comunicazione remota per il dispositivo virtuale StorSimple.
 
      A questo punto, è necessario disporre di una sessione remota attiva di Windows PowerShell sul dispositivo.
 
@@ -172,7 +172,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
      `Get-HcsSystem`
 
-    Assicurarsi che il campo **RemoteManagementMode** mostri **Https Enabled**. Nella figura seguente vengono illustrate queste impostazioni in PuTTY.
+    Assicurarsi che il campo **RemoteManagementMode** contenga **HttpsEnabled**. La figura seguente mostra queste impostazioni in PuTTY.
 
      ![Seriale HTTPS abilitato](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
@@ -250,15 +250,15 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 3. Creare una nuova credenziale digitando:
 
-     `$cred = new-object pscredential @("<IP of target device>\SSAdmin", (convertto-securestring -force -asplaintext "<Device Administrator Password>"))`
+     `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
     Dove <*IP del dispositivo di destinazione*> è l'indirizzo IP di DATA 0 per il dispositivo, ad esempio, **10.126.173.90** come illustrato nell'immagine precedente del file hosts. Inoltre, fornire la password di amministratore per il dispositivo.
 
 4. Creare una sessione digitando:
 
-     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
+     `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    Per il nome CN nel cmdlet, fornire il <*il numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
+    Per il parametro -ComputerName nel cmdlet, specificare il <*numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
 
 5. Digitare:
 
@@ -274,4 +274,4 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

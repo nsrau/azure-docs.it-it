@@ -24,7 +24,7 @@ Service Fabric consente di creare e gestire applicazioni scalabili e affidabili 
 
 Perché l'approccio ai microservizi è importante? I due motivi principali sono:
 
-1. I microservizi consentono di ridimensionare diverse parti dell'applicazione a seconda delle esigenze di questa
+1. I microservizi consentono di ridimensionare diverse parti dell'applicazione a seconda delle esigenze di quest'ultima.
 
 2. I team di sviluppo sono in grado di offrire una maggiore flessibilità nell'implementazione di modifiche e quindi di fornire funzionalità ai clienti più rapidamente e con maggiore frequenza.
 
@@ -62,7 +62,7 @@ Service Fabric offre un supporto di alto livello per l'intero ciclo di vita dell
 
 Le funzionalità di gestione del ciclo di vita delle applicazioni di Service Fabric consentono agli amministratori delle applicazioni e agli operatori IT di usare semplici flussi di lavoro con interazione limitata per il provisioning, la distribuzione, l'applicazione di patch e il monitoraggio delle applicazioni. Questi flussi di lavoro predefiniti riducono in modo significativo il carico degli operatori IT per mantenere le applicazioni continuamente disponibili.
 
-La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione, ognuna delle quali può essere gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric è in grado di distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, può essere usato per distribuire ASP.NET Core 1, node.js, VM Java, script o qualsiasi elemento costitutivo dell'applicazione.
+La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione, ognuna delle quali può essere gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric è in grado di distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, può essere usato per distribuire ASP.NET Core 1, Node.js, VM Java, script o qualsiasi elemento costitutivo dell'applicazione.
 
 Per altre informazioni sulla gestione del ciclo di vita dell'applicazione, leggere [Ciclo di vita di un’applicazione](service-fabric-application-lifecycle.md) e sulla distribuzione di qualsiasi codice vedere [Distribuire un’app eseguibile guest](service-fabric-deploy-existing-app.md)
 
@@ -71,7 +71,7 @@ Usando Service Fabric è possibile:
 
 - Sviluppare applicazioni altamente scalabili, con funzionalità di riparazione automatica.
 
-- Sviluppare applicazioni costituite da microservizi tramite il modello di programmazione di Service Fabric o semplicemente ospitare eseguibili e altri framework di applicazioni a scelta, ad esempio ASP.NET Core 1, node.js e così via.
+- Sviluppare applicazioni costituite da microservizi tramite il modello di programmazione di Service Fabric o semplicemente ospitare eseguibili guest e altri framework di applicazioni preferiti, ad esempio ASP.NET Core 1, Node.js e così via.
 
 - Sviluppare microservizi con o senza stato e renderli altamente affidabili.
 
@@ -103,11 +103,11 @@ Usando Service Fabric è possibile:
 ## Passaggi successivi
 
 * Per altre informazioni:
-	* [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
-	* [Panoramica della terminologia](service-fabric-technical-overview.md)
+    * [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
+    * [Panoramica della terminologia](service-fabric-technical-overview.md)
 * Configurazione dell'[ambiente di sviluppo](service-fabric-get-started.md) di Service Fabric  
 * [Scelta di un framework del modello di programmazione](service-fabric-choose-framework.md) per il servizio
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

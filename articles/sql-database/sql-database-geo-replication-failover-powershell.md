@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 Questo articolo illustra come avviare un failover pianificato o non pianificato per il database SQL con PowerShell. Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con PowerShell](sql-database-geo-replication-powershell.md).
@@ -87,4 +87,4 @@ Il comando seguente cambia i ruoli del database denominato "mydb” in primario 
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

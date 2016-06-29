@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="06/06/2016"
  ms.author="elioda"/>
 
 # Confronto tra l'hub IoT e Hub eventi
@@ -53,4 +53,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

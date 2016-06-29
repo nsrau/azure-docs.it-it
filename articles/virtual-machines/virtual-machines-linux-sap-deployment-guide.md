@@ -843,7 +843,7 @@ Per eseguire il controllo dello stato di preparazione, connettersi con SSH alla 
             * Dovrebbe visualizzare una voce simile alla seguente: 'python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon'
     * Verificare che l'estensione di monitoraggio avanzato di Azure sia installata e avviata
         * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
-    * Dovrebbe elencare il contenuto della directory dell'estensione di monitoraggio avanzato di Azure
+            * Dovrebbe elencare il contenuto della directory dell'estensione di monitoraggio avanzato di Azure
         * ps -ax | grep AzureEnhanced
             * Dovrebbe visualizzare una voce simile alla seguente: 'python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon'
 * Installare l'agente host SAP come descritto nella nota SAP 1031096 e controllare l'output di saposcol
