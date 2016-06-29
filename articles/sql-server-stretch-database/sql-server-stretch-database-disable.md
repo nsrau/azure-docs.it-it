@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Disabilitare Database Estensione e recuperare i dati remoti
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

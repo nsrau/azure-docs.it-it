@@ -28,9 +28,10 @@ Ci sono tre passaggi distinti:
 2. Caricare il certificato nell'insieme di credenziali delle chiavi di Azure.
 3. Fornire il percorso e i dettagli del certificato al processo di creazione del cluster di Service Fabric.
 
+<a id="acquirecerts"></a>
 ## Passaggio 1: Acquisire il certificato X.509
 
-Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un'[autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per i dettagli su come ottenere questi certificati, vedere [Procedura: Ottenere un certificato](http://msdn.microsoft.com/library/aa702761.aspx).
+Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un'[Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per i dettagli su come ottenere questi certificati, vedere [Procedura: Ottenere un certificato](http://msdn.microsoft.com/library/aa702761.aspx).
 
 Per i cluster usati solo a scopo di test, è possibile scegliere di usare un certificato autofirmato. Il passaggio 2.5 seguente illustra come eseguire questa operazione.
 
@@ -42,7 +43,7 @@ Questo è un processo complesso che viene eseguito con un modulo PowerShell cari
 Assicurarsi che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ### Passaggio 2.2
-Copiare la cartella *ServiceFabricRPHelpers* da questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) al computer.
+Copiare la cartella *ServiceFabricRPHelpers* da questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) nel computer.
 
 ### Passaggio 2.3
 Aprire una finestra di PowerShell e passare alla directory in cui è stato scaricato il modulo. Quindi importare il modulo usando il comando seguente.
@@ -88,7 +89,7 @@ Certificate URL /URL to the certificate location in the key vault : https://chac
 A questo punto sono disponibili le informazioni necessarie per configurare un cluster protetto. Andare al passaggio 3.
 
 ### Passaggio 2.5
-Se *non* si dispone di un certificato e si vuole creare un nuovo certificato firmato per caricarlo dell'insieme di credenziali delle chiavi, seguire questa procedura. I certificati autofirmati devono essere usati solo per i cluster di test e non per i cluster di produzione.
+Se *non* è disponibile un certificato e si vuole creare un nuovo certificato firmato per caricarlo nell'insieme di credenziali delle chiavi, seguire questa procedura. I certificati autofirmati devono essere usati solo per i cluster di test e non per i cluster di produzione.
 
 È possibile usare un gruppo di risorse e un insieme di credenziali delle chiavi esistenti per archiviare il certificato oppure, se non sono disponibili, creare un nuovo gruppo di risorse e/o insieme di credenziali delle chiavi. Un insieme di credenziali delle chiavi esistente deve prima essere configurato con questo script per supportare la distribuzione.
 
@@ -97,7 +98,7 @@ Login-AzureRmAccount
 Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
 
-Lo script seguente creerà un nuovo gruppo di risorse e/o insieme di credenziali delle chiavi se non sono presenti, creerà e caricherà un certificato autofirmato nell'insieme di credenziali delle chiavi e posizionerà il nuovo certificato in *OutputPath*.
+Lo script seguente creerà un nuovo gruppo di risorse e/o un insieme di credenziali delle chiavi se non sono presenti, creerà e caricherà un certificato autofirmato nell'insieme di credenziali delle chiavi e inserirà il nuovo certificato in *OutputPath*.
 
 ```powershell
 Login-AzureRmAccount
@@ -133,15 +134,15 @@ I certificati necessari sono specificati a livello di tipo di nodo nelle configu
 
 ### Parametri obbligatori
 
-- **Modalità di sicurezza** Selezionare **Certificato X509** per configurare un cluster protetto con certificati X.509.
-- **Livello di protezione cluster** Per comprendere il significato di ognuno di questi valori, vedere questo [documento sul livello di protezione](https://msdn.microsoft.com/library/aa347692.aspx). Anche se sono consentiti tre valori, EncryptAndSign, Sign e None, è consigliabile mantenere il valore predefinito EncryptAndSign, a meno di essere consapevoli delle conseguenze.
-- **Insieme di credenziali di origine** Si riferisce all'ID risorsa dell'insieme di credenziali delle chiavi. Deve essere nel formato:
+- **Modalità di sicurezza**: selezionare **Certificato X509** per configurare un cluster protetto con certificati X.509.
+- **Livello di protezione cluster**: per comprendere il significato di ognuno di questi valori, vedere questo [documento sul livello di protezione](https://msdn.microsoft.com/library/aa347692.aspx). Anche se sono consentiti tre valori, EncryptAndSign, Sign e None, è consigliabile mantenere il valore predefinito EncryptAndSign, a meno di essere consapevoli delle conseguenze.
+- **Source Vault** (Insieme di credenziali di origine): si riferisce all'ID risorsa dell'insieme di credenziali delle chiavi. Deve essere nel formato:
 
     ```
     /subscriptions/<Sub ID>/resourceGroups/<Resource group name>/providers/Microsoft.KeyVault/vaults/<vault name>
     ```
 
-- **URL del certificato** Si riferisce all'URL del percorso nell'insieme di credenziali delle chiavi in cui è stato caricato il certificato. Deve essere nel formato:
+- **URL del certificato**: si riferisce all'URL del percorso nell'insieme di credenziali delle chiavi in cui è stato caricato il certificato. Deve essere nel formato:
 
     ```
     https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
@@ -150,23 +151,23 @@ I certificati necessari sono specificati a livello di tipo di nodo nelle configu
     https://chackdan-kmstest-eastus.vault.azure.net:443/secrets/MyCert/6b5cc15a753644e6835cb3g3486b3812
     ```
 
-- **Identificazione digitale del certificato** Si riferisce all'identificazione personale del certificato disponibile nell'URL specificato prima.
+- **Identificazione digitale del certificato**: s riferisce all'identificazione personale del certificato disponibile nell'URL specificato prima.
 
 ### Parametri facoltativi
 
  È possibile specificare certificati aggiuntivi usati dai computer client per eseguire operazioni sul cluster. Per impostazione predefinita, l'identificazione personale specificata nei parametri obbligatori viene aggiunta all'elenco autorizzato di identificazioni personali a cui è consentito eseguire operazioni client.
 
-**Client di amministrazione**: queste informazioni vengono usate per verificare che il client che si connette all'endpoint di gestione cluster presenti le credenziali corrette per eseguire azioni amministrative e di sola lettura sul cluster. È possibile specificare più di un certificato da autorizzare per le operazioni amministrative.
+**Client amministratore**: queste informazioni vengono usate per verificare che il client che si connette all'endpoint di gestione cluster presenti le credenziali corrette per eseguire azioni amministrative e di sola lettura sul cluster. È possibile specificare più di un certificato da autorizzare per le operazioni amministrative.
 
-- **Autorizzato da** Indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
-- **Nome soggetto** È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
-- **Identificazione personale autorità di certificazione**. Rappresenta un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
+- **Authorize By** (Autorizza in base a): indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
+- **Nome soggetto**: è necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
+- **Identificazione personale autorità di certificazione**: rappresenta un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
 
 **Client di sola lettura**: queste informazioni vengono usate per verificare che il client che si connette all'endpoint di gestione cluster presenti le credenziali corrette per eseguire azioni di sola lettura sul cluster. È possibile specificare più di un certificato da autorizzare per le operazioni di sola lettura.
 
-- **Autorizzato da** Indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
-- **Nome soggetto** È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
-- **Identificazione personale autorità di certificazione**. Rappresenta un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
+- **Authorize By** (Autorizza in base a): indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
+- **Nome soggetto**: è necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
+- **Identificazione personale autorità di certificazione**: rappresenta un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
 
 ## Passaggi successivi
 Dopo aver configurato la sicurezza basata su certificati nel cluster, riprendere la procedura di creazione del cluster dal [Passaggio 4: Completare la creazione del cluster](service-fabric-cluster-creation-via-portal.md#step-4--complete-the-cluster-creation).
@@ -178,4 +179,4 @@ Dopo aver configurato la sicurezza basata su certificati per il cluster, in un s
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

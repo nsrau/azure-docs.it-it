@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
@@ -173,7 +173,7 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-I tipi includono database, schema, assembly, externaldatasource, table, tablevaluedfunction o tablestatistics.
+I tipi includono database, schema, assembly, origine dati esterna, tabella, funzione con valori di tabella o statistiche tabelle.
 
 ###Creare il segreto del catalogo
 
@@ -193,9 +193,9 @@ I tipi includono database, schema, assembly, externaldatasource, table, tableval
 
 Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
-Un servizio di Data Lake Analtyics può includere i seguenti componenti:
+Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
-- Account di Analisi Data Lake di Azure
+- Account di Azure Data Lake Analytics
 - Account di archiviazione predefinito obbligatorio di Azure Data Lake
 - Account di archiviazione aggiuntivi di Azure Data Lake
 - Account di archiviazione aggiuntivi di Azure
@@ -214,4 +214,4 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

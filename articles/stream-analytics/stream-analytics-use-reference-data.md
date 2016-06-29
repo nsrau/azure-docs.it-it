@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 # Uso dei dati di riferimento o delle tabelle di ricerca in un flusso di input di Analisi di flusso
@@ -72,9 +72,16 @@ Per configurare i dati di riferimento, è prima di tutto necessario creare un in
 
 ## Generazione di dati di riferimento in una pianificazione
 
-Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, il supporto per l'aggiornamento dei dati di riferimento viene abilitato specificando un modello di percorso nella configurazione di input usando i token {date} e {time}. L'analisi di flusso selezionerà le definizioni dei dati di riferimento aggiornate in base a questo modello di percorso. Ad esempio, un modello di ````"/sample/{date}/{time}/products.csv"```` con un formato data di "AAAA-MM-GG" e un formato ora di "HH:mm" indica all'analisi di flusso di selezionare il BLOB aggiornato ````"/sample/2015-04-16/17:30/products.csv"```` alle 17:30 del 16 aprile 2015 nel fuso orario UTC.
+Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è possibile abilitare il supporto per l'aggiornamento dei dati di riferimento specificando un modello di percorso nella configurazione di input con i token di sostituzione {date} e {time}. L'analisi di flusso selezionerà le definizioni dei dati di riferimento aggiornate in base a questo modello di percorso. Ad esempio, un modello `sample/{date}/{time}/products.csv` con un formato data **"AAAA-MM-GG"** e un formato ora **"HH:mm"** indica all'analisi di flusso di selezionare il BLOB aggiornato `sample/2015-04-16/17:30/products.csv` alle 17.30 del 16 aprile 2015 nel fuso orario UTC.
 
-> [AZURE.NOTE] Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando l'ora del computer coincide con l'ora codifica nel nome del BLOB. Ad esempio, il processo cerca /sample/2015-04-16/17:30/products.csv tra le 17.30 e le 17.30.59.9 del 16 aprile 2015 nel fuso orario UTC. Quando l'orologio del computer segna le 17.31, la ricerca di /sample/2015-04-16/17:30/products.csv si arresta e inizia la ricerca di /sample/2015-04-16/17:31/products.csv. Un'eccezione a questo si verifica quando il processo deve elaborare nuovamente dei dati indietro nel tempo o quando il processo viene in primo luogo avviato. Nel momento iniziale il processo cerca i BLOB più recenti prodotti prima dell'ora di inizio del processo specificata. Questa operazione è necessaria per verificare che esista un set di dati di riferimento non vuoto quando il processo inizia. Se non è possibile trovarne uno, il processo non riuscirà e verrà visualizzato un avviso di diagnostica.
+> [AZURE.NOTE] Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando la data/ora del computer precede quella codificata nel nome del BLOB. Ad esempio, il processo cercherà `sample/2015-04-16/17:30/products.csv` non appena possibile ma non prima delle 17.30 del 16 aprile 2015 nel fuso orario UTC. Il processo non cercherà *mai* un file con una data/ora codificata precedente all'ultima rilevata.
+> 
+> Ad esempio, quando il processo trova il BLOB `sample/2015-04-16/17:30/products.csv` ignora tutti i file con una data/ora codificata precedente alle 17.30 del 16 aprile 2015. Quindi, se un BLOB `sample/2015-04-16/17:25/products.csv` viene creato in ritardo nello stesso contenitore, il processo lo ignora.
+> 
+> Analogamente, se il file `sample/2015-04-16/17:30/products.csv` viene generato solo alle 22.03 del 16 aprile 2015, ma nel contenitore non è presente alcun BLOB con una data/ora precedente, il processo usa questo file a partire dalle 22.03 del 16 aprile 2015 e usa i dati di riferimento precedenti fino a quel momento.
+> 
+> Un'eccezione a questo si verifica quando il processo deve elaborare nuovamente dei dati indietro nel tempo o quando il processo viene in primo luogo avviato. Nel momento iniziale il processo cerca i BLOB più recenti prodotti prima dell'ora di inizio del processo specificata. Questa operazione viene eseguita per verificare la presenza di un set di dati di riferimento **non vuoto** all'avvio del processo. Se non viene trovato, il processo restituisce il messaggio di diagnostica seguente: `Initializing input without a valid reference data blob for UTC time <start time>`.
+
 
 È possibile usare [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/) per organizzare l'attività di creazione dei BLOB aggiornati richiesti dall'analisi di flusso per aggiornare le definizioni dei dati di riferimento. Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. Data factory supporta la [connessione a un numero elevato di archivi dati basati su cloud e locali](../data-factory/data-factory-data-movement-activities.md) e il semplice trasferimento dei dati in base a una pianificazione regolare specificata dall'utente. Per altre informazioni e per istruzioni dettagliate su come configurare una pipeline di Data factory per generare dati di riferimento per l'analisi di flusso che vengano aggiornati in base a una pianificazione predefinita, consultare questo [esempio di GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
@@ -103,4 +110,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

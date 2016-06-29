@@ -48,7 +48,6 @@ L'API Recommendations di Azure Machine Learning può essere suddivisa nei seguen
 - Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
 - Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
 - Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
-- Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di ~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
 - Il numero massimo di elementi che è possibile richiedere durante il recupero di raccomandazioni è 150.
 
 ##3\. API: informazioni generali
@@ -93,8 +92,8 @@ Crea una richiesta di tipo "crea modello".
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri |
-| apiVersion | 1.0 |
+|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | 
+| apiVersion | 1.0 | 
 |||
 | Corpo della richiesta | NESSUNO |
 
@@ -803,15 +802,15 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 Questi sono i tipi di regole supportati:
 - <strong>BlockList</strong>: BlockList consente di fornire un elenco degli elementi che non devono essere restituiti nei risultati delle raccomandazioni. 
 
-- <strong>FeatureBlockList</strong>: FeatureBlockList consente di bloccare gli elementi in base ai valori delle funzionalità.
+- <strong>FeatureBlockList</strong>: consente di bloccare gli elementi in base ai valori delle funzionalità.
 
 *Non inviare più di 1000 elementi in una singola regola blocklist o si rischia il timeout della chiamata. Se si desidera bloccare più di 1000 elementi, è possibile effettuare diverse chiamate in blocklist.*
 
 - <strong>Upsale</strong>: consente di imporre gli elementi da restituire nel risultati delle raccomandazioni.
 
-- <strong>WhiteList</strong>: WhiteList consente di fornire raccomandazioni solo da un elenco di elementi.
+- <strong>WhiteList</strong>: consente di fornire raccomandazioni solo da un elenco di elementi.
 
-- <strong>FeatureWhiteList</strong>: FeatureWhiteList consente di raccomandare solo gli elementi che dispongono di valori di funzionalità specifici.
+- <strong>FeatureWhiteList</strong>: consente di raccomandare solo gli elementi che dispongono di valori di funzionalità specifici.
 
 - <strong>PerSeedBlockList</strong>: consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
 
@@ -936,7 +935,7 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -953,7 +952,7 @@ Codice stato HTTP: 200
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -979,10 +978,10 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 
 | Nome | Obbligatorio | Tipo | Descrizione |
 |:---|:---|:---|:---|
-| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. |
-| Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. |
-| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. |
-| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. |
+| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | 
+| Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | 
+| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | 
+| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | 
 | Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 ; numero massimo di funzionalità: 20| Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello. Vedere la sezione [Argomenti avanzati](#2-advanced-topics). |
 
 
@@ -994,10 +993,11 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 |
-| apiVersion | 1.0 |
-|||
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 | 
+| apiVersion | 1.0 | 
+||| 
 | Corpo della richiesta | Esempio (con funzionalità):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+
 
 
 **Risposta**:
@@ -1200,10 +1200,11 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
-| apiVersion | 1.0 |
-|||
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri | 
+| apiVersion | 1.0 | 
+||| 
 | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] & #40; Carattere di sottolineatura & #41; [-] & #40; Lineetta & #41;<br> La lunghezza massima consentita: 255 </td><td>Identificatore univoco dell'utente.</td></tr><tr><td>Id elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [& #95;] & #40; Carattere di sottolineatura & #41; [-] & #40; Lineetta & #41;<br> La lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: aaaa/MM/ggTHH (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No; se fornito, deve inserire anche la data</td><td>Uno dei seguenti:<br>• Fare clic su<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-c 414-bb38-be9cf461c347</pre> |
+
 
 **Risposta**:
 
@@ -1363,7 +1364,7 @@ Recupera i metadati di tutti i file di dati di utilizzo del modello. Il file di 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1430,7 +1431,7 @@ Ottiene le statistiche di utilizzo.
 | startDate |	Data di inizio. Formato: aaaa/MM/ggTHH:mm:ss |
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1513,7 +1514,7 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di dati di utilizzo del modello. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1553,7 +1554,7 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 | mid |	Identificatore univoco del modello. |
 | fid |	Identificatore univoco del file di dati di utilizzo del modello. |
 | download | 1 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1609,7 +1610,7 @@ Elimina il file di dati di utilizzo del modello specificato.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1628,7 +1629,7 @@ Elimina tutti i file di dati di utilizzo del modello.
 | Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1650,7 +1651,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'u
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo. <br/>I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1733,7 +1734,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per una
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo.<br/> I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
 |rankBuildId| Identificatore univoco per la compilazione della classifica o -1 per l'ultima compilazione della classifica.|
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1895,7 +1896,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 |||
 | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli in formato XML nel corpo come nell'esempio seguente. Per una spiegazione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
@@ -1973,7 +1974,7 @@ XML OData
 | buildType | Tipo della compilazione da richiamare: <br/> - "Recommendation" per una compilazione di raccomandazioni <br> - "Ranking" per una compilazione della classifica <br/> - "Fbt" per una compilazione FBT
 | apiVersion | 1\.0 |
 |||
-| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli in formato XML nel corpo come nell'esempio seguente. Per una spiegazione e l'elenco completo dei parametri, vedere la sezione "Parametri della compilazione".`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli in formato XML nel corpo come nell'esempio seguente. Per la descrizione e l'elenco completo dei parametri, vedere la sezione "Parametri della compilazione".`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Risposta**:
 
@@ -2470,10 +2471,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 La risposta di esempio seguente include 10 elementi raccomandati.
 
@@ -2651,10 +2652,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
@@ -2681,12 +2682,12 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id1`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id1`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
-- `Feed\entry\content\properties\Id2`: ID 2ª elemento raccomandato (facoltativo).
-- `Feed\entry\content\properties\Name2`: nome del 2ª elemento (facoltativo).
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Id2`: ID 2° elemento raccomandato (facoltativo).
+- `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 La risposta di esempio seguente include tre set di elementi consigliati.
 
@@ -2773,12 +2774,12 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id1`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id1`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
-- `Feed\entry\content\properties\Id2`: ID 2ª elemento raccomandato (facoltativo).
-- `Feed\entry\content\properties\Name2`: nome del 2ª elemento (facoltativo).
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Id2`: ID 2° elemento raccomandato (facoltativo).
+- `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.3.
 
@@ -2810,10 +2811,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
@@ -2847,10 +2848,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
@@ -2882,10 +2883,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
@@ -2920,10 +2921,10 @@ Codice stato HTTP: 200
 
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
-- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
+- `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
 
@@ -2953,7 +2954,7 @@ Recuperare l'elenco di elementi usati nella compilazione attiva o nella compilaz
 Codice stato HTTP: 200
 
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
-- `Feed\entry\content\properties\Id`: ID elemento raccomandato.
+- `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
 - `Feed\entry\content\properties\Rating`: N/D.
 - `Feed\entry\content\properties\Reasoning`: N/D.
@@ -3088,4 +3089,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

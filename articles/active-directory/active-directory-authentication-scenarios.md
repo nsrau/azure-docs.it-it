@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 # Scenari di autenticazione per Azure AD
@@ -203,10 +203,9 @@ La sessione dell'utente scade al termine del periodo di validità del token emes
 
 ### Applicazione a singola pagina (SPA)
 
+Questa sezione descrive l'autenticazione per un'applicazione a pagina singola che utilizza Azure AD e la concessione di autorizzazione implicita OAuth 2.0 per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript (front-end) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. Per ulteriori informazioni sulla concessione di autorizzazione implicita e per stabilire se sia adatta allo scenario della propria applicazione, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-Questa sezione descrive l'autenticazione per un'applicazione a singola pagina che usa Azure AD per proteggere il back-end dell'API Web. Le applicazioni a singola pagina sono in genere strutturate come un livello di presentazione JavaScript (front-end) eseguito nel browser e un back-end dell'API Web eseguito in un server e che implementa la logica di business dell'applicazione. In questo scenario, quando l'utente accede, il front-end JavaScript usa [Active Directory Authentication Library per JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e il protocollo di concessione implicita OAuth 2.0 per ottenere un token ID (id\_token) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
-
-
+In questo scenario, quando l'utente accede, il front-end JavaScript utilizza [Active Directory Authentication Library per JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e la concessione di autorizzazione implicita OAuth 2.0 per ottenere un token ID (id\_token) da Azure AD. Il token viene memorizzato nella cache e il client lo associa alla richiesta come token di connessione quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
 #### Diagramma
 
 ![Diagramma Applicazione a singola pagina (SPA)](./media/active-directory-authentication-scenarios/single_page_app.png)
@@ -469,4 +468,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="priyamo"/>
 
 # Protocolli di autenticazione di Active Directory
@@ -22,7 +22,8 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 
 In questo set di articoli verranno esaminati i protocolli supportati e la relativa implementazione in Azure AD. Gli articoli contengono richieste e risposte di esempio e, grazie all'integrazione diretta con i protocolli, sono prevalentemente indipendenti dal linguaggio.
 
-- [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md): informazioni sul flusso di concessione delle autorizzazioni di OAuth2.0 e sulla relativa implementazione in Azure AD.
+- [Concessione del codice di autorizzazione OAuth 2.0](active-directory-protocols-oauth-code.md): informazioni sulla concessione dell'autorizzazione "codice di autorizzazione" in OAuth 2.0 e su come implementarla in Azure AD.
+- [Concessione implicita di OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md): informazioni sulla concessione di autorizzazione "implicita" in OAuth 2.0 e indicazioni utili per stabilirne l'adeguatezza per la propria applicazione.
 - [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): informazioni su come usare il protocollo di autenticazione OpenID Connect in Azure AD.
 - [Informazioni di riferimento sul protocollo SAML](active-directory-saml-protocol-reference.md): informazioni su come usare il protocollo SAML per supportare [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) e [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) in Azure AD.
 
@@ -37,4 +38,4 @@ Questo set di articoli offre informazioni aggiuntive che potrebbero risultare ut
 - [Risoluzione dei problemi dei protocolli di autenticazione](active-directory-error-handling.md): informazioni su come interpretare e risolvere gli errori più comuni quando si usano OAuth 2.0 e Azure AD.
 - [Procedure consigliate per OAuth 2.0 in Azure Active Directory](active-directory-oauth-best-practices.md): informazioni sulle procedure consigliate per usare OAuth 2.0 in Azure AD ed evitare inconvenienti comuni.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

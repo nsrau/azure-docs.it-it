@@ -103,9 +103,9 @@ Le esercitazioni seguenti mostrano come [eseguire la migrazione di un database S
 | [Copiare un database SQL di Azure con Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) | Questa esercitazione mostra come copiare un database SQL di Azure con Transact-SQL. |
 ||||
 
-##Sviluppo
+##Sviluppare
 
-Le esercitazioni seguenti illustrano i concetti relativi alla [connettività client al database SQL di Azure](sql-database-connect-central-recommendations.md) e descrivo l'uso delle [librerie di connettività](sql-database-libraries.md).
+Le esercitazioni seguenti illustrano i concetti relativi allo [sviluppo di database SQL](sql-database-develop-overview.md) e all'uso delle [raccolte di connessioni](sql-database-libraries.md).
 
 | Esercitazione | Descrizione |
 |---|---|---|
@@ -180,4 +180,4 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 
 [Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

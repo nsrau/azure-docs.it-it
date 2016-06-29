@@ -3,7 +3,7 @@
    description="Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -72,7 +72,7 @@ Se si usa il failover con replica geografica delle opzioni di ripristino geograf
 
 Poiché il database ripristinato si troverà in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
 
-Per altre informazioni sulla modifica delle stringhe di connessione, vedere [Connessione al database SQL: procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md).
+Per altre informazioni sulla modifica delle stringhe di connessione, vedere il linguaggio di sviluppo appropriato per le [Raccolte di connessioni](sql-database-libraries.md).
 
 ### Configurare le regole firewall
 
@@ -110,4 +110,4 @@ Se è necessario il controllo di accesso al database, occorre attivare il contro
 - [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
 - [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

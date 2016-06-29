@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/15/2016"
 	ms.author="jeffstok"/>
 
 # Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
@@ -40,7 +40,7 @@ Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono
 
 Ogni input dell'Hub eventi per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di Hub eventi di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
 
-## Configurare l'hub eventi come flusso di dati di input
+### Configurare l'hub eventi come flusso di dati di input
 
 La tabella seguente illustra ciascuna proprietà nella scheda di input dell'Hub eventi con la relativa descrizione:
 
@@ -77,11 +77,13 @@ FROM Input
 
 Hub IoT di Azure è un servizio di inserimento di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT. È importante notare che il timestamp predefinito degli eventi proveniente dagli hub IoT nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'hub IoT, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+> [AZURE.NOTE] È possibile elaborare solo i messaggi inviati con una proprietà DeviceClient.
+
 ### Gruppi di utenti
 
 Ogni input dell'hub IoT per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di hub IoT di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso.
 
-## Configurare Hub IoT come input del flusso di dati
+### Configurare Hub IoT come input del flusso di dati
 
 La tabella seguente illustra ciascuna proprietà nella scheda di input dell’hub IoT con la relativa descrizione:
 
@@ -209,4 +211,4 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

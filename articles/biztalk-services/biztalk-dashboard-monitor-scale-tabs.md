@@ -32,16 +32,13 @@ A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potreb
 <table border="1">
     <tr>
         <td><strong>Get the tools</strong></td>
-
         <td>Scaricare l'SDK di Servizi BizTalk per installare i modelli di progetto di Visual Studio sul computer di sviluppo locale. I modelli consentono di creare i progetti Visuali Studio dei <strong>Servizi BizTalk</strong> (bridge) e degli <strong>elementi del servizio BizTalk</strong> (Transform) Visual Studio distribuiti nel proprio servizio BizTalk.
         <br/><br/>
 		Negli articoli su <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">come iniziare a utilizzare l'SDK di Servizi BizTalk di Azure</a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">installare l'SDK di Servizi BizTalk di Azure</a> sono elencate tutte le procedure introduttive.
         </td>
     </tr>
-
     <tr>
         <td><strong>Create partner agreements</strong></td>
-
         <td>Consente di aprire il portale Servizi BizTalk di Azure ospitato su Azure dove aggiungere partner e creare contratti EDI X12, AS2 ed EDIFACT.
         <br/><br/>
         Nell'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">configurazione di componenti per la messaggistica EDI sul portale Servizi BizTalk</a> sono elencate le procedure introduttive.
@@ -238,13 +235,14 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 1. Selezionare la scheda **Monitoraggio**.
 2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:  
 
+
 	![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
 
 	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico:  
-![Metrica Utilizzo CPU disabilitata][GrayedMetric]  
+![Metrica Utilizzo CPU disabilitata][GrayedMetric]
 
 	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico:  
 ![Metrica Utilizzo CPU abilitata][EnabledMetric]  
@@ -366,4 +364,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

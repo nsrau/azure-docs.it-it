@@ -3,8 +3,8 @@
    description="Gli asset credenziali in Automazione di Azure includono le credenziali di sicurezza che possono essere usate per l'autenticazione nelle risorse a cui accede il Runbook o la configurazione DSC. Questo articolo illustra come creare asset credenziali e usarli in un Runbook o in una configurazione DSC."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="06/09/2016"
    ms.author="bwren" />
 
 # Asset credenziali in Automazione di Azure
@@ -27,7 +27,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset credenz
 
 |Cmdlet|Descrizione|
 |:---|:---|
-|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|Recupera informazioni riguardo un asset credenziali. È possibile recuperare solo le credenziali stesse dall'attività **Get-AutomationCredential**.|
+|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|Recupera informazioni riguardo un asset credenziali. Dall'attività **Get-AutomationPSCredential** è possibile recuperare soltanto le credenziali stesse.|
 |[New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Crea nuove credenziali di Automazione.|
 |[Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Rimuove le credenziali di Automazione.|
 |[Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Imposta le proprietà per le credenziali di Automazione esistenti.|
@@ -42,10 +42,10 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 
 >[AZURE.NOTE] È consigliabile evitare di usare le variabili nel parametro –Name di Get-AutomationPSCredential, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset credenziali durante la fase di progettazione.
 
-## Creazione di nuove credenziali
+## Creazione di un nuovo asset credenziali
 
 
-### Per creare una nuova variabile con il portale di Azure classico
+### Per creare un nuovo asset credenziali con il portale di Azure classico
 
 1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
 1. Nella parte inferiore della finestra, fare clic su **Aggiungi impostazione**.
@@ -54,7 +54,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 1. Completare la procedura guidata e selezionare la casella di controllo per salvare le nuove credenziali.
 
 
-### Per creare nuove credenziali con il portale di Azure
+### Per creare un nuovo asset credenziali con il portale di Azure
 
 1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
 1. Fare clic sulla parte **Credenziali** per aprire il pannello **Credenziali**.
@@ -62,7 +62,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 1. Completare il modulo e fare clic su **Crea** per salvare le nuove credenziali.
 
 
-### Per creare nuove credenziali di PowerShell con Windows PowerShell
+### Per creare un nuovo asset credenziali con Windows PowerShell
 
 I comandi di esempio seguenti mostrano come creare nuove credenziali di Automazione. Viene prima creato un oggetto PSCredential con il nome e la password, che verrà quindi usato per creare l'asset credenziali. In alternativa, usare il cmdlet **Get-Credential** per ricevere la richiesta di digitare nome e password.
 
@@ -92,17 +92,20 @@ Per aggiungere un'attività **Get-AutomationPSCredential** a un Runbook grafico,
 
 ![Aggiungere credenziali all'area di disegno](media/automation-credentials/credential-add-canvas.png)
 
-La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico. In questo caso vengono usate per fornire autenticazione per un Runbook alle risorse di Azure, come illustrato in [Configurazione dell'autenticazione per le risorse di Azure](automation-configuring.md). La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure. L'attività **Add-AzureAccount** usa quindi queste credenziali per fornire l'autenticazione per eventuali attività successive. Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.
+La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico. In questo caso vengono usate per fornire l'autenticazione per un runbook a risorse di Azure, come illustrato in [Autenticare i runbook con Azure Service Management e Azure Resource Manager](automation-sec-configure-aduser-account.md). La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure. L'attività **Add-AzureAccount** usa quindi queste credenziali per fornire l'autenticazione per eventuali attività successive. Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.
 
 ![Aggiungere credenziali all'area di disegno](media/automation-credentials/get-credential.png)
 
 ## Uso di credenziali PowerShell in DSC
 Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento ad asset credenziali con **Get-AutomationPSCredential**, gli asset credenziali possono essere passati anche con i parametri, se necessario. Per ulteriori informazioni vedere [Compilazione di configurazioni in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
-## Articoli correlati
+## Passaggi successivi
 
-- [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
+- Per altre informazioni sui collegamenti nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
+- Per comprendere i diversi metodi di autenticazione con Automazione, vedere [Sicurezza in Automazione di Azure](automation-security-overview.md)
+- Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
+- Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

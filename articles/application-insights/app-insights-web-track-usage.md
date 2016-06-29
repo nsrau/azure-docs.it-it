@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/12/2016" 
 	ms.author="awills"/>
  
 # Analisi dell'utilizzo per applicazioni Web con Application Insights
@@ -152,32 +152,22 @@ Tuttavia, si vuole comunque che Application Insights registri il numero di volte
 
 ## Eventi personalizzati
 
-Usare gli eventi personalizzati per . È possibile inviarli da app per dispositivi, pagine Web o un server Web:
-
-*JavaScript*
+Scrivere dati di telemetria personalizzati per registrare eventi specifici. In particolare, in un'app a pagina singola è opportuno conoscere la frequenza con cui l'utente esegue determinate azioni o raggiunge determinati obiettivi:
 
     appInsights.trackEvent("GameEnd");
 
-*C#*
+Ad esempio, per registrare le azioni di clic su un collegamento:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
-    tc.TrackEvent("GameEnd");
-
-*VB*
-
-    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
-    tc.TrackEvent("GameEnd")
+    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
 
 
-Gli eventi personalizzati più frequenti sono elencati nel pannello Panoramica.
+## Visualizzare i conteggi degli eventi personalizzati
 
-![Nel pannello Panoramica scorrere verso il basso e fare clic su Eventi personalizzati.](./media/app-insights-web-track-usage/04-events.png)
-
-Fare clic sull'intestazione della tabella per visualizzare il numero totale di eventi. È possibile segmentare il grafico in base a vari attributi, ad esempio il nome dell'evento:
+Aprire Esplora metriche e aggiungere un grafico per mostrare gli eventi. Segmentare in base al nome:
 
 ![Selezionare un grafico che mostra solo una metrica. Attivare il Raggruppamento. Scegliere una proprietà. Non tutte le proprietà sono disponibili.](./media/app-insights-web-track-usage/06-eventsSegment.png)
 
-Le sequenze temporali, una funzionalità particolarmente utile, consentono di correlare le modifiche con altre metriche ed eventi. Ad esempio, nei momenti in cui vengono usati più giochi, ci si aspetterebbe anche un incremento dei giochi abbandonati. Ma se l'aumento dei giochi abbandonati è sproporzionato, è necessario verificare se il carico elevato causa problemi ritenuti inaccettabili dagli utenti.
+
 
 ## Esaminare eventi specifici
 
@@ -376,4 +366,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

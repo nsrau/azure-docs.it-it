@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="06/13/2016"
    ms.author="subramar"/>
 
 
@@ -29,15 +29,14 @@ L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente a
 
 ## Passaggio 1: creare e distribuire l'esempio di oggetti visivi
 
-Questi passaggi possono essere eseguiti tramite il download dell'applicazione da GitHub e l'acciunta dei file **webgl-utils.js** e **gl-matrix-min.js** al progetto, come indicato nel file leggimi dell'esempio. Senza questa operazione l'applicazione non funzionerà.
 
-Dopo aver aggiunto i file al progetto, compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionare il comando **Pubblica** nella voce di menu di Service Fabric come indicato di seguito. Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md). In alternativa, è possibile usare PowerShell per distribuire l'applicazione.
+Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionare il comando **Pubblica** nella voce di menu di Service Fabric come indicato di seguito. Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md). In alternativa, è possibile usare PowerShell per distribuire l'applicazione.
 
-> [AZURE.NOTE] Per poter usare uno dei comandi di Service Fabric in PowerShell, è necessario connettersi prima al cluster con il cmdlet `Connect-ServiceFabricCluster`. Si presuppone che il cluster sia stato già configurato nel computer locale. Vedere l'articolo relativo alla [configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
+> [AZURE.NOTE] Per poter usare uno dei comandi di Service Fabric in PowerShell è necessario connettersi prima al cluster con il cmdlet `Connect-ServiceFabricCluster`. Si presuppone che il cluster sia stato già configurato nel computer locale. Vedere l'articolo relativo alla [configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 
-Dopo aver compilato il progetto in Visual Studio, è possibile usare il comando di PowerShell **Copy-ServiceFabricApplicationPackage** per copiare il pacchetto dell'applicazione in ImageStore. Questo passaggio viene eseguito registrando l'applicazione nel runtime di Service Fabric con il cmdlet **Register-ServiceFabricApplicationPackage**. Il passaggio finale consiste nell'avviare un'istanza dell'applicazione con il cmdlet **New-ServiceFabricApplication**. Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.
+Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell **Copy-ServiceFabricApplicationPackage** per copiare il pacchetto dell'applicazione in ImageStore. Questo passaggio viene eseguito registrando l'applicazione nel runtime di Service Fabric con il cmdlet **Register-ServiceFabricApplicationPackage**. Il passaggio finale consiste nell'avviare un'istanza dell'applicazione con il cmdlet **New-ServiceFabricApplication**. Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.
 
-È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) sulla barra degli indirizzi. Verranno visualizzati alcuni oggetti visivi mobili sullo schermo. È anche possibile usare **Get-ServiceFabricApplication** per controllare lo stato dell'applicazione.
+È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) sulla barra degli indirizzi. Verranno visualizzati alcuni oggetti visivi mobili sullo schermo. È anche possibile usare **Get-ServiceFabricApplication** per verificare lo stato dell'applicazione.
 
 ## Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 
@@ -45,7 +44,7 @@ Dopo aver compilato il progetto in Visual Studio, è possibile usare il comando 
 
 Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects e aprire il file StatefulVisualObjectActor.cs. All'interno del file passare al metodo `MoveObject`, impostare come commento `this.State.Move()` e rimuovere il commento `this.State.Move(true)`. Questa modifica fa ruotare gli oggetti dopo l'aggiornamento del servizio.
 
-È anche necessario aggiornare il file *ServiceManifest.xml* (in PackageRoot) del progetto **VisualObjects.ActorService**. Aggiornare *CodePackage* e la versione del servizio alla versione 2.0, nonché le righe corrispondenti nel file *ServiceManifest.xml*. È possibile usare l'opzione per la *modifica dei file manifesto* di Visual Studio dopo aver fatto clic con il pulsante destro del mouse sulla soluzione per apportare le modifiche al file manifesto.
+È anche necessario aggiornare il file *ServiceManifest.xml* (in PackageRoot) del progetto **VisualObjects.ActorService**. Aggiornare *CodePackage* e la versione del servizio alla versione 2.0, nonché le righe corrispondenti nel file *ServiceManifest.xml*. È possibile usare l'opzione *Edit Manifest Files* (Modifica file manifesto) di Visual Studio dopo aver fatto clic con il pulsante destro del mouse sulla soluzione per apportare le modifiche al file manifesto.
 
 
 Dopo aver apportato le modifiche, il manifesto dovrebbe essere simile al seguente (le parti evidenziate indicano le modifiche):
@@ -56,7 +55,7 @@ Dopo aver apportato le modifiche, il manifesto dovrebbe essere simile al seguent
 <CodePackageName="Code" Version="2.0">
 ```
 
-A questo punto è necessario aggiornare il file *ApplicationManifest.xml*, disponibile nel progetto **VisualObjects** della soluzione **VisualObjects**, in modo da usare la versione 2.0 del progetto **VisualObjects.ActorService** e aggiornare anche la versione dell'applicazione da 1.0.0.0 a 2.0.0.0. Le righe corrispondenti nel file *ApplicationManifest.xml* ora saranno simili alle seguenti:
+A questo punto è necessario aggiornare il file *ApplicationManifest.xml*, disponibile nel progetto **VisualObjects** della soluzione **VisualObjects**, in modo da usare la versione 2.0 del progetto **VisualObjects.ActorService** e aggiornare anche la versione dell'applicazione da 1.0.0.0 a 2.0.0.0. Le righe corrispondenti nel file *ApplicationManifest.xml* saranno ora simili alle seguenti:
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -117,7 +116,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Si noti che il nome dell'applicazione è lo stesso descritto nel file *ApplicationManifest.xml*. Service Fabric usa questo nome per identificare l'applicazione che viene aggiornata. Se si imposta un valore di timeout troppo breve, è possibile che venga visualizzato un messaggio di errore che indica il problema. Vedere la sezione relativa alla risoluzione dei problemi o aumentare i valori di timeout.
 
-Man mano che procede l'aggiornamento dell'applicazione, è possibile monitorarla con Service Fabric Explorer oppure con il comando di PowerShell **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
+Man mano che procede l'aggiornamento dell'applicazione, è possibile monitorarlo con Service Fabric Explorer oppure con il comando di PowerShell **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
 
 In pochi minuti lo stato ottenuto usando il comando di PowerShell precedente indicherà che sono stati aggiornati (completati) tutti i domini di aggiornamento. A questo punto gli oggetti visivi nella finestra del browser avranno iniziato a ruotare.
 
@@ -128,12 +127,12 @@ In pochi minuti lo stato ottenuto usando il comando di PowerShell precedente ind
 
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione con Visual Studio.
 
-Controllare l'aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
+Controllare l'aggiornamento dell'applicazione usando [parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare la [serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
+Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
-Risolvere problemi comuni negli aggiornamenti delle applicazioni facendo riferimento ai passaggi descritti in [Risolvere i problemi relativi agli aggiornamenti delle applicazioni](service-fabric-application-upgrade-troubleshooting.md).
+Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi di aggiornamento delle applicazioni](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

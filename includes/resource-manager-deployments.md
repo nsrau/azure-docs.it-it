@@ -1,17 +1,19 @@
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
-## Incremental and complete deployments
+## Distribuzioni incrementali e complete
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+Per impostazione predefinita, Gestione risorse gestisce le distribuzioni come aggiornamenti incrementali al gruppo di risorse. Con la distribuzione incrementale, Gestione risorse:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **lascia invariate** le risorse presenti nel gruppo di risorse, ma non specificate nel modello
+- **aggiunge** le risorse specificate nel modello, ma non presenti nel gruppo di risorse 
+- **non esegue nuovamente il provisioning** delle risorse presenti nel gruppo di risorse alle stesse condizioni definite nel modello
 
-With complete deployment, Resource Manager:
+Con la distribuzione completa, Gestione risorse:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **elimina** le risorse presenti nel gruppo di risorse, ma non specificate nel modello
+- **aggiunge** le risorse specificate nel modello, ma non presenti nel gruppo di risorse 
+- **non esegue nuovamente il provisioning** delle risorse presenti nel gruppo di risorse alle stesse condizioni definite nel modello
  
-You specify the type of deployment through the **Mode** property.
+La proprietà **Mode** consente di specificare il tipo di distribuzione.
+
+<!---HONumber=AcomDC_0615_2016-->

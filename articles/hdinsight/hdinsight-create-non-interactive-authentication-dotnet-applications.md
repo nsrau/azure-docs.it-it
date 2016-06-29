@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="jgao"/>
 
 # Creare applicazioni .NET HDInsight di autenticazione non interattive
@@ -89,7 +89,7 @@ Attualmente, è necessario usare il portale di Azure classico per creare una nuo
 
 ##Sviluppare l'applicazione client HDInsight
 
-Creare un'applicazione console C# .net seguendo le istruzioni disponibili in [Inviare processi Hadoop in HDInsight](hdinsight-submit-hadoop-jobs-programmatically/#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Sostituire quindi il metodo GetTokenCloudCredentials con il codice seguente:
+Creare un'applicazione console C# .net seguendo le istruzioni disponibili in [Inviare processi Hadoop in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Sostituire quindi il metodo GetTokenCloudCredentials con il codice seguente:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -122,4 +122,4 @@ Oppure l'interfaccia della riga di comando di Azure:
 - [Autenticazione di un'entità servizio con Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

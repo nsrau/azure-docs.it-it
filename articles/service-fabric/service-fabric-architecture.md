@@ -23,7 +23,7 @@ Service Fabric è costituito da sottosistemi a più livelli. Tali sottosistema c
 * Disponibilità elevata
 * Scalabilità
 * Gestione
-* Test
+* Testabilità
 
 Il diagramma seguente illustra i sottosistemi principali di Service Fabric.
 
@@ -47,9 +47,9 @@ Il sottosistema di affidabilità offre il meccanismo che consente l'elevata disp
 ## Sottosistema di gestione
 Il sottosistema di gestione offre una gestione del ciclo di vita dell'applicazione e dei servizi end-to-end. I cmdlet di PowerShell e le API amministrative consentono di effettuare il provisioning, la distribuzione, l'applicazione di patch, l'aggiornamento e il deprovisioning di applicazioni senza perdita di disponibilità. A tale scopo, il sottosistema di gestione usa i servizi seguenti:
 
-* Cluster Manager - Questo è il servizio primario che interagisce con Gestione failover dai componenti di affidabilità per posizionare le applicazioni nei nodi in base ai vincoli di posizionamento dei servizi. Resource Manager nei sottosistemi di failover garantisce che i vincoli non vengano mai violati. Cluster Manager gestisce il ciclo di vita delle applicazioni dal provisioning al deprovisioning. Si integra con Health Manager per garantire che durante gli aggiornamenti la disponibilità delle applicazioni non vada perduta dal punto di vista dell'integrità semantica.
-* Health Manager - Questo servizio consente il monitoraggio dell'integrità di applicazioni e servizi ed entità del cluster. Le entità del cluster, ad esempio nodi, partizioni di servizi e repliche, possono segnalare informazioni sull'integrità, che vengono quindi aggregate nell'archivio integrità centralizzato. Queste informazioni sull'integrità forniscono uno snapshot dell'integrità globale in un determinato momento per i servizi e i nodi distribuiti in più nodi del cluster, consentendo così di intraprendere le azioni correttive necessarie. Le API di query sull'integrità consentono di eseguire query sugli eventi di integrità segnalati al sottosistema di integrità. Queste API restituiscono dati sull'integrità non elaborati archiviati nell'archivio integrità oppure restituiscono i dati sull'integrità interpretati e aggregati per una specifica entità del cluster.
-* Image Store - Questo servizio consente l'archiviazione e la distribuzione di file binari delle applicazioni. Offre un semplice archivio di file distribuito in cui vengono caricate o da cui vengono scaricate le applicazioni.
+* **Cluster Manager**: servizio primario che interagisce con Gestione failover dai componenti di affidabilità per posizionare le applicazioni nei nodi in base ai vincoli di posizionamento dei servizi. Resource Manager nei sottosistemi di failover garantisce che i vincoli non vengano mai violati. Cluster Manager gestisce il ciclo di vita delle applicazioni dal provisioning al deprovisioning. Si integra con Health Manager per garantire che durante gli aggiornamenti la disponibilità delle applicazioni non vada perduta dal punto di vista dell'integrità semantica.
+* **Health Manager**: questo servizio consente il monitoraggio dell'integrità di applicazioni e servizi ed entità del cluster. Le entità del cluster, ad esempio nodi, partizioni di servizi e repliche, possono segnalare informazioni sull'integrità, che vengono quindi aggregate nell'archivio integrità centralizzato. Queste informazioni sull'integrità forniscono uno snapshot dell'integrità globale in un determinato momento per i servizi e i nodi distribuiti in più nodi del cluster, consentendo così di intraprendere le azioni correttive necessarie. Le API di query sull'integrità consentono di eseguire query sugli eventi di integrità segnalati al sottosistema di integrità. Queste API restituiscono dati sull'integrità non elaborati archiviati nell'archivio integrità oppure restituiscono i dati sull'integrità interpretati e aggregati per una specifica entità del cluster.
+* **Archivio immagini**: questo servizio consente l'archiviazione e la distribuzione di file binari delle applicazioni. Offre un semplice archivio di file distribuito in cui vengono caricate o da cui vengono scaricate le applicazioni.
 
 
 ## Sottosistema di hosting
@@ -61,4 +61,4 @@ Questo sottosistema offre messaggistica affidabile nel cluster e rilevamento dei
 ## Sottosistema di testabilità
 Il sottosistema di testabilità è costituito da strumenti progettati specificamente per il test di servizi basati su Service Fabric. Gli strumenti consentono a uno sviluppatore di causare, in modo semplice, errori significativi ed eseguire scenari di test per verificare e convalidare i numerosi stati e le transizioni sperimentate da un servizio nel corso della durata, il tutto in modo controllato e sicuro. Questo sottosistema fornisce anche un meccanismo per eseguire test prolungati in grado di eseguire l'iterazione di diversi possibili errori senza perdere la disponibilità fornendo un ambiente di testing in produzione.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

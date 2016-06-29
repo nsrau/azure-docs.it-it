@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Effettuare una query con SQLCMD | Microsoft Azure"
-   description="Query del data warehouse con SQLCMD."
+   pageTitle="Eseguire query in Azure SQL Data Warehouse (sqlcmd) | Microsoft Azure"
+   description="Eseguire query in Azure SQL Data Warehouse con l'utilità della riga di comando sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Effettuare una query con SQLCMD
+# Eseguire query in Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Questa procedura dettagliata illustra come effettuare una query di Azure SQL Data Warehouse usando l'utilità sqlcmd.exe.
+Questa procedura dettagliata usa l'utilità della riga di comando sqlcmd per eseguire query in un'istanza di Azure SQL Data Warehouse.
 
 ## Prerequisiti
 
-+ Per scaricare [sqlcmd.exe][], vedere [Microsoft Command Line Utilities 11 for SQL Server][].
+Per eseguire questa esercitazione, è necessario:
 
-## Connetti
+-  [sqlcmd.exe][]. Per scaricarlo, vedere [Microsoft Command Line Utilities 11 for SQL Server][].
+
+## 1\. Connetti
 
 Per iniziare a usare sqlcmd, aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri obbligatori seguenti:
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] L'opzione -I, che abilita gli identificatori delimitati, attualmente è obbligatoria per connettersi a SQL Data Warehouse.
 
-## Query
+## 2\. Query
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza. In questo esempio le query vengono inviate in modalità interattiva.
 
@@ -73,17 +76,14 @@ C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d A
 Per informazioni su tutte le opzioni sqlcmd, vedere la [documentazione su sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
+
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/it-IT/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
 [Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

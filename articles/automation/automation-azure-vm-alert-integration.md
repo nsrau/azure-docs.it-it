@@ -3,8 +3,8 @@
     description="Questo articolo illustra come integrare gli avvisi delle macchine virtuali di Azure con i runbook di Automazione di Azure e risolvere automaticamente problemi."
     services="automation"
     documentationCenter=""
-    authors="csand-msft"
-    manager="stevenka"
+    authors="mgoedtel"
+    manager="jwhit"
     editor="tysonn" />    
 <tags
     ms.service="automation"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/24/2016"
+    ms.date="06/14/2016"
     ms.author="csand;magoedte" />
 
-# Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure
+# Scenario di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure
 
 In Automazione di Azure e Macchine virtuali di Azure è stata rilasciata una nuova funzionalità che consente di configurare avvisi delle macchine virtuali (VM) per l'esecuzione di runbook di automazione. Questa nuova funzionalità consente di eseguire automaticamente correzioni standard in risposta ad avvisi della VM, ad esempio per riavviarla o arrestarla.
 
@@ -172,4 +172,4 @@ Quando si configura un avviso in una VM di Azure, è possibile configurare facil
 - Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual.md).
 - Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -79,7 +79,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 1. Aprire la finestra **Esplora server** in Visual Studio.
 
-2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**.
+2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**.  
 ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Accedere con le credenziali di Azure.
@@ -164,7 +164,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 	&lt;/startup>
 	&lt;/configuration></pre>
 
-	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
+	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile [archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 7. Sostituire entrambe le stringhe di connessione di archiviazione con la stringa di connessione copiata in precedenza.
 

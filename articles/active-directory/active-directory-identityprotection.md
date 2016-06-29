@@ -97,7 +97,8 @@ Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'
 | Accessi da dispositivi infetti | Accessi da dispositivi potenzialmente infetti |
 | Accessi da indirizzi IP anonimi | Accessi da origini sconosciute |
 | Accessi da indirizzi IP con attività sospette |	Accessi da indirizzi IP con attività sospette |
-| Accessi da posizioni non note | - | | Eventi di blocco (non nell'anteprima pubblica) | - |
+| Accessi da posizioni non note | - | 
+| Eventi di blocco (non nell'anteprima pubblica) | - |
 
 I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD Identity Protection e non sono quindi disponibili in Identity Protection. Questi report sono ancora disponibili nel portale di gestione di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Identity Protection.
 

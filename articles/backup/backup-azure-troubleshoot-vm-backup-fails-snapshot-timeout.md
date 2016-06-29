@@ -109,7 +109,7 @@ Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce,
 
 ### Per disinstallare l'estensione
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Trovare la macchina virtuale specifica che presenta problemi di backup.
 3. Fare clic su **Impostazioni**.
 4. Fare clic su **Estensioni**.
@@ -132,4 +132,4 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
 |La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP.|DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Sono disponibili altre informazioni su [Come impostare un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

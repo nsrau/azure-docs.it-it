@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -80,13 +80,11 @@ La procedura consigliata prevede l'uso di HTTPS con la firma di accesso condivis
 
 Ecco un esempio di stringa di connessione che include una firma di accesso condiviso del servizio per l'archiviazione BLOB:
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
-Ecco invece un esempio della stessa stringa di connessione con la codifica dell'URL:
+Ecco invece un esempio della stessa stringa di connessione con la codifica dei caratteri speciali:
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### Esempio di firma di accesso condiviso dell'account
 
@@ -165,4 +163,4 @@ Ad esempio, la stringa di connessione avrà un aspetto simile al seguente:
 - [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 - [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

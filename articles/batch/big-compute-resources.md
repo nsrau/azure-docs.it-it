@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)
@@ -34,11 +34,11 @@ Informazioni sulle opzioni Big Compute in Azure e sulla scelta dell'approccio pi
 
 * [Documentazione](https://azure.microsoft.com/documentation/services/batch/)
 
-* Informazioni di riferimento su [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) e [API](https://msdn.microsoft.com/library/azure/dn820158.aspx) REST
+* Informazioni di riferimento su [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) e API [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * Informazioni di riferimento sulla [libreria Batch management .NET](https://msdn.microsoft.com/library/mt463120.aspx)
 
-* [Esercitazione: Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md)
+* [Esercitazione: Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md) e al [client Python di Batch](batch-python-tutorial.md)
 
 * [Forum di Batch](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurebatch)
 
@@ -57,7 +57,7 @@ HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie di Mi
 * [Documentazione](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* Opzioni cluster per pacchetto HPC [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) e [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) in Azure
+* Opzioni cluster per HPC Pack per [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) e [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) in Azure
 
 * [Potenziare le istanze del ruolo di lavoro di Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -157,4 +157,4 @@ Azure offre [varie dimensioni](../virtual-machines/virtual-machines-windows-size
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](https://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

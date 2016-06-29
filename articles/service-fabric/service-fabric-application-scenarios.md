@@ -50,22 +50,15 @@ I microservizi con stato semplificano la progettazione delle applicazioni perch�
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-
-Per iniziare a creare servizi con e senza stato, usare i modelli di programmazione [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) di Service Fabric.
-
-Vedere anche gli argomenti seguenti:
-
-[Informazioni sui microservizi](service-fabric-overview-microservices.md)
-
-[Definire e gestire lo stato del servizio](service-fabric-concepts-state.md)
-
-[Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
-
-[Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
-
-[Partizionare i servizi di Service Fabric](service-fabric-concepts-partitioning.md)
+* Per iniziare a creare servizi con e senza stato, usare i modelli di programmazione [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) di Service Fabric.
+* Vedere anche gli argomenti seguenti:
+    * [Informazioni sui microservizi](service-fabric-overview-microservices.md)
+    * [Definire e gestire lo stato del servizio](service-fabric-concepts-state.md)
+    * [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
+    * [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
+    * [Partizionare i servizi di Service Fabric](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

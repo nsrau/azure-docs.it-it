@@ -33,34 +33,36 @@ Per prima cosa, creare un gruppo di risorse.
 
 1. Ottenere un elenco di località disponibili in cui possono essere create le risorse.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort Location | Select Location
         
     Verrà visualizzata una schermata analoga alla seguente:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Sostituire il valore di **$locName** con una località presente dell'elenco. Creare la variabile.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Sostituire il valore di **$rgName** con un nome per il nuovo gruppo di risorse. Creare la variabile e il gruppo di risorse.
 
@@ -74,13 +76,13 @@ Per prima cosa, creare un gruppo di risorse.
 1. Sostituire il valore di **$stName** con un nome per l'account di archiviazione. Testare l'univocità del nome.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Se questo comando restituisce **False**, il nome proposto è univoco in Azure. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
+    Se questo comando restituisce **True**, il nome proposto è univoco in Azure. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
     
 2. Ora eseguire il comando per creare l'account di archiviazione.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Passaggio 4: Creare una rete virtuale
 
@@ -170,4 +172,4 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 - Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute nell'articolo [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

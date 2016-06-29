@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -91,7 +91,8 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-## Distribuire il servizio web
+##
+Distribuire il servizio web
 
 Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distribuisci servizio web** sotto l'area di disegno. Machine Learning Studio distribuisce l'esperimento come servizio Web e apre il dashboard del servizio. Da qui è possibile ritornare all'esperimento (**View snapshot** o **View latest**) ed eseguire un test semplice del servizio Web (pulsante **Test**: vedere **Testare il servizio Web** di seguito). Qui sono inoltre disponibili informazioni per la creazione di applicazioni in grado di accedere al servizio Web (altre informazioni nella sezione successiva di questa procedura dettagliata).
 
@@ -104,13 +105,17 @@ Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distri
 ![Configurare il servizio Web][5]
 
 ## Testare il servizio Web
-Nella pagina **DASHBOARD** fare clic sul pulsante **Test** in **Default Endpoint**. Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco.
+Nella pagina **DASHBOARD** fare clic sul pulsante **Test** in **Default Endpoint**.
+
+![Testare il servizio Web][7]
+
+Verrà visualizzata una finestra di dialogo e verranno richiesti i dati di input per il servizio. Sono le stesse colonne visualizzate nel set di dati del rischio di credito tedesco.
 
 Immettere un set di dati e quindi fare clic su **OK**.
 
-Nel servizio Web i dati entrano dal modulo **Web service input**, passano attraverso il modulo [Edit Metadata][edit-metadata] e arrivano al modulo [Score Model][score-model] in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output**.
+Nel servizio Web i dati entrano dal modulo **Web service input** (Input del servizio Web), passano attraverso il modulo [Edit Metadata][edit-metadata] \(Modifica metadati) e arrivano al modulo [Score Model][score-model] \(Modello di punteggio) in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output** (Output del servizio Web).
 
-> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Select Columns in Dataset][select-columns] tra [Score Model][score-model] e **Web service output** per eliminare le colonne che non devono essere restituite.
+> [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model] (Modello di punteggio). Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) tra [Score Model][score-model] \(Modello di punteggio) e **Web service output** (Output del servizio Web) per eliminare le colonne che non devono essere restituite.
 
 ## Gestire il servizio Web
 Dopo aver distribuito il servizio Web, è possibile gestirlo dal [portale di Azure classico](https://manage.windowsazure.com).
@@ -140,6 +145,7 @@ Per informazioni dettagliate, vedere:
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->
@@ -154,4 +160,4 @@ Per informazioni dettagliate, vedere:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [select-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

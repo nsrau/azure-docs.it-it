@@ -23,7 +23,7 @@ Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Assicur
 
 - Se si è un editore in Azure Marketplace e si sta ancora sviluppando la propria VM, è necessario contattare i team Microsoft che si occupano dell'integrazione o del calcolo.
 
-- Se si è un editore in Marketplace e si riceve una domanda da un cliente, indicare al cliente di richiedere supporto tramite i collegamenti di supporto in https://ms.portal.azure.com/.
+- Se si è un editore in Marketplace e si riceve una domanda da un cliente, indicare al cliente di richiedere supporto tramite i collegamenti di supporto in https://portal.azure.com/.
 
 - Se si è un editore in Marketplace e si desidera porre una domanda relativa all'app o al servizio, proseguire con la lettura.
 
@@ -79,7 +79,9 @@ Descrivere il problema nel modo più completo possibile e fornire eventuali file
 
 Dopo avere inviato il problema, verrà confermata la ricezione entro 24 ore e saranno assegnate una priorità e una gravità al problema. Il team dedicato di tecnici del supporto tecnico offrirà l'assistenza necessaria per la risoluzione in base ai tempi di risposta del contratto di servizio.
 
-![Conferma][6] + Se è necessario comunicare con Microsoft in relazione al problema, usare il numero di conferma in tutta la corrispondenza. + È possibile visualizzare lo stato del problema in qualsiasi momento.
+![Conferma][6]
++ Se è necessario comunicare con Microsoft in relazione al problema, usare il numero di conferma in tutta la corrispondenza.
++ È possibile visualizzare lo stato del problema in qualsiasi momento.
 
 ## Passaggi successivi
 
@@ -92,4 +94,4 @@ Per informazioni su come risolvere specifici problemi di supporto, vedere [Risol
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0615_2016-->

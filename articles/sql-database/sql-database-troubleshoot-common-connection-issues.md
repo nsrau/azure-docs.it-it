@@ -26,7 +26,7 @@ In caso di problemi di connessione, provare i passaggi di risoluzione dei proble
 
 I problemi di connessione possono dipendere da una delle seguenti cause:
 
-- Errore di applicazione delle [procedure consigliate e delle linee guida di progettazione](sql-database-connect-central-recommendations.md) durante il processo di progettazione delle applicazioni.
+- Impossibilità di applicare le procedure consigliate e delle linee guida di progettazione durante il processo di progettazione delle applicazioni. Per iniziare, vedere [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md).
 - Riconfigurazione del database SQL di Azure
 - Impostazioni del firewall
 - Timeout della connessione
@@ -79,7 +79,7 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 | 5 | [Risoluzione dell'errore "Il database &lt;x&gt; nel server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento"](sql-database-troubleshoot-connection.md) | Descrive come identificare e risolvere un errore 40613: "Il database &lt;x&gt; sul server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. |
 | 6 | [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md) | Offre informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. |
 | 7 | [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) | Fornisce indicazioni per determinare quale livello di servizio è più adatto per l'applicazione. Fornisce inoltre suggerimenti per ottimizzare l'applicazione in modo da sfruttare al meglio il database SQL di Azure. |
-| 8 | [Connessione al database SQL: procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md) | Offre collegamenti agli esempi di codice per le varie tecnologie che è possibile usare per connettersi e interagire con il database SQL di Azure. |
+| 8 | [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md) | Offre collegamenti agli esempi di codice per le varie tecnologie che è possibile usare per connettersi e interagire con il database SQL di Azure. |
 | 9 | Pagina sull'aggiornamento al database SQL di Azure versione 12 ([portale di Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Fornisce istruzioni per l'aggiornamento di server e database SQL di Azure versione 11 esistenti alla versione 12 mediante il portale di Azure o PowerShell. |
 
 
@@ -92,12 +92,12 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 - [Informazioni sugli aggiornamenti più recenti al servizio database SQL di Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## Altre informazioni
+## Risorse aggiuntive
 
-- [Connessione al database SQL: procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
+- [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 - [Linee guida generali per la gestione degli errori temporanei](../best-practices-retry-general.md)
 - [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 - [Il percorso di apprendimento per l'uso del database SQL di Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [Il percorso di apprendimento per l'uso delle funzionalità e degli strumenti dei database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -17,7 +17,7 @@
 # Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](sql-database-elastic-jobs-create-and-manage.md)
+- [Portale di Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -238,21 +238,7 @@ Quando la password cambia, usare il cmdlet [**Set-AzureSqlJobCredential**](https
 
 Per eseguire un processo su tutti i database in un set di partizioni, creato con la [libreria client dei database elastici](sql-database-elastic-database-client-library.md), usare una mappa partizioni come destinazione del database. Questo esempio richiede un'applicazione partizionata creata con la libreria client dei database elastici. Vedere l'esempio in [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 
-###Creare un gestore mappe partizione utilizzando l'applicazione di esempio
-
-Questo esempio crea un gestore delle mappe partizioni con diverse partizioni e quindi inserisce dati nelle partizioni.
-
-1. Compilare ed eseguire l'applicazione di esempio disponibile in **Iniziare a usare gli strumenti di database elastici**. Seguire i passaggi fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
-
-	![Aprire il prompt dei comandi.][1]
-
-2.  Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
-  
-3.  Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
-
-	![Conferma di Visual Studio][2]
-
-Creare una destinazione della mappa partizioni con il [**cmdlet New-AzureSqlJobCredential**](https://msdn.microsoft.com/library/mt346063.aspx). Il database di gestione delle mappe partizioni deve essere impostato come destinazione di database e quindi si dovrà impostare la mappa partizioni specifica come destinazione.
+Il database di gestione delle mappe partizioni deve essere impostato come destinazione di database e quindi si dovrà impostare la mappa partizioni specifica come destinazione.
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -694,4 +680,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

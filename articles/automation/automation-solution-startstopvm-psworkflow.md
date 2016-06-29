@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Avvio e arresto delle macchine virtuali con Automazione di Azure - Flusso di lavoro PowerShell | Microsoft Azure"
-	description="Versione grafica della soluzione di Automazione di Azure che include runbook per l'avvio e l'arresto delle macchine virtuali classiche."
+	description="Versione grafica dello scenario di Automazione di Azure che include runbook per l'avvio e l'arresto di macchine virtuali classiche."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
+	authors="mgoedtel"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,12 +12,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/27/2016"
+	ms.date="06/14/2016"
 	ms.author="bwren" />
 
-# Soluzione di Automazione di Azure - Avvio e arresto delle macchine virtuali
+# Scenario di Automazione di Azure - Avvio e arresto delle macchine virtuali
 
-Questa soluzione di Automazione di Azure include runbook per l'avvio e l'arresto di macchine virtuali classiche. È possibile usare questa soluzione per le operazioni seguenti:
+Questo scenario di Automazione di Azure include runbook per l'avvio e l'arresto di macchine virtuali classiche. È possibile usare questo scenario per le operazioni seguenti:
 
 - Usare i runbook senza modifiche nell'ambiente in uso. 
 - Modificare i runbook per eseguire funzionalità personalizzate.  
@@ -25,14 +25,14 @@ Questa soluzione di Automazione di Azure include runbook per l'avvio e l'arresto
 - Usare i runbook come esercitazioni per acquisire familiarità con i concetti di creazione dei runbook. 
 
 > [AZURE.SELECTOR]
-- [Graphical](automation-solution-startstopvm-graphical.md)
-- [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
+- [Grafico](automation-solution-startstopvm-graphical.md)
+- [Flusso di lavoro PowerShell](automation-solution-startstopvm-psworkflow.md)
 
-Questa è una versione della soluzione con runbook del flusso di lavoro PowerShell. È disponibile anche usando [runbook grafici](automation-solution-startstopvm-graphical.md).
+Questa è la versione del flusso di lavoro PowerShell per lo scenario con runbook. È disponibile anche usando [runbook grafici](automation-solution-startstopvm-graphical.md).
 
-## Come ottenere la soluzione
+## Come ottenere lo scenario
 
-Questa soluzione è costituita da due runbook del flusso di lavoro PowerShell che è possibile scaricare dai collegamenti seguenti. Per i collegamenti ai runbook grafici, vedere la [versione grafica](automation-solution-startstopvm-graphical.md) di questa soluzione.
+Questo scenario è costituito da due runbook del flusso di lavoro PowerShell che è possibile scaricare dai collegamenti seguenti. Per i collegamenti ai runbook grafici, vedere la [versione grafica](automation-solution-startstopvm-graphical.md) di questo scenario.
 
 | Runbook | Collegamento | Tipo | Descrizione |
 |:---|:---|:---|:---|
@@ -40,7 +40,7 @@ Questa soluzione è costituita da due runbook del flusso di lavoro PowerShell ch
 | Stop-AzureVMs | [Arrestare le macchine virtuali classiche di Azure](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) | Flusso di lavoro PowerShell | Arresta tutte le macchine virtuali in un account di automazione o tutte le macchine virtuali con un nome di servizio specifico. |
 
 
-## Installazione della soluzione
+## Installazione e configurazione dello scenario
 
 ### 1\. Installare i runbook
 
@@ -57,7 +57,7 @@ I runbook richiedono gli asset seguenti, che devono essere creati e popolati con
 | Credenziali | AzureCredential | Contiene le credenziali per un account che dispone delle autorizzazioni per avviare e arrestare le macchine virtuali nella sottoscrizione di Azure. In alternativa, è possibile specificare un altro asset di tipo credenziali nel parametro **Credential** dell'attività **Add-AzureAccount**. |
 | Variabile | AzureSubscriptionId | Contiene l'ID sottoscrizione della sottoscrizione di Azure. |
 
-## Uso della soluzione
+## Uso dello scenario
 
 ### Parametri
 
@@ -66,12 +66,12 @@ Ogni runbook è associato ai parametri seguenti. È necessario fornire valori pe
 | Parametro | Tipo | Obbligatorio | Descrizione |
 |:---|:---|:---|:---|
 | ServiceName | stringa | No | Se viene specificato un valore, verranno avviate o arrestate tutte le macchine virtuali con lo stesso nome di servizio. Se invece non viene specificato alcun valore, verranno avviate o arrestate tutte le macchine virtuali classiche della sottoscrizione di Azure. |
-| AzureSubscriptionIdAssetName | stringa | No | Contiene il nome dell'[asset di tipo variabile](#installing-the-solution) che include l'ID sottoscrizione della sottoscrizione di Azure. Se non si specifica un valore, verrà usato *AzureSubscriptionId*. |
-| AzureCredentialAssetName | stringa | No | Contiene il nome dell'[asset di tipo credenziali](#installing-the-solution) che include le credenziali per il runbook da usare. Se non si specifica un valore, verrà usato *AzureCredential*. |
+| AzureSubscriptionIdAssetName | stringa | No | Contiene il nome dell'[asset di tipo variabile](#installing-and-configuring-the-scenario) che include l'ID sottoscrizione della sottoscrizione di Azure. Se non si specifica un valore, verrà usato *AzureSubscriptionId*. |
+| AzureCredentialAssetName | stringa | No | Contiene il nome dell'[asset di tipo credenziali](#installing-and-configuring-the-scenario) che include le credenziali per il runbook da usare. Se non si specifica un valore, verrà usato *AzureCredential*. |
 
 ### Avvio dei runbook
 
-È possibile usare uno dei metodi descritti in [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md) per avviare uno dei runbook di questa soluzione.
+È possibile usare uno dei metodi descritti in [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md) per avviare uno dei runbook di questo scenario.
 
 I comandi di esempio seguenti usano Windows PowerShell per eseguire **StartAzureVMs** per avviare tutte le macchine virtuali con nome di servizio *MyVMService*.
 
@@ -106,7 +106,7 @@ Il frammento di codice di un runbook seguente ad esempio tenta di avviare tutte 
 
 ## Scomposizione dettagliata
 
-Di seguito viene riportata una scomposizione dettagliata dei runbook di questa soluzione. È possibile usare queste informazioni per personalizzare i runbook o solo come esercitazione.
+Di seguito è riportata una scomposizione dettagliata dei runbook di questo scenario. È possibile usare queste informazioni per personalizzare i runbook o semplicemente per acquisire familiarità per la creazione di scenari di automazione personalizzati.
 
 ### Parametri
 
@@ -121,7 +121,7 @@ Di seguito viene riportata una scomposizione dettagliata dei runbook di questa s
         [String] $ServiceName
     )
 
-Il flusso di lavoro inizia ottenendo i valori per i [parametri di input](#using-the-solution). Se non sono specificati i nomi degli asset verranno usati i nomi predefiniti.
+Il flusso di lavoro inizia ottenendo i valori per i [parametri di input](#using-the-scenario). Se non sono specificati i nomi degli asset verranno usati i nomi predefiniti.
 
 ### Output
 
@@ -188,9 +188,9 @@ L'asset di tipo variabile con l'ID sottoscrizione viene quindi recuperato con **
 Le righe successive eseguono i passaggi per ogni macchina virtuale. Viene prima verificata l'impostazione di **PowerState** della macchina virtuale per controllare se è già in esecuzione o arrestata, a seconda del runbook. Se lo stato è già quello di destinazione, viene restituito un messaggio per l'output e il runbook termina. In caso contrario, viene usato **Start-AzureVM** o **Stop-AzureVM** per tentare di avviare o arrestare la macchina virtuale con il risultato della richiesta archiviato in una variabile. Verrà quindi restituito all'output un messaggio che specifica se la richiesta di avvio o di arresto è stata inviata correttamente.
 
 
-## Articoli correlati
+## Passaggi successivi
 
 - [Runbook figlio in Automazione di Azure](automation-child-runbooks.md) 
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

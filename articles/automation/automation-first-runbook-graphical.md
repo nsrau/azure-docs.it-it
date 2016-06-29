@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/21/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook grafico
@@ -110,10 +110,10 @@ Ora che è stata creata una variabile che contiene l'ID sottoscrizione è possib
 10.  **Add-AzureRmAccount** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **ServicePrincipalCertificate**. 
 11.  Dopo aver selezionato il set di parametri, nel pannello Configurazione parametro attività vengono visualizzati i parametri. Fare clic su **APPLICATIONID**.<br> ![Aggiungere parametri all'account Azure RM](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  Nel pannello Valore parametro selezionare **Output attività** per **Origine dati** e quindi selezionare **Get Run As Connection** dall'elenco, nella casella di testo **Percorso campo** digitare **ApplicationId** e quindi fare clic su **OK**. Viene specificato il nome della proprietà per il percorso del campo perché l'attività restituisce un oggetto con più proprietà.
-13.  Fare clic su **CERTIFICATETHUMBPRINT** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** dall'elenco, digitare **CertificateThumbprint** nella casella di testo **Percorso campo** e quindi fare clic su **OK**. 
+13.  Fare clic su **CERTIFICATETHUMBPRINT** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** (Ottieni connessione RunAs) dall'elenco, digitare **CertificateThumbprint** nella casella di testo **Percorso campo** e quindi fare clic su **OK**. 
 14.  Fare clic su **SERVICEPRINCIPAL** e nel pannello Valore parametro selezionare **ConstantValue** per **Origine dati**, fare clic sull'opzione **True** e quindi fare clic su **OK**.
 15.  Fare clic su **TENANTID** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** dall'elenco, digitare **TenantId** nella casella di testo **Percorso campo** e quindi fare clic su **OK** due volte.  
-16.  Nel controllo Libreria digitare **Set-AzureRmContext** nella casella di testo di ricerca.
+16.  Nel controllo Libreria digitare **Get-AzureRmContext** nella casella di testo di ricerca.
 17.	 Aggiungere **Set-AzureRmContext** all'area di disegno.
 18.	 Nell'area di disegno selezionare **Set-AzureRmContext** e nel riquadro del controllo Configurazione digitare **Specify Subscription Id** nella casella di testo **Etichetta**.
 19.	 Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività. 
@@ -130,7 +130,7 @@ A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazi
 Ora verrà aggiunta un'attività **Start-AzureRmVM** per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome verrà hardcoded nel cmdlet.
 
 1. Nel controllo Libreria digitare **Start-AzureRm** nella casella di testo di ricerca.
-2. Aggiungere **Start-AzureRmVM** all'area di disegno e quindi fare clic e trascinarla sotto **Specify Subscription Id**.
+2. Aggiungere **Start-AzureRmVM** all'area di disegno e quindi fare clic e trascinarla sotto **Connect to Azure** (Connetti ad Azure).
 3. Passare il puntatore su **Specify Subscription Id** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Start-AzureRmVM**. 
 4.	Selezionare **Start-AzureRmVM**. Fare clic su **Parametri** e quindi su **Set di parametri** per visualizzare i set per **Start-AzureRmVM**. Selezionare il set di parametri **ResourceGroupNameParameterSetName**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
 5.	Selezionare **Name**. Selezionare **Espressione PowerShell** per **Origine dati** e digitare il nome della macchina virtuale, racchiuso tra virgolette doppie, che verrà avviata con questo runbook. Fare clic su **OK**.<br>![Valore del parametro Name di Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -144,15 +144,15 @@ A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazi
 
 Il runbook avvia attualmente la macchina virtuale nel gruppo di risorse specificato nel cmdlet **Start-AzureRmVM**, ma il runbook sarebbe più utile se si potesse specificarli entrambi quando viene avviato. Per fornire questa funzionalità, ora si aggiungeranno dei parametri di input al runbook.
 
-1.	 Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
-2. 	Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
-3.	 Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
-4.	 Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br> ![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
-5.	 Selezionare l'attività **Start-AzureRmVM** e quindi fare clic su **Parametri**.
-6.	 Cambiare **Origine dati** per **Nome** in **Input runbook** e quindi selezionare **VMName**.<br>
-7.	 Cambiare **Origine dati** per **ResourceGroupName** in **Input runbook** e quindi selezionare **ResourceGroupName**.<br> ![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
-8	. Salvare il runbook e aprire il riquadro Test. Si noti che ora è possibile fornire i valori per le due variabili di input che verranno usate nel test.
-9	. Chiudere il riquadro Test.
+1. Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
+2. Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
+3. Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
+4. Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br> ![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+5. Selezionare l'attività **Start-AzureRmVM** e quindi fare clic su **Parametri**.
+6. Cambiare **Origine dati** per **Nome** in **Input runbook** e quindi selezionare **VMName**.<br>
+7. Cambiare **Origine dati** per **ResourceGroupName** in **Input runbook** e quindi selezionare **ResourceGroupName**.<br> ![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
+8. Salvare il runbook e aprire il riquadro Test. Si noti che ora è possibile fornire i valori per le due variabili di input che verranno usate nel test.
+9. Chiudere il riquadro Test.
 10.	Fare clic su **Pubblica** per pubblicare la nuova versione del runbook.
 11.	Arrestare la macchina virtuale avviata nel passaggio precedente.
 12.	Fare clic su **Avvia** per avviare il runbook. Digitare **VMName** e **ResourceGroupName** per la macchina virtuale da avviare.<br> ![Avviare il Runbook](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
@@ -162,20 +162,20 @@ Il runbook avvia attualmente la macchina virtuale nel gruppo di risorse specific
 
 Ora si modificherà il runbook in modo che provi solo ad avviare la macchina virtuale, se non è già avviata. Per eseguire questa operazione aggiungere al runbook un cmdlet **Get-AzureRmVM** che otterrà lo stato a livello di istanza della macchina virtuale. Verrà quindi aggiunto un modulo Codice del flusso di lavoro PowerShell denominato **Get Status** con un frammento di codice PowerShell per determinare se lo stato della macchina virtuale è in esecuzione o arrestato. Un collegamento condizionale dal modulo **Get Status** eseguirà **Start-AzureRmVM** solo se lo stato di esecuzione corrente è arrestato. Infine si genererà un messaggio per informare se la VM è stata avviata correttamente o meno usando il cmdlet Write-Output di PowerShell.
 
-1.	Aprire **MyFirstRunbook** nell'editor grafico.
-2.	Rimuovere il collegamento tra **Specify Subscription Id** e **Start-AzureRmVM** facendo clic su di esso e quindi premendo *CANC*.
-3.	Nel controllo Libreria digitare **Get-AzureRm** nella casella di testo di ricerca.
-4.	Aggiungere **Get-AzureRmVM** all'area di disegno.
-5.	Selezionare **Get-AzureRmVM** e quindi **Set di parametri** per visualizzare i set per **Get-AzureRmVM**. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
-6.	In **Origine dati** per **Nome** selezionare **Input runbook** e quindi selezionare **VMName**. Fare clic su **OK**.
-7.	In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi selezionare **ResourceGroupName**. Fare clic su **OK**.
-8.	 In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.  
-9.	Creare un collegamento da **Specify Subscription Id** a **Get-AzureRmVM**.
-10	. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.  
-11	. Creare un collegamento da **Get-AzureRmVM** a **Codice**.  
-12	. Fare clic su **Codice** e nel riquadro Configurazione impostare l'etichetta su **Get Status**.
-13	. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.  
-14	. Nell'editor di codice incollare il frammento di codice seguente:
+1. Aprire **MyFirstRunbook** nell'editor grafico.
+2. Rimuovere il collegamento tra **Specify Subscription Id** e **Start-AzureRmVM** facendo clic su di esso e quindi premendo *CANC*.
+3. Nel controllo Libreria digitare **Get-AzureRm** nella casella di testo di ricerca.
+4. Aggiungere **Get-AzureRmVM** all'area di disegno.
+5. Selezionare **Get-AzureRmVM** e quindi **Set di parametri** per visualizzare i set per **Get-AzureRmVM**. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
+6. In **Origine dati** per **Nome** selezionare **Input runbook** e quindi selezionare **VMName**. Fare clic su **OK**.
+7. In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi selezionare **ResourceGroupName**. Fare clic su **OK**.
+8. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.  
+9. Creare un collegamento da **Specify Subscription Id** a **Get-AzureRmVM**.
+10. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.  
+11. Creare un collegamento da **Get-AzureRmVM** a **Codice**.  
+12. Fare clic su **Codice** e nel riquadro Configurazione impostare l'etichetta su **Get Status**.
+13. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.  
+14. Nell'editor di codice incollare il frammento di codice seguente:
 
      ```
      $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText 
@@ -193,22 +193,22 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 17. Per **Espressione condizione** digitare *$ActivityOutput['Get Status'] -eq "Stopped"*. **Start-AzureRmVM** verrà ora eseguito solo se la macchina virtuale è arrestata.
 18.	Nel controllo Libreria, espandere **Cmdlet** e poi **Microsoft.PowerShell.Utility**.
 19.	Aggiungere **Write-Output** all'area di disegno due volte.<br> ![Runbook con Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. Nel primo controllo **Write-Output** cambiare il valore di **Etichetta** in *Notify VM Started*.
+20. Nel primo controllo **Write-Output** fare clic su **Parametri** e cambiare il valore di **Etichetta** in *Notify VM Started* (Notifica di avvio della VM).
 21. Per **InputObject** cambiare **Origine dati** in **Espressione PowerShell** e digitare l'espressione *"$VMName successfully started."*.
-22. Nel secondo controllo **Write-Output** cambiare il valore di **Etichetta** in *Notify VM Start Failed*
+22. Nel secondo controllo **Write-Output** fare clic su **Parametri** e cambiare il valore di **Etichetta** in *Notify VM Start Failed* (Notifica di avvio della VM non riuscito).
 23. Per **InputObject** cambiare **Origine dati** in **Espressione PowerShell** e digitare l'espressione *"$VMName could not start."*.
-24. Creare un collegamento da **Start-AzureRmVM** a **Notify VM Started** e **Notify VM Start Failed**.
-25. Selezionare il collegamento a **Notify VM Started** e impostare **Applica condizione** su **True**.
+24. Creare un collegamento da **Start-AzureRmVM** a **Notify VM Started** (Notifica di avvio della VM) e **Notify VM Start Failed** (Notifica di avvio della VM non riuscito).
+25. Selezionare il collegamento a **Notify VM Started** (Notifica di avvio della VM) e impostare **Applica condizione** su **True**.
 26. Per **Espressione condizione** digitare *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Questo controllo Write-Output ora verrà eseguito solo se la macchina virtuale viene avviata correttamente.
-27. Selezionare il collegamento a **Notify VM Start Failed** e impostare **Applica condizione** su **True**.
-28. Per **Espressione condizione** digitare *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*. Questo controllo Write-Output ora verrà eseguito solo se la macchina virtuale non viene avviata correttamente. 
+27. Selezionare il collegamento a **Notify VM Start Failed** (Notifica di avvio della VM non riuscito) e impostare **Applica condizione** su **True**.
+28. Per **Espressione condizione** digitare *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*. Questo controllo Write-Output ora verrà eseguito solo se la macchina virtuale non viene avviata correttamente.
 29.	Salvare il runbook e aprire il riquadro Test.
 30.	Avviare il runbook con la macchina virtuale arrestata, che dovrebbe essere avviata.
 
 ## Passaggi successivi
 
 -	Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
--	Per iniziare a usare runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
--	Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
+-	Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
+-	Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

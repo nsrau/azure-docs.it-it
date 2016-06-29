@@ -48,10 +48,10 @@ Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare 
 
 Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
 
-## Altre informazioni
+## Risorse aggiuntive
 
 Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

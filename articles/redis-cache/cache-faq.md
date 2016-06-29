@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -47,21 +47,21 @@ Da questa tabella è possibile trarre le seguenti conclusioni.
 -	Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di RPS.
 -	La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Pricing tier | Dimensione | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
-|----------------------|--------|----------------------------|--------------------------------|
-| **Dimensioni della cache livello Standard** | &nbsp; |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** | **Richieste al secondo (RPS)** |
-| C0 | 250 MB | 5 / 0,625 | 600 |
-| C1 | 1 GB | 100 / 12,5 | 12200 |
-| C2 | 2,5 GB | 200 / 25 | 24000 |
-| C3 | 6 GB | 400 / 50 | 49000 |
-| C4 | 13 GB | 500 / 62,5 | 61000 |
-| C5 | 26 GB | 1000 / 125 | 115000 |
-| C6 | 53 GB | 2000 / 250 | 150000 |
-| **Dimensioni della cache livello Premium** | &nbsp; | &nbsp; | **Richieste al secondo (RPS) per partizione** |
-| P1 | 6 GB | 1000 / 125 | 140000 |
-| P2 | 13 GB | 2000 / 250 | 220000 |
-| P3 | 26 GB | 2000 / 250 | 220000 |
-| P4 | 53 GB | 4000 / 500 | 250000 |
+| Pricing tier | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
+|--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
+| **Dimensioni della cache livello Standard** | | | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** | **Richieste al secondo (RPS)** |
+| C0 | 250 MB | Condiviso | 5 / 0,625 | 600 |
+| C1 | 1 GB | 1 | 100 / 12,5 | 12200 |
+| C2 | 2,5 GB | 2 | 200 / 25 | 24000 |
+| C3 | 6 GB | 4 | 400 / 50 | 49000 |
+| C4 | 13 GB | 2 | 500 / 62,5 | 61000 |
+| C5 | 26 GB | 4 | 1000 / 125 | 115000 |
+| C6 | 53 GB | 8 | 2000 / 250 | 150000 |
+| **Dimensioni della cache livello Premium** | | **Core CPU per partizione** | | **Richieste al secondo (RPS) per partizione** |
+| P1 | 6 GB | 2 | 1000 / 125 | 140000 |
+| P2 | 13 GB | 4 | 2000 / 250 | 220000 |
+| P3 | 26 GB | 4 | 2000 / 250 | 220000 |
+| P4 | 53 GB | 8 | 4000 / 500 | 250000 |
 
 
 Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
@@ -168,7 +168,7 @@ Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei t
 
 Come configurare questa impostazione:
 
--	In ASP.NET, usare l'[impostazione di configurazione "minIoThreads"][] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application\_Start in global.asax.cs.
+-	In ASP.NET usare l'[impostazione di configurazione "minIoThreads"][] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application\_Start in global.asax.cs.
 
 > **Nota importante:** il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si ha un computer a 4 core e si vuole che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
 
@@ -228,7 +228,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 <a name="cache-emulator"></a>
 ## Esiste un emulatore locale per la cache Redis di Azure?
 
-Non esiste un emulatore locale per la cache Redis di Azure, ma è possibile eseguire la versione MSOpenTech di redis-server.exe dagli [strumenti della riga di comando Redis](https://github.com/MSOpenTech/redis/releases/) sul computer locale del computer e connettersi per ottenere un'esperienza simile a un emulatore cache locale, come illustrato nell'esempio seguente.
+Non esiste un emulatore locale per la cache Redis di Azure, ma è possibile eseguire la versione MSOpenTech di redis-server.exe dagli [strumenti della riga di comando Redis](https://github.com/MSOpenTech/redis/releases/) sul computer locale e connettersi per ottenere un'esperienza simile a un emulatore cache locale, come illustrato nell'esempio seguente.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -285,4 +285,4 @@ Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, ve
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ripristinare un database in Azure SQL Data Warehouse (API REST) | Microsoft Azure"
-   description="Attività delle API REST per il ripristino di un database attivo, eliminato o inaccessibile in Azure SQL Data Warehouse."
+   pageTitle="Ripristinare un'istanza di Azure SQL Data Warehouse (API REST) | Microsoft Azure"
+   description="Attività dell'API REST per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,30 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/10/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Ripristinare un database in Azure SQL Data Warehouse (API REST)
+# Ripristinare un'istanza di Azure SQL Data Warehouse (API REST)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-restore-database-overview.md)
-- [Portale](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Panoramica][]
+- [Portale][]
+- [PowerShell][]
+- [REST][]
 
-Attività delle API REST per il ripristino di un database attivo, eliminato o inaccessibile in Azure SQL Data Warehouse.
-
-Attività contenute in questo argomento:
-
-- Ripristino di un database attivo
-- Ripristino di un database eliminato
-- Ripristinare un database non accessibile da un'area geografica di Azure diversa
+Questo articolo illustra come ripristinare un'istanza di Azure SQL Data Warehouse usando l'API REST.
 
 ## Prima di iniziare
 
-**Verificare la capacità DTU del database SQL.** SQL Data Warehouse si ripristina su un nuovo database nel server logico di SQL. Per questo motivo, è importante verificare che il server SQL di cui si esegue il ripristino abbia una capacità DTU sufficiente per il nuovo database SQL Server. Vedere questo post di blog per altre informazioni su [come visualizzare e aumentare la quota DTU][].
+**Verificare la capacità in DTU.** Ogni istanza di SQL Data Warehouse è ospitata da un server logico SQL, il cui limite di capacità è misurato in DTU. Prima di ripristinare un'istanza di SQL Data Warehouse, è importante assicurarsi che il server logico SQL che ospita il database abbia una capacità in DTU sufficiente per il database da ripristinare. Per altre informazioni su [come visualizzare e aumentare la quota DTU][], vedere il relativo post di blog.
 
-## Ripristino di un database attivo
+## Ripristinare un database attivo o sospeso
 
 Per ripristinare un database:
 
@@ -44,48 +38,33 @@ Per ripristinare un database:
 2. Iniziare il ripristino utilizzando l'operazione [Create database restore request][]
 3. Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status][].
 
->[AZURE.NOTE] Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
+>[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
 
 ## Ripristino di un database eliminato
 
-Per ripristinare un database eliminato
+Per ripristinare un database eliminato:
 
 1.	Elencare tutti i database eliminati ripristinabili mediante l'operazione [List Restorable Dropped Databases][].
 2.	Ottenere i dettagli del database eliminato che si desidera ripristinare mediante l'operazione [Get Restorable Dropped Database][].
 3.	Iniziare il ripristino utilizzando l'operazione [Create database restore request][].
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status][].
 
->[AZURE.NOTE] Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
-
-## Eseguire il ripristino da un'area geografica di Azure
-
-Per eseguire un ripristino geografico:
-
-1. Ottenere l'elenco dei database recuperabili mediante l'operazione [List Recoverable Databases][].
-2. Ottenere il database che si desidera ripristinare mediante l'operazione [Get Recoverable Database][].
-3. Creare la richiesta di ripristino mediante l'operazione [Create Database Recovery Request][].
-4. Tenere traccia dello stato di ripristino mediante l'operazione [Database Operation Status][].
-
-### Configurare il database dopo l'esecuzione di un ripristino geografico
-Si tratta di un elenco di controllo che può essere utilizzato per avere pronta la produzione di database ripristinati.
-
-1. **Aggiornare le stringhe di connessione**: verificare che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
-2. **Modificare le regole del firewall**: verificare le regole del firewall sul server di destinazione, quindi assicurarsi che le connessioni tra i computer client o Azure e il server e il database appena ripristinato siano abilitate.
-3. **Verificare gli account di accesso al server e gli utenti del database**: controllare che tutti gli account di accesso usati dall'applicazione siano presenti sul server che ospita il database ripristinato. Ricreare gli account di accesso mancanti e concedere loro le autorizzazioni appropriate per il database ripristinato. 
-4. **Abilitare il controllo**: se è necessario il controllo di accesso al database, attivarlo dopo il ripristino.
-
-Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
+>[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
 
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere la [panoramica sulla continuità aziendale per database SQL di Azure][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sulla continuità aziendale per database SQL di Azure]: sql-database-business-continuity.md
-[finalizzazione di un database ripristinato]: sql-database-recovered-finalize.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md
+[Finalizzare il database SQL di Azure ripristinato]: ./sql-database-recovered-finalize.md
+[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
+[Panoramica]: ./sql-data-warehouse-restore-database-overview.md
+[Portale]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -94,6 +73,7 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
+
 <!--Blog references-->
 [come visualizzare e aumentare la quota DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
@@ -101,4 +81,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

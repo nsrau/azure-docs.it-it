@@ -3,8 +3,8 @@
    description="Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Questo articolo descrive come impostare il controllo degli accessi in base al ruolo in Automazione di Azure."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn"
    keywords="controllo degli accessi in base al ruolo di Automazione, controllo degli accessi in base al ruolo, controllo degli accessi in base al ruolo di Azure" />
 <tags 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/20/2016"
    ms.author="magoedte;sngun"/>
 
 # Controllo degli accessi in base al ruolo in Automazione di Azure
@@ -30,21 +30,110 @@ In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo d
 |:--- |:---|
 | Proprietario | Il ruolo Proprietario consente l'accesso a tutte le risorse e le azioni in un account di automazione, inclusa la possibilità di concedere l'accesso ad altri utenti e gruppi e ad altre applicazioni per gestire l'account di automazione. |
 | Collaboratore | Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
-| Lettore | Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche. |
-| Automation Operator | Il ruolo Automation Operator consente di eseguire attività operative, ad esempio avviare, arrestare, sospendere, riprendere e pianificare i processi. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. [Le azioni di Automation Operator](../active-directory/role-based-access-built-in-roles.md#automation-operator) includono l'elenco delle azioni supportate dal ruolo Automation Operator nell'account di Automazione e nelle relative risorse. |
-| Amministratore Accesso utenti | Il ruolo Amministratore Accessi utenti consente di gestire l'accesso utente agli account di automazione di Azure. |
+| Lettore | Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche.|
+| Operatore di automazione | Il ruolo Automation Operator consente di eseguire attività operative, ad esempio avviare, arrestare, sospendere, riprendere e pianificare i processi. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. |
+| Amministratore accessi utente | Il ruolo Amministratore Accesso utenti consente di gestire l'accesso utente agli account di automazione di Azure. |
 
-Questo articolo illustra come configurare il controllo degli accessi in base al ruolo in Automazione di Azure.
+>[AZURE.NOTE] Non è possibile concedere diritti di accesso a uno o più runbook specifici, ma solo alle risorse e le azioni all'interno dell'account di automazione.
+
+Questo articolo illustra come configurare il controllo degli accessi in base al ruolo in Automazione di Azure. Verranno prima illustrate le singole autorizzazioni concesse ai ruoli Collaboratore, Lettore, Automation Operator e Amministratore Accesso utenti, per comprenderle a fondo prima di concedere diritti a qualcuno per l'account di automazione. In caso contrario potrebbero verificarsi conseguenze impreviste o indesiderate.
+
+## Autorizzazioni del ruolo Collaboratore
+
+La tabella seguente illustra le azioni specifiche che possono essere eseguite dal ruolo Collaboratore in Automazione.
+
+| **Tipo di risorsa** | **Lettura** | **Scrittura** | **Eliminazione** | **Altre azioni** |
+|:--- |:---|:--- |:---|:--- |
+| Account di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset di certificato di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset di connessione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset del tipo di connessione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Asset credenziali di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset di pianificazione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Asset di tipo variabile di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Configurazione dello stato desiderato di Automazione | | | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) |
+| Tipo di risorsa del ruolo di lavoro ibrido per runbook | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Processo di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | 
+| Flusso del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Pianificazione del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Modulo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | |
+| Runbook di Automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) |
+| Bozza di runbook di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) |
+| Processo di test della bozza di runbook di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | 
+| Webhook di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) |
+
+## Autorizzazioni del ruolo Lettore
+
+La tabella seguente illustra le azioni specifiche che possono essere eseguite dal ruolo Lettore in Automazione.
+
+| **Tipo di risorsa** | **Lettura** | **Scrittura** | **Eliminazione** | **Altre azioni** |
+|:--- |:---|:--- |:---|:--- |
+| Amministratore sottoscrizione classico | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Blocco di gestione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Autorizzazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Operazioni del provider | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Assegnazione di ruolo | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Definizione di ruolo | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+
+## Autorizzazioni del ruolo Automation Operator
+
+La tabella seguente illustra le azioni specifiche che possono essere eseguite dal ruolo Automation Operator in Automazione.
+
+| **Tipo di risorsa** | **Lettura** | **Scrittura** | **Eliminazione** | **Altre azioni** |
+|:--- |:---|:--- |:---|:--- |
+| Account di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Asset di certificato di Automazione | | | |
+| Asset di connessione di Automazione | | | |
+| Asset del tipo di connessione di Automazione | | | |
+| Asset credenziali di Automazione | | | |
+| Asset di pianificazione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Asset di tipo variabile di Automazione | | | |
+| Configurazione dello stato desiderato di Automazione | | | | |
+| Tipo di risorsa del ruolo di lavoro ibrido per runbook | | | | | 
+| Processo di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | 
+| Flusso del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | |  
+| Pianificazione del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Modulo di automazione | | | |
+| Runbook di Automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Bozza di runbook di Automazione | | | |
+| Processo di test della bozza di runbook di Automazione | | | |  
+| Webhook di automazione | | | |
+
+Per altre informazioni, vedere l'elenco delle [azioni supportate dal ruolo Automation Operator](../active-directory/role-based-access-built-in-roles.md#automation-operator) nell'account di automazione e nelle relative risorse.
+
+## Autorizzazioni del ruolo Amministratore Accesso utenti
+
+La tabella seguente illustra le azioni specifiche che possono essere eseguite dal ruolo Amministratore Accesso utenti in Automazione.
+
+| **Tipo di risorsa** | **Lettura** | **Scrittura** | **Eliminazione** | **Altre azioni** |
+|:--- |:---|:--- |:---|:--- |
+| Account di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset di certificato di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset di connessione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset del tipo di connessione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset credenziali di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset di pianificazione di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Asset di tipo variabile di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Configurazione dello stato desiderato di Automazione | | | | |
+| Tipo di risorsa del ruolo di lavoro ibrido per runbook | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Processo di automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Flusso del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Pianificazione del processo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Modulo di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Runbook di Automazione di Azure | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Bozza di runbook di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Processo di test della bozza di runbook di Automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Webhook di automazione | ![Stato verde](media/automation-role-based-access-control/green-checkmark.png) | | |
 
 ## Configurare il controllo degli accessi in base al ruolo per l'account di automazione tramite il portale di Azure
 
-1.	Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di Automazione nel pannello Account di automazione.  
+1.	Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di automazione nel pannello Account di automazione.  
 
-2.	Fare clic sul comando **Accesso** nell'angolo superiore destro. Verrà visualizzato il pannello **Utenti** in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.
+2.	Fare clic sul comando **Accesso** nell'angolo superiore destro. Verrà visualizzato il pannello **Utenti** in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di automazione.
 
     ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE]  **Amministratori della sottoscrizione** è già presente come utente predefinito. Il gruppo di Active Directory Amministratori della sottoscrizione include gli amministratori e i coamminstratori del servizio per la sottoscrizione di Azure. L'amministratore del servizio è il proprietario della sottoscrizione di Azure e delle relative risorse ed eredita anche il ruolo Proprietario per gli account di automazione. Ciò significa che l'accesso è **Ereditato** per **Amministratori e coamministratori del servizio** di una sottoscrizione ed è **Assegnato** per tutti gli altri utenti. Fare clic su **Amministratori della sottoscrizione** per visualizzare altri dettagli sulle relative autorizzazioni.
+>[AZURE.NOTE] **Amministratori della sottoscrizione** è già presente come utente predefinito. Il gruppo di Active Directory Amministratori della sottoscrizione include gli amministratori e i coamminstratori del servizio per la sottoscrizione di Azure. L'amministratore del servizio è il proprietario della sottoscrizione di Azure e delle relative risorse ed eredita anche il ruolo Proprietario per gli account di automazione. Ciò significa che l'accesso è **Ereditato** per gli **amministratori e coamministratori del servizio** di una sottoscrizione ed è **Assegnato** per tutti gli altri utenti. Fare clic su **Amministratori della sottoscrizione** per visualizzare altri dettagli sulle relative autorizzazioni.
 
 ### Aggiungere un nuovo utente e assegnare un ruolo
 
@@ -52,7 +141,7 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
     ![Add user](media/automation-role-based-access-control/automation-02-add-user.png)
 
-2.	Selezionare un ruolo dall'elenco di ruoli disponibili. Qui si sceglierà il ruolo **Lettore**, ma è possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di Automazione oppure un ruolo personalizzato definito dall'utente.
+2.	Selezionare un ruolo dall'elenco di ruoli disponibili. Qui si sceglierà il ruolo **Lettore**, ma è possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di automazione oppure un ruolo personalizzato definito dall'utente.
 
     ![Selezionare il ruolo](media/automation-role-based-access-control/automation-03-select-role.png)
 
@@ -60,19 +149,21 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
     ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)
  
-L'utente aggiunto verrà visualizzato nel pannello **Utenti** con assegnato il ruolo **Lettore**.
+    L'utente aggiunto verrà visualizzato nel pannello **Utenti** con assegnato il ruolo **Lettore**.
 
-![Elencare gli utenti](media/automation-role-based-access-control/automation-05-list-users.png)
+    ![Elencare gli utenti](media/automation-role-based-access-control/automation-05-list-users.png)
 
-È anche possibile assegnare un ruolo all'utente dal pannello **Ruoli**. Fare clic su **Ruoli** nel pannello Utenti per aprire il pannello **Ruoli**. In questo pannello è possibile visualizzare il nome del ruolo, il numero di utenti e i gruppi assegnati al ruolo.
+    È anche possibile assegnare un ruolo all'utente dal pannello **Ruoli**.
 
-![Assegnare un ruolo dal pannello Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
+1. Fare clic su **Ruoli** nel pannello Utenti per aprire il pannello **Ruoli**. In questo pannello è possibile visualizzare il nome del ruolo, il numero di utenti e i gruppi assegnati al ruolo.
+
+    ![Assegnare un ruolo dal pannello Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
->[AZURE.NOTE] Il controllo degli accessi in base al ruolo può essere impostato solo a livello di account di automazione e in nessun'altra risorsa al di sotto dell'account di automazione.
+    >[AZURE.NOTE] Il controllo degli accessi in base al ruolo può essere impostato solo a livello di account di automazione e in nessun'altra risorsa al di sotto dell'account di automazione.
 
-È possibile assegnare più di un ruolo a un utente, un gruppo o un'applicazione. Ad esempio, se si aggiunge il ruolo **Automation Operator** oltre al ruolo **Lettore** per un utente, quest'ultimo potrà visualizzare tutte le risorse di automazione ed eseguire i processi del runbook. È possibile espandere l'elenco a discesa per visualizzare un elenco dei ruoli assegnati all'utente.
+    È possibile assegnare più di un ruolo a un utente, un gruppo o un'applicazione. Ad esempio, se si aggiunge il ruolo **Automation Operator** oltre al ruolo **Lettore** per un utente, quest'ultimo potrà visualizzare tutte le risorse di automazione ed eseguire i processi del runbook. È possibile espandere l'elenco a discesa per visualizzare un elenco dei ruoli assegnati all'utente.
 
-![Visualizzare più ruoli](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)
+    ![Visualizzare più ruoli](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)
  
 ### Rimuovere un utente
 
@@ -88,13 +179,13 @@ L'utente aggiunto verrà visualizzato nel pannello **Utenti** con assegnato il r
 
 ## Utente assegnato a un ruolo
 
-Quando un utente assegnato a un ruolo accede con l'account di Automazione, può visualizzare l'account del proprietario nell'elenco **Directory predefinita**. Per visualizzare l'account di automazione a cui è stato aggiunto, l'utente deve passare dalla directory predefinita alla directory predefinita del proprietario.
+Quando un utente assegnato a un ruolo accede con l'account di automazione, può visualizzare l'account del proprietario nell'elenco delle **directory predefinite**. Per visualizzare l'account di automazione a cui è stato aggiunto, l'utente deve passare dalla directory predefinita alla directory predefinita del proprietario.
 
 ![Directory predefinita](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)
 
 ### Esperienza utente per il ruolo Automation Operator
 
-Quando un utente assegnato al ruolo Automation Operator visualizza l'account di automazione a cui è stato assegnato, può vedere solo l'elenco delle pianificazioni, dei runbook e processi dei runbook creati nell'account di automazione, ma non le relative definizioni. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo del runbook, ma non avrà accesso ad altre risorse di automazione, ad esempio configurazioni, gruppi di lavoro ibridi o nodi DSC.
+Quando un utente assegnato al ruolo Automation Operator visualizza l'account di automazione a cui è stato assegnato, può vedere solo l'elenco delle pianificazioni, dei runbook dei e processi di runbook creati nell'account di automazione, ma non le relative definizioni. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo del runbook, ma non avrà accesso ad altre risorse di automazione, ad esempio configurazioni, gruppi di lavoro ibridi o nodi DSC.
 
 ![Nessun accesso alle risorse](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
@@ -112,32 +203,32 @@ L'utente non può accedere nemmeno per visualizzare i webhook associati a un run
 
 ## Configurare il controllo degli accessi in base al ruolo per l'account di automazione tramite Azure PowerShell
 
-L'accesso in base al ruolo per un account di Automazione può essere configurato anche con i [cmdlet di Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) seguenti.
+L'accesso in base al ruolo per un account di automazione può essere configurato anche con i [cmdlet di Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) seguenti.
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) elenca tutti i ruoli disponibili nel Controllo degli accessi in base al ruolo di Azure Active Directory. È possibile usare questo comando con la proprietà **Name** per elencare tutti gli utenti con un ruolo specifico. **Esempio:** ![Ottenere la definizione del ruolo](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) elenca tutti i ruoli del controllo degli accessi in base al ruolo disponibili in Azure Active Directory. È possibile usare questo comando con la proprietà **Name** per elencare tutte le azioni che possono essere eseguite da un ruolo specifico. **Esempio:** ![Ottenere la definizione del ruolo](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) elenca le assegnazioni del ruolo Controllo degli accessi in base al ruolo di Azure nell'ambito specificato. Senza parametri questo comando restituisce tutte le assegnazioni del ruolo eseguite nell'ambito della sottoscrizione. Usare il parametro **ExpandPrincipalGroups** per elencare le assegnazioni di accesso all'utente specificato e ai gruppi di cui l'utente è membro. **Esempio:** usare il comando seguente per elencare tutti gli utenti e i relativi ruoli all'interno di un account di Automazione.
+• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) elenca le assegnazioni di ruolo del controllo degli accessi in base al ruolo di Azure AD nell'ambito specificato. Senza parametri questo comando restituisce tutte le assegnazioni del ruolo eseguite nell'ambito della sottoscrizione. Usare il parametro **ExpandPrincipalGroups** per elencare le assegnazioni di accesso per l'utente specificato e per i gruppi di cui l'utente è membro. **Esempio:** usare il comando seguente per elencare tutti gli utenti e i relativi ruoli all'interno di un account di automazione.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
 
 ![Ottenere l'assegnazione del ruolo](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
-• [New AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) per concedere l'accesso a utenti, gruppi e applicazioni in un determinato ambito. **Esempio:** usare il comando seguente per creare un nuovo ruolo "Automation Operator" per un utente nell'ambito dell'account di Automazione.
+• Usare [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) per assegnare l'accesso a utenti, gruppi e applicazioni in un determinato ambito. **Esempio:** usare il comando seguente per assegnare il ruolo "Automation Operator" a un utente nell'ambito dell'account di automazione.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Nuova assegnazione del ruolo](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• Usare [Remove AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) per rimuovere l'accesso dell'utente, del gruppo o dell'applicazione specificata in un determinato ambito. **Esempio:** usare il comando seguente per creare un nuovo ruolo "Automation Operator" per un utente nell'ambito dell'account di Automazione.
+• Usare [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) per rimuovere l'accesso di un utente, un gruppo o un'applicazione specificata da un determinato ambito. **Esempio:** usare il comando seguente per rimuovere l'utente dal ruolo "Automation Operator" nell'ambito dell'account di automazione.
 
-    Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Nel cmdlet precedente sostituire il nome di accesso, l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'account di automazione con i dettagli del proprio account. Scegliere **Sì** quando viene richiesto di continuare per eliminare l'assegnazione del ruolo.
+Negli esempi precedenti sostituire l'**ID di accesso**, l'**ID sottoscrizione**, il **nome del gruppo di risorse** e il **nome dell'account di automazione** con i dettagli del proprio account. Scegliere **Sì** quando viene richiesto di confermare se si vuole rimuovere un'assegnazione di ruolo per un utente.
 
 
 ## Passaggi successivi
--  Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
-- Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un runbook](automation-starting-a-runbook.md).
-- Per informazioni sui diversi tipi, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
+-  Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo per Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+- Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
+- Per informazioni sui diversi tipi di runbook, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

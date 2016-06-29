@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Presentazione dello strumento Analisi in Application Insights" 
+	pageTitle="Demo sull'analisi in Application Insights | Microsoft Azure" 
 	description="Brevi esempi di tutte le principali query in Analisi, lo strumento di ricerca avanzato di Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -22,8 +22,6 @@
 
 [Analytics](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 Di seguito sono descritte alcune query di base utili per iniziare.
 
@@ -474,4 +472,4 @@ Utilizzare [let](./app-insights-analytics-syntax.md#let-statements) per separare
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

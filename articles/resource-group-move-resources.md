@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/08/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -65,20 +65,18 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
 - Macchine virtuali
 - Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-
-## Servizi che supportano parzialmente lo spostamento
-
-I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
-
 - Reti virtuali
 
 ## Servizi che non supportano lo spostamento
 
 I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
+- Gateway applicazione
 - Application Insights
 - Express Route
+- Set di scalabilità di macchine virtuali
 - Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
+- Gateway VPN
 
 ## Limitazioni del servizio app
 
@@ -270,8 +268,8 @@ con il seguente corpo della richiesta:
 
 ## Passaggi successivi
 - Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
-- Per informazioni sull'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
-- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
+- Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](xplat-cli-azure-resource-manager.md).
+- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione vedere [Uso del portale di Azure per gestire le risorse](./azure-portal/resource-group-portal.md).
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

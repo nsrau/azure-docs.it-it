@@ -27,7 +27,7 @@
 
 La procedura seguente illustra come copiare un database SQL con il [portale di Azure](https://portal.azure.com). L'operazione di copia del database crea un nuovo database SQL. La copia è un backup snapshot del database creato nello stesso server o in un server diverso.
 
-> [AZURE.NOTE] Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell'utente che è possibile ripristinare. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] Il database SQL di Azure [crea automaticamente e conserva i backup](sql-database-automated-backups.md) per ogni database dell'utente che è possibile ripristinare.
 
 Al completamento del processo di copia, il nuovo database è completamente funzionante, indipendente dal database di origine. Al completamento della copia, il nuovo database è coerente da un punto di vista transazionale con il database di origine. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine. Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.
 
@@ -100,4 +100,4 @@ Aprire il pannello del database SQL per il database che si desidera copiare:
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/09/2016"
 	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con ADP eTime
 
-L'obiettivo di questa esercitazione è illustrare come integrare ADP eTime con Azure Active Directory (Azure AD).<br>L'integrazione di ADP eTime con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive l'integrazione di ADP eTime con Azure Active Directory (Azure AD). L'integrazione di ADP eTime con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere ad ADP eTime
 - È possibile abilitare gli utenti per l'accesso automatico ad ADP eTime (Single Sign-On) con i propri account Azure AD
@@ -46,7 +46,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di ADP eTime dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -57,20 +57,36 @@ Per configurare l'integrazione di ADP eTime in Azure AD, è necessario aggiunger
 
 **Per aggiungere ADP eTime dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **ADP eTime**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_01.png)<br>
-7. Nel riquadro dei risultati selezionare **ADP eTime** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_06.png)<br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+
+	![Applicazioni][2]
+
+4. Fare clic su **Add** nella parte inferiore della pagina.
+
+	![Applicazioni][3]
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **ADP eTime**.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_01.png)
+
+7. Nel riquadro dei risultati selezionare **ADP eTime** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_06.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con ADP eTime in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di ADP eTime che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ADP eTime.<br> La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in ADP eTime.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di ADP eTime che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ADP eTime. La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in ADP eTime.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP eTime, è necessario completare i blocchi predefiniti seguenti:
 
@@ -84,25 +100,35 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP eTime, è
 
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione ADP eTime.
 
-L'applicazione ADP eTime prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il nome dell'attestazione sarà sempre **"PersonImmutableID"** e il valore di cui è stato eseguito il mapping a ExtensionAttribute2, che contiene il valore EmployeeID dell'utente. Il mapping degli utenti da Azure AD ad ADP eTime verrà eseguito in EmployeeID, ma è possibile eseguire il mapping a un valore diverso, anche in base alle impostazioni dell'applicazione. Collaborare quindi prima di tutto con il team di ADP eTime per usare l'identificatore corretto di un utente ed eseguire il mapping di tale valore con l'attestazione **"PersonImmutableID"**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_02.png) <br>
+L'applicazione ADP eTime prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il nome dell'attestazione sarà sempre **"PersonImmutableID"** e il valore di cui è stato eseguito il mapping a ExtensionAttribute2, che contiene il valore EmployeeID dell'utente. Il mapping degli utenti da Azure AD ad ADP eTime verrà eseguito in EmployeeID, ma è possibile eseguire il mapping a un valore diverso, anche in base alle impostazioni dell'applicazione. Collaborare quindi prima di tutto con il team di ADP eTime per usare l'identificatore corretto di un utente ed eseguire il mapping di tale valore con l'attestazione **"PersonImmutableID"**.
+
+![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_02.png)
 
 Prima di poter configurare l'asserzione SAML, è necessario contattare il team di supporto di ADP eTime e richiedere il valore dell'attributo dell'identificatore univoco per il tenant. Questo valore è necessario per configurare l'attestazione personalizzata per l'applicazione.
 
 
 **Per configurare Single Sign-On di Azure AD con ADP eTime, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **ADP eTime** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **ADP eTime** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a ADP eTime**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_03.png) <br>
+	![Configura accesso Single Sign-On][6]
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png) <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a ADP eTime**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_03.png)
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png)
 
 
-    a. Nella casella di testo URL di risposta immettere l'URL usato dagli utenti per accedere all'applicazione ADP eTime con il modello seguente: **"https://<NOMESERVER>.adp.com/affwebservices/public/saml2assertionconsumer"**.
+    a. Nella casella di testo **URL di risposta** digitare l'URL utilizzato dagli utenti per accedere all'applicazione ADP eTime adottando il modello seguente: `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer`.
 
     b. Fare clic su **Avanti**.
 
-4. Nella pagina **Configura accesso Single Sign-On in ADP eTime** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in ADP eTime** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png)
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
@@ -111,28 +137,42 @@ Prima di poter configurare l'asserzione SAML, è necessario contattare il team d
 
 5. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di ADP eTime e inviare tramite posta elettronica il file di metadati scaricato allegato, in modo da consentirne la configurazione per l'integrazione con l'accesso Single Sign-On.
 
-> [AZURE.NOTE] Dopo la configurazione dell'istanza da parte del team di **ADP eTime**, ottenere il valore **RelayState** dal team e richiedere ad Azure AD di configurarlo per l'istanza dell'applicazione. È possibile inviare questo valore, l'ID del tenant di Azure AD e l'ID dell'applicazione al team di Azure AD all'indirizzo [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). Al termine della configurazione, è possibile testare l'integrazione e verificarne il funzionamento corretto. Si noti quindi che questa è un'operazione di configurazione importante per il funzionamento dell'integrazione con questa applicazione.
+    > [AZURE.NOTE] Dopo la configurazione dell'istanza da parte del team di **ADP eTime**, ottenere il valore **RelayState** dal team e richiedere ad Azure AD di configurarlo per l'istanza dell'applicazione. È possibile inviare questo valore, l'ID del tenant di Azure AD e l'ID dell'applicazione al team di Azure AD all'indirizzo [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). Al termine della configurazione, è possibile testare l'integrazione e verificarne il funzionamento corretto. Si noti quindi che questa è un'operazione di configurazione importante per il funzionamento dell'integrazione con questa applicazione.
 
-6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+	![Accesso Single Sign-On di Azure AD][10]
+
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+
+	![Accesso Single Sign-On di Azure AD][11]
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico. Nell'elenco di utenti selezionare **Britta Simon**.
+
+![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l’elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png) <br>
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_03.png)
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png)
+
+5. Nella pagina **Informazioni sull’utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png)
 
     a. In **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
 
@@ -140,7 +180,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina **Profilo utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png)
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -152,9 +194,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina **Ottieni password temporanea**, fare clic su **crea**.
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png) <br>
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png)
+
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -172,25 +218,35 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
 ### Assegnazione dell'utente test di Azure AD
 
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ADP eTime. <br><br>![Assegna utente][200] <br>
+Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ADP eTime.
+
+![Assegna utente][200]
 
 **Per assegnare Britta Simon ad ADP eTime, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-2. Nell'elenco di applicazioni selezionare **ADP eTime**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_50.png) <br>
+	![Assegna utente][201]
 
-1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
+2. Nell'elenco di applicazioni selezionare **ADP eTime**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_50.png)
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+
+	![Assegna utente][205]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro ADP eTime nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ADP eTime.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro ADP eTime nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ADP eTime.
 
 
 ## Risorse aggiuntive
@@ -217,4 +273,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

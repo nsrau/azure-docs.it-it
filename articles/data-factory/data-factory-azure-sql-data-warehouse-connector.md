@@ -485,7 +485,7 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
     }
 
 ## Usare PolyBase per caricare dati in Azure SQL Data Warehouse
-**PolyBase** consente di caricare in modo efficiente quantità elevate di dati da un’archiviazione BLOB di Azure ad Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito.
+Mediante **PolyBase** è possibile caricare in modo efficiente quantità elevate di dati in Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito.
 
 Impostare la proprietà **allowPolyBase** su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà **polyBaseSettings**. Per informazioni dettagliate sulle proprietà disponibili con polyBaseSettings, vedere la sezione [SqlDWSink](#SqlDWSink).
 
@@ -504,18 +504,17 @@ Impostare la proprietà **allowPolyBase** su **true**, come illustrato nell'esem
     }
 
 ### Copia diretta tramite PolyBase
-Se i dati di origine soddisfano i criteri specificati, è possibile eseguire la copia direttamente dall'archivio dei dati di origine in Azure SQL Data Warehouse tramite PolyBase. In caso contrario, è possibile copiare i dati dall'archivio dei dati di origine a un'archiviazione BLOB di Azure di gestione temporanea che soddisfa i criteri seguenti e quindi usare PolyBase per caricare i dati in Azure SQL Data Warehouse. Vedere la sezione [Copia di gestione temporanea tramite PolyBase](#staged-copy-using-polybase) per altre informazioni sulla copia di gestione temporanea.
+Se i dati di origine soddisfano i criteri specificati, è possibile eseguire la copia direttamente dall'archivio dei dati di origine in Azure SQL Data Warehouse tramite PolyBase facendo riferimento alla configurazione di esempio sopra. In caso contrario è possibile sfruttare la [copia temporanea mediante PolyBase](#staged-copy-using-polybase).
 
 Si noti che, se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
 1.	Il **servizio collegato di origine** è di tipo **Archiviazione di Azure** e non è configurato per l'uso dell'autenticazione con firma di accesso condiviso. Per informazioni dettagliate, vedere [Servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).  
-2. Il **set di dati di input** è di tipo **BLOB di Azure** e le proprietà del tipo di set di dati soddisfano i criteri seguenti: 
-	1. **Type** deve essere **TextFormat** o **OrcFormat**. 
-	2. **rowDelimiter** deve essere **\\n**. 
-	3. **nullValue** è impostata su **stringa vuota** (""). 
-	4. **encodingName** è impostata su **utf-8**, ovvero il valore **predefinito**, quindi non impostarla su un valore diverso. 
-	5. **escapeChar** e **quoteChar** non sono specificate. 
-	6. **Compression** non è **BZIP2**.
+2. Il **set di dati di input** è di tipo: **BLOB di Azure** e il tipo di formato nelle proprietà di tipo è **OrcFormat** o **TextFormat** con le configurazioni indicate di seguito:
+	1. **rowDelimiter** deve essere **\\n**. 
+	2. **nullValue** è impostata su **stringa vuota** (""). 
+	3. **encodingName** è impostata su **utf-8**, ovvero il valore **predefinito**, quindi non impostarla su un valore diverso. 
+	4. **escapeChar** e **quoteChar** non sono specificate. 
+	5. **Compression** non è **BZIP2**.
 	 
 			"typeProperties": {
 				"folderPath": "<blobpath>",
@@ -536,7 +535,9 @@ Si noti che, se i requisiti non vengono soddisfatti, Azure Data Factory controll
 5.	Nell'attività di copia associata non viene usato alcun valore **columnMapping**. 
 
 ### Copia di gestione temporanea tramite PolyBase
-Il meccanismo PolyBase richiede che i dati di origine si trovino all'interno di un'archiviazione BLOB di Azure in uno dei formati supportati (DELIMITEDTEXT con restrizione, RCFILE, ORC, PARQUET). Quando i dati di origine non soddisfano i criteri illustrati nella sezione precedente, è possibile abilitare la copia dei dati tramite un'archiviazione BLOB di Azure intermedia e temporanea, in cui Azure Data Factory esegue trasformazioni sui dati perché soddisfino i requisiti di formato dei dati di PolyBase e quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Vedere [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) (Copia di gestione temporanea) per informazioni dettagliate sul funzionamento generale della copia dei dati tramite il BLOB di Azure in gestione temporanea.
+Quando i dati di origine non soddisfano i criteri illustrati nella sezione precedente, è possibile abilitare la copia dei dati tramite un'archiviazione BLOB di Azure intermedia e temporanea, in cui Azure Data Factory esegue trasformazioni sui dati perché soddisfino i requisiti di formato dei dati di PolyBase e quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Per informazioni dettagliate sul funzionamento generale della copia dei dati tramite il BLOB di Azure in gestione temporanea, vedere la [sezione relativa](data-factory-copy-activity-performance.md#staged-copy) .
+
+> [AZURE.IMPORTANT] Se si copiano dati da un archivio dati locale in Azure SQL Data Warehouse tramite PolyBase e la gestione temporanea, è necessario installare l'ambiente JRE (Java Runtime Environment) sul computer gateway che verrà usato per trasformare i dati di origine nel formato corretto. Si noti che un gateway a 64 bit richiede JRE a 64 bit e un gateway a 32 bit richiede JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605): scegliere quella appropriata.
 
 Per usare questa funzionalità, creare un [servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) che faccia riferimento all'account di archiviazione di Azure che contiene l'archiviazione BLOB intermedia, quindi specificare le proprietà **enableStaging** e **stagingSettings** per l'attività di copia, come illustrato di seguito:
 
@@ -555,16 +556,12 @@ Per usare questa funzionalità, creare un [servizio collegato Archiviazione di A
 				"allowPolyBase": true
 			},
     		"enableStaging": true,
-				"stagingSettings": {
+			"stagingSettings": {
 				"linkedServiceName": "MyStagingBlob"
 			}
 		}
 	}
 	]
-
-
-Nota: se si stanno copiando dati da un'archiviazione di dati locale in Azure SQL Data Warehouse tramite PolyBase e la gestione temporanea, è necessario installare l'ambiente JRE (Java Runtime Environment) sul computer gateway che verrà usato per trasformare i dati di origine nel formato corretto.
-
 
 
 ### Procedure consigliate per l'uso di PolyBase
@@ -657,4 +654,4 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

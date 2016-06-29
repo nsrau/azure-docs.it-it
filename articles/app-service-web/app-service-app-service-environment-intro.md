@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/14/2016"
 	ms.author="stefsch"/>
 
 # Introduzione all'ambiente del servizio app
@@ -29,6 +29,8 @@ Gli ambienti di servizi di app sono ideali per i carichi di lavoro dell'applicaz
 I clienti possono creare più ambienti di servizi di applicazione in una singola area di Azure, nonché in più aree di Azure. Questo rende gli Ambienti di servizio dell’App ideali per i livelli dell’applicazione con scalabilità orizzontale senza stato, nel supportare i carichi di lavoro elevati RPS.
 
 Gli ambienti di servizio dell’App sono isolati per eseguire solo le applicazioni di un singolo cliente e sono sempre distribuiti in una rete virtuale. I clienti hanno un controllo accurato sul traffico di rete sia in ingresso che in uscita dall'applicazione e le applicazioni possono stabilire connessioni protette ad alta velocità su reti virtuali alle risorse aziendali locali.
+
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 Per una panoramica di come Ambienti di servizio app abilita la scalabilità e protegge l'accesso alla rete, vedere il [Approfondimenti di AzureCon][AzureConDeepDive] in Ambienti di servizio App!
 
@@ -106,4 +108,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

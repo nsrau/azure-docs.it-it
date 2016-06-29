@@ -29,7 +29,7 @@
 
 La procedura seguente illustra come copiare un database SQL di Azure con PowerShell. L'operazione di copia del database consente di copiare un database SQL in un nuovo database usando il cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). La copia è un backup snapshot del database creato nello stesso server o in un server diverso.
 
-> [AZURE.NOTE] Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell'utente che è possibile ripristinare. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] Il database SQL di Azure [crea automaticamente e conserva i backup](sql-database-automated-backups.md) per ogni database dell'utente che è possibile ripristinare.
 
 Al completamento del processo di copia, il nuovo database è completamente funzionante, indipendente dal database di origine. Al completamento della copia, il nuovo database è coerente da un punto di vista transazionale con il database di origine. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine. Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.
 
@@ -125,4 +125,4 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

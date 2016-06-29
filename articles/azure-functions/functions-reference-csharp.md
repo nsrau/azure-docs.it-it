@@ -20,17 +20,21 @@
 
 # Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
-L'esperienza C# per Funzioni di Azure si basa su Azure WebJobs SDK. I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento vengono specificati in `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger di funzioni e i token di annullamento.
+> [AZURE.SELECTOR]
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
+ 
+L'esperienza C# per Funzioni di Azure si basa su Azure WebJobs SDK. I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
 
-Questo articolo presuppone che l'utente abbia già letto la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
 ## Funzionamento di CSX
 
-Il formato `.csx` consente di scrivere meno "boilerplate" e concentrarsi solo sulla scrittura una funzione C#. Per Funzioni di Azure è sufficiente includere tutti i riferimenti agli assembly e gli spazi dei nomi necessari, come al solito, e invece di racchiudere tutto in uno spazio dei nomi e una classe, è possibile definire solo il metodo `Run`. Se è necessario includere classi, ad esempio per definire gli oggetti POCO, si può includere una classe nello stesso file.
+Il formato `.csx` consente di scrivere meno "boilerplate" e concentrarsi solo sulla scrittura di una funzione C#. Per Funzioni di Azure è sufficiente includere tutti i riferimenti agli assembly e gli spazi dei nomi necessari, come al solito, e invece di racchiudere tutto in uno spazio dei nomi e una classe, è possibile definire solo il metodo `Run`. Se è necessario includere classi, ad esempio per definire gli oggetti POCO, si può includere una classe nello stesso file.
 
 ## Associazione agli argomenti
 
-I diversi binding sono associati a una funzione C# tramite la proprietà `name` nella configurazione di *function.json*. Per ogni binding sono disponibili tipi supportati specifici documentati singolarmente. Ad esempio, un trigger di BLOB può supportare una stringa, un oggetto POCO o diversi altri tipi. È possibile usare il tipo più adatto alle proprie esigenze.
+I vari binding sono associati a una funzione C# tramite la proprietà `name` nella configurazione di *function.json*. Per ogni binding sono disponibili tipi supportati specifici documentati singolarmente. Ad esempio, un trigger di BLOB può supportare una stringa, un oggetto POCO o diversi altri tipi. È possibile usare il tipo più adatto alle proprie esigenze.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -47,18 +51,18 @@ public class MyClass
 
 ## Registrazione
 
-Per registrare l'output nei log in streaming in C#, è possibile includere un argomento tipizzato `TraceWriter`. È consigliabile denominarlo `log`. È consigliabile evitare `Console.Write` in Funzioni di Azure.
+Per registrare l'output nei log in streaming in C#, è possibile includere un argomento tipizzato `TraceWriter`. È consigliabile denominarlo `log`. Si consiglia di evitare `Console.Write` in Funzioni di Azure.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
 ## Async
 
-Per rendere una funzione asincrona, usare la parola chiave `async` e restituire un oggetto `Task` .
+Per rendere una funzione asincrona, usare la parola chiave `async` e restituire un oggetto `Task`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -72,7 +76,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## Token di annullamento
 
-In alcuni casi possono essere presenti operazioni sensibili all'arresto. Anche se è sempre preferibile scrivere codice che possa gestire un arresto anomalo, nei casi in cui si vogliono gestire richieste di arresto normale, definire un argomento tipizzato [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Se viene attivato l'arresto di un host, verrà fornito un argomento `CancellationToken`.
+In alcuni casi possono essere presenti operazioni sensibili all'arresto. Mentre è sempre preferibile scrivere il codice per la gestione degli arresti anomali, per gestire le richieste di arresto normale si definisce un argomento tipizzato [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Se viene attivato l'arresto di un host, verrà fornito un argomento `CancellationToken`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -87,7 +91,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importazione di spazi dei nomi
 
-Se è necessario importare spazi dei nomi è possibile farlo come al solito con la clausola `using`.
+Se è necessario importare spazi dei nomi, è possibile farlo come al solito con la clausola `using`.
 
 ```csharp
 using System.Net;
@@ -123,7 +127,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting di Funzioni di Azure:
 
-* `mscorlib`
+* `mscorlib`,
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -142,11 +146,11 @@ Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferi
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Per fare riferimento a un assembly privato è possibile caricare il file di assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
+Per fare riferimento a un assembly privato è possibile caricare il file dell'assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
 
 ## Gestione dei pacchetti
 
-Per usare i pacchetti NuGet in una funzione C# caricare un file *project.json* nella cartella della funzione nel file system dell'app per le funzioni. Ecco un esempio di file *project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0:
+Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* nella cartella della funzione nel file system dell'app per le funzioni. Ecco un esempio di file *project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0:
 
 ```json
 {
@@ -254,4 +258,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

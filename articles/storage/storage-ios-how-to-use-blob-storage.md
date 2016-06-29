@@ -58,7 +58,7 @@ Per importare la libreria iOS di Archiviazione di Azure nell'applicazione, esegu
 Sarà necessario includere l'istruzione import seguente nel file in cui si vuole richiamare l'API di archiviazione di Azure.
 
     // Include the following import statement to use blob APIs.
-    #import <Azure Storage Client Library/Azure_Storage_Client_Library.h>
+    #import <AZSClient/AZSClient.h>
 
 ## Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
 
@@ -355,4 +355,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

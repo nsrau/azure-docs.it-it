@@ -22,8 +22,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Introduzione alla sicurezza](sql-database-get-started-security.md)
-- [Concessione dell'accesso](sql-database-manage-logins.md)
+- [Esercitazione introduttiva](sql-database-get-started-security.md)
+- [Concedere l'accesso](sql-database-manage-logins.md)
 
 
 Di seguito è disponibile una panoramica dei concetti dell'accesso al database SQL per amministratori, utenti non amministratori e ruoli.
@@ -55,7 +55,7 @@ Per una procedura dettagliata per la connessione con SQL Server Management Studi
 ## Account speciali aggiuntivi
 Il database SQL offre due ruoli amministrativi con restrizioni nel database master virtuale a cui possono essere aggiunti account utente.
 
-### Creazione di database
+### Autori di database
 Gli account amministrativi possono creare nuovi database. Per creare un account aggiuntivo che possa creare database, è necessario creare un utente nel master e aggiungere l'utente al ruolo speciale del database **dbmanager**. L'utente può essere un utente di database indipendente oppure un utente basato su un account di accesso di SQL Server nel database master virtuale.
 
 1.	Connettersi al database master virtuale usando un account amministratore.
@@ -137,12 +137,6 @@ I ruoli del database possono essere ruoli predefiniti come **db\_owner**, **db\_
 Nel database SQL possono essere concesse o negate singolarmente oltre 100 autorizzazioni. Molte di queste autorizzazioni sono annidate. L'autorizzazione `UPDATE` per uno schema, ad esempio, include l'autorizzazione `UPDATE` per ogni tabella all'interno di tale schema. Come nella maggior parte dei sistemi di autorizzazioni, la negazione di un'autorizzazione determina l'override di una concessione. A causa dell'annidamento e del numero delle autorizzazioni, progettare un sistema di autorizzazioni appropriato per proteggere correttamente il database può richiedere un attento studio. Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di database)](https://msdn.microsoft.com/library/ms191291.aspx) e la [grafica in formato di poster](http://go.microsoft.com/fwlink/?LinkId=229142) relativa alle autorizzazioni.
 
 
-### Altre informazioni
-
-[Protezione del Database SQL](sql-database-security.md)
-
-[Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589.aspx)
-
 ## Passaggi successivi
 
 [Protezione del Database SQL](sql-database-security.md)
@@ -157,4 +151,11 @@ Nel database SQL possono essere concesse o negate singolarmente oltre 100 autori
 
 [Concessione dell'accesso a un oggetto di database](https://msdn.microsoft.com/library/ms365327.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+## Risorse aggiuntive
+
+[Protezione del Database SQL](sql-database-security.md)
+
+[Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589.aspx)
+
+<!---HONumber=AcomDC_0615_2016-->

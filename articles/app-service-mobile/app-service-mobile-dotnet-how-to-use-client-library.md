@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
@@ -47,15 +47,27 @@ Il tipo sul lato client tipizzato in C# è il seguente:
 
 Si noti che il valore di [JsonPropertyAttribute] viene usato per definire il mapping di *PropertyName* tra il tipo di client e la tabella.
 
-Per informazioni sulla creazione di nuove tabelle nel backend delle app per dispositivi mobili, vedere l'articolo relativo all'uso dell'[SDK del server .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) o dell'[SDK del server Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante la Guida introduttiva, è inoltre possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
+Per informazioni sulla creazione di nuove tabelle nel backend delle app per dispositivi mobili, vedere l'argomento [SDK del server .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) o [SDK del server Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante la Guida introduttiva, è inoltre possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
 
-###<a name="symbolsource"></a>Procedura: Usare i simboli di debug in Visual Studio
+###Procedura: Installare il pacchetto SDK client gestito
+
+Attenersi a uno dei metodi seguenti per installare il pacchetto SDK per client gestiti per le app per dispositivi mobili da [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/):
+
++ **Visual Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e fare clic su **Installa**.
+
++ **Xamarin Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Aggiungi** > **Aggiungi pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client ` e fare clic su **Aggiungi pacchetto**.
+
+Nel file dell'attività principale, aggiungere l'istruzione **using** seguente:
+
+	using Microsoft.WindowsAzure.MobileServices;
+
+###<a name="symbolsource"></a>Procedura: Utilizzare i simboli di debug in Visual Studio
 
 I simboli per lo spazio dei nomi Microsoft.Azure.Mobile sono disponibili in [SymbolSource]. Per l'integrazione di SymbolSource in Visual Studio, vedere le [istruzioni di SymbolSource].
 
-##<a name="create-client"></a>Creare il client dell'app per dispositivi mobili
+##<a name="create-client"></a>Creare il client delle app per dispositivi mobili
 
-Il codice seguente consente di creare l'oggetto [MobileServiceClient] usato per accedere al back-end delle app per dispositivi mobili.
+Il codice seguente consente di creare l'oggetto [MobileServiceClient] utilizzato per accedere al back-end delle app per dispositivi mobili.
 
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
@@ -84,7 +96,8 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 
 Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable] su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 Questo è il modello tipizzato di serializzazione. Viene supportato anche un modello di serializzazione non tipizzato. Quanto segue consente di [creare un riferimento a una tabella non tipizzata]\:
 
@@ -128,7 +141,8 @@ La funzione passata al metodo `Where` può avere un numero di condizioni arbitra
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false
+		    && todoItem.Text != null)
 	   .ToListAsync();
 
 Viene convertita in una query SQL da un SDK del server simile al seguente:
@@ -301,7 +315,7 @@ Per eliminare dati non tipizzati, è possibile utilizzare Json.NET come illustra
 
 Si noti che quando si effettua una richiesta di eliminazione, è necessario specificare un ID. Altre proprietà non vengono passate al servizio o vengono ignorate nel servizio. Il risultato di una chiamata `DeleteAsync` equivale in genere a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync`. Quando si tenta di eliminare un elemento senza specificare il campo `id`, viene generato un `MobileServiceInvalidOperationException`.
 
-###<a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica per la risoluzione dei conflitti
+###<a name="optimisticconcurrency"></a>Procedura: Utilizzare la concorrenza ottimistica per la risoluzione dei conflitti
 
 È possibile che due o più client scrivano modifiche nello stesso elemento contemporaneamente. Se il conflitto non viene rilevato, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti, anche se non si tratta del risultato desiderato. Il *controllo della concorrenza ottimistica* presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse. Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
@@ -421,7 +435,7 @@ Quando si usa la raccolta creata tramite la chiamata a `ToCollectionAsync` o `To
 
 Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri visualizzarne solo alcuni nel controllo. È possibile seguire le indicazioni riportate nella sezione "[Selezionare colonne specifiche](#selecting)" precedente per scegliere specifiche colonne da visualizzare nell'interfaccia utente.
 
-###<a name="pagesize"></a>Modifica delle dimensioni di pagina
+###<a name="pagesize"></a>Modificare le dimensioni di pagina
 
 Per impostazione predefinita, App mobili di Azure restituisce un massimo di 50 elementi per ogni richiesta. È possibile modificare questa impostazione aumentando sia le dimensioni massime della pagina sul server, sia le dimensioni di pagina richieste sul lato client. Per aumentare le dimensioni di pagina richieste, usare un overload di `PullAsync` che consenta di specificare `PullOptions`:
 
@@ -744,7 +758,7 @@ Quando si usa l'autenticazione gestita dal client, è anche possibile memorizzar
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">Notifiche push
+##<a name="pushnotifications"></a>Notifiche push
 
 I seguenti argomenti descrivono le notifiche push:
 
@@ -954,4 +968,4 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [SymbolSource]: http://www.symbolsource.org/
 [istruzioni di SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

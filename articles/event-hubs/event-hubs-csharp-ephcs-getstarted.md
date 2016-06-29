@@ -28,14 +28,13 @@ Questa esercitazione illustra come usare il portale di Azure classico per creare
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-+ Microsoft Visual Studio 2013 o versione successiva oppure Microsoft Visual Studio Express per Windows. Gli esempi in questo articolo usano Visual Studio 2015.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Un account Azure attivo. <br/>Se non è disponibile un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -49,7 +48,7 @@ A questo punto è possibile eseguire le applicazioni.
  
 3. Trovare il file Sender.csproj esistente e fare doppio clic su di esso per aggiungerlo alla soluzione.
  
-4. Fare nuovamente clic con il pulsante destro del mouse sulla soluzione **Receiver** e quindi scegliere **Proprietà**. Viene visualizzata la pagina della proprietà **Receiver**.
+4. Fare nuovamente clic con il pulsante destro del mouse sulla soluzione **Receiver** e quindi scegliere **Proprietà**. Viene visualizzata la pagina delle proprietà di **Receiver**.
 
 5. Fare clic su **Progetto di avvio** e quindi fare clic sul pulsante **Progetti di avvio multipli**. Impostare la casella **Azione** per i progetti **Receiver** e **Sender** su **Avvio**.
 
@@ -95,4 +94,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

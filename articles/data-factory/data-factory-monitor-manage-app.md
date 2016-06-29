@@ -23,7 +23,8 @@
 
 Questo articolo descrive le procedure di monitoraggio, gestione e debug delle pipeline e indica come creare avvisi per ricevere notifiche sugli errori usando l'**app di monitoraggio e gestione**. L'uso dell'app di monitoraggio e gestione è illustrato anche nel video riportato di seguito.
    
-> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
+
+> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
 ## Avvio dell'app di monitoraggio e gestione
 Per avviare l'app di monitoraggio e gestione, fare clic sul riquadro **Monitoring & Manage** nel pannello **DATA FACTORY** della data factory.
@@ -313,4 +314,4 @@ Cluster HDI su richiesta eliminato | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

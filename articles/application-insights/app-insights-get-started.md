@@ -63,6 +63,7 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 ## <a name="video"></a>Video
 
+[![Introduzione animata](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -76,4 +77,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

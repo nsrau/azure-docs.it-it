@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/10/2016"
 	ms.author="piyushjo" />
 
 # App demo di Azure Mobile Engagement
@@ -37,7 +37,7 @@ Questa app è disponibile negli App Store seguenti:
 - **App universale di Windows - Demo**:
 
 	- Scaricare l'app dall’[archivio applicazioni di Windows](https://www.microsoft.com/it-IT/store/apps/azure-mobile-engagement/9nblggh4qmh2).
-	- L'app è stata sviluppata come app universale di Windows 10. Il codice sorgente è disponibile in [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
+	- L'app è stata sviluppata come app universale di Windows 10. Il codice sorgente è disponibile in [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
 
 - **App demo per iOS**:
 
@@ -185,4 +185,4 @@ Questa app è disponibile negli App Store seguenti:
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

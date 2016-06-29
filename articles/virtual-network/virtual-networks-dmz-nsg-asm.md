@@ -20,7 +20,7 @@
 
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita dei singoli passaggi. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
+Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
 
 ![Rete perimetrale in ingresso con gruppo di sicurezza di rete][1]
 
@@ -66,7 +66,7 @@ Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Int
 
 Esiste una regola in uscita predefinita che consente il traffico in uscita verso Internet. Per questo esempio si consente il traffico in uscita e non si modificano le regole in uscita. Per bloccare il traffico in entrambe le direzioni, è necessario il routing definito dall'utente, illustrato nella sezione "Esempio 3" più avanti.
 
-Di seguito le singole regole vengono descritte più dettagliatamente. Si noti che nell'elenco seguente tutte le voci che iniziano con il simbolo del dollaro (ad esempio $NSGName) sono variabili definite dall'utente incluse nello script riportato nella sezione Riferimenti di questo documento.
+Di seguito le singole regole vengono descritte più dettagliatamente. **Nota**: nell'elenco seguente tutte le voci che iniziano con il simbolo del dollaro (ad esempio, $NSGName) sono variabili definite dall'utente incluse nello script riportato nella sezione Riferimenti di questo documento:
 
 1. È necessario prima di tutto creare un gruppo di sicurezza di rete in cui inserire le regole:
 
@@ -550,4 +550,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

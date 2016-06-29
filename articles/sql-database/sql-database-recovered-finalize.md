@@ -3,8 +3,8 @@
    description="Ripristino temporizzato, Database SQL di Microsoft Azure, ripristino del database, recupero del database, portale di Azure classico, portale di Azure classico"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Finalizzare il database SQL di Azure ripristinato
 
@@ -29,7 +29,7 @@ Accertarsi che le stringhe di connessione dell'applicazione facciano riferimento
   + Nel database ripristinato viene utilizzato un nome diverso rispetto al nome del database di origine
   + Il database ripristinato si trova in un server diverso rispetto al server di origine
 
-Per ulteriori informazioni sulla modifica delle stringhe di connessione, vedere [Linee guida per la connessione al database SQL di Azure a livello di programmazione](https://msdn.microsoft.com/library/azure/ee336282.aspx) e [Connessioni al database SQL di Azure: indicazioni principali ](sql-database-connect-central-recommendations.md).
+Per altre informazioni sulla modifica delle stringhe di connessione, vedere [Linee guida per la connessione al database SQL di Azure a livello di programmazione](https://msdn.microsoft.com/library/azure/ee336282.aspx) e [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md).
  
 ## Modificare le regole del firewall
 Verificare le regole del firewall a livello di server e a livello di database, quindi assicurarsi che le connessioni tra i computer client o Azure con il server e il database appena ripristinato siano abilitate Per ulteriori informazioni, vedere [Firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) e [Procedura: configurare le impostazioni de firewall (database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
@@ -56,4 +56,4 @@ Per ulteriori sulle regole di avviso per il database, vedere [Procedura: ricever
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

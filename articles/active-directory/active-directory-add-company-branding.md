@@ -46,9 +46,7 @@ Quando si visita un servizio con URL non specifici del tenant (ad esempio, https
 
 > [AZURE.NOTE]
 >
-
 - Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di Azure classico dopo la configurazione della personalizzazione.
-
 - La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Se si accede con un account Microsoft personale, potrebbe essere visualizzato un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione dell'organizzazione non vengono applicate alla pagina di accesso degli account Microsoft.
 
 
@@ -221,4 +219,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

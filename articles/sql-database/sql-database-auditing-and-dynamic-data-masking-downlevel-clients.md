@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="nadavhelfman"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -72,4 +72,4 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Canada centrale | 13\.88.248.106 |
 | Canada orientale | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

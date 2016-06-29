@@ -34,7 +34,7 @@
 
 ## Ripristinare un punto di ripristino
 
-1. Accedere al [portale di Azure](http://ms.portal.azure.com/).
+1. Accedere al [portale di Azure](http://portal.azure.com/)
 
 2. Scegliere **Sfoglia** dal menu Azure e nell'elenco dei servizi digitare **Servizi di ripristino**. L'elenco di servizi viene modificato in base a quanto digitato. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
 
@@ -167,4 +167,4 @@ Dopo avere appreso come ripristinare le VM, è possibile vedere l'articolo sulla
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

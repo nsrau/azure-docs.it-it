@@ -110,7 +110,7 @@ Ad esempio:
 
 ## Considerazioni sull'uso di AdlCopy
 
-* AdlCopy non supporta la copia dei dati da origini che complessivamente contengono più di 1000 file e cartelle. Un approccio alternativo può essere la distribuzione di file e cartelle in sottocartelle diverse e l'uso del percorso per tali sottocartelle come origine.
+* AdlCopy (per la versione 1.0.4) supporta la copia dei dati da origini che collettivamente contengono migliaia di file e cartelle. Tuttavia, in caso di problemi durante la copia di un set di dati grande, è possibile distribuire file e cartelle in sottocartelle diverse e usare il percorso per tali sottocartelle come origine.
 
 ## Passaggi successivi
 
@@ -118,4 +118,4 @@ Ad esempio:
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->
