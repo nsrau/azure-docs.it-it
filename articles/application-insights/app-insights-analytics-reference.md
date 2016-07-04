@@ -2096,7 +2096,7 @@ Estrarre una sottostringa da una stringa di origine specificata a partire da un 
 
 * *source:* stringa di origine da cui viene ricavata la sottostringa.
 * *startingIndex:* posizione del carattere iniziale in base zero della sottostringa richiesta.
-* *length:* An optional parameter that can be used to specify the requested number of characters in the substring. 
+* *length:* parametro facoltativo che può essere usato per specificare il numero di caratteri richiesto nella sottostringa. 
 
 **Restituisce**
 
