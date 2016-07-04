@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="03/25/2016" 
+ms.date="06/22/2016" 
 ms.author="adegeo"/>
 
 # Abilitare la comunicazione delle istanze del ruolo in azure
@@ -359,4 +359,4 @@ Un riferimento allo schema XML per gli elementi utilizzati in precedenza è repe
 ## Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

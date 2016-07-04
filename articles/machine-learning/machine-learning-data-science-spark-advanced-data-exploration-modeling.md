@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Esplorazione e modellazione avanzate dei dati con Spark 
@@ -106,10 +106,10 @@ Importare le librerie necessarie usando il codice seguente.
 
 ### Contesto di Spark preimpostato e magic di PySpark
 
-I kernel PySpark disponibili con i notebook Jupyter dispongono di un contesto preimpostato e di conseguenza non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, perché sono disponibili per impostazione predefinita. Questi contesti sono:
+I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto preimpostato e pertanto non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, poiché sono disponibili per impostazione predefinita. Questi contesti sono:
 
 - sc per Spark 
-- sqlContext: per Hive
+- sqlContext per Hive
 
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
@@ -204,8 +204,8 @@ Dopo aver inserito i dati in Spark, il passaggio successivo del processo di anal
 
 Questo codice e i frammenti di codice successivi usano un magic SQL per eseguire una query sul campione e un magic local per tracciare i dati.
 
-- **Magic SQL (`%%sql`)** Il kernel HDInsight PySpark supporta l’esecuzione di query HiveQL inline semplici su sqlContext. L’argomento (-o NOME\_VARIABILE) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Ciò significa che sarà disponibile in modalità locale.
-- Il **magic `%%local`** viene usato per eseguire il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro -o. Il parametro -o rende persistente l’output della query SQL a livello locale e quindi il magic %%local attiva il successivo set di frammento di codice che viene eseguito localmente a fronte dell’output della query SQL persistente a livello locale.
+- **Magic SQL (`%%sql`)** Il kernel HDInsight PySpark supporta l’esecuzione di query HiveQL inline semplici su sqlContext. L'argomento (-o NOME\_VARIABILE) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questo significa che sarà disponibile in modalità locale.
+- Il **magic `%%local`** viene usato per eseguire il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro -o. Il parametro -o rende persistente l'output della query SQL a livello locale e quindi il magic %%local attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
 
 L'output verrà visualizzato automaticamente dopo aver eseguito il codice.
 
@@ -220,7 +220,7 @@ Questa query recupera le corse per numero di passeggeri.
 
 Questo codice crea un frame di dati locale dall'output della query ed esegue il tracciato dei dati. Il magic `%%local` crea un frame di dati locale, `sqlResults`, che può essere usato per il tracciamento con matplotlib.
 
->[AZURE.NOTE] Tale magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un’elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che può essere contenuto nella memoria locale.
+>[AZURE.NOTE] Tale magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un'elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che possa essere contenuto nella memoria locale.
 
 
 	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
@@ -1164,7 +1164,7 @@ Tempo impiegato per eseguire questa cella: 25,98 secondi.
 
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi della città di New York.
 
-****Eseguire il training e valutare**
+**Eseguire il training e valutare**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-****Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l’utilizzo e l’assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo”.
+**Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l’utilizzo e l’assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo”.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, �
 
 **Utilizzo dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

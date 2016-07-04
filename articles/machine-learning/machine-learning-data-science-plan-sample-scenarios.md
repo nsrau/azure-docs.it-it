@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Scenari relativi ad ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning | Microsoft Azure"
-	description="Selezionare gli scenari appropriati per il processo di analisi predittiva avanzata in Azure Machine Learning."
+	description="Selezionare gli scenari appropriati per eseguire analisi predittive avanzate con il Processo di analisi scientifica dei dati per i team."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Scenari per l'analisi avanzata in Azure Machine Learning
 
-Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con Cortana Analytics Process. Vengono inoltre illustrate le opzioni disponibili nelle sequenze di elaborazione basate su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
+Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il Processo di analisi scientifica dei dati per i team (TDSP). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
 
 L’**albero delle decisioni** per la scelta degli scenari di esempio appropriati per i dati dell’utente e l'obiettivo sono presentati nella sezione precedente.
 
@@ -132,7 +132,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 9. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
+10. Leggere i dati direttamente da SQL Server utilizzando il modulo [Import Data][import-data]. Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data].
 
 11. Compilare un flusso di esperimento di Azure ML iniziando con il set di dati inserito.
 
@@ -296,8 +296,8 @@ Nel diagramma seguente sono riepilogati gli scenari descritti in precedenza e il
 Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT tramite set di dati pubblici, vedere:
 
 
-* [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+* [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+* [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

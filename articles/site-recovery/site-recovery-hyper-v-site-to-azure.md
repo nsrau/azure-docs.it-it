@@ -403,7 +403,7 @@ Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguir
 
 **Nella macchina virtuale di Azure dopo il failover**:
 
-- Aggiungere un endpoint pubblico per il protocollo RDP (porta 3389) e specificare le credenziali per l'account di accesso.
+- Aggiungere un indirizzo IP pubblico alla scheda di rete associata alla macchina virtuale di Azure per consentire il protocollo RDP.
 - Assicurarsi che non siano presenti criteri di dominio che impediscono la connessione a una macchina virtuale tramite un indirizzo pubblico.
 - Provare a connettersi. Se non è possibile connettersi verificare che la macchina virtuale sia in esecuzione. Per altri suggerimenti sulla risoluzione dei problemi, vedere questo [articolo](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -468,4 +468,4 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

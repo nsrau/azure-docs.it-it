@@ -12,27 +12,29 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.workload="sqldb-bcdr"
+   ms.date="06/17/2016"
    ms.author="sstein"/>
 
-# Panoramica: ripristino geografico di un database SQL di Azure
+# Panoramica: Eseguire il ripristino geografico di un database SQL di Azure da un backup con ridondanza geografica
+
+> [AZURE.SELECTOR]
+- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristinare un database eliminato](sql-database-restore-deleted-database.md)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+
+
+Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure utilizzando l'ultimo [backup giornaliero automatico](sql-database-automated-backups.md). Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un guasto. È possibile usare il [portale di Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) o il [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Panoramica](sql-database-geo-restore.md)
 - [Portale di Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-Il ripristino geografico consente di ripristinare un database SQL dal backup giornaliero più recente ed è abilitato automaticamente per tutti i livelli di servizio senza costi aggiuntivi. Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un guasto.
-
-All'avvio del ripristino geografico viene creato un nuovo database SQL che può essere creato in qualsiasi server in qualsiasi area di Azure.
-
-> [AZURE.NOTE] È anche possibile usare [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-
-
 Il ripristino geografico è l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Il database può essere creato su qualunque server in qualsiasi area di Azure. Il ripristino geografico si basa su [backup automatici del database](sql-database-automated-backups.md) nella risorsa di archiviazione di Azure con ridondanza geografica ed esegue il ripristino dalla copia di backup con replica geografica, risultando quindi resiliente alle interruzioni dell'archiviazione nell'area primaria.
-
-
 
 ## Informazioni dettagliate sul ripristino geografico
 
@@ -46,12 +48,11 @@ Se si verifica un evento imprevisto su larga scala che determina la mancata disp
 
 ![ripristino geografico](./media/sql-database-geo-restore/geo-restore-2.png)
 
-
+Usare [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
 
 ## Tempo di recupero per un ripristino geografico
 
-Il tempo di recupero è influenzato da diversi fattori: le dimensioni del database, il livello di prestazioni del database e il numero di richieste di ripristino simultanee elaborate nell'area di destinazione. Nel caso di un'interruzione prolungata in un'area, è possibile che in altre aree vengano elaborate molte richieste di ripristino geografico. In presenza di un numero elevato di richieste, i tempi di ripristino dei database in tale area potrebbero aumentare.
-
+Il tempo di recupero è influenzato da diversi fattori: le dimensioni del database, il livello di prestazioni del database e il numero di richieste di ripristino simultanee elaborate nell'area di destinazione. Nel caso di un'interruzione prolungata in un'area, è possibile che in altre aree vengano elaborate molte richieste di ripristino geografico. In presenza di un numero elevato di richieste, i tempi di ripristino dei database in tale area potrebbero aumentare. Il tempo di ripristino di un database dipende da più fattori, ad esempio la dimensione del database, il numero di log delle transazioni, la larghezza di banda della rete e così via. Per la maggior parte dei database, il ripristino richiede al massimo 12 ore.
 
 ## Riepilogo
 
@@ -59,16 +60,12 @@ Il ripristino geografico, disponibile con tutti i livelli di servizio, è la pi�
 
 ## Passaggi successivi
 
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Eseguire il ripristino geografico di un database SQL di Azure da un backup con ridondanza geografica tramite il portale di Azure](sql-database-geo-restore-portal.md)
-- [Ripristinare un database SQL di Azure da un backup con ridondanza geografica tramite PowerShell](sql-database-geo-restore-powershell.md)
+- Per informazioni dettagliate su come ripristinare un database SQL di Azure mediante il portale di Azure da un backup con ridondanza geografica, vedere l'articolo sul [ripristino geografico nel portale di Azure](sql-database-geo-restore-portal.md).
+- Per informazioni dettagliate su come ripristinare un database SQL di Azure mediante PowerShell da un backup con ridondanza geografica, vedere l'articolo sul [ripristino geografico tramite PowerShell](sql-database-geo-restore-powershell.md).
+- Per una spiegazione completa su come eseguire il ripristino dopo un'interruzione del servizio, vedere l'articolo sul [ripristino dopo un'interruzione](sql-database-disaster-recovery.md).
 
 ## Risorse aggiuntive
 
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

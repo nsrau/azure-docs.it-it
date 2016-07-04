@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 
@@ -67,7 +67,7 @@ Di seguito è riportata una descrizione dei parametri in uso:
 - **/ma**: definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`. `/ma:'bin/www'` indica allo strumento di creazione di pacchetti di usare `bin/ma` come argomento per Node.exe.
 - **/AppType**: definisce il nome del tipo di applicazione di Service Fabric.
 
->[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine.
+>[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Se si passa alla directory specificata nel parametro /target, si noterà che lo strumento ha creato un pacchetto di Service Fabric pienamente funzionante, come illustrato di seguito:
 
@@ -137,7 +137,7 @@ In PowerShell o nella shell dei comandi verrà eseguito lo strumento di creazion
 
 Per aggiungere MongoDB al pacchetto dell'applicazione di Service Fabric, è necessario assicurarsi che il parametro /target punti alla stessa directory che contiene già il manifesto dell'applicazione insieme all'applicazione Node.js e che il nome usato sia lo stesso dell'elemento ApplicationType.
 
->[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine.
+>[AZURE.NOTE] È anche possibile usare Visual Studio per generare il pacchetto dell'applicazione come parte di un progetto di applicazione. Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Passare alla directory ed esaminare gli elementi creati dallo strumento.
 
@@ -204,4 +204,4 @@ In questa esercitazione si è appreso come distribuire facilmente due applicazio
 
 - Informazioni su come [creare manualmente il pacchetto di un'applicazione guest](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

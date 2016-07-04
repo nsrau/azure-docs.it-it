@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 
@@ -48,11 +48,13 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 ## Passaggi successivi
 
+* Rivedere l'articolo [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
+* Altre informazioni su [Microsoft PHP Driver per SQL Server](https://msdn.microsoft.com/library/dn865013.aspx)
+* Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
 
-Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
+## Risorse aggiuntive 
 
-## Risorse aggiuntive
+* [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
 
-Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

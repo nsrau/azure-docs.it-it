@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure | Microsoft Azure"
     description="Informazioni su come usare TOPdesk - Secure con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
   
@@ -38,7 +38,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 ###Per abilitare l'integrazione dell'applicazione per TOPdesk - Secure, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
 
@@ -95,7 +95,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
         >[AZURE.NOTE] Questo valore sarà necessario nella sezione **Configure App URL** più avanti in questa esercitazione.
 
-6.  In un'altra finestra del Web browser accedere al portale di **Azure Active Directory** come amministratore.
+6.  In un'altra finestra del Web browser accedere al portale di **portale di Azure classico** come amministratore.
 
 7.  Nella pagina di integrazione dell'applicazione **TOPdesk - Secure** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -109,9 +109,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso TOPdesk - Secure** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Secure (ad esempio,"*https://qssolutions.topdesk.net*").
-    2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
-    3.  Fare clic su **Next**.
+    1.  Nella casella di testo **URL di accesso TOPdesk - Secure** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Secure (ad esempio,"**https://qssolutions.topdesk.net*")).
+2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+3.  Fare clic su **Next**.
 
 10. Nella pagina **Configura accesso Single Sign-On in TOPdesk - Secure** per scaricare il file dei metadati, fare clic su **Download metadati** e quindi salvarlo in locale nel computer.
 
@@ -150,10 +150,10 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Per caricare il file del certificato, in **Certificate (RSA)** fare clic su **Browse**.
     3.  Per caricare il file del logo ottenuto dal team di supporto di TOPdesk, in **Logo icon** fare clic su **Browse**.
     4.  Nella casella di testo **User name attribute** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-	5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
+5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
     6.  Fare clic su **Save**.
 
-17. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+17. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configura accesso Single Sign-On")
 
@@ -188,7 +188,7 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
 ###Per assegnare gli utenti a TOPdesk - Secure, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **TOPdesk - Secure** fare clic su **Assegna utenti**.
 
@@ -200,4 +200,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

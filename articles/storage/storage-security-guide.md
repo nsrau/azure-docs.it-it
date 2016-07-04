@@ -13,40 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/16/2016"
 	ms.author="robinsh"/>
 
 #Guida alla sicurezza di Archiviazione di Azure
 
 ##Panoramica
 
-Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per essere crittografati automaticamente quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure (SSE)](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Questo articolo include una panoramica di ognuna di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Sono disponibili i collegamenti ad articoli contenenti informazioni dettagliate per ogni funzionalità, per poter approfondire facilmente i concetti per ogni argomento.
 
 Ecco gli argomenti trattati in questo articolo:
 
--   Sicurezza del piano di gestione: proteggere l'account di archiviazione
+-   [Sicurezza del piano di gestione](#management-plane-security): proteggere l'account di archiviazione
 
-    Il piano di gestione è costituito dalle risorse usate per gestire l'account di archiviazione. Questa sezione illustra il modello di distribuzione di Azure Resource Manager e come usare il controllo degli accessi in base al ruolo per controllare l'accesso agli account di archiviazione. Descrive anche la gestione delle chiavi dell'account di archiviazione e come rigenerarle.
+    Il piano di gestione è costituito dalle risorse usate per gestire l'account di archiviazione. Questa sezione illustra il modello di distribuzione Azure Resource Manager e come usare il controllo degli accessi in base al ruolo per controllare l'accesso agli account di archiviazione. Descrive anche la gestione delle chiavi dell'account di archiviazione e come rigenerarle.
 
--   Sicurezza del piano dati: proteggere l'accesso ai dati
+-   [Sicurezza del piano dati](#data-plane-security): proteggere l'accesso ai dati
 
     Questa sezione illustra come concedere l'accesso agli oggetti dati effettivi nell'account di archiviazione, ad esempio BLOB, file, code e tabelle, usando firme di accesso condiviso e criteri di accesso archiviati. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Si vedrà anche come limitare l'accesso a un indirizzo IP specifico, o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attendere che scada.
 
--   Crittografia in transito
+-   [Crittografia in transito](#encryption-in-transit)
 
     Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Si esamineranno l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per Condivisioni file di Azure. Si osserverà anche la crittografia lato client, che consente di crittografare i dati prima che siano trasferiti nel servizio di archiviazione in un'applicazione client e di decrittografarli dopo il trasferimento dal servizio di archiviazione.
 
--   Crittografia di dati inattivi
+-   [Crittografia di dati inattivi](#encryption-at-rest)
 
-    Si discuterà di Crittografia del servizio di archiviazione e come è possibile abilitarla per un account di archiviazione, determinando la crittografia automatica dei BLOB in blocchi e dei BLOB di pagine al momento della scrittura nell'archiviazione di Azure. Verrà illustrato anche come è possibile usare Crittografia dischi di Azure e si esamineranno differenze di base e casi relativi a Crittografia dischi rispetto a Crittografia del servizio di archiviazione e alla crittografia lato client. Si esaminerà brevemente la conformità FIPS per i computer del Governo degli Stati Uniti.
+    Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è possibile abilitarla per un account di archiviazione, determinando la crittografia automatica dei BLOB in blocchi, BLOB di pagine e BLOB aggiunti al momento della scrittura nell'Archiviazione di Azure. Verrà illustrato anche come è possibile usare Crittografia dischi di Azure e si esamineranno differenze di base e casi relativi a Crittografia dischi rispetto a SSE e alla crittografia lato client. Si esaminerà brevemente la conformità FIPS per i computer del Governo degli Stati Uniti.
 
--   Uso di Analisi archiviazione per controllare l'accesso dell'archiviazione di Azure
+-   Uso [di Analisi archiviazione](#storage-analytics) per controllare l'accesso dell'archiviazione di Azure
 
     Questa sezione illustra come trovare informazioni nei log di Analisi archiviazione per una richiesta. Si osserveranno dati dei log di Analisi archiviazione reali e si vedrà come distinguere se una richiesta viene eseguita con la chiave dell'account di archiviazione, con una firma di accesso condiviso oppure in modo anonimo e se è riuscita o meno.
 
--   Abilitazione dei client basati su browser tramite CORS
+-   [Abilitazione dei client basati su browser tramite CORS](#Cross-Origin-Resource-Sharing-CORS)
 
     Questa sezione descrive come consentire la condivisione risorse tra le origini (CORS). Verrà descritto l'accesso tra domini e come gestirlo con le funzionalità CORS integrate in Archiviazione di Azure.
 
@@ -56,7 +56,7 @@ Il piano di gestione è costituito da operazioni che interessano lo stesso accou
 
 Quando si crea un nuovo account di archiviazione, si seleziona un modello di distribuzione classica o di Azure Resource Manager. Il modello di distribuzione classica per la creazione di risorse in Azure consente solo l'accesso di tipo "tutto o niente" alla sottoscrizione e, di conseguenza, all'account di archiviazione.
 
-Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Azure Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
+Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
 
 ###Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
 
@@ -86,7 +86,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 
     -	Lettore: può visualizzare le informazioni sull'account di archiviazione, tranne i segreti. Ad esempio, se si assegna a qualcuno un ruolo con autorizzazioni di lettura per l'account di archiviazione, potrà visualizzare le proprietà dell'account di archiviazione, ma non apportare modifiche alle proprietà o visualizzare le chiavi dell'account di archiviazione.
 
-    -	Collaboratore Account di archiviazione: può gestire l'account di archiviazione, leggere i gruppi di risorse e le risorse della sottoscrizione, nonché creare e gestire distribuzioni di gruppi di risorse della sottoscrizione. Non può accedere le chiavi dell'account di archiviazione e di conseguenza ciò significa che non può accedere al piano dati.
+    -	Collaboratore Account di archiviazione: può gestire l'account di archiviazione, leggere i gruppi di risorse e le risorse della sottoscrizione, nonché creare e gestire distribuzioni di gruppi di risorse della sottoscrizione. Potendo accedere alle chiavi dell'account di archiviazione, può accedere anche al piano dati.
 
     -	Amministratore Accesso utenti: può gestire l'accesso degli utenti all'account di archiviazione. Ad esempio, può concedere l'accesso in lettura a un utente specifico.
 
@@ -116,7 +116,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 
 -   [Provider di calcolo, rete e archiviazione nella Gestione risorse di Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-    Questo articolo spiega il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Azure Resource Manager.
+    Questo articolo spiega il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Resource Manager.
 
 -   [Gestione del controllo degli accessi in base al ruolo con l'API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 
@@ -128,7 +128,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 
 -   [Guida per gli sviluppatori sull'autenticazione con l'API di Azure Resource Manager](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
-	Questo articolo illustra come eseguire l'autenticazione con le API di Azure Resource Manager.
+	Questo articolo illustra come eseguire l'autenticazione con le API di Resource Manager.
 
 -   [Controllo degli accessi in base al ruolo per Microsoft Azure da Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
@@ -184,7 +184,7 @@ Nota: è consigliabile usare solo una delle chiavi in tutte le applicazioni cont
 
 -   [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/mt163683.aspx)
 
-	Questo articolo contiene collegamenti ad articoli specifici sul recupero delle chiavi dell'account di archiviazione e sulla rigenerazione delle chiavi dell'account di archiviazione per un account di Azure usando l'API REST. Nota: riguarda gli account di archiviazione di Azure Resource Manager.
+	Questo articolo contiene collegamenti ad articoli specifici sul recupero delle chiavi dell'account di archiviazione e sulla rigenerazione delle chiavi dell'account di archiviazione per un account di Azure usando l'API REST. Nota: quanto detto vale per gli account di archiviazione di Resource Manager.
 
 -   [Operazioni sugli account di archiviazione](https://msdn.microsoft.com/library/ee460790.aspx)
 
@@ -360,21 +360,21 @@ La crittografia lato client è anche un metodo per crittografare i dati inattivi
 
 ##Crittografia di dati inattivi
 
-Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi. Crittografia dischi di Azure viene usata per crittografare i dischi dati e del sistema operativo nelle macchine virtuali IaaS. Le altre due, ovvero crittografia lato client e Crittografia del servizio di archiviazione, vengono entrambe usate per crittografare i dati nell'archiviazione di Azure. Si esaminerà ognuna di queste funzionalità, eseguendo quindi un confronto per vedere quando usare ognuna di esse.
+Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi. Crittografia dischi di Azure viene usata per crittografare i dischi dati e del sistema operativo nelle macchine virtuali IaaS. Le altre due, ovvero SSE e crittografia lato client, vengono entrambe usate per crittografare i dati nell'archiviazione di Azure. Si esaminerà ognuna di queste funzionalità, eseguendo quindi un confronto per vedere quando usare ognuna di esse.
 
-Anche se è possibile usare la crittografia lato client per crittografare i dati in transito, che vengono anche archiviati in forma crittografata nella risorsa di archiviazione, è preferibile usare semplicemente HTTPS durante il trasferimento e configurare un modo per crittografare automaticamente i dati quando sono archiviati. Esistono due modi per eseguire questa operazione: Crittografia dischi di Azure e Crittografia del servizio di archiviazione. Una viene usata per crittografare direttamente i dati sui dischi dati e del sistema operativo usati dalle VM e l'altra viene usata per crittografare i dati scritti nell'archivio BLOB di Azure.
+Anche se è possibile usare la crittografia lato client per crittografare i dati in transito, che vengono anche archiviati in forma crittografata nella risorsa di archiviazione, è preferibile usare semplicemente HTTPS durante il trasferimento e configurare un modo per crittografare automaticamente i dati quando sono archiviati. Esistono due modi per eseguire questa operazione: SSE e Crittografia dischi di Azure. Una viene usata per crittografare direttamente i dati sui dischi dati e del sistema operativo usati dalle VM e l'altra viene usata per crittografare i dati scritti nell'archivio BLOB di Azure.
 
-###Crittografia del servizio di archiviazione
+###Crittografia del servizio di archiviazione (SSE)
 
-Crittografia del servizio di archiviazione è una nuova funzionalità di Archiviazione di Azure in anteprima pubblica. Questa funzionalità consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura nell'archiviazione di Azure. Quando si leggono i dati dall'archiviazione di Azure, verranno decrittografati dal servizio di archiviazione prima di essere restituiti. Ciò consente di proteggere i dati senza dover modificare il codice o aggiungere codice alle applicazioni.
+SSE è una nuova funzionalità di Archiviazione di Azure in anteprima pubblica. Questa funzionalità consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura nell'archiviazione di Azure. Quando si leggono i dati dall'archiviazione di Azure, verranno decrittografati dal servizio di archiviazione prima di essere restituiti. Ciò consente di proteggere i dati senza dover modificare il codice o aggiungere codice alle applicazioni.
 
-Questa impostazione si applica all'intero account di archiviazione. È possibile abilitare e disabilitare questa funzionalità modificando il valore dell'impostazione. A questo scopo, si può usare il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST del provider di risorse di archiviazione o la libreria client di archiviazione per .NET. Per impostazione predefinita, Crittografia del servizio di archiviazione è disattivata.
+Questa impostazione si applica all'intero account di archiviazione. È possibile abilitare e disabilitare questa funzionalità modificando il valore dell'impostazione. A questo scopo, si può usare il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST del provider di risorse di archiviazione o la libreria client di archiviazione per .NET. Per impostazione predefinita, la funzionalità SSE è disattivata.
 
-Al momento, le chiavi usate per la crittografia sono gestite da Microsoft. Le chiavi vengono generate in origine e viene gestita l'archiviazione protetta delle chiavi, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. In futuro, verrà aggiunta la possibilità di gestire le proprie chiavi di crittografia e verrà fornito un percorso di migrazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente.
+Al momento, le chiavi usate per la crittografia sono gestite da Microsoft. Le chiavi vengono generate in origine e viene gestita l'archiviazione protetta delle chiavi, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. In futuro, sarà possibile gestire le proprie chiavi di crittografia e verrà fornito un percorso di migrazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente.
 
-Questa funzionalità è disponibile per gli account di archiviazione Premium e Standard creati con il modello di distribuzione di Azure Resource Manager e creati dopo il 30/3/2016 alle 09.00. Crittografia del servizio di archiviazione si applica solo a BLOB in blocchi e BLOB di pagine. Altri tipi di dati, tra cui tabelle, code e file, non verranno crittografati.
+Questa funzionalità è disponibile per gli account di archiviazione Premium e Standard creati con il modello di distribuzione di Resource Manager e creati dopo il 30/3/2016 alle 12.00 PST. SSE viene applicato solo per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta. Altri tipi di dati, tra cui tabelle, code e file, non verranno crittografati.
 
-I dati vengono crittografati solo quando Crittografia del servizio di archiviazione è abilitata e i dati vengono scritti nell'archivio BLOB. L'abilitazione o la disabilitazione di Crittografia del servizio di archiviazione non influisce sui dati esistenti. In altre parole, quando si abilita la crittografia, non tornare indietro e crittografare i dati che esistono già. né per decrittografare i dati già presenti quando si disabilita la crittografia del servizio di archiviazione.
+I dati vengono crittografati solo quando SSE è abilitata e i dati vengono scritti nell'archiviazione BLOB. L'abilitazione o la disabilitazione di SSE non influisce sui dati esistenti. In altre parole, quando si abilita la crittografia, non tornare indietro e crittografare i dati che esistono già. né per decrittografare i dati già presenti quando si disabilita SSE.
 
 Se si vuole provare questa funzionalità con un account di archiviazione creato prima della data citata in precedenza, o un account di archiviazione della versione classica, è possibile creare un nuovo account di archiviazione e usare AzCopy per copiare i dati nel nuovo account. Questo passaggio non sarà obbligatorio dopo l'anteprima.
 
@@ -410,9 +410,11 @@ La soluzione Crittografia dischi di Azure supporta i tre scenari di crittografia
 
 -   Abilitare la crittografia in nuove VM IaaS create da file VHD crittografati dal cliente e chiavi di crittografia fornite dal cliente, che vengono archiviate nell'insieme di credenziali delle chiavi di Azure.
 
--   Abilitare la crittografia di nuove VM IaaS create dalla Raccolta di Azure.
+-   Abilitare la crittografia di nuove VM IaaS create da Azure Marketplace.
 
 -   Abilitare la crittografia delle VM IaaS esistenti già in esecuzione in Azure.
+
+>[AZURE.NOTE] Per le VM Linux già in esecuzione in Azure o per le nuove VM Linux create dalle immagini in Azure Marketplace, al momento la crittografia del disco del sistema operativo non è supportata. La crittografia del volume del sistema operativo per le VM Linux è supportata solo per le VM crittografate in locale e caricate in Azure. Questa restrizione si applica solo al disco del sistema operativo, mentre la crittografia dei volumi di dati delle VM Linux è supportata.
 
 Se abilitata in Microsoft Azure, la soluzione supporta le funzionalità seguenti per VM IaaS nella versione di anteprima pubblica:
 
@@ -432,39 +434,39 @@ Questa funzionalità garantisce che tutti i dati presenti sui dischi delle macch
 
     Questo articolo illustra la versione di anteprima di Crittografia dischi di Azure e fornisce un collegamento per scaricare il white paper.
 
-###Confronto tra Crittografia dischi di Azure, Crittografia del servizio di archiviazione e crittografia lato client
+###Confronto tra Crittografia dischi di Azure, SSE e crittografia lato client
 
 ####VM IaaS e i relativi file VHD
 
-Per i dischi usati dalle VM IaaS è consigliabile usare Crittografia dischi di Azure. È possibile attivare Crittografia del servizio di archiviazione per crittografare i file VHD usati per eseguire il backup di questi dischi nell'archiviazione di Azure, ma vengono crittografati solo dati appena scritti. Ciò significa che se si crea una VM e quindi si abilita Crittografia del servizio di archiviazione nell'account di archiviazione che contiene il file VHD, verranno crittografate solo le modifiche, non il file VHD originale.
+Per i dischi usati dalle VM IaaS è consigliabile usare Crittografia dischi di Azure. La funzionalità SSE può essere attivata per crittografare i file VHD usati per eseguire il backup di questi dischi nell'Archiviazione di Azure, ma permette di crittografare solo dati appena scritti. Ciò significa che se si crea una VM e quindi si abilita SSE nell'account di archiviazione che contiene il file VHD, verranno crittografate solo le modifiche, non il file VHD originale.
 
-Se si crea una VM da Azure Marketplace, esegue una copia superficiale nell'account di archiviazione in Archiviazione di Azure e non viene crittografata anche se è abilitata la funzionalità Crittografia del servizio di archiviazione. Verranno crittografati solo i nuovi dati da quel momento in poi. Per questo motivo, è consigliabile usare Crittografia dischi di Azure nelle VM create da immagini in Azure Marketplace, se si vuole che siano completamente crittografate.
+Se si crea una VM utilizzando un'immagine proveniente da Azure Marketplace, Azure esegue una [copia superficiale](https://en.wikipedia.org/wiki/Object_copying) dell'immagine nell'account di archiviazione in Archiviazione di Azure senza crittografarla, anche se è abilitata la funzionalità SSE. Dopo aver creato la VM e avviato l'aggiornamento dell'immagine, SSE inizierà a crittografare i dati. Per questo motivo, è consigliabile usare Crittografia dischi di Azure nelle VM create da immagini in Azure Marketplace, se si vuole che siano completamente crittografate.
 
 Se si sposta una macchina virtuale pre-crittografata dall'ambiente locale in Azure, si potranno caricare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure e continuare a usare la crittografia usata in locale per quella VM. Crittografia dischi di Azure viene abilitata per gestire questo scenario.
 
-Se sono disponibili file VHD non crittografati dall'ambiente locale, è possibile caricarli nella raccolta come immagine personalizzata ed effettuare il provisioning di una VM dalla raccolta. Se si esegue questa operazione usando i modelli di Azure Resource Manager, è possibile richiedere l'attivazione di Crittografia dischi di Azure all'avvio della VM.
+Se sono disponibili file VHD non crittografati dall'ambiente locale, è possibile caricarli nella raccolta come immagine personalizzata ed effettuare il provisioning di una VM dalla raccolta. Se si esegue questa operazione usando i modelli di Resource Manager, è possibile richiedere l'attivazione di Crittografia dischi di Azure all'avvio della VM.
 
 Quando si aggiunge un disco dati e lo si monta nella VM, è possibile attivare Crittografia dischi di Azure su quel disco dati. Verrà crittografato prima di tutto il disco dati in locale e quindi il livello di gestione del servizio eseguirà una scrittura lazy nell'archiviazione in modo che il relativo contenuto venga crittografato.
 
 ####Crittografia lato client####
 
-La crittografia lato client è il metodo più sicuro per crittografare i dati, perché li crittografa prima della trasmissione e crittografa i dati inattivi. Richiede tuttavia l'aggiunta di codice alle applicazioni tramite l'archiviazione, un'operazione che si potrebbe non voler eseguire. In questi casi, è possibile usare HTTPS per i dati in transito e Crittografia del servizio di archiviazione per crittografare i dati inattivi.
+La crittografia lato client è il metodo più sicuro per crittografare i dati, perché li crittografa prima della trasmissione e crittografa i dati inattivi. Richiede tuttavia l'aggiunta di codice alle applicazioni tramite l'archiviazione, un'operazione che si potrebbe non voler eseguire. In questi casi, è possibile usare HTTPS per i dati in transito e la funzionalità SSE per crittografare i dati inattivi.
 
-Grazie alla crittografia lato client, è possibile crittografare entità tabella, messaggi nella coda e BLOB. Con Crittografia del servizio di archiviazione è possibile crittografare solo i BLOB. Se è necessario crittografare i dati di tabelle e code, è necessario usare la crittografia lato client.
+Grazie alla crittografia lato client, è possibile crittografare entità tabella, messaggi nella coda e BLOB. SSE consente di crittografare solo i BLOB. Se è necessario crittografare i dati di tabelle e code, è necessario usare la crittografia lato client.
 
 La crittografia lato client viene gestita completamente dall'applicazione. Questo è l'approccio più sicuro, ma è necessario apportare modifiche all'applicazione a livello di codice e implementare processi di gestione delle chiavi. Usare questo approccio quando si vuole avere la massima sicurezza per i dati in transito e garantire che i dati archiviati siano crittografati.
 
 La crittografia lato client comporta un carico maggiore sul client ed è necessario considerare questo aspetto nei piani di scalabilità, soprattutto se viene crittografata e trasferita una grande quantità di dati.
 
-####Crittografia del servizio di archiviazione
+####Crittografia del servizio di archiviazione (SSE)
 
-Crittografia del servizio di archiviazione viene gestita da Archiviazione di Azure, quindi è facilmente gestibile. L'uso di Crittografia del servizio di archiviazione non solo fornisce la sicurezza dei dati in transito, ma prevede la crittografia dei dati al momento della scrittura in Archiviazione di Azure. L'uso di questa funzionalità non incide in alcun modo sulle prestazioni.
+La funzionalità SSE è gestita tramite Archiviazione di Azure in tutta semplicità. SSE non solo garantisce la sicurezza dei dati in transito, ma permette di crittografare i dati al momento della scrittura in Archiviazione di Azure. L'uso di questa funzionalità non incide in alcun modo sulle prestazioni.
 
-Con Crittografia del servizio di archiviazione è possibile crittografare solo BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. Se è necessario crittografare dati di tabelle o di code, è consigliabile usare la crittografia lato client.
+SSE permette di crittografare solo BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. Se è necessario crittografare dati di tabelle o di code, è consigliabile usare la crittografia lato client.
 
-Se è disponibile un archivio o una raccolta di file VHD usati come base per la creazione di nuove macchine virtuali, è possibile creare un nuovo account di archiviazione, abilitare Crittografia del servizio di archiviazione e quindi caricare i file VHD in quell'account. Questi file VHD saranno crittografati da Archiviazione di Azure.
+Se è disponibile un archivio o una raccolta di file VHD usati come base per la creazione di nuove macchine virtuali, è possibile creare un nuovo account di archiviazione, abilitare SSE e quindi caricare i file VHD in quell'account. Questi file VHD saranno crittografati da Archiviazione di Azure.
 
-Se Crittografia dischi di Azure è abilitata per i dischi in una VM e Crittografia del servizio di archiviazione è abilitata nell'account di archiviazione che contiene i file VHD, funzioneranno correttamente, ovvero tutti i nuovi dati scritti saranno crittografati due volte.
+Se Crittografia dischi di Azure è abilitata per i dischi in una VM e la funzionalità SSE è abilitata nell'account di archiviazione che contiene i file VHD, tutti i nuovi dati scritti saranno crittografati due volte.
 
 ##Analisi archiviazione
 
@@ -580,11 +582,11 @@ Ecco il significato di ogni riga:
 
 -   **AllowedMethods**: si tratta dell'elenco di metodi (verbi di richiesta HTTP) che si possono usare quando si esegue la richiesta. In questo esempio, sono consentiti solo PUT e GET. È possibile impostarlo su un carattere jolly (*) per consentire l'uso di tutti i metodi.
 
--   **AllowedHeaders**: sono le intestazioni della richiesta che possono essere specificate dal dominio di origine quando esegue la richiesta. In questo esempio, sono consentite tutte le intestazioni dei di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly "*" indica che è consentita qualsiasi intestazione che inizi col prefisso consentito.
+-   **AllowedHeaders**: sono le intestazioni della richiesta che possono essere specificate dal dominio di origine quando si esegue la richiesta. In questo esempio, sono consentite tutte le intestazioni dei di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly "*" indica che è consentita qualsiasi intestazione che inizi col prefisso consentito.
 
 -   **ExposedHeaders**: indica quali intestazioni della risposta devono essere esposte al richiedente dal browser. In questo esempio, verranno esposte tutte le intestazioni che iniziano con "x-ms-meta-".
 
--   **MaxAgeInSeconds**: è la quantità di tempo massima di memorizzazione nella cache della richiesta OPTIONS preliminare da parte di un browser. Per altre informazioni sulla richiesta preliminare, vere il primo articolo di seguito.
+-   **MaxAgeInSeconds**: indica il periodo massimo di memorizzazione della richiesta OPTIONS preliminare nella cache di un browser. Per altre informazioni sulla richiesta preliminare, vere il primo articolo di seguito.
 
 ####Risorse
 
@@ -606,12 +608,10 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 1.  **Come è possibile verificare l'integrità dei BLOB trasferiti e recuperati nell'archiviazione di Azure se non è possibile usare il protocollo HTTPS?**
 
-	Si può usare il controllo MD5 nelle operazioni PUT e GET e quando si utilizza l'archivio BLOB di Azure tramite le API REST. Se per qualsiasi motivo si può usare HTTP invece di HTTPS, considerare la possibilità di usare il controllo MD5. L'archiviazione del valore MD5 garantisce che sia disponibile nel caso si voglia scaricare il BLOB usando HTTP, in un secondo momento. Se si è certi che si userà solo HTTPS, l'uso del controllo MD5 è quindi ridondante, perché il protocollo HTTPS garantisce la sicurezza a livello di trasporto.
+	Se per qualsiasi motivo è necessario utilizzare il protocollo HTTP anziché HTTPS e si utilizzano BLOB in blocchi, è possibile utilizzare il controllo MD5 per verificare l'integrità dei BLOB in fase di trasferimento. Ciò contribuisce a proteggere dagli errori a livello di rete/trasporto, ma non necessariamente dalle violazioni.
 
-	Questa è la modalità di funzionamento per un BLOB in blocchi: si calcola l'hash MD5 dei bit del BLOB prima dell'invio. Quando poi si chiama il servizio BLOB di Azure per inserire il BLOB, si includerà il valore dell'hash MD5. Se il servizio BLOB riceve un valore dell'hash MD5, calcolerà l'hash MD5 dei dati ricevuti e lo confronterà con quello specificato. Se non corrispondono, il BLOB è stato danneggiato durante il trasporto e restituirà un codice di errore 400 (Richiesta non valida).
-
-	Quando si recupera il BLOB, se è presente un valore MD5 archiviato, lo restituirà all'utente nelle intestazioni della richiesta. È quindi possibile calcolare l'hash MD5 dei dati ricevuti e confrontarlo con il valore MD5 archiviato. Se non corrispondono, il BLOB è stato danneggiato durante il trasporto.
-
+	Se è possibile utilizzare HTTPS, che fornisce la protezione a livello di trasporto, il controllo MD5 è ridondante e superfluo.
+	
 	Per altre informazioni, vedere il blog relativo alla [panoramica di MD5 per i BLOB di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 
 2.  **Come viene gestita la conformità FIPS per il Governo degli Stati Uniti?**
@@ -634,4 +634,4 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 	Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

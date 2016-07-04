@@ -28,10 +28,16 @@ Se si usa la visualizzazione del codice, è possibile specificare un loop ForEac
 
 ```
 {
+    "email_filter": {
+        "type": "query",
+        "inputs": {
+            "from": "@triggerBody()['emails']",
+            "where": "@contains(item()['email'], 'microsoft.com')
+        }
+    },
     "forEach_email": {
         "type": "foreach",
-        "foreach": "@triggerBody()['emails']",
-        "expression": "@contains(item(), 'microsoft.com')",
+        "foreach": "@body('email_filter')",
         "actions": {
             "send_email": {
                 "type": "ApiConnection",
@@ -48,6 +54,9 @@ Se si usa la visualizzazione del codice, è possibile specificare un loop ForEac
                 }
                 }
             }
+        },
+        "runAfter":{
+            "email_filter": [ "Succeeded" ]
         }
     }
 }
@@ -132,4 +141,4 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 }
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

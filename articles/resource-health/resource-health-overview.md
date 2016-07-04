@@ -3,7 +3,7 @@
    description="Panoramica su Integrità risorse di Azure"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Panoramica su Integrità risorse di Azure
 
@@ -59,22 +59,28 @@ Facendo clic sul riquadro verrà visualizzato il pannello della sottoscrizione d
 ![Riquadro Integrità risorsa](./media/resource-health-overview/resourceHealthTile.png)
 
 ### API di integrità risorse
-Oltre alla funzionalità del portale di Azure è disponibile un'API che può essere usata per eseguire query sull'integrità delle risorse. L'API supporta chiamate per ottenere l'integrità di tutte le risorse presenti in una sottoscrizione, tutte le risorse presenti in un gruppo di risorse o l'integrità di una risorsa specifica.
+Oltre alla funzionalità del portale di Azure è disponibile un gruppo di API utilizzabili per eseguire query sull'integrità delle risorse. Queste API consentono agli utenti di richiedere informazioni sull'integrità attuale di tutte le risorse presenti in una sottoscrizione, tutte le risorse presenti in un gruppo di risorse o l'integrità di una singola risorsa.
 
-Prima di usare l'API per eseguire query sull'integrità delle risorse è necessario registrare la sottoscrizione con il servizio inviando una richiesta POST all'URL seguente:
+Un'altra API consente agli utenti di richiedere informazioni cronologiche sullo stato di una singola risorsa. La risposta è una raccolta di stati di integrità delle risorse per gli ultimi 14 giorni. Se la risorsa potrebbe essere stata influenzata da un'interruzione del servizio dichiarata, lo stato di integrità includerà un'annotazione denominata serviceImpactingEvents con altri dettagli sull'interruzione.
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Prima di usare l'API per eseguire query sull'integrità delle risorse è necessario registrare la sottoscrizione con il servizio inviando una richiesta POST all'URL seguente: volume
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Di seguito sono riportati esempi su come chiamare l'API di integrità risorse
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## Cosa significa lo stato di integrità delle risorse?
@@ -126,4 +132,4 @@ Integrità risorsa segnala lo stato del database SQL, non di SQL Server. Anche s
 ## Commenti e suggerimenti
 Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È anche possibile comunicare con [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

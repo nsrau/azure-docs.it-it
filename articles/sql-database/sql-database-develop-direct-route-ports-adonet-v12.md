@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="data-management" 
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -120,4 +120,4 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

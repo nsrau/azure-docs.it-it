@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -104,6 +104,8 @@ Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile
 ## Aggiungere un avviso a una risorsa di pool
 
 È possibile aggiungere regole a risorse che inviano messaggi di posta elettronica a persone oppure stringhe di avviso a endpoint di URL quando la risorsa raggiunge la soglia di utilizzo impostata.
+
+> [AZURE.IMPORTANT]Il monitoraggio dell'utilizzo delle risorse per i pool elastici viene eseguito con un ritardo di almeno 20 minuti. Al momento non è possibile impostare avvisi inferiori ai 30 minuti per i pool elastici. Tutti gli avvisi per i pool elastici impostati con una durata (parametro denominato "-WindowSize" nell'API di PowerShell) inferiore a 30 minuti non possono essere attivati. Controllare che gli avvisi definiti per i pool elastici utilizzino un periodo (WindowSize) di almeno 30 minuti.
 
 **Per aggiungere un avviso a una risorsa qualsiasi:**
 
@@ -211,4 +213,4 @@ Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azu
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

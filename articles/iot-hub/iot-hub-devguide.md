@@ -491,7 +491,7 @@ Per supportare il caricamento di file, l'hub IoT usa due endpoint REST: uno per 
 
 #### Notifica all'hub IoT del completamento del caricamento di un file
 
-Il dispositivo è responsabile del caricamento del file nella risorsa di archiviazione con Azure Storage SDK. Al termine del caricamento, il dispositivo invia una richiesta POST all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` usando l'ID di correlazione ricevuto dalla richiesta GET iniziale.
+Il dispositivo è responsabile del caricamento del file nella risorsa di archiviazione con Azure Storage SDK. Al termine del caricamento, il dispositivo invia una richiesta POST all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` usando l'ID di correlazione ricevuto dalla richiesta GET iniziale.
 
 #### Notifiche di caricamento file
 
@@ -561,7 +561,7 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità dei dispositivi.
 
-Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitazione dell'hub IoT).
+Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
 
 >[AZURE.NOTE] È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 
@@ -624,4 +624,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

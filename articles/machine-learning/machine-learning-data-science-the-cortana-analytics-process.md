@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Informazioni su Cortana Analytics Process | Microsoft Azure" 
-	description="Cortana Analytics Process è un metodo sistematico della scienza dei dati per lo sviluppo di applicazioni intelligenti che sfruttano le analisi avanzate." 
+	pageTitle="Informazioni sul Processo di analisi scientifica dei dati per i team | Microsoft Azure" 
+	description="Il Processo di analisi scientifica dei dati per i team è un metodo sistematico della scienza dei dati per lo sviluppo di applicazioni intelligenti che sfruttano le analisi avanzate." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
@@ -13,37 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev;gopitk" />
 
 
-# Informazioni su Cortana Analytics Process (CAP)?
+# Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
 
-Cortana Analytics Process (CAP)è un metodo sistematico della scienza dei dati, che indica una sequenza di passaggi che sfrutta le funzionalità di analisi avanzate per sviluppare applicazioni intelligenti. I passaggi di CAP offrono **indicazioni** su come definire il problema, analizzare i dati rilevanti, sviluppare e valutare modelli predittivi e quindi distribuire i modelli in applicazioni intelligenti.
+Il Processo di analisi scientifica dei dati per i team (TDSP) offre un approccio sistematico alla creazione di applicazioni intelligenti che permettono ai team di data scientist di collaborare in modo efficace per l'intero ciclo di vita delle attività necessarie per trasformare queste applicazioni in prodotti. Il TDSP illustra una sequenza di passaggi che fornisce **istruzioni** su come definire il problema, predisporre gli strumenti e l'ambiente necessario, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
 
-Ecco i passaggi disponibili in **Cortana Analytics Process**:
+Di seguito sono riportati i passaggi del **Processo di analisi scientifica dei dati per i team**:
 
 ![Flusso di lavoro CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da CAP.
+Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da TDSP.
 
-I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/), nonché descritti di seguito.
+I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/), nonché descritti di seguito.
 
 ## Passaggi preliminari 
 
 ## P1. Pianificare il progetto di analisi 
 
-Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Pianificazione dell'ambiente per il Cortana Analytics Process](machine-learning-data-science-plan-your-environment.md) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) (Pianificare l'ambiente per il Processo di analisi scientifica dei dati per i team) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 ## P2. Configurare l'ambiente di analisi 
 
-Un ambiente di analisi per Cortana Analytics Process include alcuni componenti:
+Un ambiente di analisi per il TDSP include numerosi componenti:
 
 - **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione. 
 - **Infrastruttura di elaborazione** per la pre-elaborazione, l'esplorazione e la modellazione dei dati.
 - **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.  
 
-L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Impostare gli ambienti per la scienza dei dati per l'utilizzo nel Cortana Analytics Process](machine-learning-data-science-environment-setup.md).
+L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
 
 ## Passaggi di analisi:  
 
@@ -61,12 +61,12 @@ Il passaggio successivo consiste nell'ottenere una migliore comprensione dei dat
 
 ## 3\. Sviluppare funzionalità 
 
-Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md).
+Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md) (Progettazione di funzionalità nel Processo di analisi scientifica dei dati per i team).
 
 
 ## 4\. Creare modelli produttivi 
 
-Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [How to choose algorithms for Team Azure Machine Learning](machine-learning-algorithm-choice.md) (Come scegliere gli algoritmi di Team Azure Machine Learning).
 
 Gli esperti di scienza dei dati devono scegliere il modello più appropriato per l'attività di previsione e non è raro che sia necessario combinare i risultati da più modelli per ottenere i risultati ottimali. I dati di input per la modellazione vengono in genere suddivisi casualmente in tre parti:
 
@@ -83,17 +83,17 @@ Quando si ottiene un set di modelli con prestazioni ottimali, è possibile **ren
 
 ## Riepilogo e passaggi successivi
 
-[Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
+Il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
 
-Anche se CAP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che sia possibile iterare l'analisi quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
+Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che sia possibile iterare l'analisi quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
 
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Per esempi, vedere:
 
-- [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
+- [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md)
+- [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 - [Analisi scientifica dei dati con Spark in Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
 - [Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -37,24 +37,27 @@ Di seguito sono riportati in dettaglio i passaggi eseguiti automaticamente da Mi
 > [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ### Pianificazione della migrazione automatica
 La migrazione automatica del database verrà eseguita tra le 18.00 e le 6.00, ora locale dell'area di appartenenza, in base alla pianificazione riportata di seguito.
 
-| Region | Data di inizio prevista | Data di fine prevista |
+| **Area** | **Data di inizio prevista** | **Data di fine prevista** |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia orientale | Non ancora determinata | Non ancora determinata |
 | Australia sudorientale | Non ancora determinata | Non ancora determinata |
+| Brasile meridionale | Non ancora determinata | Non ancora determinata |
 | Canada centrale | 23 giugno 2016 | 1 luglio 2016 |
 | Canada orientale | 23 giugno 2016 | 1 luglio 2016 |
 | Stati Uniti centrali | 23 giugno 2016 | 1 luglio 2016 |
 | Cina orientale | Non ancora determinata | Non ancora determinata |
+| Cina settentrionale | Non ancora determinata | Non ancora determinata |
 | Asia orientale | 23 giugno 2016 | 1 luglio 2016 |
 | Stati Uniti orientali | 23 giugno 2016 | 1 luglio 2016 |
 | Stati Uniti Orientali 2 | 23 giugno 2016 | 1 luglio 2016 |
 | India centrale | 23 giugno 2016 | 1 luglio 2016 |
 | India meridionale | 23 giugno 2016 | 1 luglio 2016 |
+| India occidentale | Non ancora determinata | Non ancora determinata |
 | Giappone orientale | Non ancora determinata | Non ancora determinata |
 | Giappone occidentale | Non ancora determinata | Non ancora determinata |
 | Stati Uniti centro-settentrionali | Non ancora determinata | Non ancora determinata |
@@ -72,19 +75,22 @@ Se si preferisce mantenere il controllo sui tempi di inattività, è possibile u
 ### Determinare il tipo di archiviazione
 Se il data warehouse è stato creato prima delle date riportate di seguito, si sta usando Archiviazione Standard.
 
-| Region | Data warehouse creato prima di questa data |
+| **Area** | **Data warehouse creato prima di questa data** |
 | :------------------ | :-------------------------------- |
 | Australia orientale | Archiviazione Premium non ancora disponibile |
 | Australia sudorientale | Archiviazione Premium non ancora disponibile |
+| Brasile meridionale | Archiviazione Premium non ancora disponibile |
 | Canada centrale | 25 maggio 2016 |
 | Canada orientale | 26 maggio 2016 |
 | Stati Uniti centrali | 26 maggio 2016 |
 | Cina orientale | Archiviazione Premium non ancora disponibile |
+| Cina settentrionale | Archiviazione Premium non ancora disponibile |
 | Asia orientale | 25 maggio 2016 |
 | Stati Uniti orientali | 26 maggio 2016 |
 | Stati Uniti Orientali 2 | 27 maggio 2016 |
 | India centrale | 27 maggio 2016 |
 | India meridionale | 26 maggio 2016 |
+| India occidentale | Archiviazione Premium non ancora disponibile |
 | Giappone orientale | Archiviazione Premium non ancora disponibile |
 | Giappone occidentale | Archiviazione Premium non ancora disponibile |
 | Stati Uniti centro-settentrionali | Archiviazione Premium non ancora disponibile |
@@ -105,7 +111,7 @@ Se si preferisce mantenere il controllo sui tempi di inattività, è possibile e
 > [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 #### Facoltativo: soluzione alternativa per la ridenominazione 
 Due database nello stesso server logico non possono avere lo stesso nome. SQL Data Warehouse attualmente non supporta la possibilità di rinominare un data warehouse. Le istruzioni riportate di seguito offrono una soluzione alternativa da usare nel corso di una migrazione self-service. Nota: le migrazioni automatiche non avranno questa limitazione.
@@ -123,7 +129,7 @@ Ai fini di questo esempio, si supponga che il data warehouse esistente in Archiv
 > [AZURE.NOTE] Le impostazioni seguenti non verranno mantenute come parte della migrazione:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Passaggi successivi
 In caso di problemi con il data warehouse, [creare un ticket di supporto][] e specificare la migrazione ad Archiviazione Premium come possibile causa.
@@ -146,4 +152,4 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 <!--Other Web references-->
 [Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

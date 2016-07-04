@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/20/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
@@ -98,7 +98,7 @@ I servizi usufruiscono della replica semplicemente usando Archiviazione di Azure
 
 ###Resource management
 
-Le dimensioni degli account di archiviazione creati dopo il 7 giugno 2012 possono aumentare fino a 200 TB (in precedenza, il massimo era 100 TB). Se è necessario spazio aggiuntivo, le applicazioni devono essere progettate in modo da sfruttare più account di archiviazione.
+Le dimensioni degli account di archiviazione creati dopo il maggio 2014 possono aumentare fino a 500 TB (in precedenza, il massimo era 200 TB). Se è necessario spazio aggiuntivo, le applicazioni devono essere progettate in modo da sfruttare più account di archiviazione.
 
 ###Dischi delle macchine virtuali
 
@@ -223,4 +223,4 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 
 Questo articolo fa parte di una serie relativa alle [indicazioni tecniche sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino da un'interruzione del servizio a livello di area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

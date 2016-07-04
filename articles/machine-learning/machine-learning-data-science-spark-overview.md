@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
@@ -145,4 +145,4 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Modellazione ed esplorazione avanzata dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

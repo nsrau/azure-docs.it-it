@@ -27,21 +27,24 @@ L’utilizzo del portale di Azure è un modo semplice per provare a usare una ma
 
 [Creare una macchina virtuale con Windows tramite il portale](virtual-machines-windows-hero-tutorial.md)
 
-## Azure PowerShell
-
-Se si preferisce lavorare in una shell dei comandi, è possibile utilizzare Azure PowerShell.
-
-- [Creare una VM Windows tramite PowerShell](virtual-machines-windows-ps-create.md)
-- [Creare una macchina virtuale Windows con un modello di Gestione risorse](virtual-machines-windows-ps-template.md)
-
 ## Modello
 
 Le macchine virtuali richiedono una combinazione di risorse (come set di disponibilità e account di archiviazione). Anziché distribuire e gestire separatamente ogni risorsa, è possibile creare un modello Azure Resource Manager che distribuisce e fornisce tutte le risorse in un'unica operazione coordinata.
 
 - [Creare una macchina virtuale Windows con un modello di Gestione risorse](virtual-machines-windows-ps-template.md)
 
+
+## Azure PowerShell
+
+Se si preferisce lavorare in una shell dei comandi, è possibile utilizzare Azure PowerShell.
+
+- [Creare una VM Windows tramite PowerShell](virtual-machines-windows-ps-create.md)
+
+
 ## Visual Studio
 
-[Distribuire le risorse di Azure usando librerie di calcolo, rete e .NET di archiviazione](virtual-machines-windows-csharp.md)
+Usare Visual Studio per creare, gestire e distribuire VM con gli strumenti di Azure per Visual Studio e Azure SDK.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Strumenti di Azure per Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
+
+<!---HONumber=AcomDC_0622_2016-->

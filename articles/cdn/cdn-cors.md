@@ -65,7 +65,7 @@ In questo caso verrà creata un'espressione regolare che include tutte le origin
  
 > [AZURE.TIP] La **rete CDN Premium di Azure fornita da Verizon** usa la libreria [PCRE (Perl Compatible Regular Expressions)](http://pcre.org/) come motore per le espressioni regolari. Per convalidare le espressioni regolari, è possibile usare uno strumento come [Regular Expressions 101](https://regex101.com/). Si noti che il carattere "/" è valido nelle espressioni regolari e non deve essere preceduto da un carattere di escape. Tuttavia, l'inserimento di un carattere di escape prima di "/" è considerato una procedura consigliata ed è previsto da alcuni strumenti di convalida delle espressioni regolari.
 
-Se l'espressione regolare corrisponde, nel nodo perimetrale della rete CDN la regola specificata sostituirà l'intestazione **Access-Control-Allow-Origin** (se presente) proveniente dall'origine con l'origine che ha inviato la richiesta. È inoltre possibile aggiungere altre intestazioni CORS, ad esempio **Access-Control-Allow-Methods**.
+Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intestazione **Access-Control-Allow-Origin** (se presente) proveniente dall'origine con l'origine che ha inviato la richiesta. È inoltre possibile aggiungere altre intestazioni CORS, ad esempio **Access-Control-Allow-Methods**.
 
 ![Esempio di regole con espressione regolare](./media/cdn-cors/cdn-cors-regex.png)
  
@@ -81,4 +81,4 @@ Anziché usare espressioni regolari, è possibile creare una regola separata per
 
 Nei profili della rete CDN Standard di Azure, l'unico meccanismo per consentire più origini senza l'uso dell'origine con caratteri jolly consiste nella [memorizzazione della stringa di query nella cache](cdn-query-string.md). È necessario abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizzerà nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

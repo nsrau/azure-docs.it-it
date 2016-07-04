@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/30/2016" 
+    ms.date="06/13/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp come salva dati e impostazioni?
@@ -159,4 +159,4 @@ NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno
 
 In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

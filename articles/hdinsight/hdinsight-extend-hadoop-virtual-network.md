@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2016"
+   ms.date="06/20/2016"
    ms.author="larryfr"/>
 
 
@@ -67,10 +67,6 @@ Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete
 ###Reti virtuali basate sulla posizione
 
 Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
-
-###Subnet
-
-È consigliabile creare una singola subnet per ogni cluster HDInsight.
 
 ###Rete virtuale classica o v2
 
@@ -309,4 +305,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

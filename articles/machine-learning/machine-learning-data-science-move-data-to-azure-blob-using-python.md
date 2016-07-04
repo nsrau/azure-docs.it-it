@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
@@ -129,4 +129,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

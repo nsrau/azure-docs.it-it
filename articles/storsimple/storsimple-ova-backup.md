@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Backup dell'array virtuale StorSimple
 
 ## Panoramica 
 
-Questa esercitazione si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016.
+Questa esercitazione si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva.
 
 StorSimple Virtual Array è un dispositivo virtuale locale di archiviazione cloud ibrido che può essere configurato come file server o server iSCSI. Può creare backup, ripristinare da backup ed eseguire failover del dispositivo nel caso in cui sia necessario il ripristino di emergenza. Quando viene configurato come file server, consente anche il ripristino a livello di elemento. Questa esercitazione illustra come usare il portale di Azure classico o l'interfaccia utente web StorSimple per creare backup pianificati e manuali di StorSimple Virtual Array.
 
@@ -64,7 +64,7 @@ Oltre ai backup pianificati, è possibile eseguire un backup manuale (su richies
 
     ![processo di backup creato](./media/storsimple-ova-backup/image7.png)
 
-3. Per tenere traccia dell'avanzamento del processo, fare clic sull'icona **Visualizza processo**.
+3. Per tenere traccia dell'avanzamento del processo, fare clic su **Visualizza processo**.
 
 4. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup**. Il backup completato deve essere visualizzato.
 
@@ -104,4 +104,4 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 
 Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

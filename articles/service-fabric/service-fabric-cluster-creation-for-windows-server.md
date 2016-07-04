@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ Nel pacchetto di download sono disponibili i seguenti file:
 |**Nome file**|**Descrizione breve**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|Il file CAB che contiene i file binari da distribuire su ogni computer del cluster.|
-|ClusterConfig.JSON|File di configurazione del cluster che contiene tutte le impostazioni per il cluster, incluse le informazioni per ogni macchina appartenente al cluster.|
-|EULA.txt|Le condizioni di licenza per l'utilizzo del pacchetto autonomo Service Fabric di Microsoft Azure Service Fabric. [Fare clic qui](http://go.microsoft.com/fwlink/?LinkID=733084) per scaricare una copia del contratto di licenza.|
+|ClusterConfig.Unsecure.DevCluster.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per un cluster di sviluppo non sicuro con una sola VM/computer e tre nodi, incluse le informazioni per ogni nodo appartenente al cluster. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per il cluster, incluse le informazioni per ogni computer appartenente a un cluster non sicuro con più VM/computer.|
+|ClusterConfig.Windows.DevCluster.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per un cluster di sviluppo sicuro con una sola VM/computer e tre nodi, incluse le informazioni per ogni nodo appartenente al cluster. Il cluster è protetto tramite [identità di Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per il cluster sicuro, incluse le informazioni per ogni computer appartenente a un cluster sicuro con più VM/computer. Il cluster è protetto tramite [identità di Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per un cluster di sviluppo sicuro con una sola VM/computer e tre nodi, incluse le informazioni per ogni nodo appartenente al cluster. Il cluster è protetto tramite certificati X.509 di Windows.|
+|ClusterConfig.x509.MultiMachine.JSON|Esempio di file di configurazione del cluster che contiene tutte le impostazioni per il cluster sicuro, incluse le informazioni per ogni computer appartenente a un cluster sicuro con più VM/computer. Il cluster è protetto tramite certificati X.509 di Windows.|
+|EULA.txt|Le condizioni di licenza per l'utilizzo del pacchetto autonomo Service Fabric di Microsoft Azure Service Fabric. Per scaricare una copia del contratto di licenza [fare clic qui](http://go.microsoft.com/fwlink/?LinkID=733084).|
 |Readme.txt|Collegamento alle note sulla versione e alle istruzioni di installazione base. Si tratta di un piccolo sottoinsieme delle istruzioni illustrate su questa pagina.|
 |CreateServiceFabricCluster.ps1|Script di PowerShell per la rimozione del cluster tramite le impostazioni nel file ClusterConfig.JSON.|
 |RemoveServiceFabricCluster.ps1|Lo script di PowerShell per la rimozione del cluster utilizzando le impostazioni nel file ClusterConfig.JSON.|
+|AddNode.ps1|Script di PowerShell per cluster che aggiunge un nodo a un cluster esistente|
+|RemoveNode.ps1|Script di PowerShell per cluster che rimuove un nodo da un cluster|
+
 
 ## Pianificazione e preparazione per la distribuzione del cluster
 I passaggi seguenti devono essere eseguiti prima di creare il cluster.
@@ -76,7 +84,7 @@ Un **dominio di aggiornamento** è un'unità logica di nodi. Durante un aggiorna
 
 Il metodo più semplice per descrivere questi concetti è considerare i domini di errore come unità degli errori imprevisti e i domini di aggiornamento come unità della manutenzione pianificata.
 
-Quando si specificano i domini di aggiornamento nel file *ClusterConfig.JSON* è possibile scegliere il nome del dominio di aggiornamento. Ad esempio, sono ammessi tutti i seguenti domini:
+Quando si specificano domini di aggiornamento nel file *ClusterConfig.JSON* è possibile scegliere il nome del dominio di aggiornamento. Ad esempio, sono ammessi tutti i seguenti domini:
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -97,7 +105,7 @@ Aprire il file *ClusterConfig.JSON* dal pacchetto scaricato. È possibile utiliz
 |**Impostazioni di configurazione**|**Descrizione**|
 |-----------------------|--------------------------|
 |NodeTypes|I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni. <br> *Name*: nome del tipo di nodo. <br>*EndPoints*: endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta, purché non sia in conflitto con altri elementi di questo manifesto e non sia già usato da altri programmi nel computer o nella macchina virtuale <br> *PlacementProperties*: descrivono le proprietà per questo tipo di nodo che verranno poi usate come vincoli di posizionamento per i servizi di sistema o i propri servizi. Queste proprietà sono coppie chiave/valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Tra le proprietà del nodo è possibile elencare la presenza o meno di un'unità disco rigido o di una scheda grafica, il numero di spindle del disco rigido, i core e altre proprietà fisiche. <br> *Capacità*: le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità sono utilizzate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi con tali risorse a disposizione.|
-|Nodi|I dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). Le macchine sulle quali deve essere creato il cluster devono essere elencate qui con il rispettivo indirizzo IP. <br> Se si usano gli stessi indirizzi IP per tutti i nodi, verrà creato un cluster da una casella che potrà essere usato per scopi di test. Non utilizzare cluster di una casella per la distribuzione dei carichi di lavoro di produzione.|
+|Nodi|I dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). Le macchine sulle quali deve essere creato il cluster devono essere elencate qui con il rispettivo indirizzo IP. <br> Se si usano gli stessi indirizzi IP per tutti i nodi, verrà creato un cluster di una casella che potrà essere usato per scopi di test. Non utilizzare cluster di una casella per la distribuzione dei carichi di lavoro di produzione.|
 
 ### Passaggio 2: esecuzione dello script di creazione del cluster
 Dopo aver modificato la configurazione del cluster nel documento JSON e aggiunto tutte le relative le informazioni sul nodo, eseguire lo script PowerShell di creazione del cluster dalla cartella del pacchetto e passare il percorso al file di configurazione e il percorso della radice del pacchetto.
@@ -105,19 +113,47 @@ Dopo aver modificato la configurazione del cluster nel documento JSON e aggiunto
 Questo script può essere eseguito su qualsiasi macchina con accesso da amministratore a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina sulla quale viene eseguito questo script può far parte o meno del cluster.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] I log di distribuzione sono disponibili localmente sulla VM/computer su cui si esegue il comando PowerShell CreateServiceFabricCluster. Si trovano in una sottocartella denominata "DeploymentTraces" all'interno della cartella da cui è stato eseguito il comando PS.
+
+## Aggiungere nodi al cluster Service Fabric 
+
+1. Preparare la VM/computer da aggiungere al cluster (vedere il passaggio 2 della procedura nella precedente sezione Pianificazione e preparazione per la distribuzione del cluster). 
+2. Pianificare a quale dominio di errore e dominio di aggiornamento aggiungere questa VM/ computer.
+3. [Scaricare il pacchetto autonomo per Service Fabric per Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) e decomprimerlo sulla VM/computer che si pensa di aggiungere al cluster. 
+4. Aprire un prompt di amministrazione di PowerShell e passare al percorso del pacchetto decompresso
+5. Eseguire AddNode.PS1
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Rimuovere nodi dal cluster Service Fabric 
+
+1. Eseguire TS sulla VM/computer da rimuovere dal cluster
+2. Aprire un prompt di amministrazione di PowerShell e passare al percorso del pacchetto decompresso
+5. Eseguire RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## Eliminare il cluster Service Fabric 
+1. Eseguire TS su una delle VM/computer appartenenti al cluster
+2. Aprire un prompt di amministrazione di PowerShell e passare al percorso del pacchetto decompresso
+5. Eseguire RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## Passaggi successivi
-
-Dopo aver creato un cluster, occorre proteggerlo:
-- [Sicurezza del cluster](service-fabric-cluster-security.md)
-
-Leggere le seguenti informazioni introduttive sulla distribuzione e sullo sviluppo di un’app:
+- [Informazioni sulla sicurezza del cluster](service-fabric-cluster-security.md)
 - [Service Fabric SDK e introduzione](service-fabric-get-started.md)
 - [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-
-Per ulteriori informazioni sui cluster di Azure e sui cluster autonomi:
 - [Panoramica della funzionalità di creazione di cluster autonomi e confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

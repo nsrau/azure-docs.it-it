@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 # Single Sign-On con il proxy di applicazione
-
-> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Questo tipo di accesso offre la migliore esperienza utente con i passaggi seguenti:
 1. Un utente accede al cloud
@@ -123,18 +121,18 @@ Questa funzionalità consente a molte organizzazioni con diverse identità local
 
 - Hanno più domini internamente (joe@us.contoso.com, joe@eu.contoso.com) e un singolo dominio nel cloud (joe@contoso.com).
 
-- Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio legale nel cloud.
+- Hanno un nome di dominio non indirizzabile internamente (joe@contoso.usa) e un dominio legale nel cloud.
 
 - Non usano nomi di dominio internamente (joe).
 
-- Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com anziché joej@contoso.com
+- Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com e joej@contoso.com
 
 Ciò risulta utile anche con le applicazioni che non accettano indirizzi nel formato di indirizzo di posta elettronica, ossia uno scenario molto comune per i server back-end non Windows.
 
 
 ### Impostazione dell'accesso Single Sign-On per varie identità cloud e locali
 
-1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Questo avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano anche il modo in cui gli utenti accedono a Office 365, ai dispositivi Windows 10 e ad altre applicazioni che usano Azure AD come archivio di identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
+1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Questo avviene come parte del processo di personalizzazione modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Notare che queste impostazioni determinano anche il modo in cui gli utenti accedono a Office 365, ai dispositivi Windows 10 e ad altre applicazioni che usano Azure AD come archivio identità. ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. Nelle impostazioni di configurazione dell'applicazione che si desidera modificare, selezionare l'**Identità di accesso delegata** da usare:
   - Nome dell'entità utente: joe@contoso.com  
   - Nome alternativo dell'entità utente: joed@contoso.local  
@@ -155,11 +153,11 @@ Se si verifica un errore nel processo di accesso Single Sign-On, tale errore ver
 - [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
-Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

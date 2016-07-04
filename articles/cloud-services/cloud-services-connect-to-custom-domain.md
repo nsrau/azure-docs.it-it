@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/25/2016"
+    ms.date="06/22/2016"
     ms.author="adegeo"/>
 
 # Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure
 
-È prima di tutto necessario configurare una rete virtuale (VNET) in Azure e quindi aggiungere alla VNET un controller di dominio di Active Directory ospitato in una macchina virtuale di Azure. I ruoli del servizio cloud esistenti verranno successivamente aggiunti alla VNET appena creata e verranno connessi al controller di dominio.
+È prima di tutto necessario configurare una rete virtuale (VNet) in Azure e quindi aggiungere a tale VNet un controller di dominio di Active Directory ospitato in una macchina virtuale di Azure. I ruoli del servizio cloud esistenti verranno successivamente aggiunti alla VNet appena creata e verranno connessi al controller di dominio.
 
 Prima di iniziare è necessario notare quanto segue:
 
 1.	Questa esercitazione usa Powershell ed è quindi necessario assicurarsi che Azure Powershell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure Powershell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-2.	Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNET.
+2.	Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNet.
 
 Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fine dell'articolo. I commenti verranno letti e verrà fornita assistenza.
 
@@ -95,7 +95,7 @@ Dopo avere effettuato l'accesso alla macchina virtuale, configurarla come contro
 
 ## Aggiungere il servizio cloud alla rete virtuale
 
-Sarà quindi necessario aggiungere la distribuzione del servizio cloud alla VNET appena creata. A questo scopo, modificare il file cscfg del servizio cloud aggiungendo le sezioni rilevanti mediante Visual Studio o l'editor preferito.
+Sarà quindi necessario aggiungere la distribuzione del servizio cloud alla VNet appena creata. A questo scopo, modificare il file cscfg del servizio cloud aggiungendo le sezioni rilevanti mediante Visual Studio o l'editor preferito.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -110,7 +110,7 @@ Sarà quindi necessario aggiungere la distribuzione del servizio cloud alla VNET
     </Dns>
     <!--optional-->
 
-    <!--VNET settings-->
+    <!--VNet settings-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -119,7 +119,7 @@ Sarà quindi necessario aggiungere la distribuzione del servizio cloud alla VNET
         </Subnets>
         </InstanceAddress>
     </AddressAssignments>
-    <!--VNET settings-->
+    <!--VNet settings-->
 
     </NetworkConfiguration>
 </ServiceConfiguration>
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 È anche possibile inserire commenti sulla possibile utilità di un'estensione che permette di alzare una macchina virtuale al livello di un controller di dominio. Fornire eventuali informazioni nella sezione relativa ai commenti.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

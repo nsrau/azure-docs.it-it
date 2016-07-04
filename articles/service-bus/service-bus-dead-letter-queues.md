@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="clemensv;sethm"/>
 
 # Panoramica delle code dei messaggi non recapitabili del bus di servizio
@@ -45,7 +45,7 @@ Le applicazioni possono definire i propri codici per la proprietà `DeadLetterRe
 
 ## Superamento di MaxDeliveryCount
 
-Le code e le sottoscrizioni sono entrambe configurate con le proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx) e il valore predefinito è 10. Ogni volta che un messaggio viene recapitato con un blocco ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)) ma viene abbandonato in modo esplicito oppure o il blocco è scaduto, il valore [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) del messaggio viene incrementato. Quando il valore [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) supera [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), il messaggio viene spostato nella coda dei messaggi non recapitabili con il codice motivo `MaxDeliveryCountExceeded`.
+Le code e le sottoscrizioni sono configurate rispettivamente con le proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx) e il valore predefinito è 10. Ogni volta che un messaggio viene recapitato con un blocco ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)) ma viene abbandonato in modo esplicito oppure o il blocco è scaduto, il valore [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) del messaggio viene incrementato. Quando il valore [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) supera [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), il messaggio viene spostato nella coda dei messaggi non recapitabili con il codice motivo `MaxDeliveryCountExceeded`.
 
 Non è possibile disattivare questo comportamento, ma è possibile impostare [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) su un numero molto elevato.
 
@@ -88,7 +88,7 @@ while(true)
 
 Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
 
+- [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Come utilizzare le [code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

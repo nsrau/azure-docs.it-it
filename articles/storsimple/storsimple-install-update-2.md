@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/21/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Installare l'aggiornamento 2 nel dispositivo StorSimple
@@ -42,7 +42,7 @@ L'aggiornamento 2 consente a Microsoft di estrarre informazioni di diagnostica a
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2 della serie 8000 di StorSimple (6.3.9600.17673)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. Saranno inoltre disponibili gli aggiornamenti in modalità manutenzione (questo messaggio può continuare a essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti).
+12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2 della serie 8000 di StorSimple (6.3.9600.17673)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. Saranno anche disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti.
 
     Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo. In alcuni casi quando si esegue l'Aggiornamento 1.2, il firmware del disco potrebbe essere già aggiornato, nel qual caso non è necessario installare eventuali aggiornamenti in modalità manutenzione.
 
@@ -91,4 +91,4 @@ Eseguire i seguenti passaggi per applicare l'aggiornamento come un aggiornamento
 
 Altre informazioni sulla [versione dell'aggiornamento 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

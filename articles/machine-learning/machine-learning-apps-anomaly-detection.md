@@ -3,7 +3,7 @@
 	description="API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="pingf" 
+	authors="alokkirpal" 
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/01/2016" 
-	ms.author="pingf"/>
+	ms.date="06/21/2016" 
+	ms.author="alokkirpal"/>
 
 
 # Servizio di rilevamento delle anomalie Machine Learning#
@@ -89,4 +89,4 @@ Time|Dati|Tspike|Zspike|Valori martingale|Indicatore di avviso|Valori martingale
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

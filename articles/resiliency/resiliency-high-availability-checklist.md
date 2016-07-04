@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2016"
+   ms.date="06/15/2016"
    ms.author="aglick"/>
 
 #Elenco di controllo per la disponibilità elevata
@@ -29,7 +29,7 @@ __Cosa accade se non si usa Gestione traffico?__ Se non si usa Gestione traffico
 ###È stato evitato l'uso di una singola macchina virtuale per un ruolo?
 Una buona progettazione evita i singoli punti di errore. Questo aspetto è importante nella progettazione di tutti i servizi, locali e cloud, ma è particolarmente utile nel cloud perché consente di incrementare la scalabilità e la resilienza aumentando le istanze, ovvero aggiungendo macchine virtuali, anziché aumentare le prestazioni, ovvero usando una macchina virtuale più potente. Per altre informazioni sulla progettazione di applicazioni scalabili, vedere [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-__Cosa accade se è presente una singola macchina virtuale per un ruolo?__ Una singola macchina rappresenta un singolo punto di errore. Nei casi migliori, l'applicazione viene eseguita correttamente, ma non si tratta di una progettazione resiliente e i singoli punti di errore aumentano il rischio di tempi di inattività in caso di errore.
+__Cosa accade se è presente una singola macchina virtuale per un ruolo?__ Un singolo computer è un singolo punto di errore e non è disponibile per il [Contratto di servizio per le macchine virtuali Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). Nei casi migliori, l'applicazione viene eseguita correttamente, ma non si tratta di una progettazione resiliente, non è coperta dal Contratto di servizio di Azure Virtual Machine e i singoli punti di errore aumentano il rischio di tempi di inattività in caso di errore.
 
 ###Viene usato un servizio di bilanciamento del carico davanti alle macchine virtuali con connessione Internet dell'applicazione?
 I servizi di bilanciamento del carico consentono di distribuire il traffico in ingresso per l'applicazione su un numero arbitrario di macchine. È possibile aggiungere e rimuovere macchine dal servizio di bilanciamento del carico in qualsiasi momento; ciò funziona bene con le macchine virtuali, e con la scalabilità automatica con i set di scalabilità di macchine virtuali, per gestire facilmente un aumento del traffico o errori delle macchine virtuali. Per altre informazioni sui servizi di bilanciamento del carico,vedere [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md) ed [Esecuzione di più VM in Azure per la scalabilità e la disponibilità](../guidance/guidance-compute-multi-vm.md).
@@ -79,4 +79,4 @@ __Cosa accade se non si usa una rete CDN?__ Se non si usa una rete CDN, tutto il
 ##Passaggi successivi:
 Per altre informazioni sulla progettazione delle applicazioni per la disponibilità elevata, vedere [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

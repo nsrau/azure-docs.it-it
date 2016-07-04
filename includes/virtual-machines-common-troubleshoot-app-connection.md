@@ -15,8 +15,8 @@ Nel caso di problemi di connessione a un'applicazione, provare con i seguenti pa
 
 - Riavviare la macchina virtuale
 - Ricreare l'endpoint/le regole del firewall/le regole del gruppo di sicurezza di rete
-	- [Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Gestire i gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Connettersi da un percorso diverso, ad esempio da una diversa rete virtuale di Azure
 - Ridistribuire la macchina virtuale
 	- [Ridistribuire una VM Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
@@ -74,8 +74,8 @@ Se non è possibile accedere all'applicazione, verificare quanto segue:
 - Il firewall host nella macchina virtuale di destinazione consente il traffico delle richieste in ingresso e delle risposte in uscita.
 - Il software per il rilevamento intrusione o il monitoraggio di rete in esecuzione nella macchina virtuale di destinazione consente il traffico.
 - Gli endpoint dei servizi cloud o i gruppi di sicurezza di rete consentono il traffico.
-	- [Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Gestire i gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Un componente separato in esecuzione nella macchina virtuale nel percorso tra la macchina virtuale di test e la macchina virtuale, ad esempio un servizio di bilanciamento del carico o un firewall, consente il traffico.
 
 In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicurezza avanzata per determinare se le regole del firewall escludono il traffico in entrata e in uscita dell'applicazione.
@@ -90,12 +90,14 @@ Ad esempio, se l'applicazione è un server web, tentare di accedere a una pagina
 
 Se non è possibile accedere all'applicazione, verificare quanto segue:
 
-- Per le macchine virtuali create con il modello di distribuzione classica, verificare che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+- VM create con il modello di distribuzione classica:
+	- La configurazione dell'endpoint per la VM consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+	- Gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscono il traffico in ingresso da Internet.
 	- Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- Per le macchine virtuali create con il modello di distribuzione classica, verificare che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in ingresso da Internet.
-	- Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- Per le macchine virtuali create con il modello di distribuzione di Resource Manager, verificare che la configurazione della regola NAT in ingresso per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
-- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
+	
+- Per le VM create con il modello di distribuzione di Resource Manager:
+	- La configurazione della regola NAT in ingresso consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+	- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
 	- Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../articles/virtual-network/virtual-networks-nsg.md).
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
@@ -115,3 +117,5 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0622_2016-->

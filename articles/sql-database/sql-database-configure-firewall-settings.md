@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Procedura: Configurare un firewall del server SQL | Microsoft Azure"
+	pageTitle="Configurare una regola firewall a livello di server per il database SQL di Azure | Microsoft Azure"
 	description="Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="rickbyh;carlrab"/>
 
 
-# Procedura: Configurare un firewall del server SQL di Azure con il portale di Azure
+# Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure
 
 
 > [AZURE.SELECTOR]
@@ -49,9 +49,21 @@ Ripetere i passaggi per gestire le regole del firewall a livello di server.
 
 ## Passaggi successivi
 
-Una regola firewall del server influisce su tutti i database SQL sul server di Azure SQL. Per configurare invece una regola del firewall a livello di database che interessi solo un database singolo, vedere [sp\_set\_ database\_firewall\_rule (Database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx").
+L'articolo [Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL](sql-database-configure-firewall-settings-tsql.md) illustra come usare Transact-SQL per creare regole firewall a livello di server e di database.
 
-Per un'esercitazione sulla creazione di un database, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open-source o di terze parti, vedere [Linee guida per la connessione al database SQL di Azure a livello di programmazione](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come autorizzare le connessioni ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md).
+Per informazioni su come creare regole firewall a livello di server con altri metodi, vedere:
+
+- [Configurare le regole firewall a livello di server per il database SQL di Azure con PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configurare regole firewall a livello di server del database SQL di Azure tramite l'API REST](sql-database-configure-firewall-settings-rest.md)
+
+Per un'esercitazione sulla creazione di un database, vedere [Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+## Risorse aggiuntive
+
+- [Protezione del database](sql-database-security.md)
+- [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
@@ -60,4 +72,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

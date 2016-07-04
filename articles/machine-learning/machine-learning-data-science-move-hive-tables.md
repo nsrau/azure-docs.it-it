@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -21,7 +21,7 @@
 
 Questo argomento presenta le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
 
-Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
+Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -38,7 +38,7 @@ Se si crea una macchina virtuale di Azure seguendo le istruzioni fornite nell'ar
 
 Si supponga che i dati delle tabelle Hive siano in un formato tabulare **non compresso** e che i dati siano stati caricati nel contenitore predefinito (o in uno aggiuntivo) dell'account di archiviazione usato dal cluster Hadoop.
 
-Se gli utenti vogliono fare pratica con i _dati di viaggio dei taxi di NYC_, devono prima scaricare i 24 file relativi ai <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">dati di viaggio dei taxi di NYC</a> (12 file sui viaggi e 12 file sulle tariffe), **decomprimere** tutti i file in file con estensione csv, quindi caricarli nel contenitore predefinito o appropriato dell'account di archiviazione di Azure usato dalla procedura descritta nell'argomento [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md). Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa [pagina](machine-learning-data-science-process-hive-walkthrough/#upload).
+Se gli utenti vogliono fare pratica con i _dati di viaggio dei taxi di NYC_, devono prima scaricare i 24 file relativi ai <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">dati di viaggio dei taxi di NYC</a> (12 file sui viaggi e 12 file sulle tariffe), **decomprimere** tutti i file in file con estensione csv, quindi caricarli nel contenitore predefinito o appropriato dell'account di archiviazione di Azure usato dalla procedura descritta nell'argomento [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md). Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa [pagina](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
 
 ## <a name="submit"></a>Come inviare query Hive
@@ -245,4 +245,4 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->
