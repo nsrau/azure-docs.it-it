@@ -106,7 +106,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     1.  Selezionare **Enable Single Sign-On**.
     2.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login Page URL**.
-    3.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di ** URL disconnessione remota** e incollarlo nella casella di testo **URL pagina di disconnessione**.
+    3.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL pagina di disconnessione**.
     4.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Provider di identità autorità di certificazione**.
     5.  In **Certificato Provider di identità**fare clic su **Scegli file**, quindi caricare il certificato scaricato dal portale di Microsoft Azure classico.
     6.  Fare clic su **Save**.

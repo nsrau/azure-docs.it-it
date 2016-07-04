@@ -791,7 +791,7 @@ Questo comando scambia gli slot di due app Web.
 
 Il comando supporta l'opzione aggiuntiva seguente:
 
-****-q or **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
+**-q or **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
 
 
 **site start [opzioni] [nome]**
@@ -814,7 +814,7 @@ Questo comando consente di arrestare un’app Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-****site restart [opzioni] [nome]
+**site restart [opzioni] [nome]**
 
 Questo comando consente di arrestare e quindi avviare un’app Web specificata.
 

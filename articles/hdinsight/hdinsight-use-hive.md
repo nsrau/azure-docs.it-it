@@ -70,11 +70,11 @@ I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDIns
 
 Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
 
-> [AZURE.NOTE] La sintassi ****wasb:///**, viene usata per accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si vuole accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La sintassi **wasb:///**, viene usata per accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si vuole accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
 
-Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitati archiviati nella directory ****wasb:///example/data**:
+Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitati archiviati nella directory **wasb:///example/data**:
 
     set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;

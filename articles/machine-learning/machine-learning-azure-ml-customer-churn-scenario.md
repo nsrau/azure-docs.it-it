@@ -176,7 +176,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
 
 | LR|BT|AP|SVM|
 |---|---|---|---|

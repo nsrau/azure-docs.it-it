@@ -963,7 +963,7 @@ Tempo impiegato per eseguire questa cella: 49,21 secondi.
 
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi della città di New York.
 
-****Eseguire il training e valutare**
+**Eseguire il training e valutare**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

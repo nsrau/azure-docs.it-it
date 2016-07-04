@@ -106,10 +106,10 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     4.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TalentLMS** del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **URL accesso remoto **.
     5.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TalentLMS** del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **URL disconnessione remota**.
-    6.  Nella casella di testo **TargetedID**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
-7.  Nella casella di testo **Nome** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
-8.  Nella casella di testo **Last name**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  Nella casella di testo **TargetedID**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
+7.  Nella casella di testo **Nome** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+8.  Nella casella di testo **Last name**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  Nella casella di testo **Email**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Fare clic su **Salva**.
 
 9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.

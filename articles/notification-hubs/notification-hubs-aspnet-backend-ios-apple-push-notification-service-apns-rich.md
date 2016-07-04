@@ -96,7 +96,7 @@ In generale:
             }
         }
 
-	>[AZURE.NOTE](optional) Fare riferimento a [Come incorporare le risorse e accedervi usando Visual C#](http://support.microsoft.com/kb/319292) per altre informazioni su come aggiungere e ottenere le risorse del progetto.
+	>[AZURE.NOTE] (optional) Fare riferimento a [Come incorporare le risorse e accedervi usando Visual C#](http://support.microsoft.com/kb/319292) per altre informazioni su come aggiungere e ottenere le risorse del progetto.
 
 7. In **NotificationsController.cs** ridefinire **NotificationsController** con i frammenti di codice riportati di seguito. Questo codice invia un ID notifica avanzata automatica iniziale al dispositivo e consente il recupero lato client dell'immagine:
 

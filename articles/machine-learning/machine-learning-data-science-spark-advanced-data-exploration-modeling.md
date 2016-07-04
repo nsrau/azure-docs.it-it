@@ -1164,7 +1164,7 @@ Tempo impiegato per eseguire questa cella: 25,98 secondi.
 
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi della città di New York.
 
-****Eseguire il training e valutare**
+**Eseguire il training e valutare**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-****Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l’utilizzo e l’assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo”.
+**Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l’utilizzo e l’assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo”.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

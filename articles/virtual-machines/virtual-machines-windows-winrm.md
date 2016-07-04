@@ -21,7 +21,7 @@
 
 ## WinRM nella gestione del servizio Azure e Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modello di distribuzione classica
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica
 
 * Per una panoramica di Azure Resource Manager, consultare questo [articolo](../resource-group-overview.md)
 * Per conoscere le differenze tra la gestione del servizio Azure e Azure Resource Manager, consultare questo [articolo](../resource-manager-deployment-model.md)

@@ -432,7 +432,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare ****http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base ****http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base **http://contoso.com/resources/**.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 

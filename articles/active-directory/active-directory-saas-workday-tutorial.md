@@ -176,7 +176,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 	a. Abilitare **x509 Private Key Pair**.
 
-	b. Nella casella di testo **Service Provider ID** digitare ****http://www.workday.com**.
+	b. Nella casella di testo **Service Provider ID** digitare **http://www.workday.com**.
 
 	c. Selezionare **Abilita autenticazione SAML SP initiated**.
 

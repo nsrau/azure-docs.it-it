@@ -17,7 +17,7 @@
  
 # Mappa delle applicazioni in Application Insights
 
-In [Visual Studio Application Insights](app-insights-overview.md), Mappa delle applicazioni è un layout visivo delle relazioni di dipendenza dei componenti dell'applicazione. Ogni componente mostra gli indicatori KPI, ad esempio carico, prestazioni, errori e avvisi per individuare eventuali componenti che generano un errore o un problema di prestazioni. È possibile fare clic su qualsiasi componente per una diagnostica più dettagliata da Application Insights, e se l'app usa i servizi di Azure, dalla diagnostica di Windows Azure, ad esempio le indicazioni di Advisor per database SQL di Azure.
+In [Visual Studio Application Insights](app-insights-overview.md), Mappa delle applicazioni è un layout visivo delle relazioni di dipendenza dei componenti dell'applicazione. Ogni componente mostra gli indicatori KPI, ad esempio carico, prestazioni, errori e avvisi per individuare eventuali componenti che generano un errore o un problema di prestazioni. È possibile fare clic su qualsiasi componente per una diagnostica più dettagliata da Application Insights, e se l'app usa i servizi di Azure, dalla diagnostica di Microsoft Azure, ad esempio le indicazioni di Advisor per database SQL di Azure.
 
 Come altri tipi di grafico, è possibile aggiungere una mappa delle applicazioni al dashboard di Azure, in cui è completamente funzionale.
 

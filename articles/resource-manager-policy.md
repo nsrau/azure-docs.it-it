@@ -97,7 +97,7 @@ Le condizioni vengono create usando campi e origini. Un campo rappresenta le pro
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e ** alias proprietà**.
+Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.** e **alias proprietà**.
 
 ### Alias delle proprietà 
 L'alias delle proprietà è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto di PowerShell verrà aggiunto in futuro:

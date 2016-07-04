@@ -78,8 +78,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **Cherwell**, ad esempio: **https://pictdev.cherwellondemand.com/cherwellclient*).
-2.  Fare clic su **Avanti**
+    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **Cherwell**, ad esempio: *https://pictdev.cherwellondemand.com/cherwellclient*).
+    2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in Cherwell** seguire questa procedura:
 
@@ -92,14 +92,16 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inviare il certificato scaricato il valore di **URL provider di identità** e il valore di **URL servizio Single Sign-On** al team di supporto di Cherwell.
 
-    >[AZURE.NOTE] Il team di supporto di Cherwell si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
+    >[AZURE.NOTE] Il team di supporto di Cherwell si occuperà dell'effettiva configurazione dell'accesso Single Sign-On.
+    Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
 6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a Cherwell, è necessario eseguirne il provisioning in Cherwell. Nel caso di Cherwell, gli account utente devono essere creati dal team di supporto di Cherwell.
+Per consentire agli utenti di Azure AD di accedere a Cherwell, è necessario eseguirne il provisioning in Cherwell.  
+Nel caso di Cherwell, gli account utente devono essere creati dal team di supporto di Cherwell.
 
 >[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Cherwell per eseguire il provisioning degli account utente di Azure Active Directory.
 
