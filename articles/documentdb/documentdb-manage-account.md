@@ -33,7 +33,7 @@ La scelta del livello di coerenza giusto dipende dalla semantica dell'applicazio
 3. Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**. ![Sessione coerenza predefinita][6]
 
 4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
-5. L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di Azure.
+
 
 > [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.
 
