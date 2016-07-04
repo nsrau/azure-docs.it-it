@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="lbosq"/>
 
 
@@ -46,10 +46,13 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+* Visitare il [Centro per sviluppatori Java](/develop/java/).
+* Rivedere l'articolo [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
+* Altre informazioni su [Microsoft JDBC Driver per SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
-## Risorse aggiuntive
+## Risorse aggiuntive 
 
-Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/15/2016"
 	ms.author="danlep"/>
 
 # Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)
@@ -25,19 +25,19 @@ In questo articolo vengono fornite sintassi e opzioni per i comandi dell’inter
 
 Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](xplat-cli-connect.md).
 
-Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione dei servizi, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
+Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Azure Service Management (ASM), digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
 I parametri facoltativi sono indicati tra parentesi quadre (ad esempio `[parameter]`). Tutti gli altri parametri sono obbligatori.
 
 Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
 
-## Impostazione della modalità Gestione dei servizi
+## Impostazione della modalità Azure Service Management (ASM)
 
-La modalità di gestione servizi è attualmente abilitata per impostazione predefinita durante l’installazione dell’interfaccia della riga di comando. Se necessario, utilizzare il comando seguente per abilitare i comandi di gestione dei servizi dell’interfaccia della riga di comando di Azure.
+La modalità Azure Service Management viene attualmente abilitata per impostazione predefinita durante l'installazione dell'interfaccia della riga di comando. Se è necessario, usare il comando seguente per impostare la modalità Azure Service Management.
 
 	azure config mode asm
 
->[AZURE.NOTE] La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
+>[AZURE.NOTE] La modalità Azure Resource Manager e la modalità Azure Service Management dell'interfaccia della riga di comando si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
 ## Gestione delle informazioni relative all'account e le impostazioni di pubblicazione
 Un modo in cui l’interfaccia della riga di comando di Azure può connettersi all'account dell'utente è utilizzando le informazioni relative alla sottoscrizione di Azure. (Vedere [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) per altre opzioni). Tali informazioni possono essere ottenute dal portale di Azure classico in un file di impostazioni di pubblicazione come illustrato di seguito. È possibile importare il file di impostazioni di pubblicazione come impostazione di configurazione locale persistente che l’interfaccia della riga di comando userà per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
@@ -1879,10 +1879,8 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-e** o **--label** &lt;etichetta>: l’etichetta per l’account di archiviazione.
 + **-d** o **--description** &lt;descrizione>: la descrizione dell’account di archiviazione.
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
-+ **-a** o **--affinity-group** &lt;nome>: il gruppo di affinità a cui associare l’account di archiviazione.
-+ **--kind**: Il tipo di account (archiviazione o blob di archiviazione) 
-+ **--sku-name**: indica il tipo di account da creare: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
-+ **--access-tier**: specifica il livello di archiviazione: Hot o Cool
++ **-a** o **--affinity-group** &lt;nome>: il gruppo di affinità a cui associare l’account di archiviazione. 
++ **--type**: indica il tipo di account da creare: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
 
 **storage account set [opzioni] <name>**
 
@@ -1898,8 +1896,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-e** o **--label** &lt;etichetta>: l’etichetta per l’account di archiviazione.
 + **-d** o **--description** &lt;descrizione>: la descrizione dell’account di archiviazione.
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
-+ **--sku-name**: indica il nuovo tipo di account: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
-+ **--access-tier**: specifica il livello di archiviazione: Hot o Cool
++ **--type**: indica il nuovo tipo di account: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
 
 **storage account delete [opzioni] <name>**
 
@@ -2353,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

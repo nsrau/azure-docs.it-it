@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/29/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL 
 
-Nel corso degli anni si è notato che i servizi cloud non sono infallibili e incidenti catastrofici possono verificarsi e si verificheranno. Il database SQL fornisce alcune funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. I pool elastici e i database autonomi supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
+Nel corso degli anni si è notato che i servizi cloud non sono infallibili e incidenti catastrofici possono verificarsi e si verificheranno. Il database SQL fornisce alcune funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. I [pool elastici](sql-database-elastic-pool.md) e i database autonomi supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
 
 Per le finalità di questo articolo, verrà usato il modello classico di applicazione ISV SaaS:
 
@@ -63,7 +63,7 @@ Il **vantaggio** principale di questa strategia è costituito dai costi di eserc
 
 ## Scenario 2. Applicazione matura con più livelli di servizio 
 
-<i>Un'applicazione SaaS matura con più livelli di offerte del servizio e diversi Contratti di servizio per i clienti delle versioni di valutazione e i clienti delle versioni a pagamento deve ridurre il più possibile i costi per i clienti delle versioni di valutazione. Questi clienti possono accettare i tempi di inattività, ma si vuole ridurne la probabilità. Per i clienti delle versioni a pagamento, i tempi di inattività possono costituire un rischio inaccettabile. Si vuole quindi assicurare che i clienti delle versioni a pagamento siano sempre in grado di accedere ai propri dati.</i>
+<i>Un'applicazione SaaS matura con più livelli di offerte del servizio e diversi contratti di servizio per i clienti delle versioni di valutazione e i clienti delle versioni a pagamento deve ridurre il più possibile i costi per i clienti delle versioni di valutazione. Questi clienti possono accettare i tempi di inattività, ma si vuole ridurne la probabilità. Per i clienti delle versioni a pagamento, i tempi di inattività possono costituire un rischio inaccettabile. Si vuole quindi assicurare che i clienti delle versioni a pagamento siano sempre in grado di accedere ai propri dati.</i>
 
 Per supportare questo scenario, è consigliabile separare i tenant delle versioni di valutazione dai tenant delle versioni a pagamento, inserendoli in pool elastici separati. I clienti delle versioni di valutazione avranno valori eDTU inferiori per ogni tenant e un Contratto di servizio inferiore con tempi di ripristino più lunghi. I clienti delle versioni a pagamento si troveranno in un pool con valori eDTU superiori per ogni tenant e un Contratto di servizio superiore. Per assicurare tempi di ripristino minimi, i database tenant dei clienti delle versioni a pagamento devono prevedere la replica geografica. Questa configurazione è illustrata nel diagramma seguente.
 
@@ -161,6 +161,9 @@ Ecco gli **svantaggi** principali:
 
 Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La scelta della strategia deve essere basata sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di servizio da offrire ai clienti, i vincoli di budget e così via. Ogni strategia descritta illustra i vantaggi e gli svantaggi, per consentire una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. È quindi necessario esaminare le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
+
+## Passaggi successivi
+
 I singoli passaggi necessari per ogni scenario richiedono operazioni su un numero elevato di database. È consigliabile usare i processi elastici del database SQL per gestire queste operazioni su larga scala. Per altre informazioni, vedere [Gestione dei database cloud con scalabilità orizzontale](./sql-database-elastic-jobs-overview.md). Le pagine seguenti consentono di ottenere informazioni sulle operazioni specifiche necessarie per implementare ogni scenario disponibile in questo articolo:
 
 - [Aggiungere un database secondario](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
@@ -169,4 +172,15 @@ I singoli passaggi necessari per ogni scenario richiedono operazioni su un numer
 - [Eliminare un database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiare un database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Risorse aggiuntive
+
+- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
+- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -158,7 +158,7 @@ Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Prog
 
 ### <a name="ingest"></a>Inserimento di dati: leggere dati dal BLOB pubblico
 
-La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta mediante **Extractors.Csv()**. Sostituire con il nome del contenitore e il nome dell'account di archiviazione personali i valori container_name@blob_storage_account_name negli script seguenti dell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data\_{*}.csv** per leggere in tutti i 12 file relativi alle corse.
+La posizione dei dati nel BLOB di Azure viene indicata come ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta mediante **Extractors.Csv()**. Sostituire con il nome del contenitore e il nome dell'account di archiviazione personali i valori container_name@blob_storage_account_name negli script seguenti dell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data\_{*}.csv** per leggere in tutti i 12 file relativi alle corse.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_n
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Archivio Azure Data Lake usando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ oppure nell'account di archiviazione BLOB di Azure usando **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Archivio Azure Data Lake usando ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ oppure nell'account di archiviazione BLOB di Azure usando ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Fare quindi clic su **Dashboard** accanto al pulsante **Impostazioni**. Verrà v
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Incollare gli script Hive seguenti per creare una tabella. La posizione dell'origine dati è specificata nel riferimento ad Archivio Azure Data Lake in questo modo: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Incollare gli script Hive seguenti per creare una tabella. La posizione dell'origine dati è specificata nel riferimento ad Archivio Azure Data Lake in questo modo: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -734,11 +734,11 @@ Seguendo questa procedura dettagliata è stato creato un ambiente di analisi sci
 
 ## Passaggi successivi
 
-Nel percorso di apprendimento relativo al [processo di Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate esternamente al nodo **Processo di data science completo in azione** che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva della suite Cortana:
+Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei dati per i team (TDSP)](http://aka.ms/datascienceprocess) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate alla pagina [Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md) che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva:
 
-- [Cortana Analytics Process in esecuzione: con SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
-- [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
+- [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
+- [Processo di analisi scientifica dei dati per i team: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md)
+- [Panoramica del Processo di analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

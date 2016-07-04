@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali di Azure
@@ -30,4 +30,4 @@ Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzan
 -  [Caricare un'immagine di macchina virtuale Windows in Azure](virtual-machines-windows-upload-image.md) da usare durante la creazione di una nuova macchina virtuale.
 -  [Modificare la lettera di unità del disco temporaneo di Windows](virtual-machines-windows-classic-change-drive-letter.md) in modo che l'applicazione possa usare l'unità D: per i dati.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

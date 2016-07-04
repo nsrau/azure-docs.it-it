@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016" 
+	ms.date="06/17/2016" 
 	ms.author="jeannt"/>
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
@@ -22,7 +22,11 @@
 In questo argomento viene illustrata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata utilizzando Azure Machine Learning Studio. Vengono illustrati i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.
 
 ### Riconoscimenti
-Questo esperimento è stato sviluppato e testato da Serge Berger, Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Un ringraziamento da parte del team che si occupa della documentazione di Azure va a entrambi per aver condiviso molte utili indicazioni in questo white paper.
+
+Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
+
+>[AZURE.NOTE] I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di Machine Learning per l'analisi della varianza, vedere: [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Varianza del cliente in ambito di telecomunicazioni) nella [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -98,7 +102,7 @@ Nei diagrammi che seguono sono illustrati i dati usati.
 
 
 *Figure 7: Funzionalità estratte dall'origine dati*
-> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio in [Cortana Analytics Gallery](http://gallery.cortanaintelligence.com/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio in [Cortana Analytics Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
 > 
 > Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok.
 > 
@@ -172,7 +176,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
@@ -240,4 +244,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

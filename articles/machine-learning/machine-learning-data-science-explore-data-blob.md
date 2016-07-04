@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
@@ -115,4 +115,4 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

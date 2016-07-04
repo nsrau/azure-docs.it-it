@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Usare il servizio StorSimple Manager per visualizzare e gestire gli avvisi per l'array virtuale StorSimple
@@ -31,7 +31,7 @@ Questa esercitazione descrive come configurare le notifiche di avviso, le condiz
 
 >[AZURE.NOTE] È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da **storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
 
 #### Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo virtuale
 
@@ -45,7 +45,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale,
 
     2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **Sì** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
 
-    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
+    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato **someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
         ![configurazione delle notifiche degli avvisi](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -109,7 +109,7 @@ Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato 
 
 ## Ordinare e rivedere gli avvisi
 
-Può risultare più efficiente eseguire i report sugli avvisi in modo da poterli esaminare e cancellare in gruppi. Inoltre, nella scheda **Avvisi** possono essere visualizzati 250 avvisi al massimo. Se è stato superato il numero di avvisi, non tutti gli avvisi verranno inclusi nella visualizzazione predefinita. È possibile combinare i campi seguenti per personalizzare quali avvisi vengono visualizzati:
+Nella scheda **Avvisi** può essere visualizzato un massimo di 250 avvisi. Se è stato superato il numero di avvisi, non tutti gli avvisi verranno inclusi nella visualizzazione predefinita. È possibile combinare i campi seguenti per personalizzare quali avvisi vengono visualizzati:
 
 - **Stato**: è possibile visualizzare gli avvisi di tipo **Attivo** o **Deselezionato**. Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
 
@@ -182,4 +182,4 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 - [Informazioni sull'array virtuale StorSimple](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

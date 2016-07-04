@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -81,4 +81,8 @@ Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
 
 Se il servizio cloud esistente non è associato a una rete virtuale basata sull'area, è necessario eliminare le VM nel servizio cloud esistente e ricrearle nel nuovo servizio cloud dai relativi dischi. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Passaggi successivi
+
+Se si verificano problemi durante la creazione di una nuova VM Linux in Azure, vedere [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+
+<!---HONumber=AcomDC_0622_2016-->

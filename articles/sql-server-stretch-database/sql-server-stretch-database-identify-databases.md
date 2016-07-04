@@ -31,34 +31,30 @@ Per identificare i database e le tabelle per l'estensione database, scaricare Ge
 
 3.  Nel pannello **Esegui Gestione estensione database** fare clic su **Seleziona database da analizzare**.
 
-4.  Nel pannello **Seleziona database** fare clic su **ISTANZA SQL**.
+4.  Nel pannello **Seleziona database** immettere o selezionare il nome del server e le informazioni di autenticazione. Fare clic su **Connect**.
 
-5.  Nel pannello **Connetti a istanza SQL** immettere il nome dell'istanza di SQL Server. Fare clic su **Connetti**.
+5.  Viene visualizzato un elenco dei database nel server selezionato. Selezionare i database che si desidera analizzare. Fare clic su **Seleziona**.
 
-6.  Nel pannello **Seleziona database** selezionare i database da analizzare. Quindi fare clic su **Seleziona**.
-
-7.  Nel pannello **Esegui ottimizzazione guidata Database Estensione** fare clic su **Esegui**. Viene avviata l'analisi.
+6.  Nel pannello **Esegui Gestione estensione database** fare clic su **Esegui**. Viene avviata l'analisi.
 
 ## Esaminare i risultati
 
-1.  Al termine dell'analisi, nel pannello **Ottimizzazione guidata Database Estensione** selezionare uno dei database analizzati per visualizzare il pannello **Risultati analisi**.
+1.  Al termine dell'analisi, nel pannello **Database analizzati** selezionare uno dei database analizzati per visualizzare il pannello **Risultati analisi**.
 
-    Il pannello **Risultati analisi** elenca le tabelle consigliate nel database selezionato che soddisfano i criteri di raccomandazione predefiniti. Se si desidera, modificare la dimensione minima e il numero di righe per espandere o comprimere l'elenco delle tabelle consigliate.
+    Il pannello **Risultati analisi** elenca le tabelle consigliate nel database selezionato che soddisfano i criteri di raccomandazione predefiniti.
 
-2.  Nell'elenco delle tabelle consigliate nel pannello **Risultati analisi** selezionare una delle tabelle consigliate per visualizzare il pannello **Risultati tabella**.
+2.  Nell'elenco delle tabelle nel pannello **Risultati analisi** selezionare una delle tabelle consigliate per visualizzare il pannello **Risultati tabella**.
 
-    Nel pannello **Risultati tabella** sono elencati i problemi di blocco della tabella selezionata. Per informazioni sui problemi di blocco rilevati dall'ottimizzazione guidata dell'estensione database, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
+    Eventuali problemi di blocco della tabella selezionata sono elencati nel pannello **Risultati tabella**. Per informazioni sui problemi di blocco rilevati dall'ottimizzazione guidata dell'estensione database, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 
-3.  Nell'elenco dei problemi di blocco nel pannello **Risultati tabella** selezionare uno dei problemi per visualizzare il pannello **Risultati regola**.
-
-    Il pannello **Risultati regola** descrive il problema selezionato e propone i passaggi per la prevenzione. Implementare i passaggi suggeriti per configurare la tabella selezionata per Database Estensione.
+3.  Nell'elenco dei problemi di blocco del pannello **Risultati tabella** selezionare uno dei problemi per visualizzare ulteriori informazioni sul problema selezionato e alcune procedure di prevenzione consigliate. Implementare i passaggi suggeriti per configurare la tabella selezionata per Database Estensione.
 
 ## Passaggio successivo
 Abilitare Database Estensione.
 
--   Per abilitare Database Estensione in un **database**, vedere [Abilitazione di Database Estensione per un database](sql-server-stretch-database-enable-database.md).
+-   Per abilitare Database Estensione in un **database**, vedere [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md).
 
--   Per abilitare Database Estensione in un'altra **tabella** quando l'estensione è già abilitata nel database, vedere [Abilitazione di Database Estensione per una tabella](sql-server-stretch-database-enable-table.md).
+-   Per abilitare Estensione database in un'altra **tabella** quando l'estensione è già abilitata nel database, vedere [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md).
 
 ## Vedere anche
 
@@ -68,4 +64,4 @@ Abilitare Database Estensione.
 
 [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

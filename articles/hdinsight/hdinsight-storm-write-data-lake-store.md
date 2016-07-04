@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/28/2016"
+ms.date="06/17/2016"
 ms.author="larryfr"/>
 
 #Usare Archivio Azure Data Lake con Apache Storm in HDInsight
@@ -26,16 +26,16 @@ Archivio Azure Data Lake è un servizio di archiviazione cloud compatibile con H
 
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versione successiva.
 * [Maven 3.x](https://maven.apache.org/download.cgi).
-* Una sottoscrizione di Azure.
-* Un cluster Storm in HDInsight. Per creare un nuovo cluster Storm in HDInsight, seguire la procedura descritta nel documento [Usare HDInsight con Archivio Data Lake tramite Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Questo documento illustra nel dettaglio i passaggi necessari per la creazione di un nuovo cluster HDInsight e di un Archivio Azure Data Lake.  
+* Una sottoscrizione di Azure
+* Un cluster Storm nella versione 3.2 di HDInsight. Per creare un nuovo cluster Storm in HDInsight, seguire la procedura descritta nel documento [Usare HDInsight con Archivio Data Lake tramite Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Questo documento illustra nel dettaglio i passaggi necessari per la creazione di un nuovo cluster HDInsight e di un Archivio Azure Data Lake.  
 
-    > [AZURE.IMPORTANT] Quando si crea il cluster HDInsight, è necessario selezionare __Storm__ come tipo di cluster. Il sistema operativo può essere Windows o Linux.
+    > [AZURE.IMPORTANT] Quando si crea il cluster HDInsight, è necessario selezionare __Storm__ come tipo di cluster e __3.2__ come versione. Il sistema operativo può essere Windows o Linux.
 
 ###Configurare le variabili di ambiente
 
 Le variabili di ambiente seguenti possono essere impostate quando si installa Java e l'JDK nella workstation di sviluppo. È tuttavia necessario verificare che esistano e che contengano i valori corretti per il sistema in uso.
 
-* __JAVA\_HOME__: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). In una distribuzione Unix o Linux, ad esempio, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows avrebbe un valore simile a `c:\Program Files (x86)\Java\jre1.7`.
+* __JAVA\_HOME__: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). In una distribuzione Unix o Linux, ad esempio, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows, avrebbe un valore simile a `c:\Program Files (x86)\Java\jre1.7`.
 
 * __PATH__: deve contenere i percorsi seguenti:
 
@@ -127,7 +127,7 @@ Se è stato creato un cluster Storm in HDInsight basato su Linux, usare la proce
 
     Quando richiesto, immettere la password usata durante la creazione dell'utente SSH per il cluster. Se è stata usata una chiave pubblica anziché una password, può essere necessario usare il parametro `-i` per specificare il percorso della chiave privata corrispondente.
     
-    > [AZURE.NOTE] Se si sta usando un client Windows per lo sviluppo, seguire quanto indicato in [Connettersi a HDInsight basato su Linux con SSH da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) per informazioni sull'uso del client PuTTY per connettersi al cluster.
+    > [AZURE.NOTE] Se si sta usando un client Windows per lo sviluppo, seguire quanto indicato in [Connect to Linux-based HDInsight with SSH from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) (Connettersi a HDInsight basato su Linux con SSH da Windows) per informazioni sull'uso del client PuTTY per connettersi al cluster.
     
 3. Dopo la connessione, usare il comando seguente per avviare la topologia:
 
@@ -164,7 +164,7 @@ Se è stato creato un cluster Storm in HDInsight basato su Linux, usare la proce
 
     > [AZURE.NOTE] Se l'Archivio Data Lake non è stato aggiunto al dashboard del portale di Azure, è possibile trovarlo facendo clic su __Sfoglia__ nella parte inferiore dell'elenco sulla sinistra, quindi su __Archivio Data Lake__ e infine selezionando l'archivio.
     
-    Selezionare l'icona __Data Explorer__ tra quelle disponibili nella parte superiore dell'Archivio Data Lake.
+    Selezionare l'icona __Data Explorer__ (Esplora dati) tra quelle disponibili nella parte superiore dell'Archivio Data Lake.
     
     ![icona di esplorazione dati](./media/hdinsight-storm-write-data-lake-store/dataexplorer.png)
     
@@ -209,7 +209,7 @@ __Per HDInsight basato su Windows__:
 
     ![collegamento a datalakewriter](./media/hdinsight-storm-write-data-lake-store/selecttopology.png)
 
-3. Nella sezione __Topology Actions__ selezionare __Kill__ e quindi fare clic su OK nella finestra di dialogo visualizzata.
+3. Nella sezione __Topology Actions__ (Azioni topologia) selezionare __Kill__ (Termina) e quindi fare clic su OK nella finestra di dialogo visualizzata.
 
     ![azioni della topologia](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
@@ -221,4 +221,4 @@ __Per HDInsight basato su Windows__:
 
 Ora che si è appreso come usare Storm per scrivere nell'Archivio Azure Data Lake, è possibile vedere altri [esempi di Storm per HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

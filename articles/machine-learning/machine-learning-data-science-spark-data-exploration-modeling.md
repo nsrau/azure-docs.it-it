@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Modellazione ed esplorazione dei dati con Spark
@@ -95,7 +95,7 @@ I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto pre
 - sc per Spark 
 - sqlContext per Hive
 
-Il kernel PySpark offre alcuni "magic" predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
+Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
 - **%%sql -o <variable name>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
@@ -207,7 +207,7 @@ Questa query recupera le corse per numero di passeggeri.
 
 Questo codice crea un frame di dati locale dall'output della query ed esegue il tracciato dei dati. Il magic `%%local` crea un frame di dati locale, `sqlResults`, che può essere usato per eseguire tracciati con matplotlib.
 
->[AZURE.NOTE] Il magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un'elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che possa essere contenuto nella memoria locale.
+>[AZURE.NOTE] Tale magic PySpark viene usato più volte in questa procedura dettagliata. In caso di un'elevata quantità di dati, è consigliabile campionare i dati in modo da creare un frame che possa essere contenuto nella memoria locale.
 
 	#CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
 
@@ -1105,4 +1105,4 @@ Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, �
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Modellazione ed esplorazione avanzata dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

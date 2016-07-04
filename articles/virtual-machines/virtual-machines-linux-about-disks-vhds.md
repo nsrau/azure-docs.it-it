@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali di Azure
@@ -31,4 +31,4 @@ Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzan
 -  [Configurare RAID software](virtual-machines-linux-configure-raid.md) per la ridondanza.
 -  [Acquisire una macchina virtuale Linux](virtual-machines-linux-classic-capture-image.md) per poter distribuire rapidamente macchine virtuali aggiuntive.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

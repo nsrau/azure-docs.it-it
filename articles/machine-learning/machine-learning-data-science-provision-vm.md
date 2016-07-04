@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
@@ -144,7 +144,7 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Esaminare i vari strumenti di analisi scientifica dei dati nella macchina virtuale per l'analisi scientifica dei dati facendo clic sul pulsante di avvio ed estraendo gli strumenti elencati nel menu
 * Passare a **C:\\Programmi\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale.  
 * Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visitare [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) per esempi di Machine Learning e di analisi dei dati usando Cortana Intelligence Suite. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

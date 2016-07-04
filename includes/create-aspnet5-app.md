@@ -1,23 +1,13 @@
 1. Nel menu di Visual Studio selezionare **File > Nuovo > Progetto**.
 
-1. Viene visualizzata la finestra di dialogo **Nuovo progetto**.
-
-	![Finestra di dialogo Nuovo progetto](./media/create-aspnet5-app/create-web-app.png)
-
 1. Nella sezione **Modelli** della finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web**.
 
-1. Selezionare **Applicazione Web ASP.NET**.
+1. Selezionare **ASP.NET Core Web Application (.NET Core)** (applicazione Web ASP.NET Core (.NET Core).
 
-1. Assegnare un nome alla nuova applicazione (o accettare quello predefinito).
+1. Assegnare un nome alla nuova applicazione (o accettare quello predefinito), quindi selezionare **OK**.
 
-1. Selezionare **OK**.
+1. In **ASP.NET Core Templates** (modelli di ASP.NET Core) selezionare **Applicazione Web** e selezionare **OK**.
 
-1. Verrà visualizzata la finestra di dialogo **Nuovo progetto ASP.NET**.
+1. Deselezionare l'opzione **Host nel cloud**. Come soluzione di distribuzione verrà usato Docker.
 
-	![Finestra di dialogo Nuovo progetto ASP.NET](./media/create-aspnet5-app/choose-template.png)
-
-1. In Modelli ASP.NET 5 selezionare Applicazione Web ASP.NET.
-
-1. Selezionare **OK**.
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/20/2016"
 	ms.author="jolevy"/>
 
 
@@ -49,4 +49,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 - [Mappa di apprendimento di Automazione di Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

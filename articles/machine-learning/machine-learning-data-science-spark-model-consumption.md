@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Assegnare punteggi a modelli di apprendimento automatico compilati con Spark 
@@ -107,7 +107,7 @@ I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto pre
 - sc per Spark 
 - sqlContext per Hive
 
-Il kernel PySpark offre alcuni "magic" predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
+Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
 - **%%sql -o <variable name>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
@@ -120,7 +120,7 @@ Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefin
 
 Questa sezione contiene il codice per una serie di attività necessarie per inserire i dati per l'assegnazione dei punteggi. Leggere un campione unito in join pari allo 0,1% del file TSV relativo alle corse e alle tariffe dei taxi, formattare i dati e creare un frame di dati pulito.
 
-I file relativi alle corse e alle tariffe dei taxi sono stati uniti in join seguendo la procedura illustrata nell'articolo [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+I file relativi alle corse e alle tariffe dei taxi sono stati uniti seguendo la procedura illustrata nell'articolo [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -547,7 +547,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota mediante Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.
+Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ******wasb:///example/python/ConsumeGBNYCReg.py***.
 
 
 >[AZURE.NOTE] Le chiavi di accesso necessarie sono reperibili nel portale dell'account di archiviazione associato al cluster Spark.
@@ -610,4 +610,4 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

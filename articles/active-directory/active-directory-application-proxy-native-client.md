@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Come abilitare le app client native per l'interazione con le applicazioni proxy
-
-> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Il proxy di applicazione di Azure Active Directory è ampiamente usato per pubblicare applicazioni browser come SharePoint, Outlook Web Access e applicazioni line-of-business personalizzate. Può essere usato anche per pubblicare app client native, che differiscono dalle app Web perché vengono installate in un dispositivo. A tale scopo, è necessario il supporto di token di Azure AD inviati in intestazioni HTTP Authorize standard.
 
@@ -36,10 +34,10 @@ Configurare l'applicazione nativa come indicato di seguito:
 
 1. Accedere al portale di Microsoft Azure classico.
 2. Scegliere l'icona Active Directory dal menu a sinistra e quindi selezionare la directory.
-3. Nel menu principale fare clic su **applicazioni**. Se alla directory non è stata aggiunta alcuna applicazione, la pagina mostrerà solo il collegamento **Aggiungi app**. Fare clic sul collegamento o, in alternativa, fare clic sul pulsante **Aggiungi** sulla barra dei comandi.
+3. Nel menu principale fare clic su **applicazioni**. Se alla directory non sono state aggiunte applicazioni, la pagina mostrerà solo il collegamento **Aggiungi un'app**. Fare clic sul collegamento. In alternativa, fare clic sul pulsante **Aggiungi** sulla barra dei comandi.
 4. Nella pagina **Come procedere** fare clic sul collegamento **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 5. Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e scegliere **Applicazione client nativa**. Fare clic sull'icona a forma di freccia per continuare.
-6. Nella pagina **Informazioni sull'applicazione** specificare un valore in **URI di reindirizzamento** per l'applicazione client nativa, quindi fare clic sulla casella di controllo per terminare.
+6. Nella pagina **Informazioni sull'applicazione** specificare un valore in **URI di reindirizzamento** per l'applicazione client nativa, quindi fare clic sul segno di spunta per completare l'operazione.
 
 L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio rapido per l'applicazione.
 
@@ -87,6 +85,6 @@ Per altre informazioni sul flusso dell'applicazione nativa, vedere [Da applicazi
 - [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 - [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 
-Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
@@ -120,8 +120,9 @@ Il **vantaggio** principale di questa opzione è che è possibile aggiornare in 
 
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costo, ma entrambi si concentrano sulla riduzione dei tempi quando l'utente finale è limitato alle operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web e da altri fattori difficilmente controllabili. Ciò è possibile perché tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e possono essere eseguiti senza alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è il fattore determinante per l'esperienza dell'utente finale durante gli aggiornamenti. Il modo ottimale per migliorarla, quindi, consiste nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.
 
-## Risorse aggiuntive
- Le pagine seguenti forniscono informazioni sulle operazioni specifiche necessarie per implementare il flusso di lavoro dell'aggiornamento:
+
+## Passaggi successivi
+Le pagine seguenti forniscono informazioni sulle operazioni specifiche necessarie per implementare il flusso di lavoro dell'aggiornamento:
 
 - [Aggiungere un database secondario](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Eseguire il failover del database nell'area secondaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -131,4 +132,15 @@ I due metodi di aggiornamento descritti nell'articolo differiscono in termini di
 - [Copiare un database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Impostare il database in modalità di sola lettura o lettura/scrittura](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+## Risorse aggiuntive
+
+- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
+- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

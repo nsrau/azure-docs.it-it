@@ -93,4 +93,4 @@ poiché i dati non sono testo normale o JSON verranno memorizzati nell'azione co
 
 Dove `$content` rappresenta il payload codificato come stringa Base64 per mantenere tutti i dati. Poiché al momento non esiste una funzione nativa per dati del modulo, questi dati possono essere usati all'interno di un flusso di lavoro eseguendo manualmente l'accesso ai dati con una funzione come `@string(body('formdataAction'))`. Se la richiesta in uscita deve avere anche l'intestazione content-type `application/x-www-url-formencoded`, è sufficiente aggiungerla al corpo dell'azione senza cast come `@body('formdataAction')`. Questa operazione tuttavia funziona solo se il corpo è l'unico parametro nell'input `body`. Se si tenta di eseguire `@body('formdataAction')` all'interno di una richiesta `application/json` si riceve un errore di runtime perché viene inviato il corpo codificato.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

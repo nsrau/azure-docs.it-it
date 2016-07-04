@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="03/30/2016"
+	ms.date="06/16/2016"
 	ms.author="spelluru"/>
 
 
@@ -34,4 +34,4 @@ Di seguito vi sono gli esempi presenti in GitHub:
 
   Un esempio che illustra come usare l'API REST del catalogo dati per recuperare asset da Catalogo dati di Azure e serializzarli in un file. Mostra anche come prelevare un set di asset serializzato come JSON ed eseguirne il push nel catalogo. Supporta l'esportazione di un subset del catalogo usando una query di ricerca.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

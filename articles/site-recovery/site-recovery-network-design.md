@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/08/2016"
+	ms.date="06/21/2016"
 	ms.author="pratshar"/>
 
 #  Progettazione dell'infrastruttura di rete per il ripristino di emergenza
@@ -179,4 +179,4 @@ Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Mi
 
 [Informazioni](site-recovery-network-mapping.md) sul mapping di reti di origine e destinazione da parte di Site Recovery quando viene usato un server VMM per gestire il sito primario.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -15,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/10/2016"
+   ms.date="06/22/2016"
    ms.author="rickbyh"/>
 
-# Panoramica: Configurare un firewall del server SQL di Azure
+# Configurare le regole del firewall per il database SQL di Azure - Panoramica
 
 
 > [AZURE.SELECTOR]
@@ -68,7 +68,7 @@ Quando si tenta di connettersi al server di database da un'applicazione di Azure
 
 È possibile abilitare le connessioni da Azure in due modi:
 
-- Nel [portale di Microsoft Azure](https://portal.azure.com/) selezionare la casella di controllo **Consenti ai servizi di Azure di accedere al server** durante la creazione di un nuovo server.
+- Nel [portale di Microsoft Azure](https://portal.azure.com/) selezionare la casella di controllo **Consenti ai servizi di Azure di accedere al server** durante la creazione di un nuovo server. **Importante:** questa opzione consente di configurare il firewall in maniera tale da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
 
 - Nel [portale classico](http://go.microsoft.com/fwlink/p/?LinkID=161793) nella scheda **Configura** di un server fare clic su **Sì** per **Servizi di Microsoft Azure** nella sezione **Servizi consentiti**.
 
@@ -123,7 +123,7 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 - **Configurazione del firewall locale:** prima che il computer possa accedere al database SQL di Azure, è necessario creare un'eccezione del firewall sul computer per la porta TCP 1433. È necessario aprire delle porte aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per altre informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- **Rete NAT (Network address translation):** a causa di NAT, l'indirizzo IP utilizzato dal computer per connettersi al database SQL di Azure potrebbe essere diverso da quello indicato nelle impostazioni di configurazione IP del computer. Per visualizzare l'indirizzo IP usato dal computer per connettersi ad Azure, accedere al portale e passare alla scheda **Configura** del server che ospita il database. Nella sezione **Indirizzi IP consentiti**, viene visualizzato **lndirizzo IP client corrente**. Fare clic su **Aggiungi** negli **Indirizzi IP consentiti** per consentire al computer di accedere al server.
+- **Rete NAT (Network address translation):** a causa di NAT, l'indirizzo IP utilizzato dal computer per connettersi al database SQL di Azure potrebbe essere diverso da quello indicato nelle impostazioni di configurazione IP del computer. Per visualizzare l'indirizzo IP usato dal computer per connettersi ad Azure, accedere al portale e passare alla scheda **Configura** del server che ospita il database. Nella sezione **Indirizzi IP consentiti**, viene visualizzato **lndirizzo IP client corrente**. Fare clic su **Aggiungi** negli **Indirizzi IP consentiti ** per consentire al computer di accedere al server.
 
 - **Le modifiche all'elenco di consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate alla configurazione del firewall del database SQL di Azure possono essere necessari fino a cinque minuti.
 
@@ -135,13 +135,25 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
  - Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
 
-## Vedere anche
+## Passaggi successivi
 
-[Procedura: Configurare un firewall del server SQL di Azure con il portale di Azure](sql-database-configure-firewall-settings.md)
+Per informazioni su come creare regole firewall a livello di server e di database, vedere:
 
-[Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+- [Configurare regole firewall a livello di server del database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)
+- [Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL](sql-database-configure-firewall-settings-tsql.md)
+- [Configurare le regole firewall a livello di server per il database SQL di Azure con PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configurare regole firewall a livello di server del database SQL di Azure tramite l'API REST](sql-database-configure-firewall-settings-rest.md)
+
+Per un'esercitazione sulla creazione di un database, vedere [Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+
+## Risorse aggiuntive
+
+- [Protezione del database](sql-database-security.md)
+- [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

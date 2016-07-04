@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.author="delhan"/>
 
 # Risolvere i problemi della distribuzione Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure
@@ -74,4 +74,8 @@ La richiesta di ridimensionamento della VM deve essere eseguita nel cluster orig
   2. Dopo l'arresto di tutte le VM, ridimensionare la VM desiderata impostando una dimensione maggiore.
   3. Selezionare la VM ridimensionata e fare clic su **Avvia**, quindi avviare ognuna delle VM arrestate.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Passaggi successivi
+
+Se si verificano problemi durante la creazione di una nuova VM Linux in Azure, vedere [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+
+<!---HONumber=AcomDC_0622_2016-->

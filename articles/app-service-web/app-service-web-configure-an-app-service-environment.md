@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -74,10 +74,11 @@ La rete virtuale usata con l'ambiente del servizio app può essere una rete crea
 Esistono alcune restrizioni per la rete virtuale usata per un ambiente del servizio app:
 
 - Attualmente è disponibile solo il supporto per le reti virtuali V1 "classiche".
-- la rete virtuale deve essere una rete virtuale regionale
-- Le reti virtuali usate per l'hosting di un ambiente del servizio app devono usare indirizzi RFC1918, ovvero indirizzi privati
+- La rete virtuale deve essere una rete virtuale regionale
+- Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici *o* spazi di indirizzi RFC1918, ovvero di indirizzi privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare la subnet in anticipo e quindi selezionare la subnet nella UX di creazione dell'ambiente del servizio app.
 - è necessaria una subnet con 8 o più indirizzi nella posizione in cui viene distribuito l'ambiente del servizio app
 - Se una subnet viene usata per l'hosting di un ambiente del servizio app, l'intervallo di indirizzi della subnet non può essere modificato. Per questo motivo è consigliabile usare una subnet contenente almeno 64 indirizzi per supportare un'eventuale crescita futura dell'ambiente del servizio app 
+- **La subnet usata per l'hosting dell'ambiente del servizio app non deve contenere altre risorse di calcolo**
 
 Diversamente dal servizio ospitato che contiene l'ambiente del servizio app, il controllo di [rete virtuale][virtualnetwork] e subnet spetta all'utente. È possibile amministrare la rete virtuale tramite l'interfaccia utente di Rete virtuale o tramite PowerShell.
 
@@ -176,6 +177,7 @@ Per eliminare un ambiente del servizio app, usare l'opzione Elimina nella parte 
 ![][9]
 
 ## Introduzione
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -208,4 +210,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

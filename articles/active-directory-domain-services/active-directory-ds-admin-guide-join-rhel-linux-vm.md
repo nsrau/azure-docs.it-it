@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
@@ -111,7 +111,7 @@ Dopo la connessione alla macchina virtuale, l'attività successiva consiste nell
 
 4. **Installare kerberos**: nel terminale PuTTY digitare il comando seguente.
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![Installare kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
@@ -177,4 +177,4 @@ Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-d
 - [Installazione di Kerberos](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="06/20/2016"
    ms.author="toddabel"/>
 
 
@@ -60,4 +60,4 @@ Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnost
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

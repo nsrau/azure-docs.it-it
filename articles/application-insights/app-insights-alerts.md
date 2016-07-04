@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -41,9 +41,9 @@ Per ricevere un messaggio di posta elettronica quando una metrica supera una sog
 * Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
 * Prendere nota delle unità in cui viene richiesto di immettere il valore di soglia.
 * Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
-* Se si seleziona la casella "Proprietari di posta elettronica...", verranno inviati avvisi tramite posta elettronica a chiunque abbia accesso a questa risorsa.
-* Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi verranno inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella relativa ai "proprietari di posta elettronica"). 
-* Impostare un [indirizzo di webhook](../azure-portal/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto.
+* Se si seleziona la casella "Proprietari di posta elettronica...", verranno inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](app-insights-resources-roles-access-control.md) (non la risorsa).
+* Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi verranno inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella relativa ai "proprietari di posta elettronica..."). 
+* Impostare un [indirizzo di webhook](../azure-portal/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
 
 *Il pulsante Aggiungi avviso non viene visualizzato*: si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Controllare in Impostazioni -> Utenti. [Informazioni sul controllo di accesso][roles].
@@ -126,4 +126,4 @@ Gli avvisi più diffusi includono:
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

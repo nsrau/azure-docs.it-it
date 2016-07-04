@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="06/16/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da DB2 mediante Data factory di Azure
@@ -223,7 +223,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type | La proprietà del tipo deve essere impostata su: **OnPremisesDB2** | Sì |
 | server | Nome del server DB2. | Sì |
 | database | Nome del database DB2. | Sì |
-| schema | Nome dello schema nel database. | No |
+| schema | Nome dello schema nel database. Per il nome dello schema viene fatta distinzione tra maiuscole e minuscole. | No |
 | authenticationType | Tipo di autenticazione usato per connettersi al database DB2. I valori possibili sono: anonima, di base e Windows. | Sì |
 | username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No |
 | password | Specificare la password per l'account utente specificato per il nome utente. | No |
@@ -240,7 +240,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- | 
-| tableName | Nome della tabella nell'istanza del database DB2 a cui fa riferimento il servizio collegato. | No (se la **query** di **RelationalSource** è specificata) |
+| tableName | Nome della tabella nell'istanza del database DB2 a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. | No (se la **query** di **RelationalSource** è specificata) |
 
 ## Proprietà del tipo di attività di copia DB2
 
@@ -253,7 +253,14 @@ In caso di attività di copia con origine di tipo **RelationalSource** (che comp
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------- | -------------- |
-| query | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. | No (se **tableName** di **set di dati** è specificato)|
+| query | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: "query": "select * from "Schema"."Tabella"". | No (se **tableName** di **set di dati** è specificato)|
+
+> [AZURE.NOTE] I nomi di schema e di tabella fanno distinzione tra maiuscole e minuscole e devono essere racchiusi tra virgolette doppie ("") nella query.
+
+**Esempio:**
+
+ "query": "select * from "DB2ADMIN"."Customers""
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -314,4 +321,7 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## Ottimizzazione delle prestazioni  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+
+<!---HONumber=AcomDC_0622_2016-->

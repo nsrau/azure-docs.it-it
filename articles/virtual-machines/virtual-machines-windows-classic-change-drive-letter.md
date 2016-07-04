@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Usare l'unità D come unità dati in una macchina virtuale Windows 
@@ -111,4 +111,4 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale.
 ## Passaggi successivi
 - È possibile aumentare la memoria disponibile per la macchina virtuale [collegando un disco dati aggiuntivo](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

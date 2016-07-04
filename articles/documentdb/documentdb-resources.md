@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="06/20/2016" 
 	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
@@ -410,7 +410,7 @@ Si prenda in considerazione un'applicazione di lettura di social media che usa D
 -	Un'applicazione può archiviare i metadati di ogni utente come documento distinto, ad esempio i metadati di Joe per book1 saranno archiviati in un documento a cui si fa riferimento come /colls/joe/docs/book1. 
 -	Gli allegati che fanno riferimento alle pagine di contenuto di un determinato e-book di un utente sono archiviati nel documento corrispondente, ad esempio /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 e così via. 
 
-Si noti che gli esempi usano ID descrittivi per indicare la gerarchia delle risorse. L'accesso alle risorse è effettuato tramite le API REST mediante ID di risorsa univoci.
+Si noti che gli esempi appena riportati usano ID descrittivi per indicare la gerarchia delle risorse. L'accesso alle risorse è effettuato tramite le API REST mediante ID di risorsa univoci.
 
 Nel caso dei file multimediali gestiti da DocumentDB, la proprietà \_media dell'allegato farà riferimento al file multimediale tramite il rispettivo URI. DocumentDB assicura la Garbage Collection del file multimediale dopo il rilascio di tutti i riferimenti in sospeso. DocumentDB genera automaticamente gli allegati quando si caricano nuovi file multimediali e popola la proprietà \_media in modo da fare riferimento ai file multimediali appena aggiunti. Se si sceglie di archiviare i file multimediali in un archivio BLOB remoto gestito personalmente, ad esempio OneDrive, Archiviazione di Azure, Dropbox e così via, sarà comunque possibile usare gli allegati per fare riferimento ai file multimediali. In questo caso sarà necessario creare personalmente l'allegato e popolarne la proprietà \_media.
 
@@ -448,4 +448,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

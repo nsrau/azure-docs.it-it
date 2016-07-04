@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 # Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
-> [AZURE.NOTE] Il Proxy applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
-
 I gruppi di connettori sono utili in varie situazioni, ad esempio:
-
 
 - Siti con più data center interconnessi. In questo caso, è preferibile mantenere la maggior quantità di traffico possibile all'interno del data center, perché i collegamenti tra data center sono in genere lenti e dispendiosi. È possibile distribuire connettori in ogni data center per rendere disponibili solo le applicazioni che risiedono all'interno del data center. Questo approccio riduce al minimo i collegamenti tra data center e offre un'esperienza completamente trasparente agli utenti.
 - Gestione delle applicazioni installate in reti isolate che non fanno parte della rete aziendale principale. È possibile usare gruppi di connettori per installare connettori dedicati in reti isolate, in modo da isolare anche le applicazioni per la rete.
@@ -44,7 +41,7 @@ Per raggruppare i connettori, è necessario assicurarsi di aver [installato più
 ## Passaggio 2: Assegnare i connettori ai gruppi
 Una volta creati i gruppi di connettori, spostare i connettori nel gruppo appropriato.
 
-1. In **Proxy dell'applicazione** fare clic su **Gestisci connettori**.
+1. In **Proxy dell'applicazione**, fare clic su **Gestire connettori**.
 2. In **Gruppo** selezionare il gruppo desiderato per ogni connettore. Tenere presente che potrebbero essere richiesti fino a 10 minuti per l'attivazione dei connettori nel nuovo gruppo. ![Schermata dei connettori proxy dell'applicazione: selezionare gruppo dal menu a discesa](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 
 ## Passaggio 3: Assegnare applicazioni ai gruppi di connettori
@@ -61,6 +58,6 @@ L'ultimo passaggio prevede l'assegnazione di ogni applicazione al gruppo di conn
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
 
-Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

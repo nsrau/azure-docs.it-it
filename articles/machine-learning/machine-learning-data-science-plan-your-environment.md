@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 
-Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato nel documento di [informazioni sul Cortana Analytics Process (CAP)](machine-learning-data-science-the-cortana-analytics-process.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
+Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato nel documento [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](data-science-process-overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -47,7 +47,7 @@ Le domande di logistica riguardano il percorso dell'**origine dati**, la **desti
 
 4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare il Data factory di Azure (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md).
 
-5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Dati di esempio nel Cortana Analytics Process](machine-learning-data-science-sample-data.md).
+5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md) (Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 
 ## Domande sulle caratteristiche dei dati: tipo, formato e dimensione
@@ -80,7 +80,7 @@ Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di 
 
 ## Domande sulla qualità dei dati: esplorazione e pre-elaborazione
 
-1. **Quali sono le informazioni necessarie sui dati?** Esplorare i dati per comprenderne le caratteristiche di base, i modelli o le tendenze, gli outlier o gli eventuali valori mancanti. Questo passaggio è importante per determinare la quantità di pre-elaborazione necessaria, per formulare ipotesi che potrebbero suggerire le funzionalità o il tipo di analisi più appropriato e per formulare piani per la raccolta di dati aggiuntivi. Alcune tecniche utili per l'analisi dei dati consistono nel calcolare statistiche descrittive e tracciare visualizzazioni. Per informazioni dettagliate su come esplorare un set di dati in vari ambienti di Azure, vedere [Esplorare i dati nel Cortana Analytics Process](machine-learning-data-science-explore-data.md).
+1. **Quali sono le informazioni necessarie sui dati?** Esplorare i dati per comprenderne le caratteristiche di base, i modelli o le tendenze, gli outlier o gli eventuali valori mancanti. Questo passaggio è importante per determinare la quantità di pre-elaborazione necessaria, per formulare ipotesi che potrebbero suggerire le funzionalità o il tipo di analisi più appropriato e per formulare piani per la raccolta di dati aggiuntivi. Alcune tecniche utili per l'analisi dei dati consistono nel calcolare statistiche descrittive e tracciare visualizzazioni. Per informazioni dettagliate su come esplorare un set di dati in vari ambienti di Azure, vedere [Esplorare i dati nel Processo di analisi scientifica dei dati per i team](machine-learning-data-science-explore-data.md).
 
 2. **I dati necessitano di pre-elaborazione o pulizia?** La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md).
 
@@ -114,4 +114,4 @@ Dopo aver risposto alle domande nella sezione precedente, si è pronti per deter
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

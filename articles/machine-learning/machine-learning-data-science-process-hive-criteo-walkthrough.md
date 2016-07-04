@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Il Cortana Analytics Process in azione: uso di cluster Hadoop di HDInsight sul set di dati Criteo da 1 TB | Microsoft Azure"
-	description="Uso di ADAPT (Advanced Analytics Process and Technology) per uno scenario end-to-end in cui un cluster Hadoop di HDInsight viene usato per creare e distribuire un modello con un set di dati di grandi dimensioni (1 TB) disponibile pubblicamente"
+	pageTitle="Processo di analisi scientifica dei dati per i team: uso di cluster Hadoop di HDInsight sul set di dati Criteo da 1 TB | Microsoft Azure"
+	description="Uso del Processo di analisi scientifica dei dati per i team per uno scenario end-to-end in cui un cluster Hadoop di HDInsight viene usato per creare e distribuire un modello con un set di dati di grandi dimensioni (1 TB) disponibile pubblicamente"
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="ginathan;bradsev" />
 
-# Il Cortana Analytics Process in azione - Uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
+# Processo di analisi scientifica dei dati per i team in azione: uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
-In questa procedura dettagliata viene descritto come usare in uno scenario end-to-end il Cortana Analytics Process con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene inoltre illustrato come pubblicare uno di questi modelli come servizio Web.
+In questa procedura dettagliata viene descritto come usare in uno scenario end-to-end il Processo di analisi scientifica dei dati per i team con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene inoltre illustrato come pubblicare uno di questi modelli come servizio Web.
 
 Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento relativo alla [procedura dettagliata Criteo con una connessione Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -663,4 +663,4 @@ Si noti che per i due esempi di test chiesti (nel framework JSON dello script Py
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -44,4 +44,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 
 Vedere [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md) per ulteriori informazioni sulla creazione di immagini per Azure RemoteApp.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

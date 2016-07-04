@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/06/2016"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure
@@ -81,4 +81,7 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   - Creare una nuova VM in un altro set di disponibilità nella stessa area.
   - Aggiungere la nuova VM alla stessa rete virtuale.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Passaggi successivi
+Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione di Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+
+<!---HONumber=AcomDC_0622_2016-->

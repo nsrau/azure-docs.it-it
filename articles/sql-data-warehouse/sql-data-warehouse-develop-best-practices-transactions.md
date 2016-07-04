@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="06/21/2016"
    ms.author="jrj;barbkess"/>
 
 # Ottimizzazione delle transazioni per SQL Data Warehouse
 
-Questo articolo illustra come assicurarsi che il codice transazionale venga scritto in modo da massimizzare l'efficienza delle modifiche.
+Questo articolo illustra come ottimizzare le prestazioni del codice transazionale riducendo al contempo il rischio di rollback di lunga durata.
 
-## Concetti di transazione e registrazione
+## Transazioni e registrazione
 
 Le transazioni sono un componente importante in un motore di database relazionale. SQL Data Warehouse usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole `INSERT`, `UPDATE` e `DELETE` sono tutti esempi di transazioni implicite. Le transazioni esplicite sono scritte in modo esplicito dallo sviluppatore con `BEGIN TRAN`, `COMMIT TRAN` o `ROLLBACK TRAN` e vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica.
 
@@ -31,7 +31,8 @@ Azure SQL Data Warehouse esegue il commit delle modifiche al database usando i l
 - Adottare un modello di cambio di partizione per apportare modifiche estese a una determinata partizione.
 
 ## Confronto tra registrazione minima e registrazione completa
-A differenza delle operazioni con registrazione completa, che usano il log delle transazioni per tenere traccia di ogni modifica di riga, le operazioni con registrazione minima tengono traccia unicamente delle allocazioni di extent e delle modifiche ai metadati. La registrazione minima prevede quindi la registrazione delle sole informazioni necessarie per eseguire il rollback della transazione in caso di errore o di richiesta esplicita, `ROLLBACK TRAN`. Dato che nel log delle transazioni viene registrata una quantità di informazioni notevolmente inferiore, le operazioni con registrazione minima offrono prestazioni migliori rispetto alle operazioni con registrazione completa di dimensioni simili. Il minor numero di scritture nel log delle transazioni comporta anche la generazione di una quantità molto inferiore di dati di log e quindi operazioni di I/O più efficienti.
+
+A differenza delle operazioni con registrazione completa, che usano il log delle transazioni per tenere traccia di ogni modifica di riga, le operazioni con registrazione minima tengono traccia unicamente delle allocazioni di extent e delle modifiche ai metadati. La registrazione minima prevede quindi la registrazione delle sole informazioni necessarie per eseguire il rollback della transazione in caso di errore o di richiesta esplicita (`ROLLBACK TRAN`). Dato che nel log delle transazioni viene registrata una quantità di informazioni notevolmente inferiore, le operazioni con registrazione minima offrono prestazioni migliori rispetto alle operazioni con registrazione completa di dimensioni simili. Il minor numero di scritture nel log delle transazioni comporta anche la generazione di una quantità molto inferiore di dati di log e quindi operazioni di I/O più efficienti.
 
 >[AZURE.NOTE] le operazioni con registrazione minima possono partecipare alle transazioni esplicite. È possibile eseguire il rollback delle operazioni con registrazione minima, dal momento che viene tenuta traccia di tutte le modifiche alle strutture di allocazione. È importante comprendere che la registrazione delle modifiche è minima e non assente.
 
@@ -39,7 +40,7 @@ A differenza delle operazioni con registrazione completa, che usano il log delle
 
 Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 
-- CREATE TABLE AS SELECT (CTAS)
+- CREATE TABLE AS SELECT ([CTAS][])
 - INSERT..SELECT
 - CREATE INDEX
 - ALTER INDEX REBUILD
@@ -54,7 +55,7 @@ Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 - SELECT..INTO
 -->
 
-## Condizioni per la registrazione minima per operazioni di caricamento bulk
+## Registrazione minima con caricamento bulk
 
 `CTAS` e `INSERT...SELECT` sono entrambe operazioni di caricamento bulk. Tuttavia, entrambe sono influenzate dalla definizione della tabella di destinazione e variano a seconda dello scenario di caricamento. La tabella riportata di seguito indica la registrazione completa o minima delle operazioni bulk elencate:
 
@@ -73,21 +74,9 @@ Si noti che eventuali scritture di aggiornamento di indici secondari o non clust
 
 Il caricamento di dati in una tabella non vuota con un indice cluster può spesso contenere una combinazione di righe con registrazione completa e con registrazione minima. Un indice cluster è un albero B (bilanciato) di pagine. Se la pagina in cui si scrive contiene già righe provenienti da un'altra transazione, la scrittura verrà eseguita con registrazione completa. Se invece la pagina è vuota, la scrittura verrà eseguita con registrazione minima.
 
-## Operazioni con registrazione completa
-Oltre agli aggiornamenti di indici secondari, esistono altre istruzioni che sono operazioni con registrazione completa.
- 
-Le istruzioni `UPDATE` e `DELETE` sono **sempre** operazioni con registrazione completa.
+## Ottimizzazione delle eliminazioni
 
-Tuttavia, è possibile ottimizzare queste istruzioni per ottenere un'esecuzione più efficiente.
-
-Di seguito sono riportati quattro esempi che illustrano come ottimizzare il codice per le operazioni con registrazione completa:
-
-- `CTAS`
-- Partizionamento delle tabelle
-- Operazioni in batch
-
-### Ottimizzazione delle operazioni di eliminazione di grandi dimensioni con CTAS
-Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati che si vuole tenere e creare una nuova tabella con [CTAS][]. Dopo aver creato la tabella, usare una coppia di comandi [RENAME OBJECT][] per scambiare i nomi delle tabelle.
+`DELETE` è un'operazione con registrazione completa. Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima. A tale scopo, creare una nuova tabella con [CTAS][]. Dopo averla creata, usare [RENAME][] per sostituire la tabella precedente con la quella nuova.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,8 +106,9 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-### Ottimizzazione di aggiornamenti di grandi dimensioni con CTAS
-Se è necessario aggiornare un numero elevato di righe in una tabella o una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS][].
+## Ottimizzazione degli aggiornamenti
+
+`UPDATE` è un'operazione con registrazione completa. Se è necessario aggiornare un numero elevato di righe in una tabella o una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS][].
 
 Nell'esempio seguente l'aggiornamento completo di una tabella è stato convertito in `CTAS` per consentire la registrazione minima.
 
@@ -180,8 +170,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 > [AZURE.NOTE] Per creare nuovamente tabelle di grandi dimensioni è possibile sfruttare le funzionalità di gestione del carico di lavoro di SQL Data Warehouse. Per altre informazioni, vedere la sezione relativa alla gestione del carico di lavoro nell'articolo sulla [concorrenza][].
 
-### Cambio di partizione per l'aggiornamento di dati
-In caso di modifiche su larga scala all'interno di una partizione può risultare molto utile adottare un modello di cambio di partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, una semplice operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
+## Ottimizzazione con cambio della partizione
+
+In caso di modifiche su larga scala all'interno di una [partizione della tabella][] può risultare molto utile adottare un modello di cambio di partizione. Se si tratta di una modifica dei dati di notevole entità che si estende su più partizioni, una semplice operazione di iterazione nelle partizioni permette di ottenere lo stesso risultato.
 
 I passaggi per eseguire un cambio di partizione sono indicati di seguito:
 1. Creare una partizione di disattivazione vuota.
@@ -341,7 +332,8 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-### Operazioni batch di modifica dei dati in blocchi gestibili
+## Riduzione della registrazione con batch di piccole dimensioni
+
 Per operazioni di modifica dei dati di grandi dimensioni, può risultare utile suddividere l'operazione in blocchi o in batch per definire l'ambito dell'unità di lavoro.
 
 Di seguito viene fornito un esempio funzionante. Le dimensioni del batch sono state impostate su un numero simbolico per evidenziare la tecnica. Nella realtà le dimensioni del batch sarebbero notevolmente più grandi.
@@ -402,8 +394,9 @@ BEGIN
 END
 ```
 
-## Indicazioni aggiuntive per le operazioni di sospensione e ridimensionamento
-Azure SQL Data Warehouse permette di sospendere, riprendere e ridimensionare il data warehouse su richiesta. Quando si sospende o si ridimensiona SQL Data Warehouse è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo necessario a sospendere completamente il database di Azure SQL Data Warehouse.
+## Linee guida per la sospensione e il ridimensionamento
+
+Azure SQL Data Warehouse permette di sospendere, riprendere e ridimensionare il data warehouse su richiesta. Quando si sospende o si ridimensiona SQL Data Warehouse è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo necessario a sospendere o ridimensionare il database Azure SQL Data Warehouse.
 
 > [AZURE.IMPORTANT] Sia `UPDATE` che `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti.
 
@@ -413,28 +406,22 @@ Lo scenario migliore sarebbe consentire il completamento delle transazioni di mo
 - Suddividere l'operazione in blocchi e lavorare su un subset delle righe.
 
 ## Passaggi successivi
-Per altri suggerimenti di sviluppo e contenuti correlati agli esempi appena illustrati, vedere gli articoli seguenti:
 
-- [Sviluppo][]
-- [Transazioni][]
-- [Partizionamento delle tabelle][]
-- [Concorrenza][]
-- [CTAS][]
-- [RENAME (Transact-SQL)][]
+Vedere [Transazioni in SQL Data Warehouse][] per ulteriori informazioni su limiti transazionali e livelli di isolamento. Per una panoramica sulle procedure consigliate, vedere l'articolo [Procedure consigliate per SQL Data Warehouse][].
 
 <!--Image references-->
 
-<!--ACOM references-->
-[Sviluppo]: sql-data-warehouse-overview-develop.md
-[Transazioni]: sql-data-warehouse-develop-transactions.md
-[Partizionamento delle tabelle]: sql-data-warehouse-develop-table-partitions.md
-[table partition]: sql-data-warehouse-develop-table-partitions.md
-[concorrenza]: sql-data-warehouse-develop-concurrency.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-
+<!--Article references-->
+[Transazioni in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[partizione della tabella]: ./sql-data-warehouse-develop-table-partitions.md
+[concorrenza]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!-- Other web references -->
+
+<!---HONumber=AcomDC_0622_2016-->

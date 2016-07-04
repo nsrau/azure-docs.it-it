@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Veracode | Microsoft Azure" 
     description="Informazioni su come usare Veracode con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Veracode
   
@@ -38,7 +38,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Vera
 
 ###Per abilitare l'integrazione dell'applicazione per Veracode, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-veracode-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Veracode** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Veracode** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configura accesso Single Sign-On")
 
@@ -100,7 +100,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802912.png "Amministrazione")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Veracode** del portale di Azure copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Autorità di certificazione**.
+    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Veracode** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Autorità di certificazione**
     2.  Per caricare il certificato scaricato, fare clic su **Scegli file**.
     3.  Selezionare **Abilita la registrazione automatica**.
 
@@ -122,7 +122,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
         -   **Team Memberships**
         -   **Default Team**
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configura accesso Single Sign-On")
 
@@ -156,7 +156,7 @@ Per consentire agli utenti di Azure AD di accedere a Veracode, è necessario ese
   
 Se necessario, gli utenti vengono creati automaticamente durante il primo tentativo di accesso Single Sign-On.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Veracode per eseguire il provisioning degli account utente Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Veracode per eseguire il provisioning degli account utente Azure AD.
 
 ##Assegnazione degli utenti
   
@@ -164,7 +164,7 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Veracode, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Veracode** fare clic su **Assegna utenti**.
 
@@ -176,4 +176,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

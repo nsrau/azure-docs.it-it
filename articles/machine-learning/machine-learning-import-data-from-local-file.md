@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -40,4 +40,4 @@ Durante il caricamento, viene visualizzato un messaggio che indica che il file �
 
 Una volta caricati, i dati vengono archiviati in un modulo di set di dati e sono disponibili per eventuali esperimenti nell'area di lavoro. È possibile individuare il set di dati, insieme a tutti i set di dati di esempio precaricati nell’elenco **Set di dati salvati** nella tavolozza dei moduli quando si modifica un esperimento. È possibile trascinare e rilasciare il set di dati nell'area di disegno esperimento quando si desidera utilizzare il set di dati per l'ulteriore analisi e l'apprendimento automatico.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -24,7 +24,7 @@ Questo articolo illustra come configurare e scrivere il codice di associazioni d
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Introduzione a Hub di notifica](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e fare clic sulla piattaforma cliente nella parte superiore.
+Le funzioni possono inviare notifiche push usando un hub di notifica di Azure configurato con poche righe di codice. L'hub di notifica tuttavia deve essere configurato per i servizi di notifiche della piattaforma che si vuole usare. Per altre informazioni sulla configurazione di un hub di notifica di Azure e sullo sviluppo di applicazioni client che eseguono la registrazione per ricevere notifiche, vedere [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) (Introduzione a Hub di notifica) e fare clic sulla piattaforma client di destinazione nella parte superiore.
 
 ## function.json per associazione di output di Hub di notifica di Azure
 
@@ -32,7 +32,7 @@ Il file function.json specifica le proprietà seguenti:
 
 - `name` : nome della variabile usato nel codice della funzione per il messaggio dell'hub di notifica.
 - `type` : deve essere impostato su *"notificationHub"*.
-- `tagExpression` : le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag. Per altre informazioni, vedere [Routing ed espressioni tag](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression` : le espressioni tag consentono di specificare che le notifiche devono essere recapitate a un set di dispositivi che hanno eseguito la registrazione per ricevere le notifiche corrispondenti all'espressione tag. Per altre informazioni, vedere [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md) (Routing ed espressioni tag).
 - `hubName` : nome della risorsa dell'hub di notifica nel portale di Azure.
 - `connection` : questa stringa di connessione deve essere una stringa di connessione dell'**impostazione dell'applicazione** configurata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
 - `direction` : deve essere impostato su *"out"*. 
@@ -68,7 +68,7 @@ Per usare un'associazione di output dell'hub di notifica, è necessario configur
 
 ## Esempio di codice di hub di notifica di Azure per un trigger timer Node.js 
 
-Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates.md) contenente `location` e `message`.
+Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenente `location` e `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ Questo esempio invia una notifica per la [registrazione di un modello](../notifi
 
 ## Esempio di codice di hub di notifica di Azure per un trigger della coda C#
 
-Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates.md) contenente `message`.
+Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenente `message`.
 
 
 	using System;
@@ -107,7 +107,7 @@ Questo esempio invia una notifica per la [registrazione di un modello](../notifi
 	    return templateProperties;
 	}
 
-Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates.md) contenente `message` usando una stringa JSON valida.
+Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenente `message` usando una stringa JSON valida.
 
 	using System;
 	 
@@ -155,4 +155,4 @@ Codice di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

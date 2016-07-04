@@ -13,8 +13,8 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
-  ms.topic="support-article"
-  ms.date="05/06/2016"
+  ms.topic="article"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Windows in Azure
@@ -81,4 +81,7 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 - Creare la nuova VM nella nuova rete virtuale.
 - [Connettere la rete virtuale esistente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) alla nuova rete virtuale. Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale a livello di area](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) e quindi creare la nuova VM.
 
-<!---HONumber=AcomDC_0525_2016-->
+## Passaggi successivi
+Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione classica con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
+
+<!---HONumber=AcomDC_0622_2016-->

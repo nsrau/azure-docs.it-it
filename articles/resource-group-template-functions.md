@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -93,30 +93,6 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
     }
 
 
-<a id="length" />
-### length
-
-**lunghezza (matrice o stringa)**
-
-Restituisce il numero di elementi in una matrice o il numero di caratteri in una stringa. È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
-
-In alternativa, è possibile utilizzarla con una stringa:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
@@ -455,7 +432,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 | baseUri | Sì | La stringa URI di base.
 | relativeUri | Sì | La stringa URI relativa da aggiungere alla stringa di URI di base.
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare **http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base **http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passare ****http://contoso.com/resources/azuredeploy.json** come parametro baseUri restituirà un URI di base ****http://contoso.com/resources/**.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
@@ -465,11 +442,96 @@ Nell'esempio seguente viene illustrato come costruire un collegamento a un model
 
 Gestione risorse fornisce diverse funzioni per usare i valori di matrice:
 
-Per combinare più matrici in un'unica matrice, usare [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-Per ottenere il numero di elementi in una matrice, usare [length](#length).
+<a id="length" />
+### length
 
-Per dividere un valore di stringa in una matrice di valori di stringa, usare [split](#split).
+**lunghezza (matrice o stringa)**
+
+Restituisce il numero di elementi in una matrice o il numero di caratteri in una stringa. È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+
+In alternativa, è possibile utilizzarla con una stringa:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Restituisce una matrice o una stringa con il numero specificato di elementi o i caratteri dall'inizio della matrice o stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalValue | Sì | La matrice o stringa da cui accettare gli elementi o i caratteri.
+| numberToTake | Sì | Il numero di elementi o caratteri da accettare. Se questo valore è 0 o minore, viene restituita una matrice o una stringa vuota. Se è maggiore della lunghezza della matrice o della stringa specificata, vengono restituiti tutti gli elementi nella matrice o stringa.
+
+L'esempio seguente accetta il numero specificato di elementi dalla matrice.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Restituisce una matrice o una stringa con tutti gli elementi o i caratteri dopo il numero specificato nella matrice o stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| originalValue | Sì | La matrice o stringa da usare per ignorare gli elementi o i caratteri.
+| numberToSkip | Sì | Il numero di elementi o caratteri da ignorare. Se questo valore è 0 o minore, vengono restituiti tutti gli elementi nella matrice o stringa. Se è maggiore della lunghezza della matrice o stringa, viene restituita una matrice o stringa vuota. 
+
+L'esempio seguente ignora il numero specificato di elementi nella matrice.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Funzioni dei valori della distribuzione
 
@@ -607,11 +669,11 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
 
 **list* (resourceName or resourceIdentifier, apiVersion)**
 
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Fra queste operazioni troviamo **listKeys**, come illustrato in precedenza, e operazioni quali **list**, **listAdminKeys** e **listStatus**. Per chiamare la funzione, usare il nome effettivo della funzione, non list*. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Queste operazioni includono **listKeys**, come illustrato in precedenza, ma anche operazioni quali **list**, **listAdminKeys** e **listStatus**. Per chiamare la funzione, usare il nome effettivo della funzione, non list*. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
 
     PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
-In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente recupera tutte le operazioni per **apiapps**, e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
+In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente recupera tutte le operazioni per **apiapps** e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
 
     azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
@@ -815,4 +877,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

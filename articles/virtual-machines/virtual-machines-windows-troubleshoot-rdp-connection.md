@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows
@@ -195,4 +195,4 @@ Se non si è verificato nessuno di questi errori e non è ancora possibile conne
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

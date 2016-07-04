@@ -131,7 +131,7 @@ Attualmente, gli alias supportati sono:
 
 | Nome alias | Descrizione |
 | ---------- | ----------- |
-| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -140,9 +140,15 @@ Attualmente, gli alias supportati sono:
 | Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-
-Per ulteriori informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md). Attualmente, il criterio funziona solo su richieste PUT.
+Attualmente, il criterio funziona solo su richieste PUT.
 
 ## Effetto
 Il criterio supporta tre tipi di effetto: **negazione**, **controllo** e **aggiunta**.
@@ -385,7 +391,7 @@ Con un corpo della richiesta simile al seguente:
     }
 
 
-La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version usare *2016-04-01*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definizione dei criteri può essere definita come uno degli esempi illustrati in precedenza. Per api-version, usare *2016-04-01*. Per esempi e altre informazioni dettagliate, vedere [API REST per le definizioni dei criteri](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Creare una definizione di criteri tramite PowerShell
 
@@ -418,7 +424,7 @@ Per creare una nuova assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2016-04-01*.
+{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version, usare *2016-04-01*.
 
 Con un corpo della richiesta simile al seguente:
 
@@ -462,4 +468,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -30,7 +30,7 @@ Questo articolo presuppone che l'utente abbia:
 
 - **Una sottoscrizione di Azure**: se non si ha una sottoscrizione, [aprire un account di Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) e [attivare i vantaggi per i titolari di sottoscrizioni MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-- **Azure PowerShell versione 1.0 o successiva**: se la soluzione non è già installata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+- **Azure PowerShell versione 1.4 o successiva**: se la soluzione non è già installata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 - **Una macchina virtuale che esegue Windows**: sono disponibili numerosi strumenti per la creazione di macchine virtuali in locale. Vedere ad esempio [Installare Hyper-V e creare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). Per conoscere i sistemi operativi Windows supportati da Azure, vedere [Supporto di software server Microsoft per le macchine virtuali Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
@@ -108,7 +108,7 @@ Per caricare l'immagine della VM è necessario un account di archiviazione di Az
 
 ### Per creare o trovare un account di archiviazione di Azure usando PowerShell
 
-1. Aprire Azure PowerShell 1.0.x e accedere al proprio account di Azure.
+1. Aprire Azure PowerShell e accedere al proprio account di Azure.
 
 		Login-AzureRmAccount
 
@@ -142,7 +142,7 @@ Per caricare l'immagine della VM è necessario un account di archiviazione di Az
 
 	3. Creare un nuovo account di archiviazione nel gruppo di risorse usando il comando seguente:
 
-			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
+			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -SkuName "Standard_GRS" -Kind "Storage"
 
 
 </br> <a id="uploadvm"></a>
@@ -261,4 +261,4 @@ La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.az
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere l'articolo relativo a come [gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/08/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Connettersi in remoto al dispositivo StorSimple
@@ -274,4 +274,4 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
