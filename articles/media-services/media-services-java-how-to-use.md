@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016"   
 	ms.author="robmcm"/>
 
 #Come usare Servizi multimediali con Java
@@ -276,4 +276,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

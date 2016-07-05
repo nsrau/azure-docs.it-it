@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/29/2016"
 	ms.author="marsma"/>
 
 # Panoramica delle funzionalità di Batch per sviluppatori
@@ -151,15 +151,15 @@ Un processo è una raccolta di attività e gestisce la modalità di esecuzione d
 - È possibile specificare una **priorità del processo** facoltativa. Quando si invia un processo con priorità più alta rispetto ad altri processi in corso, le attività del processo con la priorità più alta saranno inserite nella coda prima delle attività dei processi con priorità più bassa. Le attività con priorità più bassa già in esecuzione non saranno messe in attesa.
 - I **vincoli** del processo possono specificare determinati limiti per i processi:
 
-	È possibile impostare un **tempo massimo**, in modo che, se un processo viene eseguito per un periodo più lungo del tempo specificato, il processo e tutte le attività vengano terminati.
+	È possibile impostare un **tempo massimo** in modo che, se un processo viene eseguito per un periodo più lungo del tempo specificato, il processo e tutte le attività vengano terminati.
 
 	Batch può rilevare e quindi provare a eseguire di nuovo le attività non riuscite. Il **numero massimo di tentativi per l'attività** può essere specificato sotto forma di vincolo, indicando anche se un'attività viene *sempre* ripetuta o *mai*. Per nuovo tentativo si intende che l'attività viene riaccodata per essere eseguita di nuovo.
 
-- Le attività possono essere aggiunte a un processo dall'applicazione client oppure si può specificare un'[attività del gestore di processi](#job-manager-task). Un'attività del gestore di processi contiene le informazioni necessarie per creare le attività obbligatorie per un processo. L'attività del gestore di processi viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Per i processi creati in base a una [pianificazione del processo](#scheduled-jobs) è *obbligatorio* usare un'attività del gestore di processi, perché è l'unico modo per definire le attività prima di creare istanze del processo.
+- Le attività possono essere aggiunte a un processo dall'applicazione client oppure si può specificare un'[attività del gestore di processi](#job-manager-task). Un'attività del gestore di processi contiene le informazioni necessarie per creare le attività obbligatorie per un processo. L'attività del gestore di processi viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Per i processi creati in base a una [programmazione dei processi](#scheduled-jobs) è *obbligatorio* usare un'attività del gestore di processi, perché è l'unico modo per definire le attività prima di creare istanze del processo.
 
 ### Priorità dei processi
 
-È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di pianificazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo usando l'operazione [Aggiornare le proprietà di un processo][rest_update_job] (Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
+È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. È possibile aggiornare la priorità di un processo usando l'operazione [Aggiornare le proprietà di un processo][rest_update_job] (Batch REST) o modificando la proprietà [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non dispone di tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
 
@@ -167,7 +167,7 @@ La pianificazione di attività dei pool è indipendente. In pool diversi non è 
 
 ### Processi pianificati
 
-Le [pianificazioni dei processi][rest_job_schedules] consentono di creare processi ricorrenti nel servizio Batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. Una pianificazione del processo consente di specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza devono essere creati i processi durante quell'intervallo di tempo.
+Le [programmazioni dei processi][rest_job_schedules] consentono di creare processi ricorrenti nel servizio Batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. Una pianificazione del processo consente di specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza devono essere creati i processi durante quell'intervallo di tempo.
 
 ## Attività
 
@@ -177,7 +177,7 @@ Quando si crea un'attività, è possibile specificare:
 
 - La **riga di comando** dell'attività. È la riga di comando che esegue l'applicazione o lo script nel nodo di calcolo.
 
-	È importante notare che la riga di comando non viene effettivamente eseguita in una shell e quindi non riesce a sfruttare in modo nativo le funzionalità della shell, ad esempio l'espansione delle [variabili di ambiente](#environment-settings-for-tasks), inclusa `PATH`. Per sfruttare tali funzionalità, è necessario **richiamare la shell nella riga di comando**, ad esempio avviando `cmd.exe` nei nodi di Windows o `/bin/sh` in Linux:
+	È importante notare che la riga di comando non viene effettivamente eseguita in una shell e quindi non riesce a sfruttare in modo nativo le funzionalità della shell, ad esempio l'espansione delle [variabili di ambiente](#environment-settings-for-tasks), inclusa `PATH`. Per sfruttare tali funzionalità è necessario **richiamare la shell nella riga di comando**, ad esempio avviando `cmd.exe` nei nodi di Windows o `/bin/sh` in Linux:
 
 	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
@@ -185,7 +185,7 @@ Quando si crea un'attività, è possibile specificare:
 
 	Se le attività devono eseguire un'applicazione o uno script non presente nell'elemento `PATH` del nodo o fare riferimento alle variabili di ambiente, richiamare la shell in modo esplicito nella riga di comando dell'attività.
 
-- **File di risorse** contenenti i dati da elaborare. Questi file vengono copiati automaticamente nel nodo dall'archivio BLOB in un account di archiviazione di Azure **Utilizzo generico** prima che venga eseguita la riga di comando dell'attività. Per altre informazioni, vedere [Attività di avvio](#start-task) e [File e directory](#files-and-directories) di seguito.
+- **File di risorse** contenenti i dati da elaborare. Questi file vengono copiati automaticamente nel nodo dall'archivio BLOB in un account di archiviazione di Azure **per utilizzo generico** prima che venga eseguita la riga di comando dell'attività. Per altre informazioni, vedere [Attività di avvio](#start-task) e [File e directory](#files-and-directories) di seguito.
 
 - **Variabili di ambiente** richieste dall'applicazione. Per altre informazioni, vedere [Impostazioni di ambiente per le attività](#environment-settings-for-tasks) di seguito.
 
@@ -201,13 +201,13 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 
 #### Attività di avvio
 
-Associando un'**attività di avvio** a un pool, è possibile preparare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione delle applicazioni che verranno eseguite dalle attività e l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool e in cui viene riavviato o ne viene ricreata l'immagine.
+Associando un'**attività di avvio** a un pool è possibile preparare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione delle applicazioni che verranno eseguite dalle attività e l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool e in cui viene riavviato o ne viene ricreata l'immagine.
 
 Il vantaggio principale dell'attività di avvio consiste nel fatto che può contenere tutte le informazioni necessarie per configurare un nodo di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
 
-Come per qualsiasi attività di Azure Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Batch copierà prima di tutto i file di risorse nel nodo da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere l'applicazione dell'attività e le dipendenze, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nel nodo di calcolo. Ad esempio, la riga di comando di un'attività di avvio può eseguire un'operazione `robocopy` per copiare i file dell'applicazione, che sono stati specificati come file di risorse e scaricati nel nodo, dalla [directory di lavoro](#files-and-directories) dell'attività di avvio alla [cartella condivisa](#files-and-directories) ed eseguire successivamente un file MSI o `setup.exe`.
+Come per qualsiasi attività di Azure Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Batch copierà prima di tutto i file di risorse nel nodo da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere l'applicazione dell'attività e le dipendenze, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nel nodo di calcolo. La riga di comando di un'attività di avvio può ad esempio eseguire un'operazione `robocopy` per copiare i file dell'applicazione, che sono stati specificati come file di risorse e scaricati nel nodo, dalla [directory di lavoro](#files-and-directories) dell'attività di avvio alla [cartella condivisa](#files-and-directories) ed eseguire successivamente un file MSI o `setup.exe`.
 
-> [AZURE.IMPORTANT] Batch attualmente supporta *solo* account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch (incluse le attività standard, le attività di avvio, la preparazione del processo e le attività di rilascio del processo) devono specificare file di risorse che si trovano *solo* negli account di archiviazione **Utilizzo generico**.
+> [AZURE.IMPORTANT] Batch attualmente supporta *solo* account di archiviazione di tipo **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch, incluse le attività standard, le attività di avvio, la preparazione del processo e le attività di rilascio del processo, devono specificare file di risorse che si trovano *solo* negli account di archiviazione **per utilizzo generico**.
 
 In genere è consigliabile che il servizio Batch attenda il completamento dell'attività di avvio prima di considerare il nodo pronto per l'assegnazione di attività, ma questo comportamento è configurabile.
 
@@ -235,7 +235,7 @@ Un'attività del gestore di processi viene avviata prima di tutte le altre attiv
 
 Batch fornisce l'attività di preparazione del processo per la configurazione dell'esecuzione pre-processo e l'attività di rilascio del processo per la manutenzione o la pulizia post-processo.
 
-- **Attività di preparazione del processo**: viene eseguita su tutti i nodi di calcolo pianificati per l'esecuzione di attività, prima dell'esecuzione di qualsiasi altra attività di un processo. Ad esempio, per copiare i dati condivisi da tutte le attività, ma univoci per il processo, usare l'attività di preparazione del processo.
+- **Attività di preparazione del processo**: viene eseguita in tutti i nodi di calcolo pianificati per l'esecuzione di attività, prima dell'esecuzione di qualsiasi altra attività di un processo. Ad esempio, per copiare i dati condivisi da tutte le attività, ma univoci per il processo, usare l'attività di preparazione del processo.
 - **Attività di rilascio del processo**: dopo aver completato il processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Ad esempio, usare l'attività di rilascio del processo per eliminare i dati copiati dall'attività di preparazione del processo o comprimere e caricare i dati del log di diagnostica.
 
 Le attività di preparazione e rilascio dei processi consentono di specificare una riga di comando da eseguire quando si richiama l'attività e offrono funzionalità quali download dei file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata di esecuzione massima, numero di nuovi tentativi e periodo di conservazione dei file.
@@ -250,21 +250,21 @@ Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando 
 
 #### Dipendenze dell'attività
 
-Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di "downstream" utilizza l'output di un'attività di "upstream" oppure quando un'attività di upstream esegue un'inizializzazione richiesta da un'attività di downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
+Le [relazioni tra attività](batch-task-dependencies.md), come suggerito dal nome, consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di "downstream" utilizza l'output di un'attività di "upstream" oppure quando un'attività di upstream esegue un'inizializzazione richiesta da un'attività di downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
 
 Con le relazioni tra attività, è possibile configurare scenari come i seguenti:
 
-* L'*attivitàB* dipende dall'*attivitàA* (l'esecuzione dell'*attivitàB* inizierà solo dopo il completamento dell'*attivitàA*)
+* L'*attivitàB* dipende dall'*attivitàA*, ovvero l'esecuzione dell'*attivitàB* inizierà solo dopo il completamento dell'*attivitàA*
 * L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*
 * L'*attivitàD* dipende da un intervallo di attività, ad esempio le attività da *1* a *10*, prima che venga eseguita
 
-Vedere l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository di GitHub [azure-batch-samples][github_samples], in cui viene illustrato come configurare le attività che dipendono da altre attività usando la libreria [Batch .NET][batch_net_api].
+Vedere [Relazioni tra attività in Azure Batch](batch-task-dependencies.md) e l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository [azure-batch-samples][github_samples] in GitHub per altri dettagli su questa funzionalità.
 
 ## Impostazioni di ambiente per le attività
 
 Ogni attività eseguita all'interno di un processo Batch può accedere alle variabili di ambiente, sia quelle impostate dal servizio Batch (definite dal servizio, vedere la tabella seguente) sia quelle personalizzate, che è possibile impostare per le attività. Le applicazioni e gli script eseguiti nei nodi dalle attività hanno accesso a queste variabili di ambiente durante l'esecuzione.
 
-È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Ad esempio, vedere l'operazione [Aggiungere un'attività a un processo][rest_add_task] (API Batch REST) o le proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
+È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio l'operazione [Aggiungere un'attività a un processo][rest_add_task] (API Batch REST) o le proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
 
 L'applicazione o il servizio client può ottenere le variabili di ambiente di un'attività, sia quelle definite dal servizio che quelle personalizzate, usando l'operazione [Ottenere informazioni su un'attività][rest_get_task_info] (API Batch REST) o accedendo alla proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). I processi eseguiti in un nodo di calcolo possono accedere a queste e ad altre variabili di ambiente nel nodo, ad esempio usando la familiare sintassi `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
@@ -285,11 +285,11 @@ Le variabili di ambiente seguenti vengono impostate dal servizio Batch e sono ac
 | `AZ_BATCH_TASK_ID` | ID dell'attività corrente. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Percorso completo della directory di lavoro nel nodo. |
 
->[AZURE.IMPORTANT] Queste variabili di ambiente sono disponibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. Queste **non** verranno visualizzate se ci si [connette in remoto](#connecting-to-compute-nodes) a un nodo di calcolo tramite RDP o SSH e si elencano le variabili di ambiente.
+>[AZURE.IMPORTANT] Queste variabili di ambiente sono disponibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. Queste **non** verranno visualizzate se ci si [connette in remoto](#connecting-to-compute-nodes) a un nodo di calcolo tramite RDP o SSH e si elencano le variabili di ambiente perché l'account utente usato per la connessione remota non corrisponde a quello usato per l'attività.
 
 ## File e directory
 
-Ogni attività ha una directory di lavoro in cui può creare zero o più file e directory per archiviare il programma eseguito da un'attività, i dati elaborati e l'output dell'elaborazione eseguita dall'attività. Questi file e directory sono quindi disponibili per l'uso da parte di altre attività durante l'esecuzione di un processo. Tutte le attività, i file e le directory in un nodo sono di proprietà di un singolo account utente.
+Ogni attività ha una *directory di lavoro* in cui crea zero o più file e directory. Questa directory di lavoro può essere usata per archiviare il programma eseguito dall'attività, i dati elaborati e l'output dell'elaborazione eseguita dall'attività. Tutti i file e le directory di un'attività sono proprietà dell'utente dell'attività.
 
 Il servizio Batch espone una parte del file system in un nodo come "directory radice". La directory radice è disponibile per un'attività mediante l'accesso alla variabile di ambiente `AZ_BATCH_NODE_ROOT_DIR`. Per altre informazioni sull'uso delle variabili di ambiente, vedere [Impostazioni di ambiente per le attività](#environment-settings-for-tasks).
 
@@ -341,9 +341,9 @@ Una formula può essere basata sulle metriche seguenti:
 
 - **Metriche delle risorse**: basate su utilizzo di CPU, larghezza di banda, memoria e numero di nodi.
 
-- **Metriche delle attività**: basate sullo stato delle attività, ad esempio *Attiva* (accodate), *In esecuzione* o *Completata*.
+- **Metriche delle attività**: basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata*.
 
-Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, Batch fornisce un'*opzione di deallocazione dei nodi* che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente, arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool.
+Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, Batch offre un'*opzione di deallocazione dei nodi* che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente, arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool.
 
 Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md).
 
@@ -384,7 +384,7 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 
 - `stderr` e `stdout`
 
-	Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato sopra in [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard in `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. Ad esempio, è possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nella libreria Batch .NET.
+	Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato sopra in [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard in `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nella libreria Batch .NET.
 
 - **Codici di uscita delle attività**
 
@@ -400,7 +400,7 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 
 È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Desktop remoto (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
 
->[AZURE.IMPORTANT] Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A tale scopo, è possibile usare il portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET o chiamare il metodo [add\_user][py_add_user] nel modulo Batch Python.
+>[AZURE.IMPORTANT] Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A tale scopo è possibile usare il portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET o chiamare il metodo [add\_user][py_add_user] nel modulo Batch Python.
 
 ### Risoluzione dei problemi relativi ai nodi di calcolo non validi
 
@@ -420,9 +420,9 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 - **Disabilitare la pianificazione delle attività nel nodo** ([REST][rest_offline] | [.NET][net_offline])
 
-	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È possibile, ad esempio, disabilitare la pianificazione delle attività nel nodo, quindi [accedere in remoto](#connecting-to-compute-nodes) per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online] | [.NET][net_online]) o eseguire una delle altre azioni illustrate in precedenza.
+	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi [accedere in remoto](#connecting-to-compute-nodes) per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online] | [.NET][net_online]) o eseguire una delle altre azioni illustrate in precedenza.
 
-> [AZURE.IMPORTANT] Con ogni azione precedente (riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività) è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se eseguire l'operazione **Terminate** per terminare le attività in esecuzione o **Requeue** per riaccodarle per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
+> [AZURE.IMPORTANT] Con ogni azione precedente (riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività) è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Quando ad esempio si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se eseguire l'operazione **Terminate** per terminare le attività in esecuzione o **Requeue** per riaccodarle per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 
 ## Passaggi successivi
 
@@ -483,4 +483,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

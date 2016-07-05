@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="06/23/2016"
 	ms.author="robinsh"/>
 
 
@@ -63,9 +63,9 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 	> [AZURE.NOTE] I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 	>  
-	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il Portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
+	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome dell'account di archiviazione selezionato è già in uso.
 
-4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager ** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
 	> [AZURE.NOTE] Gli account di archiviazione BLOB possono essere creati solo usando il modello di distribuzione di Resource Manager.
 
@@ -141,7 +141,7 @@ Per eliminare un account di archiviazione associato a una macchina virtuale di A
 
 Se l'account di archiviazione usa il modello di distribuzione classica, è possibile rimuovere il disco della macchina virtuale seguendo questa procedura nel [portale di Azure](https://manage.windowsazure.com):
 
-1. Passare al [portale classico](https://manage.windowsazure.com).
+1. Passare al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla scheda Macchine virtuali.
 3. Fare clic sulla scheda Dischi.
 4. Selezionare il disco dati, quindi fare clic su Elimina disco.
@@ -157,4 +157,4 @@ Per altre informazioni, vedere la [documentazione di Macchine virtuali di Azure]
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

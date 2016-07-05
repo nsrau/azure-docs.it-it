@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure classico | Microsoft Azure"
+	pageTitle=" Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure classico | Microsoft Azure"
 	description="Questa esercitazione illustra il processo di implementazione di un'applicazione per la distribuzione di contenuti video on demand (VoD) con Servizi multimediali di Azure tramite il portale di Azure classico."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ Questa esercitazione include le attività seguenti:
 2.  Configurare endpoint di streaming.
 1.  Caricare un file video.
 1.  Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
-1.  Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.  
+1.  Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.
 1.  Riprodurre i contenuti.
 
 
@@ -73,7 +73,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, c
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
-- Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
+- Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
 - Ottenere almeno un'unità di streaming per l'*endpoint di streaming* da cui si pianifica la distribuzione dei contenuti.
 
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
@@ -107,7 +107,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 	![Finestra di dialogo Carica contenuto][uploadcontent]
 
 5. Nella finestra di dialogo **Carica contenuto** fare clic sul pulsante con il segno di spunta per accettare il **file** e il **nome del contenuto**.
-6. Verrà avviato il caricamento e sarà possibile visualizzarne lo stato nella parte inferiore del portale.  
+6. Verrà avviato il caricamento e sarà possibile visualizzarne lo stato nella parte inferiore del portale.
 
 	![Stato processo][status]
 
@@ -253,4 +253,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

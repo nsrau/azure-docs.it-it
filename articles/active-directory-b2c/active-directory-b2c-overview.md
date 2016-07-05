@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni
@@ -54,7 +54,7 @@ Informazioni su come utilizzare funzionalità di anteprima di Azure Active Direc
 
 I collegamenti seguenti sono utili per un'esplorazione più approfondita del servizio:
 
-- Vedere le [Informazioni sui prezzi di Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+- Vedere [Prezzi di Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Ottenere supporto per l'overflow dello stack usando i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 - Inviare commenti e i suggerimenti sulla versione di anteprima usando [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/). Specificare "AzureADB2C:" nel titolo del post per permetterci di individuarlo.
 - Azure Active Directory B2C supporta protocolli standard del settore, OpenID Connect e OAuth 2.0, usando un modello di registrazione dell'applicazione chiamato "Modello App v 2.0".
@@ -67,4 +67,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

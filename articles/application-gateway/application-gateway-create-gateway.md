@@ -33,7 +33,8 @@ Questo articolo illustra in dettaglio i passaggi necessari per creare e configur
 ## Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
-2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
+2. Se si ha una rete virtuale esistente, selezionare una subnet vuota esistente oppure creare una nuova subnet nella rete virtuale esclusivamente per l'uso da parte del gateway applicazione. Non è possibile distribuire il gateway applicazione in una rete virtuale diversa da quella delle risorse da distribuire dietro il gateway applicazione.
+3. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
 ## Elementi necessari per creare un gateway applicazione
@@ -47,7 +48,7 @@ I valori possibili sono:
 - **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+- **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL, se si configura l'offload SSL.
 - **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
 
 
@@ -81,7 +82,7 @@ L'esempio seguente mostra come creare un nuovo gateway applicazione usando una r
  *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi.
 
 
-Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-AzureApplicationGateway**.
+Per convalidare la creazione del gateway è possibile usare il cmdlet **Get-AzureApplicationGateway**.
 
 
 
@@ -392,7 +393,7 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet **Remove-
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
-Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet **Get-AzureApplicationGateway**. Questo passaggio non è obbligatorio.
+Per verificare che il servizio sia stato rimosso è possibile usare il cmdlet **Get-AzureApplicationGateway**. Questo passaggio non è obbligatorio.
 
 
 	Get-AzureApplicationGateway AppGwTest
@@ -404,13 +405,13 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet *
 
 ## Passaggi successivi
 
-Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

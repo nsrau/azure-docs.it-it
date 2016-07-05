@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -48,13 +48,13 @@ Questo argomento è utile per gli sviluppatori che creano applicazioni per la di
 
 Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gli asset con PlayReady, tramite il servizio di distribuzione delle licenze di Servizi multimediali e tramite la crittografia dinamica.
 
-1. Creare un asset e caricare file al suo interno. 
+1. Creare un asset e caricare file al suo interno.
 1. Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva.
-1. Creare una chiave simmetrica e associarla all'asset codificato. In Servizi multimediali, la chiave simmetrica contiene la chiave di crittografia dell'asset. 
+1. Creare una chiave simmetrica e associarla all'asset codificato. In Servizi multimediali, la chiave simmetrica contiene la chiave di crittografia dell'asset.
 1. Configurare i criteri di autorizzazione della chiave simmetrica. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client affinché la chiave simmetrica possa essere distribuita al client.
 
-	Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine), le restrizioni (Open o Token) e le informazioni specifiche del tipo di distribuzione della chiave che definisce la modalità di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)). 
-1. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include: protocollo di recapito (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), tipo di crittografia dinamica (ad esempio, crittografia comune), URL di acquisizione della licenza PlayReady o Widevine. 
+	Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine), le restrizioni (Open o Token) e le informazioni specifiche del tipo di distribuzione della chiave che definisce la modalità di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
+1. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include: protocollo di recapito (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), tipo di crittografia dinamica (ad esempio, crittografia comune), URL di acquisizione della licenza PlayReady o Widevine.
  
 	È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 1. Creare un localizzatore OnDemand per ottenere un URL di streaming.
@@ -103,9 +103,9 @@ Per informazioni dettagliate, vedere [Configurare i criteri di autorizzazione de
 
 Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
 
-- L'URL di acquisizione della licenza DRM. 
-- Il protocollo di recapito dell’asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti). 
-- Il tipo di crittografia dinamica (in questo caso, crittografia comune). 
+- L'URL di acquisizione della licenza DRM.
+- Il protocollo di recapito dell’asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti).
+- Il tipo di crittografia dinamica (in questo caso, crittografia comune).
 
 Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -626,4 +626,4 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

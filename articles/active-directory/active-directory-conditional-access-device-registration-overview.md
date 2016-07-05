@@ -5,7 +5,7 @@
 	keywords="registrazione dispositivo, abilitare registrazione dispositivo, registrazione dispositivo e software MDM"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Introduzione a Registrazione dispositivo Azure Active Directory
@@ -44,7 +44,7 @@ Registrazione dispositivo Azure Active Directory include il supporto per disposi
 3. Selezionare la propria directory nella scheda **Directory**.
 4. Selezionare la scheda **Configura**.
 5. Scorrere fino alla sezione **Dispositivi**.
-6. Selezionare **TUTTI** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
+6. Selezionare **TUTTI ** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
 7. Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
 
 >[AZURE.NOTE]
@@ -87,4 +87,4 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

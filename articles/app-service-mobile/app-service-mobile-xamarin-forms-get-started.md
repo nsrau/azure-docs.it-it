@@ -159,9 +159,13 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 
 ##Passaggi successivi
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md): informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-* [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md): informazioni sull'aggiunta di notifiche push all'app.
-* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come usare l'SDK del client gestito nell'app Xamarin. 
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md) Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+
+* [Aggiungere notifiche push all'app](app-service-mobile-xamarin-forms-get-started-push.md) Informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per l'utilizzo di Hub di notifica di Azure per l'invio di notifiche push.
+
+* [Abilitare la sincronizzazione offline per l'app](app-service-mobile-xamarin-forms-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
+
+* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come usare l'SDK del client gestito nell'app Xamarin.
 
 
 <!-- Anchors. -->
@@ -184,4 +188,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

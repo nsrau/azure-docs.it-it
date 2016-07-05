@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/05/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -43,18 +43,18 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 1. Recuperare l'URL di inserimento del canale.
 
 	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale.
 
 	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
 3. Creare un programma (che creerà anche un asset).
-1. Pubblicare il programma (che creerà un localizzatore OnDemand per l'asset associato).  
+1. Pubblicare il programma (che creerà un localizzatore OnDemand per l'asset associato).
 
 	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-1. Eliminare il programma e, facoltativamente, eliminare l'asset.   
+1. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
 ##Contenuto dell'esercitazione:
 
@@ -64,8 +64,8 @@ In questa esercitazione il portale di Azure classico viene usato per eseguire le
 3.  Creare un canale abilitato per eseguire la codifica live.
 1.  Ottenere l'URL di inserimento per fornirlo al codificatore live. Il codificatore live userà questo URL per inserire il flusso nel canale.
 1.  Creare un programma (e un asset).
-1.  Pubblicare l'asset e ottenere gli URL di streaming.  
-1.  Riprodurre i contenuti 
+1.  Pubblicare l'asset e ottenere gli URL di streaming.
+1.  Riprodurre i contenuti
 2.  + Cleaning up
 
 ##Prerequisiti
@@ -276,4 +276,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->
