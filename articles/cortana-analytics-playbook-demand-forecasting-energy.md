@@ -105,13 +105,13 @@ La tabella seguente mette a confronto la previsione di carico a breve e a lungo 
 
 |Attributo|Previsione di carico a breve termine|Previsione di carico a lungo termine|
 |---|---|---|
-|Orizzonte di previsione|Da un'ora a 48 ore|Da una settimana a sei mesi o più|
+|Orizzonte di previsione|Da un'ora a 48 ore|Da 1 a 6 mesi o più|
 |Granularità dei dati|Oraria|Oraria o giornaliera|
 |Casi d'uso tipici|<ul><li>Bilanciamento della domanda e dell'offerta</li><li>Previsione degli orari di picco</li><li>Risposta alla domanda</li></ul>|<ul><li>Pianificazione a lungo termine</li><li>Pianificazione degli asset della rete</li><li>Pianificazione delle risorse</li></ul>|
 |Predittori tipici|<ul><li>Giorno o settimana</li><li>Ora del giorno</li><li>Temperatura oraria</li></ul>|<ul><li>Mese dell'anno</li><li>Giorno del mese</li><li>Temperatura e clima a lungo termine</li></ul>|
 |Intervallo di dati storici|Da due a tre anni di dati|Da cinque a dieci anni di dati|
-|Precisione tipica|MAPE* del 95% o migliore|MAPE* del 75% o migliore|
-|Frequenza di previsione|Ogni ora oppure ogni 24 ore|Settimanale, mensile o trimestrale|
+|Precisione tipica|MAPE* pari al 5% o inferiore|MAPE* pari al 25% o inferiore|
+|Frequenza di previsione|Ogni ora oppure ogni 24 ore|Mensile, trimestrale o annuale|
 * [MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error): errore medio assoluto percentuale.
 
 Come si può notare dalla tabella, la distinzione tra scenari di previsione a breve e lungo termine è molto importante dal momento che rappresentano esigenze commerciali diverse e possono avere schemi di distribuzione e consumo differenti.
@@ -167,8 +167,7 @@ In molti casi il cliente può essere interessato a una motivazione aziendale per
 
 È importante avere una buona conoscenza del valore commerciale di una previsione della domanda di energia, che sia a breve o a lungo termine. Di fatto, è importante conoscere il valore commerciale di ogni operazione di previsione. Ad esempio, la previsione accurata del carico elettrico per le 24 ore successive può evitare la sovrapproduzione e contribuire a prevenire i sovraccarichi della rete. Tutto questo può essere quantificato in termini di risparmio economico su base giornaliera.
 
-Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda:
-![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda: ![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Dal momento che la suite Cortana Intelligence offre un modello tariffario con pagamento in base al consumo, non è necessario inserire una componente di costo fisso in questa formula. La formula può essere calcolata su base giornaliera, mensile o annuale.
 
@@ -385,4 +384,4 @@ Il diagramma seguente illustra una tipica architettura basata su Cortana Intelli
 
 Per altre informazioni su ognuno dei componenti e sull'intera architettura, vedere il modello di soluzione energetica.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

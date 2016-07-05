@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -41,14 +41,12 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
 ## Passaggi successivi
 
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
-
+- Per informazioni dettagliate su come ripristinare un database SQL di Azure mediante il portale di Azure da un backup con ridondanza geografica, vedere l'articolo sul [ripristino geografico nel portale di Azure](sql-database-geo-restore-portal.md).
+- Per informazioni dettagliate su come ripristinare un database SQL di Azure da un backup con ridondanza geografica, vedere l'articolo sul [ripristino geografico tramite PowerShell](sql-database-geo-restore.md).
+- Per una spiegazione completa su come eseguire il ripristino dopo un'interruzione del servizio, vedere l'articolo sul [ripristino dopo un'interruzione](sql-database-disaster-recovery.md).
 
 ## Risorse aggiuntive
 
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # Usare il servizio StorSimple Manager per amministrare StorSimple Virtual Array
@@ -96,4 +96,4 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 ##Passaggi successivi
 Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

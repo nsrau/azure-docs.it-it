@@ -52,15 +52,18 @@ Se si desidera sospendere la migrazione dei dati, vedere l'articolo su come [sos
 
 ### Con Transact-SQL disabilitare Database Estensione per una tabella
 
--   Per disabilitare l'estensione per una tabella e copiare i dati remoti per la tabella da Azure a SQL Server, eseguire il comando seguente. Questo comando non può essere annullato.
+-   Per disabilitare l'estensione per una tabella e copiare i dati remoti per la tabella da Azure a SQL Server, eseguire il comando seguente. Dopo aver copiato tutti i dati remoti da Azure a SQL Server, l'estensione per la tabella risulta disabilitata.
+
+    Questo comando non può essere annullato.
 
     ```tsql
-    ALTER TABLE <table name>
+	USE <Stretch-enabled database name>;
+    GO
+    ALTER TABLE <Stretch-enabled table name>  
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
+    GO
     ```
     >   [AZURE.NOTE] La copia dei dati remoti per la tabella da Azure a SQL Server comporta costi di trasferimento dati. Per altre informazioni, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
-
-    Dopo aver copiato tutti i dati remoti da Azure a SQL Server, l'estensione per la tabella risulta disabilitata.
 
 -   Per disabilitare l'estensione per una tabella e abbandonare i dati remoti, eseguire il comando seguente.
 
@@ -98,4 +101,4 @@ ALTER DATABASE <database name>
 
 [Sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

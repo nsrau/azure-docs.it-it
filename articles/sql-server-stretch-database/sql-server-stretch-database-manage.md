@@ -28,7 +28,10 @@ Aprire le viste del catalogo **sys.databases** e **sys.tables** per visualizzare
 Per vedere la quantità di spazio che una tabella con estensione abilitata sta usando in SQL Server, eseguire l'istruzione seguente.
 
  ```tsql
- EXEC sp_spaceused '<table name>', 'true', 'LOCAL_ONLY';
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
+GO
  ```
 ## Gestire la migrazione dei dati
 
@@ -47,6 +50,15 @@ Per avere suggerimenti sulla risoluzione dei problemi, vedere l'articolo relativ
 
 ### <a name="RemoteInfo"></a>Informazioni su database e tabelle remoti usati da Estensione database
 Aprire le viste del catalogo **sys.remote\_data\_archive\_databases** e **sys.remote\_data\_archive\_tables** per visualizzare informazioni sui database e le tabelle remoti in cui sono stati archiviati i dati migrati. Per altre informazioni, vedere [sys.remote\_data\_archive\_databases (Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) e [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+
+Per vedere la quantità di spazio che una tabella con estensione abilitata sta usando in Azure, eseguire l'istruzione seguente.
+
+ ```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
+GO
+ ```
 
 ### Eliminare i dati migrati  
 Se si desidera eliminare dati che sono già stati migrati in Azure, seguire i passaggi descritti in [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
@@ -95,7 +107,10 @@ Quando si compila, ricompila o riorganizza un indice su una tabella di grandi di
 Ad esempio, la query seguente restituisce solo risultati locali.
 
  ```tsql  
-SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ...  
+ USE <Stretch-enabled database name>;
+ GO
+ SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
+ GO
 ```  
 
 ## <a name="adminHints"></a>Eseguire eliminazioni e aggiornamenti amministrativi  
@@ -114,4 +129,4 @@ SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_O
 
 [Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -311,6 +311,7 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
     ```
     
     Per riferimento, ecco un esempio di messaggio **DeviceInfo** inviato all'hub IoT all'avvio:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -329,11 +330,13 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
     ```
     
     Per riferimento, ecco un esempio di messaggio **Telemetria** inviato all'hub IoT:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     Per riferimento, ecco un esempio di messaggio **Comando** ricevuto dall'hub IoT:
+    
     ```
     {
       "Name":"SetHumidity",
@@ -361,4 +364,4 @@ Le librerie client dell'hub IoT usano un modello per specificare il formato dei 
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

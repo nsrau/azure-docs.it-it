@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
@@ -164,7 +164,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo ** SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
 6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
@@ -251,7 +251,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 ##<a name="amlconnect"></a>Connettersi al motore di database da Azure Machine Learning
 
-Nelle fasi successive di Cortana Analytics Process verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, utilizzare il modulo **Import Data** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). Questo argomento è descritto in modo più dettagliato tramite i collegamenti della guida di Cortana Analytics Process. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
+Nelle fasi successive del Processo di analisi scientifica dei dati per i team verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, utilizzare il modulo **Import Data** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net). Questo argomento fornisce informazioni più dettagliate con collegamenti alle istruzioni del Processo di analisi scientifica dei dati per i team. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
 2.	Nel riquadro **Proprietà** del [modulo Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) selezionare **Database SQL di Azure** dall'elenco a discesa **Origine dati**.
 
@@ -285,9 +285,9 @@ La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare 
 
 ## La macchina virtuale di Azure SQL Server è pronta all'utilizzo: passaggi successivi
 
-La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può inoltre essere utilizzata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e il Cortana Analytics Process (CAP).
+La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può anche essere usata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e al Processo di analisi scientifica dei dati per i team (TDSP).
 
-I passaggi successivi del processo di analisi scientifica dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
+I passaggi successivi del processo di scienza dei dati sono illustrati in [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -306,4 +306,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

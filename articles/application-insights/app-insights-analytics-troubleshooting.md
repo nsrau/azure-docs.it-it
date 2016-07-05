@@ -42,7 +42,7 @@ Si è verificato un errore interno durante il runtime del portale: eccezione non
 
 Si è verificato un errore correlato all'autenticazione (durante l'autenticazione o durante la generazione del token di accesso). Potrebbe non essere possibile ripristinare il portale senza modificare le impostazioni del browser.
 
-* Verificare di aver attivato i cookie di terze parti nel browser. 
+* Verificare che nel browser siano attivati i cookie di terze parti. 
 
     Vedere [come disabilitare il cookie di terze parti](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), tenendo conto che in questo caso è necessario **abilitarli**.
 
@@ -72,9 +72,7 @@ Si è verificato un errore correlato all'autenticazione (durante l'autenticazion
 
     Se nell'elenco dei siti Web compaiono i seguenti URL, controllare che siano inclusi anche gli altri:
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404 ... Resource not found
@@ -91,7 +89,7 @@ Una risorsa dell'applicazione è stata eliminata da Application Insights e non �
 Non si dispone dell'autorizzazione ad aprire questa applicazione in Analytics.
 
 * Se il collegamento è stato fornito da un altro utente, chiedergli conferma che l'utente destinatario sia un [lettore o collaboratore di questo gruppo di risorse](app-insights-resources-roles-access-control.md).
-* Se il collegamento è stato salvato con credenziali diverse, aprire il [portale di Azure](https://portal.azure.com), disconnettersi e quindi riprovare a utilizzare questo collegamento, fornendo le credenziali corrette.
+* Se il collegamento è stato salvato con credenziali diverse, aprire il [portale di Azure](https://portal.azure.com), disconnettersi e quindi riprovare a usare questo collegamento, fornendo le credenziali corrette.
 
 ## 403 ... HTML5 Storage
 
@@ -110,7 +108,7 @@ Il portale utilizza HTML5 localStorage e sessionStorage.
 
 L'URL non è valido.
 
-* Aprire la risorsa dell'app nel [portale Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
+* Aprire la risorsa dell'app nel [portale di Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
 
 ## 404 ... page doesn't exist
 
@@ -118,7 +116,7 @@ L'URL non è valido.
 
 L'URL non è valido.
 
-* Aprire la risorsa dell'app nel [portale Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
+* Aprire la risorsa dell'app nel [portale di Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
 
 ## Se non si riesce a risolvere il problema,    
 
@@ -126,4 +124,4 @@ aprire [un ticket di supporto](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

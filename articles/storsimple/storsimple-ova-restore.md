@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Ripristinare da un backup dell'array virtuale StorSimple
 
 ## Panoramica 
 
-Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo articolo illustra passo per passo come ripristinare da un set di backup di condivisioni o volumi per StorSimple Virtual Array. L'articolo illustra anche come funziona il ripristino a livello di elemento su StorSimple Virtual Array configurato come file server.
+Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva. Questo articolo illustra passo per passo come ripristinare da un set di backup di condivisioni o volumi sull'array virtuale StorSimple. L'articolo illustra anche come funziona il ripristino a livello di elemento su StorSimple Virtual Array configurato come file server.
 
 
 ## Ripristinare condivisioni da un set di backup
 
 
-Prima di tentare di ripristinare le condivisioni, assicurarsi di avere spazio sufficiente sul dispositivo per completare questa operazione. Per ripristinare da un backup, nel [portale di Azure classico](https://manage.windowsazure.com/) eseguire i passaggi seguenti.
+**Prima di tentare di ripristinare le condivisioni, assicurarsi di avere spazio sufficiente sul dispositivo per completare questa operazione.** Per ripristinare da un backup, nel [portale di Azure classico](https://manage.windowsazure.com/), eseguire i passaggi seguenti.
 
 #### Per ripristinare una condivisione
 
@@ -107,7 +107,7 @@ Ogni condivisione dispone di una cartella *.backups* contenente i backup più re
 
 1.  Quando si esegue un ILR, è possibile visualizzare i backup con Esplora risorse. Fare clic sulla condivisione specifica per la quale si desidera visualizzare il backup. Viene visualizzata una cartella *.backups* creata sotto la condivisione che archivia tutti i backup. Espandere la cartella *.backups* per visualizzare i backup. La cartella mostra così in dettaglio l'intera gerarchia di backup. Questa visualizzazione viene creata su richiesta e generalmente bastano pochi secondi per completarne la creazione.
 
-	Gli ultimi 5 backup vengono visualizzati in questo modo. Sono inclusi sia il backup pianificato per impostazione predefinita che quello manuale.
+	Le ultime 5 copie di backup vengono visualizzate in questo modo e possono essere utilizzate per eseguire un ripristino a livello di elemento. Le 5 copie di backup più recenti includono sia i backup pianificati predefiniti sia i backup manuali.
 
 	
 	-   **Backup pianificati** denominati &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
@@ -132,4 +132,4 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

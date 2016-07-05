@@ -47,7 +47,7 @@ Le VNet attualmente associate a gruppi di affinità saranno abilitate per la mig
 
 1. Salvare le modifiche e [importare](virtual-networks-using-network-configuration-file.md) la configurazione di rete in Azure.
 
->[AZURE.INFO] Questa migrazione NON provoca alcun tempo di inattività per i servizi.
+>[AZURE.NOTE] Questa migrazione NON provoca alcun tempo di inattività per i servizi.
 
 ## Gruppi di affinità e macchine virtuali
 
@@ -66,4 +66,4 @@ Le macchine virtuali attualmente incluse in un gruppo di affinità non devono es
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

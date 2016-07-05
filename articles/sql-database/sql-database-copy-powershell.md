@@ -21,20 +21,12 @@
 
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](sql-database-copy.md)
+- [Panoramica](sql-database-copy.md)
+- [Portale di Azure](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-
-
-La procedura seguente illustra come copiare un database SQL di Azure con PowerShell. L'operazione di copia del database consente di copiare un database SQL in un nuovo database usando il cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). La copia è un backup snapshot del database creato nello stesso server o in un server diverso.
-
-> [AZURE.NOTE] Il database SQL di Azure [crea automaticamente e conserva i backup](sql-database-automated-backups.md) per ogni database dell'utente che è possibile ripristinare.
-
-Al completamento del processo di copia, il nuovo database è completamente funzionante, indipendente dal database di origine. Al completamento della copia, il nuovo database è coerente da un punto di vista transazionale con il database di origine. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine. Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.
-
-
-Quando si copia un database nello stesso server logico, è possibile usare gli stessi account di accesso per entrambi i database. L'entità di sicurezza usata per copiare il database diventa il proprietario del database (DBO) nel nuovo database. Tutti gli utenti del database, le relative autorizzazioni e i relativi identificatori di sicurezza (SID) vengono copiati nella copia del database.
+La procedura seguente illustra come copiare un database SQL con PowerShell nello stesso server o in un server diverso. L'operazione di copia di database usa il cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx).
 
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
@@ -87,6 +79,10 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
+## Risolvere gli account di accesso
+
+Per risolvere gli account di accesso al termine dell'operazione di copia, vedere [Risolvere gli account di accesso](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
+
 
 ## Script di PowerShell di esempio
 
@@ -115,14 +111,18 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 
 ## Passaggi successivi
 
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-- [Esportare il database in un BACPAC](sql-database-export-powershell.md)
+- Vedere [Copiare un database SQL di Azure](sql-database-copy.md) per una panoramica su come copiare un database SQL di Azure.
+- Vedere [Copiare un database SQL di Azure tramite il portale di Azure](sql-database-copy-portal.md) per copiare un database tramite il portale di Azure.
+- Vedere [Copiare un database SQL di Azure con Transact-SQL](sql-database-copy-transact-sql.md) per copiare un database usando Transact-SQL.
+- Vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) per informazioni sulla gestione di utenti e account di accesso durante la copia di un database in un server logico diverso.
 
 
 ## Risorse aggiuntive
 
+- [Gestire gli accessi](sql-database-manage-logins.md)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
+- [Esportare il database in un BACPAC](sql-database-export.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,11 +49,10 @@
 
 ## Passaggi successivi
 
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
-- [Ripristinare un database eliminato con il portale di Azure](sql-database-restore-deleted-database-portal.md)
-- [Ripristinare un database eliminato con l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni dettagliate su come ripristinare un database eliminato tramite il portale di Azure, vedere l'articolo su come [ripristinare un database eliminato tramite il portale di Azure](sql-database-restore-deleted-database-portal.md).
+- Per informazioni su come ripristinare un database eliminato, vedere [ripristinare un database eliminato utilizzando l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Per informazioni dettagliate su come ripristinare un database eliminato, vedere l'articolo su come [ripristinare un database eliminato](sql-database-restore-deleted-database.md).
+- Per informazioni dettagliate sul backup automatico dei database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
 ## Risorse aggiuntive
 
@@ -63,4 +62,4 @@
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -44,11 +44,11 @@ Durante l'accesso iniziale, viene fornita una password dell’app che è possibi
 
 Come utilizzare l’autenticazione a più fattori|Descrizione
 :------------- | :------------- | 
-[Utilizzo con Office 365](#Creazione ed eliminazione di password delle app con Office 365)| Significa che si desidera creare le password dell’app tramite il portale di Office 365.
-[Non so](#creating-and-deleting-app-passwords-with-myapps-portal)|Significa che è possibile creare password dell’app tramite [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[Utilizzarlo con Microsoft Azure](#Creazione ed eliminazione di password delle app con il portale Myapps)| Significa che è possibile creare le password dell’app tramite il portale di Azure.
+<a href="#Utilizzo">Utilizzo con Office 365</a> | Significa che si desidera creare le password dell’app tramite il portale di Office 365.
+<a href="#vai">Non so</a>|Significa che è possibile creare password dell’app tramite [https://myapps.microsoft.com](https://myapps.microsoft.com)
+<a href="#Utilizzarlo">Utilizzarlo con Microsoft Azure</a>| Significa che è possibile creare le password dell’app tramite il portale di Azure.
 
-## Creazione ed eliminazione di password delle app con Office 365 
+<h2 id="Utilizzo">Creazione ed eliminazione di password delle app con Office 365</h2> 
 
 Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed eliminare password per le app tramite il portale di Office 365.
 
@@ -81,7 +81,7 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 9. Una volta che la password dell’app viene eliminata, è possibile fare clic su **Chiudi**. ![Chiudi](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Creazione ed eliminazione di password delle app con il portale Myapps.
+<h2 id="Utilizzarlo">Creazione ed eliminazione di password delle app con il portale Myapps</h2>
 Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre possibile creare ed eliminare le password delle app tramite il portale Myapps.
 
 ### Per creare una password di app tramite il portale Myapps
@@ -107,7 +107,7 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 8. Una volta che la password dell’app viene eliminata, è possibile fare clic su **Chiudi**. ![Chiudi](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Creazione di password per le app nel portale di Azure
+<h2 id="vai">Creazione di password per le app nel portale di Azure</h2>
 
 Se si usa Multi-Factor Authentication con Azure, è consigliabile creare password per le app tramite il portale di Azure.
 

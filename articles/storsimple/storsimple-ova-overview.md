@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Introduzione a StorSimple Virtual Array
@@ -57,10 +57,10 @@ La tabella seguente illustra alcuni dei vantaggi principali forniti dalla soluzi
 
 | Funzionalità | Vantaggi |
 |---------|---------|
-| Integrazione trasparente | Il Virtual Array supporta il protocollo iSCSI o SMB. Questo assicura che i dati archiviati nel cloud, nel data center o in server remoti appaiano come archiviati in un'unica posizione.|
-| Riduzione dei costi di archiviazione | Con StorSimple, è possibile eseguire il provisioning di archiviazione locale sufficiente per soddisfare le richieste correnti. Mentre le necessità di archiviazione crescono, StorSimple suddivide i dati in livelli in un'archiviazione cloud a costi contenuti. Nel cloud, sfrutta la deduplicazione e la compressione per ridurre ulteriormente i requisiti e i costi di archiviazione.|
-| Gestione dell'archiviazione semplificata | StorSimple fornisce la gestione centralizzata nel cloud. È possibile usare gli strumenti basati sul Web per configurare e gestire i dati archiviati nel Virtual Array, in un server remoto e nel cloud.| 
-| Miglioramento del ripristino di emergenza e della conformità | StorSimple non richiede tempi di recupero estesi. Al contrario, ripristina i metadati all'istante e archivia i dati in base alle esigenze. Le normali operazioni possono quindi continuare con un'interruzione minima.|
+| Integrazione trasparente | Il Virtual Array supporta il protocollo iSCSI o SMB. Lo spostamento dei dati tra il livello locale e il livello cloud è semplice e trasparente per l'utente.|
+| Riduzione dei costi di archiviazione | Con StorSimple, è possibile eseguire il provisioning di archiviazione locale sufficiente per soddisfare le richieste correnti per i dati sensibili più utilizzati. Mentre le necessità di archiviazione crescono, StorSimple suddivide i dati meno utilizzati in livelli in un'archiviazione cloud a costi contenuti. Per ridurre ulteriormente i costi e i requisiti di archiviazione, i dati vengono deduplicati e compressi prima di essere inviati al cloud.|
+| Gestione dell'archiviazione semplificata | StorSimple fornisce la gestione centralizzata nel cloud tramite StorSimple Manager per la gestione di più dispositivi.| 
+| Miglioramento del ripristino di emergenza e della conformità | StorSimple accelera il ripristino di emergenza con il ripristino immediato di dati e metadati in base alle esigenze. Le normali operazioni possono quindi continuare con un'interruzione minima.|
 | Mobilità dei dati | È possibile accedere ai dati caricati nel cloud da altri siti con finalità di ripristino e migrazione. Tenere presente la possibilità di ripristinare i dati solo sul Virtual Array originale. È tuttavia possibile usare le funzionalità di ripristino di emergenza per ripristinare l'intero Virtual Array su un altro Virtual Array.|
 
 ## Flussi di lavoro
@@ -184,4 +184,4 @@ Le funzionalità di protezione dei dati di StorSimple consentono di creare backu
 
 Informazioni su come [preparare il portale dell'array virtuale](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

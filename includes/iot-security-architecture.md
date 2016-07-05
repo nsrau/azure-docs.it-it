@@ -247,8 +247,7 @@ Le superfici di controllo fisiche intermedie sono quelle in cui qualsiasi tipo d
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Architettura di riferimento di Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

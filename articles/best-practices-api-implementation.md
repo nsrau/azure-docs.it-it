@@ -958,7 +958,7 @@ La stessa API Web può essere utilizzata da numerose applicazioni client in esec
 
 	Se si preferisce implementare le notifiche, le opzioni disponibili includono:
 
-	- Utilizzo di un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client. La pagina [Notifica agli utenti dell’hub di notifica di Microsoft Azure i](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) sul sito Web Microsoft fornisce ulteriori dettagli.
+	- Utilizzo di un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client. La pagina [Notifica agli utenti dell’hub di notifica di Microsoft Azure i](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) sul sito Web Microsoft fornisce ulteriori dettagli.
 
 	- L’utilizzo del modello Comet per mantenere una connessione di rete permanente tra il client e server che ospita l'API Web e l’utilizzo di questa connessione per spingere i messaggi dal server fino al client. L'articolo di MSDN Magazine [Creazione di una semplice applicazione Comet in Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) descrive una soluzione di esempio.
 
@@ -1143,7 +1143,7 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - Per informazioni dettagliate sulla gestione delle eccezioni HTTP con l'API Web ASP.NET, visitare la pagina [Gestione delle eccezione in API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling) sul sito Web Microsoft.
 - L'articolo [Gestione globale degli errori API Web](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) sul sito Web Microsoft descrive come implementare una gestione degli errori globale e una strategia di registrazione per un'API Web.
 - La pagina [Eseguire attività in background con processi Web](../articles/app-service-web/web-sites-create-web-jobs.md) sul sito Web Microsoft fornisce informazioni ed esempi sull'uso di Processi Web per eseguire operazioni in background su un sito Web di Azure.
-- La pagina [Azure Notification hub di notifica utenti](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) sul sito Web Microsoft mostra come è possibile utilizzare un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client.
+- La pagina [Azure Notification hub di notifica utenti](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) sul sito Web Microsoft mostra come è possibile utilizzare un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client.
 - La pagina[Gestione API](https://azure.microsoft.com/services/api-management/) sul sito Web Microsoft descrive come pubblicare un prodotto che fornisce un accesso sicuro e controllato a un'API Web.
 - La pagina[Riferimento API REST gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) sul sito Web Microsoft descrive come utilizzare l'API REST di gestione per creare applicazioni di gestione personalizzate.
 - La pagina [Metodi di routing di Gestione traffico](../articles/traffic-manager/traffic-manager-routing-methods.md) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere usato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
@@ -1151,4 +1151,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

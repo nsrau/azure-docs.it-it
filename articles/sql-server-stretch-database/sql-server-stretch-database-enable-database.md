@@ -18,7 +18,7 @@
 
 # Abilitare Database Estensione per un database
 
-Per configurare un database per Database Estensione, selezionare **Attività | Estensione | Abilita** per un database in SQL Server Management Studio per aprire la procedura guidata **Abilitare il database per l’estensione**. È possibile anche usare Transact-SQL per abilitare Database Estensione per un database.
+Per configurare un database esistente per Estensione database, selezionare **Attività | Estensione | Abilita** per un database in SQL Server Management Studio per aprire la procedura guidata **Abilitare il database per l'estensione**. È possibile anche usare Transact-SQL per abilitare Database Estensione per un database.
 
 Se si seleziona **Attività | Estensione | Abilita** per una tabella e non è stato ancora abilitato il database per Database Estensione, la procedura guidata consente di configurare il database per Database Estensione e le tabelle come parte del processo. Seguire la procedura illustrata in questo argomento anziché quella descritta nell'articolo relativo all'[abilitazione di Database Estensione per una tabella](sql-server-stretch-database-enable-database.md).
 
@@ -133,4 +133,4 @@ Articolo relativo all'[identificazione di database e tabelle per l'estensione da
 
 [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

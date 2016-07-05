@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
@@ -82,9 +82,9 @@ Se il ripristino di emergenza è stato completato correttamente, la proprietà d
 > 
 > Anche se il dispositivo non è più disponibile, la macchina virtuale sottoposta a provisioning nel sistema host usa ancora risorse. Se il ripristino di emergenza è stato completato correttamente, è possibile eliminare questa macchina virtuale dal sistema host.
 
-## Eseguire il failover su un dispositivo virtuale
+## Eseguire il failover su un array virtuale
 
-Si consiglia di disporre di un dispositivo virtuale StorSimple sottoposto a provisioning, configurato tramite l'interfaccia utente Web locale e registrato con il servizio StorSimple Manager prima di eseguire questa procedura.
+Si consiglia di sottoporre a provisioning un array virtuale StorSimple aggiuntivo, configurato tramite l'interfaccia utente Web locale e registrato con il servizio StorSimple Manager prima di eseguire questa procedura.
 
 
 > [AZURE.IMPORTANT]
@@ -175,4 +175,4 @@ Se non viene soddisfatta una delle verifiche preliminari, vengono visualizzati d
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

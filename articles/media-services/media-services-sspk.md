@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016"  
+	ms.date="06/21/2016"  
 	ms.author="xpouyat"/>
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
@@ -104,6 +104,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - SoftAtHome
+- Sony Corporation
 - Tatung Technology Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -142,9 +143,11 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
 - Sichuan Changhong Electric Co., Ltd.
+- Skardin Industrial Corp.
 - Sky Deutschland Fernsehen GmbH & Co. KG
 - SmarDTV S.A.
 - SoftAtHome
+- Sony Corporation
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited
 - Technicolor Delivery Technologies, SAS
 - Toshiba Lifestyle Products & Services Corporation
@@ -161,4 +164,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

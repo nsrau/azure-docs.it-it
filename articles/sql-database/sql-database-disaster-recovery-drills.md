@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Esercitazioni per il ripristino di emergenza del database SQL" 
+   pageTitle="Esercitazioni per il ripristino di emergenza del database SQL | Microsoft Azure" 
    description="Istruzioni e procedure consigliate relative all'uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza che consentono di mantenere la resilienza delle applicazioni aziendali cruciali in caso di errori e interruzioni del servizio." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Esercitazione per il ripristino di emergenza
@@ -63,4 +63,21 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 
 - Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Passaggi successivi
+
+- Per informazioni sull'uso e la configurazione della replica geografica attiva per il ripristino di emergenza, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per informazioni sull'uso del ripristino geografico per il ripristino di emergenza, vedere [Ripristino geografico](sql-database-geo-restore.md)
+
+## Risorse aggiuntive
+
+- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
+- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
+- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

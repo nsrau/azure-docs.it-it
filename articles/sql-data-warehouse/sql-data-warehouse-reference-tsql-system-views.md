@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # Viste di sistema
@@ -128,7 +128,7 @@
 
 ## Viste a gestione dinamica (DMV) di SQL Server disponibili in SQL Data Warehouse
 
-SQL Data Warehouse espone molte delle viste a gestione dinamica (DMV) di SQL Server. Queste viste, se sottoposte a query in SQL Data Warehouse, segnalano lo stato del database SQL in esecuzione nelle distribuzioni.
+SQL Data Warehouse espone molte delle viste a gestione dinamica (DMV) di SQL Server. Queste viste, se sottoposte a query in SQL Data Warehouse, segnalano lo stato dei database SQL in esecuzione nelle distribuzioni.
 
 Poiché SQL Data Warehouse si basa sulla tecnologia MPP di Microsoft, sia SQL Data Warehouse che Parallel Data Warehouse (PDW) del sistema di piattaforma di analisi usano le stesse viste di sistema.
 
@@ -236,4 +236,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="mcoskun"/>
 
 # Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
@@ -102,6 +102,8 @@ Lo scenario di deadlock sopra descritto è un perfetto esempio di come il blocco
 - Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetValueAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
 - Eseguire una copia completa dell'oggetto di tipo personalizzato restituito prima di modificarlo. Poiché le strutture e i tipi predefiniti vengono passati per valore, non è necessario eseguirne una copia completa.
 - Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
+- Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
+- Gli enumeratori costruiti all'interno dell'ambito di una transazione non devono essere usati al di fuori dell'ambito della transazione.
 - Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
 - Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze sull'implementazione per l'unione dei checkpoint.
 - Per il ripristino di emergenza, è consigliabile usare la funzionalità di backup e ripristino.
@@ -118,9 +120,9 @@ Occorre tenere presente i concetti seguenti:
 
 - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 - [Eseguire il backup e il ripristino di Reliable Services (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
-- [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md) (Configurazione di Reliable State Manager)
+- [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
 - [Introduzione ai servizi API Web di Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Scalabilità distribuita a livello geografico con ambienti del servizio app
@@ -107,6 +107,8 @@ L'immagine della console seguente mostra una ricerca DNS del dominio personalizz
 ![Ricerca DNS][DNSLookup]
 
 ## Informazioni e collegamenti aggiuntivi ##
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+
 Documentazione sul [Supporto di Gestione risorse di Azure per la versione di anteprima di Gestione traffico di Azure][ARMTrafficManager] con PowerShell.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -125,4 +127,4 @@ Documentazione sul [Supporto di Gestione risorse di Azure per la versione di ant
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

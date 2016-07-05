@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Esplorazione dei dati nella macchina virtuale di SQL Server in Azure
@@ -71,8 +71,8 @@ A questo punto, è possibile utilizzare il frame di dati di Pandas, come descrit
 
 ## Il Cortana Analytics Process nell’esempio di azione
 
-Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Process mediante un set di dati pubblico, vedere [il Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Process tramite un set di dati pubblico, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

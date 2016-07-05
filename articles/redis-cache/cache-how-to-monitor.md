@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2016" 
+	ms.date="06/15/2016" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -22,17 +22,17 @@ Cache Redis di Azure fornisce diverse opzioni per il monitoraggio delle istanze 
 
 Quando è abilitata la diagnostica della cache, le metriche per le istanze di Cache Redis di Azure vengono raccolte ogni 30 secondi circa e archiviate in modo da poter essere visualizzate nel grafico e valutate in base alle regole di avviso.
 
-Le metriche della cache vengono raccolte utilizzando il comando [INFO](http://redis.io/commands/info) di Redis. Per ulteriori informazioni sui diversi comandi INFO utilizzati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
+Le metriche della cache vengono raccolte utilizzando il comando [INFO](http://redis.io/commands/info) di Redis. Per ulteriori informazioni sui diversi valori INFO usati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
-Per visualizzare le metriche della cache, [passare](cache-configure.md) all'istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Cache Redis**.
+Per visualizzare le metriche della cache, [passare](cache-configure.md) all'istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Metriche Redis**.
 
-![Monitoraggio][redis-cache-monitor-overview]
+![Metriche Redis][redis-cache-redis-metrics-blade]
 
->[AZURE.IMPORTANT] Se viene visualizzato il messaggio seguente nel portale di Azure, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
+>[AZURE.IMPORTANT] Se viene visualizzato il messaggio seguente nel pannello **Metriche Redis**, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
-Il pannello di **Cache Redis** dispone di grafici di **Monitoraggio** e grafici di **utilizzo** che consentono di visualizzare le metriche della cache. Ogni grafico può essere personalizzata aggiungendo o rimuovendo le metriche e modificando l'intervallo di report. Nel pannello **Cache Redis**, inoltre, è presente una sezione **Operazioni** in cui sono visualizzati **Eventi** e **Regole di avviso** della cache.
+Il pannello **Metriche Redis** dispone di grafici di **Monitoraggio** che consentono di visualizzare le metriche della cache. Ogni grafico può essere personalizzata aggiungendo o rimuovendo le metriche e modificando l'intervallo di report. Per visualizzare e configurare operazioni e avvisi, il pannello **Cache Redis**s presenta la sezione **Operazioni** in cui sono visualizzati **Eventi** e **Regole di avviso** della cache.
 
 ## Abilitare la diagnostica della cache
 
@@ -42,7 +42,7 @@ Per abilitare e configurare la diagnostica della cache, passare al pannello **Ca
 
 ![Abilitare la diagnostica della cache][redis-cache-enable-diagnostics]
 
-Fare clic su uno dei grafici di monitoraggio, ad esempio **Riscontri e mancati riscontri** per visualizzare il pannello **Metrica** e fare clic su **Impostazioni diagnostica** per abilitare e configurare le impostazioni di diagnostica per l'istanza del servizio cache.
+Fare clic sul messaggio per visualizzare il pannello **Metrica** e fare clic su **Impostazioni diagnostica** per abilitare e configurare le impostazioni di diagnostica per l'istanza del servizio cache.
 
 ![Impostazioni di diagnostica][redis-cache-diagnostic-settings]
 
@@ -70,68 +70,57 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 
 | Metrica | Descrizione |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Riscontri cache | Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo valore è associato a INFO di Redis `keyspace_hits command`. |
-| Mancati riscontri nella cache | Il numero di ricerche chiave non riuscite durante l'intervallo di report specificato. Questo valore è associato al comando INFO `keyspace_misses` di Redis. I mancati riscontri nella cache non indicano necessariamente un problema con la cache. Ad esempio, quando si utilizza il modello di programmazione cache-aside, un'applicazione esegue la ricerca di un elemento innanzitutto nella cache. Se l'elemento non è presente (mancato riscontro nella cache), viene recuperato dal database e aggiunto alla cache per la volta successiva. I mancati riscontri nella cache sono un comportamento normale per il modello di programmazione cache-aside. Se il numero di mancati riscontri nella cache è superiore al previsto, esaminare la logica dell'applicazione che consente di popolare ed eseguire le lettura dalla cache. Se gli elementi vengono rimossi dalla cache a causa della pressione della memoria, si possono verificare alcuni mancati riscontri nella cache, ma una metrica migliore da monitorare relativamente alla pressione della memoria sarebbe `Used Memory` o `Evicted Keys`. |
-| Client connessi | Il numero di connessioni client alla cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `connected_clients` di Redis. Il limite di client connessi è 10.000 e, una volta raggiunto, i successivi tentativi di connessione alla cache avranno esito negativo. Si noti che anche in assenza di applicazione client attive, è possibile che siano presenti alcune istanze di client connesse a causa di processi e connessioni interni. |
-| Chiavi rimosse | Il numero di elementi rimossi dalla cache durante l'intervallo di report specificato a causa del limite `maxmemory`. Questo valore è associato al comando INFO `evicted_keys` di Redis. |
-| Chiavi scadute | Il numero di elementi nella cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `expired_keys` di Redis. |
+| Riscontri cache | Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo `keyspace_hits` è associato al comando [INFO](http://redis.io/commands/info) di Redis. |
+| Mancati riscontri nella cache | Il numero di ricerche chiave non riuscite durante l'intervallo di report specificato. Questo `keyspace_misses` è associato al comando INFO di Redis. I mancati riscontri nella cache non indicano necessariamente un problema con la cache. Ad esempio, quando si utilizza il modello di programmazione cache-aside, un'applicazione esegue la ricerca di un elemento innanzitutto nella cache. Se l'elemento non è presente (mancato riscontro nella cache), viene recuperato dal database e aggiunto alla cache per la volta successiva. I mancati riscontri nella cache sono un comportamento normale per il modello di programmazione cache-aside. Se il numero di mancati riscontri nella cache è superiore al previsto, esaminare la logica dell'applicazione che consente di popolare ed eseguire le lettura dalla cache. Se gli elementi vengono rimossi dalla cache a causa della pressione della memoria, si possono verificare alcuni mancati riscontri nella cache, ma una metrica migliore da monitorare relativamente alla pressione della memoria sarebbe `Used Memory` o `Evicted Keys`. |
+| Client connessi | Il numero di connessioni client alla cache durante l'intervallo di report specificato. Questo `connected_clients` è associato al comando INFO di Redis. Una volta raggiunto il [limite delle connessioni](cache-configure.md#default-redis-server-configuration), i successivi tentativi di connessione alla cache avranno esito negativo. Si noti che anche in assenza di applicazione client attive, è possibile che siano presenti alcune istanze di client connesse a causa di processi e connessioni interni. |
+| Chiavi rimosse | Il numero di elementi rimossi dalla cache durante l'intervallo di report specificato a causa del limite `maxmemory`. Questo esegue il mapping a `evicted_keys` dal comando INFO di Redis. |
+| Chiavi scadute | Il numero di elementi nella cache durante l'intervallo di report specificato. Questo valore esegue il mapping a `expired_keys` dal comando INFO di Redis. |
 | Operazioni Get | Il numero di operazioni Get nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`, ed è equivalente alla somma dei riscontri e dei mancati riscontri nella cache durante l'intervallo di report. |
 | Carico server Redis | La percentuale di cicli in cui il server di Redis è impegnato nell’elaborare e non inattivo in attesa di messaggi. Se il contatore raggiunge 100 significa che il server di Redis ha raggiunto un limite massimo delle prestazioni e la CPU non può elaborare il lavoro più velocemente. Se si osserva un elevato carico del server Redis si vedranno le eccezioni di timeout nel client. In tal caso, è necessario prendere in considerazione il dimensionamento o il partizionamento dei dati in più cache. |
 | Operazioni Set | Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
-| Totale operazioni | Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `total_commands_processed` di Redis. Si noti che quando Cache Redis di Azure viene utilizzata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
-| Memoria utilizzata | La quantità di memoria cache utilizzata per le coppie chiave/valore nella cache in MB durante l'intervallo di report specificato. Questo valore è associato al comando INFO `used_memory` di Redis. Non include i metadati o la frammentazione. |
-| Memoria utilizzata RSS | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato, comprese la frammentazione e i metadati. Questo valore è associato al comando INFO `used_memory_rss` di Redis. |
+| Totale operazioni | Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore esegue il mapping a `total_commands_processed` dal comando INFO di Redis. Si noti che quando Cache Redis di Azure viene utilizzata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
+| Memoria utilizzata | La quantità di memoria cache utilizzata per le coppie chiave/valore nella cache in MB durante l'intervallo di report specificato. Questo valore esegue il mapping a `used_memory` dal comando INFO di Redis. Non include i metadati o la frammentazione. |
+| Memoria utilizzata RSS | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato, comprese la frammentazione e i metadati. Questo valore esegue il mapping a `used_memory_rss` dal comando INFO di Redis. |
 | CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Lettura da cache | La quantità di dati letti dalla cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. **Questo valore corrisponde alla larghezza di banda della rete usata da questa cache. Se si desidera impostare avvisi per i limiti della larghezza di banda della rete lato server, usare questo contatore `Cache Read`. Vedere [questa tabella](cache-faq.md#cache-performance) per i limiti della larghezza di banda osservati nei diversi piani tariffari e nelle varie dimensioni della cache.** |
+| Lettura da cache | La quantità di dati letti dalla cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. **Questo valore corrisponde alla larghezza di banda della rete usata da questa cache. Se si desidera impostare avvisi per i limiti della larghezza di banda della rete lato server, usare questo contatore `Cache Read`. Per i limiti della larghezza di banda osservati nei diversi piani tariffari e nelle varie dimensioni della cache, vedere [questa tabella](cache-faq.md#cache-performance).** |
 | Scrittura nella cache | La quantità di dati scritti nella cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. Questo valore corrisponde alla larghezza di banda della rete relativa ai dati inviati alla cache dal client. |
 
-## Grafici di monitoraggio
-
-La sezione **Monitoraggio** dispone dei grafici **Riscontri e mancati riscontri**, **Operazioni Get e operazioni Set**, **Connessioni**, e **Totale comandi**.
-
-![Grafici di monitoraggio][redis-cache-monitoring-part]
-
-Nel grafico **Monitoraggio** vengono visualizzate le metriche seguenti.
-
-| Grafico di monitoraggio | Metriche della cache |
-|------------------|-------------------|
-| Riscontri e mancati riscontri | Riscontri cache |
-| | Mancati riscontri nella cache |
-| Operazioni Get e operazioni Set | Operazioni Get |
-| | Operazioni Set |
-| Connessioni | Client connessi |
-| Totale comandi | Totale operazioni |
-
-Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
-
-## Grafici di utilizzo
-
-Nella sezione **Utilizzo** sono disponibili i grafici **Carico server Radis**, **Utilizzo della memoria**, **Larghezza di banda della rete** e **Utilizzo della CPU** nonché **Livello di prezzo** per l’istanza della cache.
-
-![Grafici di utilizzo][redis-cache-usage-part]
-
-In **Livello di prezzo** è possibile visualizzare il livello di prezzo della cache nonché [scalare](cache-how-to-scale.md) la cache a un livello di prezzo diverso.
-
-Il grafico **Utilizzo** consente di visualizzare le metriche seguenti.
-
-| Grafico di utilizzo | Metriche della cache |
-|-------------------|---------------|
-| Carico server Redis | Carico server |
-| Utilizzo della memoria | Memoria utilizzata |
-| Larghezza di banda della rete | Scrittura nella cache |
-| Utilizzo di CPU | CPU |
-
-Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
 
 ## Come visualizzare le metriche e personalizzare i grafici
 
-È possibile visualizzare una panoramica delle metriche nel pannello **Cache Redis** nei grafici **Monitoraggio** e **Utilizzo** grafici come descritto nelle sezioni precedenti. Per una visualizzazione più dettagliata delle metriche in un grafico specifico e per personalizzare il grafico, fare clic sul grafico desiderato dal pannello **Cache Redis** per visualizzare il pannello **Metrica** per tale grafico.
+È possibile visualizzare una panoramica delle metriche per la cache nel pannello **Metriche Redis**. Per accedere al pannello **Metriche Redis** selezionare **Tutte le impostazioni** > **Metriche Redis**.
+
+![Metriche Redis][redis-cache-redis-metrics]
+
+
+Il pannello **Metriche Redis** contiene i seguenti grafici.
+
+| Grafico delle metriche Redis | Metriche visualizzate |
+|------------------|-------------------|
+| Lettura della cache e scrittura della cache | Lettura da cache |
+| | Scrittura nella cache |
+| Client connessi | Client connessi |
+| Riscontri e mancati riscontri | Riscontri cache |
+| | Mancati riscontri nella cache |
+| Totale comandi | Totale operazioni |
+| Operazioni Get e operazioni Set | Operazioni Get |
+| | Operazioni Set |
+| Utilizzo di CPU | CPU |
+| Utilizzo della memoria | Memoria utilizzata |
+| | Memoria utilizzata RSS |
+| Carico server Redis | Carico server |
+| Conteggio chiavi | Totale chiavi |
+| | Chiavi rimosse |
+| | Chiavi scadute |
+
+
+Per una visualizzazione più dettagliata delle metriche in un grafico specifico e per personalizzare il grafico, fare clic sul grafico nel pannello **Metriche Redis** per mostrare il relativo pannello **Metrica**.
 
 ![Blade delle metriche][redis-cache-metric-blade]
 
 Gli eventuali avvisi impostati sulle metriche visualizzate da un grafico sono elencati nella parte inferiore del pannello **Metrica** per tale grafico.
 
-Per aggiungere o rimuovere le metriche o modificare l'intervallo di report, fare clic con il pulsante destro del mouse sul grafico e scegliere **Modifica grafico**. È inoltre possibile modificare i grafici direttamente dal pannello **Cache Redis**, facendo clic con il pulsante destro del mouse sul grafico desiderato e scegliendo **Modifica grafico**.
+Per aggiungere o rimuovere metriche o modificare l'intervallo di report, scegliere **Modifica grafico**.
 
 Per aggiungere o rimuovere le metriche dal grafico, selezionare la casella di controllo accanto al nome della metrica. Per modificare l'intervallo del report, scegliere l'intervallo desiderato. Per modificare il **tipo di grafico**, selezionare lo stile desiderato. Dopo aver effettuate le modifiche desiderate, fare clic su **Salva**.
 
@@ -172,7 +161,7 @@ Per altre informazioni sui contatori delle prestazioni disponibili, vedere [Metr
 
 ## Operazioni e avvisi
 
-La sezione **Operazioni** presenta le sezioni **Eventi** e **Regole di avviso**.
+La sezione **Operazioni** del pannello **Cache Redis** presenta le sezioni **Eventi** e **Regole di avviso**.
 
 ![Operazioni][redis-cache-operations-events]
 
@@ -223,9 +212,53 @@ Quando viene attivata una regola di avviso, a seconda della configurazione della
 Una regola di avviso viene considerata da risolvere quando la condizione di avviso non restituisce più il valore true. Una volta risolta la condizione della regola di avviso, l'icona dell’avviso viene sostituita con un segno di spunta. Per informazioni dettagliate sulle attivazioni degli avvisi e sulle risoluzioni, fare clic su **Eventi** nel pannello **Cache Redis** per visualizzare gli eventi nel pannello **Eventi**.
 
 Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md).
+
+## Metriche nel pannello Cache Redis
+
+Il pannello **Cache Redis** visualizza le seguenti categorie di metriche.
+
+-	[Grafici di monitoraggio](#monitoring-charts)
+-	[Grafici di utilizzo](#usage-charts)
+
+### Grafici di monitoraggio
+
+La sezione **Monitoraggio** dispone dei grafici **Riscontri e mancati riscontri**, **Operazioni Get e operazioni Set**, **Connessioni**, e **Totale comandi**.
+
+![Grafici di monitoraggio][redis-cache-monitoring-part]
+
+Nel grafico **Monitoraggio** vengono visualizzate le metriche seguenti.
+
+| Grafico di monitoraggio | Metriche della cache |
+|------------------|-------------------|
+| Riscontri e mancati riscontri | Riscontri cache |
+| | Mancati riscontri nella cache |
+| Operazioni Get e operazioni Set | Operazioni Get |
+| | Operazioni Set |
+| Connessioni | Client connessi |
+| Totale comandi | Totale operazioni |
+
+Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
+
+### Grafici di utilizzo
+
+Nella sezione **Utilizzo** sono disponibili i grafici **Carico server Radis**, **Utilizzo della memoria**, **Larghezza di banda della rete** e **Utilizzo della CPU** nonché **Livello di prezzo** per l’istanza della cache.
+
+![Grafici di utilizzo][redis-cache-usage-part]
+
+In **Livello di prezzo** è possibile visualizzare il livello di prezzo della cache nonché [scalare](cache-how-to-scale.md) la cache a un livello di prezzo diverso.
+
+Il grafico **Utilizzo** consente di visualizzare le metriche seguenti.
+
+| Grafico di utilizzo | Metriche della cache |
+|-------------------|---------------|
+| Carico server Redis | Carico server |
+| Utilizzo della memoria | Memoria utilizzata |
+| Larghezza di banda della rete | Scrittura nella cache |
+| Utilizzo di CPU | CPU |
+
+Per informazioni sulla visualizzazione delle metriche e sulla personalizzazione dei singoli grafici in questa sezione, vedere la sezione [Come visualizzare le metriche e personalizzare i grafici delle metriche](#how-to-view-metrics-and-customize-charts) di seguito.
   
 <!-- IMAGES -->
-[redis-cache-monitor-overview]: ./media/cache-how-to-monitor/redis-cache-monitor-overview.png
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
 
@@ -259,4 +292,8 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0615_2016-->
+[redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
+
+[redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
+
+<!---HONumber=AcomDC_0622_2016-->

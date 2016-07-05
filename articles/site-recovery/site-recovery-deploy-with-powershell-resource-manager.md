@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="06/15/2016"
 	ms.author="bsiva"/>
 
 # Eseguire la replica tra macchine virtuali Hyper-V locali e Azure con PowerShell e Azure Resource Manager
@@ -82,19 +82,10 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 	Nell’output di questi comandi, se **RegistrationState** è impostato su **Registered**, è possibile procedere con il passaggio 2. Se non lo è, è necessario registrare il provider mancante nella sottoscrizione.
 
-	Per registrare il provider di Azure per Site Recovery, eseguire il comando seguente:
+	Per registrare il provider di Azure per Site Recovery e Servizi di ripristino, eseguire i comandi seguenti:
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
-
-	Analogamente, se si usano i cmdlet di Servizi di ripristino per la prima volta nella sottoscrizione, è necessario registrare il provider di Azure per Servizi di ripristino. Prima di eseguire questa operazione, abilitare l'accesso al provider di Servizi di ripristino nella sottoscrizione eseguendo questo comando:
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] Dopo il completamento di questo comando, l'abilitazione dell'accesso al provider di Servizi di ripristino nella sottoscrizione potrebbe richiedere fino a un'ora. I tentativi eseguiti nel frattempo di registrare il provider di Servizi di ripristino nella sottoscrizione con il comando `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` potrebbero non riuscire. In questo caso, attendere un'ora e riprovare.
-
-	Dopo aver abilitato l'accesso al provider di Servizi di ripristino nella sottoscrizione, registrare il provider nella sottoscrizione eseguendo questo comando:
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
 	Verificare che i provider siano stati registrati correttamente usando i comandi `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` e `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
@@ -116,7 +107,7 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 	Per recuperare un elenco di insiemi di credenziali esistenti, usare il cmdlet `Get-AzureRmRecoveryServicesVault`.
 
-> [AZURE.NOTE] Per eseguire operazioni sugli insiemi di credenziali di Site Recovery creati usando il portale classico o il modulo di PowerShell di gestione dei servizi di Azure, è possibile recuperare un elenco di tali insiemi di credenziali usando il cmdlet `Get-AzureRmSiteRecoveryVault`. Per tutte le nuove operazioni, occorre creare un nuovo insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Site Recovery creati prima sono comunque supportati, ma non dispongono delle ultime funzionalità.
+> [AZURE.NOTE] Per eseguire operazioni sulle credenziali di Site Recovery create usando il portale classico o il modulo di PowerShell di gestione dei servizi di Azure, è possibile recuperare un elenco di tali credenziali usando il cmdlet `Get-AzureRmSiteRecoveryVault`. Per tutte le nuove operazioni, occorre creare un nuovo insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Site Recovery creati prima sono comunque supportati, ma non dispongono delle ultime funzionalità.
 
 ## Passaggio 3: Impostare il contesto dell’insieme di credenziali di Servizi di ripristino
 
@@ -266,4 +257,4 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

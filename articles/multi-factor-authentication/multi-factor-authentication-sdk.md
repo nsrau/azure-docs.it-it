@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="06/16/2016" 
 	ms.author="billmath"/>
 
 # Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
+
+> [AZURE.IMPORTANT]  Per poter scaricare l'SDK è necessario creare un provider di Multi-Factor Authentication di Azure anche se si dispone di licenze di Azure MFA, AAD Premium o EMS. Se si crea un provider di Multi-Factor Authentication di Azure per questo scopo e si dispone già di licenze, è necessario creare il provider con il modello **Per utente abilitato** e collegare il provider alla directory che contiene le licenze di Azure MFA, Azure AD Premium o EMS. Ciò garantisce di non ricevere addebiti, a meno che il numero di utenti singoli che usano l'SDK sia maggiore del numero di licenze possedute.
 
 Il Software Development Kit (SDK) di Azure Multi-Factor Authentication consente di compilare la verifica di telefonata e SMS direttamente nei processi di accesso o di transazione delle applicazioni nel tenant di Azure AD.
 
@@ -33,7 +35,7 @@ Poiché le API non hanno accesso agli utenti registrati in Azure Active Director
 
 ## Scaricare il server Azure Multi-Factor Authentication 
 
-Esistono due modi diversi per scaricare l'SDK di Azure Multi-Factor Authentication. Entrambi vengono eseguiti con il portale di Azure. Il primo prevede la gestione diretta del provider di Multi-Factor Authentication, il secondo l'uso delle impostazioni del servizio. La seconda opzione richiede un provider Multi-Factor Authentication o una licenza di Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
+Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md). Questo richiede una sottoscrizione di Azure completa, anche se si possiedono licenze di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. Per scaricare l'SDK, è necessario accedere al portale di gestione Multi-Factor o gestendo direttamente il provider di Multi-Factor Authentication o facendo clic sul collegamento **Vai al portale** nella pagina delle impostazioni del servizio MFA.
 
 
 ### Per scaricare l'SDK di Azure Multi-Factor Authentication dal portale di Azure
@@ -193,4 +195,4 @@ Nel seguente codice lato server, la Multi-Factor Authentication è configurata e
 	    }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

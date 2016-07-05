@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati 
@@ -177,7 +177,7 @@ La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condiv
 
 **VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](http://ess.r-project.org/).
 
-**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit per Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit per Eclipse sono disponibili nella pagina [Azure Toolkit per Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. In Eclipse è anche installato un plug-in denominato **Azure Toolkit per Eclipse** che consente di creare, sviluppare, testare e distribuire facilmente applicazioni Azure con l'ambiente di sviluppo di Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni sul toolkit di Azure per Eclipse sono disponibili nella pagina [Toolkit di Azure per Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** viene installato tramite il pacchetto texlive insieme a un pacchetto di componenti aggiuntivi di Emacs, [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html), che semplifica la creazione di documenti LaTex in Emacs.
 
@@ -228,7 +228,7 @@ Per accedere a **Postgres**:
 ### Strumenti di Azure 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la pagina di documentazione sull'[interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools/).
+- **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente ***azure help***. Per altre informazioni, vedere la pagina di documentazione sull'[interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md).
 - **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Storage Explorer dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando ***StorageExplorer***. È necessario essere connessi da un client X2go o avere installato X11 Forwarding. 
 - **Librerie di Azure**: di seguito sono riportate alcune delle librerie installate e disponibili.
 
@@ -354,7 +354,7 @@ Verrà aperta un'interfaccia grafica con un set di schede. Qui è disponibile un
 Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 
 * Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

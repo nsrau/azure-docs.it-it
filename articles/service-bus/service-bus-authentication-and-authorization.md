@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticazione e autorizzazione del bus di servizio | Microsoft Azure"
-   description="Panoramica dell'autenticazione della firma di accesso condiviso."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Autenticazione e autorizzazione del bus di servizio | Microsoft Azure"
+    description="Panoramica dell'autenticazione della firma di accesso condiviso."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticazione e autorizzazione del bus di servizio
 
@@ -73,4 +73,4 @@ Per una panoramica generale della firma di accesso condiviso nel bus di servizio
 
 Per altre informazioni sui token ACS, vedere [Procedura: Richiedere un token da ACS tramite il protocollo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

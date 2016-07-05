@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -45,17 +45,13 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
 ## Passaggi successivi
 
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Ripristino temporizzato tramite l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per istruzioni dettagliate su come eseguire il ripristino temporizzato utilizzando PowerShell, vedere l'articolo sul [ripristino temporizzato tramite PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Per informazioni su come eseguire il ripristino temporizzato tramite l'API REST, vedere l'articolo sul [ripristino temporizzato mediante l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Per una panoramica del ripristino temporizzato, vedere l'articolo sul [ripristino temporizzato](sql-database-point-in-time-restore.md). ore.md)
+- Per una spiegazione completa su come eseguire il ripristino dall'errore di un utente o di un'applicazione, vedere l'articolo sul [ripristino da errori dell'utente](sql-database-user-error-recovery.md).
 
 ## Risorse aggiuntive
 
-- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

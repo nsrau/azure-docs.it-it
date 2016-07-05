@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Note sulla versione dell'aggiornamento 0.1 per l'array virtuale StorSimple | Microsoft Azure"
-   description="Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'aggiornamento 0.1."
+   pageTitle="Note sulla versione degli aggiornamenti per l'array virtuale StorSimple | Microsoft Azure"
+   description="Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'Aggiornamento 0.2 e 0.1."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/27/2016"
+   ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# Note sulla versione dell'aggiornamento 0.1 per l'array virtuale StorSimple
+# Note sulla versione dell'Aggiornamento 0.2 e 0.1 per l'array virtuale StorSimple
 
 ## Panoramica
 
-Le seguenti note sulla versione identificano i problemi critici aperti e risolti per la versione dell'aggiornamento 0.1 dell'array virtuale di Microsoft Azure StorSimple. L'array virtuale di Microsoft Azure StorSimple è noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple. Questa versione corrisponde alla versione del software **10.0.10279.0**.
+Le seguenti note sulla versione identificano i problemi critici aperti e risolti per lgi aggiornamenti dell'array virtuale di Microsoft Azure StorSimple. L'array virtuale di Microsoft Azure StorSimple è noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple.
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il dispositivo virtuale StorSimple, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
-> [AZURE.NOTE] L'aggiornamento 0.1 è un aggiornamento problematico che comporta il riavvio del dispositivo. Se sono in corso IO, il dispositivo registra tempi di inattività.
+L'Aggiornamento 0.2 corrisponde alla versione del software **10.0.10280.0**; l'Aggiornamento 0.1 corrisponde invece alla versione **10.0.10279.0**. Nelle sezioni seguenti sono elencate le modifiche per ogni aggiornamento.
+
+> [AZURE.NOTE] Gli aggiornamenti comportano il riavvio del dispositivo. Se sono in corso operazioni di I/O, il dispositivo va incontro a tempi di inattività.
+
+## Problemi risolti nell'Aggiornamento 0.2
+L'Aggiornamento 0.2 include tutte le modifiche introdotte dall'Aggiornamento 0.1, con in più la correzione descritta nella tabella seguente:
+
+Funzionalità | Problema |
+--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Aggiornamenti | Nell'ultima versione gli aggiornamenti non venivano rilevati automaticamente nel portale di Azure classico, pertanto per installarli era necessario utilizzare l'interfaccia utente Web locale. Tale problema è stato corretto in questa versione. Installando l'Aggiornamento 0.2, è possibile installare gli aggiornamenti futuri tramite il portale di Azure classico.                       
 
 ## Novità dell'aggiornamento 0.1
 
@@ -81,6 +90,6 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 
 ## Passaggio successivo
 
-[Installare l'aggiornamento 0.1](storsimple-ova-install-update-01.md) sull'array virtuale StorSimple
+[Installare aggiornamenti](storsimple-ova-install-update-01.md) nell'array virtuale StorSimple
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -248,7 +248,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
 
 1. Sostituire il valore di **$storageProfile** con il nome da usare per il profilo di archiviazione e quindi creare la variabile:  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Creare le variabili che definiscono l'immagine da usare:
       
@@ -264,7 +264,7 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
         
 4. Creare il profilo di archiviazione:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Set di scalabilità di macchine virtuali
 
@@ -298,7 +298,7 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 
 - Portale di Azure: tramite il portale è disponibile una quantità limitata di informazioni.
 - [Esplora risorse di Azure](https://resources.azure.com/): si tratta dello strumento migliore per esaminare lo stato corrente del set di scalabilità.
-- Azure PowerShell: per ottenere informazioni, usare il comando seguente:
+- Azure PowerShell: per ottenere informazioni, usare il comando seguente.
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -313,4 +313,4 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 - È consigliabile impostare il ridimensionamento automatico del set di scalabilità. A tale scopo, usare le informazioni disponibili in [Ridimensionamento automatico e set di scalabilità di macchine virtuali](virtual-machine-scale-sets-autoscale-overview.md).
 - Altre informazioni sull'aumento delle prestazioni sono disponibili in [Scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

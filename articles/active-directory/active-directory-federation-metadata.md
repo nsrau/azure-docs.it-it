@@ -163,4 +163,4 @@ Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune v
   </IDPSSODescriptor>
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

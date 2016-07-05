@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Utilizzo di access condizionale
-> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 È possibile configurare regole di accesso per concedere accesso condizionale alle applicazioni pubblicate tramite il proxy di applicazione. Ciò consente di:
 
@@ -44,7 +43,7 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 
   - Per escludere in modo esplicito gruppi di sicurezza dalla regola, selezionare **Escludi** e specificare uno o più gruppi. Gli utenti che sono membri di un gruppo nell'elenco Tranne non dovranno eseguire l'autenticazione a più fattori.  
 
-  - Se un utente è stato configurato utilizzando la funzionalità di Multi-Factor Authentication per utente, questa impostazione avrà la precedenza sulle regole della Multi-Factor Authentication dell’applicazione. Ciò significa che a un utente che è stato configurato per l'autenticazione a più fattori per utente verrà richiesto di eseguire l'autenticazione a più fattori, anche se è stato esentato dalle regole di autenticazione a più fattori dell'applicazione. Altre informazioni sull'[autenticazione a più fattori e le impostazioni per utente](../multi-factor-authentication/multi-factor-authentication.md).
+  - Se un utente è stato configurato utilizzando la funzionalità di Multi-Factor Authentication per utente, questa impostazione avrà la precedenza sulle regole della Multi-Factor Authentication dell’applicazione. Ciò significa che a un utente che è stato configurato per l'autenticazione a più fattori per utente verrà richiesto di eseguire l'autenticazione a più fattori, anche se è stato esentato dalle regole di autenticazione a più fattori dell'applicazione. Altre informazioni su [autenticazione a più fattori e impostazioni per utente](../multi-factor-authentication/multi-factor-authentication.md).
 
 6. Selezionare la regola di accesso che si desidera impostare:
 	- **Richiedere la Multi-Factor Authentication**: agli utenti a cui si applicano le regole di accesso verrà richiesta l'autenticazione a più fattori prima di accedere all'applicazione a cui viene applicata la regola.
@@ -55,7 +54,7 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 ## Configurazione di autenticazione a più fattori per servizi di federazione
 Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server AD FS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD.
 
-L'esempio seguente mostra come abilitare l'autenticazione a più fattori in locale usando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) nel tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) nel tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
 Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [distribuzione dell'autenticazione a più fattori di Microsoft Azure in locale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
@@ -67,6 +66,6 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 - [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 - [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
 
-Per le notizie e gli aggiornamenti più recenti, leggere il [blog del proxy di applicazione](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog sul proxy di applicazione)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

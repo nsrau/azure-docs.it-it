@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con ThousandEyes | Microsoft Azure" 
     description="Informazioni su come usare ThousandEyes con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
   
@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per ThousandEyes, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-thousandeyes-tutorial/IC700993.png "Active Directory")
 
@@ -68,9 +68,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ThousandEyes tramite il relativo account in Azure Active Directory utilizzando la federazione basata sul protocollo SAML.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **ThousandEyes** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **ThousandEyes** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configura accesso Single Sign-On")
 
@@ -105,13 +105,13 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     ![Configura Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Configura Single Sign-On")
 
     1.  Selezionare **Enable Single Sign-On**.
-    2.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login Page URL**.
-    3.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout Page URL**.
-    4.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Identity Provider Issuer**.
-    5.  In **Identity Provider Certificate**fare clic su **Choose file**, quindi caricare il certificato scaricato dal portale di Microsoft Azure.
+    2.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login Page URL**.
+    3.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL pagina di disconnessione**.
+    4.  Nella pagina **Configura accesso Single Sign-On in ThousandEyes** del portale di Microsoft Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Provider di identità autorità di certificazione**.
+    5.  In **Certificato Provider di identità**fare clic su **Scegli file**, quindi caricare il certificato scaricato dal portale di Microsoft Azure classico.
     6.  Fare clic su **Save**.
 
-10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configura accesso Single Sign-On")
 
@@ -142,9 +142,9 @@ Per consentire agli utenti di Azure AD di accedere a ThousandEyes, è necessario
     1.  Digitare **Nome**, **E-mail** e altri dettagli di un account Azure Active Directory valido di cui si desidera eseguire il provisioning nelle caselle di testo correlate.
     2.  Fare clic su **Add New User to Account**.
 
-        >[AZURE.NOTE]Il titolare dell’account AAD riceverà un messaggio di posta elettronica con un collegamento per confermare e attivare l'account.
+        >[AZURE.NOTE] Il titolare dell’account AAD riceverà un messaggio di posta elettronica con un collegamento per confermare e attivare l'account.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ThousandEyes per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ThousandEyes per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -152,7 +152,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a ThousandEyes, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell’applicazione **ThousandEyes**, fare clic su **Assegna utenti**.
 
@@ -164,4 +164,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->
