@@ -44,7 +44,7 @@ Registrazione dispositivo Azure Active Directory include il supporto per disposi
 3. Selezionare la propria directory nella scheda **Directory**.
 4. Selezionare la scheda **Configura**.
 5. Scorrere fino alla sezione **Dispositivi**.
-6. Selezionare **TUTTI ** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
+6. Selezionare **TUTTI** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
 7. Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
 
 >[AZURE.NOTE]
