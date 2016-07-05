@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 # SQL Azure con Azure RemoteApp
@@ -27,12 +27,12 @@ Iniziare con la [migrazione di un database SQL Server nel database SQL di Azure]
 ## Configurare Azure RemoteApp
 Ospitare l'applicazione Windows in Azure RemoteApp. Di seguito sono elencati i passaggi generali:
 
-1.     Creare la [VM per il modello di Azure RemoteApp](remoteapp-imageoptions.md). 
+1.     Creare la [VM per il modello di Azure RemoteApp](remoteapp-imageoptions.md).
 2.     Installare l'applicazione necessaria nella VM.
 3.     Configurare l'applicazione in modo che si connetta al database SQL e verificare che funzioni.
 4.     Preparare la VM con Sysprep e arrestarla. Acquisirla come immagine da usare con Azure. **Nota:** sarà necessario assicurarsi che l'applicazione possa conservare le informazioni sulla connettività con il database per tutto il processo sysprep. Se l'applicazione non riesce a conservare le informazioni sulla connessione con il database, è consigliabile consultare il fornitore dell'applicazione e chiedere come specificare la stringa di connessione.
-5.     Importare l'immagine personalizzata nella libreria di Azure RemoteApp selezionando l'esatta posizione geografica in cui si trova la distribuzione di SQL Azure. 
-6.     Distribuire una raccolta RemoteApp nello stesso data center della distribuzione di SQL Azure usando il modello precedente e pubblicare l'applicazione. La distribuzione di Azure RemoteApp nello stesso data center della distribuzione di SQL Azure assicura la massima velocità di connessione e riduce la latenza. 
+5.     Importare l'immagine personalizzata nella libreria di Azure RemoteApp selezionando l'esatta posizione geografica in cui si trova la distribuzione di SQL Azure.
+6.     Distribuire una raccolta RemoteApp nello stesso data center della distribuzione di SQL Azure usando il modello precedente e pubblicare l'applicazione. La distribuzione di Azure RemoteApp nello stesso data center della distribuzione di SQL Azure assicura la massima velocità di connessione e riduce la latenza.
 
 ## Considerazioni sulla configurazione dell'app e di SQL:
 Quando si Azure SQL con RemoteApp, è opportuno considerare alcuni aspetti:
@@ -46,8 +46,8 @@ Per specificare l'intervallo IP, seguire le istruzioni dettagliate in [Procedura
 ## Risoluzione dei problemi
 Se si è rallentati dall'uso di un'applicazione client ospitata in Azure RemoteApp che si connette a un database SQL ospitato in Azure o in locale, i motivi possono essere più di uno.
 
-- La latenza di rete dal dispositivo ad Azure è elevata. Per prestazioni ottimali, usare la connessione di rete più efficiente e rapida possibile. Usare [azurespeed.com](http://azurespeed.com/) come strumento generale per testare la latenza dei dispositivi nel data center di Azure.  
+- La latenza di rete dal dispositivo ad Azure è elevata. Per prestazioni ottimali, usare la connessione di rete più efficiente e rapida possibile. Usare [azurespeed.com](http://azurespeed.com/) come strumento generale per testare la latenza dei dispositivi nel data center di Azure.
 - L'app client ospitata in Azure RemoteApp è in condizione di stress. Selezionare un altro piano di fatturazione, ad esempio la fatturazione Premium, per migliorare le prestazioni. Un altro espediente consiste nel monitorare le risorse utilizzate dall'applicazione: durante una sessione attiva eseguire una sequenza di tasti CTRL+ALT+FINE per avviare la schermata della firma di accesso condiviso, selezionare Gestione attività e osservare l'utilizzo delle risorse per l'app.
-- SQL Server è in condizioni di stress o non è ottimizzato. Seguire le indicazioni relative a SQL per la risoluzione dei problemi. 
+- SQL Server è in condizioni di stress o non è ottimizzato. Seguire le indicazioni relative a SQL per la risoluzione dei problemi.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->
