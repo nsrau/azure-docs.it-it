@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="hangzh;bradsev" />
 
 # Esplorare i dati nelle tabelle Hive con query Hive. 
@@ -78,4 +78,4 @@ Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScienc
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

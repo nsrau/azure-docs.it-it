@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/15/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -23,19 +23,17 @@
 - [Panoramica][]
 - [Portale][]
 - [PowerShell][]
-- [REST][]
-
-Azure SQL Data Warehouse protegge i dati tramite l'archiviazione con ridondanza locale e i backup automatici. I backup automatici consentono di proteggere i database dal danneggiamento o dall'eliminazione accidentale senza l'intervento dell'amministratore. Nel caso in cui un utente modifichi o elimini dati inavvertitamente o accidentalmente, è possibile garantire la continuità aziendale ripristinando il database da un momento precedente nel tempo. SQL Data Warehouse usa snapshot di Archiviazione di Azure per eseguire facilmente il backup del database senza richiedere tempi di inattività.
+- [REST][] di Azure SQL Data Warehouse protegge i dati tramite l'archiviazione con ridondanza locale e i backup automatici. I backup automatici consentono di proteggere i database dal danneggiamento o dall'eliminazione accidentale senza l'intervento dell'amministratore. Nel caso in cui un utente modifichi o elimini dati inavvertitamente o accidentalmente, è possibile garantire la continuità aziendale ripristinando il database da un momento precedente nel tempo. SQL Data Warehouse usa snapshot di Archiviazione di Azure per eseguire facilmente il backup del database senza richiedere tempi di inattività.
 
 ## Backup automatizzati
 
 Il backup del database **attivo** verrà eseguito automaticamente con un intervallo minimo di ogni 8 ore e conservato per 7 giorni. Ciò consente di ripristinare il database attivo a uno dei diversi punti di ripristino degli ultimi 7 giorni.
 
-Quando un database viene sospeso, i nuovi snapshot vengono arrestati e quelli precedenti vengono mantenuti fino alla scadenza di 7 giorni. Se un database viene sospeso per più di 7 giorni, l'ultimo snapshot verrà salvato, per garantire di avere sempre almeno un backup.
+Quando un database viene sospeso, i nuovi backup vengono arrestati e quelli precedenti vengono mantenuti fino alla scadenza di 7 giorni. Se un database viene sospeso per più di 7 giorni, verrà salvato il backup più recente per garantire di avere sempre almeno un backup.
 
-Quando un database viene eliminato, l'ultimo snapshot viene salvato per 7 giorni.
+Quando un database viene eliminato, l'ultimo backup viene conservato per 7 giorni.
 
-Eseguire la query per vedere quando è stato eseguito l'ultimo backup dell'istanza:
+Eseguire la query sull'istanza di SQL Data Warehouse attiva per vedere quando è stato eseguito l'ultimo backup:
 
 ```sql
 select top 1 *
@@ -55,12 +53,12 @@ Il ripristino di SQL Data Warehouse è un'operazione semplice che può essere es
 
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md
+[Panoramica sulla continuità aziendale del database SQL]: ./sql-database-business-continuity.md
 [con ridondanza locale]: ../storage/storage-redundancy.md
 [Panoramica]: ./sql-data-warehouse-restore-database-overview.md
 [Portale]: ./sql-data-warehouse-restore-database-portal.md
@@ -72,4 +70,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

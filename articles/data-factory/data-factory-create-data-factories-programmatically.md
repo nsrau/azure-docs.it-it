@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK
@@ -393,4 +393,4 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

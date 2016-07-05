@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
-# Utilizzo dell'account Office 365 esistente con la sottoscrizione di Azure e viceversa
+# Uso dell'account di Office 365 esistente con la sottoscrizione di Azure o viceversa
 Scenario: si dispone già di una sottoscrizione Office 365 e si è pronti per una sottoscrizione di Azure ma si vuole usare uno o più account utente di Office 365 esistenti per la sottoscrizione di Azure. In alternativa, si dispone di una sottoscrizione di Azure e si vuole ottenere una sottoscrizione di Office 365 per gli utenti di Azure Active Directory esistenti. Questo articolo mostra come è facile ottenere entrambi.
 
 > [AZURE.NOTE] Questo articolo non si applica ai clienti con Contratto Enterprise.
@@ -144,4 +144,7 @@ Per altre informazioni vedere [Associare le sottoscrizioni di Azure ad Azure Act
 - Le sottoscrizioni di Azure appartengono a singoli utenti nella directory.
 - Le sottoscrizioni di Office 365 appartengono alla directory stessa. Gli utenti all'interno della directory possono agire sulle sottoscrizioni se hanno le autorizzazioni necessarie.
 
-<!---HONumber=AcomDC_0518_2016-->
+##Passaggi successivi
+Esiste uno scenario correlato in cui sono state acquistate separatamente la sottoscrizione di Azure e l'abbonamento a Office 365 e si vuole poter accedere al tenant di Office 365 dalla sottoscrizione di Azure. Per informazioni su come eseguire questa attività, vedere [Associare un tenant di Office 365 con una sottoscrizione di Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+
+<!---HONumber=AcomDC_0622_2016-->

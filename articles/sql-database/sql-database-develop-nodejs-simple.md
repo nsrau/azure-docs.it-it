@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 # Connettersi al Database SQL tramite Node.js
@@ -38,8 +38,14 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 [Modello di verifica della connessione a SQL tramite Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Rivedere l'articolo [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
+* Altre informazioni sui [driver Microsoft Node.js per SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Risorse aggiuntive 
+
+* [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
+
+<!---HONumber=AcomDC_0622_2016-->

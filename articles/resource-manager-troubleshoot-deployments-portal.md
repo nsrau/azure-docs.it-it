@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
 # Visualizzare le operazioni di distribuzione con il portale di Azure
@@ -25,53 +25,9 @@
 - [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. Il portale di Azure offre un'interfaccia che consente di individuare facilmente gli errori e determinare potenziali correzioni.
+È possibile visualizzare le operazioni per una distribuzione tramite il portale di Azure. È possibile che si sia più interessati a visualizzare le operazioni quando si riceve un errore durante la distribuzione, quindi questo articolo è incentrato sulla visualizzazione delle operazioni non riuscite. Il portale offre un'interfaccia che consente di individuare facilmente gli errori e determinare le potenziali correzioni.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
-
-## Usare i log di controllo per risolvere i problemi
-
-[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
-
-Per visualizzare gli errori per una distribuzione, attenersi alla procedura seguente:
-
-1. Visualizzare i log di controllo tramite il portale selezionando **Sfoglia** e **Log di controllo**.
-
-    ![selezionare i log di controllo](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
-
-2. Nel pannello **Log di controllo** verrà visualizzato un riepilogo delle operazioni recenti per tutti i gruppi di risorse nella sottoscrizione. Tale riepilogo include una rappresentazione grafica dell'ora e dello stato delle operazioni, nonché un elenco delle operazioni.
-
-    ![visualizzare le azioni](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
-
-3. È possibile selezionare una delle operazioni nell'elenco. Selezionare l'operazione che contiene l'errore che si desidera esaminare.
-
-    ![selezionare l'operazione](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
-  
-4. Verranno visualizzati tutti gli eventi per tale operazione. Si notino gli **ID di correlazione** nel riepilogo. Questo ID viene usato per tenere traccia degli eventi correlati. Può essere utile quando si collabora con il supporto tecnico per risolvere un problema. È possibile selezionare qualsiasi evento per visualizzare i relativi dettagli.
-
-    ![selezionare l'evento](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
-
-5. Verranno visualizzati i dettagli sull'evento. In particolare, prestare attenzione all'opzione **Proprietà** per le informazioni sull'errore.
-
-    ![mostrare i dettagli dei log di controllo](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
-
-È possibile filtrare la visualizzazione dei log di controllo per concentrarsi su condizioni specifiche. Per personalizzare la visualizzazione del log di controllo:
-
-1. Selezionare **Filtro** nella parte superiore del pannello **Log di controllo**.
-
-    ![filtrare i log](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
-
-2. Nel pannello **Filtro** selezionare le condizioni per limitare la visualizzazione dei log di controllo solo per le operazioni che si desidera visualizzare. Ad esempio, è possibile filtrare le operazioni per visualizzare solo gli errori per un gruppo di risorse specifico.
-
-    ![impostare le opzioni di filtro](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
-
-3. È possibile filtrare ulteriormente le operazioni impostando un intervallo di tempo. Nell'immagine seguente la visualizzazione viene filtrata per un intervallo di tempo specifico di 20 minuti.
-
-    ![impostare l'ora](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
-
-Dopo l'aggiornamento della visualizzazione dei log di controllo, verranno visualizzate solo le operazioni che soddisfano la condizione specificata. Tali impostazioni vengono mantenute alla successiva visualizzazione dei log di controllo, quindi potrebbe essere necessario modificare tali valori per ampliare la visualizzazione delle operazioni.
-
-È auspicabile che sia stato possibile scoprire il motivo della distribuzione non riuscita. Per informazioni sullo stato, è anche possibile esaminare le operazioni di distribuzione, come illustrato nella sezione successiva.
 
 ## Usare le operazioni di distribuzione per risolvere i problemi
 
@@ -85,20 +41,70 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 
     ![Stato della distribuzione](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
 
-3. Visualizzare le informazioni sulla distribuzione, quindi selezionare l'operazione non riuscita per visualizzare i dettagli sull'errore.
+3. Selezionare **L'operazione non è riuscita. Fare clic qui per i dettagli** per visualizzare una descrizione del motivo per cui la distribuzione non è riuscita. Nell'immagine seguente il record DNS non è univoco.
 
-    ![visualizzare la distribuzione non riuscita](./media/resource-manager-troubleshoot-deployments-portal/view-failed-deployment.png)
+    ![visualizzare la distribuzione non riuscita](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
 
-4. Nel pannello **Dettagli operazione** verranno visualizzate le informazioni sull'operazione non riuscita. In particolare, prestare attenzione al messaggio di stato.
+    Questo messaggio di errore dovrebbe essere sufficiente per iniziare la risoluzione dei problemi. Tuttavia, se sono necessari altri dettagli sulle attività completate, è possibile visualizzare le operazioni, come illustrato nei passaggi seguenti.
 
-    ![visualizzare il messaggio di stato](./media/resource-manager-troubleshoot-deployments-portal/operations-status.png)
+4. È possibile visualizzare tutte le operazioni di distribuzione nel pan nello **Distribuzione**. Selezionare un'operazione per visualizzare altri dettagli.
 
+    ![visualizzare operazioni](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
+    In questo caso, si noterà che l'account di archiviazione, la rete virtuale e il set di disponibilità sono stati creati correttamente. L'indirizzo IP pubblico non è riuscito e non si sono state tentate altre risorse.
+
+5. È possibile visualizzare gli eventi relativi alla distribuzione selezionando **venti**.
+
+    ![visualizzare eventi](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
+
+6. Visualizzare tutti gli eventi per la distribuzione e selezionarne una per altri dettagli.
+
+    ![vedere eventi](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
+
+## Usare i log di controllo per risolvere i problemi
+
+[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
+
+Per visualizzare gli errori per una distribuzione, seguire questa procedura:
+
+1. Visualizzare i log di controllo per un gruppo di risorse selezionando **Log di controllo**.
+
+    ![selezionare i log di controllo](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
+
+2. Nel pannello **Log di controllo** verrà visualizzato un riepilogo delle operazioni recenti per tutti i gruppi di risorse nella sottoscrizione. Tale riepilogo include una rappresentazione grafica dell'ora e dello stato delle operazioni, nonché un elenco delle operazioni.
+
+    ![visualizzare le azioni](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
+
+3. È possibile filtrare la visualizzazione dei log di controllo per concentrarsi su condizioni specifiche. Selezionare **Filtro** nella parte superiore del pannello **Log di controllo**.
+
+    ![filtrare i log](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
+
+4. Nel pannello **Filtro** selezionare le condizioni per limitare la visualizzazione dei log di controllo solo per le operazioni da visualizzare. Ad esempio, è possibile filtrare le operazioni per visualizzare solo gli errori per un gruppo di risorse.
+
+    ![impostare le opzioni di filtro](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
+
+5. È possibile filtrare ulteriormente le operazioni impostando un intervallo di tempo. L'immagine seguente mostra la visualizzazione è filtrata per un intervallo di tempo specifico di 20 minuti.
+
+    ![impostare l'ora](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
+
+6. È possibile selezionare una delle operazioni nell'elenco. Selezionare l'operazione che contiene l'errore che si desidera esaminare.
+
+    ![selezionare l'operazione](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
+  
+7. Verranno visualizzati tutti gli eventi per tale operazione. Si notino gli **ID di correlazione** nel riepilogo. Questo ID viene usato per tenere traccia degli eventi correlati. Può essere utile quando si collabora con il supporto tecnico per risolvere un problema. È possibile selezionare qualsiasi evento per visualizzare i relativi dettagli.
+
+    ![selezionare l'evento](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
+
+8. Verranno visualizzati i dettagli sull'evento. In particolare, prestare attenzione all'opzione **Proprietà** per informazioni sull'errore.
+
+    ![mostrare i dettagli dei log di controllo](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
+
+Il filtro applicato al log di controllo viene mantenuto nella successiva visualizzazione, quindi potrebbe essere necessario modificare tali valori per ampliare la visualizzazione delle operazioni.
 
 ## Passaggi successivi
 
-- Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+- Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
+- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire le risorse con i modelli di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

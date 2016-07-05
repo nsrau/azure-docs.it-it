@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Usare il servizio StorSimple Manager per visualizzare i processi per l'array virtuale StorSimple
@@ -72,4 +72,4 @@ Questi errori possono verificarsi con processi di backup, ripristino, aggiorname
 
 [Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -294,4 +294,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 ## **Riconoscimenti**
 Questo articolo è stato redatto dal ricercatore informatico Yijing Chen e dal software engineer Min Qiu presso Microsoft.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="06/21/2016"
    ms.author="tiandert; bwren" />
 
-# Soluzione di Automazione di Azure - Provisioning di una macchina virtuale di AWS 
+# Scenario di Automazione di Azure - Provisioning di una macchina virtuale di AWS 
 
 In questo articolo viene illustrato come sfruttare i vantaggi di Automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e come assegnare alla VM un nome specifico. Questa operazione viene definita da AWS come "assegnazione di tag" alla VM.
 
@@ -72,14 +72,14 @@ Dopo la distribuzione del modulo di PowerShell per AWS, è possibile creare un r
 		#Sample to get the AWS VM available images
 		#Please provide the path where you have downloaded the AWS PowerShell module
 		Import-Module AWSPowerShell
-		$AWSRegion = "us-west-2"
+		$AwsRegion = "us-west-2"
 		$AwsCred = Get-Credential
 		$AwsAccessKeyId = $AwsCred.UserName
 		$AwsSecretKey = $AwsCred.GetNetworkCredential().Password
 
 		# Set up the environment to access AWS
-		Set-AWSCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
-		Set-DefaultAWSRegion -Region $AWSRegion
+		Set-AwsCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
+		Set-DefaultAWSRegion -Region $AwsRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
 Viene restituito l'output seguente:<br> ![Ottenere immagini di AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)  
@@ -95,7 +95,7 @@ Prima di continuare il test del runbook, è necessario verificare alcuni element
    -  È stato creato un nuovo runbook e i valori dei parametri sono stati verificati e aggiornati, se necessario
    -  Le opzioni **Registra record dettagliati** e facoltativamente **Registra record di avanzamento** nell'impostazione **Registrazione e traccia** del runbook sono state impostate su **Sì**.<br> ![Registrazione e traccia per i runbook](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
 
-1. Si vuole avviare il runbook, quindi fare clic su **Avvia** e poi fare clic su **OK** quando si apre il pannello Avvia runbook.
+1. Si vuole avviare il runbook, quindi fare clic su **Avvia** e poi su **OK** quando si apre il pannello Avvia runbook.
 2. Nel pannello Avvia runbook fornire un valore **VMname**. Accettare i valori predefiniti per gli altri parametri preconfigurati nello script in precedenza. Fare clic su **OK** per avviare il processo del runbook.<br> ![Avvio del runbook New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. Viene aperto un riquadro del processo per il processo del runbook appena creato. Chiudere questo riquadro.
 4. È possibile visualizzare lo stato del processo e visualizzare l'output di **Flussi** selezionando il riquadro **Tutti i log** dal pannello del processo del runbook.<br> ![Output del flusso](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
@@ -107,4 +107,4 @@ Prima di continuare il test del runbook, è necessario verificare alcuni element
 -	Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 -	Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

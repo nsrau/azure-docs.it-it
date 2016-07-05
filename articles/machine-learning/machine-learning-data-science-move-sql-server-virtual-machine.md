@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
-Questo argomento descrive le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
+Questo argomento descrive le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-Il **menu** seguente collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante l'esecuzione di Cortana Analytics Process (CAP).
+Il **menu** seguente si collega ad argomenti che descrivono come inserire dati in altri ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -224,4 +224,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

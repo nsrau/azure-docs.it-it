@@ -36,7 +36,7 @@ Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i d
 * Altre informazioni: [Protezione del database SQL](sql-database-security.md)
 
 ## Autenticazione
-* L'autenticazione di Windows non è disponibile nel database SQL di Azure, perciò è necessario usare l'autenticazione del database SQL.
+* Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e utenti e account di accesso per l'[autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 * Sarà necessario specificare un database particolare, invece di usare il database predefinito *master*.
 * Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL per passare a un altro database.
 * Altre informazioni: [Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md)
@@ -64,4 +64,8 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 * [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Passaggi successivi
+
+Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
+
+<!---HONumber=AcomDC_0622_2016-->

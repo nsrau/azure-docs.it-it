@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 # Distribuire un eseguibile guest in Service Fabric
@@ -284,6 +284,8 @@ Se si passa alla directory tramite Esplora server è possibile trovare la direct
 
 Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric. Per completare la pubblicazione, è necessario eseguire queste operazioni:
 
+>[AZURE.NOTE] Questa funzionalità richiede l'[SDK versione 2.1.150](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/)
+
 1. Scegliere File -> Nuovo progetto e creare una nuova applicazione di Service Fabric.
 2. Scegliere Eseguibile guest come modello di servizio.
 3. Fare clic su Sfoglia per selezionare la cartella con il file eseguibile e compilare il resto dei parametri per creare il nuovo servizio.
@@ -302,8 +304,8 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
 ## Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
 
-- [Esempio per la creazione del pacchetto e la distribuzione di un eseguibile guest in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
+- [Esempio per la creazione del pacchetto e la distribuzione di un eseguibile guest in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti
 - [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

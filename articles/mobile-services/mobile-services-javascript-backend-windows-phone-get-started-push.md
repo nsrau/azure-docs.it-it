@@ -140,14 +140,14 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di Windows Store di usare Servizi mobili e Hub di notifica per l'invio delle notifiche push. In seguito, è consigliabile eseguire una delle esercitazioni seguenti:
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
++ [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
 
-+ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
 
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Hub di notifica di Azure - Linee guida sulla diagnostica](../notification-hubs/notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
+* [Hub di notifica di Azure - Linee guida sulla diagnostica](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -176,4 +176,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Informazioni su Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

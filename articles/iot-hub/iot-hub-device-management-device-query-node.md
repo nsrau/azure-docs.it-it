@@ -3,7 +3,7 @@
 	description="Esercitazione relativa alla funzionalità Gestione dei dispositivi dell'hub IoT di Azure che descrive come eseguire query per trovare dispositivi gemelli."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Esercitazione: Come trovare dispositivi gemelli tramite query con node.js (anteprima)
 
@@ -187,4 +187,4 @@ Per altre informazioni sulle funzionalità di Gestione dei dispositivi dell'hub 
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

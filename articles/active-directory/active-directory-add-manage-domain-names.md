@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Gestione dei nomi di dominio personalizzati in Azure Active Directory
@@ -80,4 +80,4 @@ La maggior parte delle attività di gestione relative ai nomi di dominio in Azur
 
 -   [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

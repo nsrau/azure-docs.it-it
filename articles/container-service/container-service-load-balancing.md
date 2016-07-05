@@ -24,7 +24,8 @@ In questo articolo verrà configurato un front-end Web di cui è possibile aumen
 
 ## Prerequisiti
 
-[Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](container-service-connect.md). Seguire anche questa procedura.[AZURE.INCLUDE [Installare l'interfaccia della riga di comando di DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
+[Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md) con un agente di orchestrazione di tipo DC/OS e [assicurarsi che il client possa connettersi al cluster](container-service-connect.md). Seguire anche questa procedura.
+[AZURE.INCLUDE [Installare l'interfaccia della riga di comando di DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
 
 
 ## Bilanciamento del carico.

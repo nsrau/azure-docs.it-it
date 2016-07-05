@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -25,7 +25,7 @@
 
 Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperimento e usarlo come parte di un altro esperimento. A tale scopo, si salva il modulo come un set di dati:
 
-1. Fare clic con il pulsante destro del mouse sull'output del modulo che si vuole salvare come set di dati.
+1. Fare clic sull'output del modulo da salvare come set di dati.
 
 2. Fare clic su **Salva come set di dati**.
 
@@ -35,4 +35,4 @@ Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperi
 
 Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsiasi esperimento dell'area di lavoro. È possibile individuarlo nell’elenco **Set di dati salvati** nella tavolozza dei moduli.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

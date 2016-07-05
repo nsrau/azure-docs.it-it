@@ -72,7 +72,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 * [Introduzione all'autenticazione](mobile-services-android-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
-* [Informazioni su Hub di notifica](../notification-hubs/notification-hubs-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
+* [Informazioni su Hub di notifica](../notification-hubs/notification-hubs-push-notification-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
 * [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive per la risoluzione dei problemi e il debug delle soluzioni di Hub di notifica.
 
@@ -87,4 +87,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

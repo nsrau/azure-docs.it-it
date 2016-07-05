@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/17/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
@@ -80,7 +80,8 @@ $RestoredDatabase.status
 
 ```
 
-Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato seguendo la guida sulla [finalizzazione di un database ripristinato][].
+>[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
+
 
 ## Ripristino di un database eliminato
 
@@ -116,7 +117,8 @@ $RestoredDatabase.status
 
 ```
 
-Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
+>[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
+
 
 ## Eseguire il ripristino da un'area geografica di Azure
 
@@ -146,32 +148,26 @@ $GeoRestoredDatabase.status
 
 ```
 
-### Configurare il database dopo l'esecuzione di un ripristino geografico
+>[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
 
-Si tratta di un elenco di controllo che può essere utilizzato per avere pronta la produzione di database ripristinati.
-
-1. **Aggiornare le stringhe di connessione**: verificare che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
-2. **Modificare le regole del firewall**: verificare le regole del firewall sul server di destinazione, quindi assicurarsi che le connessioni tra i computer client o Azure e il server e il database appena ripristinato siano abilitate.
-3. **Verificare gli account di accesso al server e gli utenti del database**: controllare che tutti gli account di accesso usati dall'applicazione siano presenti sul server che ospita il database ripristinato. Ricreare gli account di accesso mancanti e concedere loro le autorizzazioni appropriate per il database ripristinato. 
-4. **Abilitare il controllo**: se è necessario il controllo di accesso al database, attivarlo dopo il ripristino.
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
 
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere la [panoramica sulla continuità aziendale per database SQL di Azure][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sulla continuità aziendale per database SQL di Azure]: sql-database-business-continuity.md
-[Finalizzare il database SQL di Azure ripristinato]: sql-database-recovered-finalize.md
-[finalizzazione di un database ripristinato]: sql-database-recovered-finalize.md
+[Panoramica sulla continuità aziendale del database SQL]: sql-database-business-continuity.md
+[Finalize a recovered database]: sql-database-recovered-finalize.md
 [Come installare e configurare Azure PowerShell]: powershell-install-configure.md
 [Panoramica]: ./sql-data-warehouse-restore-database-overview.md
 [Portale]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalizzare un database ripristinato]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -183,4 +179,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Azure Portal]: https://portal.azure.com/
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,16 +13,12 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="05/09/2016"
+  ms.date="06/21/2016"
   ms.author="andrl"/>
 
 # Portale della community
 
-<hr/>
-
 ## In evidenza nella community
-
-<hr/>
 
 È possibile promuovere il proprio progetto. Mostrando tramite la community lo straordinario progetto su cui si sta lavorando con DocumentDB, si potrà condividere la propria abilità con tutto il mondo. Per inviare il progetto, scrivere un messaggio di posta elettronica a: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
@@ -60,7 +56,7 @@ Altre informazioni sono disponibili su [GitHub](https://github.com/a8m/doqmentdb
 
 Un file Swagger dell'API REST per DocumentDB che può essere facilmente distribuito come App per le API.
 
-Altre informazioni su [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
+Informazioni su [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 
 ### fluent-plugin-documentdb
@@ -69,39 +65,29 @@ Altre informazioni su [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/m
 
 fluent-plugin-documentdb è un plug-in Fluentd per l'output in Azure DocumentDB.
 
-Altre informazioni sono disponibili su [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
-
-<br/><br/>
+Altre informazioni sono disponibili su [Github](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
 *Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
-<br/><br/>
-
-<hr/>
-
 ## Notizie, blog e articoli
-
-<hr/>
 
 Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, seguire il [blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
-<br/>
-
 **Post della community:**
 
-* [**Integrazione con i social con DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *di Matias Quarantaas*
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) (Integrazione con i social con DocumentDB) - *di Matias Quarantaas*
 
-* [**UWP, servizi app di Azure e DocumentDB: un'applicazione per la condivisione di foto**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *di Eric Langland*
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) (UWP, servizi app di Azure e DocumentDB: un'applicazione per la condivisione di foto) - *di Eric Langland*
 
 * [**Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica**](documentdb-change-notification.md) - *di Howard Edidin*
 
-* [**Raccolta di log in Azure DocumentDB usando fluent plug-in-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *di Yoichi Kawasaki*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) (Raccolta di log in Azure DocumentDB usando fluent plug-in-documentdb) - *di Yoichi Kawasaki*
 
-* [**DocumentDB Parte 1/2 – La teoria**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *di Peter Mannerhult*
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) (DocumentDB Parte 1/2 - La teoria) - *di Peter Mannerhult*
 
-* [**Cosa amare e odiare di Azure DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *di George Saadeh*
+* [**What to love and hate about Azure's DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) (Cosa amare e odiare di Azure DocumentDB) - *di George Saadeh*
 
-* [**Scripting sul lato server per Azure DocumentDB**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *di Robert Sheldon*
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Scripting sul lato server per Azure DocumentDB) - *di Robert Sheldon*
 
 * [**DocumentDB come sink dati per Analisi di flusso di Azure**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *di Jan Hentschel*
 
@@ -131,24 +117,16 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 * [**Post relativo ad Azure DocumentDB: Backup temporizzati**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *Di Juan Carlos Sanchez*
 
-<br/><br/>
-
 *Per condividere un post di blog, un esempio di codice o un case study, [fare clic qui](mailto:askdocdb@microsoft.com).*
 
-<br/><br/>
-
-<hr/>
-
 ## Eventi e registrazioni
-
-<hr/>
 
 ### Eventi recenti e futuri
 
 | Nome evento | Relatore | Percorso | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Meetup: gruppo di utenti di Azure Regno Unito](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londra, Regno Unito | 12 maggio 2016 | N/D |
-| [Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/) | Santosh Hari | Orlando, FL | 12 maggio 2016 | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
+| [Integration and IoT ](http://www.btug.be/events) (Integrazione e IoT) | Eldert Grootenboer | Kontich, Belgio | 30 giugno 2016 | N/D |
+
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askdocdb@microsoft.com) per ottenere assistenza.*
 
@@ -156,8 +134,10 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Data | Registrazione |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Regno Unito | 4-7 maggio 2016 | N/D
-| [Meetup: Gruppo sviluppatori .NET di New York](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, NY | 21 aprile 2016 | N/D |
+| [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) | Howard S. Edidin | Webcast | 20 giugno 2016 | N/D |
+| [Meetup: gruppo di utenti di Azure Regno Unito](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | Londra, Regno Unito | 12 maggio 2016 | N/D
+|[Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| Orlando, FL| 12 maggio 2016| N/D 
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Regno Unito | 4-7 maggio 2016 | N/D| [Meetup: Gruppo sviluppatori .NET di New York](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, NY | 21 aprile 2016 | N/D |
 | [Integration User Group](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 aprile 2016 | N/D |
 | [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 aprile 2016 | N/D |
 | [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 aprile 2016 | N/D |
@@ -174,7 +154,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/Sessions/Details.aspx?sid=36090) | Leonard Lobel | Sofia, Bulgaria | 10 ottobre 2015 | N/D |
 | [SQL Saturday #444 - Kansas City 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) | Jeff Renz | Kansas City, MO | 3 ottobre 2015 | N/D |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) | Leonard Lobel | Porto, Portogallo | 3 ottobre 2015 | n/d |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | David Makogon, Ryan Crawcour, John Macintyre | Evento virtuale | 29 settembre 2015 | [Piattaforma dati e analisi di Azure](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Uso dei dati NoSQL in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | David Makogon, Ryan Crawcour, John Macintyre | Evento virtuale | 29 settembre 2015 | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
 | [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) | Leonard Lobel | Utrecht, Paesi Bassi | 26 settembre 2015 | [Introduzione ad Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday #441 - Denver 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) | Jeff Renz | Denver, CO | 19 settembre 2015 | N/D |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) | Andrew Liu | San Francisco, CA | 15 settembre 2015 | N/D |
@@ -189,7 +169,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londra, Regno Unito | 19 maggio 2015 | N/D |
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | N/D |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 maggio 2015 | N/D |
-| [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [Video SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) [Video DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1 maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhagen, Danimarca | 16 aprile 2015 | N/D |
@@ -230,24 +210,15 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Partner di formazione | Descrizione |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy offre formazione a cura delle persone che hanno contribuito alla creazione di Azure DocumentDB. |
-| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight è uno dei principali partner Microsoft a offrire formazione su Azure. Un abbonato MSDN può usare i vantaggi di cui dispone per accedere alla formazione su Microsoft Azure. |
-| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility offre formazione tecnica approfondita su Microsoft Azure. È possibile scegliere tra sessioni di formazione svolte da docenti in loco e classi remote a cura di autorevoli professionisti del settore della formazione. |
-
-<br/><br/>
-
-<hr/>
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) offre formazione a cura delle persone che hanno contribuito a creare Azure DocumentDB. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) è uno dei principali partner Microsoft a offrire formazione su Azure. Un abbonato MSDN può usare i vantaggi di cui dispone per accedere alla formazione su Microsoft Azure. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) offre formazione tecnica approfondita su Microsoft Azure. È possibile scegliere tra sessioni di formazione svolte da docenti in loco e classi remote a cura di autorevoli professionisti del settore della formazione. |
 
 ## Discussione
-
-<hr/>
-
 
 ### Twitter
 
 È possibile seguire la community su Twitter [@DocumentDB](https://twitter.com/DocumentDB) e rimanere aggiornati sulla conversazione più recente con l'hashtag [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
-
-<br/><br/>
 
 ### Forum online
 
@@ -256,24 +227,13 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | Sito di domande e risposte modificate in modalità collaborativa e indipendenti dalla lingua destinato ai programmatori. Seguire il tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) | Un ottimo riferimento di supporto, commenti e suggerimenti sulle funzionalità e sui servizi di Microsoft Azure, come Siti Web, DocumentDB e così via. |
 
-<br/><br/>
-
-<hr/>
-
 ## Contattare il team
 
-| | |
-| -------------------------------------------------------- | --- |
-|![Team](./media/documentdb-community/documentdb-team.png) | È necessaria l'assistenza tecnica? Altre domande? Dubbi sul fatto che NoSQL sia la scelta ottimale?<br/><br/>È possibile [pianificare una chat personale direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/).<br/><br/>È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB). |
+![Team](./media/documentdb-community/documentdb-team.png)
 
-
-<br/><br/>
-
-<hr/>
+È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile [pianificare una chat personale direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/). È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Progetti open source
-
-<hr/>
 
 Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source..
 
@@ -293,19 +253,19 @@ Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in coll
 | Connettore Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Strumento di migrazione dei dati | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Area download Microsoft](http://www.microsoft.com/it-IT/download/details.aspx?id=46436) |
 
-<hr/>
-
 ## Wizard di DocumentDB
 
-<hr/>
-
 Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande impegno nell'aiutare gli altri utenti a sfruttare al meglio i vantaggi di Azure DocumentDB. Condividono la loro grande passione, l'esperienza e la competenza tecnica con la community e con il team di DocumentDB.
-
-| | | | |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
-| [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
+      
+                                                                                                                                                                                                                                                                                                           Wizard | Picture 
+ --- | --- 
+ [Allan Mitchell](https://twitter.com/allansqlis) | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) 
+ [Jen Stirrup](https://twitter.com/jenstirrup) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup)            
+ [Lenni Lobel](https://twitter.com/lennilobel) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) |          
+ [Mihail Mateev](https://twitter.com/mihailmateev) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
+ [Larry Maccherone](https://twitter.com/lmaccherone) | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) 
+ [Howard Edidin](https://twitter.com/hsedidin) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) 
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

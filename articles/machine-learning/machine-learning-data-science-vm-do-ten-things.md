@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati
@@ -910,4 +910,4 @@ Sono stati inclusi in un pacchetto diversi strumenti che permettono di soddisfar
 ## Riepilogo
 Queste sono solo alcune delle attività che è possibile eseguire nella macchina virtuale per l'analisi scientifica dei dati di Microsoft. Ce ne sono molte altre che è possibile eseguire per renderla un ambiente di analisi efficace.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

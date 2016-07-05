@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Il Cortana Analytics Process in azione: mediante SQL Server | Microsoft Azure"
+	pageTitle="Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever | Microsoft Azure"
 	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev"/>
 
 
-# Il Cortana Analytics Process in azione: mediante SQL Server
+# Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever
 
-In questa esercitazione si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando un set di dati disponibili pubblicamente: il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
+In questa esercitazione si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/). La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -716,4 +716,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

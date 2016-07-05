@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Procedura: Configurare un firewall del database SQL | Microsoft Azure"
+	pageTitle="Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL | Microsoft Azure"
 	description="Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="06/15/2016"
 	ms.author="rickbyh"/>
 
 
-# Procedura: Configurare un firewall del database SQL di Azure con TSQL
+# Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL
 
 
 > [AZURE.SELECTOR]
@@ -75,6 +75,18 @@ Per altre informazioni su queste stored procedure, vedere [sp\_set\_database\_fi
 
 ## Passaggi successivi
 
+Per informazioni su come creare regole firewall a livello di server con altri metodi, vedere:
+
+- [Configurare regole firewall a livello di server del database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)
+- [Configurare le regole firewall a livello di server per il database SQL di Azure con PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configurare regole firewall a livello di server del database SQL di Azure tramite l'API REST](sql-database-configure-firewall-settings-rest.md)
+
 Per un'esercitazione sulla creazione di un database, vedere [Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md). Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+
+## Risorse aggiuntive
+
+- [Protezione del database](sql-database-security.md)
+- [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_0622_2016-->

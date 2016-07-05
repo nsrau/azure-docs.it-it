@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Creare applicazioni che utilizzano le code del Bus di servizio
@@ -53,13 +53,13 @@ L’utilizzo di un messaggio di cosa da interporre tra producer e consumer forni
 
 Nella sezione seguente viene illustrato come utilizzare il Bus di servizio per costruire l'applicazione.
 
-### Iscriversi a un account del Bus di servizio e sottoscrizione
+### Iscriversi a un account Azure
 
 È necessario un account Azure per iniziare a lavorare con il Bus di servizio. Se non si dispone di una sottoscrizione, è possibile iscriversi per un account gratuito [qui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creare uno spazio dei nomi del servizio
 
-Dopo aver creato una sottoscrizione, è possibile creare un nuovo spazio dei nomi. Assegnare al nuovo spazio dei nomi un nome univoco tra tutti gli account del Bus di servizio. Ogni spazio dei nomi funge da contenitore di ambito per un set di entità del Bus di servizio.
+Dopo aver creato una sottoscrizione, è possibile [creare un nuovo spazio dei nomi](service-bus-create-namespace-portal.md). Ogni spazio dei nomi funge da contenitore di ambito per un set di entità del Bus di servizio. Assegnare al nuovo spazio dei nomi un nome univoco tra tutti gli account del Bus di servizio.
 
 ### Installare il pacchetto NuGet
 
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### Ricezione di messaggi dalla coda
 
-Il modo più semplice per ricevere messaggi dalla coda consiste nell'utilizzare un oggetto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) che è possibile creare direttamente da [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) utilizzando [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Il destinatario dei messaggi può lavorare in due modalità diverse: **ReceiveAndDelete** e **PeekLock**. Il [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) è impostato quando viene creato il destinatario del messaggio, come parametro per la chiamata [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
+Per ricevere messaggi dalla coda è possibile usare un oggetto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) che può essere creato direttamente da [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) mediante [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Il destinatario dei messaggi può lavorare in due modalità diverse: **ReceiveAndDelete** e **PeekLock**. Il [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) è impostato quando viene creato il destinatario del messaggio, come parametro per la chiamata [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
 
 
 Quando si usa la modalità **ReceiveAndDelete** la ricezione è un'operazione a un'unica fase, ovvero quando il bus di servizio riceve la richiesta, contrassegna il messaggio come consumato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** rappresenta il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come consumato, quando l'applicazione viene riavviata e inizia a consumare nuovamente i messaggi, il messaggio consumato prima dell'arresto anomalo risulterà perso.
 
 Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve la richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sul messaggio ricevuto. Quando il bus di servizio vede la chiamata [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), contrassegna il messaggio come consumato.
 
-Sono possibili altri due risultati. Innanzitutto, se l'applicazione per qualche motivo non riesce a elaborare il messaggio, può chiamare il metodo [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) sul messaggio ricevuto, (invece del metodo [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). In questo modo, il bus di servizio sbloccherà il messaggio che sarà disponibile per essere nuovamente ricevuto dallo stesso consumer o da un altro consumer concorrente. Inoltre, al blocco è associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, (ad esempio a causa di un arresto anomalo), allora il bus di servizio sbloccherà il messaggio rendendolo nuovamente disponibile per la ricezione.
+Sono possibili altri due risultati. Innanzitutto, se l'applicazione per qualche motivo non riesce a elaborare il messaggio, può chiamare il metodo [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) sul messaggio ricevuto, (invece del metodo [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). In questo modo, il bus di servizio sbloccherà il messaggio che sarà disponibile per essere nuovamente ricevuto dallo stesso consumer o da un altro consumer concorrente. Inoltre, al blocco è associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout (ad esempio a causa di un arresto anomalo), il bus di servizio sbloccherà il messaggio rendendolo nuovamente disponibile per la ricezione (eseguendo essenzialmente un'operazione [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) per impostazione predefinita).
 
 Da notare che in caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima dell'invio della richiesta [Completa](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), il messaggio verrà recapitato di nuovo all'applicazione al riavvio del sistema. Questo è spesso definito processo *Almeno una volta*. Indica che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, allora è necessaria una logica aggiuntiva nell'applicazione per rilevare i duplicati. Ciò può essere ottenuto in base alla proprietà [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) del messaggio. Il valore di questa proprietà rimane costante in tutti i tentativi di recapito. Questa situazione è definita un’elaborazione *Exactly Once*.
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione degli argomenti e sottoscrizioni del bus di servizio.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

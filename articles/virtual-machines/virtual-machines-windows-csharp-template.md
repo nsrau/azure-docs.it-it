@@ -39,9 +39,9 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 
 1. Ottenere un elenco di località disponibili in cui possono essere create le risorse.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Sostituire il valore di **$locName** con una località dell'elenco, ad esempio **Stati Uniti centrali**. Creare la variabile.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Sostituire il valore di **$locName** con una posizione dell'elenco, ad esempio **Stati Uniti centrali**. Creare la variabile.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 1. Sostituire il valore di $stName, solo lettere minuscole e numeri, con il nome dell'account di archiviazione. Testare l'univocità del nome.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Se questo comando restituisce **False**, il nome proposto è univoco.
+    Se questo comando restituisce **True**, il nome proposto è univoco.
     
 2. Ora eseguire il comando per creare l'account di archiviazione.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Sostituire {blob-storage-endpoint} con l'endpoint dell'archivio BLOB nell'account. Sostituire {storage-account-name} con il nome del proprio account di archiviazione. Sostituire {primary-storage-key} con la chiave di accesso primaria. Eseguire questi comandi per creare il contenitore in cui sono archiviati i file. È possibile ottenere i valori della chiave e dell'endpoint dal portale di Azure.
 
@@ -497,4 +497,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 - Se si sono verificati problemi con la distribuzione, è consigliabile leggere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

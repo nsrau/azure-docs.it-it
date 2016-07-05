@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Selezione della funzionalità nel Cortana Analytics Process | Microsoft Azure" 
+	pageTitle="Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team | Microsoft Azure" 
 	description="Illustra le finalità della selezione delle funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="zhangya;bradsev" />
 
 
-# Selezione della funzionalità nel Cortana Analytics Process
+# Selezione delle funzionalità nel Processo di analisi scientifica dei dati per i team (TDSP)
 
 Questo argomento illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
@@ -26,7 +26,7 @@ Questo argomento illustra la selezione della funzione e fornisce esempi del rela
 
 Questo argomento illustra la selezione della funzione e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
-La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP.
+La progettazione e la selezione delle funzionalità sono parti del processo TDSP descritto in [Informazioni sul Processo di analisi scientifica dei dati per i team](data-science-process-overview.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP.
 * **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
 * **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
@@ -74,4 +74,4 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

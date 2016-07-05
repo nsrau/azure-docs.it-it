@@ -56,16 +56,16 @@ Per iniziare, [scaricare il pacchetto del cluster autonomo](service-fabric-clust
 
 Questa sezione descrive tutti i certificati necessari per proteggere il cluster Windows autonomo. Abilitare la sicurezza basata sui certificati impostando i valori di **ClusterCredentialType** e **ServerCredentialType** su *X509*.
 
->[AZURE.NOTE] Un'[identificazione personale](https://en.wikipedia.org/wiki/Public_key_fingerprint) è l'identità primaria di un certificato. Per trovare l'identificazione personale dei certificati creati dall'utente, vedere [Procedura: Recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
+>[AZURE.NOTE] Un'[identificazione personale](https://en.wikipedia.org/wiki/Public_key_fingerprint) è l'identità primaria di un certificato. Per trovare l'identificazione personale dei certificati creati dall'utente, vedere [Procedura: Recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
 
 La tabella seguente include l'elenco dei certificati effettivi necessari per l'installazione del cluster:
 
 |**CertificateInformation Setting**|**Descrizione**|
 |-----------------------|--------------------------|
-|ClusterCertificate|Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno primario e uno secondario per il failover. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quello del certificato secondario nelle variabili **ThumbprintSecondary**.|
-|ServerCertificate|Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per *ClusterCertificate* e *ServerCertificate*. È possibile usare due diversi certificati server, uno primario e uno secondario per il failover. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quello del certificato secondario nelle variabili **ThumbprintSecondary**. |
+|ClusterCertificate|Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno primario e uno secondario per il failover. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**.|
+|ServerCertificate|Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per *ClusterCertificate* e *ServerCertificate*. È possibile usare due diversi certificati server, uno primario e uno secondario per il failover. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**. |
 |ClientCertificateThumbprints|Si tratta di un set di certificati che da installare nei client autenticati. È possibile avere diversi certificati client installati nei computer a cui si vuole consentire l'accesso al cluster e alle applicazioni in esecuzione nel cluster stesso. Impostare l'identificazione personale di ogni certificato nella variabile **CertificateThumbprint**. Se si imposta **IsAdmin** su *true*, il client con installato questo certificato può eseguire varie attività di gestione per il cluster. Se **IsAdmin** è *false*, è possibile accedere solo alle applicazioni in esecuzione nel cluster.|
-|ClientCertificateCommonNames|Impostare il nome comune del primo certificato client per **CertificateCommonName**. **CertificateIssuerThumbprint** è l'identificazione personale per l'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](https://msdn.microsoft.com/library/ms731899(v=vs.110).aspx).|
+|ClientCertificateCommonNames|Impostare il nome comune del primo certificato client per **CertificateCommonName**. **CertificateIssuerThumbprint** è l'identificazione personale per l'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](https://msdn.microsoft.com/library/ms731899.aspx).|
 
 
 ## Installare i certificati
@@ -79,7 +79,7 @@ Per proteggere le comunicazioni tra i cluster, è necessario ottenere prima di t
 		Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My `
 		-FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $password -AsPlainText -Force)
 
-Sostituire il *$password* con la password usata per creare il certificato. Sostituire $PfxFilePath con il percorso completo del file PFX copiato in questo nodo.
+Sostituire *$password* con la password usata per creare il certificato. Sostituire $PfxFilePath con il percorso completo del file PFX copiato in questo nodo.
 
 - Impostare il controllo di accesso per questo certificato in modo che il processo di Service Fabric possa usarlo eseguendo questo script:
 
@@ -112,4 +112,4 @@ Dopo aver configurato la sezione **security** del file ClusterConfig.X509.json, 
 
 Una volta che il cluster Windows autonomo sarà in esecuzione e sono stati configurati i client autenticati per la connessione al cluster, vedere la sezione [Connettersi a un cluster sicuro mediante PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) per stabilire la connessione.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Configurare Multipath I/O in host Windows Server per l'array virtuale StorSimple
@@ -139,8 +139,8 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nell'array Sto
 
 	- Dopo aver aggiunto le sessioni (percorsi) desiderate, nella finestra di dialogo **Proprietà iniziatore iSCSI**, selezionare la destinazione e fare clic su **Proprietà**. Nella scheda Sessioni della finestra di dialogo **Proprietà**, notare i quatto identificatori di sessione che corrispondono alle possibili permutazioni di percorso. Per annullare una sessione, selezionare la casella di controllo accanto a un identificatore di sessione, quindi fare clic su **Disconnetti**.
  
-	- Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **Dispositivi**. Per configurare il criterio MPIO per un dispositivo selezionato, fare clic su **MPIO**. Viene visualizzata la finestra di dialogo **
-	-  Dettagli**. Nella scheda **MPIO**, è possibile selezionare le impostazioni **Criterio di bilanciamento del carico** appropriate. È inoltre possibile visualizzare il tipo di percorso **Attivo** o **Standby**.
+	- Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **Dispositivi**. Per configurare il criterio MPIO per un dispositivo selezionato, fare clic su **MPIO**. **
+	-  Viene visualizzata la finestra di dialogo Dettagli**. Nella scheda **MPIO**, è possibile selezionare le impostazioni **Criterio di bilanciamento del carico** appropriate. È inoltre possibile visualizzare il tipo di percorso **Attivo** o **Standby**.
 
 10. Ripetere i passaggi da 8 a 11 per aggiungere altre sessioni (percorsi) alla destinazione. Con due interfacce nell'host e due sull'array virtuale, è possibile aggiungere un totale di quattro sessioni per ogni destinazione.
 
@@ -178,4 +178,4 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nell'array Sto
 Altre informazioni sull'[uso del servizio StorSimple Manager per amministrare l'array virtuale StorSimple](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/23/2016"
+    ms.date="06/21/2016"
     ms.author="alkohli" />
 
 # Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014  
@@ -99,4 +99,4 @@ Questa versione applica anche un aggiornamento del firmware cumulativo che risol
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

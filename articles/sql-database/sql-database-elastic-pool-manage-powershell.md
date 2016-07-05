@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # Monitorare e gestire un pool di database elastici con PowerShell 
@@ -107,6 +107,8 @@ Per recuperare le metriche:
 
 È possibile aggiungere regole di avviso alle risorse per inviare notifiche tramite posta elettronica oppure stringhe di avviso a [endpoint di URL](https://msdn.microsoft.com/library/mt718036.aspx) quando la risorsa raggiunge la soglia di utilizzo impostata. Usare il cmdlet Add-AzureRmMetricAlertRule.
 
+> [AZURE.IMPORTANT]Il monitoraggio dell'utilizzo delle risorse per i pool elastici viene eseguito con un ritardo di almeno 20 minuti. Al momento non è possibile impostare avvisi inferiori ai 30 minuti per i pool elastici. Tutti gli avvisi per i pool elastici impostati con una durata (parametro denominato "-WindowSize" nell'API di PowerShell) inferiore a 30 minuti non possono essere attivati. Controllare che gli avvisi definiti per i pool elastici utilizzino un periodo (WindowSize) di almeno 30 minuti.
+
 In questo esempio viene aggiunto un avviso per ricevere una notifica quando il consumo di eDTU del pool supera una soglia stabilita.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@ In questo esempio viene aggiunto un avviso per ricevere una notifica quando il c
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## Aggiungere avvisi a tutti i database di un pool
 
 È possibile aggiungere regole di avviso a tutti i database di un pool elastico in modo che vengano inviate notifiche tramite posta elettronica o stringhe di avviso a [endpoint di URL](https://msdn.microsoft.com/library/mt718036.aspx) quando una risorsa raggiunge la soglia di utilizzo impostata.
+
+> [AZURE.IMPORTANT] Il monitoraggio dell'utilizzo delle risorse per i pool elastici viene eseguito con un ritardo di almeno 20 minuti. Al momento non è possibile impostare avvisi inferiori ai 30 minuti per i pool elastici. Tutti gli avvisi per i pool elastici impostati con una durata (parametro denominato "-WindowSize" nell'API di PowerShell) inferiore a 30 minuti non possono essere attivati. Controllare che gli avvisi definiti per i pool elastici utilizzino un periodo (WindowSize) di almeno 30 minuti.
 
 In questo esempio viene aggiunto un avviso a ciascuno dei database di un pool in modo che venga inviata una notifica quando il consumo di DTU del database supera una determinata soglia.
 
@@ -156,7 +160,7 @@ In questo esempio viene aggiunto un avviso a ciascuno dei database di un pool in
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
@@ -270,6 +274,6 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 ## Passaggi successivi
 
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
-- Vedere [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
+- Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

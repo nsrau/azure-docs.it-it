@@ -13,12 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/18/2016"
+   ms.date="06/21/2016"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di giugno 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-035 | [3141780] | Aggiornamento della sicurezza di .NET Framework per il bypass della funzionalità di sicurezza | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| Avviso | [3155527] | Aggiornamento dei pacchetti di crittografia per FalseStart | 4\.33, 3.40 | 14 giugno 2016 |
+| MS16-063 | [3163649] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-069 | [3163640] | Aggiornamento cumulativo della sicurezza per JScript e VBScript | 2\.52 | 14 giugno 2016 |
+| MS16-071 | [3164065] | Aggiornamento della sicurezza per server DNS Microsoft Windows | 4\.33, 3.40 | 14 giugno 2016 |
+| MS16-072 | [3163622] | Aggiornamento della sicurezza per Criteri di gruppo | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-073 | [3164028] | Aggiornamento della sicurezza per i driver in modalità kernel | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-074 | [3164036] | Aggiornamento della sicurezza per il componente grafico Microsoft | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-075 | [3164038] | Aggiornamento della sicurezza per server SMB di Windows | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-076 | [3167691] | Aggiornamento della sicurezza per Netlogon | 4\.33 | 14 giugno 2016 |
+| MS16-077 | [3165191] | Aggiornamento della sicurezza per WPAD | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| MS16-080 | [3164302] | Aggiornamento della sicurezza della Libreria PDF di Microsoft Windows | 4\.33, 3.40 | 14 giugno 2016 |
+| MS16-081 | [3160352] | Aggiornamento della sicurezza per Active Directory | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+| | [2922223] | Non è possibile modificare l'ora di sistema se la voce del Registro di sistema RealTimeIsUniversal è abilitata in Windows | 2\.52 | 14 giugno 2016 |
+| | [3121255] | "0x00000024" Errore irreversibile in FsRtlNotifyFilterReportChange e possibile esito negativo della copia di file in Windows | 2\.52 | 14 giugno 2016 |
+| | [3125424] | I deadlock LSASS causano la mancata risposta di Windows Server 2012 R2 o Windows Server 2012 | 4\.33, 3.40 | 14 giugno 2016 |
+| | [3125574] | Aggiornamento cumulativo di servizio per Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.52 | 14 giugno 2016 |
+| | [3140245] | Aggiornare per abilitare TLS 1.1 e TLS 1.2 come protocolli di protezione predefiniti in WinHTTP in Windows | 3\.40, 2.52 | 14 giugno 2016 |
+| | [3146604] | Arresti anomali del servizio WMI in modo casuale in Windows Server 2012 R2 o Windows Server 2012 | 4\.33, 3.40 | 14 giugno 2016 |
+| | [3149157] | Miglioramenti di affidabilità e scalabilità in TCP/IP per Windows 8.1 e Windows Server 2012 R2 | 4\.33 | 14 giugno 2016 |
+| | [3156416] | Maggio 2016 Aggiornamento cumulativo per Windows Server 2012 | 3\.40 | 14 giugno 2016 |
+| | [3156418] | Maggio 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.33 | 14 giugno 2016 |
+| | [3153731] | Maggio 2016 Aggiornamento DST per Azerbaigian, Cile, Haiti e Marocco in Windows | 4\.33, 3.40, 2.52 | 14 giugno 2016 |
+
 
 ## Sistema operativo guest di maggio 
 
@@ -288,6 +317,32 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+
+[3141780]: http://support.microsoft.com/kb/3141780
+[3155527]: http://support.microsoft.com/kb/3155527
+[3163649]: http://support.microsoft.com/kb/3163649
+[3163640]: http://support.microsoft.com/kb/3163640
+[3164065]: http://support.microsoft.com/kb/3164065
+[3163622]: http://support.microsoft.com/kb/3163622
+[3164028]: http://support.microsoft.com/kb/3164028
+[3164036]: http://support.microsoft.com/kb/3164036
+[3164038]: http://support.microsoft.com/kb/3164038
+[3167691]: http://support.microsoft.com/kb/3167691
+[3165191]: http://support.microsoft.com/kb/3165191
+[3164302]: http://support.microsoft.com/kb/3164302
+[3160352]: http://support.microsoft.com/kb/3160352
+[2922223]: http://support.microsoft.com/kb/2922223
+[3121255]: http://support.microsoft.com/kb/3121255
+[3125424]: http://support.microsoft.com/kb/3125424
+[3125574]: http://support.microsoft.com/kb/3125574
+[3140245]: http://support.microsoft.com/kb/3140245
+[3146604]: http://support.microsoft.com/kb/3146604
+[3149157]: http://support.microsoft.com/kb/3149157
+[3156416]: http://support.microsoft.com/kb/3156416
+[3156418]: http://support.microsoft.com/kb/3156418
+[3153731]: http://support.microsoft.com/kb/3153731
+
+
 [3155533]: http://support.microsoft.com/kb/3155533
 [3156764]: http://support.microsoft.com/kb/3156764
 [3156754]: http://support.microsoft.com/kb/3156754
@@ -489,4 +544,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

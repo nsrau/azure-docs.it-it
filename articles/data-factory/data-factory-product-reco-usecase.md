@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Caso d'uso - Consigli sui prodotti 
@@ -60,4 +60,4 @@ Offrendo un'esperienza di acquisto personalizzata, il rivenditore ha messo a pun
 
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

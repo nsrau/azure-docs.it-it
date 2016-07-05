@@ -77,7 +77,7 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
 
 	c. Il numero minimo di macchine virtuali per il tipo di nodo primario è determinato dal livello di affidabilità scelto per il cluster. Il valore predefinito per il livello di affidabilità è Medio. Altre informazioni su come [scegliere l'affidabilità e la durabilità del cluster di Service Fabric](service-fabric-cluster-capacity.md).
 
-	c. Scegliere il numero di macchine virtuali per il tipo di nodo. È possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in un secondo momento, ma per il tipo di nodo primario il minimo è determinato dal livello di affidabilità che si è scelto. Gli altri tipi di nodo possono avere un minimo di una macchina virtuale.
+	c. Scegliere il numero di macchine virtuali per il tipo di nodo. È possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in un secondo momento ma, per il tipo di nodo primario, il minimo è determinato dal livello di affidabilità che si è scelto. Gli altri tipi di nodo possono avere un minimo di 1 VM.
 
 
   	![Schermata della creazione di un tipo di nodo.][CreateNodeType]
@@ -225,4 +225,4 @@ Dopo aver creato un cluster, è possibile reperire altre informazioni sulla rela
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

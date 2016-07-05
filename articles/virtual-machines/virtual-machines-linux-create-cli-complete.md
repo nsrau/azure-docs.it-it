@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Creare una VM Linux da zero con l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Creare una VM Linux, archiviazione, rete virtuale e subnet, scheda di rete, IP pubblico, gruppo di sicurezza di rete tutto da zero tramite l'interfaccia della riga di comando di Azure."
+   pageTitle="Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure | Microsoft Azure"
+   description="Creare da zero VM Linux, risorse di archiviazione, una rete virtuale e una subnet, il bilanciamento del carico, una scheda NIC, un IP pubblico e un gruppo di sicurezza di rete tramite l'interfaccia della riga di comando di Azure."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
-   manager="squillace"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,14 +14,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/29/2016"
+   ms.date="06/10/2016"
    ms.author="iainfou"/>
 
-# Creare una VM Linux da zero con l'interfaccia della riga di comando di Azure
+# Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure
 
-Per creare una macchina virtuale Linux è necessaria l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) con modalità Azure Resource Manager attivata (`azure config mode arm`) e uno strumento di analisi JSON, in questo caso [jq](https://stedolan.github.io/jq/).
+Si creerà una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per semplici calcoli. Viene presentato in dettaglio l'intero ambiente di base, comando per comando, fino a realizzare VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si sarà quindi in grado di passare a reti e ambienti più complessi.
+
+Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver osservato in che modo è compilato il sistema, è possibile ricostruirlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Una volta appreso come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
+
+L'ambiente conterrà:
+
+- Due VM all'interno di un set di disponibilità
+- Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80
+- Regole del gruppo di sicurezza di rete per proteggere la VM dal traffico indesiderato
+
+![Panoramica sull'ambiente di base](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
+
+Per creare questo ambiente personalizzato, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) ed essere in modalità di gestione risorse (`azure config mode arm`). È inoltre necessario lo strumento di analisi JSON. In questo esempio viene usato [jq](https://stedolan.github.io/jq/).
 
 ## Comandi rapidi
+L'ambiente personalizzato viene creato utilizzando i seguenti comandi rapidi. Per conoscere la funzione di ogni comando in fase di compilazione dell'ambiente, leggere con attenzione i [passaggi della procedura dettagliata qui di seguito](#detailed-walkthrough).
 
 Creare il gruppo di risorse
 
@@ -118,16 +131,16 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 Creare la prima scheda di rete
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
 Creare la seconda scheda di rete
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
@@ -175,7 +188,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 Creare la prima VM Linux
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM1 \
     --location westeurope \
@@ -193,7 +206,7 @@ azure vm create \
 Creare la seconda VM Linux
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM2 \
     --location westeurope \
@@ -215,15 +228,14 @@ azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
+Esportare l'ambiente compilato in un modello per ricreare rapidamente le nuove istanze:
+
+```bash
+azure resource export TestRG
+```
+
 ## Procedura dettagliata
-
-### Introduzione
-
-In questo articolo viene creata una distribuzione con due macchine virtuali Linux e un servizio di bilanciamento del carico. Viene presentata in dettaglio l'intera distribuzione di base, comando per comando, fino a realizzare VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet.
-
-Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver appreso come si compila il sistema, si potrà ricompilarlo molto più rapidamente usando comandi dell'interfaccia della riga di comando di Azure più diretti (vedere [questo documento](virtual-machines-linux-quick-create-cli.md) per una distribuzione pressoché uguale con il comando `azure vm quick-create`); in alternativa, è possibile proseguire per comprendere a fondo come progettare e automatizzare le distribuzioni delle applicazioni e dell'intera rete e aggiornarle usando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Una volta appreso come interagiscono le parti della distribuzione, diventa più facile creare modelli per automatizzarle.
-
-Si creerà una semplice rete e un servizio di bilanciamento del carico con un paio di VM utili per lo sviluppo e per semplici calcoli, seguendo una procedura illustrata in dettaglio. Si sarà quindi in grado di passare a distribuzioni e reti più complesse.
+Questi passaggi spiegano in maggiore dettaglio le operazioni eseguite da ogni comando in fase di compilazione dell'ambiente; i concetti illustrati risultano utili man mano che si procede nella creazione di ambienti personalizzati per i carichi di lavoro di sviluppo o produzione.
 
 ## Creare un gruppo di risorse e scegliere i percorsi di distribuzione
 
@@ -926,13 +938,14 @@ Output
 Anche le schede di interfaccia di rete sono disponibili a livello di codice, perché può essere necessario applicarvi regole d'uso e averne più di una. Si noti che nel comando `azure network nic create` seguente la scheda di rete viene associata al pool di indirizzi IP back-end del carico e alla regola NAT per consentire il traffico SSH. A questo scopo occorre specificare l'ID della sottoscrizione di Azure al posto di `<GUID>`:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+     -d /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
 Output
 
 ```bash 
-/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1008,13 +1021,9 @@ Output
 A questo punto si creerà la seconda scheda di rete, associandola al pool di indirizzi IP back-end e alla seconda regola NAT per consentire il traffico SSH:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
-```
-
-Output
-
-```bash
- /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d  /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+    -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
 ## Creare il gruppo di sicurezza di rete e le regole
@@ -1066,9 +1075,9 @@ Per altre informazioni, leggere l'articolo relativo alla [gestione della disponi
 
 ## Creare le VM Linux
 
-Sono state create le risorse di archiviazione e di rete per supportare VM accessibili da Internet. Ora si creeranno tali VM che verranno protette con una chiave SSH senza password. In questo caso, si vuole creare una VM Ubuntu basata sull'LTS più recente. Per trovare informazioni sull'immagini si userà `azure vm image list`, come descritto nell'articolo relativo alla [ricerca di immagini di VM di Azure](virtual-machines-linux-cli-ps-findimage.md). È stata selezionata un'immagine con il comando `azure vm image list westeurope canonical | grep LTS` e in questo caso si userà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, ma per l'ultimo campo si passerà `latest`, in modo da ottenere sempre la build più recente in futuro. La stringa usata sarà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`.
+Sono state create le risorse di archiviazione e di rete per supportare VM accessibili da Internet. Ora si creeranno tali VM che verranno protette con una chiave SSH senza password. In questo caso, si vuole creare una VM Ubuntu basata sull'LTS più recente. Per trovare informazioni sull'immagine si userà `azure vm image list`, come descritto nell'articolo relativo alla [ricerca di immagini di VM di Azure](virtual-machines-linux-cli-ps-findimage.md). È stata selezionata un'immagine con il comando `azure vm image list westeurope canonical | grep LTS` e in questo caso si userà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, ma per l'ultimo campo si passerà `latest`, in modo da ottenere sempre la build più recente in futuro. La stringa usata sarà `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`.
 
-> [AZURE.NOTE] Il passaggio successivo è già noto a chiunque abbia già creato una coppia di chiavi ssh-rsa pubblica e privata in Linux o Mac usando **ssh-keygen -t rsa -b 2048**. Se nella directory `~/.ssh` non sono disponibili coppie di chiavi del certificato, è possibile crearle: <br /> 1. Automaticamente con l'opzione `azure vm create --generate-ssh-keys`. 2. Manualmente usando le [istruzioni per crearle personalmente](virtual-machines-linux-ssh-from-linux.md) <br />. In alternativa, è possibile usare le opzioni `azure vm create --admin-username --admin-password` per usare il metodo meno sicuro basato su nome utente e password per l'autenticazione delle connessioni SSH dopo la creazione della macchina virtuale.
+> [AZURE.NOTE] Il passaggio successivo è già noto a chiunque abbia già creato una coppia di chiavi ssh-rsa pubblica e privata in Linux o Mac usando **ssh-keygen -t rsa -b 2048**. Se nella directory `~/.ssh` non sono disponibili coppie di chiavi del certificato, è possibile crearle: <br /> 1. Automaticamente con l'opzione `azure vm create --generate-ssh-keys`. 2. Manualmente usando le [istruzioni per crearle personalmente](virtual-machines-linux-ssh-from-linux.md) <br />. In alternativa, è possibile usare le opzioni `azure vm create --admin-username --admin-password` per usare il metodo meno sicuro basato su nome utente e password per l'autenticazione delle connessioni SSH dopo la creazione della VM.
 
 Per creare la VM si dovranno unire tutte le risorse e le informazioni con il comando `azure vm create`.
 
@@ -1230,8 +1239,26 @@ data:      Diagnostics Instance View:
 info:    vm show command OK
 ```
 
+
+## Esportare l'ambiente come modello
+Dopo aver creato questo ambiente, è possibile creare un ambiente di sviluppo aggiuntivo utilizzando gli stessi parametri oppure creare un ambiente di produzione compatibile. Resource Manager utilizza modelli di JSON che definiscono tutti i parametri dell'ambiente, permettendo di compilare ambienti interi facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../resource-group-authoring-templates.md) o semplicemente esportare un ambiente esistente per creare il modello JSON desiderato.
+
+```bash
+azure group export TestRG
+```
+
+In tal modo, verrà creato il file `TestRG.json` nella directory di lavoro corrente. Così facendo, quando si procederà a creare un nuovo ambiente da questo modello, verranno chiesti i nomi di tutte le risorse, ad esempio del bilanciamento del carico, delle interfacce di rete, delle VM e così via. È possibile popolare queste risorse nel file del modello aggiungendo il `-p` o `--includeParameterDefaultValue` al comando `azure group export` illustrato in precedenza, modificando il modello JSON in modo da specificare i nomi delle risorse oppure [creando un file di parametri .json](../resource-group-authoring-templates.md#parameters) che specifica solo i nomi delle risorse.
+
+Per creare un nuovo ambiente in base al modello:
+
+```bash
+azure group deployment create -f TestRG.json -g NewRGFromTemplate
+```
+
+Si consiglia di leggere [ulteriori dettagli sulla distribuzione da modelli](../resource-group-template-deploy-cli.md), tra cui come aggiornare gli ambienti in modo incrementale, utilizzare il file di parametri e accedere ai modelli da un unico percorso di archiviazione.
+
 ## Passaggi successivi
 
-Ora è possibile iniziare con più componenti di rete e VM.
+Ora è possibile iniziare con più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

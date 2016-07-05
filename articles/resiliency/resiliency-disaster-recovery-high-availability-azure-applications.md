@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/20/2016"
    ms.author="hanuk;jroth;aglick"/>
 
 #Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure
@@ -54,9 +54,9 @@ Verranno ora esaminati i contratti di servizio seguenti che usano i servizi di A
 
 |Servizio di Azure|Contratto di servizio |Potenziale inattività (in minuti)/mese (30 giorni)|
 |:------------|:-----|:----------------------------------------:|
-|Calcolo |99,95%|21,6 |
-|Database SQL |99,90%|43,2 |
-|Archiviazione |99,90%|43,2 |
+|Calcolo |99,95%|21,6 minuti |
+|Database SQL |99,99%|4,3 minuti |
+|Archiviazione |99,90%|43,2 minuti |
 
 È necessario che la pianificazione tenga conto della possibilità che i servizi diventino non disponibili in momenti diversi. In questo esempio semplificato, il numero totale di minuti al mese in cui l'applicazione potrebbe essere inattiva è pari a 108. Un mese di 30 giorni è costituito da un totale di 43.200 minuti. 108 minuti rappresentano una percentuale pari allo 0,25% del numero totale di minuti in un mese di 30 giorni (43.200 minuti). Questo valore implica una disponibilità effettiva del 99,75% per il servizio cloud.
 
@@ -131,4 +131,4 @@ Quando si crea un piano di disponibilità e ripristino di emergenza dell'applica
 
 Questo articolo fa parte di una serie dedicata a ripristino di emergenza e disponibilità elevata per le applicazioni Azure. L'articolo successivo della serie riguarda [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

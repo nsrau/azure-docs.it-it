@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticazione della firma di accesso condiviso con il bus di servizio | Microsoft Azure"
-   description="Informazioni dettagliate sull'autenticazione della firma di accesso condiviso con il bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Autenticazione della firma di accesso condiviso con il bus di servizio | Microsoft Azure"
+    description="Informazioni dettagliate sull'autenticazione della firma di accesso condiviso con il bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticazione della firma di accesso condiviso con il bus di servizio
 
@@ -25,7 +25,7 @@ Il supporto per l'autenticazione della firma di accesso condiviso è inclusa in 
 
 Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa del bus di servizio. I client richiedono l'accesso alle risorse del bus di servizio presentando un token di firma di accesso condiviso. Questo token è costituito dall'URI della risorsa a cui si accede e da una scadenza firmata con la chiave configurata.
 
-È possibile configurare le regole di autorizzazione di firma di accesso condiviso in [Hub eventi](service-bus-fundamentals-hybrid-solutions.md#relays), [code](service-bus-fundamentals-hybrid-solutions.md#queues), [argomenti](service-bus-fundamentals-hybrid-solutions.md#topics) e [inoltri](https://azure.microsoft.com/documentation/services/event-hubs/) del bus di servizio.
+È possibile configurare le regole di autorizzazione di firma di accesso condiviso in [Hub eventi](service-bus-fundamentals-hybrid-solutions.md#relays), [code](service-bus-fundamentals-hybrid-solutions.md#queues), [argomenti](service-bus-fundamentals-hybrid-solutions.md#topics) e [inoltri](service-bus-fundamentals-hybrid-solutions.md#event-hubs) del bus di servizio.
 
 L'autenticazione della firma di accesso condiviso usa gli elementi seguenti:
 
@@ -35,7 +35,7 @@ L'autenticazione della firma di accesso condiviso usa gli elementi seguenti:
 
 ## Configurazione dell'autenticazione della firma di accesso condiviso
 
-È possibile configurare la regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all'[uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
+È possibile configurare la regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all'[uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 In uno spazio dei nomi, una coda o un argomento del bus di servizio è possibile configurare fino 12 regole di questo tipo. Le regole configurate in uno spazio dei nomi del bus di servizio si applicano a tutte le entità incluse nello spazio dei nomi.
 
@@ -52,7 +52,7 @@ I parametri principali di [SharedAccessAuthorizationRule](https://msdn.microsoft
 |*SecondaryKey*|Chiave secondaria a 256 bit con codifica Base 64 per la firma e la convalida del token di firma di accesso condiviso.|
 |*AccessRights*|Elenco di diritti di accesso concessi dalla regola di autorizzazione. Questi diritti possono essere qualsiasi raccolta di diritti di ascolto, invio e gestione.|
 
-Quando viene eseguito il provisioning di uno spazio dei nomi del bus di servizio, viene creata per impostazione predefinita una regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), con il parametro [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) impostato su **RootManageSharedAccessKey**. Vengono anche configurati due oggetti [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) predefiniti per gli hub di notifica: uno con diritti di ascolto, invio e gestione e uno solo con diritti di ascolto.
+Quando viene eseguito il provisioning di uno spazio dei nomi del bus di servizio, viene creata per impostazione predefinita una regola [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), con il parametro [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) impostato su **RootManageSharedAccessKey**.
 
 ## Rigenerazione e revoca delle chiavi per le regole di autorizzazione di accesso condiviso
 
@@ -254,8 +254,8 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 
 Per una panoramica generale della firma di accesso condiviso nel bus di servizio, vedere [Firme di accesso condiviso](service-bus-sas-overview.md).
 
-Vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md) per altre informazioni sull’autenticazione del bus di servizio.
+Per altre informazioni sull’autenticazione del bus di servizi, vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

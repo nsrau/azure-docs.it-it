@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personalizzare i cluster Hadoop per il Cortana Analytics Process | Microsoft Azure" 
+	pageTitle="Personalizzare i cluster Hadoop per l'analisi scientifica dei dati per i team | Microsoft Azure" 
 	description="Moduli di Python più diffusi resi disponibili nei cluster personalizzati Hadoop di Azure HDInsight."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
-# Personalizzare i cluster Hadoop di Azure HDInsight per il Cortana Analytics Process 
+# Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati per i team 
 
 Questo articolo descrive come personalizzare un cluster Hadoop di HDInsight mediante l'installazione di Anaconda a 64 bit (Python 2.7) in ogni nodo quando viene eseguito il provisioning del cluster come servizio HDInsight. L'articolo illustra inoltre come accedere al nodo head per inviare i processi personalizzati al cluster. Questa personalizzazione rende molti moduli Python comuni inclusi in Anaconda facilmente disponibili per l'uso nelle funzioni definite dall'utente (UDF) progettate per elaborare i record di Hive nel cluster. Per le istruzioni sulle procedure impiegate in questo scenario, vedere [Come inviare query Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
-Il menu seguente si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati usati da Cortana Analytics Process (CAP).
+Il menu seguente include collegamenti ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati usati dal Processo di analisi scientifica dei dati per i team (TDSP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -80,10 +80,10 @@ Dopo aver abilitato l'accesso remoto, fare clic su **CONNETTI** nella parte infe
 
 ![Creare un'area di lavoro](./media/machine-learning-data-science-customize-hadoop-cluster/enable-remote-access-3.png)
 
-I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
+I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 Vedere [Come inviare query Hive](machine-learning-data-science-move-hive-tables.md#submit) per istruzioni sull'accesso ai moduli di Python inclusi in Anaconda dal nodo head del cluster nelle funzioni definite dall'utente (UDF) che consentono di elaborare i record di Hive archiviati nel cluster.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

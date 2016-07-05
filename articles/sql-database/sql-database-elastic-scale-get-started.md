@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="ddove" 
+	authors="alancameronwills" 
 	editor="carlrabeler"/>
 
 <tags 

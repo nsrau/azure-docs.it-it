@@ -3,7 +3,7 @@
    description="Informazioni sui backup predefiniti del database SQL che consentono di ripristinare un database SQL di Azure a un momento precedente o di copiare un database in uno nuovo in un'area geografica (fino a 35 giorni)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Panoramica: Backup automatici del database SQL
 
@@ -30,11 +30,20 @@ Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviaz
 
 Tutti i database Basic, Standard e Premium sono protetti da backup automatici. I backup completi vengono eseguiti ogni settimana, i backup differenziali ogni giorno e i backup del log ogni 5 minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. In genere questo viene completato entro 30 minuti, ma può richiedere più tempo. Se un database è già di grandi dimensioni, ad esempio se viene creato come risultato della copia o del ripristino di un database da un database di grandi dimensioni, il primo backup completo potrebbe richiedere più tempo. Dopo il primo backup completo l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. I tempi esatti dei backup completi e differenziali sono determinati dal sistema per bilanciare il carico complessivo. I file di backup vengono archiviati in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS) per assicurare la disponibilità a scopo di ripristino di emergenza.
 
-## Risorse aggiuntive
+## Passaggi successivi
 
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
 - [Ripristino geografico](sql-database-geo-restore.md)
 - [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Copia del database](sql-database-copy.md)
+
+## Risorse aggiuntive
+
+- [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md)
+- [Ripristino da un errore utente](sql-database-user-error-recovery.md)
+- [Esercitazione nel ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

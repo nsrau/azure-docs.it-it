@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Azure"
-   description="Panoramica delle entità di messaggistica del bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Azure"
+    description="Panoramica delle entità di messaggistica del bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/20/2016"
+    ms.author="sethm" />
 
 # Code, argomenti e sottoscrizioni del bus di servizio
 
@@ -75,15 +75,15 @@ Quando si usa la modalità [ReceiveAndDelete](https://msdn.microsoft.com/library
 
 Con la modalità [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) il processo di ricezione diventa un'operazione in due fasi, che rende possibile il supporto di applicazioni che non riescono a tollerare messaggi mancanti. Quando il bus di servizio riceve la richiesta, individua il messaggio successivo da consumare, lo blocca per impedirne la ricezione da parte di altri consumer e lo restituisce quindi all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sul messaggio ricevuto. Quando il bus di servizio vede la chiamata [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), contrassegna il messaggio come consumato.
 
-Se l'applicazione per qualche motivo non riesce a elaborare il messaggio, può chiamare il metodo [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) sul messaggio ricevuto, invece del metodo [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). In questo modo, il bus di servizio sbloccherà il messaggio che sarà disponibile per essere nuovamente ricevuto dallo stesso consumer o da un altro consumer concorrente. Inoltre, al blocco è associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà il messaggio rendendolo nuovamente disponibile per la ricezione.
+Se l'applicazione per qualche motivo non riesce a elaborare il messaggio, può chiamare il metodo [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) sul messaggio ricevuto, invece del metodo [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). In questo modo, il bus di servizio sbloccherà il messaggio che sarà disponibile per essere nuovamente ricevuto dallo stesso consumer o da un altro consumer concorrente. Inoltre, al blocco è associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà il messaggio rendendolo nuovamente disponibile per la ricezione (eseguendo essenzialmente un'operazione [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) per impostazione predefinita).
 
 Si noti che in caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), il messaggio verrà nuovamente recapitato all'applicazione al riavvio del sistema. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, sarà necessaria una logica aggiuntiva nell'applicazione per il rilevamento dei duplicati in base alla proprietà **MessageId** del messaggio, che rimane costante per tutti i tentativi di recapito. Questo tipo di elaborazione viene definito di tipo *Exactly Once*.
 
-Per altre informazioni e per un esempio pratico su come creare e inviare messaggi alle code e dalle code, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](https://msdn.microsoft.com/library/azure/hh367512.aspx).
+Per altre informazioni e per un esempio pratico su come creare e inviare messaggi alle code e dalle code, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md).
 
 ## Argomenti e sottoscrizioni
 
-Diversamente dalle code, in cui ogni messaggio viene elaborato da un unico consumer, gli argomenti e le sottoscrizioni offrono una forma di comunicazione di tipo uno-a-molti tramite un modello di *pubblicazione-sottoscrizione*. Particolarmente utile per la comunicazione con un numero molto elevato di destinatari, ogni messaggio pubblicato è reso disponibile per ogni sottoscrizione registrata con l'argomento. I messaggi vengono inviati a un argomento e recapitati a una o più sottoscrizioni associate, a seconda delle regole di filtro che possono essere impostate per ogni sottoscrizione. Per limitare i messaggi da ricevere, le sottoscrizioni possono usare filtri aggiuntivi. I messaggi vengono inviati a un argomento nello stesso modo in cui vengono inviati a una coda, con la differenza che i messaggi non vengono ricevuti direttamente dall'argomento. Vengono ricevuti dalle sottoscrizioni. La sottoscrizione di un argomento è simile a una coda virtuale che riceve copie dei messaggi inviati all'argomento. La procedura di ricezione dei messaggi da parte di una sottoscrizione è identica a quella usata per la ricezione da parte di una coda.
+Diversamente dalle code, in cui ogni messaggio viene elaborato da un unico consumer, gli *argomenti* e le *sottoscrizioni* offrono una forma di comunicazione di tipo uno-a-molti tramite un modello di *pubblicazione-sottoscrizione*. Particolarmente utile per la comunicazione con un numero molto elevato di destinatari, ogni messaggio pubblicato è reso disponibile per ogni sottoscrizione registrata con l'argomento. I messaggi vengono inviati a un argomento e recapitati a una o più sottoscrizioni associate, a seconda delle regole di filtro che possono essere impostate per ogni sottoscrizione. Per limitare i messaggi da ricevere, le sottoscrizioni possono usare filtri aggiuntivi. I messaggi vengono inviati a un argomento nello stesso modo in cui vengono inviati a una coda, con la differenza che i messaggi non vengono ricevuti direttamente dall'argomento. Vengono ricevuti dalle sottoscrizioni. La sottoscrizione di un argomento è simile a una coda virtuale che riceve copie dei messaggi inviati all'argomento. La procedura di ricezione dei messaggi da parte di una sottoscrizione è identica a quella usata per la ricezione da parte di una coda.
 
 Ai fini di un confronto, la funzionalità di invio dei messaggi di una coda è mappata direttamente a un argomento e la funzionalità di ricezione di quest'ultimo è mappata a una sottoscrizione. Questo significa inoltre che le sottoscrizioni supportano gli stessi modelli descritti in precedenza in questa sezione in merito alle code: consumer concorrente, disaccoppiamento temporale, livellamento del carico e bilanciamento del carico.
 
@@ -154,11 +154,11 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Dopo aver creato questo filtro della sottoscrizione, solo i messaggi con la proprietà `StoreName` impostata su `Store1` vengono copiati nella coda virtuale per la sottoscrizione `Dashboard`.
 
-Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vedere anche l'esempio relativo a [Messaggistica negoziata: filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749).
+Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vedere anche gli esempi riportati negli articoli dedicati ai [filtri avanzati della messaggistica negoziata](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) e ai [filtri di argomento](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
 
 ## Hub eventi
 
-[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un servizio di elaborazione di eventi e viene usato per fornire l'ingresso dei dati di eventi e telemetria in Azure su larga scala, con bassa latenza ed elevata affidabilità. Questo servizio, se usato insieme ad altri servizi downstream, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o dell'esperienza utente e di Internet delle cose (Internet of Things, IoT).
+[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un servizio di elaborazione di eventi e viene usato per fornire l'ingresso dei dati di eventi e telemetria in Azure su larga scala, con bassa latenza ed elevata affidabilità. Questo servizio, se usato insieme ad altri servizi downstream, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o dell'esperienza utente e di [Internet of Things (IoT)](https://azure.microsoft.com/services/iot-hub/).
 
 Gli hub eventi sono un costrutto di streaming dei messaggi e, nonostante possano sembrare simili a code e argomenti, presentano caratteristiche molto diverse. Ad esempio, gli hub eventi non forniscono durata (TTL), mancato recapito, transazioni o acknowledgement dei messaggi, perché queste sono funzionalità di messaggistica negoziata tradizionale e non di streaming. Gli hub eventi forniscono altre funzionalità correlate ai flussi, ad esempio il partizionamento, il mantenimento dell'ordine e la riproduzione del flusso.
 
@@ -171,6 +171,7 @@ Per altri esempi e informazioni sull'utilizzo delle entità di messaggistica neg
 - [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
 - [Documentazione di Hub eventi](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
-- [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+- [Esempio di filtri di argomento](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+- [Esempio di filtri avanzati di messaggistica negoziata](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

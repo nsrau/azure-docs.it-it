@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="06/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Expensify dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -58,20 +58,36 @@ Per configurare l'integrazione di Expensify in Azure AD, è necessario aggiunger
 
 **Per aggiungere Expensify dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **Expensify**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Expensify** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+
+	![Applicazioni][2]
+
+4. Fare clic su **Add** nella parte inferiore della pagina.
+
+	![Applicazioni][3]
+
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+
+	![Applicazioni][4]
+
+6. Nella casella di ricerca digitare **Expensify**.
+ 
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_01.png)
+
+7. Nel riquadro dei risultati selezionare **Expensify** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+
+
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Expensify con un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Expensify che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Expensify.<br> La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Expensify.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Expensify che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Expensify. La relazione di collegamento viene stabilita assegnando al valore di **Nome utente** in Azure AD lo stesso valore di **Username** in Expensify.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Expensify, è necessario completare i blocchi predefiniti seguenti:
 
@@ -88,53 +104,83 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Expensify, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Expensify** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **Expensify** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Expensify** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_03.png) <br>
+	![Configura accesso Single Sign-On][6]
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_04.png) <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Expensify** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_03.png)
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_04.png)
 
 
     a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Expensify adottando il modello seguente: **"https://www.expensify.com/authentication/saml/login"**.
 
 
-4. Nella pagina **Configura accesso Single Sign-On in Expensify** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in Expensify** seguire questa procedura:
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_05.png)
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
 
-5. Per abilitare SSO in Expensify è necessario innanzitutto aver abilitato il controllo di dominio nell'applicazione. È possibile abilitare il controllo di dominio nell'applicazione eseguendo i passaggi descritti [qui](http://help.expensify.com/domain-control). Per ulteriore supporto, contattare [help@expensify.com](mailto:help@expensify.com). Dopo aver abilitato il controllo di dominio seguire i passaggi seguenti.<br>
-   1. Accedere all'account Expensify con diritti di amministratore.<br>
-   2. Fare clic sulla scheda Admin nella parte superiore.<br>
-   3. Fare clic sul controllo di dominio dal pannello di sinistra.<br>
-   4. Fare clic sul nome di dominio verificato.<br>
-   5. Dopo aver fatto clic sul nome di dominio verificato, fare clic su SAML dal pannello sinistro e abilitare SAML.<br>
-   6. Aprire i metadati federazione scaricati da Azure AD, copiare il contenuto e incollarlo nella casella di testo Identity Provider Metadata visualizzata.<br>
-   7. Le modifiche vengono salvate automaticamente nelle impostazioni SAML.<br> <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png) <br><br>
-  
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+5. Per abilitare SSO in Expensify è necessario prima di tutto avere abilitato **Domain Control** (Controllo di dominio) nell'applicazione. È possibile abilitare il controllo di dominio nell'applicazione. I passaggi sono elencati [qui](http://help.expensify.com/domain-control). Per ulteriore supporto, è possibile contattare il supporto Expensify tramite [help@expensify.com](mailto:help@expensify.com). Dopo aver abilitato il controllo di dominio seguire questa procedura:
+ 
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png)
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+	a. Accedere all'applicazione Expensify.
+   
+	b. Nel barra degli strumenti in alto fare clic su **Admin**.
+
+	c. Nel pannello sinistro fare clic su **Domain Control** (Controllo di dominio).
+
+	d. Fare clic sul nome di dominio verificato.
+
+	e. Nel pannello sinistro fare clic su **SAML**, quindi selezionare **Enabled** (Abilitato).
+
+	f. Aprire i metadati della federazione scaricati da Azure AD, copiare il contenuto e incollarlo nella casella di testo **Identity Provider Metadata** (Metadati del provider di identità).
+
+  
+6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+
+	![Accesso Single Sign-On di Azure AD][10]
+
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+  
+	![Accesso Single Sign-On di Azure AD][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
+
+![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_04.png) <br>
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_03.png)
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_05.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_04.png)
+
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_05.png)
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -142,7 +188,9 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina **Profilo utente** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_06.png)
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -154,9 +202,13 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_08.png) <br>
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_07.png)
+
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-expensify-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -175,25 +227,35 @@ Non è necessario alcun intervento dell'utente in questa sezione. Quando si acce
 
 ### Assegnazione dell'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Expensify. <br><br>![Assegna utente][200] <br>
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Expensify.
+
+![Assegna utente][200]
 
 **Per assegnare Britta Simon a Expensify, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
 
-2. Nell'elenco di applicazioni selezionare **Expensify**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_50.png) <br>
+	![Assegna utente][201]
 
-1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
+2. Nell'elenco di applicazioni selezionare **Expensify**.
+
+	![Configura accesso Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_50.png)
+
+1. Scegliere **Utenti** dal menu in alto.
+
+	![Assegna utente][203]
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Sulla barra degli strumenti in basso fare clic su **Assegna**.
+
+	![Assegna utente][205]
 
 
 
 ### Test dell'accesso Single Sign-On
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Expensify nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Expensify.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro Expensify nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Expensify.
 
 
 ## Risorse aggiuntive
@@ -221,4 +283,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

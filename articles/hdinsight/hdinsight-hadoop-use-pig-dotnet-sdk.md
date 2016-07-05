@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="06/17/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -128,7 +128,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 ## Riepilogo
 
-Come si può notare, .NET SDK per Hadoop consente di creare applicazioni .NET che inviano processi Pig a un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
+Come si può notare, .NET SDK per Hadoop consente di creare applicazioni .NET che inviano processi Pig a un cluster HDInsight e di monitorare lo stato del processo.
 
 ## Passaggi successivi
 
@@ -143,4 +143,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

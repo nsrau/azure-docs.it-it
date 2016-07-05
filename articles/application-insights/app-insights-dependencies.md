@@ -68,6 +68,10 @@ Dalle caselle è possibile passare alla dipendenza pertinente e ad altri grafici
 
 Fare clic sulla piccola [x] per comprimere un sottoalbero.
 
+Aggiungere la mappa al [dashboard](app-insights-dashboards.md), dove sarà completamente funzionale.
+
+[Altre informazioni](app-insights-app-map.md)
+
 ## <a name="diagnosis"></a> Diagnosi dei problemi relativi alle prestazioni delle dipendenze nel server Web
 
 Per valutare le prestazioni delle richieste al server:
@@ -150,4 +154,4 @@ Vedere [Application Insights per pagine Web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

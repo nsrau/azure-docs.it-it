@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/12/2016"
 	ms.author="mikeray" />
 
 # Configurare automaticamente il gruppo di disponibilità AlwaysOn in macchine virtuali di Azure con Resource Manager
@@ -27,7 +27,6 @@
 <br/>
 
 Questa esercitazione end-to-end mostra come creare un gruppo di disponibilità di SQL Server con macchine virtuali di Gestione risorse di Azure. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
-
 
 Al termine dell'esercitazione, la soluzione per gruppi di continuità SQL Server in Azure sarà composta dagli elementi seguenti:
 
@@ -67,6 +66,9 @@ In questa esercitazione verrà usato il portale di Azure per i seguenti scopi:
 
 - Connettersi a uno dei controller di dominio e quindi a uno dei server SQL
 
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
+
+
 ## Effettuare il provisioning del cluster dalla raccolta
 
 Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare il modello:
@@ -89,7 +91,7 @@ Fare clic su **Informazioni di base** e configurare quanto segue:
 
 - **Gruppo di risorse**: nome del gruppo a cui appartengono tutte le risorse di Azure create da questa esercitazione. Per questa esercitazione usare **SQL-HA-RG**. Per altre informazioni, vedere (Panoramica di Gestione risorse di Azure)[resource-group-overview.md/#resource-groups].
 
-- **Località**: l'area di Azure in cui verranno create le risorse per questa esercitazione. Selezionare un'area di Azure per ospitare l'infrastruttura.
+- **Posizione**: l'area di Azure in cui verranno create le risorse per questa esercitazione. Selezionare un'area di Azure per ospitare l'infrastruttura.
 
 Il pannello **Informazioni di base** avrà un aspetto simile al seguente:
 
@@ -257,4 +259,4 @@ A questo punto si è connessi al controller di dominio primario. Per connettersi
 
 A questo punto si è connessi al server SQL mediante RDP. È possibile aprire SQL Server Management Studio, connettersi all'istanza predefinita di SQL Server e verificare che il gruppo di disponibilità sia configurato.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

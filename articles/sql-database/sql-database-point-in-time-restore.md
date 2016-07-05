@@ -12,24 +12,37 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.workload="sqldb-bcdr"
+   ms.date="06/17/2016"
    ms.author="sstein"/>
 
 # Panoramica: Ripristino temporizzato del database SQL
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-database-point-in-time-restore.md)
+- [Panoramica sulla continuità aziendale](sql-datbase-business-continuity.md)
+- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
+- [Ripristinare un database eliminato](sql-database-restore-deleted-database.md)
+- [Ripristino geografico](sql-database-geo-restore.md)
+- [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+
+La funzionalità di ripristino temporizzato consente di ripristinare un database esistente come database nuovo a un momento precedente nel tempo sullo stesso server logico, usando i [Backup automatici del database SQL](sql-database-automated-backups.md). Non è possibile sovrascrivere il database esistente. È possibile eseguire il ripristino a un punto precedente nel tempo usando il [portale di Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+
+> [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-La funzionalità di ripristino temporizzato consente di ripristinare un database a un momento precedente nel tempo usando [Backup automatici del database SQL](sql-database-automated-backups.md). È possibile eseguire il ripristino a un punto precedente nel tempo usando il [portale di Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Il database può essere ripristinato a qualsiasi livello di prestazioni o pool elastico. È necessario avere a disposizione una quota DTU sufficiente nel server o nel pool tenendo presente che il ripristino crea un nuovo database e che il livello di prestazioni e il livello di servizio del database ripristinato potrebbe essere diverso dallo stato corrente del database attivo. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e al livello di servizio.
 
-Il database può essere ripristinato a qualsiasi livello di prestazioni o pool elastico. È necessario avere a disposizione una quota DTU sufficiente nel server o nel pool tenendo presente che il ripristino crea un nuovo database e che il livello di prestazioni e il livello di servizio del database ripristinato potrebbe essere diverso dallo stato corrente del database attivo. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e al livello di servizio. Se si sta ripristinando il database per scopi di recupero è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale. Se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che il livello di prestazioni e/o livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando ALTER DATABASE in T-SQL. Se si prevede di recuperare dati dal database ripristinato, sarà necessario scrivere ed eseguire separatamente qualsiasi script di ripristino dei dati sia necessario. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database sarà visibile nell'intero elenco dei database. Se si elimina il database durante il ripristino l'operazione verrà annullata e non verrà addebitata.
+Per individuare quello meno recente, usare [Get Database](https://msdn.microsoft.com/library/dn505708.aspx) (*RecoveryPeriodStartDate*), che consente di ottenere il punto di ripristino più vecchio, senza replica geografica.
+
+Se si sta ripristinando il database per scopi di recupero è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale. Se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che il livello di prestazioni e/o livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando ALTER DATABASE in T-SQL.
+
+Se si prevede di recuperare dati dal database ripristinato, sarà necessario scrivere ed eseguire separatamente qualsiasi script di ripristino dei dati sia necessario. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database sarà visibile nell'intero elenco dei database. Se si elimina il database durante il ripristino l'operazione verrà annullata e non verrà addebitata.
 
 ## Tempo di ripristino per un ripristino temporizzato
 
-Il tempo impiegato per ripristinare un database dipende da molti fattori, tra cui la dimensione del database, il punto di ripristino selezionato e la quantità di attività che deve essere ripetuta per ricostituire lo stato nel punto selezionato. Per un database molto grande e/o attivo il ripristino potrebbe richiedere diverse ore. Il ripristino di un database crea sempre un nuovo database nello stesso server del database originale, quindi al database ripristinato deve essere assegnato un nuovo nome.
+Il tempo impiegato per ripristinare un database dipende da molti fattori, tra cui la dimensione del database, il numero di log delle transazioni, il punto di ripristino selezionato e la quantità di attività che deve essere ripetuta per ricostituire lo stato nel punto selezionato. Per un database molto grande e/o attivo il ripristino potrebbe richiedere diverse ore. Per la maggior parte dei database, il ripristino richiede al massimo 12 ore.
 
 ## Confronto tra backup/ripristino e copia/esportazione/importazione
 
@@ -43,19 +56,13 @@ I backup automatici e il ripristino temporizzato proteggono i database dall'elim
 
 ## Passaggi successivi
 
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Ripristinare un database SQL di Azure a un momento precedente con il portale di Azure](sql-database-point-in-time-restore-portal.md)
-- [Ripristinare un database SQL di Azure a un momento precedente con PowerShell](sql-database-point-in-time-restore-powershell.md)
-- [Ripristino temporizzato tramite l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Backup automatici del database SQL](sql-database-automated-backups.md)
-
+- Per istruzioni dettagliate su come eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-point-in-time-restore-portal.md).
+- Per istruzioni dettagliate su come eseguire il ripristino temporizzato utilizzando PowerShell, vedere l'articolo sul [ripristino temporizzato tramite PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Per informazioni su come eseguire il ripristino temporizzato tramite l'API REST, vedere l'articolo sul [ripristino temporizzato mediante l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). ore.md)
+- Per una spiegazione completa su come eseguire il ripristino dall'errore di un utente o di un'applicazione, vedere l'articolo sul [ripristino da errori dell'utente](sql-database-user-error-recovery.md).
 
 ## Risorse aggiuntive
 
-- [Ripristino di un database eliminato](sql-database-restore-deleted-database.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

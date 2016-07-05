@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
@@ -152,4 +152,4 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
