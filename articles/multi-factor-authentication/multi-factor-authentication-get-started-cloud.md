@@ -30,7 +30,7 @@ Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario so
 
 
 - [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/): se non si ha già una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a usare il servizio MFA di Azure, è possibile usare una sottoscrizione di valutazione
-2. [Creare un provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) e assegnarlo alla directory o [assegnare licenze agli utenti](multi-factor-authentication-get-started-assign-licenses.md) 
+2. [Creare un provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) e assegnarlo alla directory o [assegnare licenze agli utenti](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [AZURE.NOTE]  Le licenze sono disponibili per gli utenti che hanno Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS). MFA è incluso in Azure AD Premium e in EMS. Se è disponibile un numero di licenze sufficiente, non è necessario creare un provider di autenticazione.
 		
@@ -57,12 +57,12 @@ Per abilitare MFA per gli utenti, seguire questa procedura.
 
 ## Automatizzare l'attivazione dell'autenticazione a più fattori con PowerShell
 
-Per modificare lo [stato](multi-factor-authentication-whats-next.md) tramite [Azure AD PowerShell](powershell-install-configuremd), si può seguire questa procedura. È possibile modificare `$st.State` in modo che corrisponda a uno degli stati seguenti:
+Per modificare lo [stato](multi-factor-authentication-whats-next.md) usando [Azure AD PowerShell](../powershell-install-configure.md), si può seguire questa procedura. È possibile modificare `$st.State` in modo che corrisponda a uno degli stati seguenti:
 
 
 - Enabled
 - Enforced
-- Disabled  
+- Disabled
 
 > [AZURE.IMPORTANT]  Tenere presente che se si passa direttamente dallo stato Disattivato allo stato Applicato, i client di autenticazione obsoleti smetteranno di funzionare, perché l'utente non ha eseguito la registrazione a MFA e non ha ottenuto una [password dell'app](multi-factor-authentication-whats-next.md#app-passwords). Se sono presenti client di autenticazione obsoleti e sono necessarie password dell'app, è consigliabile passare da uno stato Disattivato ad Attivato. In questo modo gli utenti potranno registrarsi e ottenere le password dell'app.
 		
@@ -90,4 +90,4 @@ Per altre informazioni sugli stati utente, vedere l'articolo relativo agli [stat
 ## Passaggi successivi
 Dopo avere configurato l'autenticazione a più fattori nel cloud, è possibile configurare e impostare la distribuzione. Vedere [Configurazione di Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

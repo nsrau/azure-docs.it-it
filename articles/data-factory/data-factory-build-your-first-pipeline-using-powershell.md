@@ -34,7 +34,7 @@ Oltre ai prerequisiti elencati nell'argomento di panoramica dell'esercitazione, 
 
 - Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi richiesti.
 - **Azure PowerShell**. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare la versione più recente di Azure PowerShell nel computer.
-- (facoltativo) Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory](https://msdn.microsoft.com/library/dn820234.aspx) per la documentazione completa sui cmdlet di Data factory. 
+- (facoltativo) Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory](https://msdn.microsoft.com/library/dn820234.aspx) per la documentazione completa sui cmdlet di Data factory.
 
 Se si usa una **versione precedente alla 1.0** di Azure PowerShell, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/azure/dn820234.aspx). Sarà anche necessario eseguire i comandi seguenti prima di usare i cmdlet di Data factory:
  
@@ -52,15 +52,15 @@ Per informazioni dettagliate, vedere la pagina relativa alla [deprecazione di Sw
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata **FirstDataFactoryPSH**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
 
 1. Aprire Azure PowerShell ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
-	- Eseguire **Login-AzureRmAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
+	- Eseguire **Login-AzureRmAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.
 	- Eseguire **Get-AzureRmSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureRmSubscription <Name of the subscription>** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
+	- Eseguire **Select-AzureRmSubscription <nome della sottoscrizione>** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
 3. Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo il comando seguente.
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	Per alcuni dei passaggi in questa esercitazione si presuppone l'uso del gruppo di risorse denominato ADFTutorialResourceGroup. Se si usa un gruppo di risorse diverso, sarà necessario usarlo al posto di ADFTutorialResourceGroup in questa esercitazione.
-4. Eseguire il cmdlet **New-AzureRmDataFactory** per creare una data factory denominata **FirstDataFactoryPSH**.  
+4. Eseguire il cmdlet **New-AzureRmDataFactory** per creare una data factory denominata **FirstDataFactoryPSH**.
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
@@ -70,16 +70,16 @@ Tenere presente quanto segue:
 - È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l'errore **Il nome "FirstDataFactoryPSH" per la data factory non è disponibile**, modificare il nome (ad esempio, nomeutenteFirstDataFactoryPSH). Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 - Per creare istanze di Data Factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 - Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
-- Se viene visualizzato l'errore: "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
+- Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
 
-	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
+	- In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory.
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
 		È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
 	
 			Get-AzureRmResourceProvider
-	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory (o) creare una data factory nel portale di Azure. Il provider verrà registrato automaticamente.
+	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Il provider verrà registrato automaticamente.
 
 Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati e quindi creare la pipeline con un'attività che usa questi set di dati.
 
@@ -148,13 +148,13 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
 	Tenere presente quanto segue:
 	
-	- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile fare in modo che crei un cluster HDInsight **basato su Linux**. Per informazioni dettagliate, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
-	- È possibile usare **il proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+	- È possibile usare il **proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
 	
 		Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
-	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 2. Eseguire il cmdlet **New-AzureRmDataFactoryLinkedService** per creare il servizio collegato HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -297,8 +297,8 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata da **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline). 
-2.  Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inputdata** nell'archiviazione BLOB di Azure ed eseguire il comando seguente per distribuire la pipeline. Dal momento che gli orari di **inizio** e **fine** sono impostati nel passato e **isPaused** è impostato su false, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione. 
+	> [ACOM.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+2.  Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inputdata** nell'archiviazione BLOB di Azure ed eseguire il comando seguente per distribuire la pipeline. Dal momento che gli orari di **inizio** e **fine** sono impostati nel passato e **isPaused** è impostato su false, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione.
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. La creazione della prima pipeline tramite Azure PowerShell è così completata.
@@ -365,12 +365,12 @@ In questa esercitazione è stata creata un'istanza di Azure Data Factory per ela
 1.	Creare un'istanza di Azure **Data Factory**.
 2.	Creare due **servizi collegati**:
 	1.	Il servizio collegato **Archiviazione di Azure** per collegare l'archivio BLOB di Azure che contiene i file di input/output alla data factory.
-	2.	Il servizio collegato su richiesta **Azure HDInsight** per collegare un cluster Hadoop di HDInsight alla data factory. Azure Data Factory crea un cluster Hadoop di HDInsight JIT per elaborare i dati di input e generare i dati di output. 
-3.	Creare due **set di dati** che descrivono i dati di input e di output per l'attività Hive di HDInsight nella pipeline. 
-4.	Creare una **pipeline** con un'attività **Hive di HDInsight**. 
+	2.	Il servizio collegato su richiesta **Azure HDInsight** per collegare un cluster Hadoop di HDInsight alla data factory. Azure Data Factory crea un cluster Hadoop di HDInsight JIT per elaborare i dati di input e generare i dati di output.
+3.	Creare due **set di dati** che descrivono i dati di input e di output per l'attività Hive di HDInsight nella pipeline.
+4.	Creare una **pipeline** con un'attività **Hive di HDInsight**.
 
 ## Passaggi successivi
-In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
+In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta di Azure. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Vedere anche
 | Argomento | Descrizione |
@@ -383,4 +383,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Monitorare e gestire le pipeline con i pannelli del portale di Azure](data-factory-monitor-manage-pipelines.md). | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline con i pannelli del portale di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

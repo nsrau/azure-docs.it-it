@@ -143,24 +143,7 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
 
 ### Errori di connessione
 
-È necessario aprire alcune porte in uscita nei firewall del server per consentire il funzionamento di Status Monitor:
-
-+ Telemetria - queste informazioni sono sempre necessarie:
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ Configurazione - necessaria solo quando si apportano modifiche:
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Installazione:
- +	`packages.nuget.org:443`
-
-Questo elenco può variare nel tempo.
+È necessario aprire [alcune porte in uscita](app-insights-ip-addresses.md#outgoing-ports) nei firewall del server per consentire il funzionamento di Status Monitor.
 
 ### Nessun dato di telemetria?
 
@@ -199,7 +182,7 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
-* `-Name`: (facoltativo) nome di un'app Web.
+* `-Name` (facoltativo) Nome di un'app Web.
 * Visualizza lo stato del monitoraggio di Application Insights per ogni app Web o per l'app denominata nel server IIS.
 
 * Restituisce `ApplicationInsightsApplication` per ogni app:
@@ -211,7 +194,7 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
-* `-Name`: nome dell'app in IIS.
+* `-Name`: nome dell'app in IIS
 * `-InstrumentationKey`: valore ikey della risorsa di Application Insights in cui visualizzare i risultati.
 
 * Questo cmdlet influisce solo sulle app che non sono già instrumentate, ovvero SdkState==NotInstrumented.
@@ -234,17 +217,17 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
-* `-Name`: nome di un'app in IIS.
-* `-All`: arresta il monitoraggio di tutte le app nel server IIS per le quali `SdkState==EnabledAfterDeployment`.
+* `-Name`: nome di un'app in IIS
+* `-All`: arresta il monitoraggio di tutte le app nel server IIS per le quali `SdkState==EnabledAfterDeployment`
 
-* Arresta il monitoraggio delle app specificate e rimuove la strumentazione. Funziona solo per le app instrumentate in fase di esecuzione usando lo strumento Status Monitoring o Start-ApplicationInsightsApplication, ovvero `SdkState==EnabledAfterDeployment`.
+* Arresta il monitoraggio delle app specificate e rimuove la strumentazione. Funziona solo per le app instrumentate in fase di esecuzione usando lo strumento Status Monitor o Start-ApplicationInsightsApplication, ovvero `SdkState==EnabledAfterDeployment`.
 
 * Restituisce ApplicationInsightsApplication.
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: nome di un'app Web in IIS.
-* `-InstrumentationKey`: (facoltativo) consente di modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
+* `-InstrumentationKey` Facoltativo. consente di modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
 * Questo cmdlet:
  * Aggiorna l'app denominata alla versione dell'SDK scaricata più di recente nel computer. Funziona solo se `SdkState==EnabledAfterDeployment`.
  * Se si specifica una chiave di strumentazione, l'app denominata viene riconfigurata per l'invio di dati di telemetria alla risorsa con tale chiave. Funziona se `SdkState != Disabled`.
@@ -274,8 +257,8 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
        ]
      } 
 
-* `nameOfAIAppResource`: nome della risorsa di Application Insights.
-* `myWebAppName`: ID dell'app Web.
+* `nameOfAIAppResource`: nome della risorsa di Application Insights
+* `myWebAppName`: ID dell'app Web
 
 ## <a name="next"></a>Passaggi successivi
 
@@ -301,4 +284,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

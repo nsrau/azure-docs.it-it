@@ -3,7 +3,7 @@
    description="Anteprima di Microsoft Power BI Embedded: codice essenziale per integrare un report in un'app, come eseguire l'autenticazione con token dell'app Power BI Embedded, come ottenere i report"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Incorporare un report di Power BI con un oggetto IFrame
 Questo articolo illustra il codice essenziale per usare l'API REST **Power BI Embedded**, i token dell'app, un IFrame e codice JavaScript per integrare o incorporare un report nell'app.
@@ -228,4 +228,4 @@ Questo articolo ha illustrato il codice per l'integrazione di un report di **Pow
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Ottieni report](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

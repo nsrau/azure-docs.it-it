@@ -82,7 +82,7 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 
 * [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) Informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per l'utilizzo di Hub di notifica di Azure per l'invio di notifiche push.
 
-* [Abilitare la sincronizzazione offline per l’app di Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) informazioni su come aggiungere il supporto offline all’app mediante un back-end di App per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
+* [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -91,4 +91,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

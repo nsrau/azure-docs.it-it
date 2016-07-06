@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="06/29/2016"
    ms.author="ganesr"/>
 
 # Creare e modificare il routing per un circuito ExpressRoute
@@ -35,7 +35,7 @@ Questo articolo descrive le procedure per creare e gestire la configurazione di 
 
 ## Prerequisiti di configurazione
 
-- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell, la versione 1.0 o quelle successive. 
+- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell, la versione 1.0 o quelle successive.
 - Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md)
 - È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
@@ -120,7 +120,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento secondario. Non deve far parte di alcuno spazio indirizzi riservato per le reti virtuali.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
 	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte. È possibile usare il numero AS privato per questo peering. Assicurarsi di non usare il numero 65515.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 	
 	Per configurare il peering privato di Azure per il circuito, eseguire il cmdlet seguente.
 
@@ -199,7 +199,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	
 	Seguire le istruzioni per creare un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) e chiedere al provider di connettività di effettuarne il provisioning.
 
-	Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
+	Se il provider di connettività offre servizi gestiti di livello 3, è possibile chiedere al provider di abilitare il peering privato di Azure. In questo caso, non sarà necessario seguire le istruzioni riportate nelle sezioni seguenti. Se invece il provider di connettività non gestisce il routing per conto dell'utente, dopo aver creato il circuito, seguire questa procedura.
 
 3. Verificare che sia stato eseguito il provisioning del circuito ExpressRoute.
 
@@ -239,9 +239,9 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	- Una subnet /30 per il collegamento secondario. Deve essere un prefisso IPv4 pubblico valido.
 	- Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
 	- Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
-	- Hash MD5, se si sceglie di usarne uno. **Facoltativo**.
+	- Un hash MD5, se si sceglie di usarne uno. **Facoltativo**.
 	
-	Per configurare il peering pubblico di Azure per il circuito, è possibile eseguire il cmdlet seguente.
+	Per configurare il peering pubblico di Azure per il circuito, è possibile eseguire il cmdlet seguente
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
@@ -403,4 +403,4 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->
