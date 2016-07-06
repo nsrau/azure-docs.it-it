@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Creare un'app Web Node.js nel servizio app di Azure
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -183,7 +183,7 @@ In questa sezione verrà creato un file **server.js** che contiene una versione 
 
 ## Pubblicazione delle modifiche apportate all'applicazione
 
-1. Aprire il file **server.js** in un editor di testo e sostituire 'Hello World\\n' con 'Hello Azure\\n'. 
+1. Aprire il file **server.js** in un editor di testo e sostituire 'Hello World\\n' con 'Hello Azure\\n'.
 
 2. Salvare il file.
 
@@ -225,4 +225,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0211_2016---->
+<!---HONumber=AcomDC_0629_2016-->

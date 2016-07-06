@@ -148,7 +148,7 @@ Questa app è disponibile negli App Store seguenti:
 
 **iOS**, **Android**
 
-> [AZURE.NOTE] È possibile visualizzare istruzioni dettagliate per una qualsiasi di queste notifiche facendo clic su **Click here for instructions on how to send these notifications from Mobile Engagement platform** in una schermata di notifica di esempio.
+> [AZURE.NOTE] È possibile visualizzare istruzioni dettagliate per una qualsiasi di queste notifiche facendo clic su **Fare clic qui per ottenere istruzioni sull’invio di queste notifiche dalla piattaforma Mobile Engagement** in una schermata di notifica di esempio.
 
 
 [1]: ./media/mobile-engagement-demo-apps/home-windows.png

@@ -33,7 +33,7 @@ I suggerimenti riportati di seguito permettono di sfruttare al meglio i **modell
 - Un **modello** è una risorsa di incapsulamento contenente un modello di Resource Manager e metadati aggiuntivi. Si comporta in modo molto simile a un elemento di Marketplace. La differenza principale è che si tratta di un elemento privato, mentre gli elementi di Marketplace sono pubblici.
 - La raccolta **Modelli** è efficace per gli utenti che vogliono personalizzare le distribuzioni.
 - I **modelli** permettono di usare un repository semplice all'interno di Azure.
-- Iniziare con un modello di Resource Manager esistente. In [GitHub](https://github.com/Azure/azure-quickstart-templates) e nel post di blog relativo all'[esportazione modelli](https://azure.microsoft.com/blog/export-template/) è possibile trovare modelli a partire da un gruppo di risorse esistente.
+- Iniziare con un modello di Resource Manager esistente. In [GitHub](https://github.com/Azure/azure-quickstart-templates) o nel post di blog relativo all'[esportazione modelli](../resource-manager-export-template.md) è possibile trovare modelli a partire da un gruppo di risorse esistente.
 - I **modelli** sono legati all'utente che li pubblica. Il nome dell'autore è visibile a chiunque abbia accesso in lettura.
 - I **modelli** sono risorse di Resource Manager e non possono essere rinominati dopo la pubblicazione.
 
@@ -44,7 +44,7 @@ Per creare una risorsa **modello** nel portale di Azure è possibile procedere i
 ### Metodo 1: creare una nuova risorsa modello da un gruppo di risorse in esecuzione
 
 1. Passare a un gruppo di risorse esistente nel portale di Azure. In **Impostazioni** selezionare **Esporta modello**.
-2. Dopo aver esportato il modello di Resource Manager, fare clic sul pulsante **Salva modello** per salvarlo nel repository **Modelli**. Per informazioni dettagliate sull'esportazione di modelli, vedere [questa pagina](https://azure.microsoft.com/blog/export-template/). <br /><br /> ![Esportazione di un gruppo di risorse](media/rg-export-portal1.PNG) <br />
+2. Dopo aver esportato il modello di Resource Manager, fare clic sul pulsante **Salva modello** per salvarlo nel repository **Modelli**. Per informazioni dettagliate sull'esportazione di modelli, vedere [questa pagina](../resource-manager-export-template.md). <br /><br /> ![Esportazione di un gruppo di risorse](media/rg-export-portal1.PNG) <br />
 
 3. Fare clic sul pulsante di comando **Salva modello**. <br /><br />
 
@@ -131,4 +131,4 @@ Fare clic su **Seleziona** e quindi su **OK**. Ora è possibile visualizzare gli
 - Per informazioni sulle funzioni disponibili in un modello di Resource Manager, vedere [Funzioni del modello](../resource-group-template-functions.md).
 - Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

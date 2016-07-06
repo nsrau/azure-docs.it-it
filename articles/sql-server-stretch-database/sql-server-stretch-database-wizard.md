@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione
@@ -51,25 +51,25 @@ Le tabelle con molte righe vengono visualizzate all'inizio dell'elenco ordinato.
 |**Nome**|Consente di specificare il nome della colonna nella tabella.|
 |(nessun titolo)|Un simbolo in questa colonna può rappresentare un avviso che non impedisce di abilitare la tabella selezionata per l'estensione. Può anche rappresentare un problema di blocco che impedisce di abilitare la tabella selezionata per l'estensione, ad esempio perché la tabella usa un tipo di dati non supportato. Passare il puntatore del mouse sul simbolo per visualizzare altre informazioni in una descrizione comando. Per altre informazioni, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).|
 |**Con estensione**|Indica se la tabella è già abilitata per l'estensione.|
-|**Migrazione**|È possibile eseguire la migrazione di un'intera tabella, usando l'opzione **Intera tabella**, o specificare un filtro in una colonna esistente della tabella. Per usare un predicato di filtro diverso per selezionare le righe per la migrazione, eseguire l'istruzione ALTER TABLE per specificare il predicato del filtro dopo essere usciti dalla procedura guidata. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe](sql-server-stretch-database-predicate-function.md). Per altre informazioni su come applicare il predicato, vedere [Abilitare Estensione database per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrazione**|È possibile eseguire la migrazione di un'intera tabella, usando l'opzione **Intera tabella**, o specificare un filtro in una colonna esistente della tabella. Per usare una funzione di filtro diversa per selezionare le righe per la migrazione, eseguire l'istruzione ALTER TABLE per specificare la funzione di filtro dopo essere usciti dalla procedura guidata. Per altre informazioni sulla funzione di filtro, vedere [Usare una funzione di filtro per selezionare righe di cui eseguire la migrazione](sql-server-stretch-database-predicate-function.md). Per altre informazioni su come applicare la funzione, vedere [Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**prime righe**|Consente di specificare il numero di righe nella tabella.|
 |**Dimensione (KB)**|Consente di specificare le dimensioni della tabella in KB.|
 
 ## <a name="Filter"></a>Fornire facoltativamente un filtro di riga
 
-Per fornire un predicato del filtro per selezionare le righe per la migrazione, eseguire queste operazioni nella pagina **Selezione tabelle**.
+Per fornire una funzione di filtro per selezionare le righe per la migrazione, eseguire queste operazioni nella pagina **Seleziona tabelle**.
 
 1.  Nell'elenco **Selezionare le tabelle da estendere** fare clic su **Intera tabella** nella riga per la tabella. Viene aperta la finestra di dialogo **Seleziona righe da estendere**.
 
-    ![Definire un predicato di filtro][StretchWizardImage2a]
+    ![Definire una funzione di filtro][StretchWizardImage2a]
 
 2.  Nella finestra di dialogo **Seleziona righe da estendere** selezionare **Scegli righe**.
 
-3.  Nel campo **Nome** immettere un nome per il predicato del filtro.
+3.  Nel campo **Nome** immettere un nome per la funzione di filtro.
 
 4.  Per la clausola **Where** selezionare una colonna dalla tabella, selezionare un operatore e specificare un valore.
 
-5. Fare clic su **Controlla** per testare il predicato. Se il predicato restituisce risultati dalla tabella, ovvero se sono presenti righe per la migrazione che soddisfano la condizione, il test indica **Esito positivo**.
+5. Fare clic su **Controlla** per verificare la funzione. Se la funzione restituisce risultati dalla tabella, ovvero se sono presenti righe per la migrazione che soddisfano la condizione, il test indica **Esito positivo**.
 
     >   [AZURE.NOTE] La casella di testo che visualizza la query del filtro è di sola lettura. È possibile modificare la query nella casella di testo.
 
@@ -77,13 +77,13 @@ Per fornire un predicato del filtro per selezionare le righe per la migrazione, 
 
 La funzione di filtro viene creata in SQL Server solo al termine della procedura guidata. Fino ad allora, è possibile tornare alla pagina **Selezione tabelle** per modificare o rinominare la funzione di filtro.
 
-![Pagina Selezione tabelle dopo avere definito un predicato del filtro][StretchWizardImage2b]
+![Pagina Seleziona tabelle dopo avere definito una funzione di filtro][StretchWizardImage2b]
 
-Per usare un tipo di predicato del filtro diverso per selezionare le righe per la migrazione, eseguire una di queste operazioni.
+Per usare un tipo di funzione di filtro diversa per selezionare le righe per la migrazione, completare una delle operazioni seguenti.
 
--   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare un predicato. Per altre informazioni, vedere [Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md).  
+-   Chiudere la procedura guidata ed eseguire l'istruzione ALTER TABLE per abilitare l'estensione per la tabella e specificare una funzione di filtro. Per altre informazioni, vedere [Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md).
 
--   Eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Per i passaggi necessari, vedere [Aggiungere un predicato del filtro dopo l'esecuzione della procedura guidata](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Eseguire l'istruzione ALTER TABLE per specificare una funzione di filtro dopo aver chiuso la procedura guidata. Per i passaggi necessari, vedere [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz) (Aggiungere una funzione di filtro dopo l'esecuzione della procedura guidata).
 
 ## <a name="Configure"></a>Configurare la distribuzione di Azure
 
@@ -94,7 +94,7 @@ Per usare un tipo di predicato del filtro diverso per selezionare le righe per l
 2.  Selezionare la sottoscrizione di Azure esistente da usare per l'estensione database.
 
 3.  Selezionare un'area di Azure.
-    -   Se si crea un nuovo server, il server viene creato in questa area.  
+    -   Se si crea un nuovo server, il server viene creato in questa area.
     -   Se esistono server nell'area selezionata, la procedura guidata li elenca quando si sceglie **Existing server**.
 
     Per ridurre al minimo la latenza, selezionare l'area di Azure in cui si trova SQL Server. Per altre informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
@@ -190,4 +190,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

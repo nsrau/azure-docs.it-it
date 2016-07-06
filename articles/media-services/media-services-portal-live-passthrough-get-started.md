@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="06/05/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Servizi multimediali di Azure è attualmente in anteprima nel portale di Azure.
 
 Per completare l'esercitazione è necessario quanto segue:
 
-- Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Come creare un account di Servizi multimediali](media-services-create-account.md).
 - Una webcam. Ad esempio, [codificatore Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -48,10 +48,10 @@ I passaggi seguenti descrivono le attività previste per la creazione di applica
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
 1. Creare e avviare un canale pass-through.
-1. Recuperare l'URL di inserimento del canale. 
+1. Recuperare l'URL di inserimento del canale.
 
 	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale.
 
 	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
@@ -63,7 +63,7 @@ I passaggi seguenti descrivono le attività previste per la creazione di applica
 1. Avviare il programma o l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare il programma o l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
-1. Eliminare il programma o l'evento e, facoltativamente, l'asset.     
+1. Eliminare il programma o l'evento e, facoltativamente, l'asset.
 
 >[AZURE.IMPORTANT] Per informazioni su considerazioni e concetti relativi allo streaming live con codificatori locali e canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a più bitrate](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -81,7 +81,7 @@ Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario o
 
 Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
 
-1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**. 
+1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**.
 
 2. Fare clic sull'endpoint di streaming predefinito.
 
@@ -121,7 +121,7 @@ Queste sezioni illustrano come usare l'opzione **Creazione rapida** per creare u
 
 Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a più bitrate](media-services-live-streaming-with-onprem-encoders.md).
 
-1. Nella finestra **Impostazioni** fare clic su **Streaming live**. 
+1. Nella finestra **Impostazioni** fare clic su **Streaming live**.
 
 	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
@@ -130,7 +130,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 3. Fare clic su **Creazione rapida** per creare un canale pass-through con il protocollo di inserimento RTMP.
 
 	Verrà visualizzata la finestra **CREATE A NEW CHANNEL** (CREA UN NUOVO CANALE).
-4. Assegnare un nome al nuovo canale e fare clic su **Crea**. 
+4. Assegnare un nome al nuovo canale e fare clic su **Crea**.
 
 	Verrà creato un canale pass-through con il protocollo di inserimento RTMP.
 
@@ -175,4 +175,4 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

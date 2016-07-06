@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
+    ms.date="06/28/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook grafico
@@ -62,7 +62,7 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 
 1.	Fare clic su **Riquadro di test** per aprire il pannello Test.<br> ![Riquadro Test](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
 2.	Fare clic su **Avvia** per avviare il test. Questa deve essere l'unica opzione abilitata.
-3.	Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro. Lo stato del processo verrà avviato come *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
+3.	Viene creato un [processo del runbook](automation-runbook-execution.md) e il relativo stato viene visualizzato nel riquadro. Lo stato del processo verrà avviato come *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi a *Avvio in corso* quando un thread di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.
 4.	Al termine del processo del runbook, viene visualizzato l'output. In questo caso, dovrebbe essere visualizzato *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5.	Chiudere il pannello Test per tornare all'area di disegno.
 
@@ -76,7 +76,7 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 4.	Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br>![Avvia runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
 5.	Viene aperto un pannello per il processo del runbook appena creato. È possibile chiudere questo pannello, ma in questo caso lo si lascerà aperto per poter controllare l'avanzamento del processo.
 6.	Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-summary.png)
-7.	Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello **Output** dove si può vedere il testo *Hello World* nel riquadro.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-output.png)  
+7.	Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello **Output** dove si può vedere il testo *Hello World* nel riquadro.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-output.png)
 8.	Chiudere il pannello Output.
 9.	Fare clic su **Tutti i log** per aprire il pannello Flussi relativo al processo del runbook. Nel flusso di output dovrebbe essere visibile solo *Hello World*, ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
 10.	Chiudere il pannello Tutti i log e il pannello Processo per tornare al pannello MyFirstRunbook.
@@ -90,8 +90,8 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Nel pannello Account di automazione fare clic sul riquadro **Asset** per aprire il pannello **Asset**.
 2. Nel pannello Asset fare clic sul riquadro **Variabili**.
 3. Nel pannello Variabili fare clic su **Aggiungi variabile**.<br>![Variabile di Automazione](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
-4. Nella casella **Nome** del pannello Nuova variabile immettere **AzureSubscriptionId** e nella casella **Valore** immettere l'ID sottoscrizione. Lasciare *Stringa* in **Tipo** e il valore predefinito in **Crittografia**.  
-5. Fare clic su **Crea** per creare la variabile.  
+4. Nella casella **Nome** del pannello Nuova variabile immettere **AzureSubscriptionId** e nella casella **Valore** immettere l'ID sottoscrizione. Lasciare *Stringa* in **Tipo** e il valore predefinito in **Crittografia**.
+5. Fare clic su **Crea** per creare la variabile.
 
 
 ## Passaggio 6: Aggiungere l'autenticazione per gestire le risorse di Azure
@@ -101,25 +101,25 @@ Ora che è stata creata una variabile che contiene l'ID sottoscrizione è possib
 1.	Aprire l'editor grafico facendo clic su **Modifica** nel pannello MyFirstRunbook.<br> ![Modificare il runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2.	**Scrivere Hello World nell'output** non è più necessario, quindi fare clic con il pulsante destro del mouse sul testo e scegliere **Elimina**.
 3.	Nel controllo Libreria espandere **Connessioni** e aggiungere **AzureRunAsConnection** all'area di disegno selezionando **Aggiungi ad area di disegno**.
-4.	Nell'area di disegno selezionare **AzureRunAsConnection** e nel riquadro del controllo Configurazione digitare **Get Run As Connection** nella casella di testo **Etichetta**. Si tratta della connessione 
+4.	Nell'area di disegno selezionare **AzureRunAsConnection** e nel riquadro del controllo Configurazione digitare **Get Run As Connection** nella casella di testo **Etichetta**. Si tratta della connessione
 5.	Nel controllo Libreria digitare **Add-AzureRmAccount** nella casella di testo di ricerca.
 6.	Aggiungere **Add-AzureRmAccount** all'area di disegno.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
 7.	Passare il puntatore su **Get Run As Connection** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Add-AzureRmAccount**. La freccia appena creata è un *collegamento*. Il runbook verrà avviato con **Get Run As Connection** e quindi eseguirà **Add-AzureRmAccount**.<br>![Creare un collegamento tra le attività](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8.	Nell'area di disegno selezionare **Add-AzureRmAccount** e nel riquadro del controllo Configurazione digitare **Login to Azure** nella casella di testo **Etichetta**.
-9.	Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività. 
-10.  **Add-AzureRmAccount** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **ServicePrincipalCertificate**. 
+9.	Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività.
+10.  **Add-AzureRmAccount** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **ServicePrincipalCertificate**.
 11.  Dopo aver selezionato il set di parametri, nel pannello Configurazione parametro attività vengono visualizzati i parametri. Fare clic su **APPLICATIONID**.<br> ![Aggiungere parametri all'account Azure RM](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  Nel pannello Valore parametro selezionare **Output attività** per **Origine dati** e quindi selezionare **Get Run As Connection** dall'elenco, nella casella di testo **Percorso campo** digitare **ApplicationId** e quindi fare clic su **OK**. Viene specificato il nome della proprietà per il percorso del campo perché l'attività restituisce un oggetto con più proprietà.
-13.  Fare clic su **CERTIFICATETHUMBPRINT** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** (Ottieni connessione RunAs) dall'elenco, digitare **CertificateThumbprint** nella casella di testo **Percorso campo** e quindi fare clic su **OK**. 
+13.  Fare clic su **CERTIFICATETHUMBPRINT** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** (Ottieni connessione RunAs) dall'elenco, digitare **CertificateThumbprint** nella casella di testo **Percorso campo** e quindi fare clic su **OK**.
 14.  Fare clic su **SERVICEPRINCIPAL** e nel pannello Valore parametro selezionare **ConstantValue** per **Origine dati**, fare clic sull'opzione **True** e quindi fare clic su **OK**.
-15.  Fare clic su **TENANTID** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** dall'elenco, digitare **TenantId** nella casella di testo **Percorso campo** e quindi fare clic su **OK** due volte.  
-16.  Nel controllo Libreria digitare **Get-AzureRmContext** nella casella di testo di ricerca.
+15.  Fare clic su **TENANTID** e nel pannello Valore parametro selezionare **Output attività** per **Origine dati**. Selezionare **Get Run As Connection** dall'elenco, digitare **TenantId** nella casella di testo **Percorso campo** e quindi fare clic su **OK** due volte.
+16.  Nel controllo Libreria digitare **Set-AzureRmContext** nella casella di testo di ricerca.
 17.	 Aggiungere **Set-AzureRmContext** all'area di disegno.
 18.	 Nell'area di disegno selezionare **Set-AzureRmContext** e nel riquadro del controllo Configurazione digitare **Specify Subscription Id** nella casella di testo **Etichetta**.
-19.	 Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività. 
-20. **Set-AzureRmContext** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **SubscriptionId**.  
+19.	 Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività.
+20. **Set-AzureRmContext** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **SubscriptionId**.
 21.	 Dopo aver selezionato il set di parametri, nel pannello Configurazione parametro attività vengono visualizzati i parametri. Fare clic su **SubscriptionID**
-22.	 Nel pannello Valore parametro selezionare **Asset variabile** per **Origine dati**, selezionare **AzureSubscriptionId** dall'elenco e quindi fare clic su **OK** due volte.   
+22.	 Nel pannello Valore parametro selezionare **Asset variabile** per **Origine dati**, selezionare **AzureSubscriptionId** dall'elenco e quindi fare clic su **OK** due volte.
 23.  Passare il puntatore su **Login to Azure** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Specify Subscription Id**.
 
 
@@ -131,7 +131,7 @@ Ora verrà aggiunta un'attività **Start-AzureRmVM** per avviare una macchina vi
 
 1. Nel controllo Libreria digitare **Start-AzureRm** nella casella di testo di ricerca.
 2. Aggiungere **Start-AzureRmVM** all'area di disegno e quindi fare clic e trascinarla sotto **Connect to Azure** (Connetti ad Azure).
-3. Passare il puntatore su **Specify Subscription Id** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Start-AzureRmVM**. 
+3. Passare il puntatore su **Specify Subscription Id** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Start-AzureRmVM**.
 4.	Selezionare **Start-AzureRmVM**. Fare clic su **Parametri** e quindi su **Set di parametri** per visualizzare i set per **Start-AzureRmVM**. Selezionare il set di parametri **ResourceGroupNameParameterSetName**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
 5.	Selezionare **Name**. Selezionare **Espressione PowerShell** per **Origine dati** e digitare il nome della macchina virtuale, racchiuso tra virgolette doppie, che verrà avviata con questo runbook. Fare clic su **OK**.<br>![Valore del parametro Name di Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	Selezionare **ResourceGroupName**. Usare **Espressione PowerShell** per **Origine dati** e digitare il nome del gruppo di risorse racchiuso tra virgolette doppie. Fare clic su **OK**.<br> ![Parametri di Start-AzureRmVM](media/automation-first-runbook-graphical/startazurermvm-params.png)
@@ -169,12 +169,12 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 5. Selezionare **Get-AzureRmVM** e quindi **Set di parametri** per visualizzare i set per **Get-AzureRmVM**. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
 6. In **Origine dati** per **Nome** selezionare **Input runbook** e quindi selezionare **VMName**. Fare clic su **OK**.
 7. In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi selezionare **ResourceGroupName**. Fare clic su **OK**.
-8. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.  
+8. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi fare clic su **True**. Fare clic su **OK**.
 9. Creare un collegamento da **Specify Subscription Id** a **Get-AzureRmVM**.
-10. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.  
-11. Creare un collegamento da **Get-AzureRmVM** a **Codice**.  
+10. Nel controllo Libreria espandere **Controllo Runbook** e aggiungere **Codice** all'area di disegno.
+11. Creare un collegamento da **Get-AzureRmVM** a **Codice**.
 12. Fare clic su **Codice** e nel riquadro Configurazione impostare l'etichetta su **Get Status**.
-13. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.  
+13. Selezionare il parametro **Codice** per visualizzare il pannello **Editor di codice**.
 14. Nell'editor di codice incollare il frammento di codice seguente:
 
      ```
@@ -189,7 +189,7 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
      ```
 
 15. Creare un collegamento da **Get Status** a **Start-AzureRmVM**.<br> ![Runbook con il modulo Code](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)
-16. Selezionare il collegamento e nel riquadro Configurazione impostare **Applica condizione** su **Sì**. Si noti che il collegamento si trasforma in una linea tratteggiata per indicare che l'attività di destinazione verrà eseguita solo se la condizione restituisce true.  
+16. Selezionare il collegamento e nel riquadro Configurazione impostare **Applica condizione** su **Sì**. Si noti che il collegamento si trasforma in una linea tratteggiata per indicare che l'attività di destinazione verrà eseguita solo se la condizione restituisce true.
 17. Per **Espressione condizione** digitare *$ActivityOutput['Get Status'] -eq "Stopped"*. **Start-AzureRmVM** verrà ora eseguito solo se la macchina virtuale è arrestata.
 18.	Nel controllo Libreria, espandere **Cmdlet** e poi **Microsoft.PowerShell.Utility**.
 19.	Aggiungere **Write-Output** all'area di disegno due volte.<br> ![Runbook con Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
@@ -211,4 +211,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 -	Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
 -	Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

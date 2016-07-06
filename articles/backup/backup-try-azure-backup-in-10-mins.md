@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# Primi passi: eseguire il backup di file e cartelle da un server o client Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
+# Primi passi: eseguire il backup di file e cartelle con Backup di Azure usando il modello di distribuzione Resource Manager
 
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure usando Resource Manager. Si tratta di un'esercitazione che illustra le informazioni di base, l'ideale per iniziare a usare Backup di Azure.
 
@@ -203,4 +203,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 - Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

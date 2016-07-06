@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configurazione di Aggiunta ad Azure AD nell'organizzazione
@@ -32,9 +32,9 @@ Per creare e gestire manualmente gli utenti in Azure AD, vedere [Gestire gli ute
 3. Selezionare la propria directory nella scheda **Directory**.
 4. Selezionare la scheda **Configura**.
 5. Passare alla sezione **Dispositivi**.
-6. Nella scheda **Dispositivi** impostare le opzioni seguenti:  
+6. Nella scheda **Dispositivi** impostare le opzioni seguenti:
    * **NUMERO MASSIMO DI DISPOSITIVI PER UTENTE**: selezionare il numero massimo di dispositivi che un utente può aggiungere ad Azure AD. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non verranno rimossi uno o più dispositivi esistenti.
-   * **RICHIEDI MULTI-FACTOR AUTH PER AGGIUNGERE I DISPOSITIVI**: abilitare questa opzione per richiedere agli utenti un secondo fattore di autenticazione per aggiungere i dispositivi ad Azure AD. Per altre informazioni sull'autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](multi-factor-authentication-get-started-cloud/).
+   * **RICHIEDI MULTI-FACTOR AUTH PER AGGIUNGERE I DISPOSITIVI**: abilitare questa opzione per richiedere agli utenti un secondo fattore di autenticazione per aggiungere i dispositivi ad Azure AD. Per altre informazioni Azure Multi-Factor Authentication, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI AD AZURE AD**: selezionare gli utenti e i gruppi autorizzati ad aggiungere dispositivi ad Azure AD.
    * **AMMINISTRATORI AGGIUNTIVI SU DISPOTIVI AGGIUNTI AD AZURE AD**: con Azure AD Premium o Enterprise Mobility Suite (EMS), è possibile scegliere gli utenti a cui concedere diritti di amministratore locale per il dispositivo. Per impostazione predefinita, agli amministratori globali e ai proprietari dei dispositivi vengono sempre concessi i diritti di amministratore locale.
 
@@ -55,4 +55,4 @@ Di seguito sono descritti i tre scenari per abilitare gli utenti a configurare A
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

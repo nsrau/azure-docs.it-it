@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="06/23/2016"
  ms.author="stevehob"/>
 
 # Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto
@@ -233,4 +233,4 @@ I post del blog TechNet forniscono altri dettagli sulla soluzione preconfigurata
 - [Approfondimento sul monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [Aggiunta di dispositivi veri e simulati per il monitoraggio remoto in IoT Suite](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->
