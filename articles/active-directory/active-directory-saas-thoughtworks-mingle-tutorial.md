@@ -76,7 +76,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Thoughtworks Mingle** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.mingle.thoughtworks.com*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Thoughtworks Mingle** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.mingle.thoughtworks.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Configura URL app")
 

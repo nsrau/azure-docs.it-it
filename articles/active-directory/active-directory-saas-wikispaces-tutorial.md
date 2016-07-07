@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Wikispaces** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.wikispaces.net*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso Wikispaces** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.wikispaces.net*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configura URL app")
 
