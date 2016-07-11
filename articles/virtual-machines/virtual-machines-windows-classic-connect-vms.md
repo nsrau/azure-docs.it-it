@@ -19,7 +19,7 @@
 
 # Connettere le macchine virtuali Windows create con il modello di distribuzione classica con un servizio cloud o rete virtuale
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Le macchine virtuali Windows create con il modello di distribuzione classica vengono sempre inserite in un servizio cloud. Il servizio cloud funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può essere in una rete virtuale, ma questo non è un requisito. È inoltre possibile [connettere le macchine virtuali Linux con una rete virtuale o un servizio cloud](virtual-machines-linux-classic-connect-vms.md).
 
@@ -33,4 +33,4 @@ Se si inseriscono le macchine virtuali nello stesso servizio cloud autonomo, si 
 
 Dopo avere creato una macchina virtuale, è consigliabile [aggiungere un disco dati](virtual-machines-windows-classic-attach-disk.md), in modo che i servizi e i carichi di lavoro possano usarlo per archiviare i dati.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

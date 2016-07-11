@@ -19,7 +19,7 @@
 
 # Cluster MariaDB (MySQL) - Esercitazione su Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 > [AZURE.NOTE]  Il cluster MariaDB Enterprise è ora disponibile in Azure Marketplace. La nuova offerta distribuirà automaticamente un cluster MariaDB Galera su ARM. È consigliabile usare la nuova offerta da https://azure.microsoft.com/it-IT/marketplace/partners/mariadb/cluster-maxscale/
 
@@ -374,4 +374,4 @@ Può essere utile consultare gli articoli su [un metodo alternativo per creare u
 [problema noto n. 1268 nell’interfaccia della riga di comando di Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [un metodo alternativo per creare un cluster MySQL su Linux]: virtual-machines-linux-mysql-cluster.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

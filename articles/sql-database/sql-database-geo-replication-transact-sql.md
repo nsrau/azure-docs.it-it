@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="carlrab"/>
 
@@ -26,7 +26,7 @@
 
 Questo articolo illustra come configurare la replica geografica attiva per un database SQL di Azure con Transact-SQL.
 
-Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-transact-sql.md).
+Per avviare il failover usando Transact-SQL, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
 
@@ -71,7 +71,7 @@ Usare la procedura seguente per creare un database secondario accessibile in let
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario leggibile in un server secondario.
+3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario accessibile in lettura in un server secondario.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
@@ -88,7 +88,7 @@ Usare la procedura seguente per creare un database secondario non accessibile in
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non leggibile in un pool elastico.
+3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non accessibile in lettura in un pool elastico.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
@@ -105,7 +105,7 @@ Usare la procedura seguente per creare un database secondario accessibile in let
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario leggibile in un pool elastico.
+3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario accessibile in lettura in un pool elastico.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
@@ -164,18 +164,7 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 
 ## Passaggi successivi
 
-- [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-transact-sql.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
+- Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-
-## Risorse aggiuntive
-
-- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities (Nuove funzionalità di replica geografica in evidenza)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

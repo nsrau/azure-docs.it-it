@@ -1,4 +1,6 @@
-Usare la procedura corrispondente al tipo di progetto di back-end in corso: [back-end .NET](#dotnet) o [back-end Node. js](#nodejs).
+In questa sezione viene aggiornato il codice nel progetto di back-end dell'app per dispositivi mobili esistente per inviare una notifica push ogni volta che viene aggiunto un nuovo elemento. Poiché i client sono registrati per le notifiche push tramite la registrazione di un modello, è possibile inviare un unico messaggio di notifica push a tutte le piattaforme client. Ogni registrazione del modello client contiene un parametro *messageParam*. Quando viene inviata la notifica, *messageParam* contiene una stringa che rappresenta il testo dell'elemento da inserire. Per altre informazioni sull'uso dei modelli con Hub di notifica, vedere [Modelli](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Scegliere di seguito la procedura corrispondente al tipo di progetto di back-end in corso: [back-end .NET](#dotnet) o [back-end Node. js](#nodejs).
 
 ### <a name="dotnet"></a>Progetto di back-end .NET
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**, cercare `Microsoft.Azure.NotificationHubs` e infine fare clic su **Installa**. Consente di installare la libreria di hub di notifica per l'invio di notifiche dal back-end.
@@ -46,17 +48,15 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Questo codice comunica a hub di notifica di inviare una notifica modello a tutte le registrazioni di modello che contengono "messageParam". La stringa verrà inserita al posto di messageParam in ogni PNS che ha una registrazione che utilizza "messageParam". Ciò consente di inviare la notifica a APNS, GCM, WNS o a qualsiasi altro PNS.
-
-	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](notification-hubs-templates.md).
+	Ogni volta che viene inserito un nuovo elemento, viene inviata una notifica modello contenente l'elemento item.text.
 
 4. Pubblicare di nuovo il progetto server.
 
 ### <a name="nodejs"></a>Progetto di back-end Node.js
 
-1. [Scaricare il progetto di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) (se non ancora scaricato) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Se ancora non è stato fatto, [Scaricare il progetto di back-end di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
-2. Sostituire il codice esistente nel file todoitem.js file con il codice seguente:
+2. Sostituire il codice esistente nel file todoitem.js con il codice seguente:
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -70,7 +70,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam":' + context.item.text + '}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -97,6 +97,8 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
 
 		module.exports = table;  
 
-	Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica modello contenente l'elemento item.text.
+	Ogni volta che viene inserito un nuovo elemento, viene inviata una notifica modello contenente l'elemento item.text.
 
 2. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
+
+<!---HONumber=AcomDC_0629_2016-->

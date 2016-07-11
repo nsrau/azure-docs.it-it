@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/17/2016"
+ms.date="06/27/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
@@ -32,9 +32,9 @@ Un indicizzatore è una risorsa che connette le origini dati agli indici di rice
 Per impostare l'indicizzazione BLOB, eseguire le operazioni seguenti:
 
 1. Creare un'origine dati di tipo `azureblob` che faccia riferimento a un contenitore (e, facoltativamente, a una cartella in tale contenitore) in un account di archiviazione di Azure.
-	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`.
+	- Passare una stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`. È possibile ottenere la stringa di connessione dal portale di Azure: accedere al pannello dell'account di archiviazione desiderato/ Chiavi e usare il valore "Stringa di connessione primaria" o "Stringa di connessione secondaria".
 	- Specificare un nome del contenitore. È facoltativamente possibile includere anche una cartella usando il parametro `query`.
-2. Creare un indice di ricerca con un campo `content` disponibile per la ricerca. 
+2. Creare un indice di ricerca con un campo `content` disponibile per la ricerca.
 3. Creare l'indicizzatore connettendo l'origine dati all'indice di destinazione.
 
 ### Creare un'origine dati
@@ -83,7 +83,9 @@ Infine creare un indicizzatore che fa riferimento all'origine dati e a un indice
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-Per altre informazioni sull'API Create Indexer (Creare un indicizzatore), vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di 5 minuti. La pianificazione è facoltativa: se omessa, l'indicizzatore viene eseguito una sola volta quando creato. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.
+
+Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
 ## Formati di documento supportati
@@ -91,12 +93,12 @@ Per altre informazioni sull'API Create Indexer (Creare un indicizzatore), vedere
 L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 
 - PDF
-- Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica di Outlook)  
+- Formati di Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (messaggi di posta elettronica di Outlook)
 - HTML
 - XML
 - ZIP
 - EML
-- File di testo normale  
+- File di testo normale
 - JSON (per informazioni dettagliate, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
 
 ## Processo di estrazione dei documenti
@@ -292,4 +294,4 @@ Se è necessario estrarre tutti i metadati ignorando tuttavia l'estrazione del c
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -32,7 +32,7 @@ Questa opzione è particolarmente indicata per le applicazioni con le caratteris
 
 + Istanza attiva in una singola area di Azure
 + Dipendenza assoluta nell'accesso ai dati in lettura/scrittura
-+ Connettività in più aree tra la logica dell'applicazione e il database non accettabile a causa della latenza e del costo del traffico    
++ Connettività in più aree tra la logica dell'applicazione e il database non accettabile a causa della latenza e del costo del traffico
 
 In questo caso la topologia di distribuzione dell'applicazione viene ottimizzata per la gestione di situazioni di emergenza nelle aree interessate quando tutti i componenti dell'applicazione sono coinvolti e se ne rende necessario il failover come unità. Per la ridondanza geografica sia la logica dell'applicazione che il database vengono replicati in un'altra area, ma non sono usati per il carico di lavoro dell'applicazione in condizioni normali. L'applicazione nell'area secondaria dovrebbe essere configurata per l'uso di un stringa di connessione SQL al database secondario. Gestione traffico è configurato per l'uso del [metodo di routing di failover](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
@@ -76,9 +76,9 @@ Il **compromesso** principale è che l'istanza dell'applicazione ridondante nell
 Questa opzione di ripristino di emergenza cloud è particolarmente indicata per le applicazioni con le caratteristiche seguenti:
 
 + Rapporto elevato tra letture e scritture del database
-+ Latenza di scrittura del database che non influisce sull'esperienza utente finale  
++ Latenza di scrittura del database che non influisce sull'esperienza utente finale
 + Logica di sola lettura che può essere separata dalla logica di lettura/scrittura usando una stringa di connessione diversa
-+ Logica di sola lettura che non dipende dai dati che vengono completamente sincronizzati con gli ultimi aggiornamenti  
++ Logica di sola lettura che non dipende dai dati che vengono completamente sincronizzati con gli ultimi aggiornamenti
 
 Se l'applicazione presenta queste caratteristiche, il bilanciamento del carico delle connessioni degli utenti finali in più istanze dell'applicazione in aree diverse può migliorare le prestazioni e l'esperienza dell'utente finale. A questo scopo, ogni area deve avere un'istanza attiva dell'applicazione con la logica di lettura/scrittura connessa al database primario nell'area primaria. La logica di sola lettura dovrebbe essere connessa a un database secondario nella stessa area dell'istanza dell'applicazione. Gestione traffico dovrebbe essere configurato per l'uso del [routing round robin](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) o del [routing delle prestazioni](../traffic-manager/traffic-manager-configure-performance-routing-method.md) con il [monitoraggio dell'endpoint](../traffic-manager/traffic-manager-monitoring.md) abilitato per ogni istanza dell'applicazione.
 
@@ -103,7 +103,7 @@ Il **vantaggio** chiave di questo modello di progettazione è la scalabilità de
 
 + Le connessioni in lettura/scrittura tra le istanze dell'applicazione e il database hanno latenza e costi variabili
 + Le prestazioni dell'applicazione vengono rallentate durante l'interruzione
-+ Le istanze dell'applicazione devono modificare in modo dinamico la stringa di connessione SQL dopo il failover del database.  
++ Le istanze dell'applicazione devono modificare in modo dinamico la stringa di connessione SQL dopo il failover del database.
 
 > [AZURE.NOTE] Un approccio simile può essere adottato per l'offload di carichi di lavoro specializzati, ad esempio processi di creazione di report, strumenti di business intelligence o backup. Poiché questi carichi di lavoro usano in genere una considerevole quantità di risorse del database, è consigliabile riservare loro uno dei database secondari con un livello di prestazioni corrispondente al carico di lavoro anticipato.
 
@@ -156,17 +156,14 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 ## Passaggi successivi
 
 - Per informazioni sull'uso e la configurazione della replica geografica attiva per il ripristino di emergenza, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- Per informazioni sull'uso del ripristino geografico per il ripristino di emergenza, vedere [Ripristino geografico](sql-database-geo-restore.md)
+- Per informazioni sull'uso del ripristino geografico per il ripristino di emergenza, vedere [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore) (Ripristino geografico)
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/27/2016"
     ms.author="sethm" />
 
 # Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato
@@ -129,4 +129,4 @@ Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, 
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

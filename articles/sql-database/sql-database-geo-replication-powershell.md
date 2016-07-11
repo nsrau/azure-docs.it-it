@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="sstein"/>
 
@@ -26,7 +26,7 @@
 
 Questo articolo illustra come configurare la replica geografica attiva per il database SQL con PowerShell.
 
-Per avviare il failover, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-powershell.md).
+Per avviare il failover usando PowerShell, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
 
@@ -34,7 +34,7 @@ Per avviare il failover, vedere [Avviare un failover pianificato o non pianifica
 
 Per configurare la replica geografica attiva tramite PowerShell, sono necessari gli elementi seguenti:
 
-- Una sottoscrizione di Azure. 
+- Una sottoscrizione di Azure.
 - Un database SQL di Azure: il database primario che si vuole replicare.
 - Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -143,24 +143,9 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-  
-
 ## Passaggi successivi
 
-- [Avviare un failover pianificato o non pianificato per il database SQL di Azure](sql-database-geo-replication-failover-powershell.md)
-- [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
+- Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
 
-
-
-
-## Risorse aggiuntive
-
-- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities (Nuove funzionalità di replica geografica in evidenza)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

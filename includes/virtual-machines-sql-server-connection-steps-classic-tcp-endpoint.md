@@ -4,19 +4,22 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 
 >[AZURE.NOTE] Se ci si connette all'interno della stesso servizio cloud o rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
-1. Nel portale di gestione di Azure fare clic su **VIRTUAL MACHINES**.
-	
-2. Fare clic sulla macchina virtuale appena creata. Verranno visualizzate le informazioni sulla macchina virtuale.
-	
-3. Nella parte superiore della pagina selezionare **ENDPOINT** e quindi fare clic su **AGGIUNGI** nella parte inferiore della pagina.
-	
-4. Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic su **Aggiungi un endpoint autonomo**, quindi fare clic sulla freccia Avanti per continuare.
-	
-5. Nella pagina **Specify the details of the endpoint** specificare le informazioni seguenti:
+1. Nel portale di Azure selezionare **Macchine virtuali (versione classica)**.
 
-	- Nella casella **NAME** specificare un nome per l'endpoint.
-	- Nella casella **PROTOCOL** selezionare **TCP**. È possibile digitare **57500** nella casella **PUBLIC PORT**. Analogamente, è possibile immettere la porta di ascolto predefinita di SQL Server **1433** nella casella **Private Port**. Si noti che molte organizzazioni selezionano numeri di porta diversi per evitare attacchi dannosi al sistema di sicurezza. 
+2. Quindi selezionare la macchina virtuale di SQL Server.
 
-6. Fare clic sul segno di spunta per continuare. La creazione dell'endpoint è completata.
+3. Selezionare **Endpoint** e quindi fare clic sul pulsante **Aggiungi** nella parte superiore del pannello Endpoint.
 
-<!---HONumber=AcomDC_0323_2016-->
+	![Passaggi all'interno del portale per la creazione dell'endpoint](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+
+4. Nel pannello **Aggiungi endpoint** fornire un nome **Name**, ad esempio SQLEndpoint.
+
+5. Selezionare **TCP** per il **protocollo**.
+
+6. Nel campo **Porta pubblica** specificare un numero di porta, ad esempio **57500**.
+
+7. Nel campo **Porta privata** specificare la porta in ascolto di SQL Server; per impostazione predefinita è **1433**.
+
+6. Fare clic su **OK** per creare l'endpoint.
+
+<!---HONumber=AcomDC_0629_2016-->

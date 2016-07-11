@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="06/28/2016"
  ms.author="xpillons"/>
 
 # Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure
@@ -286,9 +286,9 @@ Sostituire **runner.java** con il servizio di avvio preferito per il modello Jav
     exit ${RTNSTS}
 ```
 
-Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su **1999@flex.cd-adapco.com** e la chiave nell'opzione**-podkey** della riga di comando.
+Nel test viene usato un token di licenza di tipo Power-One-Demand. Per questo token è necessario impostare la variabile di ambiente **$CDLMD\_LICENSE\_FILE** su **1999@flex.cd-adapco.com** e la chiave nell'opzione **-podkey** della riga di comando.
 
-Dopo alcune operazioni di inizializzazione, lo script estrae l'elenco di nodi per la compilazione di un file host usato dal servizio di avvio MPI dalle variabili di ambiente **$CCP\_NODES\_CORES** impostate da HPC Pack . Il file host conterrà l'elenco di nomi di nodi di calcolo usati per il processo, un nome per ogni riga.
+Dopo alcune operazioni di inizializzazione, lo script estrae l'elenco di nodi per la compilazione di un file host usato dal servizio di avvio MPI dalle variabili di ambiente **$CCP\_NODES\_CORES** impostate da HPC Pack. Il file host conterrà l'elenco di nomi di nodi di calcolo usati per il processo, un nome per ogni riga.
 
 Il formato della variabile **$CCP\_NODES\_CORES** segue questo modello:
 
@@ -310,11 +310,11 @@ Ecco le opzioni MPI usate con Intel MPI in Azure:
 
 *   `-mpi intel` per specificare Intel MPI.
 
-*   `-fabric UDAPL` per usare verbi InfiniBand in Azure.
+*   `-fabric UDAPL` per usare verbi InfiniBand Azure.
 
 *   `-cpubind bandwidth,v` per ottimizzare la larghezza di banda per MPI con STAR-CCM+.
 
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` per consentire il funzionamento di Intel MPI con InfiniBand in Azure e impostare il numero di core per nodo richiesto.
+*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` per consentire il funzionamento di Intel MPI con InfiniBand Azure e impostare il numero di core per nodo necessario.
 
 *   `-batch` per avviare STAR-CCM+ in modalità batch senza interfaccia utente.
 
@@ -345,4 +345,4 @@ Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

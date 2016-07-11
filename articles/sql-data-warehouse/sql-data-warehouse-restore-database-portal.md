@@ -3,7 +3,7 @@
    description="Attività del portale di Azure per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama;nicw"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess;nicw"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (portale)
 
@@ -116,4 +116,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 <!--Other Web references-->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

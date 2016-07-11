@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/02/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Guida per la risoluzione dei problemi relativi allo streaming live
@@ -28,19 +28,19 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 - **Problema potenziale**: non è possibile trovare i log del codificatore che potrebbero essere utili per risolvere problemi di debug.
 	
-	- **Telestream Wirecast**: in genere è possibile trovare i log di in C:\\Utenti{nome utente}\\AppData\\Roaming\\Wirecast\\ 
-	- **Elemental Live**: è possibile trovare i collegamenti ai log nel portale di gestione. Fare clic su **Stats**, quindi su **Logs**. Nella pagina **Log Files** verrà visualizzato un elenco di log per tutti gli elementi LiveEvent. Selezionare quello corrispondente alla sessione corrente. 
+	- **Telestream Wirecast**: in genere è possibile trovare i log di in C:\\Utenti{nome utente}\\AppData\\Roaming\\Wirecast\\
+	- **Elemental Live**: è possibile trovare i collegamenti ai log nel portale di gestione. Fare clic su **Stats**, quindi su **Logs**. Nella pagina **Log Files** verrà visualizzato un elenco di log per tutti gli elementi LiveEvent. Selezionare quello corrispondente alla sessione corrente.
 	- **Flash Media Live Encoder**: per trovare **Log Directory**, passare alla scheda **Encoding Log**.
 	
 ###Problema: non esiste alcuna opzione per l'output di un flusso progressivo
 
-- **Potenziale problema**: il codificatore usato non esegue automaticamente il deinterlacciamento. 
+- **Potenziale problema**: il codificatore usato non esegue automaticamente il deinterlacciamento.
 
 	**Passaggi per la risoluzione dei problemi**: cercare un'opzione di deinterlacciamento all'interno dell'interfaccia del codificatore. Dopo aver abilitato il deinterlacciamento, verificare di nuovo se sono disponibili impostazioni per l'output progressivo.
  
 ###Problema: dopo aver provato varie impostazioni di output per il codificatore è ancora impossibile connettersi. 
 
-- **Potenziale problema**: il canale di codifica di Azure non è stato reimpostato correttamente. 
+- **Potenziale problema**: il canale di codifica di Azure non è stato reimpostato correttamente.
 
 	**Passaggi per la risoluzione dei problemi**: verificare che il codificatore non effettui più il push ad AMS, arrestare e reimpostare il canale. Quando è di nuovo in esecuzione, provare a connettere il codificatore con le nuove impostazioni. Se il problema persiste, provare a creare un canale del tutto nuovo. A volte i canali possono risultare danneggiati dopo diversi tentativi non riusciti.
 
@@ -55,7 +55,7 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 ###Problema: quando si configura il codificatore per lo streaming con il protocollo RTP, non è disponibile alcun campo per l'immissione del nome host. 
 
-- **Potenziale problema**: molti codificatori RTP non consentono i nomi host e sarà necessario acquisire un indirizzo IP.  
+- **Potenziale problema**: molti codificatori RTP non consentono i nomi host e sarà necessario acquisire un indirizzo IP.
 
 	**Passaggi per la risoluzione dei problemi**: per trovare l'indirizzo IP, aprire un prompt dei comandi in qualsiasi computer. A tale scopo, in Windows aprire l'avvio per Esegui (WIN+R) e digitare "cmd" per aprire.
 
@@ -69,7 +69,7 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 ###Problema: non è possibile riprodurre il flusso pubblicato.
  
-- **Potenziale problema**: nessun endpoint di streaming in esecuzione o non esiste alcuna unità di streaming (unità di scala) allocata. 
+- **Potenziale problema**: nessun endpoint di streaming in esecuzione o non esiste alcuna unità di streaming (unità di scala) allocata.
 
 	**Passaggi per la risoluzione dei problemi**: passare alla scheda "Endpoint streaming" nello strumento AMSE e verificare che vi sia un endpoint di streaming in esecuzione con una unità di streaming.
 	
@@ -85,4 +85,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

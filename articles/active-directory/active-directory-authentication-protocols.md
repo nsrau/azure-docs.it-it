@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 
 ## Articoli e riferimenti sui protocolli di autenticazione
 
-- [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx): informazioni sulla cadenza di rollover della chiave di firma di Azure AD, sulle modifiche che è possibile apportare per aggiornare automaticamente la chiave e su come aggiornare gli scenari più comuni per le applicazioni.
+- [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-signing-key-rollover.md): informazioni sulla cadenza di rollover della chiave di firma di Azure AD, sulle modifiche che è possibile apportare per aggiornare automaticamente la chiave e su come aggiornare gli scenari più comuni per le applicazioni.
 
 
 - [Token e tipi di attestazione supportati](active-directory-token-and-claims.md): informazioni sulle attestazioni nei token rilasciati da Azure AD.
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 
 [Esempi di codice di Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

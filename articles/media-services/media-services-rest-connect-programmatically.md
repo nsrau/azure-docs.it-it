@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -29,8 +29,8 @@ Quando si accede a Servizi multimediali di Microsoft Azure sono necessari due el
 
 I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'API REST per connettersi a Servizi multimediali:
 
-1. Recupero di un token di accesso 
-2. Connessione all'URI di Servizi multimediali 
+1. Recupero di un token di accesso
+2. Connessione all'URI di Servizi multimediali
 
 	>[AZURE.NOTE] Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
 
@@ -177,4 +177,4 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

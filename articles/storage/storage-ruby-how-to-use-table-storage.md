@@ -6,14 +6,13 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 
@@ -57,20 +56,20 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
-Per ottenere questi valori da un account di archiviazione classico o ARM nel portale di Azure:
+Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
-4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
-5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
+4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente.
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
-Per ottenere questi valori da un account di archiviazione classico nel portale classico:
+Per ottenere questi valori da un account di archiviazione classico nel portale di Azure classico:
 
-1. Accedere al [portale classico](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore del riquadro di spostamento.
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria. 
+4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 ## Creare una tabella
@@ -164,4 +163,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

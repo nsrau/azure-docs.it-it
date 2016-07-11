@@ -40,11 +40,11 @@
 		<li>Fare clic su <b>OK</b> per creare il progetto.</li>
 	</ol>
 2. Fare clic su <b>Strumenti</b>, scegliere <b>Gestione pacchetti NuGet</b> e quindi fare clic su <b>Console di Gestione pacchetti</b>.
-3.	In <b>Console di Gestione pacchetti</b> eseguire i comandi seguenti uno alla volta.</b> 
+3.	In <b>Console di Gestione pacchetti</b> eseguire i comandi seguenti uno alla volta.</b>
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. Aggiungere la sezione **appSettings** seguente al file **App.config**. Queste impostazioni sono usate dal metodo helper: **GetAuthorizationHeader**. 
+6. Aggiungere la sezione **appSettings** seguente al file **App.config**. Queste impostazioni sono usate dal metodo helper: **GetAuthorizationHeader**.
 
 	Sostituire i valori per **SubscriptionId** e **ActiveDirectoryTenantId** con gli ID della sottoscrizione Azure e del tenant. È possibile ottenere questi valori eseguendo **Get-AzureAccount** da Azure PowerShell. Potrebbe essere necessario eseguire prima l'accesso mediante Add-AzureAccount.
  
@@ -71,7 +71,7 @@
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Aggiungere al metodo **Main** il codice seguente che crea un'istanza della classe **DataPipelineManagementClient**. Si userà questo oggetto per creare un'istanza di Data factory, un servizio collegato, set di dati di input e di output e una pipeline. Sarà anche possibile usare l'oggetto per monitorare le sezioni di un set di dati in fase di esecuzione.    
+6. Aggiungere al metodo **Main** il codice seguente che crea un'istanza della classe **DataPipelineManagementClient**. Si userà questo oggetto per creare un'istanza di Data factory, un servizio collegato, set di dati di input e di output e una pipeline. Sarà anche possibile usare l'oggetto per monitorare le sezioni di un set di dati in fase di esecuzione.
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,7 +123,7 @@
                 }
             }
         );
-9. Aggiungere al metodo **Main** il codice seguente che crea **set di dati di input e output**. 
+9. Aggiungere al metodo **Main** il codice seguente che crea **set di dati di input e output**.
 
 	Tenere presente che **FolderPath** per il BLOB di input è impostato su **adftutorial/**, dove **adftutorial** è il nome del contenitore nell'archivio BLOB. Se questo contenitore non esiste nell'archivio BLOB di Azure, creare un contenitore con il nome **adftutorial** e caricare un file di testo nel contenitore.
 	
@@ -263,7 +263,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 
 	
 
-12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Con questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure. 
+12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Con questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -366,17 +366,17 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
         Console.ReadKey();
 
 15. In Esplora soluzioni, espandere il progetto (**DataFactoryAPITestApp**), fare doppio clic su **riferimenti**, fare clic su **Aggiungi riferimento**. Selezionare la casella di controllo per l’assembly di **System.Configuration** e fare clic su **OK**.
-16. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**. 
+16. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**.
 16. Verificare che esista almeno un file nel contenitore adftutorial nell'archiviazione BLOB di Azure. In caso contrario, creare il file Emp.txt nel Blocco note con il contenuto seguente e caricarlo nel contenitore adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
 17. Eseguire l'esempio scegliendo **Debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
-18. Usare il portale di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti: 
-	- Servizio collegato: **LinkedService\_AzureStorage**. 
+18. Usare il portale di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti:
+	- Servizio collegato: **LinkedService\_AzureStorage**.
 	- Set di dati: **DatasetBlobSource** e **DatasetBlobDestination**.
-	- Pipeline: **PipelineBlobSample**. 
+	- Pipeline: **PipelineBlobSample**.
 18. Verificare che venga creato un file di output nella cartella **apifactoryoutput** nel contenitore **adftutorial**.
 
 
@@ -385,7 +385,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 
 
 [data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
+[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
@@ -393,4 +393,4 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

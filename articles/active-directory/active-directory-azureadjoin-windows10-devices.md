@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Uso di dispositivi Windows 10 in azienda
+
+Si applica a: PC Windows 10
 
 Windows 10 offre alle organizzazioni tre modelli per consentire agli utenti di accedere alle risorse aziendali in modo pratico e sicuro.
 
 - **Aggiunta ad Azure Active Directory** (Aggiunta ad Azure AD), per gli utenti che accedono a risorse quali Office 365 principalmente nel cloud. Aggiunta ad Azure AD è un'esperienza di provisioning aziendale self-service che costituisce una novità di Windows 10.
 - **Aggiunta a un dominio**, per le organizzazioni che hanno investito in risorse e app locali. Aggiunta a un dominio offre un'esperienza migliorata in Windows 10 quando si è connessi ad Azure AD.
-- **Nuova esperienza BYOD semplificata**, che consente agli utenti di aggiungere un account aziendale o dell'istituto di istruzione a Windows per accedere facilmente alle risorse dai dispositivi personali.
+- **Nuova esperienza BYOD semplificata**, che consente agli utenti di aggiungere a Windows un account aziendale o dell'istituto di istruzione per accedere facilmente alle risorse dai dispositivi personali.
 
 La tabella seguente offre una panoramica delle funzionalità a disposizione degli utenti e degli amministratori IT, mettendo a confronto i diversi modi in cui è possibile effettuare il provisioning di un dispositivo e usarlo in una organizzazione con Windows 10:
 
@@ -175,4 +177,4 @@ L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispos
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

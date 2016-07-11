@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -32,23 +32,23 @@ Servizi multimediali di Microsoft Azure consente di distribuire contenuti nei fo
 Per altre informazioni:
 
 - [Azure Media Player](http://aka.ms/ampinfo)
-- [Documentazione di Azure Media Player](http://aka.ms/ampdocs) 
+- [Documentazione di Azure Media Player](http://aka.ms/ampdocs)
 - [Blog di introduzione ad Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Iscriversi per restare aggiornati sulle ultime novità di Azure Media Player](http://aka.ms/ampsignup)
-- [Aggiungere richieste di nuove funzionalità, idee e commenti e suggerimenti](http://aka.ms/ampuservoice) 
+- [Aggiungere richieste di nuove funzionalità, idee e commenti e suggerimenti](http://aka.ms/ampuservoice)
 
 
 ##Altri strumenti per la creazione di applicazioni di lettore
 
 È possibile usare anche uno dei seguenti SDK:
 
-- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming)
 - [App Smooth Streaming Windows Store](media-services-build-smooth-streaming-apps.md)
-- [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-- [Documentazione di HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licenza per Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
-- [Sviluppo di applicazioni video per XBox](http://xbox.create.msdn.com/) 
+- [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/)
+- [Documentazione di HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation)
+- [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057)
+- [Licenza per Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk)
+- [Sviluppo di applicazioni video per XBox](http://xbox.create.msdn.com/)
  
 
 ##Pubblicità
@@ -81,4 +81,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

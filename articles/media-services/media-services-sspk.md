@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="xpouyat,vsood" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xpouyat"/>
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
@@ -30,19 +30,19 @@ Di seguito è riportata un'architettura di alto livello che include la casella I
 
 SSPK è concesso in licenza a condizioni che offrono un valore aziendale eccellente. La licenza SSPK offre al settore:
 
-- Codice sorgente di Smooth Streaming Porting Kit in C++ 
+- Codice sorgente di Smooth Streaming Porting Kit in C++
   - implementa la funzionalità client di Smooth Streaming Client
   - aggiunge analisi del formato, euristica, logica di buffering e così via.
-- API dell'applicazione lettore 
+- API dell'applicazione lettore
   -	interfacce di programmazione per l'interazione con un'applicazione lettore multimediale
-- Interfaccia Platform Abstraction Layer (PAL) 
+- Interfaccia Platform Abstraction Layer (PAL)
   -	interfacce di programmazione per l'interazione con il sistema operativo (thread, socket)
-- Interfaccia Hardware Abstraction Layer (HAL) 
+- Interfaccia Hardware Abstraction Layer (HAL)
   -	interfacce di programmazione per l'interazione con un decodificatore A/V hardware (decodifica, rendering)
-- Interfaccia Digital Rights Management (DRM) 
+- Interfaccia Digital Rights Management (DRM)
   -	interfacce di programmazione per la gestione di DRM tramite DRM Abstraction Layer (DAL)
   -	Microsoft PlayReady Porting Kit viene fornito separatamente, ma si integra tramite questa interfaccia. Per altri dettagli sulle licenze Microsoft PlayReady Device, fare clic [qui](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-- Esempi di implementazione 
+- Esempi di implementazione
   -	implementazione PAL di esempio per Linux
   -	implementazione HAL di esempio per GStreamer
 
@@ -71,7 +71,7 @@ Smooth Streaming Client Final Product è disponibile in un modello a pagamento c
 
 - USD 0,10 per ogni implementazione di dispositivo fornita
 - I diritti sono limitati a un massimo di USD 50.000 all'anno
-- Nessun diritto per le prime 10.000 implementazioni di dispositivi ogni anno 
+- Nessun diritto per le prime 10.000 implementazioni di dispositivi ogni anno
 
 ##Procedura di gestione delle licenze e accesso a SSPK
 
@@ -164,4 +164,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

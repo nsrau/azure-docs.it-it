@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="06/24/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Panoramica
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
@@ -33,7 +33,7 @@ La rete di Microsoft Azure consente di distribuire cluster privati isolati, il c
 
 - I sistemi esterni non possono accedere al database Cassandra da Azure o all'esterno di Azure
 - Il cluster Cassandra deve trovarsi dietro un bilanciamento del carico per il traffico Thrift
-- Distribuire i nodi di Cassandra in due gruppi in ogni data center per una migliore disponibilità del cluster 
+- Distribuire i nodi di Cassandra in due gruppi in ogni data center per una migliore disponibilità del cluster
 - Bloccare il cluster in modo che solo la server farm applicazioni abbia accesso diretto al database
 - Nessun endpoint di rete pubblico diverso da SSH
 - Ogni nodo di Cassandra richiede un indirizzo IP interno fisso
@@ -82,7 +82,7 @@ Il modello descritto di replica e coerenza con riconoscimento del data center di
 
 **Distribuzione basata su prossimità:** applicazioni multi-tenant, con mapping chiaro di utenti tenant all’area, possono trarre vantaggio dalle basse latenze del cluster con più aree. Ad esempio, sistemi di gestione della formazione per istituzioni didattiche possono distribuire un cluster distribuito nelle aree degli Stati Uniti orientali e degli Stati Uniti occidentali per servire i rispettivi campus sia per scopi di transazione che di analisi. I dati possono essere coerenti localmente in fase di lettura e scrittura e possono essere alla fine coerenti tra le due aree. Sono disponibili altri esempi quali la distribuzione su supporti, e-commerce, e qualsiasi elemento serva alla base utenti concentrata geograficamente è un buon caso di utilizzo per questo modello di distribuzione.
 
-**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva. Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) * (1-0,999)) * 100); vedere il documento precedente per informazioni dettagliate.
+**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva. Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) * (1-0.999))*100); vedere il documento precedente per informazioni dettagliate.
 
 **Ripristino di emergenza:** il cluster Cassandra con più aree, se correttamente progettato, può far fronte a potenziali interruzioni irreversibili del centro. Se un'area è inattiva, l'applicazione distribuita in altre aree può iniziare a servire gli utenti finali. Come le altre implementazioni di continuità aziendale, l'applicazione deve tollerare una certa perdita di dati risultante dai dati della pipeline asincrona. Tuttavia, Cassandra rende il ripristino molto più veloce rispetto ai tradizionali processi di ripristino dei database. La figura 2 mostra il tipico modello di distribuzione con più aree con otto nodi in ogni area. Entrambe le aree sono immagini speculari tra loro per simmetria; i progetti reali dipendono dai requisiti relativi a tipo di carico di lavoro (ad esempio transazionale o analitico), RPO, RTO, coerenza dei dati e disponibilità.
 
@@ -440,7 +440,7 @@ Usare i passaggi seguenti per testare il cluster:
 
 1.    Con il commandlet Get-AzureInternalLoadbalancer dei comandi Powershell, ottenere l'indirizzo IP del dispositivo di bilanciamento del carico interno (ad esempio, 10.1.2.101). La sintassi del comando viene mostrata di seguito: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [vengono visualizzati i dettagli del servizio di bilanciamento del carico interno con l'indirizzo IP]
 2.	Accedere alla macchina virtuale della Web farm (ad esempio, hk-w1-west-us) con Putty o SSH
-3.	Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 4.	Usare i seguenti comandi CQL per verificare se il cluster è in funzione:
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -559,12 +559,12 @@ Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azu
 
 ###Passaggio 1: Ottenere l'IP del servizio di bilanciamento del carico interno per entrambe le aree con PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
 
     Prendere nota degli indirizzi IP (ad esempio, west - 10.1.2.101, east - 10.2.2.101) visualizzati.
 
 ###Passaggio 2: Eseguire quanto segue nell'area occidentale dopo l'accesso a hk-w1-west-us
-1.    Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    Eseguire $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 2.	Eseguire i comandi CQL seguenti:
 
 		CREATE KEYSPACE customers_ks
@@ -584,7 +584,7 @@ I dati visualizzati saranno simili ai seguenti:
 
 
 ###Passaggio 3: Eseguire quanto segue nell'area orientale dopo l'accesso a hk-w1-east-us
-1.    Eseguire $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    Eseguire $CASS\_HOME/bin/cqlsh 10.2.2.101 9160
 2.	Eseguire i comandi CQL seguenti:
 
 		USE customers_ks;
@@ -611,7 +611,7 @@ Con una delle macchine virtuali Linux create nel livello "Web" in precedenza, ve
 
 1. Installare Node.js e NPM
 2. Installare il pacchetto di nodi "cassandra-client" con NPM
-3. Eseguire lo script seguente al prompt della shell. Viene visualizzata la stringa json dei dati recuperati: 
+3. Eseguire lo script seguente al prompt della shell. Viene visualizzata la stringa json dei dati recuperati:
 
 		var pooledCon = require('cassandra-client').PooledConnection;
 		var ksName = "custsupport_ks";
@@ -702,7 +702,7 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
 ##Riferimenti##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com) 
-- [http://www.nodejs.org](http://www.nodejs.org) 
+- [http://www.datastax.com](http://www.datastax.com)
+- [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

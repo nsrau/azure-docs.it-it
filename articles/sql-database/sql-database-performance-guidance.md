@@ -189,7 +189,7 @@ Sono disponibili due viste che consentono di monitorare l'utilizzo delle risorse
 ### Uso di sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) è presente in ogni database SQL e fornisce dati di utilizzo delle risorse recenti rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
-Poiché questa vista fornisce una visione più granulare sull'utilizzo delle risorse, è consigliabile usare innanzitutto **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
+Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats ** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente mostra l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
@@ -311,7 +311,7 @@ Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare i
 Il database SQL fornisce due strumenti nel portale di Azure per l'analisi e la risoluzione dei problemi di prestazioni con il database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Advisor per database SQL](sql-database-index-advisor.md)
+- [Advisor per database SQL](sql-database-advisor.md)
 
 Per altre informazioni su ciascuno strumento e sul relativo utilizzo, vedere i collegamenti precedenti. Le due sezioni seguenti sugli indici mancanti e sull'ottimizzazione delle query forniscono altri modi per trovare e correggere manualmente problemi di prestazioni simili. Si consiglia di provare innanzitutto gli strumenti nel portale per diagnosticare e correggere i problemi in modo più efficiente. Usare l'approccio di ottimizzazione manuale per i casi particolari.
 
@@ -340,7 +340,7 @@ L'esempio seguente crea un caso in cui il piano di query selezionato contiene un
 
 Il database SQL di Azure include una funzionalità per suggerire agli amministratori del database come individuare e correggere condizioni comuni di indici mancanti. Le DMV incorporate nel database SQL di Azure considerano i casi in cui, durante la compilazione di query, l'uso di un indice consentirebbe di ridurre in modo significativo il costo stimato per l'esecuzione di una query. Durante l'esecuzione di query, si tiene traccia della frequenza con cui viene eseguito ogni piano di query e del divario stimato tra l'esecuzione del piano di query e quello immaginato in cui sarebbe presente l'indice in questione. Questo consente a un amministratore di database di ipotizzare rapidamente quali modifiche di progettazione fisica del database potrebbero migliorare il costo complessivo del carico di lavoro per un database specificato e il relativo carico di lavoro reale.
 
->[AZURE.NOTE] Prima di usare le DMV per trovare gli indici mancanti, innanzitutto rivedere la sezione su [Informazioni dettagliate sulle prestazioni delle query e Advisor per database SQL](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Prima di usare le DMV per trovare gli indici mancanti, rivedere la sezione su [Informazioni dettagliate sulle prestazioni delle query e Advisor per database SQL](#query-performance-insight-and-index-advisor).
 
 La query seguente può essere usata per valutare i potenziali indici mancanti.
 
@@ -507,4 +507,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 I livelli di servizio nel database SQL di Azure consentono di aumentare gli standard relativi ai tipi di applicazioni create nel cloud. Insieme a un'ottimizzazione diligente delle applicazioni, offre prestazioni potenti e prevedibili per la propria applicazione. Questo documento descrive le tecniche consigliate per ottimizzare il consumo di risorse da parte di un database in modo da rientrare perfettamente in uno dei livelli di prestazioni. L'ottimizzazione è un esercizio continuo nel modello cloud e i livelli di servizio, con i livelli di prestazioni correlati, consentono agli amministratori di ottenere massimi livelli di prestazioni e al tempo stesso ridurre i costi nella piattaforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

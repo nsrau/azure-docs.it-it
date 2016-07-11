@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -49,10 +49,10 @@ Il seguente esempio dimostra come codificare con **Flusso di lavoro Premium del 
 
 Vengono eseguiti questi passaggi:
  
-1. Creare un asset e caricare un file del flusso di lavoro. 
+1. Creare un asset e caricare un file del flusso di lavoro.
 2. Creare un asset e caricare un file multimediale di origine.
 3. Ottenere il processore di contenuti multimediali “Flusso di lavoro Premium del codificatore multimediale”.
-4. Creare un processo e un'attività. 
+4. Creare un processo e un'attività.
 
 	Nella maggior parte dei casi, la stringa di configurazione per l'attività è vuota (come nell'esempio seguente). Esistono alcuni scenari avanzati in cui è necessario impostare dinamicamente le proprietà di runtime. In questo caso, specificare una stringa XML nell'attività di codifica. Esempi di tali scenari sono: creazione di un overlay, unione sequenziale o parallela di supporti e aggiunta di sottotitoli.
 5. Aggiungere due asset di input all'attività.
@@ -278,4 +278,4 @@ Per domande relative al codificatore Premium, inviare mepd tramite un messaggio 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

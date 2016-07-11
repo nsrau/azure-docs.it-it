@@ -21,6 +21,8 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web ad altri archivi dati, non da altri archivi dati a una tabella Web.
 
+> [AZURE.NOTE] Questo connettore Web attualmente supporta solo l'estrazione del contenuto della tabella da una pagina HTML.
+
 ## Esempio: Copiare i dati da una tabella Web al BLOB di Azure
 
 L'esempio seguente mostra:
@@ -217,7 +219,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 Proprietà | Descrizione | Obbligatorio
 :-------- | :----------- | :--------
-type | Tipo del set di dati. Deve essere impostato su **WebTable** | Sì
+type | Tipo del set di dati. Deve essere impostato su **WebTable**. | Sì
 path | URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. 
 index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page). | Sì
 
@@ -243,27 +245,27 @@ index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice
 
 ## Proprietà del tipo di attività di copia WebSource
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-Per attività di copia con origine di tipo **WebSource** non sono attualmente supportate altre proprietà.
+Per le attività di copia con origine di tipo **WebSource** attualmente non sono supportate altre proprietà.
 
 ## Ottenere l'indice di una tabella in una pagina HTML
 
-1. Avviare **Excel 2016** e passare alla scheda **Dati**.  
+1. Avviare **Excel 2016** e passare alla scheda **Dati**.
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
 	
-	![Menu di Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png) 
-3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON (ad esempio https://en.wikipedia.org/wiki/) insieme al percorso specificato per il set di dati (ad esempio AFI%27s\_100\_Years...100\_Movies) e fare clic su **OK**. 
+	![Menu di Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON, ad esempio https://en.wikipedia.org/wiki/, insieme al percorso specificato per il set di dati, ad esempio AFI%27s\_100\_Years...100\_Movies, e fare clic su **OK**.
 
 	![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-	URL usato nell'esempio: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, l'**autenticazione** e fare clic su **Connetti**. 
+	URL usato nell'esempio: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, l'**autenticazione** e fare clic su **Connetti**.
 
 	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5.  Fare clic su un elemento **tabella** nella visualizzazione struttura ad albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.  
+5.  Fare clic su un elemento **tabella** nella visualizzazione albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.
 
 	![Finestra di dialogo Strumento di spostamento](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 
@@ -276,7 +278,7 @@ Per attività di copia con origine di tipo **WebSource** non sono attualmente su
 	![Editor avanzato - Indice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
 
-Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379). Per informazioni dettagliate, vedere [Connettersi a una pagina Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379). Per informazioni dettagliate, vedere l'articolo [Connettersi a una pagina Web (Power Query)](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
@@ -285,4 +287,4 @@ Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Exc
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

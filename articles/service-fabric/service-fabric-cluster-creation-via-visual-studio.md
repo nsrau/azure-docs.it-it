@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="06/27/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configurare un cluster di Service Fabric tramite Visual Studio
@@ -39,16 +39,17 @@ Prima di distribuire il modello per la creazione del cluster, è necessario spec
 
 |Nome parametro |Descrizione|
 |-----------------------  |--------------------------|
+|adminUserName |Nome dell'account amministratore per le macchine (nodi) di Service Fabric.|
 |certificateThumbprint |Identificazione personale del certificato che garantisce la sicurezza del cluster.|
 |sourceVaultResourceId |*ID risorsa* dell'insieme di credenziali delle chiavi in cui viene memorizzato il certificato che garantisce la sicurezza del cluster.|
 |certificateUrlValue |URL del certificato di protezione del cluster.|
 
-Il modello di Gestione risorse di Service Fabric in Visual Studio crea un cluster sicuro, protetto da un certificato, identificato dagli ultimi tre parametri del modello (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e incluso in un **insieme di credenziali delle chiavi di Azure**. Per altre informazioni su come creare il certificato di sicurezza del cluster, vedere l'articolo [Proteggere un cluster di Service Fabric con i certificati](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
+Il modello di Gestione risorse di Service Fabric in Visual Studio crea un cluster sicuro, protetto da un certificato, identificato dagli ultimi tre parametri del modello (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e incluso in un **insieme di credenziali delle chiavi di Azure**. Per altre informazioni su come creare il certificato di sicurezza del cluster, vedere l'articolo [Scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric).
 
 ## Facoltativo: modificare il nome del cluster
-Ogni cluster di Service Fabric ha un nome. Quando viene creato un cluster di Fabric in Azure, il nome del cluster insieme all'area di Azure determina il nome DNS (Domain Name System) del cluster. Ad esempio, se il nome del cluster è `myBigCluster` e il parametro `clusterLocation` è impostato su Stati Uniti orientali, il nome DNS del cluster sarà `myBigCluster.eastus.cloudapp.azure.com`.
+Ogni cluster di Service Fabric ha un nome. Quando viene creato un cluster di Fabric in Azure, il nome del cluster insieme all'area di Azure determina il nome DNS (Domain Name System) del cluster. Ad esempio, se il cluster viene denominato `myBigCluster`, e il percorso (area di Azure) del gruppo di risorse che ospiterà il nuovo cluster è Stati Uniti orientali, il nome DNS del cluster sarà `myBigCluster.eastus.cloudapp.azure.com`.
 
-Per impostazione predefinita il nome del cluster viene generato automaticamente in modo univoco aggiungendo un suffisso casuale al prefisso "cluster". Questo metodo semplifica l'uso del modello nell'ambito di un sistema ad **integrazione continua**. Se si vuole usare un nome specifico per il cluster con un particolare significato, impostare il valore della variabile `clusterName` nel file di modello di Gestione risorse (`ServiceFabricCluster.json`) sul nome scelto. Si tratta della prima variabile definita nel file.
+Per impostazione predefinita il nome del cluster viene generato automaticamente in modo univoco aggiungendo un suffisso casuale al prefisso "cluster". Questo metodo semplifica l'uso del modello nell'ambito di un sistema a **integrazione continua**. Se si vuole usare un nome specifico per il cluster con un particolare significato, impostare il valore della variabile `clusterName` nel file di modello di Resource Manager (`ServiceFabricCluster.json`) sul nome scelto. Si tratta della prima variabile definita nel file.
 
 ## Facoltativo: aggiungere le porte pubbliche dell'applicazione
 Prima di distribuire il cluster, è possibile anche modificare le porte pubbliche delle applicazioni. Per impostazione predefinita, il modello apre solo due porte TCP pubbliche: 80 e 8081. Se per le applicazioni sono necessarie più porte, modificare la definizione del servizio di bilanciamento del carico di Azure nel modello. La definizione viene archiviata nel file del modello principale (`ServiceFabricCluster.json`). Aprire il file e cercare `loadBalancedAppPort`. Si noterà che ogni porta è associata a tre elementi:
@@ -73,7 +74,7 @@ Prima di distribuire il cluster, è possibile anche modificare le porte pubblich
     }
 	```
 
-3. Una *regola di bilanciamento del carico* che collega la porta e il probe e che consente il bilanciamento del carico in un set di nodi del cluster Service Fabric:
+3. Una *regola di bilanciamento del carico* che collega la porta e il probe e che consente il bilanciamento del carico in un set di nodi del cluster di Service Fabric:
 
     ```json
 	{
@@ -96,10 +97,10 @@ Prima di distribuire il cluster, è possibile anche modificare le porte pubblich
 	    }
 	}
     ```
-Se le applicazioni che si intende distribuire nel cluster richiedono più porte, è possibile aggiungerle mediante la creazione di definizioni aggiuntive delle regole di bilanciamento del carico e di probe. Per altre informazioni su come usare il servizio di bilanciamento del carico di Azure con i modelli di Gestione risorse, vedere [Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite un modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
+Se le applicazioni che si intende distribuire nel cluster richiedono più porte, è possibile aggiungerle mediante la creazione di definizioni aggiuntive delle regole di bilanciamento del carico e di probe. Per altre informazioni su come usare Azure Load Balancer con i modelli di Resource Manager, vedere [Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite un modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## Distribuire il modello tramite Visual Studio
-Dopo aver salvato tutti i valori di parametro obbligatori nel file `ServiceFabricCluster.param.dev.json`, è possibile distribuire il modello e creare il cluster di Service Fabric. Fare clic con il pulsante destro del mouse sul progetto Gruppo di risorse in Esplora soluzioni di Visual Studio e scegliere **Distribuisci**. Verrà visualizzata la finestra di dialogo **Distribuisci in gruppo di risorse** che richiede l'autenticazione ad Azure, se necessaria:
+Dopo aver salvato tutti i valori di parametro obbligatori nel file `ServiceFabricCluster.param.dev.json`, è possibile distribuire il modello e creare il cluster di Service Fabric. Fare clic con il pulsante destro del mouse sul progetto Gruppo di risorse in Esplora soluzioni di Visual Studio e scegliere **Distribuisci | Nuova distribuzione...**. Verrà visualizzata la finestra di dialogo **Distribuisci in gruppo di risorse** che richiede l'autenticazione ad Azure, se necessaria:
 
 ![Finestra di dialogo Distribuisci a Gruppo di risorse][3]
 
@@ -126,4 +127,4 @@ Se sono presenti errori, passare al [portale di Azure](https://portal.azure.com/
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

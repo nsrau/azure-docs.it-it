@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+    ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure
@@ -79,8 +79,8 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard cluster** e **URL**: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux.
-	-**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
+	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux.
+	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
 	- **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -101,7 +101,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
 	- **Proprietà**: visualizza le proprietà del cluster.
-	- **Identità AAD cluster**: 
+	- **Identità AAD cluster**:
 	- **Chiavi di archiviazione di Azure**: visualizza l'account di archiviazione predefinito con la chiave. L'account di archiviazione viene configurato durante il processo di creazione dei cluster.
 	- **Account di accesso del cluster**: modifica il nome utente e la password HTTP del cluster.
 	- **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster.
@@ -121,7 +121,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	- **Area**: località di Azure. Per un elenco di località di Azure supportate, vedere l'elenco a discesa **Area** in [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Data di creazione**.
 	- **Sistema operativo**: **Windows** o **Linux**.
-	- **Tipo**: Hadoop, HBase, Storm, Spark. 
+	- **Tipo**: Hadoop, HBase, Storm, Spark.
 	- **Versione 1** Vedere [Versioni di HDInsight](hdinsight-component-versioning.md)
 	- **Sottoscrizione**: nome della sottoscrizione.
 	- **ID sottoscrizione**.
@@ -142,7 +142,7 @@ Vedere anche [Sospendere/Arrestare i cluster](#pauseshut-down-clusters).
 ##Ridimensionare i cluster
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
->[AZURE.NOTE] Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Elencare e visualizzare i cluster](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
+>[AZURE.NOTE] Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Elencare e visualizzare i cluster](hdinsight-adminster-use-management-portal.md#list-and-show-clusters).
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
@@ -201,7 +201,7 @@ Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Po
 
 Questo processo può essere programmato in molti modi:
 
-- Usare Data factory di Azure. Per i servizi collegati di HDInsight su richiesta e autodefiniti, vedere [Servizio collegato Azure HDInsight](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) e [Trasformazione e analisi tramite Data factory di Azure](../data-factory/data-factory-data-transformation-activities.md).
+- Usare Data factory di Azure. Per i servizi collegati di HDInsight su richiesta e autodefiniti, vedere [Servizio collegato Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) e [Trasformazione e analisi tramite Data factory di Azure](../data-factory/data-factory-data-transformation-activities.md).
 - Usare Azure PowerShell. Vedere [Analizzare i dati relativi ai ritardi dei voli](hdinsight-analyze-flight-delay-data.md).
 - Usare l'interfaccia della riga di comando di Azure. Vedere [Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md).
 - Usare HDInsight .NET SDK. Vedere [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -252,7 +252,7 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 
 ##Trovare l'account di archiviazione predefinito
 
-Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le relative chiavi per un cluster sono disponibili in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
 	
 ##Trovare il gruppo di risorse 
@@ -260,7 +260,7 @@ Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di 
 In modalità ARM ogni cluster HDInsight viene creato con un gruppo di risorse di risorse di Azure. Il gruppo di risorse di Azure a cui appartiene un cluster viene visualizzato in:
 
 - Colonna **Gruppo di risorse** dell'elenco di cluster.
-- Riquadro **Informazioni di base** del cluster.  
+- Riquadro **Informazioni di base** del cluster.
 
 Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
    
@@ -289,7 +289,7 @@ La console query HDInsight include le funzionalità seguenti:
 
 	![hdinsight portale interfaccia utente Hadoop](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	Da **Interfaccia utente Hadoop* è possibile cercare i file e controllare i log.
+	Dall'*interfaccia utente di Hadoop* è possibile cercare i file e controllare i log.
 
 - **Interfaccia utente Yarn**.
 
@@ -313,7 +313,7 @@ Per sfogliare i file archiviati nell'account di archiviazione predefinito e negl
 
 ##Monitorare l'utilizzo del cluster
 
-La sezione __Utilizzo__ del pannello del cluster HDInsight mostra informazioni relative al numero di memorie centrali disponibili per la sottoscrizione da usare con HDInsight, il numero di memorie centrali allocate al cluster e il modo in cui vengono allocate per i nodi nel cluster. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+La sezione __Utilizzo__ del pannello relativo al cluster HDInsight contiene informazioni sul numero di core disponibili per la sottoscrizione da usare con HDInsight, il numero di core allocati al cluster e il modo in cui vengono allocati per i nodi nel cluster. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
 > [AZURE.IMPORTANT] Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
@@ -385,4 +385,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

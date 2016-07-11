@@ -77,7 +77,7 @@ Successivamente, la configurazione verrà importata nell'account di automazione.
 
 3. Nel pannello **Account di automazione** fare clic su **Configurazioni DSC**.
 
-4. Nel pannello **Configurazioni DSC fare clic su **Aggiungi una configurazione**.
+4. Nel pannello **Configurazioni DSC** fare clic su **Aggiungi una configurazione**.
 
 5. Nel pannello **Importa configurazione** selezionare il file `TestConfig.ps1` nel computer.
     
@@ -96,7 +96,7 @@ Dopo aver importato una configurazione, è possibile visualizzarla nel portale d
 
 3. Nel pannello **Account di automazione** fare clic su **Configurazioni DSC**.
 
-4. Nel pannello **Configurazioni DSC fare clic su **TestConfig** (il nome della configurazione importata nella procedura precedente).
+4. Nel pannello **Configurazioni DSC** fare clic su TestConfig**, ovvero il nome della configurazione importata nella procedura precedente.
 
 5. Nel pannello **Configurazione TestConfig** fare clic su **Visualizza origine configurazione**.
 
@@ -114,7 +114,7 @@ Per poter applicare uno stato desiderato a un nodo, è prima necessario compilar
 
 3. Nel pannello **Account di automazione** fare clic su **Configurazioni DSC**.
 
-4. Nel pannello **Configurazioni DSC fare clic su **TestConfig** (il nome della configurazione importata in precedenza).
+4. Nel pannello **Configurazioni DSC** fare clic su TestConfig**, ovvero il nome della configurazione importata in precedenza.
 
 5. Nel pannello **Configurazione TestConfig** fare clic su **Compila** e quindi su **Sì**. Verrà avviato un processo di compilazione.
     
@@ -132,7 +132,7 @@ Dopo aver avviato una compilazione, è possibile visualizzarla nel riquadro **Pr
 
 3. Nel pannello **Account di automazione** fare clic su **Configurazioni DSC**.
 
-4. Nel pannello **Configurazioni DSC fare clic su **TestConfig** (il nome della configurazione importata in precedenza).
+4. Nel pannello **Configurazioni DSC** fare clic su TestConfig**, ovvero il nome della configurazione importata in precedenza.
 
 5. Nel riquadro **Processi di compilazione** del pannello **Configurazione TestConfig** fare clic su qualsiasi processo incluso nell'elenco. Verrà visualizzato un pannello **Processo di compilazione** con la data in cui è stato avviato il processo di compilazione come etichetta.
 
@@ -142,7 +142,7 @@ Dopo aver avviato una compilazione, è possibile visualizzarla nel riquadro **Pr
 
 ## Visualizzazione delle configurazioni di nodo
 
-Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni di nodo dell'account di automazione nel pannello **Configurazioni del nodo DSC**. Il nome di una configurazione di nodo presenta il formato *NomeConfigurazione*.*NomeNodo*.
+Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi dell'account di automazione nel pannello **Configurazioni del nodo DSC**. Il nome di una configurazione del nodo presenta il formato *NomeConfigurazione*.*NomeNodo*.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -176,11 +176,11 @@ Con il completamento di un processo di compilazione vengono create una o più co
     
 7. Nel pannello **Aggiungi macchine virtuali di Azure** fare clic su **Configura i dati di registrazione**.
 
-8. Nel pannello **Registrazione** immettere il nome della configurazione di nodo che si vuole applicare alla VM nella casella **Nome della configurazione del nodo**. Deve corrispondere esattamente al nome di una configurazione di nodo nell'account di automazione. Specificare un nome in questo passaggio è facoltativo. È possibile modificare la configurazione di nodo assegnata dopo il caricamento del nodo. Selezionare **Riavvia il nodo se necessario** e quindi fare clic su **OK**.
+8. Nel pannello **Registrazione** immettere il nome della configurazione del nodo che si vuole applicare alla VM nella casella **Nome della configurazione del nodo**. Deve corrispondere esattamente al nome di una configurazione di nodo nell'account di automazione. Specificare un nome in questo passaggio è facoltativo. È possibile modificare la configurazione di nodo assegnata dopo il caricamento del nodo. Selezionare **Riavvia il nodo se necessario** e quindi fare clic su **OK**.
     
     ![Screenshot del pannello Registrazione](./media/automation-dsc-getting-started/RegisterVM.png)
     
-    La configurazione di nodo specificata verrà applicata alla VM agli intervalli specificati in **Frequenza modalità di configurazione** e la VM verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Aggiorna frequenza**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configurazione di Gestione configurazione locale](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+    La configurazione del nodo specificata verrà applicata alla VM agli intervalli specificati in **Frequenza modalità di configurazione** e la VM verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Aggiorna frequenza**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configurazione di Gestione configurazione locale](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
     
 9. Nel pannello **Aggiungi macchine virtuali di Azure** fare clic su **Crea**.
 
@@ -211,11 +211,11 @@ Ogni volta che Automation DSC per Azure esegue una verifica di coerenza su un no
     ![Screenshot del pannello Report](./media/automation-dsc-getting-started/NodeReport.png)
 
 Nel pannello per un singolo report è possibile visualizzare per la verifica di coerenza corrispondente le informazioni di stato seguenti.
-- Stato del report: il nodo può essere "Conforme" o "Non conforme" (quando il nodo è in modalità **Applica e monitora** e il computer non è nello stato desiderato) o la configurazione può essere "Non riuscita".
+- Stato del report: il nodo può essere "Conforme" o "Non conforme" (quando il nodo è in modalità **ApplyAndMonitor** e il computer non è nello stato desiderato) o la configurazione può essere "Non riuscita".
 - Ora di inizio della verifica di coerenza.
 - Runtime totale della verifica di coerenza.
 - Tipo di verifica di coerenza.
-- Eventuali errori, con codice e messaggio di errore. 
+- Eventuali errori, con codice e messaggio di errore.
 - Risorse DSC usate nella configurazione e lo stato di ogni risorsa (ovvero se il nodo è nello stato desiderato per la risorsa). È possibile fare clic sulla ogni risorsa per ottenere informazioni più dettagliate su di essa.
 - Nome, indirizzo IP e modalità di configurazione del nodo.
 
@@ -239,7 +239,7 @@ Dopo il caricamento di un nodo, può trascorrere tempo prima che sia disponibile
 
     ![Screenshot del pannello del nodo con pulsante Assegna configurazione nodo evidenziato](./media/automation-dsc-getting-started/AssignNode.png)
 
-6. Nel pannello **Assegna configurazione nodo** selezionare la configurazione di nodo che si vuole assegnare al nodo e quindi fare clic su **OK**.
+6. Nel pannello **Assegna configurazione nodo** selezionare la configurazione del nodo che si vuole assegnare al nodo e quindi fare clic su **OK**.
 
     ![Screenshot del pannello Assegna configurazione nodo](./media/automation-dsc-getting-started/AssignNodeConfig.png)
     
@@ -266,4 +266,4 @@ Se non si vuole più che un nodo venga gestito da Automation DSC per Azure, è p
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

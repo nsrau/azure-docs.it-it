@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Fornire la registrazione e l'accesso agli utenti con account Microsoft
@@ -55,4 +55,4 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 6. Fare clic su **Imposta provider di identità** e immettere i valori di ID client e Chiave privata client dell'applicazione dell'account Microsoft creata in precedenza.
 7. Fare clic su **OK** e quindi su **Crea** per salvare la configurazione dell'account Microsoft.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

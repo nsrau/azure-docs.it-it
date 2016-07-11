@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
@@ -42,8 +42,6 @@ Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti 
 - [Tabelle temporanee][]
 - [SQL dinamico][]
 - [Cicli][]
-- [Ridenominazione di oggetti][]
-- [Trasformazione dei dati tramite pivot][]
 - [Opzioni di raggruppamento][]
 - [Assegnazione di variabili][]
 
@@ -61,7 +59,6 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 [Chiavi di distribuzione hash]: sql-data-warehouse-develop-hash-distribution-key.md
 [Etichette]: sql-data-warehouse-develop-label.md
 [Cicli]: sql-data-warehouse-develop-loops.md
-[Trasformazione dei dati tramite pivot]: sql-data-warehouse-develop-pivot-unpivot.md
 [Statistiche]: sql-data-warehouse-develop-statistics.md
 [Stored procedure]: sql-data-warehouse-develop-stored-procedures.md
 [Progettazione tabella]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 [argomenti di riferimento per Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[Ridenominazione di oggetti]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È 
 & nbsp;
 
 
-> [AZURE.WARNING] Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario rimuovere il prefisso "?".
+> [AZURE.WARNING] Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"*. Le attività in caso contrario potrebbero essere bloccate dalla protezione.
 
 
 & nbsp;
@@ -512,12 +512,12 @@ GO
 ## Output
 
 
-Al termine dell'esecuzione dello script di Transact-SQL, fare clic su una cella sotto l’intestazione della colonna **event\_data\_XML**. Viene visualizzato un elemento **<event>** che mostra un’istruzione UPDATE.
+Al termine dell'esecuzione dello script di Transact-SQL, fare clic su una cella sotto l’intestazione della colonna **event\_data\_XML**. Viene visualizzato un elemento **<event>** che mostra un'istruzione UPDATE.
 
 Di seguito è riportato un elemento **<event>** generato durante il test:
 
 
-&nbsp;
+& nbsp;
 
 
 ```
@@ -559,11 +559,19 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+& nbsp;
 
 
+Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event\_file:
+
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 
-&nbsp;
+Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustrate all'indirizzo:
+
+- [Visualizzazione avanzata dei dati di destinazione da eventi estesi](http://msdn.microsoft.com/library/mt752502.aspx)
+
+& nbsp;
 
 
 ## Conversione dell’esempio di codice da eseguire in SQL Server
@@ -585,20 +593,15 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
 ## Altre informazioni
 
 
-L'argomento principale per gli eventi estesi in un database SQL di Azure è:
-
-- [Eventi estesi in SQL Database](sql-database-xevent-db-diff-from-svr.md): è l'argomento principale per gli eventi estesi in Azure SQL Database.
- - Contrasta aspetti degli eventi estesi che differiscono tra Azure SQL Database rispetto a Microsoft SQL Server.
-
-
-- [Codice di destinazione con buffer circolare per eventi estesi in Database SQL](sql-database-xevent-code-ring-buffer.md): fornisce un esempio di codice facile e veloce, ma più adatto a test brevi e meno affidabile per attività più ampie.
-
-
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
 - [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Denominazione e riferimento a contenitori, BLOB e metadati](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Lavorare con il contenitore radice](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Lezione 1: Creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [Lezione 2: Creare una credenziale di SQL Server usando una firma di accesso condiviso](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

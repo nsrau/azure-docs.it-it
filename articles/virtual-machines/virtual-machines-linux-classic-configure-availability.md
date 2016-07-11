@@ -19,8 +19,8 @@
 
 # Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. È inoltre possibile configurare i set di disponibilità nelle distribuzioni di Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. È inoltre possibile configurare i set di disponibilità nelle distribuzioni di Gestione risorse.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

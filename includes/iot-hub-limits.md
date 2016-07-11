@@ -23,6 +23,8 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 | Numero massimo di recapiti per i messaggi di feedback <br/> in risposta a un messaggio del cloud al dispositivo | 100 |
 | TTL massimo per i messaggi di feedback <br/> in risposta a un messaggio del cloud al dispositivo | 2 giorni |
 
+> [AZURE.NOTE] Se sono necessari più di 10 hub IoT in una sottoscrizione di Azure, contattare il supporto tecnico Microsoft.
+
 Il servizio IoT Hub limita le richieste quando vengono superate le quote seguenti:
 
 | Limitazione | Valore per ogni hub |
@@ -33,4 +35,4 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Inoltri dal cloud al dispositivo | 100/min/unità |
 | Ricezioni dal cloud al dispositivo | 1000/min/unità |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0629_2016-->

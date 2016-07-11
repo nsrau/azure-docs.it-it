@@ -29,7 +29,7 @@ In questo articolo viene illustrata la procedura necessaria per eseguire due tip
 
 In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali di Backup di Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello di distribuzione di Gestione risorse
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Recuperare i dati nello stesso computer
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
@@ -43,7 +43,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Nello stesso computer](./media/backup-azure-restore-windows-server-classic/samemachine.png)
 
-4. È possibile scegliere di selezionare **Sfoglia elenco file** o **Cerca file**.
+4. È possibile scegliere di selezionare ** Sfoglia elenco file** o **Cerca file**.
 
     Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file**. Ai fini di questa sezione, si procede con l'opzione predefinita.
 
@@ -123,4 +123,4 @@ Include la terminologia utilizzata in questi passaggi:
 - [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 - [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

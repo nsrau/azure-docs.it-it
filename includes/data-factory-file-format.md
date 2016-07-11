@@ -7,8 +7,8 @@ Se il formato è impostato su **TextFormat**, è possibile specificare le propri
 | columnDelimiter | Carattere usato come separatore di colonne in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
 | rowDelimiter | Carattere usato come separatore di righe in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
 | escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare al massimo un carattere.<br/><br/>Ad esempio, se la virgola (,) viene usata come delimitatore di colonna ma si vuole inserire una virgola nel testo, come in "Hello, world", è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nel sorgente.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No | 
-| quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No |
-| nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".<br/><br/>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server. | No |
+| quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No |
+| nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N" e "NULL".<br/><br/>Ad esempio, in base all'esempio seguente, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server. | No |
 | encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
 
 #### Esempio di TextFormat
@@ -49,7 +49,7 @@ Se il formato è impostato su **JsonFormat**, è possibile specificare le propri
 | Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | filePattern | Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è: **setOfObjects**. Per i dettagli su questi motivi, vedere le sezioni successive.| No |
-| encodingName | Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore **predefinito** è: **UTF-8**. | No | 
+| encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore **predefinito** è: **UTF-8**. | No | 
 | nestingSeparator | Carattere utilizzato per separare i livelli di nidificazione. Il valore **predefinito** è **. (punto)**. | No | 
 
 
@@ -214,11 +214,11 @@ Se la struttura non è definita, l’attività di copia rende flat la struttura 
 #### Struttura JSON supportata
 Tenere presente quanto segue:
 
-- Ogni oggetto con una raccolta di coppie nome/valore verrà mappato a una riga di dati in un formato tabulare. Gli oggetti possono essere nidificati ed è possibile impostare il modo predefinito di rendere flat la struttura di un set di dati con un separatore di annidamento (.). Per un esempio, vedere la sezione precedente [Esempio JsonFormat](#jsonformat-example).  
-- Se la struttura non è definita nel set di dati della data factory, l'attività di copia rileva lo schema dal primo oggetto e rende flat l'intero oggetto. 
+- Ogni oggetto con una raccolta di coppie nome/valore verrà mappato a una riga di dati in un formato tabulare. Gli oggetti possono essere nidificati ed è possibile impostare il modo predefinito di rendere flat la struttura di un set di dati con un separatore di annidamento (.). Per un esempio, vedere la sezione precedente [Esempio JsonFormat](#jsonformat-example).
+- Se la struttura non è definita nel set di dati della data factory, l'attività di copia rileva lo schema dal primo oggetto e rende flat l'intero oggetto.
 - Se l'input JSON presenta una matrice, l'attività di copia converte l’intero valore della matrice in una stringa. È possibile saltare il passaggio [mappando o filtrando le colonne](#column-mapping-with-translator-rules).
 - Se ci sono nomi duplicati allo stesso livello, l'attività di copia sceglierà quello più recente.
-- I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole verranno considerate come due proprietà diverse. 
+- I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole verranno considerate come due proprietà diverse.
 
 ### Impostazione di OrcFormat
 Se il formato è impostato su OrcFormat, non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
@@ -228,10 +228,11 @@ Se il formato è impostato su OrcFormat, non è necessario specificare le propri
 	    "type": "OrcFormat",
 	}
 
-Tenere presente quanto segue:
- 
--	Se si copiano dati dagli archivi locali a quelli sul cloud e viceversa con il formato ORC coinvolto, e non si copiano i file ORC così come sono da tipi di origine a tipi sink, sarà necessario installare JRE (Java Runtime Environment) sul computer gateway. 
--	Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
--	Il file ORC dispone di 3 [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno dei formati compressi indicati precedentemente. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Non esiste alcuna opzione per ignorare tale comportamento in questo momento. 
+> [AZURE.IMPORTANT] Se si copiano dati dagli archivi locali a quelli sul cloud e viceversa con il formato ORC coinvolto e non si copiano i file ORC così come sono da tipi di origine a tipi sink, sarà necessario installare JRE 8 (Java Runtime Environment) sul computer gateway che sarà usato per convertire i dati nel formato adeguato. Si noti che un gateway a 64 bit richiede JRE a 64 bit e un gateway a 32 bit richiede JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605): scegliere quella appropriata.
 
-<!---HONumber=AcomDC_0525_2016-->
+Tenere presente quanto segue:
+
+-	Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
+-	Il file ORC dispone di 3 [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno dei formati compressi indicati precedentemente. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Non esiste alcuna opzione per ignorare tale comportamento in questo momento.
+
+<!---HONumber=AcomDC_0629_2016-->

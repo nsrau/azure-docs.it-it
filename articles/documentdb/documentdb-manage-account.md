@@ -33,7 +33,7 @@ La scelta del livello di coerenza giusto dipende dalla semantica dell'applicazio
 3. Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**. ![Sessione coerenza predefinita][6]
 
 4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
-
+5. L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di Azure.
 
 > [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una modifica alle impostazioni di coerenza predefinite si propaghi nell'intero account DocumentDB.
 
@@ -86,13 +86,9 @@ Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di
 
 ### Visualizzare e copiare una chiave di accesso nel portale di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
-
+1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
 2. Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
-
-3. Nel pannello **Chiavi** fare clic sul pulsante **Copia** a destra della chiave da copiare.
-
-  ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
+3. Nel pannello **Chiavi** fare clic sul pulsante **Copia** a destra della chiave da copiare. ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
 
 ### Per rigenerare le chiavi di accesso
 
@@ -114,6 +110,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 
 6. Rigenerare la chiave di accesso secondaria.
 
+
 > [AZURE.NOTE] Potrebbero trascorrere diversi minuti prima che una chiave appena generata possa essere usata per accedere all'account DocumentDB.
 
 ## <a id="delete"></a> Eliminare un account DocumentDB
@@ -123,11 +120,8 @@ Per rimuovere un account DocumentDB non più in uso dal portale di Azure, utiliz
 
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare.
-
 2. Nel pannello **Account DocumentDB** fare clic su **Elimina account**.
-
 3. Nel pannello di conferma risultante, digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
-
 4. Fare clic sul pulsante **Elimina** nel pannello di conferma.
 
 ## <a id="next"></a>Passaggi successivi
@@ -148,7 +142,7 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/it-IT/regions/#services
+[offers]: https://azure.microsoft.com/it-IT/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

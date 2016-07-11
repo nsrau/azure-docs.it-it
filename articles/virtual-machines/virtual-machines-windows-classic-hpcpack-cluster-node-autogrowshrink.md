@@ -23,7 +23,7 @@ ms.service="virtual-machines-windows"
 
 Se si distribuiscono nodi "burst" di Azure nel cluster HPC Pack o si crea un cluster HPC Pack nelle macchine virtuali di Azure, può essere necessario avere a disposizione un modo per aumentare o ridurre automaticamente i numero di risorse di calcolo di Azure, ad esempio i core, in base al carico di lavoro corrente del cluster. In questo modo è possibile usare le risorse di Azure in modo più efficiente e controllare i costi. A tale scopo, impostare la proprietà del cluster HPC Pack **AutoGrowShrink**. In alternativa, eseguire lo script di HPC PowerShell **AzureAutoGrowShrink.ps1** installato con HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. Inoltre, attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calcolo HPC Pack che eseguono un sistema operativo Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Inoltre, attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calcolo HPC Pack che eseguono un sistema operativo Windows Server.
 
 ## Impostare la proprietà del cluster AutoGrowShrink
 
@@ -70,7 +70,7 @@ Per eseguire questi comandi, avviare HPC PowerShell nel nodo head del cluster co
 Di seguito sono riportati i parametri di AutoGrowShrink che è possibile modificare tramite il comando **Set HpcClusterProperty**.
 
 * **EnableGrowShrink**: opzione per abilitare o disabilitare la proprietà **AutoGrowShrink** .
-* **ParamSweepTasksPerCore**: numero di attività di sweep parametrico per l'aumento di un core. Il valore predefinito è l'aumento di un core per ogni attività. 
+* **ParamSweepTasksPerCore**: numero di attività di sweep parametrico per l'aumento di un core. Il valore predefinito è l'aumento di un core per ogni attività.
  
     >[AZURE.NOTE] HPC Pack QFE KB3134307 modifica **ParamSweepTasksPerCore** in **TasksPerResourceUnit**. Si basa sul tipo di risorsa del processo e può essere un nodo, un socket o un core.
     
@@ -78,9 +78,9 @@ Di seguito sono riportati i parametri di AutoGrowShrink che è possibile modific
 * **GrowInterval**: intervallo in minuti per attivare l'aumento automatico. L'intervallo predefinito è 5 minuti.
 * **ShrinkInterval**: intervallo in minuti per attivare la riduzione automatica. L'intervallo predefinito è 5 minuti.|
 * **ShrinkIdleTimes**: numero di controlli continui da ridurre per indicare i nodi sono inattivi. Il valore predefinito è 3 volte. Ad esempio, se **ShrinkInterval** è di 5 minuti, HPC Pack controlla se il nodo è inattivo ogni 5 minuti. Se i nodi sono in uno stato di inattività dopo 3 controlli continui (15 minuti), HPC Pack riduce quel nodo.
-* **ExtraNodesGrowRatio** -percentuale aggiuntiva di nodi da aumentare per i processi MPI (Message Passing Interface). Il valore predefinito è 1 e significa che HPC Pack aumenta l'1% dei nodi per i processi MPI. 
+* **ExtraNodesGrowRatio** -percentuale aggiuntiva di nodi da aumentare per i processi MPI (Message Passing Interface). Il valore predefinito è 1 e significa che HPC Pack aumenta l'1% dei nodi per i processi MPI.
 * **GrowByMin**: opzione che indica se i criteri di aumento automatico sono basati sulle risorse minime necessarie per il processo. Il valore predefinito è false e significa che HPC Pack aumenta i nodi per i processi in base alle risorse massime richieste per i processi.
-* **SoaJobGrowThreshold**: soglia di richieste SOA in ingresso per attivare il processo di aumento automatico. Il valore predefinito è 50000.  
+* **SoaJobGrowThreshold**: soglia di richieste SOA in ingresso per attivare il processo di aumento automatico. Il valore predefinito è 50000.
     
     >[AZURE.NOTE] Questo parametro è supportato a partire da HPC Pack 2012 R2 Update 3.
     
@@ -179,4 +179,4 @@ Nell'esempio seguente, le macchine virtuali dei nodi di calcolo di Azure distrib
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

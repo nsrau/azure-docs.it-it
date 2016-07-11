@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
 # Supporto dell'accesso condizionale per le applicazioni
-L'accesso condizionale è ideale per le applicazioni desktop e portatili che utilizzano un'autenticazione moderna. Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
+
+Le regole di accesso condizionale sono supportate in applicazioni connesse di Azure AD, applicazioni SaaS federate preintegrate, applicazioni che usano l'accesso Single Sign-On basato su password, applicazioni line-of-business e proxy dell'applicazione di Azure AD. Per un elenco dettagliato delle applicazioni in cui è possibile abilitare l'accesso condizionale, vedere [Servizi abilitati con l'accesso condizionale](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). L'accesso condizionale è ideale per le applicazioni desktop e per dispositivi mobili che usano un'autenticazione moderna. Questo argomento illustra le funzionalità supportate nelle versioni desktop e per dispositivi mobili di queste app.
+
+ Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
 
 ## Applicazioni che utilizzano l'autenticazione moderna
 Le applicazioni seguenti sono state testate con l'autenticazione Multi-Factor Authentication (MFA) e i criteri di posizione impostati sul servizio di destinazione.
@@ -102,4 +105,4 @@ Regola 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

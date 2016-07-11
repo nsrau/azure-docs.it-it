@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10
@@ -57,7 +57,7 @@ Per abilitare l'accesso condizionale, è possibile creare impostazioni di Criter
 
 ### Passaggio 1: Distribuzione di Azure Active Directory Connect
 
-Azure AD Connect consente di effettuare il provisioning dei computer locali come oggetti dispositivo nel cloud. Per distribuire Azure AD Connect, vedere la sezione "Installare Azure AD Connect" nell'articolo [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect/#install-azure-ad-connect).
+Azure AD Connect consente di effettuare il provisioning dei computer locali come oggetti dispositivo nel cloud. Per distribuire Azure AD Connect, vedere la sezione "Installare Azure AD Connect" nell'articolo [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
  - Se è stata eseguita un'[installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md), non l'installazione rapida, seguire la procedura **Creare un punto di connessione del servizio nell'istanza di Active Directory locale**, descritta di seguito.
  - Se è presente una configurazione federata con Azure AD prima dell'installazione di Azure AD Connect, ad esempio se in precedenza è stato distribuito Active Directory Federation Services (AD FS), seguire la procedura **Configurare regole attestazioni per AD FS** descritta di seguito.
@@ -147,4 +147,4 @@ In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si ese
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

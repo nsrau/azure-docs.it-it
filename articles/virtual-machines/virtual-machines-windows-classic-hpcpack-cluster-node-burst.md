@@ -22,7 +22,7 @@ ms.service="virtual-machines-windows"
 
 In questo articolo viene illustrato come aggiungere nodi "burst" di Azure (istanze del ruolo di lavoro in esecuzione in un servizio cloud) su richiesta come risorse di calcolo in un nodo head HPC Pack esistente in Azure. Questo consente la scalabilità della capacità di calcolo del cluster HPC in Azure su richiesta, senza dover gestire un set di macchine virtuali dei nodi di calcolo preconfigurate.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Nodi burst][burst]
 
@@ -89,4 +89,4 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Ris
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

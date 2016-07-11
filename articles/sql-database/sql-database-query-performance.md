@@ -21,8 +21,8 @@
 
 La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Query Performance Insight consente di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
 
-- Informazioni più approfondite sull'utilizzo delle risorse del database (DTU). 
-- Query principali a livello di utilizzo di CPU, che possono essere ottimizzate per migliorare le prestazioni. 
+- Informazioni più approfondite sull'utilizzo delle risorse del database (DTU).
+- Query principali a livello di utilizzo di CPU, che possono essere ottimizzate per migliorare le prestazioni.
 - Capacità di eseguire il drill-down nei dettagli di una query. ​
 
 ## Prerequisiti
@@ -35,7 +35,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 
 Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) seguenti sono necessarie per usare Query Performance Insight:
 
-- Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che utilizzano le risorse e i grafici. 
+- Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che utilizzano le risorse e i grafici.
 - Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
 
 
@@ -44,9 +44,9 @@ Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-direct
 
 Query Performance Insight è facile da usare:
 
-- Esaminare l'elenco delle query principali a livello di utilizzo delle risorse. 
+- Esaminare l'elenco delle query principali a livello di utilizzo delle risorse.
 - Selezionare una singola query per visualizzarne i dettagli.
-- Aprire [Advisor per database SQL](sql-database-index-advisor.md) e verificare se sono disponibili raccomandazioni.
+- Aprire [Advisor per database SQL](sql-database-advisor.md) e verificare se sono disponibili raccomandazioni.
 - Eseguire lo zoom avanti per informazioni dettagliate.
 
     ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
@@ -59,7 +59,7 @@ Query Performance Insight è facile da usare:
 
 Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
-1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Prestazioni** > **Query**. 
+1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Prestazioni** > **Query**.
 
     ![Query Performance Insight][1]
 
@@ -71,7 +71,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
     La griglia inferiore rappresenta informazioni aggregate per le query visibili.
 
-    -	ID query: identificatore univoco della query all'interno del database. 
+    -	ID query: identificatore univoco della query all'interno del database.
     -	Utilizzo della CPU per query durante l'intervallo osservabile (dipende dalla funzione di aggregazione).
     -	Durata per ogni query (dipende dalla funzione di aggregazione).
     -	Numero totale di esecuzioni per una query specifica.
@@ -113,7 +113,7 @@ Durante l'uso di Informazioni dettagliate prestazioni query, possono essere visu
 Questi messaggi in genere vengono visualizzati quando l'archivio query non è in grado di raccogliere nuovi dati. Per risolvere questo problema sono disponibili alcune opzioni:
 
 -	Modificare i criteri di conservazione e acquisizione dell'archivio query
--	Aumentare le dimensioni dell'archivio query 
+-	Aumentare le dimensioni dell'archivio query
 -	Cancellare l'archivio query
 
 ### Criteri di conservazione e acquisizione consigliati
@@ -121,7 +121,7 @@ Questi messaggi in genere vengono visualizzati quando l'archivio query non è in
 Esistono due tipi di criteri di conservazione:
 
 - Basati sulle dimensioni: se impostati su AUTOMATICO i dati verranno automaticamente cancellati al raggiungimento delle dimensioni massime.
-- Basati sul tempo: per impostazione predefinita verranno impostati su 30 giorni in modo tale che, se verrà esaurito lo spazio, l'archivio query eliminerà le informazioni di query antecedenti a 30 giorni. 
+- Basati sul tempo: per impostazione predefinita verranno impostati su 30 giorni in modo tale che, se verrà esaurito lo spazio, l'archivio query eliminerà le informazioni di query antecedenti a 30 giorni.
 
 I criteri di acquisizione possono essere impostati su:
 
@@ -159,7 +159,7 @@ Query Performance Insight semplifica la comprensione dell'impatto del carico di 
 
 ## Passaggi successivi
 
-Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL, fare clic su [Advisor per database SQL](sql-database-index-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
+Per raccomandazioni aggiuntive sul miglioramento delle prestazioni del database SQL, fare clic su [Advisor per database SQL](sql-database-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL,
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

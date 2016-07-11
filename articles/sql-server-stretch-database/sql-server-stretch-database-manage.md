@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Gestire e risolvere i problemi di Database Estensione
@@ -35,11 +35,11 @@ GO
  ```
 ## Gestire la migrazione dei dati
 
-### Controllare il predicato del filtro applicato a una tabella
-Aprire la vista catalogo **sys.remote\_data\_archive\_tables** e controllare il valore della colonna **filter\_predicate** per identificare la funzione che Estensione database sta usando per selezionare le righe da migrare. Se il valore è null, l'intera tabella è idonea alla migrazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+### Controllare la funzione di filtro applicato a una tabella
+Aprire la vista catalogo **sys.remote\_data\_archive\_tables** e controllare il valore della colonna **filter\_predicate** per identificare la funzione che Estensione database sta usando per selezionare le righe da migrare. Se il valore è null, l'intera tabella è idonea alla migrazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) e [Usare una funzione di filtro per selezionare righe di cui eseguire la migrazione](sql-server-stretch-database-predicate-function.md).
 
 ### <a name="Migration"></a>Controllare lo stato della migrazione dei dati
-Selezionare **Attività | Estensione | Monitoraggio** per un database in SQL Server Management Studio per monitorare la migrazione dei dati in Monitoraggio Estensione database. Per altre informazioni, vedere l'articolo relativo al [monitoraggio e risoluzione dei problemi di migrazione dei dati (Estensione database)](sql-server-stretch-database-monitor.md).
+Selezionare **Attività | Estensione | Monitoraggio** per un database in SQL Server Management Studio per monitorare la migrazione dei dati in Monitoraggio Estensione database. Per altre informazioni, vedere l'articolo relativo a [monitoraggio e risoluzione dei problemi di migrazione dei dati (Estensione database)](sql-server-stretch-database-monitor.md).
 
 In alternativa, aprire la DMV **sys.dm\_db\_rda\_migration\_status** per visualizzare il numero di batch e righe di dati migrati.
 
@@ -61,7 +61,7 @@ GO
  ```
 
 ### Eliminare i dati migrati  
-Se si desidera eliminare dati che sono già stati migrati in Azure, seguire i passaggi descritti in [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
+Se si vuole eliminare dati già stati migrati in Azure, seguire la procedura descritta in [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
 
 ## Gestire lo schema della tabella
 
@@ -69,11 +69,11 @@ Se si desidera eliminare dati che sono già stati migrati in Azure, seguire i pa
 Non modificare lo schema di una tabella di Azure remota associata a una tabella di SQL Server configurata per Database Estensione. In particolare, non si deve modificare il nome o il tipo di dati di una colonna. La funzionalità Database Estensione ipotizza varie opzioni per lo schema della tabella remota in relazione allo schema della tabella di SQL Server. Se si modifica lo schema remoto, Database Estensione smette di funzionare per la tabella modificata.
 
 ### Riconciliare le colonne della tabella  
-Se sono state eliminate colonne accidentalmente dalla tabella remota, eseguire **sp\_rda\_reconcile\_columns** per aggiungere alla tabella remota colonne presenti nella tabella SQL Server con estensione abilitata ma non nella tabella remota. Per altre informazioni, vedere [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
+Se sono state eliminate colonne accidentalmente nella tabella remota, eseguire **sp\_rda\_reconcile\_columns** per aggiungere colonne alla tabella remota presente nella tabella SQL Server con estensione abilitata ma non nella tabella remota. Per altre informazioni, vedere [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
 
   > [!IMPORTANTE] Quando **sp\_rda\_reconcile\_columns** ricrea colonne che sono state eliminate per errore dalla tabella remota, non ripristina i dati contenuti in precedenza nelle colonne eliminate.
 
-**sp\_rda\_reconcile\_columns** non elimina dalla tabella remota le colonne che esistono nella tabella remote ma non nella tabella SQL Server con estensione abilitata. Se sono presenti colonne nella tabella di Azure remota che non esistono più nella tabella SQL Server con estensione abilitata, queste colonne aggiuntive non impediscono a Estensione database di funzionare normalmente. Se lo si desidera, è possibile rimuovere manualmente le colonne in eccesso.
+**sp\_rda\_reconcile\_columns** non elimina dalla tabella remota le colonne che esistono nella tabella remota ma non nella tabella SQL Server con estensione abilitata. Se sono presenti colonne nella tabella di Azure remota che non esistono più nella tabella SQL Server con estensione abilitata, queste colonne aggiuntive non impediscono a Estensione database di funzionare normalmente. Se lo si desidera, è possibile rimuovere manualmente le colonne in eccesso.
 
 ## Gestire prestazioni e costi  
 
@@ -97,8 +97,8 @@ Quando si compila, ricompila o riorganizza un indice su una tabella di grandi di
  Per modificare l'ambito di tutte le query di tutti gli utenti, eseguire la stored procedure **sys.sp\_rda\_set\_query\_mode**. È possibile ridurre l'ambito per rivolgere le query solo ai dati locali, disabilitare tutte le query o ripristinare l'impostazione predefinita. Per altre informazioni, vedere [sys.sp\_rda\_set\_query\_mode](https://msdn.microsoft.com/library/mt703715.aspx).
 
 ### <a name="queryHints"></a>Modificare l'ambito delle query per una singola query di un amministratore  
- Per modificare l'ambito di una singola query da parte di un membro del ruolo db\_owner, aggiungere l'hint di query **WITH ( REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valore* )** all'istruzione SELECT. L'hint di query REMOTE\_DATA\_ARCHIVE\_OVERRIDE può avere i seguenti valori.
- -   **LOCAL\_ONLY**. Query sui soli dati locali.  
+ Per modificare l'ambito di una singola query da parte di un membro del ruolo db\_owner, aggiungere l'hint di query **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valore* )** all'istruzione SELECT. L'hint di query REMOTE\_DATA\_ARCHIVE\_OVERRIDE può avere i seguenti valori.
+ -   **LOCAL\_ONLY**. Query sui soli dati locali.
 
  -   **REMOTE\_ONLY**. Query sui soli dati remoti.
 
@@ -115,7 +115,7 @@ Ad esempio, la query seguente restituisce solo risultati locali.
 
 ## <a name="adminHints"></a>Eseguire eliminazioni e aggiornamenti amministrativi  
  Per impostazione predefinita non è possibile eseguire UPDATE o DELETE sulle righe idonee alla migrazione o le righe già migrate in una tabella con estensione abilitata. Quando è necessario risolvere un problema, un membro del ruolo db\_owner può eseguire un'operazione UPDATE o DELETE aggiungendo l'hint di query **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valore* )** all'istruzione. L'hint di query REMOTE\_DATA\_ARCHIVE\_OVERRIDE può avere i seguenti valori.
- -   **LOCAL\_ONLY**. Aggiornamento o eliminazione di soli dati locali.  
+ -   **LOCAL\_ONLY**. Aggiornamento o eliminazione di soli dati locali.
 
  -   **REMOTE\_ONLY**. Aggiornamento o eliminazione di soli dati remoti.
 
@@ -129,4 +129,4 @@ Ad esempio, la query seguente restituisce solo risultati locali.
 
 [Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

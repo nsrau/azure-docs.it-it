@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -160,7 +160,7 @@ Restituisce l'indice nell'attributo multivalore in cui è stata trovata la strin
 
 **Sintassi:** `str ConvertFromBase64(str source)`. Presuppone Unicode per la codifica <br> `str ConvertFromBase64(str source, enum Encoding)`
 
-- source: stringa con codifica Base 64  
+- source: stringa con codifica Base 64
 - Encoding: Unicode, ASCII, UTF8
 
 **Esempio** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -537,7 +537,7 @@ Restituisce un valore Null se l'indice non è compreso nell'intervallo.
 - string: stringa dalla quale restituire i caratteri
 - NumChars: numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa
 
-**Osservazioni:** Stringa contenente i primi caratteri numChars nella stringa:
+**Osservazioni:** Una stringa contenente i primi caratteri numChars nella stringa:
 
 - Se numChars = 0, restituisce una stringa vuota.
 - Se numChars < 0, restituisce una stringa di input.
@@ -563,7 +563,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 **Sintassi:** `str LTrim(str value)`
 
-**Esempio:** `LTrim(" Test ")` Restituisce "Test "
+**Esempio:** `LTrim(" Test ")` Restituisce "Test"
 
 ----------
 ### Mid
@@ -731,7 +731,7 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 ----------
 ### Right
 
-**Descrizione:** La funzione Right restituisce un numero di caratteri specificato a partire da destra (fine) di una stringa.
+**Descrizione:** La funzione Right restituisce un numero di caratteri specificato a partire dalla destra (fine) di una stringa.
 
 **Sintassi:** `str Right(str string, num NumChars)`
 
@@ -757,7 +757,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 
 **Sintassi:** `str RTrim(str value)`
 
-**Esempio:** `RTrim(" Test ")` Restituisce " Test".
+**Esempio:** `RTrim(" Test ")` Restituisce "Test".
 
 ----------
 ### Split
@@ -859,4 +859,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

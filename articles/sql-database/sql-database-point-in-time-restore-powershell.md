@@ -19,11 +19,10 @@
 # Ripristinare un database SQL di Azure a un momento precedente con PowerShell
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-database-point-in-time-restore.md)
-- [Portale di Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Panoramica](sql-database-recovery-using-backups.md)
+- [Ripristino temporizzato: portale di Azure](sql-database-point-in-time-restore-portal.md)
 
-Questo articolo illustra come ripristinare un database a un momento precedente da [Backup automatici del database SQL](sql-database-automated-backups.md) tramite PowerShell.
+Questo articolo illustra come ripristinare un database a un momento precedente usando i [backup automatici del database SQL](sql-database-automated-backups.md) tramite PowerShell.
 
 [AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -48,15 +47,14 @@ Questo articolo illustra come ripristinare un database a un momento precedente d
     
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID –ElasticPoolName "elasticpool01"
 
+
 ## Passaggi successivi
 
-- Per istruzioni dettagliate su come eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-point-in-time-restore-portal.md).
-- Per informazioni su come eseguire il ripristino temporizzato tramite l'API REST, vedere l'articolo sul [ripristino temporizzato mediante l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Per una panoramica del ripristino temporizzato, vedere l'articolo sul [ripristino temporizzato](sql-database-point-in-time-restore.md).
-- Per una spiegazione completa su come eseguire il ripristino dall'errore di un utente o di un'applicazione, vedere l'articolo sul [ripristino da errori dell'utente](sql-database-user-error-recovery.md).
+- Per una panoramica sulla continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
 
-## Risorse aggiuntive
-
-- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,17 +19,17 @@
 
 # Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] Sono anche disponibili [informazioni su tutti i comandi del modello Resource Manager](virtual-machines/azure-cli-arm-commands.md).
 
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione classico. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità Gestione servizi di Azure (asm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
 
-Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](xplat-cli-connect.md).
+Per iniziare, prima di tutto [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](xplat-cli-connect.md).
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Azure Service Management (ASM), digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
-I parametri facoltativi sono indicati tra parentesi quadre (ad esempio `[parameter]`). Tutti gli altri parametri sono obbligatori.
+I parametri facoltativi sono indicati tra parentesi quadre, ad esempio `[parameter]`. Tutti gli altri parametri sono obbligatori.
 
-Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
+Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce l'output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. L'opzione `--json` consente di visualizzare il risultato in formato json non elaborato.
 
 ## Impostazione della modalità Azure Service Management (ASM)
 
@@ -40,7 +40,7 @@ La modalità Azure Service Management viene attualmente abilitata per impostazio
 >[AZURE.NOTE] La modalità Azure Resource Manager e la modalità Azure Service Management dell'interfaccia della riga di comando si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
 ## Gestione delle informazioni relative all'account e le impostazioni di pubblicazione
-Un modo in cui l’interfaccia della riga di comando di Azure può connettersi all'account dell'utente è utilizzando le informazioni relative alla sottoscrizione di Azure. (Vedere [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) per altre opzioni). Tali informazioni possono essere ottenute dal portale di Azure classico in un file di impostazioni di pubblicazione come illustrato di seguito. È possibile importare il file di impostazioni di pubblicazione come impostazione di configurazione locale persistente che l’interfaccia della riga di comando userà per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
+Un modo in cui l’interfaccia della riga di comando di Azure può connettersi all'account dell'utente è utilizzando le informazioni relative alla sottoscrizione di Azure. Per altre opzioni, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md). Tali informazioni possono essere ottenute dal portale di Azure classico in un file di impostazioni di pubblicazione come illustrato di seguito. È possibile importare il file di impostazioni di pubblicazione come impostazione di configurazione locale persistente che l’interfaccia della riga di comando userà per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
 **account download [opzioni]**
 
@@ -351,7 +351,7 @@ Questo comando crea un nuovo endpoint per una macchina virtuale. È inoltre poss
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [opzioni] &lt;nome-vm> &lt;porta-lb>[:&lt;porta-vm>[:&lt;protocollo>[:&lt;abilita-direct-server-return>[:&lt;nome-set-lb>[:&lt;protocollo-probe>[:&lt;porta-probe>[:&lt;percorso-probe>[:&lt;nome-lb-interno>]]]]]]]] {1-*}**
+**vm endpoint create-multiple [opzioni] &lt;nome-vm> &lt;lb-port>[:&lt;porta-vm>[:&lt;protocollo>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
 Creare più endpoint per macchine virtuali.
 
@@ -814,7 +814,7 @@ Questo comando consente di arrestare un’app Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [opzioni] [nome]**
+**site restart [opzioni] [nome]
 
 Questo comando consente di arrestare e quindi avviare un’app Web specificata.
 
@@ -1011,7 +1011,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-q** o **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
 + **--slot** &lt;slot>: il nome dello slot da riavviare.
 
-**site job upload [opzioni] &lt;nomeProcesso> &lt;tipoProcesso> <jobFile> [nome]**
+**site job upload [opzioni] &lt;nomeProcesso> &lt;tipoProcesso> <fileProcesso> [nome]**
 
 Questo comando carica il processo Web specificato.
 
@@ -1861,11 +1861,11 @@ Questo comando visualizza gli account di archiviazione definiti nella sottoscriz
 	data:    mybasestorage           West US
 	info:    storage account list command OK
 
-**storage account show [opzioni] <name>**
+**storage account show [opzioni] <nome>**
 
 Questo comando visualizza le informazioni relative all'account di archiviazione specificato, inclusi l'URI e le proprietà dell'account.
 
-**storage account create [opzioni] <name>**
+**storage account create [opzioni] <nome>**
 
 Questo comando crea un account di archiviazione in base alle opzioni fornite.
 
@@ -1879,10 +1879,10 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-e** o **--label** &lt;etichetta>: l’etichetta per l’account di archiviazione.
 + **-d** o **--description** &lt;descrizione>: la descrizione dell’account di archiviazione.
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
-+ **-a** o **--affinity-group** &lt;nome>: il gruppo di affinità a cui associare l’account di archiviazione. 
++ **-a** o **--affinity-group** &lt;nome>: il gruppo di affinità a cui associare l’account di archiviazione.
 + **--type**: indica il tipo di account da creare: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
 
-**storage account set [opzioni] <name>**
+**storage account set [opzioni] <nome>**
 
 Questo comando aggiorna l'account di archiviazione specificato.
 
@@ -1898,7 +1898,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-l** o **--location** &lt;nome>: l’area geografica in cui creare l’account di archiviazione.
 + **--type**: indica il nuovo tipo di account: archiviazione Standard con opzione di ridondanza (LRS/ZRS/GRS/RAGRS) o archiviazione Premium (PLRS).
 
-**storage account delete [opzioni] <name>**
+**storage account delete [opzioni] <nome>**
 
 Questo comando elimina l'account di archiviazione specificato.
 
@@ -1908,11 +1908,11 @@ Il comando supporta l'opzione aggiuntiva seguente:
 
 ###Comandi per la gestione delle chiavi dell'account di archiviazione
 
-**storage account keys list [opzioni] <name>**
+**storage account keys list [opzioni] <nome>**
 
 Questo comando elenca le chiavi di accesso primaria e secondaria per l'account di archiviazione specificato.
 
-**storage account keys renew [opzioni] <name>**
+**storage account keys renew [opzioni] <nome>**
 
 ###Comandi per la gestione del contenitore di archiviazione
 
@@ -2350,4 +2350,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

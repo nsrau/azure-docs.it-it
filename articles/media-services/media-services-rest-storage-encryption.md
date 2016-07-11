@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/02/2016"   
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,8 @@ In questo articolo viene illustrata una panoramica della crittografia di archivi
 - Creare una chiave simmetrica.
 - Creare un asset. Durante la creazione dell'asset, impostare AssetCreationOption su StorageEncryption.
 
-	Gli asset crittografati devono essere associati a chiavi simmetriche.
-- Collegare la chiave simmetrica all'asset.  
+	 Gli asset crittografati devono essere associati a chiavi simmetriche.
+- Collegare la chiave simmetrica all'asset.
 - Impostare i parametri relativi alla crittografia sulle entità AssetFile.
  
 >[AZURE.NOTE]Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
@@ -53,11 +53,11 @@ Gli asset crittografati devono essere associati alle chiavi di crittografia di a
 
 Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare.
 
-1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte. 
+1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte.
 
-	Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia. 
+	Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia.
 2.	Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
-3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
+3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509.
 
 	L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia. È disponibile un esempio .NET nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Creare un valore del checksum calcolato usando l'identificatore di chiave e la chiave simmetrica. Il seguente esempio .NET calcola il checksum usando la parte GUID dell'identificatore chiave e la chiave simmetrica non crittografata.
@@ -375,4 +375,4 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator per Android
@@ -43,7 +43,7 @@ Le istruzioni seguenti sono applicabili a telefoni Samsung GS3 e modelli superio
 6. Nella schermata Aggiunta all'area di lavoro immettere l'ID utente fornito dall'organizzazione, quindi fare clic su **Aggiungi**.
 7. Per accedere all'app Azure Authenticator, immettere l'****account aziendale e la password, quindi fare clic su **Accedi**.
 8. La schermata successiva che mostra le informazioni relative all'autenticazione a più fattori (MFA) viene presentata per maggiore sicurezza ed è facoltativa. Questa schermata viene visualizzata se l'azienda o l'istituto di istruzione richiede l'autenticazione basata su un secondo fattore per la creazione di account aziendali e include istruzioni per verificare ulteriormente l'account.
-9. Nella schermata Aggiunta all'area di lavoro viene visualizzato il messaggio "**Aggiunta all'area di lavoro in corso**". L'app Azure Authenticator sta provando ad aggiungere il dispositivo all'area di lavoro.
+9. Nella schermata Workplace Join viene visualizzato il messaggio "**Aggiunta all'area di lavoro in corso**". L'app Azure Authenticator sta provando ad aggiungere il dispositivo all'area di lavoro.
 10. Nella schermata successiva dovrebbe essere visualizzato il messaggio di completamento dell'aggiunta all'area di lavoro.
 
 >[AZURE.NOTE]
@@ -111,10 +111,10 @@ Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un 
 
 Su un dispositivo Samsung Android, è necessario rimuovere i privilegi di amministratore del dispositivo nel modo seguente prima di disinstallare
 1. Nel menu **Impostazioni**, in **Sistema**, selezionare **Sicurezza**.
-2. In **Amministratore dispositivo** scegliere **Amministratori dispositivo**. Assicurarsi che la casella di controllo accanto ad **Azure Authenticator** sia deselezionata.
+2. In **Amministrazione dispositivo** scegliere **Amministratori del dispositivo**. Assicurarsi che la casella di controllo accanto ad **Azure Authenticator** sia deselezionata.
 
 ##Risoluzione dei problemi
 
 Se viene visualizzato l'errore relativo all'**archivio delle chiavi**, la schermata di blocco potrebbe non essere configurata con un PIN. Per risolvere il problema, disinstallare l'applicazione Azure Authenticator, configurare un PIN per la schermata di blocco e reinstallare l'app.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

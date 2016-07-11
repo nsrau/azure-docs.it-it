@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -24,7 +24,7 @@
 
 Questo articolo include informazioni sulle diverse versioni e sugli aggiornamenti più recenti di Azure Toolkit for Eclipse.
 
-> [AZURE.NOTE] Esiste anche un Azure Toolkit per l’IDE di IntelliJ. Per ulteriori informazioni, vedere [Azure Toolkit per IntelliJ].
+> [AZURE.NOTE] Esiste anche un Toolkit di Azure per l’IDE di IntelliJ. Per ulteriori informazioni, vedere [Azure Toolkit per IntelliJ].
 
 ### 12 aprile 2016
 
@@ -160,7 +160,7 @@ La versione di Azure Toolkit for Eclipse rilasciata a giugno 2014 è un aggiorna
 * **Aggiornamento 45 del pacchetto Azul Zulu OpenJDK.** A partire da questa versione, è disponibile l'aggiornamento 45 per Zulu (pacchetto Open JDK v7) di Azul System, in aggiunta agli aggiornamenti 40 e 25 disponibili in precedenza.
 * **Supporto dell'impostazione automatica per le porte di endpoint private.** È possibile impostare automaticamente una porta privata per gli endpoint di input e interni per consentire ad Azure di assegnare automaticamente una porta a tale endpoint. In precedenza era possibile assegnare solo un numero di porta specifico.
 * **Supporto per la personalizzazione del nome certificato (CN) nell'interfaccia utente per la creazione di certificati autofirmati.** In precedenza veniva usato lo stesso nome hardcoded per tutti i nuovi certificati. Ora è possibile specificare un nome certificato personalizzato per distinguere facilmente più certificati usati per scopi diversi nel portale di Azure.
-* **Barra degli strumenti di azure:** la barra degli strumenti di Azure è stata aggiornata con le modifiche seguenti. 
+* **Barra degli strumenti di azure:** la barra degli strumenti di Azure è stata aggiornata con le modifiche seguenti.
     * ![][ic710876] È stata aggiunta questa icona per il **Nuovo progetto di distribuzione Azure**.
     * ![][ic710877] Questa icona è stato aggiunta come collegamento alla finestra di dialogo per la creazione di un certificato autofirmato.
 * **Supporto per le dimensioni A5 delle macchine virtuali di Azure.** Ora è possibile distribuire un servizio cloud nelle dimensioni delle macchine virtuali A5 a memoria elevata. Per altre informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure].
@@ -278,7 +278,7 @@ La versione di anteprima di Azure Plugin for Eclipse rilasciata a luglio 2012 ri
 * **Microsoft JDBC Driver 4.0 per SQL Server disponibile durante l'installazione del plug-in:** durante l'installazione del nuovo plug-in è possibile installare la versione più recente di Microsoft JDBC Driver per SQL Server.
 * **Azure Access Control Service Filter disponibile durante l'installazione del plug-in:** questo nuovo componente, incluso nella libreria di Eclipse all'interno del toolkit, consente alle applicazioni Web Java di usare direttamente l'autenticazione tramite il Servizio di controllo di accesso di Microsoft Azure (ACS) usando diversi provider di identità, come Google, Live.com e Yahoo!. Non è necessario scrivere logica di autenticazione personalizzata, ma è sufficiente configurare alcune opzioni per fare in modo che l'abilitazione degli utenti all'accesso tramite ACS venga eseguita dal filtro. È possibile concentrarsi solo sulla scrittura del codice che consente agli utenti di accedere alle risorse in base alla loro identità, restituita all'applicazione dal filtro all'interno dell'oggetto Request. Per un'esercitazione sull'uso del filtro ACS, vedere [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse].
 * **Rilevamento automatico del prerequisito di Azure SDK 1.7:** quando si crea un nuovo progetto di distribuzione di Azure, Azure SDK 1.7 viene scaricato automaticamente se non è già installato.
-* **Endpoint di istanza:** consente l'accesso diretto agli endpoint delle porte per la comunicazione con le istanze del ruolo con carico bilanciato. Gli endpoint di istanza possono essere aggiunti tramite l'interfaccia utente degli endpoint, disponibile nella pagina [Endpoints properties]. Questo approccio consente di abilitare il debug remoto e la diagnostica JMX per istanze di calcolo specifiche eseguite nel cloud in scenari con distribuzioni a istanze multiple. 
+* **Endpoint di istanza:** consente l'accesso diretto agli endpoint delle porte per la comunicazione con le istanze del ruolo con carico bilanciato. Gli endpoint di istanza possono essere aggiunti tramite l'interfaccia utente degli endpoint, disponibile nella pagina [Endpoints properties]. Questo approccio consente di abilitare il debug remoto e la diagnostica JMX per istanze di calcolo specifiche eseguite nel cloud in scenari con distribuzioni a istanze multiple.
 * **Interfaccia utente dei componenti:** rende più semplice per gli utenti avanzati configurare le dipendenze del progetto tra singoli ruoli di Azure presenti nel progetto e altre risorse esterne, come i progetti di applicazioni Java. Facilita anche la descrizione della logica di distribuzione. Per altre informazioni, vedere [Proprietà dei componenti].
 * **Aggiornamento automatico delle versioni precedenti del progetto:** quando si apre un'area di lavoro che include un progetto di Azure creato con una versione precedente del plug-in, i progetti precedenti saranno visualizzati in Eclipse come chiusi, perché le versioni di tali progetti non sono compatibili con la nuova versione del plug-in. Se si prova ad aprire uno di questi progetti precedenti, viene avviata una procedura di aggiornamento guidato. Se si accetta l'aggiornamento, viene creato un nuovo progetto, al cui nome viene aggiunto **\_Upgraded**, che sarà aggiornato automaticamente per funzionare con la nuova versione del plug-in. Il nuovo progetto può essere rinominato secondo le esigenze. Il progetto originale non sarà modificato come parte dell'aggiornamento e rimarrà chiuso.
 
@@ -293,7 +293,7 @@ La versione di anteprima di Azure Plugin for Eclipse rilasciata a luglio 2012 ri
 * **Interfaccia utente di configurazione del debug remoto di app Java:** consente di abilitare facilmente il debugger remoto di Eclipse per accedere all'app Java in esecuzione nell'emulatore o nel cloud di Azure, per poter esaminare il codice Java ed eseguire il debug in tempo reale. Per altre informazioni, vedere [Debug delle applicazione Azure in Eclipse].
 * **Interfaccia utente di configurazione delle risorse di archiviazione locali:** non è più necessario configurare le risorse locali manipolando direttamente il codice XML. Questa funzionalità consente anche di accedere al percorso di file effettivo della risorsa locale dopo la distribuzione tramite una variabile di ambiente a cui è possibile fare riferimento direttamente dallo script di avvio. Per altre informazioni, vedere [Proprietà dell'archiviazione in locale].
 * **Interfaccia utente di configurazione delle variabili di ambiente:** non è più necessario impostare le variabili di ambiente modificando manualmente il codice XML di configurazione Per altre informazioni, vedere [Proprietà delle variabili di ambiente].
-* **Driver JDBC per SQL Azure:** viene installato tramite il plug-in come libreria di Eclipse integrata direttamente, facilitando la programmazione per SQL Azure. 
+* **Driver JDBC per SQL Azure:** viene installato tramite il plug-in come libreria di Eclipse integrata direttamente, facilitando la programmazione per SQL Azure.
 * **Accesso rapido all'interfaccia utente di configurazione del ruolo tramite il menu di scelta rapida**: basta fare clic con il pulsante destro del mouse sulla cartella del ruolo e scegliere **Properties**.
 * **Icone personalizzate del progetto di Azure e della cartella del ruolo:** per una migliore visibilità e un'esplorazione più facile dell'area di lavoro e del progetto.
 
@@ -354,4 +354,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

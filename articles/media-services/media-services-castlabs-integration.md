@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -37,10 +37,10 @@ Il diagramma seguente illustra un'architettura di integrazione di alto livello t
 
 - I contenuti multimediali vengono archiviati in Servizi multimediali di Azure.
 - Gli ID delle chiavi simmetriche vengono archiviati sia in castLabs sia in Servizi multimediali di Azure.
-- castLabs e Servizi multimediali di Azure dispongono entrambi di un sistema di autenticazione dei token integrato. I token di autenticazione vengono illustrati nelle sezioni seguenti. 
+- castLabs e Servizi multimediali di Azure dispongono entrambi di un sistema di autenticazione dei token integrato. I token di autenticazione vengono illustrati nelle sezioni seguenti.
 - Quando un client deve trasmettere un video in streaming, il contenuto viene crittografato dinamicamente con la **crittografia comune** e organizzato da Servizi multimediali di Azure in pacchetti dinamici creati con i protocolli Smooth Streaming e DASH. Viene inoltre fornita la crittografia dei flussi elementari M2TS PlayReady per il protocollo di streaming HLS.
-- La licenza per PlayReady viene recuperata dal server licenze di Servizi multimediali di Azure, mentre la licenza per Widevine viene recuperata dal server licenze castLabs. 
-- Media Player decide automaticamente le licenze da recuperare in base alle caratteristiche della piattaforma client. 
+- La licenza per PlayReady viene recuperata dal server licenze di Servizi multimediali di Azure, mentre la licenza per Widevine viene recuperata dal server licenze castLabs.
+- Media Player decide automaticamente le licenze da recuperare in base alle caratteristiche della piattaforma client.
 
 ##Generazione di token di autenticazione per ottenere una licenza
 
@@ -107,7 +107,7 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 3.	Incollare l'URL di streaming
 4.	Scegliere la casella di controllo **Opzioni avanzate**.
 5.	Nell'elenco a discesa **Protezione**, selezionare PlayReady e/o Widevine.
-6.	Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token. 
+6.	Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token.
 	
 	Quando si usa il server licenze castLabs, non è necessario aggiungere il prefisso "Bearer=" davanti al token. Se presente, quindi, è necessario rimuoverlo prima di inviare il token.
 7.	Aggiornare il lettore.
@@ -122,4 +122,4 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

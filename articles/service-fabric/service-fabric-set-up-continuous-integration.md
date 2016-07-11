@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Configurare l'integrazione continua per un'applicazione Service Fabric con Visual Studio Team Services
@@ -401,7 +401,7 @@ Se una compilazione precedente non si è pulita automaticamente al termine dell'
     |Nome file di script|Fare clic sul pulsante **...** e passare alla directory **Script** all'interno del progetto di applicazione. Selezionare `Deploy-FabricApplication.ps1`.|
     |Argomenti|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Per creare in modo semplice un file XML di lavoro del profilo di pubblicazione, crearlo in Visual Studio, come illustrato di seguito: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Per creare in modo semplice un file XML di lavoro del profilo di pubblicazione, crearlo in Visual Studio, come illustrato di seguito: https://azure.microsoft.com/it-IT/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Se si vuole supportare la distribuzione dell'applicazione in un cluster sovrascrivendo l'applicazione esistente invece di aggiornarla, aggiungere questo argomento di Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Assicurarsi anche che il profilo di pubblicazione selezionato non sia configurato per abilitare un aggiornamento. Questa operazione rimuoverà qualsiasi ApplicationType esistente prima di installare la compilazione più recente.
 
@@ -437,4 +437,4 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
  - [Articolo sulla distribuzione di un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Articolo sulla creazione e configurazione di una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

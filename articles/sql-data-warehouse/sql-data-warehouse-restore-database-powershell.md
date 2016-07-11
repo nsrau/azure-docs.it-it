@@ -3,7 +3,7 @@
    description="Attività di PowerShell per il ripristino di un'istanza di Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
 
@@ -95,7 +95,6 @@ Per ripristinare un database eliminato, usare il cmdlet [Restore-AzureRmSqlDatab
 6. Verificare che il database ripristinato sia online.
 
 ```Powershell
-
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -114,7 +113,6 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
@@ -132,7 +130,6 @@ Per ripristinare un database, usare il cmdlet [Restore-AzureRmSqlDatabase][].
 6. Verificare lo stato del database recuperato con il ripristino geografico.
 
 ```Powershell
-
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
@@ -145,7 +142,6 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
@@ -179,4 +175,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Azure Portal]: https://portal.azure.com/
 [Installazione guidata piattaforma Web Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

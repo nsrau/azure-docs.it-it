@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -29,9 +29,9 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
 ## Analisi dell'esecuzione di query
-Per monitorare l'esecuzione di query, iniziare con [sys.dm\_pdw\_exec\_requests][]. Questa vista contiene le query in corso, nonché una cronologia delle query completate di recente. L'elemento request\_id identifica in modo univoco ogni query ed è la chiave primaria per questa vista. Viene assegnato in sequenza per ogni nuova query. Se si esegue una query nella tabella per un dato session\_id, verranno visualizzate tutte le query per un determinato account di accesso.
+Per monitorare l'esecuzione di query, iniziare con [sys.dm\_pdw\_exec\_requests][]. Questa vista contiene le query in corso, nonché una cronologia delle query completate di recente. L'elemento request\_id identifica in modo univoco ogni query ed è la chiave primaria per questa vista. Viene assegnato in sequenza per ogni nuova query. Se si esegue una query nella tabella per un dato session\_id, verranno visualizzate tutte le query per un determinato accesso.
 
-Se si desidera analizzare l'esecuzione per una determinata query, di seguito sono descritte alcune semplici procedure da seguire.
+Ecco i passaggi da seguire per analizzare i piani e i tempi di esecuzione delle query per una query specifica.
 
 ### PASSAGGIO 1: individuare la query da analizzare
 
@@ -162,4 +162,4 @@ Per altre informazioni su DMV, vedere [Viste di sistema][]. Per alcuni suggerime
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

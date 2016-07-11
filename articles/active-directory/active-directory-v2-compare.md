@@ -58,7 +58,7 @@ L'obiettivo è ottenere un'esperienza di sviluppo e gestione delle app più semp
 Nel servizio Azure AD originale un'app può comportarsi come una **risorsa** o come un destinatario di token. Una risorsa può definire un numero di **ambiti** o autorizzazioni **oAuth2Permissions** comprensibili, consentendo alle app client di richiedere i token per tale risorsa per un determinato set di ambiti. Si consideri l'API Graph di Azure AD come esempio di una risorsa:
 
 - Identificatore della risorsa o `AppID URI`: `https://graph.windows.net/`
-- Ambiti o `OAuth2Permissions`: `Directory.Read`, `Directory.Write` e così via  
+- Ambiti o `OAuth2Permissions`: `Directory.Read`, `Directory.Write` e così via
 
 Quanto descritto si applica all'endpoint 2.0. Un'app può comunque comportarsi come una risorsa, definire gli ambiti ed essere identificata da un URI. Le app client possono richiedere ancora l'accesso a questi ambiti, tuttavia, è stata modificata la modalità con cui un client esegue la richiesta delle autorizzazioni. In precedenza, l'aspetto di una richiesta di autorizzazione OAuth 2.0 a Azure AD era simile al seguente:
 
@@ -72,7 +72,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 dove il parametro della **risorsa** indicava la risorsa per la quale l'app client richiedeva l'autorizzazione. Azure AD calcolava le autorizzazioni obbligatorie per l'app in base alla configurazione statica nel portale di Azure e rilasciava i token di conseguenza. Ora invece, l'aspetto della stessa richiesta di autorizzazione OAuth 2.0 è simile al seguente:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -94,7 +94,7 @@ Le autorizzazioni richieste da un'app venivano configurate **staticamente**. Se 
 Nell'endpoint 2.0 è possibile specificare le autorizzazioni necessarie per l'app **dinamicamente**, in fase di esecuzione, durante l'utilizzo regolare dell'app. A tale scopo, è possibile specificare gli ambiti necessari per l'app in qualsiasi momento, includendoli nel parametro `scope` di una richiesta di autorizzazione:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -132,4 +132,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token 2.0, ved
 ## Limitazioni
 Esistono alcune limitazioni da tenere in considerazione quando si usa l'endpoint 2.0. Fare riferimento al [documento relativo alle limitazioni della versione 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->
