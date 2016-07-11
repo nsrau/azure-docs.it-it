@@ -53,7 +53,8 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Se non è stato ancora impostato un punto di interruzione in index.jsp, impostarlo:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:  
+        ![][ic551537]
 1. In Eclipse fare clic su **Run** e quindi su **Debug Configurations**.
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Cloud (WorkerRole1)** e infine fare clic su **Debug**.
 1. Nel browser eseguire l'applicazione di staging, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sostituendo il GUID dal nome DNS per *&lt;guid&gt;*. Se richiesto da una finestra di dialogo **Confirm Perspective Switch** (Conferma il cambio di prospettiva), fare clic su **Yes** (Sì). La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
@@ -94,7 +95,8 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 1. Fare clic su **OK** per chiudere la finestra di dialogo **Properties for WorkerRole1 Debugging**.
 1. Impostare un punto di interruzione in index.jsp:
     1. In Project Explorer di Eclipse espandere **MyHelloWorld**, quindi **WebContent** e infine fare doppio clic su **index.jsp**.
-    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito: ![][ic551537]
+    1. In index.jsp fare clic con il pulsante destro del mouse sulla barra blu a destra del codice Java e quindi scegliere **Toggle Breakpoints**, come mostrato di seguito:
+        ![][ic551537]
 
        Il punto di interruzione è impostato se viene visualizzata un'icona di interruzione nella barra blu a sinistra del codice Java.
 1. Avviare l'applicazione nell'emulatore di calcolo facendo clic sul pulsante **Run in Azure Emulator** sulla barra degli strumenti di Azure.

@@ -25,7 +25,8 @@ In Windows 10 gli utenti finali possono aggiungere il proprio dispositivo ad Azu
 
 
 1. Quando si accende il nuovo dispositivo e viene avviato il processo di installazione, viene visualizzato il messaggio **Preparazione**. Seguire le istruzioni per configurare il dispositivo.
-2. Iniziare personalizzando il paese e la lingua. Quindi accettare le Condizioni di licenza software Microsoft. ![Personalizzare il paese](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+2. Iniziare personalizzando il paese e la lingua. Quindi accettare le Condizioni di licenza software Microsoft.
+![Personalizzare il paese](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Selezionare la rete che si desidera usare per la connessione a Internet.
 4. Selezionare se si usa un dispositivo personale o di proprietà dell'azienda. Se il dispositivo è di proprietà dell'azienda, fare clic su **Questo dispositivo appartiene alla mia azienda**. Verrà avviata l'esperienza di aggiunta ad Azure AD. Di seguito è riportata la schermata che viene visualizzata se si usa Windows 10 Professional.
 <center>
