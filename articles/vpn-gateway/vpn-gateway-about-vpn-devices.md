@@ -118,7 +118,10 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | Versione IKE | IKEv1 | IKEv2 |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
 | Durata (tempo) associazione di sicurezza (SA) fase 2 | 3\.600 secondi | 3\.600 secondi |
-| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - | | Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (più avanti) | | Perfect Forward Secrecy (PFS) | No | Sì (DH Group1, 2, 5, 14, 24) | | Dead Peer Detection | Non supportato | Supportato |
+| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - |
+| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (più avanti) |
+| Perfect Forward Secrecy (PFS) | No | Sì (DH Group1, 2, 5, 14, 24) |
+| Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
 
@@ -142,7 +145,8 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 14 | AH MD5 con ESP DES Null HMAC, nessuna durata proposta | AH MD5 con ESP DES MD5, nessuna durata |
 | 15 | AH SHA1 con ESP DES SHA1, nessuna durata | ESP SHA, nessuna durata |
 | 16 | AH MD5 con ESP DES MD5, nessuna durata | ESP MD5, nessuna durata |
-| 17 | - | AH SHA, nessuna durata | | 18 | - | AH MD5, nessuna durata |
+| 17 | - | AH SHA, nessuna durata |
+| 18 | - | AH MD5, nessuna durata |
 
 
 - È possibile specificare la crittografia NULL ESP IPsec con gateway VPN basati su route e con prestazioni elevate. La crittografia basata su null non fornisce protezione ai dati in transito e deve essere usata solo quando sono richieste una velocità effettiva massima e una latenza minima. I client possono scegliere di usare questa crittografia in scenari di comunicazione tra reti virtuali oppure quando la crittografia viene applicata in un'altra posizione nella soluzione.
