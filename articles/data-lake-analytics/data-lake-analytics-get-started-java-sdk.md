@@ -102,11 +102,11 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
 4. Passare a **File**, **Settings** (Impostazioni), **Build** (Compilazione), **Execution** (Esecuzione), **Deployment** (Distribuzione). Selezionare **Build Tools** (Strumenti di compilazione), **Maven** e quindi **Importing** (Importazione). Selezionare **Import Maven projects automatically** (Importa automaticamente progetti Maven).
 
-5. Aprire **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
+5. Aprire **Main.java** e sostituire il blocco di codice esistente con il codice seguente. Immettere anche i valori per i parametri indicati nel frammento di codice, ad esempio **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName** e **\_resourceGroupName** e sostituire i segnaposto per **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
 
 	Questo codice crea gli account Archivio Data Lake e Analisi Data Lake, crea i file nell'archivio, esegue un processo, recupera lo stato del processo, scarica l'output del processo e infine elimina l'account.
 
->[AZURE.NOTE] Attualmente esiste un problema noto con il servizio di Azure Data Lake. Se l'applicazione di esempio viene interrotta o si verifica un errore, potrebbe essere necessario eliminare manualmente gli account Archivio Data Lake e Analisi Data Lake che lo script crea. Se non si ha familiarità con il portale, l'articolo [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md) descrive come iniziare.
+	>[AZURE.NOTE] Attualmente esiste un problema noto con il servizio di Azure Data Lake. Se l'applicazione di esempio viene interrotta o si verifica un errore, potrebbe essere necessario eliminare manualmente gli account Archivio Data Lake e Analisi Data Lake che lo script crea. Se non si ha familiarità con il portale, la guida [Gestire Analisi Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md) descrive come iniziare.
 
 
 		package com.company;
@@ -180,7 +180,10 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        WaitForNewline("Accounts displayed.", "Creating files.");
 		
 		        // Create a file in Data Lake Store: input1.csv
-		        CreateFile("/input1.csv", "123,abc", true);
+		        // TODO: these change order in the next patch
+		        byte[] bytesContents = "123,abc".getBytes();
+		        _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, "/input1.csv", bytesContents, true);
+		
 		        WaitForNewline("File created.", "Submitting a job.");
 		
 		        // Submit a job to Data Lake Analytics
@@ -203,10 +206,11 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        WaitForNewline("File deleted.", "Deleting account.");
 		
 		        // Delete account
-		        DeleteAccounts();
+		        _adlsClient.getAccountOperations().delete(_resourceGroupName, _adlsAccountName);
+		        _adlaClient.getAccountOperations().delete(_resourceGroupName, _adlaAccountName);
 		        WaitForNewline("Account deleted.", "DONE.");
-			}
-	
+		    }
+		
 		    //Set up clients
 		    public static void SetupClients(ServiceClientCredentials creds)
 		    {
@@ -224,18 +228,14 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		    {
 		        if (nextAction == null)
 		            nextAction = "";
+		
+		        System.out.println(reason + "\r\nPress ENTER to continue...");
+		        try{System.in.read();}
+		        catch(Exception e){}
+		
 		        if (!nextAction.isEmpty())
 		        {
-		            System.out.println(reason + "\r\nPress ENTER to continue...");
-		            try{System.in.read();}
-		            catch(Exception e){}
 		            System.out.println(nextAction);
-		        }
-		        else
-		        {
-		            System.out.println(reason + "\r\nPress ENTER to continue...");
-		            try{System.in.read();}
-		            catch(Exception e){}
 		        }
 		    }
 		
@@ -244,7 +244,6 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        // Create ADLS account
 		        DataLakeStoreAccount adlsParameters = new DataLakeStoreAccount();
 		        adlsParameters.setLocation(_location);
-		
 		
 		        _adlsClient.getAccountOperations().create(_resourceGroupName, _adlsAccountName, adlsParameters);
 		
@@ -267,48 +266,20 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
-				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
- 
+		            /* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+		
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
-		    // Create file
-		    public static void CreateFile(String path) throws IOException, CloudException {
-		        _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName);
-		    }
-		
-		    // Create file with contents
+		    //todo: this changes in the next version of the API
 		    public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
 		        byte[] bytesContents = contents.getBytes();
 		
-		        _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName, bytesContents, force);
+		        _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path, bytesContents, force);
 		    }
 		
-		    // Append to file
-		    public static void AppendToFile(String path, String contents) throws IOException, CloudException {
-		        byte[] bytesContents = contents.getBytes();
-		
-		        _adlsFileSystemClient.getFileSystemOperations().append(path, _adlsAccountName, bytesContents);
-		    }
-		
-		    // Concatenate files
-		    public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, CloudException {
-		        _adlsFileSystemClient.getFileSystemOperations().concat(destFilePath, _adlsAccountName, srcFilePaths);
-		    }
-		
-		    // Delete concatenated file
 		    public static void DeleteFile(String filePath) throws IOException, CloudException {
 		        _adlsFileSystemClient.getFileSystemOperations().delete(filePath, _adlsAccountName);
-		    }
-		
-		    // Get file or directory info
-		    public static FileStatusProperties GetItemInfo(String path) throws IOException, CloudException {
-		        return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(path, _adlsAccountName).getBody().getFileStatus();
-		    }
-		
-		    // List files and directories
-		    public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, CloudException {
-		        return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(directoryPath, _adlsAccountName).getBody().getFileStatuses().getFileStatus();
 		    }
 		
 		    // Download file
@@ -356,13 +327,6 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        return jobId;
 		    }
 		
-		    // Submit a U-SQL job by providing a path to the script
-		    public static UUID SubmitJobByPath(String scriptPath, String jobName) throws IOException, CloudException {
-		        byte[] scriptFileContents = Files.readAllBytes(Paths.get(scriptPath));
-		        String script = new String(scriptFileContents, Charset.defaultCharset());
-		        return SubmitJobByScript(script, jobName);
-		    }
-		
 		    // Wait for job completion
 		    public static JobResult WaitForJob(UUID jobId) throws IOException, CloudException {
 		        JobInformation jobInfo = _adlaJobClient.getJobOperations().get(_adlaAccountName, jobId).getBody();
@@ -378,17 +342,6 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 		        JobInformation jobInfo = _adlaJobClient.getJobOperations().get(_adlaAccountName, jobId).getBody();
 		        return jobInfo.getState().toValue();
 		    }
-		
-		    // List jobs
-		    public static List<JobInformation> ListJobs() throws IOException, CloudException {
-		        return _adlaJobClient.getJobOperations().list(_adlaAccountName).getBody();
-		    }
-		
-		    // Delete accounts
-		    public static void DeleteAccounts() throws InterruptedException, CloudException, IOException {
-		        _adlsClient.getAccountOperations().delete(_resourceGroupName, _adlsAccountName);
-		        _adlaClient.getAccountOperations().delete(_resourceGroupName, _adlaAccountName);
-		    }
 		}
 
 6. Seguire le istruzioni per eseguire e completare l'applicazione.
@@ -399,8 +352,8 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
 - Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md) e [Informazioni di riferimento sul linguaggio U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+- Per altre informazioni su U-SQL, vedere l'[Esercitazione: Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md) e il [riferimento al linguaggio U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

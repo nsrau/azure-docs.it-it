@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
@@ -241,7 +241,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 ### Modificare il file app.js
 
-1. Nella directory **WebRole1** aprire il file **app.js** in un editor di testo. 
+1. Nella directory **WebRole1** aprire il file **app.js** in un editor di testo.
 
 2. Aggiungere quanto riportato di seguito all'inizio del file per caricare il modulo azure e impostare il nome della tabella e la chiave della partizione:
 
@@ -403,4 +403,4 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

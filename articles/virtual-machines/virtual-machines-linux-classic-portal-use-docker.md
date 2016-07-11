@@ -20,7 +20,7 @@
 
 # Come usare l'estensione della VM Docker con il portale di Azure classico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della VM Docker per l'[Agente Linux di Azure] per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
@@ -89,7 +89,7 @@ Fare clic su **+ Aggiungi** per aggiungere un'altra regola e, in caso di imposta
 
 
 ## Testare il client Docker e l'host Docker di Azure
-Individuare e copiare il nome del dominio della macchina virtuale e, nella riga di comando del computer client, digitare `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (dove *dockerextension* verrà sostituito con il sottodominio della propria macchina virtuale).
+Individuare e copiare il nome del dominio della macchina virtuale e, nella riga di comando del computer client, digitare `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info`, dove *dockerextension* verrà sostituito con il sottodominio della propria macchina virtuale.
 
 Il risultato sarà simile al seguente:
 
@@ -148,4 +148,4 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 [Esecuzione di Docker con https]: http://docs.docker.com/articles/https/
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

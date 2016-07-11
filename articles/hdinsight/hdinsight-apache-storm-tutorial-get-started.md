@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 
@@ -81,7 +81,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	Usare __Seleziona__ per salvare le informazioni sui __Piani tariffari per il nodo__.
 
-8. Selezionare __Configurazione facoltativa__. Questo pannello consente di selezionare la versione del cluster, nonché configurare altre impostazioni facoltative quali l'unione a una __rete virtuale__ o la configurazione di un __Metastore esterno__ per memorizzare i dati per Hive e Oozie.
+8. Selezionare __Configurazione facoltativa__. Questo pannello consente di selezionare la versione del cluster e di configurare altre impostazioni facoltative, come l'aggiunta a una __rete virtuale__.
 
 	![Pannello configurazione facoltativa](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -245,4 +245,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

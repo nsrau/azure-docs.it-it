@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,7 @@ In questo argomento si esaminerà l'elenco dei client attualmente supportati, co
 
 È possibile accedere a RemoteApp attenendosi alla procedura seguente se sul dispositivo è in esecuzione uno dei sistemi operativi seguenti:
 
- - Windows 10 
+ - Windows 10
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
@@ -58,7 +58,7 @@ Dopo aver installato e avviato il client sul dispositivo, passare alla sezione c
 
 Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inserita nell'elenco di app in **Desktop remoto**.
 
-1. All'avvio dell'app viene visualizzato un centro connessioni vuoto, a meno che l'app non sia già stata usata. Per iniziare a usare Azure RemoteApp, toccare il pulsante **""+""** e toccare **Azure RemoteApp**.	
+1. All'avvio dell'app viene visualizzato un centro connessioni vuoto, a meno che l'app non sia già stata usata. Per iniziare a usare Azure RemoteApp, toccare il pulsante **""+""** e toccare **Azure RemoteApp**.
 
 	 ![Centro connessioni vuoto](./media/remoteapp-clients/Android1.png)
 
@@ -207,4 +207,4 @@ Dopo aver installato l'app Microsoft Remote Desktop dallo store Windows Phone 8.
 	![Feed dimostrativo per Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

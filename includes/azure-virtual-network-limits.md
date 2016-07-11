@@ -34,7 +34,7 @@ Regole NSG per NSG | 200 | 500
 Tabelle di route definite dall’utente | 100 | 400
 Le route definite dall’utente per ogni tabella di route | 100 | 400
 Indirizzi IP pubblici (dinamici) | 60 | Contattare il supporto tecnico
-Indirizzi IP pubblici riservati. | 20 | Contattare il supporto tecnico
+Indirizzi IP pubblici (statici) | 20 | Contattare il supporto tecnico
 Bilanciamento del carico (interno e con connessione Internet) | 100 | Contattare il supporto tecnico
 Regole del servizio di bilanciamento del carico per ogni servizio di bilanciamento del carico | 150 | 150
 IP front-end pubblico per ogni di bilanciamento del carico | 5 | Contattare il supporto tecnico
@@ -43,4 +43,4 @@ Gateway di applicazione | 50 | 50
 
 Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

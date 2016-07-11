@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurare il codificatore Telestream Wirecast per inviare un flusso live a velocità in bit singola." 
-	description="In questo argomento viene illustrato come configurare il codificatore live Wirecast per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live." 
+	pageTitle="Configurare il codificatore Telestream Wirecast per inviare un flusso live a velocità in bit singola. " 
+	description="In questo argomento viene illustrato come configurare il codificatore live Wirecast per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live. " 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
@@ -68,16 +68,16 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 **Video**:
  
-- Codec: H.264 
-- Profilo: alto (livello 4.0) 
-- Velocità in bit: 5000 kbps 
-- Fotogramma chiave: 2 secondi (60 secondi) 
+- Codec: H.264
+- Profilo: alto (livello 4.0)
+- Velocità in bit: 5000 kbps
+- Fotogramma chiave: 2 secondi (60 secondi)
 - Frequenza dei fotogrammi: 30
  
 **Audio**:
 
-- Codec: AAC (LC) 
-- Velocità in bit: 192 kbps 
+- Codec: AAC (LC)
+- Velocità in bit: 192 kbps
 - Frequenza di campionamento: 44,1 kHz
 
 
@@ -142,7 +142,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 ##Testare la riproduzione
   
-1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.  
+1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
@@ -152,18 +152,18 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 
 ##Creare un programma.
 
-1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.  
+1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 
 2. Assegnare un nome al programma e, se necessario, modificare l'opzione **Archive Window Length** (con impostazione predefinita di 4 ore). È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.
 3. Selezionare la casella di controllo **Start the Program now**.
-4. Fare clic su **Create Program**.  
+4. Fare clic su **Create Program**.
   
 	Nota: la creazione di un programma richiede meno tempo rispetto alla creazione del canale.
  
 5. Quando il programma è in esecuzione, verificare il funzionamento della riproduzione. A tale scopo, fare clic con il pulsante destro del mouse sul programma e passare **Playback the program(s)**, quindi scegliere **with Azure Media Player**.
-6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu). 
+6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu).
 
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.
 
@@ -180,4 +180,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

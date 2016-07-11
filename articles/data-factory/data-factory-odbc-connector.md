@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da archivi dati ODBC con Azure Data Factory
@@ -232,7 +232,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. | Sì |
 
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un archivio dati ODBC locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un archivio dati ODBC locale, vedere la sezione [Impostare le credenziali e la sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Uso dell'autenticazione di base
 
@@ -293,7 +293,7 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un archivio
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable**, che include il set di dati ODBC, presenta le proprietà seguenti.
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable**, che include il set di dati ODBC, presenta le proprietà seguenti
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
@@ -301,11 +301,11 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 ## Proprietà del tipo di attività di copia ODBC
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource**, che include ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
+In caso di attività di copia con origine di tipo **RelationalSource**, incluso ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -346,7 +346,7 @@ Creare un servizio collegato ODBC per collegare un archivio dati [GE Proficy His
 	    }
 	}
 
-È necessario installare il Gateway di gestione dati in un computer locale e registrare il gateway con il portale. Il gateway installato nel computer locale usa il driver ODBC per GE Historian per la connessione all'archivio dati GE Historian, quindi è necessario installare il driver se non è già installato nel computer del gateway. Per i dettagli, vedere [Attivazione della connettività](#enabling-connectivity).
+È necessario installare il Gateway di gestione dati in un computer locale e registrare il gateway con il portale. Il gateway installato nel computer locale usa il driver ODBC per GE Historian per la connessione all'archivio dati GE Historian, quindi è necessario installare il driver se non è già installato nel computer del gateway. Per i dettagli, vedere [Abilitazione della connettività](#enabling-connectivity).
 
 Prima di usare l'archivio GE Historian in una soluzione Data Factory, verificare se il gateway è in grado di connettersi all'archivio dati usando le istruzioni indicate nella sezione successiva.
 
@@ -355,17 +355,17 @@ Leggere l'articolo dall'inizio per una panoramica dettagliata dell'uso degli arc
 ## Risoluzione dei problemi di connettività
 Usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati** per risolvere i problemi di connessione.
 
-1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come indicato nell'immagine seguente. 
+1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come mostrato nell'immagine seguente.
 
 	![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
 2. Passare alla scheda **Diagnostica**.
 
-	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
-3. Selezionare il **tipo** di dati archiviati (servizio collegato). 
-4. Specificare l'**autenticazione** e immettere le **credenziali** o immettere la **stringa di connessione** per la connessione all'archivio dati. 
-5. Fare clic su **Test connessione** per testare la connessione all'archivio dati. 
+	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Selezionare il **tipo** di archivio dati (servizio collegato).
+4. Specificare l'**autenticazione** e immettere le **credenziali** o la **stringa di connessione** per la connessione all'archivio dati.
+5. Fare clic su **Test connessione** per testare la connessione all'archivio dati.
 
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

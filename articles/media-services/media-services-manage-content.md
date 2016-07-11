@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -40,14 +40,14 @@ Questo argomento illustra come eseguire le seguenti operazioni sul contenuto dir
 
 
 1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Selezionare la pagina CONTENT. 
-3. Fare clic sul pulsante **Upload** nella pagina o nella parte inferiore del portale. 
+2. Selezionare la pagina CONTENT.
+3. Fare clic sul pulsante **Upload** nella pagina o nella parte inferiore del portale.
 4. Nella finestra di dialogo **Upload content** selezionare il file di asset desiderato. Fare clic sul file e quindi su **Open** oppure premere **INVIO**.
 
 	![Finestra di dialogo Carica contenuto][uploadcontent]
 
 5. Nella finestra di dialogo Carica contenuto fare clic sul pulsante con il segno di spunta per accettare il file e il nome del contenuto.
-6. Verrà avviato il caricamento e sarà possibile visualizzarne lo stato nella parte inferiore del portale.  
+6. Verrà avviato il caricamento e sarà possibile visualizzarne lo stato nella parte inferiore del portale.
 
 	![Stato processo][status]
 
@@ -125,7 +125,7 @@ Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali co
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti nella sezione [Codificare il contenuto](#encode)).
 - Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-manage-origins.md#scale_streaming_endpoints/).
-- Configurare "i criteri di servizio predefiniti relativi alla chiave AES" o "i criteri di servizio predefiniti relativi alla licenza". Per altre informazioni, vedere l'argomento [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-portal-configure-content-key-auth-policy.md).  
+- Configurare "i criteri di servizio predefiniti relativi alla chiave AES" o "i criteri di servizio predefiniti relativi alla licenza". Per altre informazioni, vedere l'argomento [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-portal-configure-content-key-auth-policy.md).
 
 
 	Quando si è pronti ad abilitare la crittografia, premere il pulsante **CRITTOGRAFIA** nella parte inferiore della pagina **CONTENUTO**.
@@ -179,8 +179,8 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST
 
 Per pubblicare un asset tramite il portale, seguire questa procedura:
 
-1. Selezionare l'asset. 
-2. Quindi, fare clic sul pulsante Pubblica. 
+1. Selezionare l'asset.
+2. Quindi, fare clic sul pulsante Pubblica.
 	
  ![Contenuto pubblicato][publishedcontent]
 
@@ -222,4 +222,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

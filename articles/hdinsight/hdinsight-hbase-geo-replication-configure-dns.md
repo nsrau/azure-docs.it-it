@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configurare DNS tra due reti virtuali di Azure
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Configurare la connettività VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
+- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md)
 
 
 Informazioni su come aggiungere e configurare i server DNS nelle reti virtuali di Azure per gestire la risoluzione dei nomi all'interno e tra le reti virtuali.
@@ -67,8 +67,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 2.	Fare clic su **Windows Server 2012 R2 Datacenter**.
 3.	Digitare:
 	- **NOME MACCHINA VIRTUALE**: Contoso-DNS-EU
-	- **NUOVO NOME UTENTE**: 
-	- **NUOVA PASSWORD**: 
+	- **NUOVO NOME UTENTE**:
+	- **NUOVA PASSWORD**:
 4.	Digitare:
 	- **SERVIZIO CLOUD**: creare un nuovo servizio cloud
 	- **AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE**: (selezionare Contoso-VNet-EU)
@@ -77,8 +77,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	
 		Il nome del servizio cloud sarà identico al nome della macchina virtuale. In questo caso, è Contoso-DNS-EU. Per le macchine virtuali successive, è possibile scegliere di usare lo stesso servizio cloud. Tutte le macchine virtuali nello stesso servizio cloud condividono la stessa rete virtuale e lo stesso suffisso di dominio.
 
-		L'account di archiviazione viene usato per archiviare il file di immagine della macchina virtuale. 
-	- **ENDPOINT**: (scorrere verso il basso e selezionare **DNS**) 
+		L'account di archiviazione viene usato per archiviare il file di immagine della macchina virtuale.
+	- **ENDPOINT**: (scorrere verso il basso e selezionare **DNS**)
 
 Dopo aver creato la macchina virtuale, individuare l'IP interno e l'IP esterno.
 
@@ -105,7 +105,7 @@ Per i server DNS sono necessari gli indirizzi IP statici. Questo passaggio non p
 **Per configurare l'indirizzo IP statico per le due macchine virtuali**
 
 1. Aprire Windows PowerShell ISE.
-2. Eseguire i cmdlet seguenti:  
+2. Eseguire i cmdlet seguenti:
 
 		Add-AzureAccount
 		Select-AzureSubscription [YourAzureSubscriptionName]
@@ -122,7 +122,7 @@ Per i server DNS sono necessari gli indirizzi IP statici. Questo passaggio non p
 
 **Per aggiungere il ruolo del server DNS per Contoso-DNS-EU**
 
-1.	Dal portale di Azure classico, fare clic su **Macchine virtuali** a sinistra. 
+1.	Dal portale di Azure classico, fare clic su **Macchine virtuali** a sinistra.
 2.	Fare clic su **Contoso-DNS-EU**.
 3.	Fare clic su **DASHBOARD** nella parte superiore.
 4.	Fare clic su **CONNETTI** in basso e seguire le istruzioni per la connessione alla macchina virtuale tramite RDP.
@@ -134,7 +134,7 @@ Per i server DNS sono necessari gli indirizzi IP statici. Questo passaggio non p
 7.	Selezionare la macchina virtuale DNS (deve essere già evidenziata) e quindi fare clic su **Avanti**.
 8.	Selezionare **Server DNS**.
 9.	Fare clic su **Aggiungi funzionalità** e quindi su **Continua**.
-10.	Fare clic su **Avanti** tre volte e quindi fare clic su **Installa**. 
+10.	Fare clic su **Avanti** tre volte e quindi fare clic su **Installa**.
 
 **Per aggiungere il ruolo del server DNS per Contoso-DNS-US**
 
@@ -184,7 +184,7 @@ Per configurare il server di inoltro condizionale, è necessario conoscere i suf
 1. Effettuare una connessione RDP in **Contoso-DNS-EU**.
 2. Aprire una console Windows PowerShell o un prompt dei comandi.
 3. Eseguire **ipconfig** e annotare il **suffisso DNS specifico della connessione**.
-4. Non chiudere la sessione RDP, sarà necessario usarla più avanti nell'esercitazione. 
+4. Non chiudere la sessione RDP, sarà necessario usarla più avanti nell'esercitazione.
 5. Ripetere gli stessi passaggi per scoprire il **suffisso DNS specifico della connessione** di **Contoso-DNS-US**.
 
 
@@ -199,7 +199,7 @@ Per configurare il server di inoltro condizionale, è necessario conoscere i suf
 	- **Indirizzi IP dei server master**: immettere 10.2.0.4, ovvero l'indirizzo IP di Contoso-DNS-US.
 6.	Premere **INVIO** e quindi fare clic su **OK**. A questo punto sarà possibile risolvere l'indirizzo IP di Contoso-DNS-US da Contoso-DNS-EU.
 7.	Ripetere i passaggi per aggiungere un server di inoltro DNS al servizio DNS nella macchina virtuale di Contoso-DNS-US con i valori seguenti:
-	- **Dominio DNS**: immettere il suffisso DNS di Contoso-DNS-EU. 
+	- **Dominio DNS**: immettere il suffisso DNS di Contoso-DNS-EU.
 	- **Indirizzi IP dei server master**: immettere 10.2.0.4, ovvero l'indirizzo IP di Contoso-DNS-EU.
 
 ##Testare la risoluzione dei nomi tra le reti virtuali
@@ -222,4 +222,4 @@ In questa esercitazione si è appreso come configurare la risoluzione dei nomi t
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

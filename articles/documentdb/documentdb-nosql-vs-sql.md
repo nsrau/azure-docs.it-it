@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Quando usare NoSQL o SQL | Microsoft Azure"
-	description="Confrontare i vantaggi dell'uso di soluzioni NoSQL non relazionali e di soluzioni SQL. Informazioni per stabilire se è più adatto al proprio scenario uno dei servizi NoSQL di Microsoft Azure o una delle soluzioni SQL Server."
+	description="Confrontare i vantaggi dell'uso di soluzioni non relazionali NoSQL e di soluzioni SQL. Informazioni per stabilire se sia più adatto al proprio scenario uno dei servizi NoSQL di Microsoft Azure o SQL Server."
 	keywords="NoSQL e SQL, quando usare NoSQL, SQL e NoSQL"
 	services="documentdb"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/24/2016"
 	ms.author="mimig"/>
 
 # NoSQL e SQL
@@ -130,4 +130,4 @@ Per conoscere meglio i prodotti SQL e NoSQL, è possibile provarli gratuitamente
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

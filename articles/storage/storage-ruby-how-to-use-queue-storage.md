@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -57,20 +57,20 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-Per ottenere questi valori da un account di archiviazione classico o ARM nel portale di Azure:
+Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
-4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
-5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
+4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente.
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
-Per ottenere questi valori da un account di archiviazione classico nel portale classico:
+Per ottenere questi valori da un account di archiviazione classico nel portale di Azure classico:
 
-1. Accedere al [portale classico](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore del riquadro di spostamento.
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria. 
+4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 ## Procedura: creare una coda
@@ -162,4 +162,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come usare le code del bus di servizio](/develop/ruby/how-to-guides/service-bus-queues/) vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

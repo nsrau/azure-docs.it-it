@@ -60,7 +60,7 @@ Se si verificano i seguenti avvisi durante l'esecuzione di script possono essere
 Al completamento dello script il risultato sarà il numero stimato di eDTU necessarie affinché un pool contenga tutti i database candidati nel server di destinazione. Questa stima può essere utilizzata per creare e configurare il pool. Dopo la creazione del pool e lo spostamento dei database al suo interno, è necessario controllarlo attentamente per alcuni giorni, apportando eventuali modifiche alla configurazione delle eDTU del pool in base alle esigenze. Vedere [Monitor, manage, and size an elastic database pool (Monitorare, gestire e ridimensionare un pool di database elastici)](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -266,4 +266,4 @@ Al completamento dello script il risultato sarà il numero stimato di eDTU neces
 
         
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

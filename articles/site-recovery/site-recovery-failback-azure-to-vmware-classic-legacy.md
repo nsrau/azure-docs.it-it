@@ -55,7 +55,7 @@ Ecco come configurare il failback:
 
 Sarà necessario installare un server vContinuum in locale e associarlo al server di configurazione.
 
-1.  [Scaricare vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
+1.  [Scaricare vContinuum](http://go.microsoft.com/fwlink/?linkid=526305).
 2.  Quindi scaricare la versione [di aggiornamento di vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
 3. Installare la versione più recente di vContinuum. Nella pagina **Welcome** fare clic su **Next**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  Nella prima pagina della procedura guidata specificare l'indirizzo IP e la porta del server CX. Selezionare **Use HTTPS**.
@@ -143,7 +143,7 @@ Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. Controllare se esiste una riga con il valore **disk.EnableUUID**. Se esiste ed è impostata su **False**, impostarla su **True** (senza distinzione maiuscole/minuscole). Se il valore esiste ed è impostato su True, fare clic su **Cancel** e testare il comando SCSI nel sistema operativo guest dopo l'avvio. Se non esiste, fare clic su **Add Row**.
+4. Controllare se esiste una riga con il valore **disk.EnableUUID**. Se esiste ed è impostata su **False**, impostarla su **True** (senza distinzione maiuscole/minuscole). Se il valore esiste ed è impostato su True, fare clic su **Cancel** e testare il comando SCSI nel sistema operativo guest dopo l'avvio. Se non esiste, fare clic su **Add Row** (Aggiungi riga).
 5. Aggiungere disk.EnableUUID nella colonna **Name**. Impostare il relativo valore come TRUE. Non aggiungere i valori precedenti insieme alle virgolette doppie.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
@@ -152,7 +152,7 @@ Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux
 
 NOTA: verificare che il sistema abbia la connettività Internet prima di scaricare e installare i pacchetti aggiuntivi.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Il comando scarica questi 15 pacchetti dal repository CentOS 6.6 e li installa:
 
@@ -188,17 +188,17 @@ snappy-1.1.0-1.el6.x86\_64.rpm
 
 NOTA: se il computer di origine usa il file system Reiser o XFS per il dispositivo di avvio o radice, i pacchetti seguenti devono essere scaricati e installati nella destinazione master Linux prima della protezione.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Applicare le modifiche di configurazione personalizzate
 
@@ -223,7 +223,7 @@ Prima di applicare queste modifiche, verificare di avere completato la sezione p
 3. Accedere alla macchina virtuale del server di destinazione master Linux con un client ssh di propria scelta.
 4. Se si è connessi alla rete di Azure in cui è stato distribuito il server di destinazione master Linux tramite una connessione VPN, usare l'indirizzo IP interno del server che è possibile trovare nella scheda **Dashboard** della macchina virtuale e la porta 22 per connettersi al server di destinazione master Linux usando Secure Shell.
 5. Se ci si connette al server di destinazione master Linux tramite una connessione Internet pubblica, usare l'indirizzo IP virtuale pubblico del server di destinazione master Linux (dalla scheda **Dashboard** delle macchine virtuali) e l'endpoint pubblico creato per ssh per accedere al server Linux.
-6. Estrarre i file dall'archivio tar del programma di installazione del server di destinazione master Linux compresso eseguendo: *"tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*"* dalla directory contenente il file del programma di installazione.
+6. Estrarre i file dall'archivio tar del programma di installazione del server di destinazione master Linux compresso eseguendo: *"tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\"* dalla directory contenente il file del programma di installazione.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -266,7 +266,7 @@ Se per qualche motivo non è stato possibile registrare il server di destinazion
 Quando viene eseguito il failover di una macchina virtuale in Azure, viene aggiunge un'unità temp extra per file di paging. Si tratta di un'unità aggiuntiva che non è in genere necessaria per le macchine virtuali di cui è stato effettuato il failover poiché dispone già di un'unità dedicata per il file di paging. Prima di avviare una protezione inversa delle macchine virtuali, è necessario assicurarsi che questa unità sia offline in modo che non venga protetta. Procedere come segue:
 
 1.  Aprire Gestione computer e selezionare Gestione archiviazione in modo che vengano elencati i dischi online collegati al computer.
-2.  Selezionare il disco temporaneo collegato alla macchina e scegliere di attivare la modalità offline. 
+2.  Selezionare il disco temporaneo collegato alla macchina e scegliere di attivare la modalità offline.
 
 ### Proteggere le VM
 
@@ -325,7 +325,7 @@ Quando viene eseguito il failover di una macchina virtuale in Azure, viene aggiu
 
 #### Configurare le impostazioni NAT
 
-1. Per abilitare la protezione delle macchine virtuali, è necessario stabilire due canali di comunicazione. Il primo canale è tra la macchina virtuale e il server di elaborazione. Questo canale raccoglie i dati dalla VM e li invia al server di elaborazione che quindi invia i dati al server di destinazione master. Se il server di elaborazione e la macchina virtuale da proteggere sono nella stessa rete virtuale di Azure, non è necessario usare le impostazioni NAT. In caso contrario, specificare le impostazioni NAT. Visualizzare l'indirizzo IP pubblico del server di elaborazione in Azure. 
+1. Per abilitare la protezione delle macchine virtuali, è necessario stabilire due canali di comunicazione. Il primo canale è tra la macchina virtuale e il server di elaborazione. Questo canale raccoglie i dati dalla VM e li invia al server di elaborazione che quindi invia i dati al server di destinazione master. Se il server di elaborazione e la macchina virtuale da proteggere sono nella stessa rete virtuale di Azure, non è necessario usare le impostazioni NAT. In caso contrario, specificare le impostazioni NAT. Visualizzare l'indirizzo IP pubblico del server di elaborazione in Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
@@ -428,4 +428,4 @@ Dopo avere completato il failback, è opportuno proteggere ancora le macchine vi
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

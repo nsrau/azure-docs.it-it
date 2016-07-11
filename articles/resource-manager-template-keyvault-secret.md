@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Schema del modello di chiave privata nell’insieme di credenziali chiave
@@ -40,9 +40,9 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 | Nome | Valore |
 | ---- | ---- | 
-| type | Enum<br />Obbligatorio<br />**secrets** (se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi) o<br /> **Microsoft.KeyVault/vaults/secrets** (se distribuito come risorsa di livello superiore)<br /><br />Tipo della risorsa da creare. |
-| apiVersion | Enum<br />Obbligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versione dell'API da usare per creare la risorsa. | 
-| name | String<br />Obbligatorio<br />Parola singola se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi o nel formato **{nome insieme di credenziali delle chiavi}/{secret-name}** se distribuito come risorsa di livello superiore in un insieme di credenziali delle chiavi esistente.<br /><br />Nome del segreto da creare. |
+| type | Enum<br />Obbligatorio<br />**secrets** (se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi) o <br /> **Microsoft.KeyVault/vaults/secrets** (se distribuito come risorsa di livello superiore)<br /><br />Tipo della risorsa da creare. |
+| apiVersion | Enum<br />Obbligatorio<br />**2015-06-01** or **2014-12-19-preview**<br /><br />Versione dell'API da usare per creare la risorsa. | 
+| name | String<br />Obbligatorio<br />Parola singola se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi o nel formato **{nome-insieme-di -credenziali-delle-chiavi}/{nome-segreto}** se distribuito come risorsa di livello superiore in un inseme di credenziali delle chiavi esistente.<br /><br />Nome del segreto da creare. |
 | properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che specifica il valore del segreto da creare. |
 | dependsOn | Array<br />Facoltativo<br />Elenco di valori separati da virgole di nomi di risorsa o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui dipende questo collegamento. Se l'insieme di credenziali chiave per la chiave privata viene distribuito nello stesso modello, includere il nome dell'insieme di credenziali chiave in questo elemento per assicurarsi che venga distribuito prima. |
 
@@ -71,13 +71,13 @@ Nel primo esempio viene distribuita una chiave privata come risorsa figlio di un
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -227,4 +227,4 @@ Nel secondo esempio viene distribuita una chiave privata come risorsa di livello
 - Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
 - Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

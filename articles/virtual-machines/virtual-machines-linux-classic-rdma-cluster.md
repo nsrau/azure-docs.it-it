@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Informazioni su come configurare un cluster Linux RDMA in Azure con [macchine virtuali di dimensioni A8 e A9](virtual-machines-linux-a8-a9-a10-a11-specs.md) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Quando si configura un cluster di VM con dimensioni A8 e A9 per eseguire una distribuzione Linux HPC supportata e un'implementazione MPI supportata, le applicazioni MPI comunicano in modo efficiente su una rete a bassa latenza e a elevata velocità effettiva in Azure basata sulla tecnologia di Accesso diretto a memoria remota (RDMA).
@@ -101,7 +101,7 @@ Quando la macchina virtuale completa il provisioning, assegnare una porta SSH al
 
 >[AZURE.IMPORTANT]Microsoft Azure non fornisce l'accesso alla directory principale per le macchine virtuali Linux. Per ottenere l'accesso amministrativo quando si è connessi come utente alla macchina virtuale, eseguire i comandi con `sudo`.
 
-* **Aggiornamenti**: installare gli aggiornamenti usando **zypper**. È anche possibile decidere di installare le utilità NFS.  
+* **Aggiornamenti**: installare gli aggiornamenti usando **zypper**. È anche possibile decidere di installare le utilità NFS.
 
     >[AZURE.IMPORTANT]Se è stata distribuita una VM HPC SLES 12, a questo punto è consigliabile non applicare aggiornamenti del kernel, che possono causare problemi con i driver Linux RDMA.
     >
@@ -127,7 +127,7 @@ Quando la macchina virtuale completa il provisioning, assegnare una porta SSH al
 
         <User or group name> soft    memlock <memory required for your application in KB>
 
-    >[AZURE.NOTE]A scopo di test, è inoltre possibile impostare memlock su illimitato. Ad esempio: '<User or group name> hard memlock unlimited.
+    >[AZURE.NOTE]A scopo di test, è inoltre possibile impostare memlock su illimitato. Ad esempio: `<Nome utente o gruppo> hard memlock unlimited.
 
 * **Chiavi SSH per VM SLES 12**: generare chiavi SSH per stabilire una relazione di trust per il proprio account utente tra tutti i nodi di calcolo del cluster HPC SLES 12 quando vengono eseguiti processi MPI. Se è stata distribuita una VM HPC basata su CentOS, non seguire questo passaggio. Vedere le istruzioni più avanti nell'articolo per configurare un trust SSH senza password tra i nodi del cluster dopo aver acquisito l'immagine e distribuito il cluster.
 
@@ -219,7 +219,7 @@ done
 
 Se è stato distribuito un cluster con un'immagine HPC basata su CentOS, sono disponibili due metodi per stabilire relazioni di trust tra i nodi di calcolo: autenticazione basata sull'host e autenticazione basata sull'utente. L'autenticazione basata sull'host non rientra nell'ambito di questo articolo e in genere deve essere eseguita tramite uno script di estensione durante la distribuzione. L'autenticazione basata sull'utente è utile per stabilire un trust dopo la distribuzione e richiede la generazione e la condivisione di chiavi SSH tra i nodi di calcolo nel cluster. Questo approccio è comunemente noto come accesso SSH senza password ed è obbligatorio quando si eseguono processi MPI.
 
-Uno script di esempio fornito dalla community è disponibile in [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) per abilitare l'autenticazione utente semplice in un cluster HPC basato su CentOS. È possibile scaricare e usare questo script con la procedura seguente. È anche possibile modificare lo script o usare qualsiasi altro metodo per stabilire l'autenticazione SSH senza password tra i nodi di calcolo del cluster.
+In [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) è disponibile uno script di esempio fornito dalla community per abilitare l'autenticazione utente semplice in un cluster HPC basato su CentOS. È possibile scaricare e usare questo script con la procedura seguente. È anche possibile modificare lo script o usare qualsiasi altro metodo per stabilire l'autenticazione SSH senza password tra i nodi di calcolo del cluster.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
     
@@ -234,9 +234,9 @@ Eseguire lo script con tre parametri: il nome utente comune nei nodi di calcolo,
 
 Lo script esegue queste operazioni:
 
-* Crea una directory nel nodo host denominata SSH, necessaria per l'accesso senza password. 
-* Crea un file di configurazione nella directory SSH che indica di consentire l'accesso senza password da qualsiasi nodo del cluster. 
-* Crea file contenenti i nomi dei nodi e gli indirizzi IP dei nodi per tutti i nodi del cluster. Questi file vengono lasciati dopo l'esecuzione dello script come riferimento per l'utente. 
+* Crea una directory nel nodo host denominata SSH, necessaria per l'accesso senza password.
+* Crea un file di configurazione nella directory SSH che indica di consentire l'accesso senza password da qualsiasi nodo del cluster.
+* Crea file contenenti i nomi dei nodi e gli indirizzi IP dei nodi per tutti i nodi del cluster. Questi file vengono lasciati dopo l'esecuzione dello script come riferimento per l'utente.
 * Crea una coppia di chiavi pubblica e privata per ogni nodo del cluster, incluso il nodo host, condivide le informazioni sulla coppia di chiavi e crea una voce nel file authorized\_keys.
 
 >[AZURE.WARNING]L'esecuzione di questo script può creare un potenziale rischio per la sicurezza. Assicurarsi che le informazioni sulla chiave pubblica in ~/.ssh non vengano distribuite.
@@ -398,4 +398,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Provare un [modello di avvio rapido ](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) per creare un cluster Intel Lustre usando un'immagine basata HPC su CentOS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

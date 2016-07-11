@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Messaggistica asincrona del bus di servizio | Microsoft Azure"
-   description="Descrizione della messaggistica negoziata asincrona del bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" /> 
+    pageTitle="Messaggistica asincrona del bus di servizio | Microsoft Azure"
+    description="Descrizione della messaggistica negoziata asincrona del bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/16/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/27/2016"
+    ms.author="sethm" />
 
 # Modelli di messaggistica asincrona e disponibilità elevata
 
@@ -27,7 +27,7 @@ Per mantenere la disponibilità di una qualsiasi di queste entità, è necessari
 
 2.  Impossibilità di ricevere messaggi.
 
-3.  Impossibilità di amministrare le entità, ad esempio eseguire operazioni di creazione, recupero, aggiornamento o eliminazione.
+3.  Impossibilità di gestire le entità, ad esempio eseguire operazioni di creazione, recupero, aggiornamento o eliminazione.
 
 4.  Impossibilità di contattare il servizio.
 
@@ -43,7 +43,7 @@ Sono disponibili diverse modalità di gestione dei problemi relativi a entità e
 
 -   Errore del bus di servizio in un singolo sottosistema. In questo caso, è possibile che un nodo di calcolo si trovi in uno stato incoerente e debba essere riavviato, causando il bilanciamento del carico in altri nodi di tutte le entità servite. Questa situazione può causare a sua volta un breve periodo di elaborazione lenta dei messaggi.
 
--   Errore del bus di servizio in un data center di Azure. Questo è il classico "errore irreversibile" durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
+-   Errore del bus di servizio in un data center di Azure. Questo è un "errore irreversibile" durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
 
 > [AZURE.NOTE] Il termine **archiviazione** può indicare sia Archiviazione di Azure sia SQL Azure.
 
@@ -63,7 +63,7 @@ Anche per altri componenti di Azure possono occasionalmente verificarsi problemi
 
 In qualsiasi applicazione possono verificarsi casi in cui un componente interno del bus di servizio diventa incoerente. Quando il bus di servizio rileva questo problema, raccoglie dati dall'applicazione a fini diagnostici. Una volta raccolti i dati, l'applicazione viene riavviata nel tentativo di ripristinarne un stato coerente. Questo processo avviene abbastanza velocemente e causa la mancata disponibilità di un'entità per alcuni minuti, anche se in genere i tempi di inattività sono molto più brevi.
 
-In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. .NET SDK per il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli [spazi dei nomi associati][]. Gli spazi dei nomi associati possono presentare altri ostacoli illustrati nell’articolo [Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato](service-bus-paired-namespaces.md).
+In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. Il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli [spazi dei nomi associati][]. Questi ultimi presentano altri ostacoli che sono illustrati in questo articolo.
 
 ### Errore del bus di servizio in un data center di Azure
 
@@ -102,7 +102,7 @@ Le sezioni seguenti illustrano l'API, la relativa modalità di implementazione e
 
 ### API MessagingFactory.PairNamespaceAsync
 
-La funzionalità relativa agli spazi dei nomi associati introduce il metodo [PairNamespaceAsync][] nella classe [Microsoft.ServiceBus.Messaging.MessagingFactory][]\:
+La funzionalità relativa agli spazi dei nomi associati include il metodo [PairNamespaceAsync][] nella classe [Microsoft.ServiceBus.Messaging.MessagingFactory][]\:
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
@@ -149,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## Passaggi successivi
 
-Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre informazioni vedere l'articolo su [spazi dei nomi associati][].
+Dopo avere appreso le nozioni di base della messaggistica asincrona nel bus di servizio, per altre informazioni vedere l'articolo sugli [spazi dei nomi associati][].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -171,4 +171,4 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre i
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [spazi dei nomi associati]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/22/2016"
 	ms.author="renash"/>
 
 
-# Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob
+# Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB
 
 ## Panoramica
 
@@ -62,8 +62,8 @@ Per iniziare il processo di importazione o di esportazione dall'archiviazione BL
 
 Quando si crea un processo, si notifica al servizio Importazione/Esportazione che si spedirà uno o più dischi rigidi a un data center di Azure.
 
-- Per un processo di importazione, si spediranno dischi rigidi contenenti i dati. 
-- Per un processo di esportazione, si spediranno dischi rigidi vuoti. 
+- Per un processo di importazione, si spediranno dischi rigidi contenenti i dati.
+- Per un processo di esportazione, si spediranno dischi rigidi vuoti.
 - È possibile spedire fino a 10 unità disco rigido per ogni processo.
 
 Per creare un processo di importazione o di esportazione è possibile usare il [portale classico](https://manage.windowsazure.com/) o l'[API REST del servizio Importazione/Esportazione di Archiviazione di Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
@@ -174,16 +174,15 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 
 - Determinare i dati da importare e il numero di unità necessarie.
 - Identificare i BLOB di destinazione per i dati nell'archiviazione BLOB.
-- Usare lo strumento di importazione/esportazione di Azure per copiare i dati in una o più unità disco rigido e crittografarli con BitLocker.  
+- Usare lo strumento di importazione/esportazione di Azure per copiare i dati in una o più unità disco rigido e crittografarli con BitLocker.
 - Creare un processo di importazione nell'account di archiviazione classico di destinazione usando il portale classico o l'API REST del servizio Importazione/Esportazione. Se si usa il portale classico, caricare i file journal dell'unità.
 - Specificare l'indirizzo mittente e il numero di account del vettore da usare per la restituzione.
 - Spedire le unità disco rigido all'indirizzo di spedizione fornito durante la creazione del processo.
 - Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di importazione e inviare il processo di importazione.
-- Le unità vengono ricevute ed elaborate nel data center di Azure. 
+- Le unità vengono ricevute ed elaborate nel data center di Azure.
 - Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
-<!-- save this until you have usable images -->
-<!--	![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png) -->
+	![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
 
 
 ### Analisi di un processo di esportazione
@@ -197,12 +196,11 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 - Specificare l'indirizzo mittente e il numero di account del vettore da usare per la restituzione.
 - Spedire le unità disco rigido all'indirizzo di spedizione fornito durante la creazione del processo.
 - Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di esportazione e inviare il processo di esportazione.
-- Le unità vengono ricevute ed elaborate presso il data center di Azure. 
-- Le unità vengono crittografate con BitLocker e le chiavi sono disponibili tramite il portale classico.  
+- Le unità vengono ricevute ed elaborate presso il data center di Azure.
+- Le unità vengono crittografate con BitLocker e le chiavi sono disponibili tramite il portale classico.
 - Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
-<!-- save this until you have usable images -->
-<!--	![Figure 1:Export job flow](./media/storage-import-export-service/exportjob.png) -->
+	![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 
 ### Visualizzazione dello stato dei processi
 
@@ -234,11 +232,11 @@ Quando si spediscono unità ad Azure, si paga il costo di spedizione al vettore.
 
 **Costi di transazione**
 
-Non ci sono costi di transazione quando si importano dati nell'archiviazione BLOB. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati ](https://azure.microsoft.com/pricing/details/data-transfers/).
+Non ci sono costi di transazione quando si importano dati nell'archiviazione BLOB. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Avvio rapido
 
-Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [Prerequisiti](#pre-requisites) prima di procedere oltre.
+Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [Prerequisiti](#pre-requisites) prima di procedere.
 
 ## Come creare un processo di importazione
 
@@ -250,7 +248,7 @@ Questa sezione fornisce istruzioni dettagliate per la creazione di un processo d
 
 Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Esportazione di Azure consiste nel preparare le unità usando lo strumento client di importazione/esportazione di Azure. Per preparare le unità, seguire questa procedura.
 
-1.	Identificare i dati da importare. Potrebbe trattarsi di directory e file autonomi nel server locale o in una condivisione di rete.  
+1.	Identificare i dati da importare. Potrebbe trattarsi di directory e file autonomi nel server locale o in una condivisione di rete.
 
 2.	Determinare il numero di unità che serviranno in base alla dimensione totale dei dati. Procurare il numero necessario di dischi rigidi SATA II/III da 3,5 pollici.
 
@@ -258,9 +256,9 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 
 4.	Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
 
-5.	Usare lo [strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
+5.	Usare lo [strumento Importazione/Esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
 	
-	- Lo strumento Importazione/Esportazione di Azure consente di creare sessioni di copia per copiare i dati dall'origine alle unità disco rigido. In una sessione di copia, lo strumento può copiare una singola directory con le relative sottodirectory o un singolo file. 
+	- Lo strumento Importazione/Esportazione di Azure consente di creare sessioni di copia per copiare i dati dall'origine alle unità disco rigido. In una sessione di copia, lo strumento può copiare una singola directory con le relative sottodirectory o un singolo file.
 
 	- Potrebbero essere necessarie più sessioni di copia se i dati di origine occupano molte directory.
 
@@ -302,13 +300,13 @@ Comando PrepImport dello strumento client di importazione/esportazione di Azure 
 
 **Nota**: per impostazione predefinita, i dati vengono importati come BLOB in blocchi. È possibile usare il parametro /BlobType per importare i dati come un BLOB di pagine. Ad esempio, se si importano file di dischi rigidi virtuali che verranno montati come dischi in una VM di Azure, è necessario importarli come BLOB di pagine. Se non si è certi del tipo di BLOB da usare, è possibile specificare /blobType:auto per ricevere aiuto nella determinazione del tipo corretto. In questo caso verranno importati tutti i file vhd e vhdx come BLOB di pagine e il resto verrà importato come BLOB in blocchi.
 
-Per altre informazioni sull'uso dello strumento client di importazione/esportazione di Azure, vedere [Predisposizione dei dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529089.aspx).
+Per altre informazioni sull'uso dello strumento client Importazione/Esportazione di Azure, vedere [Predisposizione dei dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529089.aspx).
 
 Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per predisporre i dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529097.aspx).
 
 ### Creare il processo di importazione
 
-1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel [portale classico](https://manage.windowsazure.com) e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. Rivedere i passaggi e selezionare la casella di controllo per indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
+1.	Dopo avere preparato l'unità, passare all'account di archiviazione nel [portale classico](https://manage.windowsazure.com) e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. Rivedere i passaggi e selezionare la casella di controllo per indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
 
 2.	Nel passaggio 1 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione e un indirizzo di restituzione valido. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 
@@ -324,7 +322,7 @@ Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per p
 
 	Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 6. Per immettere il numero di tracciabilità dopo la spedizione del pacco, tornare alla pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -342,7 +340,7 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 Per preparare le unità per un processo di esportazione si consiglia di eseguire i controlli preliminari seguenti:
 
-1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere [Anteprima dell'utilizzo dell'unità per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. 
+1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere [Anteprima dell'utilizzo dell'unità per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare.
 
 2. Controllare che sia possibile leggere/scrivere sul disco rigido che verrà inviato per il processo di esportazione.
 
@@ -503,4 +501,4 @@ Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-
 
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

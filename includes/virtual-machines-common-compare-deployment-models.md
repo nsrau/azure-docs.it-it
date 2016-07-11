@@ -85,12 +85,8 @@ Le quote per le macchine virtuali, reti virtuali e gli account di archiviazione 
 
 Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure.
 
-**Le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure possono essere connesse al circuito Express Route in uso?**
-
-La funzionalità non è supportata al momento. Non è possibile connettere le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure con un circuito Express Route in uso. La funzionalità sarà supportata in futuro.
-
 **Dove è possibile trovare esempi di modelli di gestione risorse di Azure?**
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -17,7 +17,8 @@ Questa procedura presuppone che l'utente sia connesso al database SQL in Esplora
 3. Nella finestra della query modificare e usare l'istruzione Transact-SQL seguente per creare un utente contenuto nel database utente.
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
      ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

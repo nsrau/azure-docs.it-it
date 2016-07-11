@@ -122,12 +122,12 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 Dopo aver completato questa esercitazione sull'autenticazione di base, provare a continuare fino a una delle esercitazioni seguenti:
 
-+ [Aggiungere notifiche push all'app di Windows](app-service-mobile-windows-store-dotnet-get-started-push.md) informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end di App per dispositivi mobili per l'utilizzo di hub di notifica di Azure per inviare notifiche push.
++ [Aggiungere notifiche push all'app Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-push.md) Informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per l'uso dell'Hub di notifica di Azure per l'invio di notifiche push.
 
-+ [Abilitare la sincronizzazione offline per l’app di Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) informazioni su come aggiungere il supporto offline all’app mediante un back-end di App per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
++ [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

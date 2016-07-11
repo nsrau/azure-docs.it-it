@@ -23,7 +23,7 @@ Il Processo di analisi scientifica dei dati per i team (TDSP) offre un approccio
 
 In particolare, attualmente il TDSP fornisce ai team di analisi scientifica dei dati:
 
-- **Metodologia**: illustra una sequenza di passaggi che definiscono il ciclo di vita dello sviluppo fornendo indicazioni su come definire il problema, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali. 
+- **Metodologia**: illustra una sequenza di passaggi che definiscono il ciclo di vita dello sviluppo fornendo indicazioni su come definire il problema, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
 - **Risorse**: strumenti e tecnologie, ad esempio la macchina virtuale dedicata al data science per semplificare la configurazione di ambienti per le attività di analisi scientifica dei dati e istruzioni pratiche su nuove tecnologie di caricamento.
 
 Ecco il ciclo di vita dello sviluppo del TDSP:
@@ -47,9 +47,9 @@ Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, s
 
 Un ambiente di analisi per il TDSP include numerosi componenti:
 
-- **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione. 
+- **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione.
 - **Infrastruttura di elaborazione** per la pre-elaborazione, l'esplorazione e la modellazione dei dati.
-- **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.  
+- **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.
 
 L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
 
@@ -79,9 +79,9 @@ Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le va
 
 Gli esperti di scienza dei dati devono scegliere il modello più appropriato per l'attività di previsione e non è raro che sia necessario combinare i risultati da più modelli per ottenere i risultati ottimali. I dati di input per la modellazione vengono in genere suddivisi casualmente in tre parti:
 
-- Set di dati di training 
-- Set di dati di convalida 
-- Set di dati di test 
+- Set di dati di training
+- Set di dati di convalida
+- Set di dati di test
 
 I modelli vengono sviluppati tramite il **set di dati di training**. La combinazione ottimale di modelli, con parametri perfezionati, viene selezionata eseguendo i modelli e misurando gli errori di previsione per il **set di dati di convalida**. Viene infine usato il **set di dati di test** per valutare le prestazioni del modello scelto su dati indipendenti non usati per il training o la convalida del modello. Per le procedura, vedere [Come valutare le prestazioni del modello in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
@@ -97,11 +97,6 @@ Il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft
 
 Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che sia possibile iterare l'analisi quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
 
-Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Per esempi, vedere:
+Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Sono elencate insieme a brevi descrizioni nell'argomento [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procedure dettagliate del Processo di analisi scientifica dei dati per i team).
 
-- [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md)
-- [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
-- [Analisi scientifica dei dati con Spark in Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
-- [Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end](machine-learning-data-science-process-data-lake-walkthrough.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

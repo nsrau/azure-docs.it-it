@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partizioni della tabella in SQL Data Warehouse
@@ -31,7 +31,7 @@ SQL DW offre a un amministratore di database diverse opzioni per i tipi di tabel
 
 In genere le partizioni della tabella sono utili in due modi principali:
 
-1. L’utilizzo del cambio di partizione per troncare rapidamente una sezione di una tabella. Un design di uso comune prevede una tabella dei fatti che contiene righe solo per un periodo limitato predeterminato. Ad esempio, una tabella dei fatti delle vendite potrebbe contenere dati solo per gli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella. Questa operazione può essere effettuata semplicemente eliminando tutte le righe per il mese meno recente, ma l'eliminazione di una grande quantità di dati riga per riga può richiedere molto tempo. Per ottimizzare questo scenario, SQL DW supporta lo scambio di partizione, che consente di eliminare l'intero set di righe in una partizione in un'unica operazione veloce.   
+1. L’utilizzo del cambio di partizione per troncare rapidamente una sezione di una tabella. Un design di uso comune prevede una tabella dei fatti che contiene righe solo per un periodo limitato predeterminato. Ad esempio, una tabella dei fatti delle vendite potrebbe contenere dati solo per gli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella. Questa operazione può essere effettuata semplicemente eliminando tutte le righe per il mese meno recente, ma l'eliminazione di una grande quantità di dati riga per riga può richiedere molto tempo. Per ottimizzare questo scenario, SQL DW supporta lo scambio di partizione, che consente di eliminare l'intero set di righe in una partizione in un'unica operazione veloce.
 
 2. Il partizionamento consente alle query di escludere facilmente l’elaborazione di un elevato numero di righe (ad esempio una partizione) se le query inseriscono un predicato nella colonna di partizionamento. Ad esempio, se la tabella dei fatti delle vendite è suddivisa in 36 mesi tramite il campo della data di vendita, le query che filtrano la data di vendita possono ignorare l’elaborazione delle partizioni che non corrispondono al filtro. In effetti, il partizionamento utilizzato in questo modo è un’indicizzazione con granularità grossolana.
 
@@ -236,7 +236,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ### Controllo del codice sorgente del partizionamento della tabella
 Per evitare che la definizione della tabella si **stabilisca** nel sistema di controllo del codice sorgente, è possibile considerare l'approccio seguente:
 
-1. Creare la tabella come tabella partizionata, ma senza valori di partizione.
+Creare la tabella come tabella partizionata, ma senza valori di partizione:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -260,7 +260,7 @@ WITH
 ;
 ```
 
-2. Usare `SPLIT` per suddividere la tabella come parte del processo di distribuzione:
+Usare `SPLIT` per suddividere la tabella come parte del processo di distribuzione:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -336,4 +336,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

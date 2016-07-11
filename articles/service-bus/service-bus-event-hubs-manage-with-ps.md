@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi"
-   description="Uso di PowerShell per creare e gestire le risorse del bus di servizio e di Hub eventi"
-   services="service-bus"
-   documentationCenter=".NET"
-   authors="sethmanheim"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi | Microsoft Azure"
+    description="Uso di PowerShell per creare e gestire le risorse del bus di servizio e di Hub eventi"
+    services="service-bus"
+    documentationCenter=".NET"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/24/2016"
+    ms.author="sethm"/>
 
 # Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi
 
@@ -276,4 +276,4 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/it-IT/library/azure/mt419900.aspx
 [Come installare e configurare Azure PowerShell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

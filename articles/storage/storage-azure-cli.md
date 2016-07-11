@@ -1,6 +1,6 @@
 <properties
     pageTitle="Utilizzo di Azure CLI con archiviazione di Azure | Microsoft Azure"
-    description="Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. La CLI di Azure è uno strumento multipiattaforma"
+    description="Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. La CLI di Azure è uno strumento multipiattaforma "
     services="storage"
     documentationCenter="na"
     authors="tamram"
@@ -25,7 +25,7 @@ In questa guida verrà illustrato come usare l'[interfaccia della riga di comand
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
-> [AZURE.NOTE] La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Microsoft Azure gestione delle risorse](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
+> [AZURE.NOTE] La guida fornisce esempi di comandi e script dell'interfaccia della riga di comando di Azure per gli account di archiviazione della versione classica. Vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Management](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi dell'interfaccia della riga di comando di Azure per gli account di archiviazione di Resource Manager.
 
 ## Iniziare a utilizzare archiviazione di Azure e Azure CLI in 5 minuti
 
@@ -74,15 +74,15 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 6. A questo punto, è necessario aggiornare le variabili dello script in base alle impostazioni di configurazione.
 
-    - **<storage_account_name>** Usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
+    - **<storage\_account\_name>:** usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
 
-    - **<storage_account_key>** La chiave di accesso dell'account di archiviazione.
+    - **<storage\_account\_key>:** la chiave di accesso dell'account di archiviazione.
 
-    - **<container_name>** Usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
+    - **<container\_name>:** usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
 
-    - **<image_to_upload>** Immettere il percorso di un'immagine nel computer locale, ad esempio "C:\\Immagini\\HelloWorld.png".
+    - **<image\_to\_upload>:** immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
 
-    - **<destination_folder>** Immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "C:\\DownloadImages".
+    - **<destination\_folder>:** immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "~/downloadImages".
 
 7. Dopo avere aggiornato le variabili necessarie in vim, premere le combinazioni di tasti "Esc,:, wq!" per salvare lo script.
 
@@ -94,7 +94,7 @@ Dopo l'esecuzione dello script è necessario disporre di una cartella di destina
 
 ### Connettersi alla sottoscrizione di Azure
 
-Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire i passaggi nell'argomento relativo alla [connessione alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire la procedura nell'argomento [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 ### Creare un nuovo account di archiviazione
 
@@ -169,7 +169,7 @@ Per eliminare un blob, utilizzare il comando seguente:
 
 ## Creare e gestire condivisioni di file
 
-L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni sull'archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) o [Come usare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
+L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) o [Come usare Archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creare una condivisione file
 
@@ -221,4 +221,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

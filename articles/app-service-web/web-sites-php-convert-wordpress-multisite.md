@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -78,7 +78,7 @@ Con il plug-in [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domai
 
 La modalità piano **gratuito** di [Servizio App](http://go.microsoft.com/fwlink/?LinkId=529714) non supporta l'aggiunta di domini ad App Web. È quindi necessario passare alla modalità **condivisa** o **standard**. A tale scopo, effettuare l'operazione seguente:
 
-* Accedere al portale di Azure e individuare l'app Web. 
+* Accedere al portale di Azure e individuare l'app Web.
 * Fare clic sulla scheda **Aumenta prestazioni** in **Impostazioni**.
 * In **General** selezionare *SHARED* o *STANDARD*
 * Fare clic su **Save**.
@@ -153,4 +153,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Gestione di entità di Servizi multimediali con l'API REST
@@ -25,11 +25,11 @@
 
 Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione 3. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
 
-- Aggiunta di entità 
-- Query di entità 
+- Aggiunta di entità
+- Query di entità
 - Enumerazione di grandi raccolte di entità
-- Aggiornamento di entità 
-- Eliminazione di entità 
+- Aggiornamento di entità
+- Eliminazione di entità
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
@@ -175,4 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

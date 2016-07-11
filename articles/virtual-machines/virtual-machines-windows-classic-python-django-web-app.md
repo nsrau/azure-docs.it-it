@@ -27,7 +27,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 Questa esercitazione illustra come ospitare un sito Web basato su Django in Microsoft Azure usando una macchina virtuale Windows Server. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Dopo aver completato questa esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
@@ -54,7 +54,7 @@ Di seguito viene riportata una schermata dell'applicazione completata.
  - Fare clic sul pulsante **ADD** nella parte inferiore della schermata. ![add endpoint](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
  - Selezionare il protocollo **TCP** e aprire **PUBLIC PORT 80** come **PRIVATE PORT 80**. ![][port80]
-1. Dalla scheda **DASHBOARD** fare clic su **CONNECT** per usare **Desktop remoto** di Windows per accedere in remoto alla macchina virtuale di Azure appena creata.  
+1. Dalla scheda **DASHBOARD** fare clic su **CONNECT** per usare **Desktop remoto** di Windows per accedere in remoto alla macchina virtuale di Azure appena creata.
 
 **Nota importante:** tutte le istruzioni riportate di seguito presuppongono che l'accesso alla macchina virtuale sia stato eseguito in modo corretto e che i comandi vengano eseguiti dalla macchina virtuale anziché da quella locale.
 
@@ -184,4 +184,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

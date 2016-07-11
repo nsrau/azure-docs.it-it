@@ -21,11 +21,9 @@
 
 In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Script personalizzato per le macchine virtuali di Windows tramite i cmdlet Azure Powershell.
 
-Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere 
-[estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
+Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere [estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
 
-Collegamento:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-classic-extensions-customscript.md).
+Collegamento: [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
 
 
 ## Panoramica dell'estensione Script personalizzato
@@ -93,4 +91,4 @@ Per ulteriori informazioni sull’utilizzo dell’estensione di script personali
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configurare una connessione VPN tra due reti virtuali di Azure  
 
 > [AZURE.SELECTOR]
-- [Configurare la connettività VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurare la connettività VPN](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
+- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md)
 
 La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. Esistono diversi motivi per la connettività tra reti virtuali:
 
-- Presenza e ridondanza in più aree geografiche 
-- Applicazioni multilivello in singole aree geografiche con alto grado di isolamento 
+- Presenza e ridondanza in più aree geografiche
+- Applicazioni multilivello in singole aree geografiche con alto grado di isolamento
 - Comunicazione tra sottoscrizioni e organizzazioni in Azure
 
 Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
@@ -83,7 +83,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 		In questa esercitazione vengono usati i data center di Europa settentrionale e Stati Uniti orientali. È possibile scegliere il proprio data center.
 4.	Digitare:
 
-	- **SERVER DNS**: (lasciare vuoto) 
+	- **SERVER DNS**: (lasciare vuoto)
 	
 		È necessario il proprio server DNS per la risoluzione dei nomi all'interno di reti virtuali. Per altre informazioni su quando usare la risoluzione dei nomi fornita da Azure e quando usare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per istruzioni su come configurare la risoluzione dei nomi tra reti virtuali, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
   
@@ -260,16 +260,16 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: ../install-configure-powershell.md
 
 
 
-[hdinsight-hbase-replication]: ../hdinsight-hbase-geo-replication/
-[hdinsight-hbase-dns]: ../hdinsight-hbase-geo-replication-configure-DNS/
+[hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

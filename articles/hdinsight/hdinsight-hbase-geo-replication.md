@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configurare la replica geografica di HBase in HDInsight
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Configurare la connettività VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
+- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md)
  
 Informazioni su come configurare la replica di HBase in due data center. Alcuni casi di utilizzo per la replica di cluster includono:
 
@@ -169,18 +169,18 @@ Per configurare il server d'inoltro condizionale, è necessario conoscere i suff
 
 **Per configurare i server di inoltro DNS**
  
-1.	Effettuare una connessione RDP in **Contoso-DNS-EU**. 
+1.	Effettuare una connessione RDP in **Contoso-DNS-EU**.
 2.	Fare clic sul tasto di Windows in basso a sinistra.
 2.	Fare clic su **Strumenti di amministrazione**.
 3.	Fare clic su **DNS**.
 4.	Nel riquadro sinistro espandere **DSN**, **Contoso-DNS-EU**.
-5.	Fare clic con il pulsante destro del mouse su **Server d'inoltro condizionali** e quindi fare clic su **Nuovo server d'inoltro condizionale**. 
+5.	Fare clic con il pulsante destro del mouse su **Server d'inoltro condizionali** e quindi fare clic su **Nuovo server d'inoltro condizionale**.
 5.	Immettere le seguenti informazioni:
 	- **Dominio DNS**: immettere il suffisso DNS di Contoso-HBase-US. Ad esempio: Contoso-HBase-US.f5.internal.cloudapp.net.
 	- **Indirizzi IP dei server master**: immettere 10.2.0.4, ovvero l'indirizzo IP di Contoso-DNS-US. Verificare l'indirizzo IP. Il server DNS può avere un indirizzo IP diverso.
 6.	Premere **INVIO** e quindi fare clic su **OK**. A questo punto sarà possibile risolvere l'indirizzo IP di Contoso-DNS-US da Contoso-DNS-EU.
 7.	Ripetere i passaggi per aggiungere un server di inoltro condizionale DNS al servizio DNS nella macchina virtuale di Contoso-DNS-US con i valori seguenti:
-	- **Dominio DNS**: immettere il suffisso DNS di Contoso-HBase-EU. 
+	- **Dominio DNS**: immettere il suffisso DNS di Contoso-HBase-EU.
 	- **Indirizzi IP dei server master**: immettere 10.2.0.4, ovvero l'indirizzo IP di Contoso-DNS-EU.
 
 **Per testare la risoluzione dei nomi di dominio**
@@ -314,4 +314,4 @@ In questa esercitazione si è appreso come configurare la replica di HBase in du
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

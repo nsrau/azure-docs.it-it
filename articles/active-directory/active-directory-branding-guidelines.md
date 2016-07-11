@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
 # Linee guida sulla personalizzazione per le applicazioni
 
 
-Questo argomento descrive le linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory. Queste linee guida consentiranno agli sviluppatori di fornire ai clienti le indicazioni più appropriate quando questi desiderano usare l'account aziendale o dell'istituto di istruzione, gestito in Azure AD, per iscriversi e accedere all'applicazione.
+Questo argomento descrive le linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory (Azure AD). Queste linee guida consentiranno agli sviluppatori di fornire ai clienti le indicazioni più appropriate quando questi intendono usare l'account aziendale o dell'istituto di istruzione, gestito in Azure AD, o l'account personale per iscriversi e accedere all'applicazione.
 
 ## Confronto tra account Microsoft personali e aziendali o dell'istituto di istruzione
 
@@ -47,7 +47,7 @@ In una versione precedente di queste linee guida si è consigliato di usare un p
 
 Le app degli sviluppatori possono presentare percorsi separati per l'iscrizione e l'accesso. Nelle sezioni seguenti vengono fornite indicazioni visive per entrambi gli scenari.
 
-**Se l'app supporta l'iscrizione da parte dell'utente (ad esempio, per una versione di valutazione gratuita o per il modello freemium)**: è possibile visualizzare un pulsante di **accesso** per consentire agli utenti di accedere all'app con il proprio account aziendale o dell'istituto di istruzione fornito da Microsoft. La prima volta che l'utente accede all'app, Azure AD visualizzerà una richiesta di consenso.
+**Se l'app supporta l'iscrizione da parte dell'utente, ad esempio, per una versione di valutazione gratuita o per il modello freemium**: è possibile visualizzare un pulsante di **accesso** per consentire agli utenti di accedere all'app con l'account aziendale o personale. La prima volta che l'utente accede all'app, Azure AD visualizzerà una richiesta di consenso.
 
 **Se l'app richiede autorizzazioni che solo gli amministratori possono concedere oppure se l'app richiede una licenza dell'organizzazione**: è consigliabile separare l'acquisizione amministrativa dall'accesso utente. Il **pulsante per "ottenere l'app"** reindirizzerà gli amministratori alla pagina di accesso, quindi verrà richiesto di concedere il consenso per conto degli utenti dell'organizzazione. Questo approccio offre il vantaggio di eliminare le richieste di consenso agli utenti finali per l'accesso all'app.
 
@@ -59,26 +59,29 @@ Dopo avere concesso il consenso all'app, gli amministratori possono scegliere di
 
 ![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio:
-> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere semplicemente <your_app_name> l'accesso ai dati dell'organizzazione. In questo modo gli utenti potranno accedere <your_app_name> con gli account aziendali esistenti.*
+È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. ad esempio:
+> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere semplicemente a <nome\_app> l'accesso ai dati dell'organizzazione. In questo modo gli utenti potranno accedere a <nome\_app> con gli account aziendali esistenti.*
 
 
 ## Indicazioni visive per l'accesso
 Nell'app dovrà essere visualizzato un pulsante di accesso che indirizza gli utenti all'endpoint di accesso corrispondente al protocollo usato per l'integrazione con Azure AD. La sezione seguente illustra in dettaglio come dovrebbe apparire questo pulsante.
 
-### Pittogramma e "account aziendale o dell'istituto di istruzione"
-È l'associazione del logo Microsoft e dei termini generici "aziendale o dell'istituto di istruzione" che distingue in modo univoco Azure AD dagli altri provider di identità eventualmente supportati dall'app. Se non è disponibile spazio sufficiente per "account aziendale o dell'istituto di istruzione", è possibile usare la dicitura abbreviata "account aziendale".
+### Pittogramma e "Accedi con Microsoft"
+È l'associazione del logo Microsoft e dei termini "Accedi con Microsoft" che distingue in modo univoco Azure AD dagli altri provider di identità eventualmente supportati dall'app. Se non è disponibile spazio sufficiente per "Accedi con Microsoft" è possibile usare la dicitura abbreviata "Accedi".
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/work-or-school-account.png)
+![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/work-account.png)
+![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-È anche possibile fornire spiegazioni aggiuntive per permettere agli utenti finali di comprendere se possono usare questo pulsante:
+È anche possibile usare una combinazione di colori scura per i pulsanti.
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
+![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## Azioni consentite e non consentite per la personalizzazione
-**USARE** "account aziendale o dell'istituto di istruzione" in combinazione con il logo Microsoft per rappresentare gli accessi con Azure AD. Se lo spazio disponibile è limitato, usare "account aziendale", ma **NON USARE** altri termini quali "account dell'azienda", "account dell'impresa" o "account della società".
+
+**USARE** "account aziendale o dell'istituto di istruzione" insieme al pulsante "Accedi con Microsoft" per fornire altre spiegazioni che consentano agli utenti finali di comprendere se possono usare l'account. **NON** usare termini quali "account dell'azienda", "account dell'impresa" o "account della società".
 
 **NON USARE** "ID di Office 365" o "ID di Azure". Office 365 è anche il nome di un'offerta Microsoft per i consumatori che non prevede l'uso di Azure AD per l'autenticazione.
 
@@ -90,8 +93,4 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che indirizza gli ute
 
 **FORNIRE** agli utenti un modo per disconnettersi e passare a un altro account utente. Quasi tutte le persone hanno in genere un singolo account per Microsoft, Facebook, Google e Twitter, ma sono spesso associate a più organizzazioni. Il supporto per l'accesso di più utenti sarà presto disponibile.
 
-## Supporto degli account Azure AD e Microsoft nell'app
-
-Se l'app supporta entrambi gli account Azure AD e Microsoft, è necessario includere nell'app due pulsanti di accesso separati. Microsoft è attivamente impegnata nella realizzazione di un aggiornamento che consentirà di eseguire l'integrazione una sola volta e di supportare gli account Microsoft personale e aziendale. Quando l'aggiornamento sarà disponibile, si potrà mostrare nell'app un singolo pulsante di "accesso a Microsoft".
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

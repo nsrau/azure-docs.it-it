@@ -23,7 +23,7 @@
 L'esercitazione per il ripristino di emergenza prevede l'esecuzione delle attività seguenti:
 
 - Simulazione dell'interruzione del livello dati
-- Ripristino 
+- Ripristino
 - Convalida dell'integrità dell'applicazione dopo il ripristino
 
 A seconda della modalità di [progettazione dell’applicazione per la continuità aziendale](sql-database-business-continuity.md), il flusso di lavoro dell'esercitazione può variare. Di seguito sono descritte le procedure consigliate per eseguire un'esercitazione per il ripristino di emergenza nel contesto del database SQL di Azure.
@@ -38,7 +38,7 @@ Per simulare l'interruzione è possibile eliminare o rinominare il database di o
 
 ####Ripristino
 
-- Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md). 
+- Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md).
 - Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 ####Convalida
@@ -55,7 +55,7 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 
 ####Ripristino
 
-- Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventerà un nuovo database primario completamente accessibile. 
+- Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventerà un nuovo database primario completamente accessibile.
 - Eseguire [failover pianificato](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) per rendere il database secondario un nuovo database primario
 - Seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
@@ -66,18 +66,10 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 
 ## Passaggi successivi
 
-- Per informazioni sull'uso e la configurazione della replica geografica attiva per il ripristino di emergenza, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- Per informazioni sull'uso del ripristino geografico per il ripristino di emergenza, vedere [Ripristino geografico](sql-database-geo-restore.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 
-## Risorse aggiuntive
-
-- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Fornire la registrazione e l’accesso agli utenti con account Amazon
@@ -52,4 +52,4 @@ Per usare Amazon come provider di identità in Azure Active Directory (Azure AD)
 6. Fare clic su **Impostare il provider di identità** e immettere ID client e client segreto dell'applicazione Amazon creata in precedenza.
 7. Fare clic su **OK** e quindi **Crea** per salvare la configurazione di Amazon.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

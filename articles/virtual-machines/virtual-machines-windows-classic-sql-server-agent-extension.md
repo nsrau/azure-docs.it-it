@@ -17,7 +17,7 @@
 	ms.date="05/16/2016"
 	ms.author="jroth"/>
 
-# Estensione di SQL Server Agent per VM di SQL Server (distribuzione classica)
+# Estensione SQL Server Agent per VM di SQL Server (distribuzione classica)
 
 > [AZURE.SELECTOR]
 - [Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md)
@@ -25,8 +25,7 @@
 
 L'Estensione Agente IaaS di SQL Server (SQLIaaSAgent) viene eseguita sulle macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo argomento fornisce una panoramica dei servizi supportati dall'estensione e delle istruzioni per l'installazione, lo stato e la rimozione.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Modello Gestione risorse. Per visualizzare la versione di Gestione risorse di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Gestione risorse).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Resource Manager).
 
 ## Servizi supportati
 
@@ -97,4 +96,4 @@ Iniziare a usare uno dei servizi supportati dall'estensione. Per altre informazi
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

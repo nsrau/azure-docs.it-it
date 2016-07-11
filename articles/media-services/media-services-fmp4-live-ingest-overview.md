@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"     
 	ms.author="cenkdin;juliako"/>
 
 #Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
@@ -52,7 +52,7 @@ Di seguito sono elencate alcune speciali definizioni di formato applicabili all'
 5. La sezione 3.3.6 di [1] definisce la casella denominata MovieFragmentRandomAccessBox ("mfra"), che può (MAY) essere inviata al termine dell'operazione di inserimento live per indicare al canale la fine del flusso. A causa della logica di inserimento di Servizi multimediali di Azure, la fine del flusso è deprecata e per l'inserimento live non dovrebbe (SHOULD NOT) essere inviata la casella "mfra". Se viene inviata, Servizi multimediali di Azure automaticamente la ignora. È consigliabile usare la funzione di [reimpostazione del canale](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) per reimpostare lo stato del punto di inserimento e l'opzione di [interruzione del programma](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) per terminare una presentazione e un flusso.
 6. La durata del frammento MP4 dovrebbe (SHOULD) essere costante, in modo da ridurre le dimensioni dei manifesti client e migliorare l'approccio euristico di download del client tramite l'utilizzo di tag di ripetizione. La durata può (MAY) variare per compensare frequenze di fotogrammi costituite da valori non interi.
 7. La durata del frammento MP4 dovrebbe (SHOULD) essere compresa tra 2 e 6 secondi circa.
-8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment\_absolute\_time e fragment\_index) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente. Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
+8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment_ absolute_ time e fragment\_index) del frammento MP4 DOVREBBERO arrivare in ordine crescente. Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
 
 ##4\. Formato del protocollo: HTTP
 
@@ -66,9 +66,9 @@ Di seguito sono elencati i requisiti dettagliati:
 
 1. Il codificatore dovrebbe (SHOULD) avviare la trasmissione inviando una richiesta HTTP POST con un "corpo" vuoto (lunghezza del contenuto pari a zero) mediante lo stesso URL di inserimento. In questo modo, dovrebbe essere possibile capire più rapidamente se l'endpoint di inserimento live è valido e se è richiesta l'autenticazione o se sono necessarie altre condizioni. Per ogni protocollo HTTP, il server sarà in grado di restituire la risposta HTTP fino a quando non viene ricevuta la richiesta intera, incluso il corpo del POST. Data la natura prolungata dell'evento live, senza questo passaggio il codificatore potrebbe non essere in grado di rilevare eventuali errori fino a quando non viene completato l'invio di tutti i dati.
 2. Il codificatore deve (MUST) gestire eventuali errori o problemi di autenticazione in base a quanto emerso in (1). Se in (1) è stata restituita una risposta 200, continua.
-3. Il codificatore deve (MUST) avviare una nuova richiesta HTTP POST con il flusso MP4 frammentato. Il payload deve (MUST) iniziare con le caselle di intestazione, seguite dai frammenti. Tenere presente che con ogni richiesta devono (MUST) essere inviati "ftyp", “Live Server Manifest Box” e la casella "moov" (in questo ordine), anche nel caso in cui il codificatore debba riconnettersi perché la richiesta precedente è stata interrotta prima della fine del flusso. 
+3. Il codificatore deve (MUST) avviare una nuova richiesta HTTP POST con il flusso MP4 frammentato. Il payload deve (MUST) iniziare con le caselle di intestazione, seguite dai frammenti. Tenere presente che con ogni richiesta devono (MUST) essere inviati "ftyp", “Live Server Manifest Box” e la casella "moov" (in questo ordine), anche nel caso in cui il codificatore debba riconnettersi perché la richiesta precedente è stata interrotta prima della fine del flusso.
 4. Il codificatore deve (MUST) usare la codifica di trasferimento in blocchi per il caricamento poiché non è possibile prevedere la lunghezza dell'intero contenuto dell'evento live.
-5. Al termine dell'evento, dopo aver inviato l'ultimo frammento, il codificatore deve (MUST) terminare normalmente la sequenza di messaggi della codifica di trasferimento in blocchi (la maggior parte degli stack client HTTP gestiscono questo aspetto in modo automatico). Il codificatore deve (MUST) attendere che il servizio restituisca il codice di risposta finale e quindi termina la connessione. 
+5. Al termine dell'evento, dopo aver inviato l'ultimo frammento, il codificatore deve (MUST) terminare normalmente la sequenza di messaggi della codifica di trasferimento in blocchi (la maggior parte degli stack client HTTP gestiscono questo aspetto in modo automatico). Il codificatore deve (MUST) attendere che il servizio restituisca il codice di risposta finale e quindi termina la connessione.
 6. Il codificatore non deve (MUST NOT) usare il nome Events() come descritto nella sezione 9.2 di [1] per l'inserimento live in Servizi multimediali di Microsoft Azure.
 7. Se la richiesta HTTP POST termina o scade prima della fine del flusso con un errore TCP, il codificatore deve (MUST) inviare una nuova richiesta POST usando una nuova connessione e attenendosi ai requisiti sopra riportati, nonché al requisito aggiuntivo che il codificatore deve (MUST) nuovamente inviare i due precedenti frammenti MP4 per ogni traccia del flusso e riprendere l'attività senza introdurre discontinuità nella sequenza temporale dei contenuti. L'invio degli ultimi due frammenti MP4 per ogni traccia impedisce eventuali perdite di dati. In altre parole, se un flusso contiene una traccia audio e una video e la richiesta POST corrente ha esito negativo, il codificatore deve riconnettersi e inviare nuovamente sia gli ultimi due frammenti per la traccia audio, già correttamente inviati in precedenza, sia gli ultimi due frammenti per la traccia video, anch'essi già correttamente inviati in precedenza, in modo da garantire che non vi siano perdite di dati. Il codificatore deve (MUST) mantenere un buffer "anticipato" di frammenti di contenuti, che invia nuovamente quando si riconnette.
 
@@ -119,8 +119,8 @@ Data la particolare natura del live streaming, un buon livello di supporto per i
 Questa sezione illustra gli scenari di failover del servizio. In questo caso, l'errore si verifica in un punto qualsiasi all'interno del servizio e si manifesta come errore di rete. Di seguito sono riportati alcuni consigli per implementare il codificatore in modo che sia in grado di gestire il failover del servizio:
 
 
-1. Usare un timeout di 10 secondi per stabilire la connessione TCP. Se un tentativo di stabilire la connessione richiede più di 10 secondi, interrompere l'operazione e riprovare. 
-2. Usare un timeout breve per inviare i blocchi del messaggio di richiesta HTTP. Se la durata del frammento MP4 di destinazione è di N secondi, usare un timeout di invio compreso tra N e 2N secondi. Ad esempio: usare un timeout compreso tra 6 e 12 secondi se la durata del frammento MP4 è di 6 secondi. Se si verifica un timeout, reimpostare la connessione, aprire una nuova connessione e riprendere l'inserimento del flusso con la nuova connessione. 
+1. Usare un timeout di 10 secondi per stabilire la connessione TCP. Se un tentativo di stabilire la connessione richiede più di 10 secondi, interrompere l'operazione e riprovare.
+2. Usare un timeout breve per inviare i blocchi del messaggio di richiesta HTTP. Se la durata del frammento MP4 di destinazione è di N secondi, usare un timeout di invio compreso tra N e 2N secondi. Ad esempio: usare un timeout compreso tra 6 e 12 secondi se la durata del frammento MP4 è di 6 secondi. Se si verifica un timeout, reimpostare la connessione, aprire una nuova connessione e riprendere l'inserimento del flusso con la nuova connessione.
 3. Gestire un buffer in sequenza contenente, per ogni traccia, gli ultimi due frammenti completamente inviati al servizio. Se la richiesta HTTP POST per un flusso viene terminata o scade prima della fine del flusso, aprire una nuova connessione e iniziare un'altra richiesta HTTP POST, quindi inviare nuovamente le intestazioni del flusso e gli ultimi due frammenti per ogni traccia e riprendere il flusso senza introdurre una discontinuità nella sequenza temporale dei contenuti. In questo modo, il rischio di perdita di dati viene ridotto al minimo.
 4. È consigliabile che il codificatore NON ponga un limite al numero di tentativi per ristabilire una connessione o riprendere il flusso dopo che si verifica un errore TCP.
 5. Dopo un errore TCP:
@@ -144,7 +144,7 @@ Di seguito è descritto il comportamento previsto in corrispondenza dell'endpoin
 3. La richiesta POST del nuovo codificatore deve (MUST) includere le stesse caselle di intestazione del flusso MP4 frammentato presenti nell'istanza non riuscita.
 4. Il nuovo codificatore deve (MUST) essere correttamente sincronizzato con tutti gli altri codificatori in esecuzione per la stessa presentazione live, in modo da generare esempi audio/video sincronizzati con i limiti di frammento allineati.
 5. Il nuovo flusso deve (MUST) essere semanticamente equivalente al flusso precedente e intercambiabile a livello di intestazione e di frammento.
-6. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori fragment\_absolute\_time e fragment\_index dei frammenti multimediali dovrebbero (SHOULD) aumentare progressivamente dal punto in cui si è interrotto il codificatore. I valori fragment\_absolute\_time e fragment\_index dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali di Azure ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando nuovamente frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti. 
+6. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori fragment\_absolute\_time e fragment\_index dei frammenti multimediali dovrebbero (SHOULD) aumentare progressivamente dal punto in cui si è interrotto il codificatore. I valori fragment\_absolute\_time e fragment\_index dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali di Azure ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando nuovamente frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti.
 
 ##9\. Ridondanza del codificatore 
 
@@ -177,12 +177,12 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di una tracc
 3. Nella finestra "Live Server Manifest Box", l'opzione manifestOutput deve essere impostata su "true".
 4. Data la natura sparse dell'evento di segnalazione, è consigliabile quanto segue:
 	1. All'inizio dell'evento live, il codificatore invia le caselle di intestazione iniziali al servizio, in modo che questo possa registrare la traccia di tipo sparse nel manifesto del client.
-	2. Il codificatore dovrebbe (SHOULD) terminare la richiesta HTTP POST quando i dati non sono ancora stati inviati. Una richiesta HTTP POST con esecuzione prolungata che non invia dati può impedire a Servizi multimediali di Azure di disconnettersi rapidamente dal codificatore in caso di aggiornamento del servizio o riavvio del server, poiché il server multimediale risulterà temporaneamente bloccato in un'operazione di ricezione sul socket. 
-	3. Durante il periodo in cui i dati di segnalazione non sono disponibili, il codificatore dovrebbe (SHOULD) chiudere la richiesta HTTP POST e inviare i dati mentre la richiesta POST è ancora attiva. 
+	2. Il codificatore dovrebbe (SHOULD) terminare la richiesta HTTP POST quando i dati non sono ancora stati inviati. Una richiesta HTTP POST con esecuzione prolungata che non invia dati può impedire a Servizi multimediali di Azure di disconnettersi rapidamente dal codificatore in caso di aggiornamento del servizio o riavvio del server, poiché il server multimediale risulterà temporaneamente bloccato in un'operazione di ricezione sul socket.
+	3. Durante il periodo in cui i dati di segnalazione non sono disponibili, il codificatore dovrebbe (SHOULD) chiudere la richiesta HTTP POST e inviare i dati mentre la richiesta POST è ancora attiva.
 	4. Quando si inviano frammenti di tipo sparse, il codificatore può impostare esplicitamente l'intestazione Content-Length, se disponibile.
 	5. Quando si inviano frammenti di tipo sparse con una nuova connessione, il codificatore dovrebbe (SHOULD) inviare prima le caselle di intestazione, quindi i nuovi frammenti. Questo consente di gestire casi in cui il failover si verifica tra una connessione e l'altra e la nuova connessione di tipo sparse viene stabilita con un nuovo server che non ha mai visto prima la traccia di tipo sparse.
 	6. Il frammento della traccia di tipo sparse viene reso disponibile al client nel momento in cui il frammento della traccia padre corrispondente, uguale o maggiore rispetto al valore timestamp, viene reso disponibile al client. Ad esempio, se il frammento di tipo sparse presenta un timestamp di t = 1000, dopo che il client rileva il timestamp del frammento video (presupponendo che il nome della traccia padre sia "video"), uguale o superiore a 1000, è possibile scaricare il frammento di tipo sparse t = 1000. Tenere presente che il segnale effettivo può essere usato anche per una posizione diversa nella sequenza temporale della presentazione rispetto a quella designata. Nell'esempio precedente, è possibile che il frammento di tipo sparse con t = 1000 disponga di un payload XML che consente di inserire un annuncio in una posizione di pochi secondi successiva.
-	7. Il payload del frammento della traccia di tipo sparse può essere di vari formati (ad esempio, XML, testo o binario), a seconda dello scenario. 
+	7. Il payload del frammento della traccia di tipo sparse può essere di vari formati (ad esempio, XML, testo o binario), a seconda dello scenario.
 
 
 ###Traccia audio ridondante
@@ -198,7 +198,7 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 
 1. Inviare ogni singola traccia audio in un flusso separato. Inviare inoltre un flusso ridondante per ciascuno di questi flussi di traccia audio, in cui il secondo flusso si differenzi dal primo solo per l'identificatore dell'URL HTTP POST: {protocol}://{server address}/{publishing point path}/Streams({identifier}).
 2. Usare flussi distinti per inviare le due velocità in bit video più basse. Ciascuno di questi flussi dovrebbe (SHOULD) inoltre contenere una copia di ogni singola traccia audio. Se, ad esempio, sono supportate più lingue, i flussi dovrebbero (SHOULD) contenere tracce audio per ogni lingua.
-3. Usare istanze del server (codificatore) distinte per codificare e inviare i flussi ridondanti citati in (1) e (2). 
+3. Usare istanze del server (codificatore) distinte per codificare e inviare i flussi ridondanti citati in (1) e (2).
 
 
 
@@ -221,4 +221,4 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

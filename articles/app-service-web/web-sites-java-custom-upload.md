@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Caricamento di un sito Web Java personalizzato in Azure
@@ -30,7 +30,7 @@ Di seguito sono descritte le impostazioni previste per i siti Web Java personali
 - Tutte le porte di ascolto diverse dal listener HTTP devono essere disabilitate. In Tomcat questo include le porte di arresto, HTTPS e AJP.
 - Il contenitore deve essere configurato solo per il traffico IPv4.
 - Il comando **startup** per l'applicazione deve essere impostato nella configurazione.
-- Le applicazioni che richiedono directory con autorizzazioni di scrittura devono essere situate nella directory del contenuto del sito Web di Azure, ovvero **D:\\home**. La variabile di ambiente `HOME` fa riferimento a D:\\home.  
+- Le applicazioni che richiedono directory con autorizzazioni di scrittura devono essere situate nella directory del contenuto del sito Web di Azure, ovvero **D:\\home**. La variabile di ambiente `HOME` fa riferimento a D:\\home.
 
 Le variabili di ambiente possono essere impostate come richiesto nel file web.config.
 
@@ -257,4 +257,4 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

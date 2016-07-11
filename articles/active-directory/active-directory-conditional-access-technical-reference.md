@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Riferimento tecnico: accesso condizionale alle app di Azure AD
@@ -55,13 +55,14 @@ Le regole di accesso condizionale che utilizzano una rete di tipo "ufficio" si b
 
 Opzioni per specificare le reti di tipo "ufficio"
 
-1. Configurare gli intervalli IP attendibili nella [pagina di configurazione dell'autenticazione Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). I criteri di accesso condizionale useranno gli intervalli configurati in ogni richiesta di autenticazione e in ogni emissione di token per valutare le regole. 
+1. Configurare gli intervalli IP attendibili nella [pagina di configurazione dell'autenticazione Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). I criteri di accesso condizionale useranno gli intervalli configurati in ogni richiesta di autenticazione e in ogni emissione di token per valutare le regole.
 2. Configurare l'utilizzo dell'attestazione "rete aziendale" con AD FS; questa opzione può essere utilizzata con la directory federata. [Ulteriori informazioni sulle attestazioni "rete aziendale"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. Configurare gli intervalli di indirizzi IP pubblici. Nella scheda di configurazione, è possibile impostare gli indirizzi IP pubblici per la propria directory. L'accesso condizionale li utilizzerà come indirizzi IP "ufficio"; in questo modo sarà possibile configurare intervalli aggiuntivi, al di sopra del limite di 50 indirizzi IP applicato dalla pagina di impostazione dell'autenticazione a più fattori.
 
 
 
-## Regole per singole applicazioni
+## Regole basate sulla sensibilità dell'applicazione
+
 Le regole vengono configurate per le singole applicazioni, consentendo la protezione di servizi ad alto valore, senza alcun impatto sull'accesso ad altri servizi. Le regole di accesso condizionale possono essere configurate nella scheda **Configura** dell'applicazione.
 
 Le regole attualmente disponibili sono le seguenti:
@@ -81,4 +82,4 @@ Le regole attualmente disponibili sono le seguenti:
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ I flussi di lavoro possono includere la logica decisionale del cliente e le rela
 Di seguito sono riportati alcuni flussi di lavoro di esempio che è possibile creare:
 
 - Flussi di lavoro basati su decisioni che esaminano la risoluzione del contenuto di origine e codificano solo le tracce di output desiderate. Risultano particolarmente utili poiché consentono di eliminare le tracce inutilizzate che vengono generate se si esegue inavvertitamente l'upscaling del contenuto di origine.
-- Possibilità di usare più file di input per supportare didascalie, sovrapposizioni e l'unione di più contenuti. 
+- Possibilità di usare più file di input per supportare didascalie, sovrapposizioni e l'unione di più contenuti.
 
 È possibile usare questo strumento anche per modificare qualsiasi [flusso di lavoro pubblicato](media-services-workflow-designer.md#existing_workflows).
 
@@ -90,4 +90,4 @@ Per ottenere assistenza o ricevere informazioni per la creazione di flussi di la
 
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

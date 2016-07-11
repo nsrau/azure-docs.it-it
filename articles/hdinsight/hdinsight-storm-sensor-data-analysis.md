@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
 Informazioni su come usare Apache Storm in HDInsight per elaborare i dati del sensore dall'hub eventi di Azure e visualizzarli con D3.j. Questo documento descrive inoltre come usare una rete virtuale di Azure per connettere Storm in HDInsight con HBase in HDInsight e archiviare in HBase i dati provenienti dalla topologia.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento si basano sull'utilizzo di uno Storm basato su Windows nel cluster HDInsight. Per informazioni sull'utilizzo di hub eventi di Azure dallo Storm basato su Linux in HDInsight, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+> [AZURE.NOTE] Le informazioni contenute in questo documento si basano sull'uso di Storm basato su Windows nel cluster HDInsight versione 3.2. Per informazioni sull'utilizzo di hub eventi di Azure dallo Storm basato su Linux in HDInsight, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## Prerequisiti
 
@@ -93,7 +93,7 @@ Prima di usare questo esempio, è necessario creare un hub eventi di Azure che v
 
 L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub eventi, seguire questa procedura.
 
-1. Nel [Portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO | Bus di servizio | Hub eventi | Creazione personalizzata**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) selezionare **NUOVO| Service Bus | Event Hub | Custom Create**.
 
 2. Nella finestra di dialogo **Crea un nuovo hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e quindi creare un nuovo spazio dei nomi o selezionarne uno esistente. Infine fare clic sulla freccia per continuare.
 
@@ -196,7 +196,7 @@ Prima di eseguire il test, è necessario avviare il dashboard per visualizzare l
 
 		Server listening at port 3000
 
-2. Aprire un Web browser e immettere ****http://localhost:3000/** come indirizzo. Verrà visualizzata una pagina simile alla seguente:
+2. Aprire un Web browser e immettere **http://localhost:3000/** come indirizzo. Verrà visualizzata una pagina simile alla seguente:
 
 	![dashboard Web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -427,4 +427,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

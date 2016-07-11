@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
     
 # Larghezza di banda di rete di Azure RemoteApp: linee guida generali (se non è possibile verificare direttamente)
@@ -43,4 +43,4 @@ Si tratta di uno scenario con un utilizzo ridotto della larghezza di banda. Con 
 
 - [Azure RemoteApp: scenari comuni di test relativi all'utilizzo della larghezza di banda di rete](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

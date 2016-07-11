@@ -20,9 +20,8 @@
 # Ripristinare un database SQL di Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-database-restore-deleted-database.md)
-- [Portale di Azure](sql-database-restore-deleted-database-portal.md)
-- [PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Panoramica](sql-database-recovery-using-backups.md)
+- [Ripristino di un database eliminato: portale di Azure](sql-database-restore-deleted-database-portal.md)
 
 [AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -49,17 +48,11 @@
 
 ## Passaggi successivi
 
-- Per informazioni dettagliate su come ripristinare un database eliminato tramite il portale di Azure, vedere l'articolo su come [ripristinare un database eliminato tramite il portale di Azure](sql-database-restore-deleted-database-portal.md).
-- Per informazioni su come ripristinare un database eliminato, vedere [ripristinare un database eliminato utilizzando l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Per informazioni dettagliate su come ripristinare un database eliminato, vedere l'articolo su come [ripristinare un database eliminato](sql-database-restore-deleted-database.md).
-- Per informazioni dettagliate sul backup automatico dei database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+- Per una panoramica sulla continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
 
-## Risorse aggiuntive
-
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

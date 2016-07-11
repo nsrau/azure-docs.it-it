@@ -63,7 +63,7 @@ Tenendo presente il diagramma riportato sopra, ecco cosa occorre sapere sui vari
 • Dopo l'autenticazione di un utente, l'applicazione deve convalidare il token di sicurezza dell'utente per verificare che per l'autenticazione le parti previste sia riuscita. Gli sviluppatori possono usare le librerie di autenticazione fornite per gestire la convalida dei token da Azure AD, inclusi i token Web JSON (JWT) o SAML 2.0. Per eseguire manualmente la convalida, vedere la documentazione relativa al [Gestore dei token JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
-> [AZURE.IMPORTANT] Azure AD usa la crittografia a chiave pubblica per firmare i token e verificarne la validità. Per altre informazioni sulla logica richiesta nell'applicazione per assicurare che sia sempre aggiornata con le chiavi più recenti, vedere [Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+> [AZURE.IMPORTANT] Azure AD usa la crittografia a chiave pubblica per firmare i token e verificarne la validità. Per altre informazioni sulla logica richiesta nell'applicazione per assicurare che sia sempre aggiornata con le chiavi più recenti, vedere [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-signing-key-rollover.md).
 
 
 • Il flusso di richieste e risposte per il processo di autenticazione dipende dal protocollo di autenticazione in uso, ad esempio OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Questi protocolli sono descritti in dettaglio nell'argomento [Protocolli di autenticazione di Azure Active Directory](active-directory-authentication-protocols.md) e nelle sezioni successive.
@@ -464,8 +464,8 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [Esempi di codice di Azure Active Directory](active-directory-code-samples.md)
 
-[Informazioni importanti sul rollover della chiave di firma in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

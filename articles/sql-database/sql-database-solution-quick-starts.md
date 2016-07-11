@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Avvio rapido: esplorare soluzioni del database SQL di Azure
@@ -30,7 +30,7 @@ Questa procedura di avvio rapido offre una soluzione per la raccolta e il monito
 
 Questa procedura di avvio rapido offre una soluzione per uno scenario SaaS (Software-as-a-Solution) che sfrutta i pool elastici per fornire un back-end di database economico e scalabile per un'applicazione SaaS. In questa soluzione si vedrà la procedura per l'implementazione di un'App Web che consente di visualizzare il carico creato in un pool elastico da un generatore di carico usando un dashboard personalizzato che integra il portale di Azure.
 
-[Saas-scenario-with-elastic-pools](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) nel repository degli esempi GitHub di SQL Server è disponibile un'app per la generazione di carico e il monitoraggio insieme alla documentazione su cosa fa e come usarla.
+[Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Dashboard personalizzato pool elastico per Saas) nel repository degli esempi GitHub di SQL Server è disponibile un'app per la generazione di carico e il monitoraggio, insieme alla documentazione relativa alle operazioni disponibili e al relativo uso.
 
 ## Creazione di un database SQL di Azure tramite Entity Framework e sviluppo con Code First
 
@@ -52,4 +52,4 @@ Questo esempio è un'applicazione Web multi-tenant, chiamata Surveys, che consen
 
 [Esplorare le esercitazioni del database SQL di Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

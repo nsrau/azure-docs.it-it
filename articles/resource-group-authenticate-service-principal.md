@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare un'applicazione Active Directory con PowerShell | Microsoft Azure"
-   description="Descrive come usare Azure PowerShell per creare un'applicazione Active Directory e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con una password o un certificato."
+   pageTitle="Creare un'entità servizio di Azure con PowerShell | Microsoft Azure"
+   description="Descrive come usare Azure PowerShell per creare un'applicazione Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con una password o un certificato."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Usare Azure PowerShell per creare un'applicazione Active Directory per l'accesso alle risorse
+# Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -115,7 +115,7 @@ Dall'applicazione Active Directory è necessario creare un'entità servizio e as
 
 In questa sezione si eseguiranno i passaggi per creare un'applicazione Active Directory con un certificato.
 
-1. Creare un certificato autofirmato. Se si utilizza Windows 10 o Windows Server 2016 Technical Preview, eseguire il comando seguente: 
+1. Creare un certificato autofirmato. Se si utilizza Windows 10 o Windows Server 2016 Technical Preview, eseguire il comando seguente:
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -176,7 +176,7 @@ In questa sezione si eseguiranno i passaggi per creare un'applicazione Active Di
 Nello script si passeranno tre valori necessari per accedere come entità servizio. Saranno necessari:
 
 - ID applicazione
-- tenant id 
+- tenant id
 - Identificazione personale del certificato
 
 L'ID applicazione e l'identificazione personale del certificato sono stati visualizzati nei passaggi precedenti. Tuttavia, se occorre recuperare questi valori in un secondo momento, di seguito sono visualizzati i comandi necessari, insieme al comando per ottenere l'ID tenant.
@@ -210,9 +210,9 @@ A questo punto è stata eseguita l'autenticazione come entità servizio per l'ap
 ## Passaggi successivi
   
 - Per esempi di autenticazione .NET, vedere [Azure Resource Manager SDK per .NET](resource-manager-net-sdk.md).
-- Per esempi di autenticazione Java, vedere [Azure Resource Manager SDK per Java](resource-manager-java-sdk.md). 
+- Per esempi di autenticazione Java, vedere [Azure Resource Manager SDK per Java](resource-manager-java-sdk.md).
 - Per esempi di autenticazione Python, vedere l'articolo relativo all'[autenticazione di gestione risorse per Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
 - Per esempi di autenticazione REST, vedere [API REST di Resource Manager](resource-manager-rest-api.md).
 - Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -37,7 +37,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 -	[Quale metodo di routing usa Gestione API quando è distribuita in più posizioni geografiche?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[È possibile creare un'istanza del servizio Gestione API usando un modello ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[È possibile usare un certificato SSL autofirmato per un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
-
+-	[Perché si ottiene un errore di autenticazione quando si cerca di clonare il repository GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 
 
 ### Come porre una domanda al team di Gestione API?
@@ -48,7 +48,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 
 ### Che cosa significa se una funzionalità è disponibile in anteprima?
 
-Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per inviare commenti e suggerimenti sulle funzionalità di anteprima, usare uno dei metodi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team).
+Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per inviare commenti e suggerimenti sulle funzionalità in anteprima, usare uno dei metodi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team).
 
 ### Quali sono le opzioni supportate per proteggere la connessione tra il gateway di Gestione API e i servizi back-end?
 
@@ -69,13 +69,13 @@ Sono disponibili diverse opzioni che è possibile usare per copiare un'istanza d
 
 ### È possibile gestire l'istanza di Gestione API a livello di codice?
 
-Sì, è possibile gestire l'istanza usando l'[API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx), l'[SDK della raccolta di gestione del servizio Gestione API di Microsoft Azure](http://aka.ms/apimsdk) e i cmdlet di PowerShell per la [distribuzione](https://msdn.microsoft.com/library/mt619282.aspx) e la [gestione dei servizi](https://msdn.microsoft.com/library/mt613507.aspx).
+Sì, è possibile gestire l'istanza usando l'[API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx), [Microsoft Azure API Management Service Management Library SDK](http://aka.ms/apimsdk) e i cmdlet di PowerShell per la [distribuzione](https://msdn.microsoft.com/library/mt619282.aspx) e la [gestione dei servizi](https://msdn.microsoft.com/library/mt613507.aspx).
 
 ### Come aggiungere un utente al gruppo di amministratori?
 
 Per aggiungere un utente, seguire questa procedura:
 
-1. Accedere al nuovo [portale di Azure](https://portal.azure.com) 
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com)
 2. Passare al gruppo di risorse che contiene l'istanza di Gestione API che interessa
 3. Aggiungere l'utente al ruolo "Collaboratore di Gestione Api"
 
@@ -89,14 +89,14 @@ Al termine dell'operazione, il collaboratore appena aggiunto può usare i [cmdle
 
 ### Perché il criterio da aggiungere non è abilitato nell'editor dei criteri?
 
-Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione relativa all'**utilizzo** del criterio in [Riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Se il criterio che si vuole aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio nelle [informazioni di riferimento al criterio](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
 ### Come si ottiene il controllo delle versioni API con Gestione API?
 
 -	Gestione API consente di configurare separatamente le API che rappresentano diverse versioni. È ad esempio possibile configurare `MyAPI v1` e `MyAPI v2` come due API distinte e gli sviluppatori possono scegliere la versione da usare.
 -	È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio: `https://my.api`. È quindi possibile configurare un segmento di versione per il modello [Riscrittura URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Si può avere ad esempio un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) `/resource` e un modello [Riscrittura URL](api-management-howto-add-operations.md#rewrite-url-template) `/v1/Resource`. In questo modo è possibile modificare il valore del segmento di versione in ogni operazione separatamente.
--	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
+-	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa il criterio [Imposta servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
 
 ### Come si configurano più ambienti di API, ad esempio sandbox e produzione?
 
@@ -109,7 +109,7 @@ Attualmente le opzioni disponibili sono:
 
 Attualmente, il supporto per SOAP è disponibile solo all'interno di Gestione API di Azure. La funzionalità è ancora in fase di analisi. A questo proposito, sarebbe molto interessante ricevere dai clienti esempi di WSDL con la descrizione delle funzionalità che ritengono necessarie. Per contattare Microsoft, usare le informazioni riportate nella sezione [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-Se è necessario usare la funzionalità, vedere i suggerimenti di alcuni utenti delle community, ad esempio il [post relativo all'uso di un servizio WCF SOAP con HTTP nell'ambito di Gestione API di Azure](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
+Se è necessario usare la funzionalità, vedere i suggerimenti di alcuni utenti delle community, ad esempio [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) (Utilizzo di un servizio WCF SOAP su HTTP nell'ambito di Gestione API di Azure).
 
 Implementare la soluzione in questo modo richiede in parte la configurazione manuale dei criteri, non supporta l'importazione e l'esportazione di WSDL e gli utenti dovranno costituire il corpo delle richieste effettuate usando la console di test nel portale per sviluppatori.
 
@@ -128,11 +128,11 @@ L'indirizzo IP (o gli indirizzi nel caso di una distribuzione in più aree) è r
 
 ### È possibile configurare un server di autorizzazione OAUth 2.0 con la sicurezza ADFS?
 
-Per informazioni sulla configurazione di questo scenario, vedere [Uso di ADFS in Gestione API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+Per informazioni sulla configurazione di questo scenario, vedere [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso di ADFS in Gestione API).
 
 ### Quale metodo di routing usa Gestione API quando è distribuita in più posizioni geografiche? 
 
-Gestione API usa il [metodo di routing del traffico delle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
+Gestione API usa il [metodo di routing del traffico delle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing del traffico di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### È possibile creare un'istanza del servizio Gestione API usando un modello ARM?
 
@@ -146,4 +146,8 @@ Sì. Eseguire questi passaggi:
 2. Impostare la proprietà skipCertificateChainValidation su true
 3. Se non si vuole più consentire il certificato autofirmato è possibile eliminare l'entità di back-end o impostare la proprietà skipCertificateChainValidation su false
 
-<!---HONumber=AcomDC_0601_2016-->
+### Perché si ottiene un errore di autenticazione quando si cerca di clonare il repository GIT? 
+
+Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual Studio, potrebbe verificarsi un problema noto con la finestra di dialogo Credenziale Windows che limita la lunghezza della password a solo 127 caratteri e quindi tronca la password generata. Microsoft sta lavorando per abbreviare la password. Per ora usare GIT Bash per la clonazione.
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -26,7 +26,7 @@ Ogni UPD dispone di 50GB di archiviazione permanente e contiene entrambe le impo
 
 Leggere le informazioni specifiche sui dati del profilo utente.
 
->[AZURE.NOTE] È necessario disabilitare il disco del profilo utente? È ora possibile eseguire questa operazione: per informazioni dettagliate, consultare il post di blog di Pavithra relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx).
+>[AZURE.NOTE] È necessario disabilitare il disco del profilo utente? È ora possibile eseguire questa operazione: per informazioni dettagliate, consultare il post di blog di Pavithra relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/).
 
 
 ## Come può un amministratore accedere ai dati?
@@ -83,10 +83,10 @@ Sì, è possibile chiedere a RemoteApp di Azure di disabilitare gli UPD per una 
 È consigliabile disabilitare i dischi del profilo utente in una delle situazioni seguenti:
 
 - È necessario disporre di accesso e controllo completi dei dati utente (a scopo di controllo e verifica, ad esempio negli istituti finanziari).
-- Si dispone di soluzioni locali di gestione del profilo utente di terze parti e si desidera continuare a usarle nella distribuzione di Azure RemoteApp aggiunta al dominio. Questa opzione richiede il caricamento dell'agente del profilo nell'immagine gold. 
+- Si dispone di soluzioni locali di gestione del profilo utente di terze parti e si desidera continuare a usarle nella distribuzione di Azure RemoteApp aggiunta al dominio. Questa opzione richiede il caricamento dell'agente del profilo nell'immagine gold.
 - Non è necessaria una risorsa di archiviazione di dati locale oppure tutti i dati sono archiviati nel cloud (ad esempio in OneDrive for Business) o in condivisione file e si vuole controllare il salvataggio dei dati in modalità locale tramite Azure RemoteApp.
 
-Per altre informazioni, vedere il post di blog relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx).
+Per altre informazioni, vedere il post di blog relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/).
 
 ## È possibile limitare gli utenti nel salvataggio dei dati nell'unità di sistema?
 
@@ -115,7 +115,7 @@ Inoltre, è possibile utilizzare App di sincronizzazione dati come OneDrive for 
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
-Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione *prima* di eseguire sysprep.)
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione*prima*di eseguire sysprep.)
 
 ![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
 
@@ -159,4 +159,4 @@ NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno
 
 In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

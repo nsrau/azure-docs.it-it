@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite il modello di distribuzione classica](load-balancer-get-started-internet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite il modello di distribuzione classica](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -35,7 +35,7 @@ Qui verrà illustrata la sequenza delle singole attività da eseguire per creare
 
 È necessario creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico.
 
-- Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso. 
+- Configurazione di IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
 
 - Pool di indirizzi back-end: contiene interfacce di rete (NIC) per le macchine virtuali per la ricezione di traffico di rete dal servizio di bilanciamento del carico.
 
@@ -54,7 +54,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo di Gestio
 
 ### Passaggio 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
@@ -62,20 +62,20 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
 
 Controllare le sottoscrizioni per l'account
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Passaggio 3 
 
 Scegliere quali sottoscrizioni Azure usare. <BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Passaggio 4
 
 Creare un nuovo gruppo di risorse (ignorare questo passaggio se si usa un gruppo di risorse esistente)
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Creare una rete virtuale e un indirizzo IP pubblico per il pool di indirizzi IP front-end
@@ -181,7 +181,7 @@ Creare una scheda NIC denominata *lb-nic2-be* e associarla alla seconda regola N
 Creare le NIC.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Output previsto:
 
@@ -248,7 +248,7 @@ Se non è ancora stata eseguita questa operazione, caricare la risorsa di bilanc
 
 Caricare la configurazione back-end in una variabile.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Passaggio 3 
 
@@ -260,13 +260,13 @@ Caricare l'interfaccia di rete già creata in una variabile. Il nome della varia
 
 Modificare la configurazione back-end nell'interfaccia di rete.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Passaggio 5 
 
 Salvare l'oggetto interfaccia di rete.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Dopo che un'interfaccia di rete viene aggiunta al pool di back-end di bilanciamento del carico, inizia a ricevere il traffico di rete in base alle regole di bilanciamento del carico per la risorsa di bilanciamento carico.
 
@@ -308,4 +308,4 @@ Usare il comando `Remove-AzureLoadBalancer` per eliminare un bilanciamento del c
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

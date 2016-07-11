@@ -44,6 +44,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Australia | Australia orientale | Australia sudorientale|
 | Governo degli Stati Uniti | Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
 | India | India centrale | India meridionale |
+| Canada | Canada centrale | Canada orientale |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
@@ -62,12 +63,12 @@ Figura 2: ipotetica coppia di aree di Azure
 ## Attività tra aree
 Come indicato nella figura 2.
 
-![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (PaaS)**: è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area nel caso di un'emergenza. Per ulteriori informazioni, vedere[informazioni tecniche sulla continuità di Azure Business](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (PaaS)**: è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area nel caso di un'emergenza. Per altre informazioni, vedere [Indicazioni tecniche sulla resilienza di Azure](./resiliency/resiliency-technical-guidance.md).
 
 ![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Archiviazione di Azure**: per impostazione predefinita ( GRS), quando si crea un account di archiviazione di Azure viene configurata l'archiviazione con ridondanza geografica. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage/storage-redundancy.md).
 
 
-![3Green](./media/best-practices-availability-paired-regions/3Green.png)**Database SQL Azure**: con Azure SQL replica geografica Standard, è possibile configurare la replica asincrona delle transazioni in un'area associata. Con la replica geografica di Premium è possibile configurare la replica per tutte le aree del mondo, tuttavia è consigliabile distribuire queste risorse in un'area abbinata per il ripristino di emergenza. Per altre informazioni, vedere [Replica geografica nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+![3Green](./media/best-practices-availability-paired-regions/3Green.png)**Database SQL Azure**: con Azure SQL replica geografica Standard, è possibile configurare la replica asincrona delle transazioni in un'area associata. Con la replica geografica di Premium è possibile configurare la replica per tutte le aree del mondo, tuttavia è consigliabile distribuire queste risorse in un'area abbinata per il ripristino di emergenza. Per altre informazioni, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](./sql-database/sql-database-geo-replication-overview.md).
 
 ![4Green](./media/best-practices-availability-paired-regions/4Green.png)**Gestione risorse di azure (ARM)**-ARM intrinsecamente fornisce isolamento logico dei componenti di gestione del servizio in aree geografiche. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 
@@ -85,4 +86,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Backup automatico per le macchine virtuali di SQL Server (Resource Manager) | Microsoft Azure"
-	description="Illustra la funzionalità di backup automatico per SQL Server in esecuzione nelle macchine virtuali di Azure che usano Resource Manager."
+	description="Illustra la funzionalità di backup automatico per SQL Server in esecuzione nelle macchine virtuali di Azure che usano Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,8 +24,7 @@
 
 Backup automatico Configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2014 Standard o Enterprise in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Il backup automatico dipende dall'[estensione dell'agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-Modello di distribuzione classica. Per visualizzare la versione classica di questo articolo, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica. Per visualizzare la versione classica di questo articolo, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ## Prerequisiti
 
@@ -77,11 +76,11 @@ Per il contesto, vedere l'argomento completo sul [provisioning di una macchina v
 
 Per macchine virtuali di SQL Server esistenti, è necessario usare PowerShell per configurare le impostazioni del backup automatico.
 
->[AZURE.NOTE] Quando si abilita il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel Portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
+>[AZURE.NOTE] Quando si abilita il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
 ## Configurazione con PowerShell
 
-Dopo il provisioning della VM di SQL, usare PowerShell per configurare la creazione di batch automatica.
+Dopo il provisioning della VM di SQL, usare PowerShell per configurare il backup automatico.
 
 Nel seguente esempio di PowerShell il backup automatico è configurato per una macchina virtuale esistente di SQL Server 2014. Il comando **AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** configura le impostazioni del backup automatico per archiviare i backup nell'account di archiviazione di Azure associato alla macchina virtuale. Questi backup verranno conservati per 10 giorni. Il comando **Set-AzureRmVMSqlServerExtension** aggiorna la VM di Azure con queste impostazioni.
 
@@ -117,4 +116,4 @@ Per informazioni sulle altre attività di automazione disponibili, vedere [Esten
 
 Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

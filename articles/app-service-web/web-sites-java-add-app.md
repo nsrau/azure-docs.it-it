@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
@@ -22,8 +22,8 @@ Una volta inizializzata app web Java in [servizio App Azure][] come descritto in
 
 Il percorso della cartella **webapps** varia a seconda della configurazione del sito Web.
 
-- Se si configura il sito Web usando la raccolta di applicazioni di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\bin\\application\_server\\webapps**, dove **application\_server** è il nome del server applicazioni usato per il sito Web. 
-- Se si configura il sito Web usando l'interfaccia utente di configurazione di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\webapps**. 
+- Se si configura il sito Web usando la raccolta di applicazioni di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\bin\\application\_server\\webapps**, dove **application\_server** è il nome del server applicazioni usato per il sito Web.
+- Se si configura il sito Web usando l'interfaccia utente di configurazione di Azure, il percorso della cartella **webapps** sarà nel formato **d:\\home\\site\\wwwroot\\webapps**.
 
 Si noti che è possibile usare il controllo del codice sorgente per caricare l'applicazione o le pagine Web, anche negli scenari di integrazione continuata. Istruzioni per l'utilizzo del controllo del codice sorgente con l'applicazione web sono disponibili all'indirizzo [la distribuzione continua utilizzando GIT nel servizio di Azure App](web-sites-publish-source-control.md). Per caricare l'applicazione o le pagine Web è anche possibile usare FTP.
 
@@ -40,4 +40,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->
