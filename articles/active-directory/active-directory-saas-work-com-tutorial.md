@@ -134,7 +134,7 @@ Come parte di questa procedura, verrà richiesto di caricare un certificato in W
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Autorità di certificazione**.
     3.  Per caricare il certificato scaricato, fare clic su **Browse**.
     4.  Nella casella di testo **Entity Id**, digitare **https://salesforce-work.com**.
-5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
+    5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
     6.  In **SAML Identity Location** selezionare **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **URL accesso provider di identità**.
     8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure classico copiare il valore di **URL di disconnessione remota** e quindi incollarlo nella casella di testo **URL disconnessione provider di identità**.
