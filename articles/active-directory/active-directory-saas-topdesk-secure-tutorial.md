@@ -110,8 +110,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura URL app](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configura URL app")
 
     1.  Nella casella di testo **URL di accesso TOPdesk - Secure** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Secure (ad esempio,"**https://qssolutions.topdesk.net*")).
-2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
-3.  Fare clic su **Next**.
+    2.  Nella casella di testo **URL di risposta TOPdesk - Secure** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+    3.  Fare clic su **Next**.
 
 10. Nella pagina **Configura accesso Single Sign-On in TOPdesk - Secure** per scaricare il file dei metadati, fare clic su **Download metadati** e quindi salvarlo in locale nel computer.
 
