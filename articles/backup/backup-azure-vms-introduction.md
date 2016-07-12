@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/23/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
-Questo articolo descrive gli aspetti principali da considerare quando si pianifica il backup di macchine virtuali in Azure. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Questo articolo fornisce suggerimenti relativi alle prestazioni e alle risorse per semplificare la pianificazione dell'infrastruttura di backup delle macchine virtuali. Definisce anche gli elementi fondamentali del servizio Backup. Questi aspetti possono essere essenziali per determinare l'architettura, la pianificazione della capacità e la pianificazione generale. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## In che modo Azure esegue il backup delle macchine virtuali?
 Quando il servizio Backup di Azure avvia un processo di backup all'ora pianificata, richiede all'estensione per il backup di acquisire uno snapshot temporizzato. Questo snapshot viene acquisito in combinazione con il Servizio Copia Shadow del volume (VSS) per ottenere uno snapshot coerente dei dischi nella macchina virtuale senza che sia necessario spegnerla.
@@ -52,21 +52,21 @@ Questa tabella illustra i tipi di coerenza e le condizioni in cui si verificano 
 
 
 ## Prestazioni e utilizzo delle risorse
-Come il software di backup distribuito in locale, anche il backup delle macchine virtuali in Azure deve essere pianificato in termini di capacità e utilizzo delle risorse. I [limiti del servizio di archiviazione di Azure](azure-subscription-service-limits.md#storage-limits) definiscono il modo in cui sono strutturate le distribuzioni delle macchine virtuali per ottenere prestazioni ottimali con il minimo impatto sui carichi di lavoro in esecuzione.
+Analogamente al software distribuito in locale, è necessario pianificare le esigenze di utilizzo di capacità e risorse durante il backup delle macchine virtuali in Azure. I [limiti del servizio di archiviazione di Azure](azure-subscription-service-limits.md#storage-limits) definiscono il modo in cui sono strutturate le distribuzioni delle macchine virtuali per ottenere prestazioni ottimali con il minimo impatto sui carichi di lavoro in esecuzione.
 
-Di seguito sono riportati i due limiti principali del servizio di archiviazione di Azure che influiscono sulle prestazioni del backup:
+Prestare attenzione ai limiti seguenti dell'Archiviazione di Azure durante la pianificazione delle prestazioni del backup:
 
 - Numero massimo in uscita per account di archiviazione
 - Frequenza delle richieste totale per account di archiviazione
 
 ### Limiti dell'account di archiviazione
-Quando i dati di backup vengono copiati dall'account di archiviazione del cliente, vengono conteggiati ai fini delle metriche relative alle operazioni di input/output al secondo (IOPS) e ai dati in uscita (velocità effettiva) dell'account di archiviazione. Al contempo, le macchine virtuali sono in esecuzione e utilizzano operazioni di I/O al secondo e velocità effettiva. L'obiettivo è garantire che il traffico totale, del backup e delle macchine virtuali, non superi i limiti previsti per l'account di archiviazione.
+Quando i dati di backup vengono copiati dall'account di archiviazione, vengono conteggiati ai fini delle metriche relative alle operazioni di input/output al secondo (IOPS) e ai dati in uscita (velocità effettiva) dell'account di archiviazione. Al contempo, le macchine virtuali sono in esecuzione e utilizzano operazioni di I/O al secondo (IOPS) e velocità effettiva. L'obiettivo è garantire che il traffico totale, del backup e delle macchine virtuali, non superi i limiti previsti per l'account di archiviazione.
 
 ### Numero di dischi
-Il processo di backup tenta di consumare il maggior numero di risorse per completare il backup il più rapidamente possibile. Tutte le operazioni di I/O sono tuttavia limitate dalla *velocità effettiva da raggiungere per BLOB singolo* che ha un limite di 60 MB al secondo. Per accelerare il processo di backup, si prova a eseguire *in parallelo* il backup di ogni disco della macchina virtuale. Quindi, se una macchina virtuale contiene quattro dischi, il servizio Backup di Azure proverà a eseguire il backup di tutti e quattro i dischi in parallelo. Di conseguenza, il fattore più importante che determina il traffico di backup in uscita da un account di archiviazione del cliente è il **numero di dischi** di cui viene eseguito il backup dall'account di archiviazione.
+Il processo di backup prova a completare un processo di backup il più velocemente possibile, utilizzando quindi la quantità più elevata possibile di risorse. Tutte le operazioni di I/O sono tuttavia limitate dalla *velocità effettiva da raggiungere per BLOB singolo* che ha un limite di 60 MB al secondo. Nel tentativo di massimizzare la velocità, il processo di backup prova a eseguire il backup di ogni disco della macchina virtuale *in parallelo*. Quindi, se una macchina virtuale contiene quattro dischi, il servizio Backup di Azure prova a eseguire il backup di tutti e quattro i dischi in parallelo. Di conseguenza, il fattore più importante che determina il traffico di backup in uscita da un account di archiviazione del cliente è il **numero di dischi** di cui viene eseguito il backup dall'account di archiviazione.
 
 ### Pianificazione dei backup
-Un altro aspetto che influisce sulle prestazioni è la **pianificazione dei backup**. Se tutte le macchine virtuali sono configurate per l'esecuzione del backup alla stessa ora, aumenta il numero di dischi di cui viene eseguito il backup *in parallelo*, perché il servizio Backup di Azure prova a eseguire il backup del maggior numero possibile di dischi. Per ridurre il traffico di backup da un account di archiviazione è possibile pianificare il backup delle singole macchine virtuali a diverse ore del giorno, senza sovrapposizioni.
+Un altro aspetto che influisce sulle prestazioni è la **pianificazione dei backup**. Se si configurano i criteri in modo che venga eseguito il backup di tutte le macchine virtuali contemporaneamente, è stato pianificato un blocco del traffico. Il processo di backup proverà a eseguire il backup di tutti i dischi in parallelo. Per ridurre il traffico di backup da un account di archiviazione è possibile pianificare il backup delle singole macchine virtuali a diverse ore del giorno, senza sovrapposizioni.
 
 ## Pianificazione della capacità
 Tutti questi fattori indicano che è necessario pianificare in modo appropriato l'utilizzo dell'account di archiviazione. Scaricare il [foglio di Excel per la pianificazione della capacità di backup delle macchine virtuali](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) per valutare l'impatto delle scelte relative alla pianificazione dei backup e dei dischi.
@@ -84,17 +84,17 @@ Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia 
 
 - Tempo necessario per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms).
 - Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
-- Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup di Azure può non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+- Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 
 ## Procedure consigliate
-È consigliabile seguire le procedure consigliate durante la configurazione del backup per le macchine virtuali
+È consigliabile seguire queste procedure durante la configurazione del backup per le macchine virtuali:
 
-- Non pianificare di eseguire il backup contemporaneo di più di 4 macchine virtuali classiche dallo stesso servizio cloud. È consigliabile scaglionare le pianificazioni di backup di un'ora, se si vuole configurare più macchine virtuali dallo stesso servizio cloud per il backup. 
-- Non pianificare di eseguire il backup contemporaneo di più di 40 macchine virtuali di Resource Manager.
-- Pianificare i backup durante le ore non di punta per le macchine virtuali in modo che il servizio di backup ottiene gli IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali di backup. 
-- Assicurarsi che in un criterio le macchine virtuali siano distribuite da account di archiviazione diversi. Se il numero totale di dischi archiviati in un account di archiviazione singolo delle VM è superiore a 20, è consigliabile distribuire le VM in pianificazioni di backup diverse per ottenere gli IOPS necessari durante la fase di trasferimento del backup.
-- Non è consigliabile ripristinare la macchina virtuale in esecuzione su archiviazione Premium dello stesso account di archiviazione perché questa operazione può avviare un backup e ridurrà il numero di IOPS disponibili per il backup. 
-- È consigliabile mantenere ogni macchina virtuale Premium su un account di archiviazione Premium diverso per ottenere le migliori prestazioni di backup. 
+- Non pianificare il backup di più di quattro macchine virtuali classiche contemporaneamente dallo stesso servizio cloud. È consigliabile sfalsare di un'ora le ore di inizio dei backup se si vuole eseguire il backup di più macchine virtuali dallo stesso servizio cloud.
+- Non pianificare il backup contemporaneo di più di 40 macchine virtuali distribuite da Azure Resource Manager.
+- Pianificare i backup delle macchine virtuali durante orari non di picco, in modo che il servizio Backup usi IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali di Backup o di Servizi di ripristino.
+- Assicurarsi che un criterio faccia riferimento a macchine virtuali in più account di archiviazione. È consigliabile proteggere non più di 20 dischi in totale da un singolo account di archiviazione con un criterio. Se un account di archiviazione include più di 20 dischi, suddividere le macchine virtuali tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
+- Non ripristinare una macchina virtuale in esecuzione nell'Archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
+- È consigliabile eseguire ogni macchina virtuale Premium VM in un account di archiviazione Premium distinto per assicurare prestazioni di backup ottimali.
 
 ## Crittografia dei dati
 
@@ -131,4 +131,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

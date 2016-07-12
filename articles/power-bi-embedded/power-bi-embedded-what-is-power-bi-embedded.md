@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Cos'è Microsoft Power BI Embedded"
+   pageTitle="Cos'è Microsoft Power BI Embedded?"
    description="Power BI Embedded consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="minewiskan"
+   manager="mblythe"
    editor=""
    tags=""/>
 <tags
@@ -13,17 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/01/2016"
-   ms.author="jocaplan"/>
-
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Cos'è Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti.
+Con **Power BI Embedded** è possibile integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Microsoft Power BI Embedded** è un servizio di Azure che consente ai fornitori di software indipendente di vivere l’esperienza dati di Power BI nelle proprie applicazioni. I fornitori di software indipendente hanno applicazioni compilate con utenti e funzionalità specifiche. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da **Microsoft Power BI Embedded**. Per poter usare l'applicazione, non è necessario che gli utenti abbiano un account Power BI. Possono continuare ad accedere all'applicazione come facevano prima e possono visualizzare e usare i report e i riquadri di Power BI senza richiedere altre licenze.
+**Power BI Embedded** è un servizio di Azure che consente ai fornitori di software indipendente di vivere l'esperienza dati di Power BI nelle proprie applicazioni. I fornitori di software indipendente hanno applicazioni compilate con utenti e funzionalità specifiche. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da **Microsoft Power BI Embedded**. Per poter usare l'applicazione, non è necessario che gli utenti abbiano un account Power BI. Possono continuare ad accedere all'applicazione come facevano prima e possono visualizzare e usare i report e i riquadri di Power BI senza richiedere altre licenze.
 
 ## Licenza di Microsoft Power BI Embedded
 
@@ -99,4 +98,4 @@ Per un esempio su come usare i metodi [CreateProvisionToken](https://msdn.micros
 - [API REST di Power BI](http://docs.powerbi.apiary.io/reference)
 - [Aree di Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2016"
+	ms.date="07/06/2016"
 	ms.author="marsma"/>
 
 # Nozioni di base su Azure Batch
@@ -46,7 +46,7 @@ Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [Soluzioni Bat
 
 ## Sviluppo con Batch
 
-La compilazione di soluzioni che usano Azure Batch per l'elaborazione di carichi di lavoro paralleli si esegue a livello di codice con le [API Batch](#batch-development-apis). Queste ultime permettono di creare e gestire pool di nodi di calcolo, o macchine virtuali, nonché di pianificare i processi e le attività da eseguire su tali nodi. Un'applicazione o un servizio client che viene creato usa le API Batch per comunicare con il servizio Batch.
+L'elaborazione dei carichi di lavoro paralleli con Batch è in genere eseguita a livello di codice usando una delle [API Batch](#batch-development-apis). Queste ultime permettono di creare e gestire pool di nodi di calcolo, o macchine virtuali, nonché di pianificare i processi e le attività da eseguire su tali nodi. Un'applicazione o un servizio client che viene creato usa le API Batch per comunicare con il servizio Batch.
 
 È possibile elaborare in modo efficiente carichi di lavoro su larga scala per l'azienda o mettere a disposizione un servizio front-end ai clienti perché possano eseguire processi e attività, su richiesta o in base a una pianificazione, in uno, centinaia o anche migliaia di nodi. È anche possibile usare il servizio Batch nell'ambito di un flusso di lavoro più ampio, gestito da strumenti come [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
 
@@ -72,7 +72,7 @@ Le applicazioni e i servizi possono effettuare chiamate dirette all'API REST, us
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java** (anteprima) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
+| **Batch Java** (anteprima) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gestione delle risorse di Batch
 
@@ -96,7 +96,7 @@ In questo scenario comune l'applicazione o il servizio elabora un carico di lavo
 
 1. Caricare i **file di input** e l'**applicazione** che elaborerà i file nell'account di archiviazione di Azure. I file di input elaborati dall'applicazione possono essere, ad esempio, dati di modellazione finanziaria o file video da transcodificare. L'applicazione può essere una qualsiasi applicazione usata per l'elaborazione dei dati, ad esempio un'applicazione per il rendering 3D o un transcodificatore di file multimediali.
 
-2. Creare un **pool** di nodi di calcolo di Batch nell'account Batch, ovvero le macchine virtuali che eseguiranno le attività. Specificare le proprietà, ad esempio le [dimensioni dei nodi](./../cloud-services/cloud-services-sizes-specs.md), il sistema operativo e il percorso in Archiviazione di Azure dell'applicazione da installare quando i nodi vengono aggiunti al pool. Si tratta dell'applicazione caricata nel passaggio 1. È anche possibile configurare il pool per la [scalabilità automatica](batch-automatic-scaling.md), in modo che il numero di nodi di calcolo del pool venga regolato dinamicamente in risposta al carico di lavoro generato dalle attività.
+2. Creare un **pool** di nodi di calcolo di Batch nell'account Batch, ovvero le macchine virtuali che eseguiranno le attività. Specificare le proprietà, ad esempio le [dimensioni dei nodi](./../cloud-services/cloud-services-sizes-specs.md), il sistema operativo e il percorso in Archiviazione di Azure dell'applicazione da installare quando i nodi vengono aggiunti al pool. Si tratta dell'applicazione caricata nel passaggio 1. È anche possibile configurare il pool per il [ridimensionamento automatico](batch-automatic-scaling.md), in modo che il numero di nodi di calcolo del pool venga regolato dinamicamente in risposta al carico di lavoro generato dalle attività.
 
 3. Creare un **processo** Batch per eseguire il carico di lavoro nel pool di nodi di calcolo. Quando si crea un processo, lo si associa a un pool di Batch.
 
@@ -104,7 +104,7 @@ In questo scenario comune l'applicazione o il servizio elabora un carico di lavo
 
     - 4a. Prima dell'esecuzione, l'attività può scaricare i dati, ovvero i file di input, che dovrà elaborare nel nodo di calcolo a cui è assegnata. Se l'applicazione non è già installata nel nodo, come indicato nel passaggio 2, è possibile scaricarla a questo punto. Al termine del download le attività vengono eseguite nei nodi a cui sono assegnate.
 
-5. Durante l'esecuzione delle attività è possibile eseguire query sul servizio Batch per monitorare lo stato del processo e le relative attività. L'applicazione o il servizio client comunica con il servizio Batch tramite HTTPS. Dal momento che potrebbe essere necessario monitorare migliaia di attività in esecuzione in migliaia di nodi di calcolo, è necessario assicurarsi di [eseguire query sul servizio Batch in modo efficiente](batch-efficient-list-queries.md).
+5. Durante l'esecuzione delle attività è possibile eseguire query sul servizio Batch per monitorare lo stato del processo e le relative attività. L'applicazione o il servizio client comunica con il servizio Batch tramite HTTPS. Dal momento che potrebbe essere necessario monitorare migliaia di attività in esecuzione in migliaia di nodi di calcolo, è necessario assicurarsi di [Eseguire query sul servizio Batch in modo efficiente](batch-efficient-list-queries.md).
 
 6. Man mano che vengono completate, le attività possono caricare i dati dei risultati in Archiviazione di Azure. È anche possibile recuperare i file direttamente dai nodi di calcolo.
 
@@ -116,13 +116,13 @@ Tenere presente che questo è soltanto uno dei modi in cui è possibile usare il
 
 Ora che è stata esaminata una panoramica generale del servizio Batch è necessario un approfondimento per imparare a usare il servizio per l'elaborazione di carichi di lavoro paralleli a elevato utilizzo di calcolo.
 
-- Vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) per informazioni più approfondite sulle funzionalità API offerte dal servizio Batch per l'elaborazione dei carichi di lavoro. Si tratta di una lettura fondamentale per chiunque intenda usare Batch.
+- Per informazioni più approfondite sulle funzionalità API offerte dal servizio Batch per l'elaborazione dei carichi di lavoro, vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md). Si tratta di una lettura fondamentale per chiunque intenda usare Batch.
 
-- Vedere [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md) per imparare a usare C# e la libreria Batch .NET per eseguire un carico di lavoro semplice con un flusso di lavoro di Batch comune. È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch. È anche disponibile una [versione Python](batch-python-tutorial.md) dell'esercitazione.
+- Per imparare a usare C# e la libreria Batch .NET per eseguire un carico di lavoro semplice con un flusso di lavoro di Batch comune, vedere [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md). È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch. È anche disponibile una [versione Python](batch-python-tutorial.md) dell'esercitazione.
 
 - Scaricare gli [esempi di codice in GitHub][github_samples] per vedere come C# e Python possono interfacciarsi con Batch per pianificare ed elaborare carichi di lavoro di esempio.
 
-- Vedere il [percorso di apprendimento per Batch][learning_path] per conoscere le risorse disponibili per imparare a usare Batch.
+- Per conoscere le risorse disponibili per imparare a usare Batch, edere il [percorso di apprendimento per Batch][learning_path].
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
@@ -137,6 +137,7 @@ Ora che è stata esaminata una panoramica generale del servizio Batch è necessa
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
@@ -147,4 +148,4 @@ Ora che è stata esaminata una panoramica generale del servizio Batch è necessa
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

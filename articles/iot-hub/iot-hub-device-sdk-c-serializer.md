@@ -26,6 +26,8 @@ L'articolo si conclude rivedendo alcuni argomenti trattati negli articoli preced
 
 Tutto ciò che viene descritto in questo articolo si basa sugli esempi dell'SDK per **serializer**. Se si vuole seguire la procedura, vedere le applicazioni **simplesample\_amqp** e **simplesample\_http** incluse in Azure IoT device SDK per C.
 
+È possibile trovare **Azure IoT SDK per dispositivi per C** nel repository [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) su GitHub e visualizzare i dettagli relativi all'API in [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html) (Riferimenti per le API C).
+
 ## Linguaggio di modellazione
 
 L'[articolo introduttivo](iot-hub-device-sdk-c-intro.md) di questa serie ha presentato il linguaggio di modellazione di **Azure IoT device SDK per C** tramite l'esempio fornito nell'applicazione **simplesample\_amqp**:
@@ -630,7 +632,7 @@ Per un esempio dell'uso delle API di livello inferiore con la libreria **seriali
 
 ## Argomenti aggiuntivi
 
-Alcuni altri argomenti che vale la pena citare riguardano la gestione delle proprietà, l'uso di credenziali del dispositivo alternative e le opzioni di configurazione. Ecco tutti gli argomenti illustrati in un [articolo precedente](iot-hub-device-sdk-c-iothubclient.md). L'aspetto principale in questo caso è che tutte queste funzionalità hanno lo stesso comportamento quando si usa sia la libreria **serializer** che la libreria **IoTHubClient**. Ad esempio, per associare proprietà a un evento dal modello si useranno **IoTHubMessage\_Properties** e **Map**\_**AddorUpdate**, come descritto in precedenza:
+Alcuni altri argomenti che vale la pena citare riguardano la gestione delle proprietà, l'uso di credenziali del dispositivo alternative e le opzioni di configurazione. Ecco tutti gli argomenti illustrati in un [articolo precedente](iot-hub-device-sdk-c-iothubclient.md). L'aspetto principale in questo caso è che tutte queste funzionalità hanno lo stesso comportamento quando si usa sia la libreria **serializer** che la libreria **IoTHubClient**. Ad esempio, per associare proprietà a un evento dal modello, usare **IoTHubMessage\_Properties** e **Map**\_**AddorUpdate**, come descritto in precedenza:
 
 ```
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -666,4 +668,4 @@ Questo articolo descrive in dettaglio gli aspetti univoci della libreria **seria
 
 Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza approfondita del funzionamento delle API. Per altre informazioni, nell'SDK sono disponibili alcuni esempi non illustrati in questo articolo. Anche la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

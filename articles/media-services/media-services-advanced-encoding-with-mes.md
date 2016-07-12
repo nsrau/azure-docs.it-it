@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 		// Load the XML (or JSON) from the local file.
 	    string configuration = File.ReadAllText(fileName);  
-- Aggiungere un'attività di codifica al processo. 
+- Aggiungere un'attività di codifica al processo.
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
@@ -980,7 +980,7 @@ Nell'esempio seguente viene illustrato come generare un set di impostazioni per 
 - Il frammento di codice e il set di impostazioni JSON mostrano un esempio di concatenazione di due file video. È possibile estendere la concatenazione a più di due video nel modo seguente:
 
 	1. Chiamando ripetutamente task.InputAssets.Add() per aggiungere più video in ordine.
-	2. Effettuando le modifiche corrispondenti all'elemento "Sources" nel file JSON, aggiungendo altre voci nello stesso ordine. 
+	2. Effettuando le modifiche corrispondenti all'elemento "Sources" nel file JSON, aggiungendo altre voci nello stesso ordine.
 
 
 ###Codice .NET
@@ -1086,4 +1086,4 @@ Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si v
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

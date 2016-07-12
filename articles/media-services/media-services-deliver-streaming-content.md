@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -40,10 +40,10 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 
    1. Se il contenuto viene crittografato, definire i criteri di accesso.
    2. Creare un localizzatore di streaming OnDemand.
-   3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset. 
+   3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset.
    		
-	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.  
-   4. Creare URL che puntano al file manifesto o ai file MP4. 
+	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.
+   4. Creare URL che puntano al file manifesto o ai file MP4.
    
 
 ###Usare l'SDK di Servizi multimediali per .NET 
@@ -171,4 +171,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 
 [Asset di download](media-services-deliver-asset-download.md) [Configurare i criteri di sviluppo dell’asset](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

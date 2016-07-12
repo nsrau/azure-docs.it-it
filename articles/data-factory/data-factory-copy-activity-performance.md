@@ -23,8 +23,8 @@ Questo articolo descrive i fattori chiave che influiscono sulle prestazioni di s
 L'attività di copia consente uno spostamento dei dati a velocità effettiva elevata come spiegano gli esempi seguenti:
 
 - Inserimento di 1 TB di dati nell'archiviazione BLOB di Azure dal file system locale e dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps.
-- Inserimento di 1 TB di dati nell'archivio Azure Data Lake dal file system locale e dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps. 
-- Inserimento di 1 TB di dati in Azure SQL Data Warehouse dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps. 
+- Inserimento di 1 TB di dati nell'archivio Azure Data Lake dal file system locale e dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps.
+- Inserimento di 1 TB di dati in Azure SQL Data Warehouse dall'archiviazione BLOB di Azure in meno di 3 ore, vale a dire a una velocità di 100 MBps.
 
 Vedere le sezioni seguenti per altre informazioni sulle prestazioni delle attività di copia e suggerimenti per ottimizzarle.
 
@@ -49,7 +49,7 @@ Di seguito sono indicati i passaggi tipici da eseguire per ottimizzare le presta
 	- [Gateway di gestione dati](#considerations-on-data-management-gateway)
 	- [Altre considerazioni](#other-considerations)
 	- [Copia parallela](#parallel-copy)
-	- [Unità di spostamento dei dati cloud](#cloud-data-movement-units)    
+	- [Unità di spostamento dei dati cloud](#cloud-data-movement-units)
 
 3. **Espandere la configurazione all'insieme dei dati.** Una volta verificati i risultati dell'esecuzione e le prestazioni, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire tutti i dati presi in considerazione.
 
@@ -171,8 +171,8 @@ Fare riferimento ai [casi d'uso di esempio](#case-study---parallel-copy) descrit
 ## Copia di staging
 Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile usare un archivio BLOB di Azure come archivio di staging provvisorio. Questa funzionalità di staging è particolarmente utile nei casi seguenti:
 
-1.	**A volte occorre tempo per eseguire lo spostamento di dati ibrido, ad esempio dall'archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta.** Per migliorare le prestazioni dello spostamento dei dati, è possibile comprimere i dati in locale, in modo da ridurre il tempo per spostare i dati tramite la rete all'archivio dati di staging nel cloud, e quindi decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione. 
-2.	**Si vogliono aprire solo le porte 80 e 443 nel firewall a causa dei criteri IT.** Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario abilitare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In questo scenario è possibile utilizzare Gateway di gestione dati per copiare inizialmente i dati in un archivio BLOB di Azure di staging, che avviene tramite HTTP(s) ovvero sulla porta 443, e quindi caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433. 
+1.	**A volte occorre tempo per eseguire lo spostamento di dati ibrido, ad esempio dall'archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta.** Per migliorare le prestazioni dello spostamento dei dati, è possibile comprimere i dati in locale, in modo da ridurre il tempo per spostare i dati tramite la rete all'archivio dati di staging nel cloud, e quindi decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
+2.	**Si vogliono aprire solo le porte 80 e 443 nel firewall a causa dei criteri IT.** Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario abilitare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In questo scenario è possibile utilizzare Gateway di gestione dati per copiare inizialmente i dati in un archivio BLOB di Azure di staging, che avviene tramite HTTP(s) ovvero sulla porta 443, e quindi caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433.
 3.	**Inserire dati da diversi archivi dati in Azure SQL Data Warehouse tramite PolyBase.** Azure SQL Data Warehouse fornisce PolyBase come meccanismo a velocità effettiva elevata per caricare grandi quantità di dati in SQL Data Warehouse. Richiede tuttavia che i dati di origine si trovino nell'archivio BLOB di Azure e soddisfi alcuni criteri aggiuntivi. Quando si caricano dati da un archivio dati diverso dall'archivio BLOB di Azure, è possibile abilitare la copia dei dati tramite un archivio BLOB di Azure di staging provvisorio. In questo caso Azure Data Factory eseguirà le trasformazioni richieste sui dati per assicurare che soddisfino i requisiti di PolyBase e quindi userà PolyBase per caricare i dati in SQL Data Warehouse. Per altri dettagli ed esempi, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 
 ### Come funziona la copia di staging
@@ -224,6 +224,7 @@ Ecco una definizione di esempio di Copia attività con le proprietà precedenti:
 		}
 	}
 	]
+
 
 ### Impatto della fatturazione
 Il costo verrà addebitato in base alle due fasi di durata della copia e dell relativo tipo di copia rispettivamente, ovvero:
@@ -391,4 +392,4 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

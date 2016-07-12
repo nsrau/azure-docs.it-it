@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/22/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Streaming live con codificatori locali che creano flussi a più bitrate
@@ -55,10 +55,10 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
 1. Creare e avviare un canale.
-1. Recuperare l'URL di inserimento del canale. 
+1. Recuperare l'URL di inserimento del canale.
 
 	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale.
 
 	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
@@ -66,14 +66,14 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 
 	Se si crea un programma tramite il portale di Azure classico, viene creato anche un asset.
 
-	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
-1. Pubblicare l'asset associato al programma.   
+	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma.
+1. Pubblicare l'asset associato al programma.
 
 	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-1. Eliminare il programma e, facoltativamente, eliminare l'asset.     
+1. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
 ##<a id="channel"></a>Descrizione di un canale e dei relativi componenti
 
@@ -112,12 +112,12 @@ Per informazioni sui codificatori RTMP live, vedere [Codificatori live e support
 
 Si applicano le considerazioni seguenti:
 
-- Assicurarsi che sia disponibile connettività Internet sufficiente per inviare dati ai punti di inserimento. 
-- Per usare l'URL di inserimento secondario, è necessaria larghezza di banda aggiuntiva. 
+- Assicurarsi che sia disponibile connettività Internet sufficiente per inviare dati ai punti di inserimento.
+- Per usare l'URL di inserimento secondario, è necessaria larghezza di banda aggiuntiva.
 - Il flusso a più velocità in bit in ingresso può avere un massimo di 10 livelli di qualità video e di 5 tracce audio.
 - La velocità in bit media più elevata per ciascuno dei livelli di qualità video deve essere inferiore a 10 Mbps.
 - L'aggregato della velocità in bit media per tutti i flussi video e audio deve essere inferiore a 25 Mbps.
-- Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input. 
+- Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 - È possibile inserire una velocità in bit singola nel canale, ma poiché il flusso non viene elaborato dal canale, anche le applicazioni client riceveranno un flusso a velocità in bit singola (scelta non consigliata).
 
 ####URL di inserimento (endpoint) 
@@ -277,4 +277,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

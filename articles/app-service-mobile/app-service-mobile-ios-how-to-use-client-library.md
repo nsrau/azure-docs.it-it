@@ -24,7 +24,7 @@ Questa guida descrive come eseguire scenari comuni usando il più recente [iOS S
 
 ## Documentazione di riferimento
 
-La documentazione di riferimento per il client SDK di iOS è disponibile qui: [Riferimento al Client iOS di App per dispositivi mobili di Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
+La documentazione di riferimento per il client SDK di iOS è disponibile qui: [Riferimento al Client iOS di App per dispositivi mobili di Azure](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Installazione e prerequisiti
 
@@ -525,7 +525,7 @@ e il Pod:
 
 * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
 
-* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -792,4 +792,4 @@ e il Pod:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Abilitazione di Desktop remoto in Azure
@@ -95,7 +95,7 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 
 ## Risorse aggiuntive
 
-- [Accesso remoto alle istanze del ruolo in Azure] 
+- [Accesso remoto alle istanze del ruolo in Azure]
 - [Uso di Desktop remoto con i ruoli Azure]
 - [Centro per sviluppatori di Node. js](/develop/nodejs/)
 
@@ -115,4 +115,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0629_2016-->

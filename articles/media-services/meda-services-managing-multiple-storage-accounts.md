@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
 
 - Bilanciamento del carico degli asset tra più account di archiviazione.
-- Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
+- Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione).
 
 Questo argomento illustra come collegare più account di archiviazione a un account di Servizi multimediali mediante l'API REST di gestione dei servizi di Azure. Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali.
 
@@ -32,7 +32,7 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 - Tutti gli account di archiviazione collegati a un account di Servizi multimediali devono trovarsi nello stesso data center dell'account di Servizi multimediali.
 - Non è possibile scollegare un account di archiviazione dopo che è stato collegato a un account di Servizi multimediali.
-- L'account di archiviazione principale è quello indicato durante la procedura di creazione dell'account di Servizi multimediali. Attualmente non è possibile modificare l'account di archiviazione predefinito. 
+- L'account di archiviazione principale è quello indicato durante la procedura di creazione dell'account di Servizi multimediali. Attualmente non è possibile modificare l'account di archiviazione predefinito.
 
 Altre considerazioni:
 
@@ -259,4 +259,4 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

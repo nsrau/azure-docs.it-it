@@ -2,7 +2,7 @@
 	pageTitle="Hub di notifica di Azure"
 	description="Informazioni su come usare le notifiche push in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="02/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 
@@ -166,9 +166,9 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [App per dispositivi mobili del servizio app]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
+  [App per dispositivi mobili del servizio app]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-mobile-value-prop/
   [modelli]: notification-hubs-templates.md
   [portale di Azure]: https://portal.azure.com
   [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

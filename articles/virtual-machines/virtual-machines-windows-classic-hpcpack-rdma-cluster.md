@@ -18,14 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Configurare un cluster RDMA Windows con HPC Pack e istanze di dimensioni A8 e A9 per l'esecuzione di applicazioni MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
-
 Configurare un cluster RDMA Windows in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [istanze di dimensioni A8 e A9 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md) per l'esecuzione di applicazioni MPI (Message Passing Interface) parallele. Quando si configurano istanze di dimensioni A8 e A9 basate su Windows Server per l'esecuzione in un cluster HPC Pack, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure, sulla base della tecnologia di accesso diretto a memoria remota (RDMA).
 
 Per eseguire carichi di lavoro MPI in macchine virtuali Linux che accedono alla rete RDMS in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Opzioni di distribuzione del cluster HPC Pack
 Microsoft HPC Pack è uno strumento disponibile senza costi aggiuntivi per creare cluster HPC basati su Windows Server in Azure. HPC Pack include un ambiente di runtime per l'implementazione Microsoft di Message Passing Interface per Windows (MS-MPI). Se usato con istanze di dimensioni A8 e A9, HPC Pack offre un modo efficiente per eseguire applicazioni MPI basate su Windows che accedono alla rete RDMA in Azure.
@@ -62,7 +59,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 
 4. **Distribuire e configurare un nodo head HPC Pack 2012 R2**
 
-    Scaricare il pacchetto di installazione di HPC Pack più recente dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere [Guida introduttiva per HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Burst in istanze del ruolo di lavoro di Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Scaricare il pacchetto di installazione di HPC Pack più recente dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere [Guida introduttiva per HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Burst in istanze del ruolo di lavoro di Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 5. **Configurare un certificato di gestione nella sottoscrizione di Azure**
 
@@ -102,7 +99,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 
 ## Scenario 2. Distribuzione di nodi di calcolo in macchine virtuali a elevato utilizzo di calcolo (IaaS)
 
-In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali aggiunte a un dominio di Active Directory in una rete virtuale di Azure. HPC Pack fornisce una serie di [opzioni di distribuzione nelle VM di Azure](virtual-machines-linux-hpcpack-cluster-options.md), inclusi script di distribuzione automatizzati e modelli di avvio rapido di Azure. Ad esempio, le considerazioni e i passaggi riportati di seguito consentono di usare lo [script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per automatizzare la maggior parte di questo processo.
+In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali aggiunte a un dominio di Active Directory in una rete virtuale di Azure. HPC Pack fornisce una serie di [opzioni di distribuzione nelle VM di Azure](virtual-machines-linux-hpcpack-cluster-options.md), inclusi script di distribuzione automatizzati e modelli di avvio rapido di Azure. Ad esempio, le considerazioni e i passaggi riportati di seguito consentono di usare lo [script di distribuzione HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per automatizzare la maggior parte di questo processo.
 
 ![Cluster in macchine virtuali di Azure][iaas]
 
@@ -246,4 +243,4 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

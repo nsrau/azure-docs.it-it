@@ -1,8 +1,8 @@
 
 
-## Concedere autorizzazioni db_owner a un nuovo utente del database
+## Concedere autorizzazioni db\_owner a un nuovo utente del database
 
-Usare la procedura seguente per concedere autorizzazioni db_owner a un utente del database esistente
+Usare la procedura seguente per concedere autorizzazioni db\_owner a un utente del database esistente
 
 Questa procedura presuppone che l'utente sia connesso al database SQL in Esplora oggetti con SSMS e al server logico del database SQL come amministratore entità di livello server o con un account utente con le autorizzazioni necessarie per concedere autorizzazioni utente.
 
@@ -16,8 +16,9 @@ Questa procedura presuppone che l'utente sia connesso al database SQL in Esplora
 
 3. Nella finestra della query modificare e usare l'istruzione Transact-SQL seguente per concedere le autorizzazioni dbo a un utente specificato.
 
-    '''ALTER ROLE db_owner ADD MEMBER user1;
+    ```ALTER ROLE db_owner ADD MEMBER user1;
+    ```
 
      ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

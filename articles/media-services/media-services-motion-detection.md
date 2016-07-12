@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Rilevare i movimenti con Analisi servizi multimediali di Azure
@@ -165,7 +165,7 @@ Quando si crea un'attività con **Rilevatore multimediale di movimento Azure**, 
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-1. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
+1. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente.
 					
 		{
 		    "version": "1.0"
@@ -351,4 +351,4 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

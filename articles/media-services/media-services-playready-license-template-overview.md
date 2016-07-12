@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Panoramica del modello di licenza PlayReady di Servizi multimediali
@@ -23,10 +23,10 @@ Servizi multimediali di Azure offre un servizio per la distribuzione di licenze 
 Servizi multimediali fornisce anche API che permettono di configurare le licenze PlayReady. Le licenze contengono i diritti e le limitazioni che il runtime di PlayReady DSM imporrà quando un utente cerca di riprodurre contenuto protetto. Di seguito sono disponibili alcuni esempi di limitazioni che possono essere specificate per le licenze PlayReady:
 
 - La data e l'ora di inizio della validità della licenza.
-- Valore DateTime di scadenza della licenza. 
+- Valore DateTime di scadenza della licenza.
 - Salvataggio della licenza in archivio permanente nel client. Le licenze permanenti vengono in genere usate per permettere la riproduzione offline del contenuto.
-- Il livello di sicurezza minimo che un lettore deve offrire per poter riprodurre il contenuto. 
-- Livello di protezione dell'output per i controlli output del contenuto audio/video. 
+- Il livello di sicurezza minimo che un lettore deve offrire per poter riprodurre il contenuto.
+- Livello di protezione dell'output per i controlli output del contenuto audio/video.
 - Per altre informazioni, vedere la sezione relativa ai controlli di output (3.5) nel documento relativo alle [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 >[AZURE.NOTE]È attualmente possibile configurare solo l'elemento PlayRight della licenza PlayReady. Si tratta di un diritto obbligatorio. PlayRight consente al client di riprodurre il contenuto. PlayRight consente inoltre di configurare le restrizioni per specificare la riproduzione. Per altre informazioni, vedere [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -311,4 +311,4 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

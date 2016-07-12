@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Creare un nuovo pool di database elastici con C&#x23;
@@ -28,9 +28,7 @@ Informazioni su come creare un [pool di database elastici](sql-database-elastic-
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
-
-Poiché negli esempi si usa la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), è necessario installarla. È possibile installarla con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
+Gli esempi seguenti usano la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), quindi, se non è ancora installata, è necessario installarla per proseguire. È possibile installare la libreria con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -81,13 +79,13 @@ Per spostare un database esistente in un pool, vedere [Spostare un database in u
 Questo esempio crea un nuovo gruppo di risorse di Azure, una nuova istanza del server di Azure SQL e un nuovo pool elastico.
  
 
-Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**
+Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere l'articolo [Ottenere l'ID client e la chiave per la connessione al database SQL dal codice](sql-database-client-id-keys.md). Usare il cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) per recuperare il valore per l'ID sottoscrizione.
+Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere la sezione di illustra come [registrare l'app e ottenere i valori client necessari per la connessione dell'app al database SQL](sql-database-client-id-keys.md). Usare il cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) per recuperare il valore per l'ID sottoscrizione.
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -251,4 +249,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

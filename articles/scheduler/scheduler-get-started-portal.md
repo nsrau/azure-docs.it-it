@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
@@ -21,7 +21,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 ## Creare un processo
 
-1.  Accedere al [portale di Azure](https://portal.azure.com/).  
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
 
 2.  Fare clic su **+Nuovo**, digitare _Utilità di pianificazione_ nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
 
@@ -29,7 +29,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 3.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
 
-    1.  **Nome:** `getmicrosoft`  
+    1.  **Nome:** `getmicrosoft`
 
     2.  **Sottoscrizione:** sottoscrizione di Azure
 
@@ -37,7 +37,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 4.  Successivamente, in **Impostazioni azione** definire i valori seguenti:
 
-    1.  **Tipo di azione:** ` HTTP`  
+    1.  **Tipo di azione:** ` HTTP`
 
     2.  **Metodo:** `GET`
 
@@ -63,7 +63,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
 
-1.  Proprietà  
+1.  Proprietà
 
 2.  Impostazioni azione
 
@@ -111,7 +111,7 @@ Offre la possibilità di compilare [pianificazioni complesse e operazioni ricorr
 
 La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
-1.  Stato  
+1.  Stato
 
 2.  Dettagli
 
@@ -182,4 +182,4 @@ Il controllo degli accessi in base al ruolo di Azure consente una gestione degli
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

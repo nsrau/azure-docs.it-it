@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -47,8 +47,8 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 - [Versione di agosto 2014](#august_changes_14)
 - [Versione di luglio 2014](#july_changes_14)
 - [Versione di maggio 2014](#may_changes_14)
-- [Versione di aprile 2014](#april_changes_14) 
-- [Versioni di gennaio/febbraio 2014](#jan_feb_changes_14) 
+- [Versione di aprile 2014](#april_changes_14)
+- [Versioni di gennaio/febbraio 2014](#jan_feb_changes_14)
 - [Versione di dicembre 2013](#december_changes_13)
 - [Versione di novembre 2013](#november_changes_13)
 - [Versione di agosto 2013](#august_changes_13)
@@ -189,7 +189,7 @@ Azure Media Services .NET SDK è ora disponibile nella versione 3.4.0.0. In ques
 L'SDK di Servizi multimediali di Azure per .NET è ora disponibile nella versione 3.3.0.0. In questa versione è stata aggiunta la seguente funzionalità:
 
 - supporto per la specifica di individuazione OpenId Connect
-- supporto per la gestione del rollover delle chiavi sul lato del provider di identità. 
+- supporto per la gestione del rollover delle chiavi sul lato del provider di identità.
 
 Se si usa un provider di identità che espone il documento di individuazione OpenID Connect (come i seguenti provider: Azure Active Directory, Google, Salesforce), è possibile fare in modo che Servizi multimediali di Azure ottenga le chiavi di firma per la convalida dei token JWT dalla specifica di individuazione OpenID Connect.
 
@@ -343,7 +343,7 @@ Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
 	
 	* È necessario avere la proprietà del nome di dominio personalizzato.
 	
-	* La proprietà del nome di dominio deve essere convalidata da Servizi multimediali di Azure. Per convalidare il dominio, creare un CName che mappi <MediaServicesAccountId>.<parent domain> a verifydns.<mediaservices-dns-zone>.
+	* La proprietà del nome di dominio deve essere convalidata da Servizi multimediali di Azure. Per convalidare il dominio, creare un record CName che esegue il mapping di <MediaServicesAccountId>.<parent domain> per verificare dns.<mediaservices-dns-zone>.
 	
 	* È necessario creare un altro oggetto CName che mappa il nome host personalizzato (ad esempio, sports.contoso.com) al nome host StreamingEndpont di Servizi multimediali (ad esempio, amstest.streaming.mediaservices.windows.net).
 
@@ -395,7 +395,7 @@ Nell'SDK di Servizi multimediali per .NET versione 3.0.0.5 sono stati introdotti
 
 * Miglioramenti nella gestione della logica di retry e delle eccezioni temporanee:
 
-	* Il rilevamento degli errori temporanei e la gestione della logica di retry sono stati migliorati per le eccezioni provocate dall'esecuzione di query, dal salvataggio delle modifiche, dal caricamento o dal download di file. 
+	* Il rilevamento degli errori temporanei e la gestione della logica di retry sono stati migliorati per le eccezioni provocate dall'esecuzione di query, dal salvataggio delle modifiche, dal caricamento o dal download di file.
 	
 	* Quando vengono generate eccezioni Web (ad esempio durante una richiesta di token ACS), si nota che ora gli errori irreversibili vengono gestiti più rapidamente.
 
@@ -430,7 +430,7 @@ Per altre informazioni su queste modifiche, vedere: [SDK di Servizi multimediali
 
 Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
-* Dipendenze dell'archiviazione di Azure aggiornate per usare la versione 3.0.3.0. 
+* Dipendenze dell'archiviazione di Azure aggiornate per usare la versione 3.0.3.0.
 
 * Problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.* risolto.
 
@@ -461,7 +461,7 @@ A partire da questa versione, l'SDK di Servizi multimediali per .NET gestisce gl
 
 I seguenti cmdlet di PowerShell per Servizi multimediali sono stati inclusi in [azure-sdk-tools].
 
-* Get-AzureMediaServices 
+* Get-AzureMediaServices
 
 	ad esempio `Get-AzureMediaServicesAccount`.
 
@@ -483,7 +483,7 @@ I seguenti cmdlet di PowerShell per Servizi multimediali sono stati inclusi in [
 
 Le modifiche citate in questa sezione sono aggiornamenti inclusi nelle versioni di Servizi multimediali di giugno 2013.
 
-* Possibilità di collegare più account di archiviazione a un account di Servizi multimediali. 
+* Possibilità di collegare più account di archiviazione a un account di Servizi multimediali.
 
 	StorageAccount
 	
@@ -665,4 +665,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

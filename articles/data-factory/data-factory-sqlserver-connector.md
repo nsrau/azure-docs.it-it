@@ -482,8 +482,8 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No |
-| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000)
+| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). | No |
+| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Integer | No (valore predefinito: 10000)
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
 | sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
 | sqlWriterStoredProcedureName | Nome della stored procedure che esegue l'upsert (aggiornamenti/inserimenti) nella tabella di destinazione. | Nome della stored procedure. | No |
@@ -492,20 +492,20 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 ## Risoluzione dei problemi di connessione
 
-1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare clic con il pulsante destro del mouse su **server** e quindi su **Proprietà**. Selezionare **Connessioni** dall'elenco e **Consenti connessioni remote al server**.
+1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare clic con il pulsante destro del mouse su **server** e quindi su **Proprietà**. Scegliere **Connessioni** dall'elenco e selezionare **Consenti connessioni remote al server**.
 
 	![Abilitare le connessioni remote](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
 	Per una procedura dettagliata, vedere [Configurare l'opzione di configurazione del server remote access](https://msdn.microsoft.com/library/ms191464.aspx).
-2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza desiderata e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/TP facendo clic con il pulsante destro del mouse su **TCP/IP** e scegliendo **Abilita**.
+2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza prevista e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/IP facendo clic con il pulsante destro del mouse su **TCP/IP** e scegliendo **Abilita**.
 
 	![Abilitare TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
 	Per informazioni dettagliate e modalità alternative di abilitazione del protocollo TCP/IP, vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx).
-3. Nella stessa finestra fare doppio clic su **TCP/IP** per avviare la finestra **Proprietà TCP/IP**.
+3. Nella stessa finestra fare doppio clic su **TCP/IP** per aprire la finestra **Proprietà TCP/IP**.
 4. Passare alla scheda **Indirizzi IP**. Scorrere verso il basso per vedere la sezione **IPAll**. Annotare la **Porta TCP**, il valore predefinito è **1433**.
-5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso tramite questa porta.  
-6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per connettersi a SQL Server con un nome completo. Ad esempio: <machine>.<domain>.corp.<company>.com,1433.
+5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso tramite questa porta.
+6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per connettersi a SQL Server con un nome completo. Ad esempio: <computer>.<dominio>.corp.<società>.com,1433.
 
 	> [AZURE.IMPORTANT]
 	Per informazioni dettagliate, vedere [Considerazioni su porte e sicurezza](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations).
@@ -646,4 +646,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

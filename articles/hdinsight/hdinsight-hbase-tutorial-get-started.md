@@ -66,7 +66,7 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 
 4. Fare clic su **Crea**.
 
->[AZURE.NOTE] Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso account di archiviazione predefinito e il contenitore di BLOB predefinito. Il nuovo cluster selezionerà le tabelle HBase create nel cluster originale.
+>[AZURE.NOTE] Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso account di archiviazione predefinito e il contenitore di BLOB predefinito. Il nuovo cluster selezionerà le tabelle HBase create nel cluster originale. Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
 
 ## Creare tabelle e inserire dati
 
@@ -163,7 +163,7 @@ Un file di dati di esempio è stato caricato in un contenitore BLOB pubblico, wa
 
 **Per aprire il dashboard cluster**
 
-1. Passare a **https://<HDInsight Cluster Name>.azurehdinsight.net/**.
+1. Passare a **https://<Nome cluster HDInsight>.azurehdinsight.net/**.
 5. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin** e la password corrisponde a quella immessa durante il processo di creazione. Si apre una nuova scheda del browser.
 6. Fare clic su **Editor Hive** nella parte superiore della pagina. L'editor Hive ha un aspetto simile a questo:
 
@@ -294,8 +294,7 @@ Per aprire l'interfaccia utente Web, è necessario effettuare una connessione RD
 In un cluster a disponibilità elevata, verrà visualizzato un collegamento al nodo master HBase attivo corrente che ospita l'interfaccia utente Web.
 
 ##Eliminazione del cluster
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster. [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## Passaggi successivi
@@ -335,4 +334,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="06/29/2016"
 	ms.author="mohisri"/>
 
 # App per le API del servizio app: Modifiche apportate
@@ -32,7 +32,7 @@ Le funzionalità di autenticazione di app per le API, servizi mobili o app per d
 
 Per gli scenari di API, sono disponibili varie nuove funzionalità:
 
-- **Supporto per l'uso diretto di Azure Active Directory**, senza la necessità di scambiare il token AAD con un token di sessione per il codice client. Il client può semplicemente includere i token AAD nell'intestazione dell'autorizzazione, in base alla specifica del token di connessione. Ciò significa che anche sul lato client o server non è necessario alcun SDK specifico del servizio app. 
+- **Supporto per l'uso diretto di Azure Active Directory**, senza la necessità di scambiare il token AAD con un token di sessione per il codice client. Il client può semplicemente includere i token AAD nell'intestazione dell'autorizzazione, in base alla specifica del token di connessione. Ciò significa che anche sul lato client o server non è necessario alcun SDK specifico del servizio app.
 - **Accesso da servizio a servizio o "interno"**: se un processo del daemon o un altro client deve accedere alle API senza un'interfaccia, è possibile richiedere un token usando un'entità servizio AAD e passarlo al servizio app per l'autenticazione nell'applicazione.
 - **Autorizzazione posticipata**: molte applicazioni presentano restrizioni di accesso differenti per diverse parti dell'applicazione. Alcune API potrebbero essere disponibili pubblicamente, mentre altre potrebbero richiedere l'accesso. La funzionalità di autenticazione/autorizzazione originale è all-or-nothing, con l'intero sito che richiede un account di accesso. Questa opzione esiste ancora, ma in alternativa è possibile consentire al codice dell'applicazione di eseguire il rendering di decisioni di accesso dopo che il servizio app ha autenticato l'utente.
  
@@ -85,13 +85,13 @@ Se l'API personalizzata viene distribuita in una versione di anteprima precedent
 I passaggi per la ridistribuzione sono gli stessi della distribuzione nel servizio app di qualsiasi API Web esistente. Passaggi:
 
 1. Creare un'app per le API vuota. Questa operazione può essere eseguita nel portale selezionando Nuovo > App per le API, dalla pubblicazione in Visual Studio o dagli strumenti di Gestione risorse. Se si usano gli strumenti o i modelli di Gestione risorse, impostare il valore del **tipo** su **api** nel tipo di risorsa **Microsoft.Web/sites** per orientare le guide introduttive e le impostazioni nel portale di gestione verso scenari di API.
-2. Connettere e distribuire il progetto nell'app per le API vuota usando uno dei meccanismi di distribuzione supportati dal servizio app. Per altre informazioni, vedere [Documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-sites-deploy.md). 
+2. Connettere e distribuire il progetto nell'app per le API vuota usando uno dei meccanismi di distribuzione supportati dal servizio app. Per altre informazioni, vedere [Documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-sites-deploy.md).
   
 ### Autenticazione
 I servizi di autenticazione del servizio app supportano le stesse funzionalità disponibili con il modello di app per le API precedente. Se si usano i token di sessione e sono necessari SDK, usare gli SDK di client e server indicati di seguito:
 
 - Client: [Azure Mobile Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Server: [pacchetto di estensione di Microsoft Azure Mobile .NET Server Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
+- Server: [pacchetto di estensione di Microsoft Azure Mobile .NET Server Authentication](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Se invece si usano gli SDK alfa del servizio app, gli SDK seguenti sono deprecati:
 
@@ -122,4 +122,4 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

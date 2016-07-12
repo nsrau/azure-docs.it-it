@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -30,4 +30,4 @@ Per ottenere subito altre informazioni, Guardare un video rapido su come [creare
 
 Per eventuali commenti, pubblicare le domande nei [forum di discussione](https://feedback.azure.com/forums/247748-azure-remoteapp/). Se si dispone di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum per commenti e suggerimenti](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

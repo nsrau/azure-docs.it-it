@@ -29,10 +29,10 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-	`VSX64RemoteDebuggerPath` è il percorso alla cartella contenente msvsmon.exe in Remote Tools per Visual Studio.
+	`VSX64RemoteDebuggerPath` è il percorso della cartella contenente msvsmon.exe in Remote Tools per Visual Studio. `RemoteDebuggerConnectorVersion` è la versione di Azure SDK nel servizio cloud. Deve corrispondere anche alla versione installata con Visual Studio.
 
 5. Eseguire la pubblicazione nel servizio cloud di destinazione usando il pacchetto e il file di configurazione (CSCFG) generato nel passaggio precedente.
-6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
+6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET. Assicurarsi di eseguire l'importazione nell'archivio certificati `CurrentUser\My`, in caso contrario il collegamento al debugger di Visual Studio avrà esito negativo.
 
 ## Abilitazione del debug remoto per le macchine virtuali
 
@@ -91,4 +91,4 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

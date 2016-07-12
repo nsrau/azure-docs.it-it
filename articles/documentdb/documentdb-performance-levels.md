@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/27/2016" 
 	ms.author="johnmac"/>
 
 # Livelli di prestazioni in DocumentDB
@@ -31,7 +31,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Per ogni raccolta di DocumentDB creata con un account standard viene eseguito il provisioning con un livello di prestazioni associato. Ogni raccolta in un database può avere un livello di prestazioni diverso, consentendo di designare una velocità effettiva maggiore per le raccolte a cui si accede di frequente e una minore velocità effettiva per le raccolte a cui si accede raramente. DocumentDB supporta sia livelli di prestazioni definiti dall'utente che livelli di prestazioni predefiniti.
 
-A ogni livello di prestazioni è associato un limite di velocità espresso in [unità richiesta (UR)](http://go.microsoft.com/fwlink/?LinkId=735027). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta.
+A ogni livello di prestazioni è associato un limite di velocità espresso in [unità richiesta (UR)](documentdb-request-units.md). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -97,29 +97,30 @@ Le raccolte di DocumentDB permettono di raggruppare i dati sulla base di modelli
 
 ## Modifica dei livelli di prestazioni tramite il portale di Azure
 
-Il portale di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni delle raccolte. Seguire questa procedura per modificare l'uso di livelli di prestazioni predefiniti sui livelli di prestazioni definiti dall'utente nel portale di Azure o guardare il [video di Channel 9](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance) della durata di 75 secondi. Per altre informazioni sulla modifica delle opzioni relative ai prezzi, vedere il post del blog [DocumentDB: Everything you need to know about using the new pricing options (DocumentDB: tutto quello che occorre sapere sull'uso delle nuove opzioni dei prezzi)](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
+Il portale di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni delle raccolte. Seguire questa procedura per passare da livelli di velocità effettiva predefiniti a livelli di velocità effettiva definiti dall'utente nel portale di Azure. L'uso di livelli di velocità effettiva definiti dall'utente permette di personalizzare la velocità effettiva in base alle esigenze. Se si usa un account S1, con pochi clic è possibile aumentare la velocità effettiva predefinita da 250 UR/sec a 400 UR/sec.
 
-1. Passare al [**portale di Azure**](https://portal.azure.com) dal browser.
-2. Fare clic su **Sfoglia** dalla barra di spostamento sul lato sinistro.
-3. Nello hub **Sfoglia**, fare clic su **account DocumentDB** sotto l’etichetta **filtrare in base a**.
-4. Nel pannello **account DocumentDB**, fare clic sull'account DocumentDB che contiene la raccolta desiderata.
-5. Nel pannello **account DocumentDB**, scorrere fino a visualizzare la lente **database** e fare clic sul database che contiene la raccolta desiderata. 
-6. Nel pannello **Database** appena aperto, scorrere fino a visualizzare la lente **raccolte** e selezionare la raccolta desiderata.
-7. Nel pannello **Gestisci raccolta** fare clic su **Piano tariffario**.
+Per altre informazioni sulle modifiche ai prezzi della velocità effettiva definita dall'utente e predefinita, vedere il post del blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (DocumentDB: tutto quello che occorre sapere sull'uso delle nuove opzioni relative ai prezzi).
 
-    ![Screenshot dei pannelli Gestisci raccolta e Scegliere il piano tariffario per Azure DocumentDB che mostrano dove modificare il piano tariffario per la raccolta][1]
+> [AZURE.VIDEO changedocumentdbcollectionperformance]
 
-8. Nel pannello **Scegliere il piano tariffario** selezionare **Standard**.
+1. Nel browser passare al [**portale di Azure**](https://portal.azure.com).
+2. Fare clic su **Esplora** -> **Account DocumentDB** e quindi selezionare l'account DocumentDB da modificare.
+3. Selezionare il database da modificare nella sezione **Database** e quindi selezionare la raccolta da modificare nel pannello **Database**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.
 
-9. Nel pannello **Scegliere il piano tariffario** fare clic su **Seleziona**.
+      ![Screenshot del nuovo pannello Database con una raccolta S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-10. Nel pannello **Gestisci raccolta** il **Piano tariffario** è stato modificato in **Standard** e viene visualizzata la casella **Velocità effettiva (UR/sec)**.
+4. Nel pannello **Raccolte** fare clic su **Impostazioni** nella barra superiore.
+5. Nel pannello **Impostazioni** fare clic su **Piano tariffario**. La stima dei costi mensili per ogni piano viene visualizzata nel pannello **Scegliere il piano tariffario**. Per passare alla velocità effettiva definita dall'utente, fare clic su **Standard** e quindi fare clic su **Seleziona** per salvare la modifica.
 
-    Modificare la **Velocità effettiva** specificando nella casella un valore compreso tra 400 e 10.000 [unità richiesta](documentdb-request-units.md) al secondo (UR/sec). Il **Riepilogo dei prezzi** nella parte inferiore della pagina si aggiorna automaticamente per fornire una stima del costo mensile.
+      ![Screenshot dei pannelli Impostazioni e Scegliere il piano tariffario di DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-    ![Screenshot del pannello Gestisci raccolta che mostra dove modificare il valore della velocità effettiva per la raccolta][2]
+6. Nel pannello **Impostazioni** il **Piano tariffario** passa a **Standard** e la casella **Velocità effettiva (UR/sec)** riporta un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](documentdb-request-units.md) al secondo (UR/sec). Il **Riepilogo dei prezzi** nella parte inferiore della pagina si aggiorna automaticamente per fornire una stima del costo mensile. Fare clic su **OK** per salvare le modifiche.
+    
+	![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-9. Nel pannello **Gestisci raccolta** fare clic su **OK** per aggiornare la raccolta con le prestazioni definite dall'utente.
+7. Nel pannello **Database** è possibile verificare la nuova velocità effettiva della raccolta.
+
+	![Screenshot del pannello Database con la raccolta modificata](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
 Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per creare una raccolta partizionata, vedere l'articolo relativo alla [creazione di una raccolta](documentdb-create-collection.md).
 
@@ -159,14 +160,14 @@ Visitare [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 - [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 - [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
+- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
 ## Passaggi successivi
 
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
  
 - [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-- [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md) 
+- [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md)
 - [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
 - [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md)
 - [Unità richiesta](http://go.microsoft.com/fwlink/?LinkId=735027)
@@ -178,4 +179,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

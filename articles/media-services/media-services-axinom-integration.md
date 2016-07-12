@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"   
+	ms.date="06/22/2016"   
 	ms.author="willzhan;Mingfeiy;rajputam;Juliako"/>
 
 #Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure  
@@ -45,7 +45,7 @@ Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi
 È possibile configurare la protezione CENC dinamica con DRM multiplo per lo streaming DASH in modo che includa gli elementi seguenti:
 
 1. Protezione PlayReady per Microsoft Edge e IE11, che potrebbero presentare restrizioni relative all'autorizzazione con token. I criteri con restrizione token devono essere associati a un token emesso da un servizio token di sicurezza, ad esempio Azure Active Directory.
-1. Protezione Widevine per Chrome. Può richiedere l'autenticazione con token tramite token emessi da un altro servizio token di sicurezza. 
+1. Protezione Widevine per Chrome. Può richiedere l'autenticazione con token tramite token emessi da un altro servizio token di sicurezza.
 
 Per informazioni sui motivi per cui non è possibile usare Azure Active Directory come servizio token di sicurezza per il server licenze Widevine di Axinom, vedere [Generazione di token JWT](media-services-axinom-integration.md#jwt-token-generation).
 
@@ -209,4 +209,4 @@ ID della chiave del contenuto|Deve essere incluso come parte del valore del recl
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan, e Amit Rajput.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -20,7 +20,7 @@
 
 Sono disponibili due tipi di raccolte Azure RemoteApp:
 
-- Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.   
+- Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.
 - Ibrida: include una rete virtuale per l'accesso in locale - è necessario l'uso di Azure Active Directory e un ambiente Active Directory locale.
 
 Non si sa cosa è necessario? Vedere [Tipo di raccolta necessario per RemoteApp di Azure](remoteapp-collections.md).
@@ -112,7 +112,7 @@ Se si crea un collegamento a un'immagine modello esistente, è sufficiente speci
 
 RemoteApp di Azure richiede l'integrazione con Azure Active Directory 1) configurando Azure Active Directory Sync con l'opzione Sincronizzazione password o 2) configurando Azure Active Directory Sync senza l'opzione Sincronizzazione password ma usando un dominio federato ad ADFS.
 
-Consultare [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - questo articolo consente di impostare l'integrazione di directory in 4 passaggi.
+Consultare [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) - questo articolo consente di impostare l'integrazione di directory in 4 passaggi.
 
 Per informazioni sulla pianificazione e le procedure dettagliate, vedere [Roadmap sulla sincronizzazione della directory](http://msdn.microsoft.com//library/azure/hh967642.aspx).
 
@@ -149,4 +149,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stat
 ### Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

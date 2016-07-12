@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare un'applicazione Active Directory con l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Descrive come usare l'interfaccia della riga di comando di Azure per creare un'applicazione Active Directory e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con una password o un certificato."
+   pageTitle="Creare un'entità servizio con l'interfaccia della riga di comando di Azure | Microsoft Azure"
+   description="Descrive come usare l'interfaccia della riga di comando di Azure per creare un'applicazione Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con una password o un certificato."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Usare l'interfaccia della riga di comando di Azure per creare un'applicazione Active Directory per l'accesso alle risorse
+# Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -149,7 +149,7 @@ In questa sezione si eseguiranno i passaggi per creare un'entità servizio per u
 Nello script si passeranno tre valori necessari per accedere come entità servizio. Saranno necessari:
 
 - ID applicazione
-- tenant id 
+- tenant id
 - Identificazione personale del certificato
 
 L'ID applicazione e l'identificazione personale del certificato sono stati visualizzati nei passaggi precedenti. Tuttavia, se occorre recuperare questi valori in un secondo momento, di seguito sono visualizzati i comandi necessari, insieme al comando per ottenere l'ID tenant.
@@ -183,10 +183,10 @@ A questo punto è stata eseguita l'autenticazione come entità servizio per l'ap
 ## Passaggi successivi
   
 - Per esempi di autenticazione .NET, vedere [Azure Resource Manager SDK per .NET](resource-manager-net-sdk.md).
-- Per esempi di autenticazione Java, vedere [Azure Resource Manager SDK per Java](resource-manager-java-sdk.md). 
+- Per esempi di autenticazione Java, vedere [Azure Resource Manager SDK per Java](resource-manager-java-sdk.md).
 - Per esempi di autenticazione Python, vedere l'articolo relativo all'[autenticazione di gestione risorse per Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
 - Per esempi di autenticazione REST, vedere [API REST di Resource Manager](resource-manager-rest-api.md).
 - Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
-- Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere il blog relativo all'[autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) 
+- Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere il blog relativo all'[autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

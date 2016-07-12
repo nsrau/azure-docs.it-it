@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare un'applicazione di Active Directory nel portale | Microsoft Azure"
+   pageTitle="Creare un'entità servizio nel portale | Microsoft Azure"
    description="Descrive come creare una nuova applicazione ed entità servizio di Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,13 @@
    ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse
+# Usare il portale per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
+- [Portale](resource-group-create-service-principal-portal.md)
+
 
 Quando un processo automatico o un'applicazione devono accedere alle risorse o modificarle, è necessario configurare un'applicazione di Active Directory cui assegnare le autorizzazioni richieste. Questo argomento illustra come eseguire questa procedura tramite il portale. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory e quindi passare al portale di Azure per assegnare un ruolo all'applicazione.
 
@@ -25,9 +31,9 @@ Sono disponibili due opzioni di autenticazione per l'applicazione di Active Dire
 1. Creare un ID e una chiave di autenticazione per l'applicazione, quindi specificare tali credenziali quando viene eseguita l'applicazione. Usare questa opzione per i processi automatizzati che vengono eseguiti senza interazione dell'utente.
 2. Consentire agli utenti di accedere ad Azure tramite l'applicazione e quindi usare quelle credenziali per accedere alle risorse per conto dell'utente. Usare questa opzione per le applicazioni eseguite dagli utenti.
 
-Per una spiegazione dei concetti di Active Directory, vedere [Oggetti applicazione e oggetti entità servizio](./active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Per una spiegazione dei concetti relativi ad Active Directory, vedere [Oggetti applicazione e oggetti entità servizio](./active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
+Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Creare un'applicazione di Active Directory
 
@@ -61,11 +67,11 @@ Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per l
 
      ![nuova applicazione](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Specificare un nome per l'applicazione e selezionare il tipo di applicazione che si vuole creare. Per questa esercitazione, creare un'**APPLICAZIONE WEB O UN'API WEB** e fare clic sul pulsante per continuare. Se si seleziona **APPLICAZIONE CLIENT NATIVA**, i rimanenti passaggi di questo articolo non corrisponderanno a quanto verrà visualizzato per l'utente.
+6. Specificare un nome per l'applicazione e selezionare il tipo di applicazione che si vuole creare. Per questa esercitazione, creare un'**APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante per continuare. Se si seleziona **APPLICAZIONE CLIENT NATIVA**, i rimanenti passaggi di questo articolo non corrisponderanno a quanto verrà visualizzato per l'utente.
 
      ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Compilare le proprietà per l'app. Per **URL ACCESSO**, specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione.
+7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI per un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione.
 
      ![proprietà dell'applicazione](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -97,7 +103,7 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
 
 ## Ottenere l'ID tenant
 
-Quando si esegue l'accesso a livello di codice, è necessario specificare l'ID tenant con la richiesta di autenticazione. Per le App Web e le app per le API Web, è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
+Quando si esegue l'accesso a livello di codice, è necessario specificare l'ID tenant con la richiesta di autenticazione. Per le app Web e le app per le API Web, è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
@@ -115,11 +121,11 @@ Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessa
 
 1. Selezionare **Aggiungi applicazione**.
 
-2. Nell'elenco selezionare **API di gestione del servizio Microsoft Azure**. Quindi, fare clic sull'icona di completamento.
+2. Nell'elenco selezionare **API Gestione dei servizi di Azure**. Quindi, fare clic sull'icona di completamento.
 
       ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. In Autorizzazioni delegate scegliere l'elenco a discesa e selezionare **Access Azure Service Management as organization** (Accedi alla gestione dei servizi Azure come organizzazione).
+3. Nell'elenco a discesa relativo alle autorizzazioni delegate selezionare **Access Azure Service Management as organization** (Accedi alla gestione dei servizi Azure come organizzazione).
 
       ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -163,7 +169,7 @@ Se l'applicazione viene eseguita con le proprie credenziali, è necessario asseg
 
      ![mostrare](./media/resource-group-create-service-principal-portal/show-app.png)
 
-Per ulteriori informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Gestire gli accessi tramite il portale di gestione di Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Per ulteriori informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Gestire gli accessi tramite il portale di gestione di Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Ottenere token di accesso nel codice
 
@@ -176,11 +182,11 @@ A questo punto è possibile eseguire l'accesso a livello di codice dell'applicaz
 - Per esempi di Python, vedere [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Autenticazione gestione risorse per Python).
 - Per esempi di REST, vedere [API REST di Resource Manager](resource-manager-rest-api.md).
 
-Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori sull'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
+Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Passaggi successivi
 
-- Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).  
+- Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

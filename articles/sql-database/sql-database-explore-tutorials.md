@@ -74,7 +74,7 @@ Le esercitazioni seguenti mostrano come ottimizzare le [prestazioni di singoli d
 |---|---|---|
 | [Modificare il livello di servizio e il livello delle prestazioni del database](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | Questa esercitazione mostra come aumentare o ridurre le prestazioni di un database SQL di Azure usando i livelli di servizio. |
 | [Informazioni dettagliate prestazioni query di SQL Database Advisor](sql-database-performance.md#performance-overview) | Questa esercitazione mostra come aprire e usare la funzionalità Informazioni dettagliate prestazioni query di SQL Database Advisor.|
-| [Raccomandazioni sulle prestazioni di SQL Database Advisor](sql-database-index-advisor.md#viewing-recommendations) | Questa esercitazione spiega come visualizzare e applicare le raccomandazioni sulle prestazioni di SQL Database Advisor. |
+| [Raccomandazioni sulle prestazioni di SQL Database Advisor](sql-database-advisor.md#viewing-recommendations) | Questa esercitazione spiega come visualizzare e applicare le raccomandazioni sulle prestazioni di SQL Database Advisor. |
 | [Esaminare le query principali a livello di utilizzo di CPU](sql-database-query-performance.md#review-top-cpu-consuming-queries)| Questa esercitazione mostra come aprire e usare la funzionalità Informazioni dettagliate prestazioni query di SQL Database Advisor per esaminare le query con il maggior utilizzo di CPU.|
 | [Visualizzazione dei dettagli delle singole query](sql-database-query-performance.md#viewing-individual-query-details)| Questa esercitazione mostra come aprire e usare la funzionalità Informazioni dettagliate prestazioni query di SQL Database Advisor per esaminare i dettagli delle prestazioni delle singole query.|
 ||||
@@ -180,4 +180,4 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 
 [Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

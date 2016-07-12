@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/24/2016" 
 	ms.author="sdanie"/>
 
 
@@ -44,15 +44,15 @@ La memorizzazione nella cache basata su istanze del ruolo presenta i vantaggi se
 
 -	Non è previsto alcun addebito per la memorizzazione nella cache. Viene addebitato solo l'utilizzo delle risorse di elaborazione che ospitano la cache.
 -	Elimina le quote e la limitazione della cache.
--	Offre maggiore controllo e isolamento. 
+-	Offre maggiore controllo e isolamento.
 -	Prestazioni migliorate.
 -	Le cache vengono dimensionate automaticamente in base all'aumento o alla riduzione dei ruoli. Aumenta o riduce efficacemente la memoria disponibile per la memorizzazione nella cache quando vengono aggiunte o rimosse istanze del ruolo.
--	Garantisce la completa fedeltà del debug in fase di sviluppo. 
+-	Garantisce la completa fedeltà del debug in fase di sviluppo.
 -	Supporta il protocollo memcache.
 
 La memorizzazione delle istanze del ruolo nella cache offre inoltre le opzioni configurabili seguenti:
 
--	Configurazione di un ruolo dedicato per la memorizzazione nella cache o memorizzazione nella cache basata su ruoli esistenti con risorse condivise. 
+-	Configurazione di un ruolo dedicato per la memorizzazione nella cache o memorizzazione nella cache basata su ruoli esistenti con risorse condivise.
 -	Disponibilità della cache per più client nella stessa distribuzione del servizio cloud.
 -	Creazione di più cache denominate con proprietà diverse.
 -	Configurazione facoltativa della disponibilità elevata su singole cache.
@@ -413,4 +413,4 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

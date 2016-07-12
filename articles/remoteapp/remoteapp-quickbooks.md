@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/05/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 
@@ -29,9 +29,9 @@ Usare le informazioni seguenti per la condivisione di QuickBooks come app in Azu
 ## Passaggi per distribuire QuickBooks
 
 1. Creare una macchina virtuale di Azure e installare QuickBooks e il server di database QuickBooks, quindi inserire il file della società in una macchina virtuale di Azure. Assicurarsi di configurare correttamente le regole del firewall.
-2. Installare QuickBooks in un'[immagine personalizzata](remoteapp-imageoptions.md) e creare una [raccolta di Azure RemoteApp](remoteapp-collections.md), cloud o ibrida, esattamente nella stessa rete virtuale in cui risiede la macchina virtuale che ospita il server di database QuickBooks con i file della società. 
+2. Installare QuickBooks in un'[immagine personalizzata](remoteapp-imageoptions.md) e creare una [raccolta di Azure RemoteApp](remoteapp-collections.md), cloud o ibrida, esattamente nella stessa rete virtuale in cui risiede la macchina virtuale che ospita il server di database QuickBooks con i file della società.
 3.	Rendere [pubblica](remoteapp-publish.md) l'app QuickBooks agli utenti.
-4.	Avviare il client QuickBooks ospitato in Azure RemoteApp, passare tramite reti Windows standard alla macchina virtuale che ospita il server di database QuickBooks e aprire il file della società. 
+4.	Avviare il client QuickBooks ospitato in Azure RemoteApp, passare tramite reti Windows standard alla macchina virtuale che ospita il server di database QuickBooks e aprire il file della società.
 
 ## Riferimenti di documentazione
 
@@ -44,4 +44,4 @@ Usare le informazioni seguenti per la condivisione di QuickBooks come app in Azu
 
 ![QuickBooks + distribuzione di Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

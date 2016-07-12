@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="micurd"/>
+	ms.date="06/24/2016"
+	ms.author="robmcm"/>
 
 
 # Come usare l'archiviazione di accodamento da Node.js
@@ -325,4 +325,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

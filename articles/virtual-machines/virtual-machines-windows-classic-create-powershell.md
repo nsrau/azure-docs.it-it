@@ -26,7 +26,7 @@
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-ps-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-windows-ps-create.md).
 
 
 In questi passaggi viene illustrato come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows tramite un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
@@ -37,14 +37,14 @@ Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argo
 
 ## Passaggio 1: Aggiungere l'account
 
-1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**. 
-2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**. 
-3. Digitare la password per l'account. 
+1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**.
+2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**.
+3. Digitare la password per l'account.
 4. Fare clic su **Accedi**.
 
 ## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
 
-Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -82,7 +82,7 @@ Se si trova l'immagine corretta con questo comando, aprire una nuova istanza del
 
 ## Passaggio 4: compilare il set di comandi
 
-Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in ISE, quindi compilando i valori delle variabili e rimuovendo i caratteri < and >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
+Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in ISE, quindi compilare i valori delle variabili rimuovendo i caratteri < e >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
 Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
 
@@ -168,7 +168,7 @@ Opzione 2: creare la macchina virtuale in un servizio cloud e in una rete virtua
 
 ## Passaggio 5: eseguire il set di comandi
 
-Rivedere il set di comandi di Azure PowerShell compilato nell'editor di testo o in PowerShell ISE costituito da più blocchi di comandi del passaggio 4. Assicurarsi di aver specificato tutte le variabili necessarie e che siano presenti i valori corretti. Assicurarsi inoltre che siano stati rimossi tutti i caratteri < and >.
+Rivedere il set di comandi di Azure PowerShell compilato nell'editor di testo o in PowerShell ISE costituito da più blocchi di comandi del passaggio 4. Assicurarsi di aver specificato tutte le variabili necessarie e che siano presenti i valori corretti. Assicurarsi inoltre che siano stati rimossi tutti i caratteri < e >.
 
 Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Windows PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il comando set in PowerShell ISE.
 
@@ -260,4 +260,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

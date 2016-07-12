@@ -21,7 +21,7 @@
 
 Esistono molti fattori che influiscono sulle prestazioni di MySQL in Azure, sia nella selezione dell'hardware virtuale sia nella configurazione software. Questo articolo è incentrato sull'ottimizzazione delle prestazioni tramite la configurazione dell'archiviazione, del sistema e del database.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Usare RAID in una macchina virtuale di Azure
@@ -105,7 +105,7 @@ Linux implementa quattro tipi di algoritmi di pianificazione di I/O:
 -	Algoritmo NOOP (Nessuna operazione)
 -	Algoritmo di scadenza (Scadenza)
 -	Algoritmo di accodamento pienamente equo (CFQ, Completely fair queuing)
--	Algoritmo del periodo di budget (Anticipatorio)  
+-	Algoritmo del periodo di budget (Anticipatorio)
 
 Per ottimizzare le prestazioni è possibile selezionare diverse utilità di pianificazione di I/O in scenari diversi. In un ambiente ad accesso completamente casuale non esiste una differenza significativa tra gli algoritmi CFQ e di scadenza a livello di prestazioni. In genere, è consigliabile impostare l'ambiente del database MySQL sull'algoritmo di scadenza per maggiore stabilità. Se è presente un I/O sequenziale considerevole, l'algoritmo CFQ può ridurre le prestazioni di I/O del disco.
 
@@ -208,7 +208,7 @@ Per configurare MySQL in Azure è possibile usare la stessa strategia di ottimiz
 Le principali regole di ottimizzazione di I/O sono:
 
 -	Aumentare la dimensione della cache.
--	Ridurre il tempo di risposta di I/O.  
+-	Ridurre il tempo di risposta di I/O.
 
 Per ottimizzare le impostazioni del server MySQL, è possibile aggiornare il file my.cnf, ovvero il file di configurazione predefinito per i computer server e client.
 
@@ -220,7 +220,7 @@ I seguenti elementi di configurazione sono i principali fattori che influiscono 
 -	**Innodb\_file\_per\_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br> Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
 -	**innodb\_flush\_log\_at\_trx\_commit**: il valore predefinito è 1, con l'ambito impostato su 0~2. Il valore predefinito è l'opzione più adatta per il database MySQL come pacchetto autonomo. Se impostato su 2, il valore assicura la massima integrità dei dati ed è appropriato per il server Master nel cluster MySQL. Se impostato su 0, il valore tollera la perdita di dati e questo può influire sulla affidabilità, garantendo in alcuni casi prestazioni migliori. Il valore 0 è appropriato per il server Slave nel cluster MySQL.
 -	**Innodb\_log\_buffer\_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà usata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb\_log\_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
--	**query\_cache\_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query\_cache\_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
+-	**query\_cache\_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query\_cache\_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.
 
 Vedere [Appendice D](#AppendixD) per il confronto delle prestazioni dopo l'ottimizzazione.
 
@@ -348,4 +348,4 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 [13]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

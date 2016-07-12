@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso TeamSeer** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://www.teamseer.com/companyid*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso TeamSeer** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://www.teamseer.com/companyid*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configura URL app")
 

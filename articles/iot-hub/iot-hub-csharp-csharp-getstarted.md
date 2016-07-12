@@ -229,11 +229,11 @@ Questa esercitazione illustra i passaggi per creare un client per dispositivi de
 
 A questo punto è possibile eseguire le applicazioni.
 
-1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli** e quindi selezionare **Avvio** come azione per i progetti **ProcessDeviceToCloudMessages** e **SimulatedDevice**.
+1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli** e quindi selezionare **Avvio** come azione per entrambi i progetti **ReadDeviceToCloudMessages** e **SimulatedDevice**.
 
    	![Proprietà del progetto di avvio][41]
 
-2.	Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dal dispositivo simulato all'hub IoT. L'output della console dall'app **ProcessDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
+2.	Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dal dispositivo simulato all'hub IoT. L'output della console dall'app **ReadDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
 
    	![Output della console dalle app][42]
 
@@ -277,4 +277,4 @@ In questa esercitazione è stato configurato un nuovo hub IoT nel portale ed è 
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

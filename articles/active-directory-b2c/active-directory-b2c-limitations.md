@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
@@ -24,7 +24,7 @@ Nel periodo di anteprima di Azure Active Directory (Azure AD) B2C molte funziona
 
 ## Problemi durante la creazione di tenant di Azure AD B2C
 
-Se si verificano problemi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started), vedere [Creazione di un Tenant di Azure AD o di un Tenant di Azure AD B2C - Problemi e risoluzioni](active-directory-b2c-support-create-directory.md) per istruzioni.
+Se si verificano problemi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started.md), vedere [Creazione di un tenant Azure Active Directory (Azure AD) o di un tenant Azure AD B2C: problemi e soluzioni](active-directory-b2c-support-create-directory.md) per istruzioni.
 
 ## Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 
@@ -70,11 +70,15 @@ L'anteprima di Azure AD B2C supporta OpenID Connect e OAuth 2.0. Tuttavia, non t
 
 Molti dei token generati dall'anteprima di Azure AD B2C vengono implementati come token JWT (token Web JSON). Tuttavia, non tutte le informazioni contenute in JWT (note come "attestazioni") sono come dovrebbero essere o sono presenti, ad esempio le attestazioni "sub" e "preferred\_username". In questo ambito si potranno riscontrare diversi cambiamenti durante la fase di anteprima. Per comprendere meglio i token attualmente generati dal servizio Azure AD B2C, leggere il [riferimento ai token](active-directory-b2c-reference-tokens.md).
 
+## Restrizioni relative ai gruppi annidati
+
+L'appartenenza a gruppi annidati non è supportata nei tenant di Azure AD B2C. L'aggiunta di questa funzionalità non è prevista.
+
 ## Problemi relativi alla gestione degli utenti nel portale di Azure classico
 
-Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usare il portale di Azure classico per accedere ad altre funzionalità del tenant, compresa la gestione degli utenti. Attualmente sono stati rilevati alcuni problemi relativi alla gestione degli utenti (scheda **Utenti**) nel portale di Azure classico.
+Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usare il portale di Azure classico per accedere ad altre funzionalità del tenant, compresa la gestione degli utenti. Esistono alcuni problemi noti relativi alla gestione degli utenti, ovvero la scheda **Utenti** del portale di Azure classico:
 
-- Per un utente di account locale (ad esempio, un utente iscritto con indirizzo di posta elettronica e password o con nome utente e password), il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure classico è il nome dell'entità utente, che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
+- Per un utente di account locale, ad esempio un utente iscritto con indirizzo di posta elettronica e password o con nome utente e password, il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure classico è il nome dell'entità utente, che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
 
     ![Account locale - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
@@ -82,21 +86,21 @@ Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usar
 
 ## Problemi relativi alla reimpostazione della password avviata dall'amministratore nel portale di Azure classico
 
-Se si reimposta la password per un cliente con account locale nel portale di Azure classico (comando **Reimposta password** nella scheda **Utenti**), il cliente non sarà in grado di modificare la propria password all'accesso successivo e sarà bloccato dall'accesso alle applicazioni. Stiamo lavorando su correzione del problema. In alternativa, utilizzare l’[API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) per reimpostare la password del consumer.
+Se si reimposta la password per un utente con account locale nel portale di Azure classico (comando **Reimposta password** nella scheda **Utenti**), l'utente non riuscirà a modificare la password all'accesso successivo, se si usa un criterio di iscrizione o accesso, e non potrà accedere alle applicazioni. Stiamo lavorando su correzione del problema. Come soluzione alternativa usare l'[API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) per reimpostare la password dell'utente senza scadenza della password o usare un criterio di accesso al posto di un criterio di iscrizione o accesso.
 
-## Restrizioni relative all'eliminazione di tenant di Azure AD B2C
+## Problemi nella creazione di un attributo personalizzato
 
-Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure classico.
+Un [attributo personalizzato aggiunto nel portale di Azure](active-directory-b2c-reference-custom-attr.md) non viene creato immediatamente nel tenant di B2C. Sarà necessario usare l'attributo personalizzato in almeno uno dei criteri prima che venga creato nel tenant di B2C e diventi disponibile tramite l'API Graph.
 
 ## Problemi relativi alla verifica di un dominio nel portale di Azure classico
 
-Attualmente non è possibile verificare correttamente un dominio nel [portale di Azure classico](https://manage.windowsazure.com/). Microsoft sta lavorando per trovare una soluzione.
+Non è attualmente possibile verificare correttamente un dominio nel [portale di Azure classico](https://manage.windowsazure.com/). Microsoft sta lavorando per trovare una soluzione.
 
 ## Problemi di accesso con i criteri MFA nei browser Safari
 
 Le richieste ai criteri di accesso, con autenticazione MFA attivata, hanno esito negativo a intermittenza nei browser Safari con errori HTTP 400 (richiesta non valida). Il problema è dovuto al fatto che in Safari i limiti per le dimensioni dei cookie sono bassi e può essere risolto in due modi:
 
 - Usare un criterio di "iscrizione o accesso" anziché un criterio di "accesso".
-- Ridurre il numero di **attestazioni applicazione** richieste nel criterio. 
+- Ridurre il numero di **attestazioni applicazione** richieste nel criterio.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

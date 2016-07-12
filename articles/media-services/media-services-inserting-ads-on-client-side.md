@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -89,7 +89,7 @@ Un file VAST specifica gli annunci da visualizzare. Il codice XML seguente è un
 	  </Ad>
 	</VAST>
 	
-L'annuncio lineare viene descritto dall'elemento **<Linear>**. Specifica la durata dell'annuncio, gli eventi di rilevamento, il clickthrough, il monitoraggio dei clic e alcuni elementi **<MediaFile>**. Gli eventi di rilevamento vengono specificati entro l'elemento **<TrackingEvents>** e permette a un server di annunci di rilevare diversi elementi che si verificano durante la visualizzazione dell'annuncio. In questo caso vengono rilevati gli eventi iniziali, intermedi, di completamento e di espansione. L'evento iniziale si verifica quando l'annuncio viene visualizzato. L'evento intermedio si verifica quando è stato visualizzato almeno il 50% della sequenza temporale dell'annuncio. L'evento di completamento si verifica quando l'esecuzione dell'annuncio è stata completata. L'evento di espansione di verifica quando l'utente espande il lettore video visualizzandolo a schermo intero. I clickthrough vengono specificati con un elemento **<ClickThrough>** entro un elemento **<VideoClicks>** e specifica un URI per una risorsa da visualizzare quando l'utente fa clic sull'annuncio. Il monitoraggio dei clic viene specificato in un elemento **<ClickTracking>**, incluso in un elemento **<VideoClicks>**, e specifica una risorsa di rilevamento che il lettore può richiedere quando l'utente fa clic sull'annuncio. Gli elementi **<MediaFile>** specificano informazioni su una codifica specifica di un annuncio. Quando sono presenti più elementi **<MediaFile>**, il lettore video può scegliere la codifica migliore per la piattaforma.
+L'annuncio lineare viene descritto dall'elemento **<Linear>**. Specifica la durata dell'annuncio, gli eventi di rilevamento, il clickthrough, il monitoraggio dei clic e alcuni elementi **<MediaFile>**. Gli eventi di rilevamento vengono specificati entro l'elemento **<TrackingEvents>** e permette a un server di annunci di rilevare diversi elementi che si verificano durante la visualizzazione dell'annuncio. In questo caso vengono rilevati gli eventi iniziali, intermedi, di completamento e di espansione. L'evento iniziale si verifica quando l'annuncio viene visualizzato. L'evento intermedio si verifica quando è stato visualizzato almeno il 50% della sequenza temporale dell'annuncio. L'evento di completamento si verifica quando l'esecuzione dell'annuncio è stata completata. L'evento di espansione di verifica quando l'utente espande il lettore video visualizzandolo a schermo intero. I clickthrough vengono specificati con un elemento **<ClickThrough>** entro un elemento **<VideoClicks>** e specifica un URI per una risorsa da visualizzare quando l'utente fa clic sull'annuncio. Il monitoraggio dei clic viene specificato in un elemento **<ClickTracking>**, incluso in un elemento **<VideoClicks>** e specifica una risorsa di rilevamento che il lettore può richiedere quando l'utente fa clic sull'annuncio. Gli elementi **<MediaFile>** specificano informazioni su una codifica specifica di un annuncio. Quando sono presenti più elementi **<MediaFile>**, il lettore video può scegliere la codifica migliore per la piattaforma.
 
 Gli annunci lineari possono essere visualizzati in un ordine specifico. A tale scopo, aggiungere altri elementi <Ad> al file VAST e specificare l'ordine usando l'attributo di sequenza. L'esempio seguente illustra questi concetti.
 	
@@ -152,7 +152,7 @@ Anche gli annunci non lineari vengono specificati in un elemento <Creative>. L'e
 	</Creative>
 
  
-L'elemento **<NonLinearAds>** può contenere uno o più elementi **<NonLinear>**, ognuno dei quali può descrivere un annuncio non lineare. L'elemento **<NonLinear>** specifica la risorsa per l'annuncio non lineare. La risorsa può essere un elemento **<StaticResouce>**, **<IFrameResource>** o **<HTMLResouce>**.**<StaticResource>** descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
+L'elemento **<NonLinearAds>** può contenere uno o più elementi **<NonLinear>**, ognuno dei quali può descrivere un annuncio non lineare. L'elemento **<NonLinear>** specifica la risorsa per l'annuncio non lineare. La risorsa può essere un elemento **<StaticResouce>**, **<IFrameResource>** o **<HTMLResouce>**. **<StaticResource>** descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
 
 Image/gif, image/jpeg, image/png: la risorsa viene visualizzata in un tag HTML **<img>**.
 
@@ -160,9 +160,9 @@ Application/x-javascript: la risorsa viene visualizzata in un tag HTML <**script
 
 Application/x-shockwave-flash: la risorsa viene visualizzata in un lettore Flash.
 
-**<IFrameResource>** descrive una risorsa HTML che può essere visualizzata in un IFrame. **<HTMLResource>** descrive una parte di codice HTML che può essere inserita in una pagina Web. **<TrackingEvents>** specifica gli eventi di rilevamento e l'URI da richiedere quando si verifica un evento. In questo esempio vengono rilevati gli eventi acceptInvitation e collapse. Per altre informazioni sull'elemento **<NonLinearAds>** e i rispettivi figli, vedere IAB.NET/VAST. Si noti che l'elemento **<TrackingEvents>** si trova entro l'elemento** <NonLinearAds>**, invece che nell'elemento **<NonLinear>**.
+**<IFrameResource>** descrive una risorsa HTML che può essere visualizzata in un IFrame. **<HTMLResource>** descrive una parte di codice HTML che può essere inserita in una pagina Web. **<TrackingEvents>** specifica gli eventi di rilevamento e l'URI da richiedere quando si verifica un evento. In questo esempio vengono rilevati gli eventi acceptInvitation e collapse. Per altre informazioni sull'elemento **<NonLinearAds>** e i rispettivi figli, vedere IAB.NET/VAST. Si noti che l'elemento **<TrackingEvents>** si trova entro l'elemento ** <NonLinearAds>** invece dell'elemento **<NonLinear>**.
 
-Gli annunci complementari vengono definiti entro un elemento <CompanionAds>. L'elemento <CompanionAds> può contenere uno o più elementi <Companion>. Ogni elemento <Companion> descrive un annuncio complementare e può contenere una risorsa di tipo <StaticResource>, <IFrameResource>, o <HTMLResource>, specificata in modo analogo a un annuncio non lineare. Un file VAST può contenere più annunci complementari e il lettore può scegliere quello più adatto da visualizzare. Per altre informazioni su VAST, vedere [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Gli annunci complementari vengono definiti entro un elemento <CompanionAds>. L'elemento <CompanionAds> può contenere uno o più elementi <Companion>. Ogni elemento <Companion> descrive un annuncio complementare e può contenere una risorsa di tipo <StaticResource>, <IFrameResource> o <HTMLResource> specificata in modo analogo a un annuncio non lineare. Un file VAST può contenere più annunci complementari e il lettore può scegliere quello più adatto da visualizzare. Per altre informazioni su VAST, vedere [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
 ###Uso di un file VMAP (Video Multiple Ad Playlist) digitale
 
@@ -230,9 +230,9 @@ Nell'elemento <**AdBreak**> può essere presente un elemento <**AdSource**>. L'e
 
 L'elemento <**AdSource**> fornisce al lettore una risposta inline all'annuncio o un riferimento a una risposta annuncio. Può contenere uno degli elementi seguenti:
 
-- <VASTAdData> indica che una risposta annuncio VAST è incorporata nel file VMAP.
-- <AdTagURI>: un URI che fa riferimento a una risposta annuncio da un altro sistema.
-- <CustomAdData>: -una stringa arbitraria che rappresenta una risposta non VAST.
+- <VASTAdData> indica che una risposta annuncio VAST è incorporata nel file VMAP
+- <AdTagURI>: un URI che fa riferimento a una risposta annuncio da un altro sistema
+- <CustomAdData>: una stringa arbitraria che rappresenta una risposta non VAST
 
 In questo esempio una risposta annuncio inline è specificata con un elemento <VASTAdData> che contiene una risposta annuncio VAST. Per altre informazioni sugli altri elementi, vedere [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
@@ -316,14 +316,14 @@ Un file MAST permette di specificare i trigger che definiscono il momento in cui
 
 Un file MAST inizia con un elemento **<MAST>** che contiene un elemento **<triggers>**. L'elemento <triggers> contiene uno o più elementi **<trigger>** che definiscono quando deve essere riprodotto un annuncio.
 
-L'elemento **<trigger>** contiene un elemento **<startConditions>** che specifica quando deve iniziare la riproduzione di un annuncio. L'elemento **<startConditions>** contiene uno o più elementi <condition>. Quando ogni elemento <condition> restituisce true, sarà avviato o revocato un trigger, in base alla presenza di <condition> in un elemento **<startConditions**> o **<endConditions>**, rispettivamente. Se sono presenti più elementi <condition>, saranno considerati come OR implicito e qualsiasi condizione che restituisce true provocherà l'avvio del trigger. Gli elementi <condition> possono essere annidati. Quando gli elementi <condition> figlio sono preimpostati, sono considerati come AND implicito e per l'avvio del trigger tutte le condizioni devono restituire true. L'elemento <condition> contiene gli attributi seguenti che definiscono la condizione:
+L'elemento **<trigger>** contiene un elemento **<startConditions>** che specifica quando deve iniziare la riproduzione di un annuncio. L'elemento **<startConditions>** contiene uno o più elementi <condition>. Quando ogni elemento <condition> restituisce true, sarà avviato o revocato un trigger, in base alla presenza di <condition> in un elemento **<startConditions**> o **<endConditions>**, rispettivamente. Se sono presenti più elementi <condition>, saranno considerati come OR implicito e qualsiasi condizione che restituisce true provocherà l'avvio del trigger. Gli elementi <condition> possono essere annidati. Quando gli elementi <condition> figlio sono preimpostati, vengono considerati come AND implicito e per l'avvio del trigger tutte le condizioni devono restituire true. L'elemento <condition> contiene gli attributi seguenti che definiscono la condizione:
 
 1. **type** - specifica il tipo di condizione, di evento o di proprietà.
 1. **name** - nome della proprietà o dell'evento da usare durante la valutazione.
 1. **value** – valore in base al quale sarà valutata una proprietà.
 1. **operator**: operazione da usare durante la valutazione: EQ (uguale), NEQ (diverso da), GTR (maggiore), GEQ (maggiore o uguale), LT (minore), LEQ (minore o uguale), MOD (modulo).
 
-**<endConditions>** contiene anche elementi <condition>. Quando una condizione restituisce true, il trigger viene reimpostato. L'elemento <trigger> contiene anche un elemento <sources> che include uno o più elementi <source>. Gli elementi <source> definiscono l'URI per la risposta annuncio e il tipo della risposta annuncio. In questo esempio si assegna un URI a una risposta VAST.
+**<endConditions>** contengono anche elementi <condition>. Quando una condizione restituisce true, il trigger viene reimpostato. L'elemento <trigger> contiene anche un elemento <sources> che include uno o più elementi <source>. Gli elementi <source> definiscono l'URI per la risposta annuncio e il tipo della risposta annuncio. In questo esempio si assegna un URI a una risposta VAST.
 
 
 	<trigger id="postroll" description="postroll"  >
@@ -342,7 +342,7 @@ L'elemento **<trigger>** contiene un elemento **<startConditions>** che specific
 
 VPAID è un'API che permette alle unità di annuncio eseguibili di comunicare con un lettore video. Ciò offre esperienze altamente interattive per gli annunci. L'utente può interagire con l'annuncio e l'annuncio può rispondere alle azioni eseguite dall'utente. Ad esempio, un annuncio può mostrare pulsanti che permettono all'utente di visualizzare altre informazioni o una versione più lunga dell'annuncio. Il lettore video deve supportare l'API VPAID e l'annuncio eseguibile la deve implementare. Quando un lettore richiede un annuncio da un ad server, è possibile che il server risponda con una risposta VAST contenente un annuncio VPAID.
 
-Un annuncio eseguibile è creato in codice che deve essere eseguito in un ambiente di runtime, ad esempio Adobe Flash™ o JavaScript eseguibile in un Web browser. Quando un ad server restituisce una risposta VAST contenente un annuncio VPAID, il valore dell'attributo apiFramework nell'elemento <MediaFile> deve essere "VPAID". Questo attributo specifica che l'annuncio incluso è un annuncio eseguibile VPAID. L'attributo type deve essere impostato sul tipo MIME dell'eseguibile, ad esempio "application/x-shockwave-flash" o "application/x-javascript". Il frammento di codice XML seguente mostra l'elemento <MediaFile> da una risposta VAST contenente un annuncio eseguibile VPAID.
+Un annuncio eseguibile è creato in codice che deve essere eseguito in un ambiente di runtime, ad esempio Adobe Flash™ o JavaScript eseguibile in un Web browser. Quando un server di annunci restituisce una risposta VAST contenente un annuncio VPAID, il valore dell'attributo apiFramework nell'elemento <MediaFile> deve essere "VPAID". Questo attributo specifica che l'annuncio incluso è un annuncio eseguibile VPAID. L'attributo type deve essere impostato sul tipo MIME dell'eseguibile, ad esempio "application/x-shockwave-flash" o "application/x-javascript". Il frammento di codice XML seguente mostra l'elemento <MediaFile> da una risposta VAST contenente un annuncio eseguibile VPAID.
 
 	
 	<MediaFiles>
@@ -353,7 +353,7 @@ Un annuncio eseguibile è creato in codice che deve essere eseguito in un ambien
 	</MediaFiles>
  
 
-Un annuncio eseguibile può essere inizializzato mediante l'elemento <AdParameters> negli elementi <Linear> o <NonLinear> in una risposta VAST. Per altre informazioni sull'elemento <AdParameters>, vedere [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Per altre informazioni sull'API VPAID, vedere [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Un annuncio eseguibile può essere inizializzato tramite l'elemento <AdParameters> negli elementi <Linear> o <NonLinear> in una risposta VAST. Per altre informazioni sull'elemento <AdParameters>, vedere [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Per altre informazioni sull'API VPAID, vedere [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ##Implementazione di un lettore Windows o Windows Phone 8 con supporto per gli annunci
 
@@ -813,4 +813,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

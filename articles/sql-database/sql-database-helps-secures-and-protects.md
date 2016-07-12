@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="06/23/2016"
    ms.author="carlrab"/>
    
 # Il database SQL di Azure facilita la sicurezza e la protezione
@@ -33,7 +33,7 @@ Ovviamente si spera sempre di non essere costretti ad accedere ai backup dei gio
 
 ## Il più ampio portfolio di conformità
 
-Il database SQL ha il più vasto portfolio di conformità nel settore. Da HIPPA a FERPA o persino Singapore MTC Level 3: c'è tutto ciò che serve.
+Il database SQL ha il più vasto portfolio di conformità nel settore. Dalla conformità HIPPA a FERPA o persino Singapore MTC Level 3: c'è tutto ciò che serve.
 
 [Leggere la documentazione](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
@@ -55,4 +55,4 @@ Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

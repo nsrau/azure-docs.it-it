@@ -20,7 +20,7 @@
 
 Sono disponibili due tipi di [raccolte di Azure RemoteApp](remoteapp-collections.md):
 
-- Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.   
+- Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.
 - Ibrida: include una rete virtuale per l'accesso in locale, è necessario l'uso di Azure Active Directory e un ambiente Active Directory locale.
 
 Questa esercitazione illustra il processo di creazione di una raccolta nel cloud. i quattro passaggi della creazione di una distribuzione cloud.
@@ -35,9 +35,9 @@ Questa esercitazione illustra il processo di creazione di una raccolta nel cloud
 
 Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
-- [Iscrizione](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp. 
+- [Iscrizione](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp.
 - Raccogliere informazioni sugli utenti a cui concedere l'accesso. Le informazioni possono essere relative all'account Microsoft o all'account di lavoro Active Directory per gli utenti.
-- Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **carica un'immagine modello** e seguire i passaggi della procedura guidata. 
+- Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **carica un'immagine modello** e seguire i passaggi della procedura guidata.
 - Se si desidera usare l'immagine di Office 365 ProPlus, Consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine](remoteapp-imageoptions.md) e usarla nella raccolta nel cloud.
 - Determinare se è necessario connettersi a una rete virtuale. Se si sceglie di connettersi a una rete virtuale, assicurarsi che soddisfi le [linee guida sulle dimensioni](remoteapp-vnetsizing.md) e che [possa connettersi a RemoteApp](remoteapp-vnet.md). Per altre informazioni, vedere l'[articolo sulla pianificazione della rete virtuale](remoteapp-planvnet.md).
@@ -52,7 +52,7 @@ Utilizzare la procedura seguente per **creare una raccolta solo cloud**:
 2. Fare clic su **Nuovo > Creazione rapida**.
 3. Immettere un nome per la raccolta e selezionare l'area.
 4. Scegliere il piano che da usare: standard o di base.
-5. Scegliere il modello da usare per questa raccolta. 
+5. Scegliere il modello da usare per questa raccolta.
 
 	**Suggerimento:** la sottoscrizione per RemoteApp include [immagini modello](remoteapp-images.md) che contengono le applicazioni Office 365 o Office 2013 (per l'uso in valutazione), alcune pubblicate (ad esempio Word) e altre pronte per la pubblicazione. È anche possibile creare una nuova [immagine](remoteapp-imageoptions.md) e usarla nella raccolta nel cloud.
 
@@ -76,7 +76,7 @@ Per creare una **raccolta cloud + rete virtuale**, seguire questa procedura:
 
 ## Passaggio 2: Configurare la sincronizzazione della directory di Active Directory (facoltativo) ##
 
-Se si vuole usare Active Directory, Azure RemoteApp richiede la sincronizzazione della directory tra Azure Active Directory e l'istanza locale di Active Directory in modo da sincronizzare utenti, contatti e password con il tenant di Azure Active Directory. Per informazioni sulla pianificazione, vedere [Configurare Active Directory per Azure RemoteApp](remoteapp-ad.md). Per informazioni, è inoltre possibile passare direttamente ad [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx).
+Se si vuole usare Active Directory, Azure RemoteApp richiede la sincronizzazione della directory tra Azure Active Directory e l'istanza locale di Active Directory in modo da sincronizzare utenti, contatti e password con il tenant di Azure Active Directory. Per informazioni sulla pianificazione, vedere [Configurare Active Directory per Azure RemoteApp](remoteapp-ad.md). Per informazioni, è inoltre possibile passare direttamente ad [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/).
 
 ## Passaggio 3: Pubblicare le app ##
 
@@ -90,7 +90,7 @@ Prima che gli utenti possano accedere alle app, è necessario pubblicarle. La pu
 
 A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli utenti che potranno usare le risorse remote. Se si usa Active Directory, gli utenti a cui viene fornito l'accesso devono esistere nel tenant di Active Directory associato alla sottoscrizione usata per creare la raccolta.
 
-1.	Nella pagina Avvio rapido fare clic su **Configura accesso utente**. 
+1.	Nella pagina Avvio rapido fare clic su **Configura accesso utente**.
 2.	Immettere l'account di lavoro (da Active Directory) o l'account Microsoft al quale concedere l'accesso.
 
 	**Note:**
@@ -109,4 +109,4 @@ La procedura è stata completata e la raccolta di Azure RemoteApp nel cloud è s
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
@@ -97,7 +97,20 @@ Nell'esempio precedente una VM presenta una raccomandazione critica relativa a p
 
 Nel pannello sono presenti anche dettagli di sicurezza relativi alla VM. Nella parte inferiore è possibile vedere l'azione consigliata e il livello di gravità di ogni problema.
 
-###Monitorare le reti virtuali
+#### Sezione Servizi cloud (anteprima)
+Lo stato di integrità per i servizi cloud è incluso nel riquadro di integrità della sicurezza delle macchine virtuali. Quando la versione del sistema operativo non è aggiornata, viene creata una raccomandazione come illustrato di seguito:
+
+![Servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+È necessario seguire i passaggi indicati nella raccomandazione per aggiornare la versione del sistema operativo. Ad esempio, se si fa clic nell'avviso rosso in un ruolo Web (che esegue Windows Server con l'app Web distribuita automaticamente in IIS) o un ruolo di lavoro (che esegue Windows Server con l'app Web distribuita automaticamente in IIS), verrà visualizzato un nuovo pannello con altri dettagli su questa raccomandazione come illustrato di seguito:
+
+![Dettagli del servizio cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+
+Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazione, fare clic su Aggiorna **versione del sistema operativo** nella colonna **DESCRIZIONE **. Verrà aperto il pannello **Aggiorna la versione del sistema operativo (anteprima)** con altri dettagli.
+
+![Indicazioni dei servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+
+### Monitorare le reti virtuali
 Quando si fa clic su **Rete** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Rete** con altri dettagli, come illustrato di seguito:
 
 ![Rete](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
@@ -129,7 +142,7 @@ Nella sezione **Endpoint con connessione Internet** è possibile visualizzare le
 ![Endpoint con connessione Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
 
 La tabella include il nome dell'endpoint che rappresenta la macchina virtuale, l'indirizzo IP con connessione Internet, lo stato corrente di gravità del gruppo di sicurezza di rete e del firewall di nuova generazione. Questa tabella è ordinata in base alla gravità, come descritto di seguito:
-- Rosso (in alto): priorità elevata e da risolvere immediatamente 
+- Rosso (in alto): priorità elevata e da risolvere immediatamente
 - Arancione: priorità media e da risolvere appena possibile
 - Verde (ultimo): stato di integrità
 
@@ -140,7 +153,7 @@ La sezione **Topologia di rete** include una visualizzazione gerarchica delle ri
 ![Topologia di rete](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Questa tabella è ordinata (VM e subnet) in base a gravità, come illustrato di seguito:
-- Rosso (in alto): priorità elevata e da risolvere immediatamente 
+- Rosso (in alto): priorità elevata e da risolvere immediatamente
 - Arancione: priorità media e da risolvere appena possibile
 - Verde (ultimo): stato di integrità
 
@@ -191,8 +204,8 @@ In questo documento è stato descritto come utilizzare le funzionalità di monit
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
+- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

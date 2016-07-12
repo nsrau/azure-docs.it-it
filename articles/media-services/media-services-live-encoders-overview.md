@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -53,4 +53,4 @@ Per informazioni su come configurare il codificatore [Tricaster](http://newtek.c
 
 [Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

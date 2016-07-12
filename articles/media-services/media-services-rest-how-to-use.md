@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -27,9 +27,9 @@ Servizi multimediali di Microsoft Azure è un servizio che accetta richieste HTT
 
 Quando si usa REST, si applicano le considerazioni seguenti:
 
-- Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+- Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
-- Se si usa JSON e si specifica di usare la parola chiave **\_\_metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) SI DEVE impostare l'intestazione **Accept** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (vedere l'esempio seguente). OData non riconosce la proprietà **\_\_metadata** nella richiesta, a meno che non venga impostata su verbose.
+- Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) SI DEVE impostare l'intestazione **Accept** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (vedere l'esempio seguente). OData non riconosce la proprietà **__metadata** nella richiesta, a meno che non venga impostata su verbose.
 
 		POST https://media.windows.net/API/Jobs HTTP/1.1
 		Content-Type: application/json;odata=verbose
@@ -74,7 +74,7 @@ Accept-Language|"en", "es" e così via.|Lingua preferita per la risposta.
 Accept-Charset|Tipo di set di caratteri, ad esempio "UTF-8"|L'impostazione predefinita è UTF-8.
 X-HTTP-Method|Metodo HTTP|Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET.
 Content-Type|Tipo di contenuto|Tipo di contenuto del corpo delle richieste PUT o POST.
-client-request-id|Stringa|Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore verrà incluso nel messaggio di risposta come un modo per eseguire il mapping della richiesta.<p><p>**Importante**<p>I valori devono essere impostati su 2096b (2k).
+client-request-id|Stringa|Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k).
 
 ## Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 
@@ -106,7 +106,7 @@ HEAD|Restituisce i metadati di un oggetto per una risposta GET.
 
 ##Limitazione
 
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** and **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
 
 ## Individuazione del modello di Servizi multimediali
@@ -132,4 +132,4 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

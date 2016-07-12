@@ -3,7 +3,7 @@
 	description="Informazioni su come monitorare App Web nel servizio app di Azure usando il portale di gestione."
 	services="app-service"
 	documentationCenter=""
-	authors="cephalin"
+	authors="btardif"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/22/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
@@ -287,4 +287,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

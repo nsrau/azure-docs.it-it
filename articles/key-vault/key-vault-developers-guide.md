@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guida per gli sviluppatori dell'insieme di credenziali delle chiavi | Microsoft Azure"
-   description="Gli sviluppatori possono utilizzare l'insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all'interno dell'ambiente Microsoft Azure."
+   description="Gli sviluppatori possono utilizzare l'insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. "
    services="key-vault"
    documentationCenter=""
    authors="BrucePerlerMS"
@@ -87,6 +87,13 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche sull'attivit�
 
 Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere [gli esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
+## Integrazione con l'insieme di credenziali delle chiavi
+
+Questi articoli illustrano altri scenari e servizi che usano l'integrazione con l'insieme di credenziali delle chiavi.
+
+- [Crittografia dischi di Azure](../azure-security-disk-encryption.md) sfrutta la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e il sistema operativo. La soluzione è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
+
+
 ## Supporto di librerie
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) contiene le interfacce `IKey` e `IKeyResolver` per l'individuazione delle chiavi dagli identificatori e l'esecuzione di operazioni con le chiavi.
@@ -97,4 +104,4 @@ Per indicazioni specifiche sulle attività relative all'integrazione e all'uso d
 - [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

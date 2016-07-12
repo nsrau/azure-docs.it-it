@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
@@ -70,22 +70,22 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 **Video**:
  
-- Codec: H.264 
-- Profilo: alto (livello 4.0) 
-- Velocità in bit: 5000 kbps 
-- Fotogramma chiave: 2 secondi (60 secondi) 
+- Codec: H.264
+- Profilo: alto (livello 4.0)
+- Velocità in bit: 5000 kbps
+- Fotogramma chiave: 2 secondi (60 secondi)
 - Frequenza dei fotogrammi: 30
  
 **Audio**:
 
-- Codec: AAC (LC) 
-- Velocità in bit: 192 kbps 
+- Codec: AAC (LC)
+- Velocità in bit: 192 kbps
 - Frequenza di campionamento: 44,1 kHz
 
 
 ###Procedura di configurazione
 
-1. Creare un nuovo progetto **NewTek TriCaster** in base a quale origine di input del video si sta utilizzando. 
+1. Creare un nuovo progetto **NewTek TriCaster** in base a quale origine di input del video si sta utilizzando.
 2. Una volta all'interno di tale progetto, cercare il pulsante **Flusso** e scegliere l'icona raffigurante un ingranaggio per accedere al menu di configurazione del flusso.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
@@ -126,7 +126,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 ##Testare la riproduzione
   
-1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.  
+1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
@@ -136,18 +136,18 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 
 ##Creare un programma.
 
-1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.  
+1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
 2. Assegnare un nome al programma e, se necessario, modificare l'opzione **Archive Window Length** (con impostazione predefinita di 4 ore). È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.
 3. Selezionare la casella di controllo **Start the Program now**.
-4. Fare clic su **Create Program**.  
+4. Fare clic su **Create Program**.
   
 	Nota: la creazione di un programma richiede meno tempo rispetto alla creazione del canale.
  
 5. Quando il programma è in esecuzione, verificare il funzionamento della riproduzione. A tale scopo, fare clic con il pulsante destro del mouse sul programma e passare **Playback the program(s)**, quindi scegliere **with Azure Media Player**.
-6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu). 
+6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu).
 
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.
 
@@ -165,4 +165,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

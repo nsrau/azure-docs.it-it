@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 #  Anteprima di Azure Active Directory B2C: Usare attributi personalizzati per la raccolta di informazioni sugli utenti
@@ -53,4 +53,4 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi uten
 - Insieme ai criteri di iscrizione, gli attributi personalizzati possono essere usati anche nei criteri di iscrizione o accesso e nei criteri di modifica del profilo.
 - Esiste una limitazione nota degli attributi personalizzati. Si verifica soltanto la prima volta che viene usato in un criterio e non quando viene aggiunto all'elenco **Attributi utente**. Il problema verrà risolto a breve.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

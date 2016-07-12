@@ -24,77 +24,23 @@ Per completare questa esercitazione è necessario disporre di Visual Studio 2015
 
 Un esempio completo di questa esercitazione è disponibile [qui](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-## Operazioni preliminari
-
-Prima di poter scrivere il codice di gestione della rete CDN, è necessaria un po' di preparazione. La prima cosa da fare è creare un gruppo di risorse per includere il profilo di rete CDN che verrà creato in questa esercitazione. Quindi si configurerà Azure Active Directory per fornire l'autenticazione per l'applicazione. Una volta eseguita questa operazione, si applicheranno le autorizzazioni al gruppo di risorse in modo che solo gli utenti autorizzati dal tenant di Azure AD possano interagire con il profilo di rete CDN.
-
-### Creazione del gruppo di risorse
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-
-2. Fare clic sul pulsante **Nuovo** in alto a sinistra e poi su **Gestione** e **Gruppo di risorse**.
-	
-	![Creazione di un nuovo gruppo di risorse](./media/cdn-app-dev-net/cdn-new-rg-1.png)
-
-3. Assegnare al gruppo di risorse il nome *CdnConsoleTutorial*. Selezionare la sottoscrizione e scegliere un percorso locale. Se si desidera, è possibile selezionare la casella di controllo **Aggiungi al dashboard** per aggiungere il gruppo di risorse al dashboard del portale. In questo modo sarà più semplice trovarlo in un secondo momento. Dopo avere eseguito le selezioni, fare clic su **Crea**.
-
-	![Assegnazione di un nome al gruppo di risorse](./media/cdn-app-dev-net/cdn-new-rg-2.png)
-
-4. Dopo aver creato il gruppo di risorse, se non lo si è aggiunto al dashboard, è possibile trovarlo facendo clic su **Sfoglia** e poi su **Gruppi di risorse**. Fare clic sul gruppo di risorse per aprirlo. Annotare l'**ID sottoscrizione**. Sarà necessario più avanti.
-
-	 ![Assegnazione di un nome al gruppo di risorse](./media/cdn-app-dev-net/cdn-subscription-id.png)
-
-### Creazione dell'applicazione Azure AD
-
-Per l'autenticazione delle app con Azure Active Directory sono possibili due approcci: singoli utenti o un'entità servizio. Un'entità servizio è simile a un account di servizio di Windows. Anziché concedere a un determinato utente le autorizzazioni per interagire con i profili di rete CDN, si concedono le autorizzazioni per l'entità servizio. Le entità servizio in genere vengono usate per i processi automatizzati e non interattivi. Sebbene in questa esercitazione si scriva un'applicazione console interattiva, ci si concentrerà sull'approccio dell'entità servizio.
-
-La creazione di un'entità servizio è costituita da diversi passaggi, compresa la creazione di un'applicazione Azure Active Directory. A tale scopo si [eseguirà questa esercitazione](../resource-group-create-service-principal-portal.md).
-
-> [AZURE.IMPORTANT] Assicurarsi di completare tutti i passaggi dell'[esercitazione collegata](../resource-group-create-service-principal-portal.md). È *estremamente importante* eseguirla esattamente come descritto. Assicurarsi di annotare l'**ID tenant**, il **nome di dominio tenant** (in genere un dominio *. onmicrosoft.com*, se non è stato specificato un dominio personalizzato), l'**ID client** e la **chiave di autenticazione client**, che serviranno più avanti. Prestare attenzione all'**ID client** e alla **chiave di autenticazione client**, in quanto queste credenziali possono essere usate da chiunque per eseguire operazioni come entità servizio.
-> 	
-> Quando si arriva al passaggio denominato [Configura applicazione multi-tenant](../resource-group-create-service-principal-portal.md#configure-multi-tenant-application), selezionare **No**.
-> 
-> Quando si arriva al passaggio [Assegnare l'applicazione al ruolo](../resource-group-create-service-principal-portal.md#assign-application-to-role), usare il gruppo di risorse creato in precedenza, *CdnConsoleTutorial*, ma anziché il ruolo di **lettore**, assegnare il ruolo di **collaboratore profilo di rete CDN**. Dopo aver assegnato all'applicazione il ruolo di **collaboratore profilo di rete CDN** nel gruppo di risorse, tornare a questa esercitazione.
-
-Dopo aver creato l'entità servizio e assegnato il ruolo di **collaboratore profilo di rete CDN**, il pannello **Utenti** per il gruppo di risorse dovrebbe essere simile a questo.
-
-![Pannello Utenti](./media/cdn-app-dev-net/cdn-service-principal.png)
-
-
-### Autenticazione utente interattiva
-
-Se, invece di un'entità servizio, si preferisce l'autenticazione interattiva del singolo utente, il processo è molto simile a quello per un'entità servizio. Infatti, è necessario seguire la stessa procedura, a parte alcune piccole modifiche.
-
->[AZURE.IMPORTANT] Seguire questa procedura solo se si sceglie di utilizzare l'autenticazione interattiva del singolo utente anziché un'entità servizio.
-
-1. Quando si crea l'applicazione, invece di **App Web**, scegliere **Applicazione nativa**. 
-	
-	![Applicazione nativa](./media/cdn-app-dev-net/cdn-native-application.png)
-	
-2. Nella pagina successiva verrà richiesto di immettere un **URI di reindirizzamento**. L'URI non verrà convalidato, ma è necessario ricordare i valori immessi. Sarà necessario più avanti.
-
-3. Non è necessario creare una **chiave di autenticazione client**.
-
-4. Invece di assegnare un'entità servizio al ruolo di **collaboratore profilo di rete CDN**, assegneremo singoli utenti o gruppi. In questo esempio si può notare che è stato assegnato l'*utente CDN Demo* al ruolo di **collaboratore profilo di rete CDN**.
-	
-	![Accesso del singolo utente](./media/cdn-app-dev-net/cdn-aad-user.png)
-
+[AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Creare il progetto e aggiungere i pacchetti Nuget
 
 Ora che abbiamo creato un gruppo di risorse per i profili di rete CDN e assegnato all'applicazione Azure AD l'autorizzazione per gestire i profili e gli endpoint della rete CDN all'interno del gruppo, è possibile iniziare a creare l'applicazione.
 
-Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto...** per aprire la finestra di dialogo Nuovo progetto. Espandere **Visual C#** e selezionare **Windows** nel riquadro a sinistra. Fare clic su **Applicazione console** nel riquadro centrale. Assegnare un nome al progetto e fare clic su **OK**.
+Da Visual Studio 2015 fare clic su **File**, **Nuovo**, **Progetto** per aprire la finestra di dialogo Nuovo progetto. Espandere **Visual C#** e selezionare **Windows** nel riquadro a sinistra. Fare clic su **Applicazione console** nel riquadro centrale. Assegnare un nome al progetto e fare clic su **OK**.
 
 ![Nuovo progetto](./media/cdn-app-dev-net/cdn-new-project.png)
 
 Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget. Ora si aggiungeranno al progetto.
 
-1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet** e poi su **Console di gestione pacchetti**.
+1. Fare clic sul menu **Strumenti**, **Gestione pacchetti NuGet ** e poi su **Console di Gestione pacchetti**.
 
 	![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 
-2. Nella Console di gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)**:
+2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)**:
 
 	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 
@@ -318,7 +264,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] Nell'esempio precedente viene assegnata all'endpoint un'origine denominata *Contoso* con il nome host `www.contoso.com`. È necessario modificarlo in modo che punti al nome host dell'origine personalizzata.
+>[AZURE.NOTE] L'esempio precedente assegna all'endpoint un'origine denominata *Contoso* con il nome host `www.contoso.com`. È necessario modificarlo in modo che punti al nome host dell'origine personalizzata.
 
 ## Ripulire un endpoint
 
@@ -337,7 +283,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] Nell'esempio precedente la stringa `/*` indica che si desidera ripulire tutto il contenuto della radice del percorso dell'endpoint. Ciò equivale a selezionare **Ripulisci tutto** nella finestra di dialogo "Ripulisci" del portale di Azure. Nel metodo `CreateCdnProfile` è stato creato il profilo come profilo **Azure CDN di Verizon** usando il codice `Sku = new Sku(SkuName.StandardVerizon)`, perciò l'operazione riuscirà. Tuttavia, i profili di **rete CDN Azure di Akamai** non supportano **Ripulisci tutto**, perciò se si usasse un profilo Akamai per questa esercitazione, si dovrebbero includere percorsi specifici da ripulire.
+>[AZURE.NOTE] Nell'esempio precedente la stringa `/*` indica che si vuole ripulire tutto il contenuto della radice del percorso dell'endpoint. Ciò equivale a selezionare **Elimina tutti** nella finestra di dialogo "Elimina" del portale di Azure. Nel metodo `CreateCdnProfile` è stato creato il profilo come profilo **Rete CDN di Azure da Verizon** usando il codice `Sku = new Sku(SkuName.StandardVerizon)`, perciò l'operazione riuscirà. I profili **Rete CDN Azure da Akamai** tuttavia non supportano **Elimina tutti**, perciò se si usasse un profilo Akamai per questa esercitazione, si dovrebbero includere percorsi specifici da ripulire.
 
 ## Eliminare profili ed endpoint della rete CDN
 
@@ -383,8 +329,8 @@ Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare
 
 ## Passaggi successivi
 
-Per vedere il progetto completato di questa procedura dettagliata [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-Per altra documentazione su Azure CDN Management Library per .NET, [consultare MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+Per altra documentazione su Azure CDN Management Library per .NET, vedere i [riferimenti su MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

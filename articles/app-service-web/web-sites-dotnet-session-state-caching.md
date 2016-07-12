@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor="none"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="02/27/2016" 
+	ms.date="06/27/2016" 
 	ms.author="riande"/>
 
 
@@ -43,7 +43,7 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
 
 1. Aprire *web.config* e trovare l'elemento **sessionState**.
 
-1. Immettere i valori relativi a `host`, `accessKey`, `port` (la porta SSL deve essere 6380) e impostare `SSL` su `true` Questi valori possono essere ottenuti dal pannello del [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per l'istanza della cache. Per altre informazioni, vedere [Connettersi alla cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Si tenga presente che per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione relativa alle [porte di accesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) nell'argomento [Configurare una cache in Cache Redis di Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Il markup seguente mostra le modifiche del file *web.config*, in particolare le modifiche apportate a*porta*, *host*, accessKey * e *ssl*.
+1. Immettere i valori relativi a `host`, `accessKey`, `port` (la porta SSL deve essere 6380) e impostare `SSL` su `true` Questi valori possono essere ottenuti dal pannello del [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per l'istanza della cache. Per altre informazioni, vedere [Connettersi alla cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Si tenga presente che per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione relativa alle [porte di accesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) nell'argomento [Configurare una cache in Cache Redis di Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Il markup seguente mostra le modifiche del file *web.config*, in particolare le modifiche apportate a *porta*, *host*, accessKey* e *ssl*.
 
 		  <system.web>;
 		    <customErrors mode="Off" />;
@@ -108,4 +108,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -24,7 +24,7 @@
 
 [Archiviazione Premium di Azure](../storage/storage-premium-storage.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure (rete, archiviazione) e alle macchine virtuali guest di Windows. Nell'esempio incluso nell'[Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell'archiviazione SSD locale migliorata con PowerShell.
@@ -96,7 +96,7 @@ Il seguente comando **New-AzureStorageAccountPowerShell** con **Type** "Premium\
 
 ### Impostazioni della cache di dischi rigidi virtuali
 
-La differenza principale con la creazione di dischi che fanno parte di un account di Archiviazione Premium è l'impostazione della cache su disco. Per i dischi del volume di dati di SQL Server, è consigliabile utilizzare **Read Caching**’. Per i volumi del log delle transazioni, l'impostazione della cache su disco deve essere impostata ‘**None**’. Questa impostazione differisce da quelle consigliate per gli account di archiviazione Standard.
+La differenza principale con la creazione di dischi che fanno parte di un account di Archiviazione Premium è l'impostazione della cache su disco. Per i dischi del volume di dati di SQL Server, è consigliabile usare "**Read Caching**". Per i volumi del log delle transazioni, l'impostazione della cache su disco deve essere "**None**". Questa impostazione differisce da quelle consigliate per gli account di archiviazione Standard.
 
 Dopo aver collegato i dischi rigidi virtuali, l'impostazione della cache non può essere modificata. È necessario scollegare e ricollegare il disco rigido virtuale con un'impostazione di cache aggiornata.
 
@@ -279,7 +279,7 @@ Questo scenario mostra la posizione delle immagini personalizzate esistenti che 
 
 
 #### Passaggio 3: Usare l'immagine esistente
-È possibile utilizzare un'immagine esistente. In alternativa, è possibile [acquisire un'immagine di una macchina esistente](virtual-machines-windows-classic-capture-image.md). Si noti che la macchina non deve essere DS*. Dopo aver creato l'immagine, la procedura seguente illustra come copiarla nell’account di Archiviazione Premium con il commandlet **Start-AzureStorageBlobCopy** di PowerShell.
+È possibile utilizzare un'immagine esistente. In alternativa, è possibile [acquisire un'immagine di una macchina esistente](virtual-machines-windows-classic-capture-image.md). Si noti che la macchina non deve essere DS*. Dopo aver creato l'immagine, la procedura seguente illustra come copiarla nell'account di archiviazione Premium con il commandlet **Start-AzureStorageBlobCopy* di PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -484,7 +484,7 @@ Una strategia per il tempo di inattività minimo consiste nel rimuovere una repl
 - Questo scenario prevede l’uso del commandlet **Start-AzureStorageBlobCopy** di Azure, che è asincrono. Non esiste alcun contratto di servizio al completamento della copia. Il tempo delle copie varia perché dipende dal tempo di attesa in coda e dalla quantità di dati da trasferire. Il tempo di copia aumenta se la destinazione del trasferimento è un altro centro dati di Azure che supporta Archiviazione Premium in un'altra area. Se si dispone solo di due nodi, valutare la possibilità di un’attenuazione per l’eventualità che la copia richieda più tempo durante i test. Valutare, ad esempio, le possibilità seguenti.
 	- Aggiungere un terzo nodo di SQL Server temporaneo per la disponibilità elevata prima della migrazione con tempi di inattività concordati.
 	- Eseguire la migrazione all'esterno della manutenzione pianificata di Azure.
-	- Assicurarsi di che avere configurato correttamente il quorum del cluster.  
+	- Assicurarsi di che avere configurato correttamente il quorum del cluster.
 
 ##### Passaggi di livello elevato
 
@@ -608,7 +608,7 @@ In questo esempio sarà illustrato lo spostamento da un ELB a un ILB. ELB era di
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### Passaggio 2: Aumentare il numero di errori consentiti nelle risorse <Optional>
+#### Passaggio 2: Aumentare il numero di errori consentiti nelle risorse <facoltativo>
 In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono previsti limiti al numero di errori che possono verificarsi in un intervallo di tempo durante il quale il servizio cluster prova a riavviare il gruppo di risorse. Si consiglia di aumentare questo numero durante l’esecuzione di questa procedura poiché se non si esegue il failover manuale e non si attivano i failover arrestando le macchine si potrebbe raggiungere il limite.
 
 Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, in Gestione cluster di failover passare alle proprietà del gruppo di risorse AlwaysOn:
@@ -617,7 +617,7 @@ Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, 
 
 Modificare il numero massimo di errori in 6.
 
-#### Passaggio 3: Aggiungere la risorsa indirizzo IP per il gruppo di cluster <Optional>
+#### Passaggio 3: Aggiungere la risorsa indirizzo IP per il gruppo di cluster <facoltativo>
 
 Se si dispone di un solo indirizzo IP per il gruppo cluster e questo viene allineato alla subnet cloud, tenere presente che se di portano accidentalmente offline tutti i nodi del cluster nel cloud nella rete, la risorsa IP del cluster e il nome di rete del cluster non potranno essere portati online. In tal caso, gli aggiornamenti per altre risorse cluster non saranno consentiti.
 
@@ -1148,4 +1148,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

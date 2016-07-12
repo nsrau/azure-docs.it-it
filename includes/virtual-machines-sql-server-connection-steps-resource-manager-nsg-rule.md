@@ -4,9 +4,7 @@ Se si intende connettersi a SQL Server tramite Internet, è necessario configura
 
 1. Nel portale selezionare **Macchine virtuali** e quindi la propria macchina virtuale di SQL Server.
 
-2. Fare clic sul collegamento **Tutte le impostazioni**.
-
-3. Espandere **Interfacce di rete**.
+3. Selezionare le **interfacce di rete**.
 
 	![interfaccia di rete](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
@@ -32,4 +30,4 @@ Se si intende connettersi a SQL Server tramite Internet, è necessario configura
 
 9. Fare clic su **OK** per salvare la regola creata per la macchina virtuale.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0629_2016-->

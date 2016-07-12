@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Vedere [Progettazione di tabelle][] o la [sintassi di CREATE TABLE][] per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH.
+>[AZURE.NOTE] Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere [Overview of tables in SQL Data Warehouse][] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
 
 ### Passaggio 2: Creare un file di dati di origine
 
@@ -178,16 +178,16 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 
 <!--Article references-->
 
-[Caricare i dati in SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
-[Statistiche]: sql-data-warehouse-develop-statistics.md
+[Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
+[Statistiche]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[sintassi di CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

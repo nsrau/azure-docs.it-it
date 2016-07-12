@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -84,14 +84,14 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 **Effettuare il provisioning dell'istanza di Azure SQL DW.** Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la documentazione in [Creare un SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
 
-  - **Nome server**: <server Name>.database.windows.net
+  - **Nome server**: <nome server>.database.windows.net
   - **Nome SQLDW (database)**
   - **Nome utente**
   - **Password**
 
-**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Connettersi ad Azure SQL DW con Visual Studio**. Per istruzioni, vedere i passaggi 1 e 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md) (Connettersi a SQL Data Warehouse con Visual Studio).
 
 >[AZURE.NOTE] Eseguire la query SQL seguente nel database creato in SQL Data Warehouse (anziché la query specificata nel passaggio 3 dell'argomento relativo alla connessione) per **creare una chiave master**.
 
@@ -107,9 +107,9 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 ## <a name="getdata"></a>Caricare i dati in SQL Data Warehouse
 
-Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in GitHub in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creato dallo script di PowerShell.
+Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in GitHub in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creata dallo script di PowerShell.
 
->[AZURE.NOTE] Se sono richiesti privilegi di amministratore per creare o scrivere nella directory *DestDir*, potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente.
+>[AZURE.NOTE] Potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente se sono richiesti privilegi di amministratore per creare o scrivere nella directory *DestDir*.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -131,7 +131,7 @@ Quando lo script di PowerShell viene eseguito per la prima volta, verrà chiesto
 
 Questo file di **script di PowerShell** completa le attività seguenti:
 
-- **Download e installazione di AzCopy**, se non è già installato
+- **Esegue il download e l'installazione di AzCopy**, se non è già installato
 
 		$AzCopy_path = SearchAzCopy
     	if ($AzCopy_path -eq $null){
@@ -153,7 +153,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 					$env_path = $env:Path
 				}
 
-- **Copia dei dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
+- **Copia i dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
 
 		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
@@ -165,7 +165,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
     	Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
 
 
-- **Caricamento dei dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
+- **Carica i dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
 
 	- Creare uno schema
 
@@ -314,13 +314,18 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 			)
 			;
 
+La posizione geografica degli account di archiviazione influisce sui tempi di caricamento.
+
 >[AZURE.NOTE] A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche di più e il processo di caricamento dei dati dall'account di archiviazione ad Azure SQL DW può richiedere 20 minuti o più.
+
+È necessario decidere cosa fare se si dispone di file di origine e destinazione duplicati.
 
 >[AZURE.NOTE] Se i file con estensione csv da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
 
 ![Grafico n. 21][21]
 
->[AZURE.TIP] **Usare i dati locali:** se i dati si trovano nel computer locale nell'applicazione reale, è comunque possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
+È possibile usare i propri dati. Se i dati sono nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire il percorso **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
+
 
 >[AZURE.TIP] Se i dati sono già nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile saltare il passaggio di AzCopy nello script di PowerShell e caricare direttamente i dati in Azure SQL DW. Saranno necessarie altre modifiche dello script per adattarlo al formato dei dati.
 
@@ -626,7 +631,7 @@ Ecco la stringa di connessione che crea la connessione al database.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### Indicare il numero di righe e di colonne nella tabella <nyctaxi_trip>
+### Segnalare il numero di righe e di colonne nella tabella <nyctaxi\_trip>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -642,10 +647,10 @@ Ecco la stringa di connessione che crea la connessione al database.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Numero di righe totali = 173179759  
+- Numero di righe totali = 173179759
 - Numero di colonne totali = 14
 
-### Indicare il numero di righe e di colonne nella tabella <nyctaxi_fare>
+### Segnalare il numero di righe e di colonne nella tabella <nyctaxi\_fare>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -661,7 +666,7 @@ Ecco la stringa di connessione che crea la connessione al database.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Numero di righe totali = 173179759  
+- Numero di righe totali = 173179759
 - Numero di colonne totali = 11
 
 ### Leggere un piccolo campione di dati dal database SQL Data Warehouse
@@ -869,7 +874,7 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 
 In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure ML. Ecco la procedura per compilare uno o più modelli di stima:
 
-1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data], disponibile nella sezione **Input e output dei dati**. Per altre informazioni, vedere la pagina di riferimento sul [modulo Import Data][import-data].
+1. Inserire i dati in Azure ML tramite il modulo [Importa dati][import-data], disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul [modulo Importa dati][import-data].
 
 	![Import Data di Azure ML][17]
 
@@ -879,9 +884,9 @@ In questo esercizio i dati sono già stati esplorati e compilati in SQL Data War
 
 4. Immissione del **Nome database** nel campo corrispondente.
 
-5. Immettere il *nome utente SQL* in **Nome account utente server** e la *password* in **Password account utente server**.
+5. Immettere il *nome utente SQL* in **Server user account name** (Nome account utente server) e la *password* in **Server user account password** (Password account utente server).
 
-6. Selezionare l'opzione **Accetta qualsiasi certificato server**.
+6. Fare clic sull'opzione **Accept any server certificate** (Accetta qualsiasi certificato server).
 
 7. Nell'area di testo di modifica **Query database**, incollare la query che consente di estrarre i campi di database necessari (inclusi i campi calcolati come le etichette) e sottocampionare i dati nella dimensione campione desiderata.
 
@@ -891,7 +896,7 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile utilizzare il modulo [Select Columns in Dataset][select-columns] o l'[Editor metadati][edit-metadata]. Per altre informazioni, vedere le pagine di riferimento [Select Columns in Dataset][select-columns] e [Editor metadati][edit-metadata].
+> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 
 ## <a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
 
@@ -912,7 +917,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo [Select Columns in Dataset][select-columns].
+Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
 
 Nella figura di seguito viene fornito un esperimento di assegnazione dei punteggi di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
@@ -964,4 +969,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -49,7 +49,7 @@ Un asset è un contenitore di più tipi o set di oggetti in Servizi multimediali
 
 Una delle proprietà che è possibile specificare quando si crea un asset è **Options**. **Options** è un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione.
 
-- **None** = **0**: non viene applicata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+- **None** = **0**: non viene applicata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 
 - **StorageEncrypted** = **1**: specificare se si desidera applicare la crittografia AES a 256 bit per il caricamento e l'archiviazione dei file.
 
@@ -233,7 +233,7 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 - Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. Per altre informazioni, vedere Locator.
-- Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").	
+- Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
 - Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori URL di firma di accesso condiviso sia per i localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
@@ -529,4 +529,4 @@ L'entità ContentKey viene associata a uno o più asset mediante l'invio di una 
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

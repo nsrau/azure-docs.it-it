@@ -123,7 +123,7 @@ In questa sezione si modificherà il progetto client per simulare uno scenario o
 
 In questa sezione viene riconnessa l'app al back-end mobile, azione che consente di simulare il ritorno dell'app nello stato online. Quando si esegue il movimento di aggiornamento, i dati verranno sincronizzati con il back-end mobile.
 
-1. Aprire `QSTodoService.cs`. Correggere `applicationURL` e `gatewayURL` per puntare agli URL corretti.
+1. Aprire `QSTodoService.cs`. Correggere il valore `applicationURL` in modo che faccia riferimento all'URL corretto.
 
 2. Ricompilare ed eseguire l'app client. L'app prova a eseguire la sincronizzazione con il back-end dell'app per dispositivi mobili di Azure dopo l'avvio. Verificare che non vengano registrate eccezioni nella console di debug.
 
@@ -156,4 +156,4 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

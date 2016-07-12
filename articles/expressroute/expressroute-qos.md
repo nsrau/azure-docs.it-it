@@ -21,7 +21,7 @@ Skype per aziende dispone di diversi carichi di lavoro che richiedono la gestion
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] I requisiti QoS si applicano solo ai peer Microsoft.
+>[AZURE.NOTE] I requisiti QoS si applicano solo ai peer Microsoft. I valori DSCP del traffico di rete ricevuti nel peer pubblico e nel peer privato di Azure saranno reimpostati su 0.
 
 La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype per aziende. Fare riferimento a [Gestione QoS per Skype per aziende](https://technet.microsoft.com/library/gg405409.aspx) per ulteriori informazioni.
 
@@ -50,4 +50,4 @@ La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype 
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

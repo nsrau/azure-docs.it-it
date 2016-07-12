@@ -34,7 +34,7 @@ Questa esercitazione è basata sulla guida introduttiva di App per dispositivi m
 
 Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutto necessario inviare l'app a Windows Store. Sarà quindi possibile configurare il progetto server per l'integrazione con il servizio di notifica Windows.
 
-1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto dell'app UWP, quindi scegliere **Store** > **Associa applicazione a Store**. 
+1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto dell'app UWP, quindi scegliere **Store** > **Associa applicazione a Store**.
 
     ![Associa l’app con Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
     
@@ -200,10 +200,21 @@ L'app dovrà quindi registrarsi per le notifiche push all'avvio. Se l'autenticaz
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>Altro
+##<a id="more"></a>Passaggi successivi
 
-* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare il client gestito per le App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) illustra come registrare modelli.
-* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) illustra come aggiungere tag all’installazione di un dispositivo.
+Altre informazioni sulle notifiche push:
+
+* [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. Informazioni su come registrare i modelli.
+
+* [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) I tag consentono di specificare come destinazione i clienti segmentati con i push. Informazioni su come aggiungere tag all'installazione di un dispositivo.
+
+* [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md) (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
+
+È consigliabile proseguire con una delle esercitazioni seguenti:
+
++ [Aggiungere l'autenticazione all'app Windows](app-service-mobile-windows-store-dotnet-get-started-users.md) Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+
++ [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
 <!-- Anchors. -->
 
@@ -211,6 +222,5 @@ L'app dovrà quindi registrarsi per le notifiche push all'avvio. Se l'autenticaz
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-))) )
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

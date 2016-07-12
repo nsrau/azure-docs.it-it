@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Applicazione Web Ruby on Rails in una macchina virtuale di Azure
@@ -23,7 +23,7 @@ Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una m
 
 Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si usa una distribuzione Linux diversa, è necessario modificare la procedura per installare Rails.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Creare una macchina virtuale di Azure
 
@@ -156,4 +156,4 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

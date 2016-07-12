@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -34,7 +34,7 @@ Non è possibile usare Azure AD B2C con Microsoft Office 365 e in generale per f
 
 In un tenant di Azure AD ogni utente nel tenant (tranne quelli con account Microsoft esistenti) accede tramite un indirizzo di posta elettronica nel formato `<xyz>@<tenant domain>`, dove `<tenant domain>` è uno dei domini verificati nel tenant o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
 
-In un tenant di Azure AD B2C la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
+In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
 
 ### Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
@@ -102,15 +102,17 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti 
 
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
-- Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per l'iscrizione ad Azure.
+- Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+- Passare ai pannelli **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci in ognuno.
+- Accedere ora al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per l'iscrizione ad Azure.
 - Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C.
+- Fare clic sulla scheda **Utenti**.
+- Selezionare un utente alla volta, escludendo l'utente con il quale si è connessi attualmente, ovvero l'amministratore della sottoscrizione. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
 - Fare clic sulla scheda **Applicazioni**.
 - Selezionare **Applicazioni di proprietà dell'azienda** nel campo a discesa **Mostra** e fare clic sul segno di spunta.
-- Viene indicata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
+- Verrà indicata un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
 - Passare di nuovo all'estensione di Active Directory e selezionare il tenant di B2C.
 - Nella parte inferiore della pagina fare clic su **Elimina**. Seguire le istruzioni sullo schermo per completare il processo.
-
-Se sono già stati creati **utenti**, **applicazioni** o altri oggetti nel tenant di B2C, sarà necessario eliminarli prima di eseguire i passaggi precedenti.
 
 ### È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite?
 
@@ -118,7 +120,7 @@ No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non 
 
 ### Come è possibile segnalare problemi relativi ad Azure AD B2C?
 
-Vedere l'articolo [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
+Vedere [Anteprima di Azure Active Directory B2C: invio di richieste di supporto](active-directory-b2c-support.md).
 
 ### Quando sarà disponibile a livello generale Azure AD B2C?
 
@@ -128,4 +130,4 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 È consigliabile rivedere le informazioni relative a [vincoli, restrizioni e limitazioni correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

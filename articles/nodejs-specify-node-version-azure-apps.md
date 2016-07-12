@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Specifica di una versione di Node.js in un'applicazione Azure
@@ -22,7 +22,7 @@ Quando si ospita un'applicazione Node.js, può essere necessario assicurarsi che
 
 ##Versioni predefinite
 
-Le versioni di Node.js fornite da Azure vengono aggiornate costantemente. Se non diversamente specificato, verrà usata la versione più recente.
+Le versioni di Node.js fornite da Azure vengono aggiornate costantemente. Se non diversamente specificato, verrà usata la versione predefinita specificata nella variabile di ambiente `WEBSITE_NODE_DEFAULT_VERSION`. Per eseguire l'override di questo valore predefinito, seguire i passaggi disponibili nelle sezioni seguenti di questo articolo.
 
 > [AZURE.NOTE] Se l'applicazione è ospitata in un servizio cloud di Azure (ruolo di lavoro o Web) ed è la prima volta che si distribuisce l'applicazione, Azure tenterà di usare la stessa versione di Node.js installata nell'ambiente di sviluppo, se questa corrisponde a une delle versioni predefinite disponibili.
 
@@ -102,4 +102,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 [utilizzare i moduli]: nodejs-use-node-modules-azure-apps.md
 [creare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

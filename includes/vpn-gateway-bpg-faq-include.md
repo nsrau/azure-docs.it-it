@@ -65,7 +65,7 @@ Attualmente non è possibile.
 
 ### Quale indirizzo viene usato dal gateway VPN di Azure per l'indirizzo IP del peer BGP?
 
-Il gateway VPN di Azure alloca un unico indirizzo IP incluso nell'intervallo GatewaySubnet definito per la rete virtuale. Per impostazione predefinita, si tratta del penultimo indirizzo dell'intervallo. Ad esempio, se il valore di GatewaySubnet è 10.12.255.0.0/27, compreso tra 10.42.255.0.0 e 10.42.255.31, l'indirizzo IP del peer BGP nel gateway VPN di Azure sarà 10.12.255.30. Queste informazioni sono reperibili quando si elencano le informazioni sul gateway VPN di Azure.
+Il gateway VPN di Azure alloca un unico indirizzo IP incluso nell'intervallo GatewaySubnet definito per la rete virtuale. Per impostazione predefinita, si tratta del penultimo indirizzo dell'intervallo. Ad esempio, se il valore di GatewaySubnet è 10.12.255.0/27, compreso tra 10.12.255.0 e 10.12.255.31, l'indirizzo IP del peer BGP nel gateway VPN di Azure sarà 10.12.255.30. Queste informazioni sono reperibili quando si elencano le informazioni sul gateway VPN di Azure.
 
 ### Quali sono i requisiti per gli indirizzi IP dei peer BGP nel dispositivo VPN?
 
@@ -79,4 +79,4 @@ Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali pe
 
 È necessario aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositivo VPN che punta al tunnel VPN S2S IPsec. Ad esempio, se l'indirizzo IP del peer VPN di Azure è "10.12.255.30", è necessario aggiungere una route host per "10.12.255.30" con un'interfaccia nexthop dell'interfaccia del tunnel IPsec corrispondente nel dispositivo VPN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

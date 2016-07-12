@@ -19,7 +19,7 @@
 
 # Creare una VM Linux in Azure tramite l'interfaccia della riga di comando
 
-Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando il comando `azure vm quick-create` dell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM con un'infrastruttura di base che è possibile usare per creare un prototipo o testare un concetto molto rapidamente. Può essere considerato il modo più rapido per raggiungere una shell bash. L'articolo richiede un account Azure ([fare clic qui per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) connessa (`azure login`) e in modalità Resource Manager (`azure config mode arm`). È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
+Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando il comando `azure vm quick-create` dell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una macchina virtuale con un'infrastruttura di base che è possibile usare per creare un prototipo o testare un concetto molto rapidamente. Può essere considerato il modo più rapido per raggiungere una shell bash. L'articolo richiede un account Azure ([fare clic qui per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) connessa (`azure login`) e in modalità Resource Manager (`azure config mode arm`). È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Breve riepilogo del comando
 
@@ -171,4 +171,4 @@ Il comando `azure vm quick-create` consente di distribuire rapidamente una VM pe
 
 Questi articoli illustrano come iniziare a compilare un'infrastruttura di Azure oltre a un numero qualsiasi di strumenti di orchestrazione, configurazione e distribuzione delle infrastrutture proprietarie e open source.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

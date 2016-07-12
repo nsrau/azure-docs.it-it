@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
 #Gestire gli account di Servizi multimediali di Azure con PowerShell
 
+
 > [AZURE.SELECTOR]
 - [Portale](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
 
 > [AZURE.NOTE] Per poter creare un account di Servizi multimediali di Azure, è necessario un account di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
@@ -122,4 +124,4 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

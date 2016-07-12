@@ -24,16 +24,16 @@ Questo articolo contiene suggerimenti per la risoluzione dei problemi correlati 
 ### Errore: La sottoscrizione non è registrata per l'uso dello spazio dei nomi "Microsoft.DataFactory"
 Se viene visualizzato questo errore, il provider di risorse di Azure Data Factory non è stato registrato nel computer in uso. Eseguire queste operazioni:
 
-1. Avviare Azure PowerShell. 
-2. Accedere al proprio account di Azure usando il comando seguente. Login-AzureRmAccount 
+1. Avviare Azure PowerShell.
+2. Accedere al proprio account di Azure usando il comando seguente. Login-AzureRmAccount
 3. Eseguire il comando seguente per registrare il provider di Azure Data Factory. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
 ### Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data factory
 Probabilmente non si sta utilizzando l'account o la sottoscrizione Azure appropriata con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione Azure appropriati per l'uso con Azure PowerShell.
 
 1. Login-AzureRmAccount: usare l'ID utente e la password corretti
-2. Get-AzureRmSubscription: visualizzare tutte le sottoscrizioni per l'account. 
-3. Select-AzureRmSubscription <subscription name>: selezionare la sottoscrizione corretta. Usare la stessa che si usa per creare una data factory nel portale di Azure.
+2. Get-AzureRmSubscription: visualizzare tutte le sottoscrizioni per l'account.
+3. Select-AzureRmSubscription <nome della sottoscrizione>: selezionare la sottoscrizione corretta. Usare la stessa che si usa per creare una data factory nel portale di Azure.
 
 ### Problema: impossibile avviare l'installazione rapida del Gateway di gestione dati dal portale di Azure
 L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. Se non è possibile avviare l'installazione rapida, eseguire una di queste operazioni:
@@ -47,16 +47,16 @@ L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o
 - Usare il collegamento **Installazione manuale** visualizzato nello stesso pannello del portale per scaricare il file di installazione ed eseguirlo manualmente. Al termine dell'installazione viene visualizzata la finestra di configurazione di Gateway di gestione dati. Copiare la **chiave** dalla schermata del portale e usarla in Gestione configurazione per registrare manualmente il gateway con il servizio.
 
 ### Problema: impossibile connettersi all'istanza di SQL Server locale 
-Avviare **Gestione configurazione di Gateway di gestione dati** sul computer del gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer del gateway. Per i dettagli, vedere [Risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+Avviare **Gestione configurazione di Gateway di gestione dati** nel computer gateway e usare la scheda **Risoluzione dei problemi** per testare la connessione a SQL Server dal computer gateway. Per informazioni dettagliate, vedere [Risoluzione dei problemi di gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
  
 
 ### Problema: le sezioni di input rimangono nello stato Waiting
 
-Le sezioni potrebbero essere nello stato **Waiting** a causa di una serie di motivi, uno dei più comuni è che la proprietà **external** non è impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+Le sezioni potrebbero essere nello stato **Waiting** per diversi motivi, uno dei più comuni è che la proprietà **external** non è impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
 Per l'uso della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente**externalData*** quando si imposta external su true.
 
-Vedere [Set di dati](data-factory-create-datasets.md) per maggiori dettagli su questa proprietà.
+Per altre informazioni su questa proprietà, vedere [Set di dati in Azure Data Factory](data-factory-create-datasets.md).
 	
 	{
 	  "name": "CustomerTable",
@@ -85,7 +85,7 @@ Vedere [Set di dati](data-factory-create-datasets.md) per maggiori dettagli su q
 Per risolvere l'errore, aggiungere la proprietà **external** e la sezione facoltativa **externalData**alla definizione JSON della tabella di input e ricreare la tabella.
 
 ### Problema: l'operazione di copia ibrida non riesce
-Vedere [Risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) per le procedure di risoluzione dei problemi relativi alla copia in e da un archivio dati locale usando il Gateway di gestione dati.
+Per le procedure di risoluzione dei problemi relativi alla copia da e verso un archivio dati locale usando il Gateway di gestione dati, vedere [Risoluzione dei problemi di gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ### Problema: non è possibile eseguire il provisioning di HDInsight su richiesta
 Quando si usa un servizio collegato di tipo HDInsightOnDemand, è necessario specificare un linkedServiceName che punta a un archivio BLOB di Azure. Il servizio Data Factory usa questa risorsa di archiviazione per archiviare Questo account di archiviazione verrà usato per copiare i log e i file di supporto per il cluster HDInsight su richiesta. In alcuni casi il provisioning di un cluster HDInsight su richiesta ha esito negativo con l'errore seguente:
@@ -97,25 +97,24 @@ Questo errore di solito indica che il percorso dell'account di archiviazione spe
 È anche disponibile una seconda proprietà JSON additionalLinkedServiceNames in cui è possibile specificare account di archiviazione aggiuntivi in HDInsight su richiesta. Gli account di archiviazione aggiuntivi collegati devono trovarsi nello stesso percorso del cluster HDInsight o non riusciranno, producendo lo stesso errore.
 
 ### Problema: l'attività .NET personalizzata non riesce
-Vedere [Eseguire il debug di una pipeline con attività personalizzata](data-factory-use-custom-activities.md#debug-the-pipeline) per la procedura dettagliata.
+Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeline](data-factory-use-custom-activities.md#debug-the-pipeline).
 
 ## Usare il portale di Azure per la risoluzione dei problemi 
 
 ### Uso dei pannelli del portale
-Per le procedure, vedere [Monitorare la pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
+Per una procedura dettagliata, vedere la sezione [Monitorare la pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
 ### Uso dell'app di monitoraggio e gestione
-Per i dettagli, vedere [Monitorare e gestire le pipeline di Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
+Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 ## Usare Azure PowerShell per la risoluzione dei problemi
 
 ### Usare Azure PowerShell per risolvere un errore  
-Per i dettagli, vedere [Monitorare e gestire le pipeline di Data Factory con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline).
+Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerShell, vedere la sezione [Monitorare la pipeline](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline).
 
 
-[adfgetstarted]: data-factory-get-started.md
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -144,4 +143,4 @@ Per i dettagli, vedere [Monitorare e gestire le pipeline di Data Factory con Azu
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
@@ -27,7 +27,7 @@ Questo documento contiene procedure dettagliate che illustrano come personalizza
 Vengono trattati gli argomenti seguenti:
 
 - [Codifica di un file MXF in un MP4 a velocità in bit singola](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [Avvio di un nuovo flusso di lavoro](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [Avvio di un nuovo flusso di lavoro](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [Uso di Media File Input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [Analisi di flussi multimediali](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [Aggiunta di un codificatore video per la generazione di file MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@ Il nuovo flusso di lavoro mostrerà 3 elementi:
 
 - Primary Source File
 - Clip List XML
-- Output File/Asset  
+- Output File/Asset
 
 ![Nuovo flusso di lavoro della codifica](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -986,4 +986,4 @@ Con la semplice clausola guard seguente, è possibile controllare se il taglio �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 # Come usare docker con swarm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 In questo argomento viene descritto un modo molto semplice di utilizzare [Docker](https://www.docker.com/) con [Swarm](https://github.com/docker/swarm) per creare un cluster gestito da Swarm in Azure. Vengono create quattro macchine virtuali in Azure, una da usare come gestore di swarm e tre come parte del cluster di host docker. Al termine dell'operazione, sarà possibile usare swarm per visualizzare il cluster e quindi iniziare a usare docker con swarm. Inoltre, le chiamate dell’interfaccia della riga di comando di Azure in questo argomento utilizzano la modalità di gestione servizi (asm).
@@ -65,7 +65,7 @@ L'ultima riga è l'ID cluster; si consiglia di copiarla in quanto verrà usata n
 
 > [AZURE.NOTE] Per maggiore chiarezza, viene usata l'installazione di Docker locale per collegarsi alla macchina virtuale **swarm-master** in Azure e indicare a **swarm-master** di scaricare, installare ed eseguire il comando **create**. Tale comando restituisce l'ID cluster che verrà usato successivamente per scopi di individuazione.
 <!-- -->
-> Per verificare ciò, eseguire `docker -H tcp://`*&lt;nomehost&gt;* ` images` per visualizzare i processi del contenitore nel computer **swarm-master** e in un altro nodo a scopo di confronto. Il comando Swarm precedente è stato eseguito con l'opzione **--rm** e il contenitore è stato rimosso dopo l'operazione, perciò usando **docker ps -a** non viene restituito alcun risultato:
+> Per verificare ciò, eseguire `docker -H tcp://`**&lt;nomehost&gt;** ` images` per visualizzare i processi del contenitore nel computer **swarm-master** e in un altro nodo a scopo di confronto. Il comando Swarm precedente è stato eseguito con l'opzione **--rm** e il contenitore è stato rimosso dopo l'operazione, perciò usando **docker ps -a** non viene restituito alcun risultato:
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
@@ -137,4 +137,4 @@ Iniziare a eseguire operazioni sullo swarm. Per trarre ispirazione, vedere [http
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

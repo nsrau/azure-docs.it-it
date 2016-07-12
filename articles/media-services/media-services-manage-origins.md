@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -68,9 +68,11 @@ Per modificare il numero di unità di streaming tramite il portale, seguire ques
 	L'allocazione di nuove unità di streaming richiede circa 20 minuti.
 
 	 
->[AZURE.NOTE] Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming on demand venga disabilitato per un periodo che può durare fino a un'ora.
+>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming on demand venga disabilitato per un periodo che può durare fino a un'ora.
 
->[AZURE.NOTE] Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+</br>
+
+>[AZURE.NOTE]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configurare l'endpoint di streaming
 
@@ -125,8 +127,9 @@ Una volta abilitata, le seguenti configurazioni vengono disabilitate: **Nomi hos
 
 ![Abilitazione della rete CDN per gli endpoint di streaming][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon**. Se si vuole usare la **rete CDN di Azure fornita da Akamai** per Servizi multimediali di Azure, è necessario [configurare manualmente l'endpoint](../cdn/cdn-create-new-endpoint.md). Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../cdn/cdn-overview.md).
 
-###Considerazione aggiuntive
+###Considerazioni aggiuntive
 
 - Quando la rete CDN è abilitata per un endpoint di streaming, i client non possono richiedere il contenuto direttamente dall'origine. Se è necessario testare il contenuto con o senza la rete CDN, è possibile creare un altro endpoint di streaming per la rete CDN.
 - Il nome host dell'endpoint di streaming rimane invariato dopo l'abilitazione della rete CDN. Non è necessario apportare modifiche al flusso di lavoro di Servizi multimediali dopo l'abilitazione della rete CDN. Ad esempio, se il nome host dell'endpoint di streaming è strasbourg.streaming.mediaservices.windows.net, dopo avere abilitato la rete CDN, viene usato lo stesso identico nome host.
@@ -150,4 +153,4 @@ Per altre informazioni, vedere [Annuncio dell'integrazione di Servizi multimedia
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

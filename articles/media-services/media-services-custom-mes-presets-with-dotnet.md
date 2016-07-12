@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -30,19 +30,19 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 - [Creare una sovrimpressione](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Inserire una traccia audio silenziosa quando l'input è privo di audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disabilitare il deinterlacciamento automatico](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
-- [Set di impostazioni solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Impostazioni predefinite solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
-##<a id="encoding_with_dotnet"></a>Codifica con Media Services .NET SDK
+##<a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
 Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare XML o JSON (ad esempio [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) in un file e usare il codice seguente per caricare il file.
+- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare XML o JSON (ad esempio [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) in un file e utilizzare il codice seguente per caricare il file.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Aggiungere un'attività di codifica al processo. 
+- Aggiungere un'attività di codifica al processo.
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
@@ -235,18 +235,18 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		}
 
 
-##<a id="thumbnails"></a>Generare anteprime
+##<a id="thumbnails"></a>Generazione di anteprime
 
-Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
+Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile prendere una delle impostazioni predefinite MES documentate [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
 
->[AZURE.NOTE]L'impostazione **SceneChangeDetection** nel set di impostazioni seguente può essere impostata su true solo se si sta eseguendo la codifica in un video a velocità in bit singola. Se si sta eseguendo la codifica in un video a più velocità in bit e si imposta **SceneChangeDetection** su true, il codificatore restituirà un errore.
+>[AZURE.NOTE]L'impostazione **SceneChangeDetection** nell’impostazione predefinita seguente può essere impostata a true solo in caso di codifica in un video a velocità in bit singola. In caso di codifica in video a più velocità in bit e impostazione di **SceneChangeDetection** a true, il codificatore restituisce un errore.
 
 
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
 Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-presets-with-dotnet.md#considerations).
 
-###<a id="json"></a>Set di impostazioni JSON
+###<a id="json"></a>Impostazioni predefinite JSON
 
 
 	{
@@ -348,7 +348,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-p
 	}
 
 
-###<a id="xml"></a>Set di impostazioni XML
+###<a id="xml"></a>Impostazioni predefinite XML
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -441,13 +441,13 @@ Si applicano le considerazioni seguenti:
 	- Impostazioni predefinite: Start: {Best}
 - Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
-##<a id="trim_video"></a>Tagliare un video (ritaglio)
+##<a id="trim_video"></a>Taglio di un video (ritaglio)
 
-Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere utilizzato per tagliare o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
+Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato nella parte superiore dello schema.
  
-###<a id="json"></a>Set di impostazioni JSON
+###<a id="json"></a>Impostazioni predefinite JSON
 	
 	{
 	  "Version": 1.0,
@@ -569,7 +569,7 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES 
 
 ###Set di impostazioni XML
 	
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito).
+Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -686,13 +686,13 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES 
 	  </Outputs>
 	</Preset>
 
-##<a id="overlay"></a>Creare una sovrimpressione
+##<a id="overlay"></a>Creazione di una sovrimpressione
 
 Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
 Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario**.
 
-Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa( ad esempio il set di impostazioni che segue) per creare l'attività di codifica.
+Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** utilizza il file di impostazioni predefinite personalizzato passato alla funzione stessa (ad esempio l’impostazione predefinita seguente) per creare l'attività di codifica.
 
 >[AZURE.NOTE]Limitazioni correnti:
 >
@@ -846,7 +846,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
 
-È possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+È possibile eseguire un’impostazione predefinita MES documentata [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
 
 ###Set di impostazioni JSON
 
@@ -897,9 +897,9 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 	</Sources>
 
 
-##<a id="audio_only"></a>Set di impostazioni solo audio
+##<a id="audio_only"></a>Impostazioni predefinite solo audio
 
-In questa sezione vengono illustrati due set di impostazioni MES solo audio: Audio AAC e Audio AAC di buona qualità.
+In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
 ###Audio ACC 
 
@@ -959,4 +959,4 @@ In questa sezione vengono illustrati due set di impostazioni MES solo audio: Aud
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

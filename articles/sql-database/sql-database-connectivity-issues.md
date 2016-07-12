@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Correggere un errore di connessione SQL temporaneo | Microsoft Azure"
-	description="Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure."
+	description="Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure. "
 	keywords="connessione sql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione"
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 
@@ -553,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## Passaggi successivi
 
-- Per risolvere altri problemi di connessione del database SQL di Azure, visitare [Risoluzione dei problemi di connessione comuni al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Per risolvere altri problemi di connessione del database SQL di Azure, visitare [Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 
 - [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

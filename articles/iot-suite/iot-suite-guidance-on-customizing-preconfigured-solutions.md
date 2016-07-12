@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/02/2016"
+     ms.date="06/27/2016"
      ms.author="stevehob"/>
 
 # Personalizzare una soluzione preconfigurata
@@ -39,9 +39,9 @@ I tre processi di analisi di flusso e la relativa sintassi sono descritti in det
 È possibile modificare questi processi direttamente per alterare la logica o aggiungere una logica specifica allo scenario. È possibile trovare i processi di analisi di flusso come segue:
  
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare a un nuovo gruppo di risorse con lo stesso nome della soluzione IoT. 
-3. Selezionare il processo di Analisi di flusso di Azure che si vuole modificare. 
-4. Arrestare il processo selezionando **Arresta** nel set di comandi. 
+2. Passare a un nuovo gruppo di risorse con lo stesso nome della soluzione IoT.
+3. Selezionare il processo di Analisi di flusso di Azure che si vuole modificare.
+4. Arrestare il processo selezionando **Arresta** nel set di comandi.
 5. Modificare i valori di input, query e output.
 
     Una modifica semplice consiste nel cambiare la query per il processo **Regole** in modo da usare **"<"** anziché **">"**. Il portale della soluzione visualizzerà ancora **">"** quando si modifica una regola, ma si noterà che il comportamento viene capovolto a causa della modifica del processo sottostante.
@@ -66,9 +66,28 @@ Nel codice sorgente della soluzione per il monitoraggio remoto (a cui viene fatt
 
 Nella soluzione preconfigurata per il monitoraggio remoto il simulatore preconfigurato rappresenta un dispositivo di raffreddamento che invia messaggi di telemetria su temperatura e umidità. Il simulatore può essere modificato nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) dopo aver duplicato il repository GitHub.
 
+### Posizioni disponibili per i dispositivi simulati
+
+Il set predefinito di posizioni si trova a Seattle/Redmond, Washington, Stati Uniti d'America. È possibile modificare queste posizioni nel file [SampleDeviceFactory.cs][lnk-sample-device-factory].
+
+
 ### Compilazione e uso del proprio dispositivo (fisico)
 
 Gli [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks) forniscono librerie per la connessione di numerosi tipi di dispositivi (linguaggi e sistemi operativi) alle soluzioni IoT.
+
+## Modifica dei limiti del dashboard
+
+### Numero di dispositivi visualizzati nell'elenco a discesa del dashboard
+
+Il valore predefinito è 200. È possibile modificare questo numero nel file [DashboardController.cs][lnk-dashboard-controller].
+
+### Numero di pin da visualizzare nel controllo di Bing Mappe
+
+Il valore predefinito è 200. È possibile modificare questo numero nel file [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+
+### Periodo di tempo del grafico di dati di telemetria
+
+Il valore predefinito è 10 minuti. È possibile modificare questo valore nel file [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## Configurazione manuale dei ruoli dell’applicazione
 
@@ -123,9 +142,9 @@ I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei
 
 9. Salvare il file con estensione JSON aggiornato (è possibile sovrascrivere il file esistente).
 
-10.  Nel portale di gestione di Azure, nella parte inferiore della pagina selezionare **Gestisci manifesto** e quindi **Carica manifesto** per caricare il file con estensione json salvato nel passo precedente.
+10.  Nel portale di gestione di Azure, nella parte inferiore della pagina selezionare **Gestisci manifesto** e quindi **Carica manifesto** per caricare il file con estensione json salvato nel passaggio precedente.
 
-11. Sono stati aggiunti all’applicazione i ruoli **Admin** e **ReadOnly**.
+11. Sono stati aggiunti all'applicazione i ruoli **Admin** e **ReadOnly**.
 
 12. Per assegnare uno di questi ruoli a un utente nella directory, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions].
 
@@ -139,6 +158,10 @@ Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azu
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
+[lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
+[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25
+[lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

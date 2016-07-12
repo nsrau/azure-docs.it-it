@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
@@ -55,6 +55,8 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 
 5. Anche se le specifiche di ogni registrar possono variare, in genere viene eseguito il mapping *dal* nome di dominio personalizzato, ad esempio **contoso.com**, *al* nome di dominio di Gestione traffico (**contoso.trafficmanager.net**) usato per l'app Web.
 
+> [AZURE.NOTE] In alternativa, se un record è già in uso ed è necessario associare le app in modalità preemptive, eseguire il mapping di **awverify.contoso.com** a **contoso.trafficmanager.net**.
+
 6. Dopo aver completato l'aggiunta o la modifica di record DNS presso il registrar, salvare le modifiche.
 
 <a name="enabledomain"></a>
@@ -66,4 +68,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

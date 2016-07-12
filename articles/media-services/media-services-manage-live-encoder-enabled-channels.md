@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
@@ -51,7 +51,7 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 
 - **Arrestato**. Lo stato iniziale del canale dopo la creazione (se nel portale non è stata selezionata l'opzione di avvio automatico.) In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
 - **Avvio in corso**. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
-- **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione. 
+- **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione.
 - **Arresto in corso**. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 - **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 
@@ -89,7 +89,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 >[AZURE.NOTE] Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived sul sito Microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). 
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS).
 	
 	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
@@ -98,7 +98,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 1. Recuperare l'URL di inserimento del canale.
 
 	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale.
 
 	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
@@ -106,14 +106,14 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 	Se si crea un programma tramite il portale di Azure classico, viene creato anche un asset.
 
-	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
-1. Pubblicare l'asset associato al programma.   
+	Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma.
+1. Pubblicare l'asset associato al programma.
 
 	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-1. Eliminare il programma e, facoltativamente, eliminare l'asset.   
+1. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
 >[AZURE.NOTE]È molto importante non dimenticare di arrestare un canale di codifica Live. La codifica live, infatti, è soggetta a un costo orario e se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
@@ -124,7 +124,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 Se **Tipo di codificatore** è impostato su **Standard**, le opzioni valide sono le seguenti:
 
-- **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.  
+- **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.
 - **RTMP** a velocità in bit singola
 - **MP4 frammentato** (Smooth Streaming) a velocità in bit singola
 
@@ -136,12 +136,12 @@ Per inviare un flusso, le emittenti professionali usano in genere codificatori l
 
 Considerazioni:
 
-- È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS). 
-- È tuttavia possibile immettere fino a otto flussi audio usando MPEG-2 TS su RTP. 
+- È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS).
+- È tuttavia possibile immettere fino a otto flussi audio usando MPEG-2 TS su RTP.
 - Il flusso video dovrà avere una velocità in bit media inferiore a 15 Mbps.
 - La velocità in bit media aggregata dei flussi video e audio dovrà essere inferiore a 1 Mbps.
 - Di seguito sono elencati i codec supportati:
-	- MPEG-2/H.262 Video 
+	- MPEG-2/H.262 Video
 		
 		- Main Profile (4:2:0)
 		- High Profile (4:2:0, 4:2:2)
@@ -310,13 +310,13 @@ Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
 Velocità in bit|Larghezza|Altezza|MaxFPS|Profilo|Nome del flusso di output
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
-2200|960|540|30|Principale|Video\_960x540\_2200kbps
-1350|704|396|30|Principale|Video\_704x396\_1350kbps
-850|512|288|30|Principale|Video\_512x288\_850kbps
-550|384|216|30|Principale|Video\_384x216\_550kbps
-350|340|192|30|Di base|Video\_340x192\_350kbps
-200|340|192|30|Di base|Video\_340x192\_200kbps
+3500|1280|720|30|Elevata|Video _1280x720_ 3500 kbps
+2200|960|540|30|Principale|Video _960x540_ 2200 kbps
+1350|704|396|30|Principale|Video _704x396_ 1350 kbps
+850|512|288|30|Principale|Video _512x288_ 850 kbps
+550|384|216|30|Principale|Video _384x216_ 550 kbps
+350|340|192|30|Di base|Video _340x192_ 350 kbps
+200|340|192|30|Di base|Video _340x192_ 200 kbps
 
 
 ####Flusso audio di output
@@ -476,4 +476,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

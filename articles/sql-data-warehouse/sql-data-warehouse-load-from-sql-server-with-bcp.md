@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -182,22 +182,22 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 È possibile usare la funzione **queryout** di bcp per esportare i risultati di una query invece di esportare l'intera tabella.
 
 ## Passaggi successivi
-Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Vedere [Progettazione di tabelle][] o la [sintassi di CREATE TABLE][] per altre informazioni sulla creazione di una tabella in SQL Data Warehouse.
+Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse, vedere [Overview of tables in SQL Data Warehouse][] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Caricare i dati in SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
-[Statistiche]: sql-data-warehouse-develop-statistics.md
+[Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
+[Statistiche]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[sintassi di CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

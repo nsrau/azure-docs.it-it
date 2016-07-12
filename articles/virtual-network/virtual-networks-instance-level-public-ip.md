@@ -18,9 +18,9 @@
 # Panoramica sugli indirizzi IP pubblici a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza della VM o del ruolo anziché al servizio cloud in cui risiede l'istanza. Tale indirizzo non sostituisce l'indirizzo VIP (Virtual IP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
-Verificare di comprendere il [funzionamento degli indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
+Verificare di conoscere il funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
 
 >[AZURE.NOTE] In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
 
@@ -31,7 +31,7 @@ Come illustrato nella figura 1, al servizio cloud si accede tramite un indirizzo
 Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo (FQDN) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP. Se ad esempio si crea un servizio cloud denominato *contosoadservice* e si configura un ruolo Web denominato *contosoweb* con due istanze, Azure registrerà i record A seguenti per le istanze:
 
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net
-- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net
 
 >[AZURE.NOTE] È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
 
@@ -96,7 +96,7 @@ Per aggiungere un ILPIP alla VM creata usando lo script precedente, eseguire il 
 	| Update-AzureVM
 
 ## Come associare un ILPIP a una macchina virtuale usando un file di configurazione del servizio
-È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione (CSCFG) del servizio. Il file xml di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un ILPIP denominato *MyPublicIP* per un'istanza del ruolo:
+È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione (CSCFG) del servizio. Il file XML di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un ILPIP denominato *MyPublicIP* per un'istanza del ruolo:
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -124,9 +124,9 @@ Per aggiungere un ILPIP alla VM creata usando lo script precedente, eseguire il 
 
 ## Passaggi successivi
 
-- Informazioni sugli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classico.
+- Informazioni sul funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classica.
 
-- Informazioni sugli [indirizzi IP riservati](../virtual-networks-reserved-public-ip).
+- Informazioni sugli [indirizzi IP riservati](virtual-networks-reserved-public-ip.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

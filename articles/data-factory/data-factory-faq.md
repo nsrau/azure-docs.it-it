@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Domande frequenti
@@ -35,8 +35,8 @@ Per saperne di più, vedere la [pagina relativa ai prezzi di Azure Data Factory]
 ### In che modo è possibile iniziare a usare Azure Data Factory?
 
 - Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
-- Per un'esercitazione su come **copiare/spostare i dati** usando l'attività di copia, vedere [Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](data-factory-get-started.md).
-- Per un'esercitazione su come **trasformazione i dati** usando l'attività Hive di HDInsight, vedere [Creare la prima data factory (panoramica)](data-factory-build-your-first-pipeline.md) 
+- Per un'esercitazione su come **copiare o spostare i dati** usando l'attività di copia, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Per un'esercitazione su come **trasformazione i dati** usando l'attività Hive di HDInsight, vedere [Creare la prima data factory (panoramica)](data-factory-build-your-first-pipeline.md)
   
 ### In quali paesi è disponibile Data Factory?
 Data Factory è disponibile negli **Stati Uniti occidentali** e in **Europa settentrionale**. I servizi di calcolo e di archiviazione usati dalle istanze di Data Factory possono essere disponibili in altri paesi. Vedere [Aree supportate](data-factory-introduction.md#supported-regions).
@@ -73,7 +73,7 @@ Sì. Utilizzare il pulsante **Sposta** nel pannello della data factory come most
 ### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 
 
 - [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per spostare i dati.
-- [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per elaborare o trasformare i dati. 
+- [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per elaborare o trasformare i dati.
 
 ### Quando viene eseguita un'attività?
 L'impostazione di configurazione **availability** della tabella dati di output determina quando viene eseguita l'attività. Se vengono specificati set di dati di input, prima dell'esecuzione l'attività verifica se sono soddisfatte tutte le dipendenze dei dati di input, ad esempio lo stato **Pronto**.
@@ -81,6 +81,11 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 ## Attività di copia - Domande frequenti
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
 Le pipeline sono state progettate per aggregare attività correlate. È logicamente possibile mantenere le attività in un'unica pipeline se le tabelle che le connettono non vengono usate da altre attività esterne alla pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
+
+### Dove viene eseguita l'operazione di copia? 
+
+Per altre informazioni, vedere la sezione [Spostamento dei dati disponibile a livello globale](data-factory-data-movement-activities.md#global). In breve, quando è coinvolto un archivio dati locale, l'operazione di copia viene eseguita dal Gateway di gestione dati nell'ambiente locale. Quando lo spostamento dei dati avviene tra due archivi cloud, l'operazione di copia viene eseguita nell'area più vicina alla località del sink nella stessa area geografica.
+
 
 ## Attività di HDInsight - Domande frequenti
 
@@ -119,10 +124,10 @@ Nell'esempio precedente otherLinkedServiceName1 e otherLinkedServiceName2 rappre
 
 ## Sezioni - Domande frequenti
 
-### Perché le sezioni di input non sono in stato Ready? 
-Un errore frequente è la mancata impostazione della proprietà **external** su **true** nel set di dati di input quando i dati di input sono esterni alla data factory (non prodotti dalla data factory).
+### Perché le sezioni di input non sono in stato Ready?  
+Un errore frequente è la mancata impostazione della proprietà **external** su **true** nel set di dati di input quando i dati di input sono esterni alla data factory, ovvero non prodotti dalla data factory.
 
-Nell'esempio seguente è necessario impostare soltanto **external** su true in **dataset1**.
+Nell'esempio seguente è necessario soltanto impostare **external** su true in **dataset1**.
 
 **DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
@@ -133,7 +138,7 @@ Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (pr
 Se la proprietà esterna è impostata correttamente, verificare che i dati di input siano presenti nel percorso specificato nella definizione del set di dati di input.
 
 ### In che modo è possibile eseguire una sezione in un momento diverso dalla mezzanotte quando tale sezione viene prodotta ogni giorno?
-Utilizzare la proprietà **offset** per specificare l'ora desiderata per la produzione della sezione. Vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability) per maggiori dettagli su questa proprietà. Di seguito è riportato un rapido esempio:
+Usare la proprietà **offset** per specificare l'ora di produzione della sezione. Per altre informazioni su questa proprietà, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability). Di seguito è riportato un rapido esempio:
 
 	"availability":
 	{
@@ -142,30 +147,30 @@ Utilizzare la proprietà **offset** per specificare l'ora desiderata per la prod
 	    "offset": "06:00:00"
 	}
 
-Le sezioni giornaliere iniziano alle **6.00** anziché alla mezzanotte predefinita.
+Le sezioni giornaliere iniziano alle **6.00** anziché a mezzanotte, ovvero l'impostazione predefinita.
 
 ### Come si riesegue una sezione?
 È possibile rieseguire una sezione in uno dei modi seguenti:
 
-- Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).   
+- Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).
 - Fare clic su **Esegui** sulla barra dei comandi nel pannello **SEZIONE DATI** per la sezione nel portale.
-- Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.   
+- Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Per informazioni dettagliate sul cmdlet, vedere [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status].
 
 ### Quanto tempo è stato necessario per elaborare una sezione?
-Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity Window Explorer nell'app di monitoraggio e gestione. Per informazioni dettagliate, vedere [Activity Window Explorer](data-factory-monitor-manage-app.md#activity-window-explorer).
+Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity Window Explorer nell'app di monitoraggio e gestione. Per informazioni dettagliate, vedere la sezione [Activity Window Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) (Esplora finestre attività).
 
 È possibile anche eseguire le operazioni seguenti nel portale di Azure:
 
 1. Fare clic sul riquadro **Set di dati** nel pannello **DATA FACTORY** per l'istanza di Data factory.
 2. Fare clic sul set di dati specifico nel pannello **Set di dati**.
 3. Selezionare la sezione a cui si è interessati dall'elenco **Sezioni recenti** nel pannello **TABELLA**.
-4. Fare clic sull'esecuzione di attività nell'elenco **Esecuzioni attività** nel pannello **SEZIONE DATI**. 
-5. Fare clic sul riquadro **Proprietà** nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ**. 
-6. Nel campo **DURATA** dovrebbe essere visualizzato un valore, ovvero il tempo impiegato per elaborare la sezione.   
+4. Fare clic sull'esecuzione di attività nell'elenco **Esecuzioni attività** nel pannello **SEZIONE DATI**.
+5. Fare clic sul riquadro **Proprietà** nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ**.
+6. Nel campo **DURATA** dovrebbe essere visualizzato un valore, ovvero il tempo impiegato per elaborare la sezione.
 
 ### In che modo è possibile interrompere una sezione in esecuzione?
 Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
@@ -187,4 +192,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

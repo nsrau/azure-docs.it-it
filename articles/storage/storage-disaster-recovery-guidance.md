@@ -25,9 +25,9 @@ Microsoft si impegna costantemente per verificare che i servizi siano sempre dis
 
 È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Il processo per eseguire il ripristino dopo un'interruzione dell'archiviazione comporta in genere sia il coinvolgimento del personale addetto alle attività operative che procedure automatizzate per riattivare le applicazioni in uno stato funzionante. Per creare un piano di ripristino di emergenza, vedere la documentazione di Azure seguente:
 
--   [Ripristino di emergenza e disponibilità elevata per le applicazioni di Azure](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Informazioni tecniche sulla continuità aziendale di Azure](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md)
 
 -   [Servizio Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -81,4 +81,4 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati archiviazi
 
 -   File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

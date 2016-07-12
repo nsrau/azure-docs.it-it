@@ -41,11 +41,11 @@ Per completare questa esercitazione, è necessario disporre di:
 
 Le funzionalità offline delle app per dispositivi mobili di Azure consentono di interagire con un database locale in uno scenario offline. Per usare queste funzionalità nell'app, inizializzare [SyncContext][synccontext] in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite viene usato come archivio locale nel dispositivo.
 
-1. Installare il [runtime di SQLite for Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Installare il [runtime di SQLite per la piattaforma UWP (Universal Windows Platform)](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. In Visual Studio aprire Gestione pacchetti NuGet per il progetto dell'app UWP completato nell'esercitazione [Creare un'app Windows], quindi cercare e installare il pacchetto NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 
-4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** > **UWP** > **Estensioni**, quindi abilitare sia **SQLite for Universal Windows Platform** che **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
+4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** > **Aggiungi riferimento** > **UWP** > **Estensioni**, quindi abilitare sia **SQLite for Universal Windows Platform** che **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
 
     ![Aggiungere un riferimento UWP SQLite][1]
 
@@ -54,12 +54,12 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  
         using Microsoft.WindowsAzure.MobileServices.Sync;         
 
-6. Impostare come commento la riga di codice che inizializza `todoTable` come **IMobileServiceTable**, quindi rimuovere il commento dalla riga di codice che inizializza `todoTable` come un **IMobileServiceSyncTable**:
+6. Impostare come commento la riga di codice che inizializza `todoTable` come **IMobileServiceTable**, quindi rimuovere il commento dalla riga di codice che inizializza `todoTable` come **IMobileServiceSyncTable**:
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); 
 
-7. Nell'area `Offline sync` di MainPage.xaml.cs, rimuovere il commento dai metodi seguenti:
+7. Nell'area `Offline sync` di MainPage.xaml.cs rimuovere il commento dai metodi seguenti:
 
         private async Task InitLocalStoreAsync()
         {
@@ -85,7 +85,7 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 
 9. Rimuovere il commento dalle chiamate a [PushAsync] nei metodi `InsertTodoItem` e `UpdateCheckedTodoItem`, quindi rimuovere il commento dalla chiamata a `SyncAsync` nel metodo `ButtonRefresh_Click`.
 
-10. Nel metodo `SyncAsync` aggiungere i gestori eccezioni seguenti:
+10. Nel metodo `SyncAsync` aggiungere i gestori di eccezioni seguenti:
 
         private async Task SyncAsync()
         {
@@ -147,7 +147,7 @@ In questa sezione verrà interrotta la connessione al back-end dell'app per disp
 
 In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'app per dispositivi mobili. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il back-end dell'app per dispositivi mobili. Alla prima esecuzione dell'applicazione, il gestore eventi `OnNavigatedTo` chiama `InitLocalStoreAsync`. Viene quindi eseguita una chiamata a `SyncAsync` per sincronizzare l'archivio locale con il database back-end. L'app prova quindi a eseguire la sincronizzazione all'avvio.
 
-1. Aprire il file App.xaml.cs nel progetto condiviso. Rimuovere il commento dalla precedente inizializzazione di `MobileServiceClient` per usare L'URL dell'app per dispositivi mobili e l'URL del gateway corretti.
+1. Aprire App.xaml.cs nel progetto condiviso e rimuovere il commento dall'inizializzazione precedente di `MobileServiceClient` per l'URL corretto dell'app per dispositivi mobili.
 
 2. Premere **F5** per ricompilare ed eseguire l'app. L'app sincronizza le modifiche locali con il back-end dell'app per dispositivi mobili di Azure usando operazioni push e pull non appena il gestore eventi `OnNavigatedTo` viene eseguito.
 
@@ -162,9 +162,9 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 Per supportare le funzionalità offline di Servizi mobili, è stata usata l'interfaccia [IMobileServiceSyncTable] ed è stato inizializzato [MobileServiceClient.SyncContext][synccontext] con un database SQLite locale. In una situazione offline le normali operazioni CRUD per App per dispositivi mobili funzionano come se l'app fosse ancora connessa, mentre tutte le operazioni interessano l'archivio locale. Per sincronizzare l'archivio locale con il server vengono usati i metodi seguenti:
 
-*  **[PushAsync]** Poiché questo metodo è un membro di [IMobileServicesSyncContext], viene eseguito il push al back-end delle modifiche in tutte le tabelle. Solo i record con modifiche locali vengono inviati al server.
+*  **[PushAsync]** Poiché questo metodo è un membro di [IMobileServicesSyncContext], viene effettuato il push al back-end delle modifiche in tutte le tabelle. Solo i record con modifiche locali vengono inviati al server.
 
-* **[PullAsync]** un pull viene avviato da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene eseguito il push implicito di altre tabelle nel contesto. Il parametro *query* riceve una stringa [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o una stringa di query OData per filtrare i dati restituiti. Il parametro *queryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PullAsync]** un pull viene avviato da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene effettuato il push implicito di altre tabelle nel contesto. Il parametro *query* riceve una stringa [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] o una stringa di query OData per filtrare i dati restituiti. Il parametro *queryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 
 * **[PurgeAsync]** L'app deve chiamare periodicamente questo metodo per ripulire l'archivio locale dai dati non aggiornati. Usare il parametro *force* quando è necessario ripulire tutte le modifiche non ancora sincronizzate.
 
@@ -175,7 +175,7 @@ Per altre informazioni su questi concetti, vedere [Sincronizzazione di dati offl
 Gli argomenti seguenti forniscono altre informazioni in background sulla funzionalità di sincronizzazione offline di App per dispositivi mobili:
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]. Si noti che il video è relativo a Servizi mobili, ma il funzionamento della sincronizzazione offline è simile in App per dispositivi mobili di Azure
+* [Cloud Cover: Offline Sync in Azure Mobile Services] (Cloud Cover: sincronizzazione offline nei servizi mobili di Azure). Si noti che il video è relativo ai servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure.
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
 <!-- Anchors. -->
@@ -208,7 +208,7 @@ Gli argomenti seguenti forniscono altre informazioni in background sulla funzion
 [PullAsync]: https://msdn.microsoft.com/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
-[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

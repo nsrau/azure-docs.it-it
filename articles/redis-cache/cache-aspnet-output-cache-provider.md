@@ -36,7 +36,7 @@ Il pacchetto NuGet del provider di cache Redis di output ha una dipendenza dal p
 Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly necessari e aggiunge la sezione seguente nel file web.config che contiene la configurazione richiesta per consentire all'applicazione ASP.NET di usare il provider di cache Redis di output.
 
     <caching>
-      <outputCachedefaultProvider="MyRedisOutputCache">
+      <outputCachedefault Provider="MyRedisOutputCache">
         <providers>
           <!--
           <add name="MyRedisOutputCache"
@@ -50,7 +50,7 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly necessari e agg
             operationTimeoutInMilliseconds = "5000" [number]
           />
           -->
-          <add name="MyRedisOutputCache"type="Microsoft.Web.Redis.RedisOutputCacheProvider"host="127.0.0.1"accessKey="" ssl="false"/>
+          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
         </providers>
       </outputCache>
     </caching>
@@ -81,4 +81,4 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->
