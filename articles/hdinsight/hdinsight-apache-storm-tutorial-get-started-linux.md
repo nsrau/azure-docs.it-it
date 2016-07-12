@@ -42,9 +42,9 @@ Per completare correttamente questa esercitazione di Apache Storm, è necessario
 
 In questa sezione si crea un cluster HDInsight versione 3.2 (Storm versione 0.9.3) usando un modello di Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.         
+1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Il modello di Azure Resource Manager è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
@@ -192,4 +192,4 @@ Se si ha già familiarità con lo sviluppo di topologie basate su Java e si vuol
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

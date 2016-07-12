@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Introduzione alle app Web Node.js nel servizio app di Azure
@@ -165,7 +165,7 @@ Per leggere i log di iisnode, seguire questa procedura.
 
     ![Passaggio alla posizione dei file di log di iisnode.][iislog-kudu-console-find]
 
-6. Fare clic sull'icona di **modifica** del log che si vuole leggere. Se si vuole, è anche possibile fare clic sulle icone di **download** o di **eliminazione**.
+6. Fare clic sull'icona di **modifica** del log che si vuole leggere. È anche possibile fare clic sull'icona di **download** o di **eliminazione**.
 
     ![Apertura di un file di log di iisnode.][iislog-kudu-console-open]
 
@@ -179,7 +179,7 @@ Se si usa Node-Inspector per eseguire il debug delle app Node.js, è possibile u
 
 Per abilitare Node-Inspector, seguire questa procedura:
 
-1. Aprire iisnode.yml nella radice del repository e specificare i parametri seguenti: 
+1. Aprire iisnode.yml nella radice del repository e specificare i parametri seguenti:
 
         debuggingEnabled: true
         debuggerExtensionDll: iisnode-inspector.dll
@@ -201,12 +201,13 @@ Per abilitare Node-Inspector, seguire questa procedura:
 ## Altre risorse
 
 - [Specifica di una versione di Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md)
+- [Procedure consigliate e guida alla risoluzione dei problemi per le applicazioni Node in App Web di Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](web-sites-nodejs-debug.md)
 - [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
 - [Blog sulle app Web del servizio app di Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Centro per sviluppatori di Node. js](/develop/nodejs/)
 - [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md)
-- [Exploring the Super Secret Kudu Debug Console] (Esplorazione della console segreta di debug di Kudu)
+- [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)]
 
 <!-- URL List -->
 
@@ -216,7 +217,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [BOWER]: http://bower.io/
 [Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Distribuire un'app Web Sails.js nel servizio app di Azure]: ./app-service-web-nodejs-sails.md
-[Exploring the Super Secret Kudu Debug Console]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [generatore di Express per Yeoman]: https://github.com/petecoop/generator-express
 [GIT]: http://www.git-scm.com/downloads
 [Come utilizzare io.js con Azure applicazione servizio Web App]: ./web-sites-nodejs-iojs.md
@@ -235,4 +236,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

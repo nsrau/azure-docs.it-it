@@ -50,7 +50,7 @@ Questo articolo illustra in dettaglio i passaggi necessari per creare e configur
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-- **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. 
+- **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
 
 
 
@@ -197,6 +197,30 @@ Creare un gateway applicazione con tutti gli elementi di configurazione illustra
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
+### Passaggio 9:
+Recuperare i dettagli relativi a DNS e indirizzo VIP del gateway applicazione dalla risorsa IP pubblica associata al gateway applicazione.
+
+	Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+	Name                     : publicIP01
+	ResourceGroupName        : appgwtest 
+	Location                 : westus
+	Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+	ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : 137.116.26.16
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+	                           } 
+
+
 
 ## Eliminare un gateway applicazione
 
@@ -237,13 +261,13 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet *
 
 ## Passaggi successivi
 
-Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL tramite Azure Resource Manager](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

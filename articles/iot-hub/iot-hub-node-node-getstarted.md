@@ -76,7 +76,7 @@ In questa sezione si scriverà un'app console di Node.js che consente di creare 
 
     ```
     var device = new iothub.Device(null);
-    device.deviceId = 'myFirstDevice';
+    device.deviceId = 'myFirstNodeDevice';
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -201,10 +201,10 @@ In questa sezione si creerà un'app console di Node.js che simula un dispositivo
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Aggiungere una variabile **connectionString** e usarla per creare un client del dispositivo. Sostituire **{youriothubname}** con il nome dell'hub IoT e **{yourdeviceid}** e **{yourdevicekey}** con i valori del dispositivo generati nella sezione *Creare un'identità del dispositivo*:
+5. Aggiungere una variabile **connectionString** e usarla per creare un client del dispositivo. Sostituire **{youriothubname}** con il nome dell'hub IoT e **{yourdevicekey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -232,11 +232,11 @@ In questa sezione si creerà un'app console di Node.js che simula un dispositivo
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
             var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```
@@ -306,4 +306,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

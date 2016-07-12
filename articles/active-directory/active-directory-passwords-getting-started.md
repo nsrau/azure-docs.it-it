@@ -195,10 +195,10 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 
 
 ### Passaggio 1: Scaricare la versione più recente di Azure AD Connect
-Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911**. Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222**. Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Per verificare la versione di Azure AD Sync
-1.	Passare a %Programmi%\\Azure Active Directory Sync**.
+1.	Passare a **%Programmi%\\Azure Active Directory Sync**.
 2.	Trovare il file eseguibile **ConfigWizard.exe**.
 3.	Fare clic con il pulsante destro del mouse sul file eseguibile e scegliere **Proprietà** dal menu di scelta rapida.
 4.	Fare clic sulla scheda **Dettagli**.
@@ -232,7 +232,7 @@ Dopo aver scaricato lo strumento Azure AD Connect, è possibile abilitare il wri
 4.	Ottenere lo stato corrente del writeback per il connettore corrente eseguendo il cmdlet seguente: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`.
 5.	Abilitare il writeback delle password eseguendo il cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`.
 
-> [AZURE.NOTE] Se viene visualizzato un messaggio di richiesta delle credenziali, assicurarsi che l'account amministratore specificato per AzureADCredential sia un **account amministratore cloud (creato in Azure AD)**, non un account federato (creato in AD locale e sincronizzato in Azure AD).[AZURE.NOTE] È possibile disabilitare il writeback delle password tramite PowerShell ripetendo le stesse istruzioni precedenti, ma passando `$false` nel passaggio oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Se viene visualizzato un messaggio di richiesta delle credenziali, assicurarsi che l'account amministratore specificato per AzureADCredential sia un **account amministratore cloud (creato in Azure AD)**, non un account federato (creato in AD locale e sincronizzato in Azure AD). [AZURE.NOTE] È possibile disabilitare il writeback delle password tramite PowerShell ripetendo le stesse istruzioni precedenti, ma passando `$false` nel passaggio oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
 
 #### Verificare che la configurazione sia stata eseguita correttamente
 Dopo il completamento della configurazione nella finestra di Windows PowerShell verrà visualizzato un messaggio che indica che il writeback per la reimpostazione delle password è abilitato oppure nell'interfaccia utente di configurazione verrà visualizzato un messaggio che indica il completamento dell'operazione.
@@ -280,9 +280,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -353,4 +351,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!----HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

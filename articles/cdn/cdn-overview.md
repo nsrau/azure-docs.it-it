@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -78,6 +78,8 @@ I clienti esistenti della rete CDN possono ora gestire gli endpoint della rete C
 
 Per informazioni sul funzionamento della rete CDN, guardare il [video della sessione di Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev-net.md) o [Node. js](./cdn-app-dev-node.md).
+
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

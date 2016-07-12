@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
@@ -45,7 +45,7 @@ Sono disponibili più tipi di processi: processi HTTP (inclusi i processi HTTPS 
 
 A livello di base, un processo pianificato ha diverse parti:
 
-- L'azione da eseguire quando viene si attiva il timer del processo  
+- L'azione da eseguire quando viene si attiva il timer del processo
 
 - (Facoltativo) Il tempo necessario per eseguire il processo
 
@@ -109,7 +109,7 @@ Il codice seguente fornisce un esempio completo di un processo pianificato. I de
 
 Come illustrato nell'utilità di pianificazione di esempio sopra riportato, la definizione di un processo ha diverse parti:
 
-- Ora di inizio ("startTime")  
+- Ora di inizio ("startTime")
 
 - Azione ("action"), che include l'azione in caso di errore ("errorAction")
 
@@ -160,7 +160,7 @@ Di seguito è riportato un esempio di azione di coda del bus di servizio.
 
 La ricorrenza ha diverse parti:
 
-- Frequenza: Un valore tra minuto, ora, giorno, settimana, mese, anno  
+- Frequenza: Un valore tra minuto, ora, giorno, settimana, mese, anno
 
 - Intervallo: Intervallo alla frequenza specificata per la ricorrenza
 
@@ -214,4 +214,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

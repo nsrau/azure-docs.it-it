@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Passaggio successivo *(anteprima)*: Abilitare la sincronizzazione password in Servizi di dominio Azure AD.
@@ -63,4 +63,4 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 
 - [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->
