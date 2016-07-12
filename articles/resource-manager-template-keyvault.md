@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Schema del modello di insieme di credenziali chiave
@@ -61,22 +61,22 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | Nome | Valore |
 | ---- | ---- | 
 | type | Enum<br />Obbligatorio<br />**Microsoft.KeyVault/vaults**<br /><br />Tipo di risorsa da creare. |
-| apiVersion | Enum<br />Obbligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versione dell'API da usare per creare la risorsa. | 
+| apiVersion | Enum<br />Obbligatorio<br />**2015-06-01** or **2014-12-19-preview**<br /><br />Versione dell'API da usare per creare la risorsa. | 
 | name | String<br />Obbligatorio<br />Nome univoco in Azure.<br /><br />Nome dell'insieme di credenziali delle chiavi da creare. Per creare un nome univoco, si prenda in considerazione l'uso della funzione [uniqueString](resource-group-template-functions.md#uniquestring) con la convenzione di denominazione in uso, come illustrato nell'esempio riportato di seguito. |
 | location | String<br />Obbligatorio<br />Area valida per gli insiemi di credenziali delle chiavi. Per determinare le aree valide, vedere le [aree supportate](resource-manager-supported-services.md#supported-regions).<br /><br />Area che deve ospitare l'insieme di credenziali delle chiavi. |
 | properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che specifica il tipo dell'insieme di credenziali delle chiavi da creare. |
-| resources | Array<br />Facoltativo<br />Valori consentiti: [risorse segreto nell'insieme di credenziali delle chiavi](resource-manager-template-keyvault-secret.md)<br /><br />Risorse figlio per l'insieme delle credenziali delle chiavi. |
+| resources | Array<br />Facoltativo<br />Valori consentiti: [risorse di tipo segreto dell'insieme di credenziali delle chiavi](resource-manager-template-keyvault-secret.md)<br /><br />Risorse figlio per l'insieme di credenziali delle chiavi. |
 
 <a id="properties" />
 ### oggetto delle proprietà
 
 | Nome | Valore |
 | ---- | ---- | 
-| enabledForDeployment | Bool<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la distribuzione di macchine virtuali o di Service Fabric. |
-| enabledForTemplateDeployment | Bool<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per l'uso nelle distribuzioni di modelli di Resource Manager. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | Bool<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la crittografia di volumi. |
-| TenantId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore del tenant per la sottoscrizione. È possibile recuperarlo con il cmdlet di PowerShell [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) o il comando di Azure CLI **azure account show**. |
-| accessPolicies | Array<br />Obbligatorio<br />[oggetto accessPolicies](#accesspolicies)<br /><br />Matrice di massimo 16 oggetti che specifica le autorizzazioni per l'utente o l'entità servizio. |
+| enabledForDeployment | Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la distribuzione di macchine virtuali o di Service Fabric. |
+| enabledForTemplateDeployment | Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per l'uso nelle distribuzioni di modelli di Resource Manager. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la crittografia di volumi. |
+| TenantId | String<br />Obbligatorio<br />**Globally-unique identifier**<br /><br />Identificatore del tenant per la sottoscrizione. È possibile recuperarlo con il cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) di PowerShell o il comando **azure account show** dell'interfaccia della riga di comando di Azure. |
+| accessPolicies | Array<br />Obbligatorio<br />[oggetto accessPolicies](#accesspolicies)<br /><br />Matrice che include al massimo 16 oggetti che specifica le autorizzazioni per l'utente o l'entità servizio. |
 | sku | Oggetto<br />Obbligatorio<br />[oggetto sku](#sku)<br /><br />SKU dell'insieme di credenziali delle chiavi. |
 
 <a id="accesspolicies" />
@@ -84,8 +84,8 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 | Nome | Valore |
 | ---- | ---- | 
-| TenantId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore del tenant di Azure Active Directory contenente l'**objectId** di questi criteri di accesso |
-| objectId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore dell'oggetto dell'utente o dell'entità servizio di Azure Active Directory che ha accesso all'insieme di credenziali. È possibile recuperare il valore con il cmdlet di PowerShell [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) o [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell oppure con il comando di Azure CLI **azure ad user** o **azure ad sp**. |
+| TenantId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore del tenant di Azure Active Directory contenente l'**objectId** di questi criteri di accesso. |
+| objectId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore dell'oggetto dell'utente o dell'entità servizio di Azure Active Directory che ha accesso all'insieme di credenziali. È possibile recuperare il valore con il cmdlet [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) o [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) di PowerShell oppure con i comandi **azure ad user** o **azure ad sp** dell'interfaccia della riga di comando di Azure. |
 | autorizzazioni | Oggetto<br />Obbligatorio<br />[oggetto permissions](#permissions)<br /><br />Autorizzazioni concesse per l'insieme di credenziali all'oggetto Active Directory. |
 
 <a id="permissions" />
@@ -122,13 +122,13 @@ Nell'esempio seguente vengono distribuiti un insieme di credenziali chiave e una
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -245,4 +245,4 @@ Il modello di Guida introduttiva seguente distribuisce un insieme di credenziali
 - Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
 - Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

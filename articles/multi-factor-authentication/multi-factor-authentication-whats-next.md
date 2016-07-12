@@ -32,7 +32,7 @@ Funzionalità| Descrizione| Argomenti trattati
 [Avviso di illecito](#fraud-alert)|Avviso di illecito può essere configurato e impostato in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse.|Come impostare, configurare e segnalare gli illeciti
 [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication.|Come impostare e configurare un bypass monouso
 [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati consentono di usare registrazioni o messaggi introduttivi personalizzati con Multi-Factor Authentication. |Come impostare e configurare messaggi introduttivi e messaggi personalizzati
-[Memorizzazione nella cache](#caching)|La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. |Come impostare e configurare la memorizzazione nella cache dell'autenticazione.
+[Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication)|La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. |Come impostare e configurare la memorizzazione nella cache dell'autenticazione.
 [Indirizzi IP attendibili](#trusted-ips)|Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda.|Configurare e impostare gli indirizzi IP che non sono interessati da Multi-Factor Authentication	
 [Password dell'app](#app-passwords)|Le password dell'app consentono a un'applicazione che non è in grado di riconoscere Multi-Factor Authentication di ignorare questa funzionalità e continuare a lavorare.|Informazioni sulle password dell'app.
 [Memorizzazione di Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-users-trust)|Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA.|Informazioni sull'abilitazione di questa funzionalità e sull'impostazione del numero di giorni.
@@ -50,7 +50,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 3.	Nel portale di gestione di Azure Multi-Factor Authentication, nella sezione Configura, fare clic su Impostazioni .
 4.	Nella sezione Avviso di illecito della pagina Impostazioni selezionare la casella di controllo Consenti agli utenti di inviare avvisi di illeciti.
 5.	Se si desidera che gli utenti siano bloccati quando viene segnalato un illecito, selezionare Blocca utente se viene segnalato un illecito.
-6.	Nella casella di testo **Codice per segnalare illeciti durante il messaggio introduttivo iniziale** immettere un codice numerico da usare durante la verifica della chiamata. Se un utente immette questo codice insieme al simbolo # anziché solo il simbolo #, verrà segnalato un avviso di illecito. 
+6.	Nella casella di testo **Codice per segnalare illeciti durante il messaggio introduttivo iniziale** immettere un codice numerico da usare durante la verifica della chiamata. Se un utente immette questo codice insieme al simbolo # anziché solo il simbolo #, verrà segnalato un avviso di illecito.
 7.	Nella parte inferiore fare clic su Salva.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 
 
 1. Quando viene inviata al telefono una verifica, fare clic su di essa per avviare l'app Azure Authenticator.
-2. Per segnalare l'illecito, fare clic su Annulla e segnala illecito. Verrà visualizzata una finestra che indica che il personale del supporto tecnico dell'organizzazione riceverà una notifica. 
+2. Per segnalare l'illecito, fare clic su Annulla e segnala illecito. Verrà visualizzata una finestra che indica che il personale del supporto tecnico dell'organizzazione riceverà una notifica.
 3. Fare clic su Segnala illecito.
 4. Nell'app fare clic su Chiudi.
 
@@ -194,7 +194,7 @@ All'esterno della rete aziendale|Per i flussi del browser Multi-Factor Authentic
 5. Nella sezione Multi-Factor Authentication fare clic su Gestisci impostazioni del servizio.
 6. Nella pagina Impostazioni servizio, in Indirizzi IP attendibili, selezionare:
 
-	- Per le richieste degli utenti federati originate dalla Intranet dell'utente: tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignoreranno Multi-Factor Authentication usando un'attestazione rilasciata da AD FS. 
+	- Per le richieste degli utenti federati originate dalla Intranet dell'utente: tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignoreranno Multi-Factor Authentication usando un'attestazione rilasciata da AD FS.
 	- Per le richieste da un intervallo specifico di IP pubblici: immettere gli indirizzi IP nelle caselle disponibili usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 50 intervalli di indirizzi IP.
 
 7. Fare clic su Salva.
@@ -321,7 +321,7 @@ Gli utenti possono inoltre creare password dell'app in un secondo momento modifi
 
 ### Per creare password dell'app se non si ha una sottoscrizione di Office 365 o Azure
 --------------------------------------------------------------------------------
-1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Nella parte superiore selezionare il profilo.
 3. Fare clic sul nome utente e selezionare Verifica aggiuntiva di sicurezza.
 5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
@@ -376,4 +376,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

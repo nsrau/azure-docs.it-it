@@ -1,6 +1,6 @@
 <properties
   pageTitle="Connettere un servizio cloud a un controller di dominio personalizzato | Microsoft Azure"
-  description="Informazioni su come connettere i ruoli Web/di lavoro a un dominio personalizzato di AD usando Powershell e l'estensione di dominio di AD"
+  description="Informazioni su come connettere i ruoli Web/di lavoro a un dominio personalizzato di AD usando PowerShell e l'estensione di dominio di AD"
   services="cloud-services"
   documentationCenter=""
   authors="Thraka"
@@ -22,7 +22,7 @@
 
 Prima di iniziare è necessario notare quanto segue:
 
-1.	Questa esercitazione usa Powershell ed è quindi necessario assicurarsi che Azure Powershell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure Powershell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1.	Questa esercitazione usa PowerShell ed è quindi necessario assicurarsi che Azure PowerShell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 2.	Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNet.
 
@@ -30,7 +30,7 @@ Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fi
 
 ## Creare una rete virtuale
 
-È possibile creare una rete virtuale in Azure usando il portale di Azure classico o Powershell. Per questa esercitazione verrà usato Powershell. Per creare una rete virtuale usando il portale di Azure classico, vedere [Creare una rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+È possibile creare una rete virtuale in Azure usando il portale di Azure classico o PowerShell. Per questa esercitazione verrà usato PowerShell. Per creare una rete virtuale usando il portale di Azure classico, vedere [Creare una rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
 ```powershell
 #Create Virtual Network
@@ -56,14 +56,14 @@ $vnetStr =
 "@;
 
 $vnetConfigPath = "<path-to-vnet-config>"
-Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
+Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## Creare una macchina virtuale
 
 Dopo il completamento della configurazione della rete virtuale, sarà necessario creare un controller di dominio di AD. Per questa esercitazione verrà configurato un controller di dominio di AD in una macchina virtuale di Azure.
 
-A questo scopo, creare una macchina virtuale tramite Powershell usando i comandi seguenti.
+A questo scopo, creare una macchina virtuale tramite PowerShell usando i comandi seguenti.
 
 ```powershell
 # Initialize variables
@@ -78,13 +78,13 @@ $affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
-New-AzureQuickVM -Windows -ServiceName $vmsvc1 -name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
+New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
 ## Alzare la macchina virtuale al livello di controller di dominio
 Per configurare la macchina virtuale come controller di dominio di AD, sarà necessario accedere alla macchina virtuale e configurarla.
 
-Per accedere alla macchina virtuale, è possibile ottenere il file RDP tramite Powershell e usare i comandi seguenti.
+Per accedere alla macchina virtuale, è possibile ottenere il file RDP tramite PowerShell e usare i comandi seguenti.
 
 ```powershell
 # Get RDP file
@@ -129,7 +129,7 @@ Compilare quindi il progetto dei servizi cloud e distribuirlo in Azure. Per otte
 
 ## Connettere i ruoli Web/di lavoro al dominio
 
-Dopo la distribuzione del progetto di servizi cloud in Azure, connettere le istanze del ruolo al dominio personalizzato di AD usando l'estensione del dominio di AD. Per aggiungere l'estensione di dominio di AD alla distribuzione esistente dei servizi cloud e aggiungere il dominio personalizzato, eseguire i comandi seguenti in Powershell:
+Dopo la distribuzione del progetto di servizi cloud in Azure, connettere le istanze del ruolo al dominio personalizzato di AD usando l'estensione del dominio di AD. Per aggiungere l'estensione di dominio di AD alla distribuzione esistente dei servizi cloud e aggiungere il dominio personalizzato, eseguire i comandi seguenti in PowerShell:
 
 ```powershell
 # Initialize domain variables
@@ -147,7 +147,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 L'operazione è terminata.
 
-I servizi cloud dovrebbero essere stati aggiunti al controller di dominio personalizzato. Per altre informazioni sulle diverse opzioni disponibili per la configurazione dell'estensione di dominio di AD, usare la Guida di Powershell, come illustrato di seguito.
+I servizi cloud dovrebbero essere stati aggiunti al controller di dominio personalizzato. Per altre informazioni sulle diverse opzioni disponibili per la configurazione dell'estensione di dominio di AD, usare la Guida di PowerShell, come illustrato di seguito.
 
 ```powershell
 help Set-AzureServiceADDomainExtension
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 È anche possibile inserire commenti sulla possibile utilità di un'estensione che permette di alzare una macchina virtuale al livello di un controller di dominio. Fornire eventuali informazioni nella sezione relativa ai commenti.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

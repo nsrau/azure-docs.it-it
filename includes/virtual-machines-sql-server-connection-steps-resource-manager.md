@@ -14,6 +14,8 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 3. Immettere un nome per l'etichetta DNS. Il nome è un record A che consente di connettersi alla macchina virtuale di SQL Server usando il nome, anziché tramite l'indirizzo IP.
 
+4. Fare clic sul pulsante **Salva**.
+
 	![etichetta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Eseguire la connessione al motore di database da un altro computer
@@ -31,3 +33,5 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 7. Fare clic su **Connect**.
 
 	![connessione a ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+<!---HONumber=AcomDC_0629_2016-->

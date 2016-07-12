@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Creazione di filtri con l'API REST di Servizi multimediali di Azure
@@ -374,4 +374,4 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

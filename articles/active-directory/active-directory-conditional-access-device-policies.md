@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 # Criteri di accesso condizionale dei dispositivi per i servizi di Office 365
 
@@ -44,4 +44,4 @@ D: Quando è previsto che i criteri di accesso condizionale per i servizi di Off
 
 R: Attualmente l'accesso condizionale ai servizi di Office 365 è limitato alle applicazioni avanzate su dispositivo. Secondo la roadmap, i criteri di accesso condizionale verranno estesi agli utenti che accedono ai servizi tramite browser.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

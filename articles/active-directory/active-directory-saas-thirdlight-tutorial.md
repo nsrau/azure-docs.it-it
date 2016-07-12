@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso a Thirdlight** della pagina **Configura URL app**, digitare l'URL usato dagli utenti per accedere all'applicazione Thirdlight, ad esempio: "**http://azuresso2.thirdlight.com/*"), quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso a Thirdlight** della pagina **Configura URL app**, digitare l'URL usato dagli utenti per accedere all'applicazione Thirdlight, ad esempio: "*http://azuresso2.thirdlight.com/*"), quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configura URL app")
 

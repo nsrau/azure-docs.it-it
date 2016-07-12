@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di risposta di Tinfoil Security** digitare l’URL del proprio servizio consumer di asserzione (ACS) Tinfoil Security (ad esempio: "**https://www.tinfoilsecurity.com/saml/consume*", quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app**, nella casella di testo **URL di risposta di Tinfoil Security** digitare l’URL del proprio servizio consumer di asserzione (ACS) Tinfoil Security (ad esempio: "*https://www.tinfoilsecurity.com/saml/consume*", quindi fare clic su **Avanti**.
 
     >[AZURE.NOTE] Dovrebbe essere possibile ottenere l'URL ACS dai metadati di Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 

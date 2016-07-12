@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Introduzione alla distribuzione di contenuti su richiesta utilizzando l'API REST
@@ -33,7 +33,7 @@ L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali non
 Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono previsti i seguenti prerequisiti.
 
 - Informazioni su come eseguire attività di sviluppo con l'API REST di Servizi multimediali. Per altre informazioni, vedere [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
-- Un'applicazione di propria scelta per l'invio di richieste e risposte HTTP. In questa esercitazione viene usato [Fiddler](http://www.telerik.com/download/fiddler). 
+- Un'applicazione di propria scelta per l'invio di richieste e risposte HTTP. In questa esercitazione viene usato [Fiddler](http://www.telerik.com/download/fiddler).
 
 Questa guida introduttiva illustra come effettuare le seguenti attività.
 
@@ -42,8 +42,8 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 1.  Creare un nuovo asset e caricare un file video con l'API REST.
 1.  Configurare le unità di streaming con l'API REST.
 2.  Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
-1.  Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST. 
-1.  Riprodurre i contenuti. 
+1.  Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST.
+1.  Riprodurre i contenuti.
 
 
 ## <a id="create_ams"></a>Creare un account di Servizi multimediali usando il portale
@@ -80,16 +80,16 @@ Quando si accede a Servizi multimediali di Azure sono necessari due elementi: un
 
 I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'API REST per connettersi a Servizi multimediali:
 
-1. Recupero di un token di accesso. 
-2. Connessione all'URI di Servizi multimediali.  
+1. Recupero di un token di accesso.
+2. Connessione all'URI di Servizi multimediali.
 
 	Si ricordi che, dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
-3. Invio delle successive chiamate API al nuovo URL. 
+3. Invio delle successive chiamate API al nuovo URL.
 	
 	Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
 		
-			HTTP/1.1 301 Moved Permanently
-			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
 	Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
@@ -221,7 +221,7 @@ In Servizi multimediali è possibile caricare i file digitali in un asset. L'ent
 Quando si crea un asset è necessario specificare le opzioni correlate. La proprietà **Options** è un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione:
 
  
-- **None** = **0**: non viene applicata alcuna crittografia. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+- **None** = **0**: non viene applicata alcuna crittografia. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 - **StorageEncrypted** = **1**: applica la crittografia AES a 256 bit al contenuto non crittografato localmente, quindi lo carica in Archiviazione di Azure dove viene archiviato con crittografia in locale. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 - **CommonEncryptionProtected** = **2**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 - **EnvelopeEncryptionProtected** = **4**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
@@ -405,7 +405,7 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 - Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. Per altre informazioni, vedere Locator.
-- Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").	
+- Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
 - Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori URL di firma di accesso condiviso sia per i localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
@@ -550,7 +550,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, c
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
 - Ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione).
-- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
+- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
 
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
@@ -668,8 +668,8 @@ Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scen
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
-- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,  
-- Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. 
+- Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva,
+- Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti.
 
 La seguente sezione mostra come creare un processo contenente una singola attività di codifica, che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Mostra inoltre come monitorare lo stato di avanzamento dell'elaborazione del processo. Una volta completato il processo, sarà possibile creare i localizzatori necessari per ottenere l'accesso agli asset.
 
@@ -823,11 +823,11 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 È necessario tenere conto di alcuni aspetti importanti in una richiesta di processo:
 
 - Le proprietà TaskBody DEVONO usare codice XML letterale per definire il numero di asset di input o di output che verranno usati dall'attività. L'argomento Task contiene la definizione dello schema XML per il codice XML.
-- Nella definizione TaskBody ogni valore interno per <inputAsset> e <outputAsset>deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
+- Nella definizione TaskBody ogni valore interno per <inputAsset> e <outputAsset> deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
 - Un'attività può avere più asset di output. Un oggetto JobOutputAsset(x) può essere usato solo una volta come output di un'attività in un processo.
 - È possibile specificare JobInputAsset o JobOutputAsset come asset di input di un'attività.
 - Le attività non devono formare un ciclo.
-- Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job. 
+- Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job.
 
 >[AZURE.NOTE] Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "\_\_metadata : uri".
 
@@ -985,9 +985,9 @@ Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente f
 
 Questa sezione illustra come eseguire le seguenti attività per "pubblicare" gli asset.
 
-- Creazione dell'entità AccessPolicy con autorizzazioni di lettura 
-- Creazione di un URL di firma di accesso condiviso per il download di contenuti 
-- Creazione di un URL di origine per la trasmissione di contenuti in streaming 
+- Creazione dell'entità AccessPolicy con autorizzazioni di lettura
+- Creazione di un URL di firma di accesso condiviso per il download di contenuti
+- Creazione di un URL di origine per la trasmissione di contenuti in streaming
 
 ###Creazione dell'entità AccessPolicy con autorizzazioni di lettura
 
@@ -1204,4 +1204,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 <!-- URLs. -->
   [portale di Azure classico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

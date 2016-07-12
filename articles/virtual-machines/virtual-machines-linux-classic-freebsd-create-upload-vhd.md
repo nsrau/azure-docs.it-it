@@ -21,13 +21,13 @@
 
 In questo articolo viene illustrato come creare e caricare un disco rigido virtuale (VHD) contenente il sistema operativo FreeBSD in modo da poterlo utilizzare come propria immagine per creare una macchina virtuale (VM) in Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Prerequisiti##
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-- **Una sottoscrizione Azure** - Se non si dispone di un account, è possibile crearne uno in pochi minuti. Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [creare un account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).  
+- **Una sottoscrizione Azure** - Se non si dispone di un account, è possibile crearne uno in pochi minuti. Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [creare un account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Strumenti di Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Azure](https://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale si userà il cmdlet [Download di Azure](https://azure.microsoft.com/downloads/).
 
@@ -227,4 +227,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
@@ -64,7 +64,7 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Le richieste di accettazione di un backup incrementale possono non riuscire con **FabricFullBackupMissingException**, che indica che la replica non ha mai eseguito un backup completo o che alcuni record di log eseguiti dopo l'ultimo backup sono stati troncati. Gli utenti possono cambiare la frequenza di troncamento modificando **CheckpointThresholdInMB**.
+Le richieste di accettazione di un backup incrementale possono non riuscire con **FabricMissingFullBackupException**, che indica che la replica non ha mai eseguito un backup completo o che alcuni record di log eseguiti dopo l'ultimo backup sono stati troncati. Gli utenti possono cambiare la frequenza di troncamento modificando **CheckpointThresholdInMB**.
 
 **BackupInfo** fornisce le informazioni relative al backup, incluso il percorso della cartella in cui il runtime ha salvato il backup (**BackupInfo.Directory**). La funzione di callback può spostare **BackupInfo.Directory** in un archivio esterno o in un'altra posizione. Questa funzione restituisce anche un valore booleano che indica se è riuscita a spostare la cartella di backup nel percorso di destinazione.
 
@@ -133,7 +133,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-**RestoreDescription** passato alla chiamata **RestoreContext.RestoreAsync** contiene un membro denominato **BackupFolderPath**. Quando si ripristina un singolo backup completo, **BackupFolderPath** deve essere impostato sul percorso locale della cartella che contiene il backup completo. Quando si ripristina un backup completo e alcuni backup incrementali, **BackupFolderPath** deve essere impostato sul percorso locale della cartella che contiene sia il backup completo che tutti i backup incrementali. La chiamata **RestoreAsync** può generare un'eccezione **FabricFullBackupMissingException** se l'oggetto **BackupFolderPath** specificato non contiene un backup completo. Può anche generare **ArgumentException** se **BackupFolderPath** ha una catena interrotta di backup incrementali, ad esempio, se contiene il backup completo e il primo e il terzo backup incrementale, ma non il secondo.
+**RestoreDescription** passato alla chiamata **RestoreContext.RestoreAsync** contiene un membro denominato **BackupFolderPath**. Quando si ripristina un singolo backup completo, **BackupFolderPath** deve essere impostato sul percorso locale della cartella che contiene il backup completo. Quando si ripristina un backup completo e alcuni backup incrementali, **BackupFolderPath** deve essere impostato sul percorso locale della cartella che contiene sia il backup completo che tutti i backup incrementali. La chiamata **RestoreAsync** può generare un'eccezione **FabricMissingFullBackupException** se l'oggetto **BackupFolderPath** specificato non contiene un backup completo. Può anche generare **ArgumentException** se **BackupFolderPath** ha una catena interrotta di backup incrementali, ad esempio, se contiene il backup completo e il primo e il terzo backup incrementale, ma non il secondo.
 
 >[AZURE.NOTE] Il valore RestorePolicy è Safe per impostazione predefinita. L'API **RestoreAsync** non riuscirà con ArgumentException se rileva che la cartella di backup include uno stato precedente o uguale allo stato contenuto nella replica. Per ignorare questo controllo di sicurezza si può usare **RestorePolicy.Force**, specificato nell'ambito di **RestoreDescription**.
 
@@ -159,7 +159,7 @@ Si noti che:
 
 - Quando si esegue il ripristino è possibile che il backup ripristinato sia precedente allo stato della partizione prima della perdita dei dati. È quindi necessario procedere al ripristino solo come ultima risorsa per recuperare la quantità maggiore possibile di dati.
 
-- La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. In alcuni metodi .NET, come **Directory.Move**, questa limitazione può causare l'eccezione **PathTooLongException**. Una soluzione alternativa consiste nel chiamare direttamente le API kernel32, come **CopyFile**.
+- La stringa che rappresenta il percorso della cartella di backup e i percorsi dei file nella cartella di backup può superare i 255 caratteri, in base al percorso FabricDataRoot e alla lunghezza del nome del tipo di applicazione. In alcuni metodi .NET, come **Directory.Move**, ciò può causare l'eccezione **PathTooLongException**. Una soluzione alternativa consiste nel chiamare direttamente le API kernel32, come **CopyFile**.
 
 ## Eseguire il backup e il ripristino di Reliable Actors
 
@@ -193,4 +193,10 @@ Reliable State Manager consente di eseguire il ripristino da un backup con l'API
 
 **RestoreAsync** rilascia prima di tutto ogni stato esistente nella replica primaria in cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Passaggi successivi
+
+- [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+- [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
+- [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!---HONumber=AcomDC_0629_2016-->

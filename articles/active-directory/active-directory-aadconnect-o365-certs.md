@@ -86,7 +86,9 @@ Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la da
 
 | AutoCertificateRollover | I certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew) | | Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew) | | No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew) |
+| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew) |
+| Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew) |
+| No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew) |
 
 [-] Non è rilevante
 

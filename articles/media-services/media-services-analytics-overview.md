@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Panoramica di Analisi elementi multimediali di Servizi multimediali di Azure"
-	description="Servizi multimediali di Azure offre un'anteprima pubblica di Analisi Servizi multimediali, una serie di servizi di riconoscimento vocale e visione artificiale per scalabilità, conformità, sicurezza e portata globale per le aziende. I servizi di Analisi Servizi multimediali di Azure sono stati creati usando i componenti principali della piattaforma Servizi multimediali di Azure e quindi sono subito pronti per gestire l'elaborazione di file multimediali su larga scala."
+	pageTitle="Panoramica di Analisi servizi multimediali di Azure | Microsoft Azure"
+	description="Servizi multimediali di Azure offre un'anteprima pubblica di Analisi Servizi multimediali, una serie di servizi di riconoscimento vocale e visione artificiale per scalabilità, conformità, sicurezza e portata globale per le aziende. I servizi di Analisi Servizi multimediali di Azure sono stati creati usando i componenti principali della piattaforma Servizi multimediali di Azure e quindi sono subito pronti per l'elaborazione di file multimediali su larga scala. "
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"   
+	ms.date="06/27/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
 # Panoramica di Analisi elementi multimediali di Servizi multimediali di Azure
@@ -43,6 +43,9 @@ Il diagramma seguente mostra **Analisi Servizi multimediali** e altre parti impo
  
 - **Riepilogo video**: il riepilogo del video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video. Per informazioni dettagliate ed esempi, vedere [Uso delle anteprime video multimediali di Azure per creare un riepilogo video](media-services-video-summarization.md)
 
+- **Riconoscimento ottico dei caratteri**: il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. Ciò consente di automatizzare l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
+ 
+ 
 ## Scenari comuni
 
 Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimediali di Azure può aiutare le organizzazioni e le aziende di vari settori a raccogliere nuove informazioni dai video per aumentare la personalizzazione del coinvolgimento di destinatari e dipendenti, nonché per gestire più efficacemente un volume elevato di contenuti video:
@@ -52,6 +55,73 @@ Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimed
 - **Moderazione dei contenuti generati dall'utente**: dalle notizie giornalistiche ai reparti di polizia, molte organizzazioni dispongono di portali pubblici in cui vengono accettati file multimediali UGC, ad esempio immagini e video. A causa di eventi imprevisti, il volume dei contenuti potrebbe raggiungere il limite. In questi scenari è quasi impossibile eseguire un efficace controllo manuale sull'adeguatezza dei contenuti. I clienti possono fare affidamento sul servizio di moderazione dei contenuti per concentrare l'attenzione sui contenuti appropriati.
 
 - **Sorveglianza**: con l'aumento delle videocamere IP, si assiste all'esplosione dei video di sorveglianza. Il controllo manuale dei video di sorveglianza richiede molto tempo ed è soggetto a errori umani. Analisi Servizi multimediali di Azure offre diversi componenti, ad esempio il rilevamento del movimento, il rilevamento viso e Hyperlapse per agevolare il processo di controllo, gestione e creazione dei derivati.
+
+## Processori di contenuti multimediali di Analisi servizi multimediali 
+
+Questa sezione elenca tutti i processori di contenuti multimediali (MP) di Analisi servizi multimediali e illustra come usare .NET o REST per ottenere un oggetto MP.
+
+### Nomi dei processori di contenuti multimediali
+
+
+- Anteprima di Azure Media Indexer 2
+- Azure Media Indexer
+- Azure Media Hyperlapse
+- Rilevamento multimediale volti di Azure
+- Rilevatore multimediale di movimento Azure
+- Anteprime video multimediali di Azure
+- Riconoscimento ottico dei caratteri multimediale di Azure
+
+### .NET
+
+La funzione seguente acquisisce uno dei nomi MP specificati e restituisce un oggetto NP.
+
+    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors
+            .Where(p => p.Name == mediaProcessorName)
+            .ToList()
+            .OrderBy(p => new Version(p.Version))
+            .LastOrDefault();
+
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                                       mediaProcessorName));
+
+        return processor;
+    }
+
+
+## REST
+
+Richiesta:
+
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json
+	Accept-Charset: UTF-8
+	User-Agent: Microsoft ADO.NET Data Services
+	Authorization: Bearer <token>
+	x-ms-version: 2.12
+	Host: media.windows.net
+	
+Risposta:
+		
+	. . .
+	
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
+	         "Description":"Azure Media OCR",
+	         "Name":"Azure Media OCR",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 ##Demo
 
@@ -74,4 +144,4 @@ Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimed
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

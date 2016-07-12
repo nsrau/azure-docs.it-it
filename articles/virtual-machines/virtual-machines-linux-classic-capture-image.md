@@ -20,7 +20,7 @@
 
 # Come acquisire una macchina virtuale Linux classica come immagine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-linux-capture-image.md).
 
 Questo articolo illustra come acquisire una macchina virtuale Azure classica che esegue Linux come immagine per creare altre macchine virtuali. Questa immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali dall'immagine.
 
@@ -28,12 +28,12 @@ Azure archivia l'immagine in**Immagini**, che è anche la posizione in cui vengo
 
 ## Prima di iniziare
 
-Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Leggere l'articolo relativo alla [creazione di una macchina virtuale Linux][], se non è ancora stato fatto.
+Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se questa operazione non è stata ancora eseguita, leggere l'articolo su come [creare una macchina virtuale Linux][].
 
 
 ## Acquisizione della macchina virtuale
 
-1. [Effettuare la connessione alla macchina virtuale](virtual-machines-linux-classic-log-on.md) utilizzando un client SSH a scelta.
+1. [Effettuare la connessione alla macchina virtuale](virtual-machines-linux-classic-log-on.md) usando un client SSH a scelta.
 
 2. Nella finestra di SSH digitare il comando seguente. Si noti che l'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
@@ -93,6 +93,6 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. È poss
 [Informazioni sulle immagini di macchine virtuali in Azure]: virtual-machines-linux-classic-about-images.md
 [Come creare una macchina virtuale personalizzata]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
-[creazione di una macchina virtuale Linux]: virtual-machines-linux-classic-create-custom.md
+[creare una macchina virtuale Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

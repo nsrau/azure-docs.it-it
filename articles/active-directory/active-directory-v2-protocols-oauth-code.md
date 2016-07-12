@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="dastrock"/>
 
 # Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
 
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Usando l'implementazione di OAuth 2.0 definita in Modello app 2.0, è possibile aggiungere i criteri e l'API di accesso alle applicazioni desktop e mobili. Questa guida è indipendente dal linguaggio, e descrive come inviare e ricevere messaggi HTTP senza utilizzare une delle nostre librerie open source.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
 	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
@@ -96,6 +96,20 @@ error=access_denied
 | error | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error\_description | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
+#### Codici per gli errori dell'endpoint di autorizzazione
+
+La tabella seguente descrive i diversi codici errore che possono essere restituiti nel parametro `error` della risposta di errore.
+
+| Codice di errore | Descrizione | Azione client |
+|------------|-------------|---------------|
+| invalid\_request | Errore del protocollo, ad esempio un parametro obbligatorio mancante. | Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale.|
+| unauthorized\_client | All'applicazione client non è consentito richiedere un codice di autorizzazione. | Si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| access\_denied | Consenso negato dal proprietario della risorsa | L'applicazione client può notificare all'utente che non può proseguire a meno che l'utente non acconsenta. |
+| unsupported\_response\_type | Il server di autorizzazione non supporta il tipo di risposta nella richiesta. | Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale.|
+|server\_error | Errore imprevisto rilevato dal server. | ripetere la richiesta. Questi errori possono dipendere da condizioni temporanee. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di un errore temporaneo. |
+| temporarily\_unavailable | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| invalid\_resource |La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata.| Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+
 ## Richiedere un token di accesso
 Dopo aver ottenuto un codice di autorizzazione e l'autorizzazione dell'utente, è possibile riscattare il valore `code` per un token di accesso alla risorsa desiderata, inviando una richiesta `POST` all'endpoint `/token`:
 
@@ -114,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire `code`) [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [AZURE.TIP] Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `code` [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
@@ -146,7 +160,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | expires\_in | Validità del token di accesso (espressa in secondi). |
 | scope | Ambiti per i quali il token di accesso è valido. |
 | refresh\_token | Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](active-directory-v2-tokens.md). |
-| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere il [riferimento al token dell'endpoint v2.0](active-directory-v2-tokens.md). |
+| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere [Riferimento al token della versione 2.0](active-directory-v2-tokens.md). |
 
 #### Risposta di errore
 Le risposte di errore hanno un aspetto simile al seguente:
@@ -173,10 +187,23 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | trace\_id | Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation\_id | Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
+#### Codici per gli errori degli endpoint di token
+
+| Codice di errore | Descrizione | Azione client |
+|------------|-------------|---------------|
+| invalid\_request | Errore del protocollo, ad esempio un parametro obbligatorio mancante. | Correggere e inviare di nuovo la richiesta. |
+| invalid\_grant | Il codice di autorizzazione non è valido o è scaduto. | Provare una nuova richiesta all'endpoint `/authorize` |
+| unauthorized\_client | Il client autenticato non è autorizzato a usare questo tipo di concessione dell'autorizzazione. | Si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| invalid\_client | Autenticazione client non riuscita. | Credenziali del client non valide. Per risolvere il problema, l'amministratore applicazione aggiorna le credenziali. |
+| unsupported\_grant\_type | Il server di autorizzazione non supporta il tipo di concessione dell'autorizzazione. | Modificare il tipo di concessione nella richiesta. Questo tipo di errore dovrebbe verificarsi solo durante lo sviluppo ed essere rilevato durante il test iniziale. |
+| invalid\_resource | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. | Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| interaction\_required | La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. | Ripetere la richiesta con la stessa risorsa. |
+| temporarily\_unavailable | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea.|
+
 ## Usare il token di accesso
 Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`:
 
-> [AZURE.TIP] Eseguire la richiesta in Postman. (Sostituire prima l'intestazione `Authorization`) [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [AZURE.TIP] Eseguire la richiesta in Postman. Sostituire prima l'intestazione `Authorization` [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 ```
 GET /v1.0/me/messages
@@ -202,7 +229,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh	  // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire `refresh_token`) [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [AZURE.TIP] Provare a eseguire la richiesta in Postman. Non dimenticare di sostituire `refresh_token` [![Eseguire in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
@@ -234,7 +261,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | expires\_in | Validità del token di accesso (espressa in secondi). |
 | scope | Ambiti per i quali il token di accesso è valido. |
 | refresh\_token | Nuovo token di aggiornamento di OAuth 2.0. È necessario sostituire il token di aggiornamento precedente con quello appena acquisito, per garantire che i token di aggiornamento rimangano validi il più a lungo possibile. |
-| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere il [riferimento al token dell'endpoint v2.0](active-directory-v2-tokens.md). |
+| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere [Riferimento al token della versione 2.0](active-directory-v2-tokens.md). |
 
 #### Risposta di errore
 ```
@@ -259,4 +286,6 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | trace\_id | Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation\_id | Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
-<!---HONumber=AcomDC_0608_2016-->
+Per una descrizione dei codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori degli endpoint di token](#error-codes-for-token-endpoint-errors).
+
+<!---HONumber=AcomDC_0629_2016-->

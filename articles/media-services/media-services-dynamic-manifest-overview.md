@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Filtri e manifesti dinamici
@@ -26,8 +26,8 @@ Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può ess
 
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:
 
-- Codificare il flusso video a più velocità in bit ([velocità in bit adattiva](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)), garantendo in questo modo la qualità e le condizioni di rete 
-- Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta operazioni di trasmissione nelle seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access). 
+- Codificare il flusso video a più velocità in bit ([velocità in bit adattiva](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)), garantendo in questo modo la qualità e le condizioni di rete
+- Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta operazioni di trasmissione nelle seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
 ###File manifesto 
 
@@ -71,7 +71,7 @@ Di seguito è riportato un esempio di file manifesto:
 
 Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio:
 
-- Per il dispositivo: distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
+- Per il dispositivo: distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering").
 - Ridurre il manifesto in modo da mostrare solo una sottoclip di un evento live ("filtro di sottoclip").
 - Tagliare l'inizio di un video ("trimming di un video").
 - Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
@@ -97,8 +97,8 @@ Per altre informazioni su come distribuire i contenuti e gli URL di streaming di
 
 Sono disponibili due tipi di filtri di asset:
 
-- Filtri globali (possono essere applicati a qualsiasi asset nell'account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell'account). 
-- Filtri locali (possono essere applicati a uno degli asset a cui è stato associato il filtro in fase di creazione e hanno una durata equivalente a quella dell'asset). 
+- Filtri globali (possono essere applicati a qualsiasi asset nell'account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell'account).
+- Filtri locali (possono essere applicati a uno degli asset a cui è stato associato il filtro in fase di creazione e hanno una durata equivalente a quella dell'asset).
 
 I filtri globali e i filtri locali presentano esattamente le stesse proprietà e si differenziano solo per il tipo di scenario in cui sono più appropriati. I filtri globali, in genere, sono più adatti per i profili di dispositivo (filtro di rendering), mentre i filtri locali possono essere usati per tagliare un asset specifico.
 
@@ -107,7 +107,7 @@ I filtri globali e i filtri locali presentano esattamente le stesse proprietà e
 
 Come accennato in precedenza, quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Possono tuttavia verificarsi anche altre situazioni in cui è opportuno applicare filtri agli asset e usare **manifesti dinamici**. Le sezioni seguenti forniscono una breve panoramica di diversi scenari di filtro.
 
-- Definizione di un solo sottoinsieme di rendering audio e video che possa essere gestito da determinati dispositivi (anziché tutti i rendering associati all'asset). 
+- Definizione di un solo sottoinsieme di rendering audio e video che possa essere gestito da determinati dispositivi (anziché tutti i rendering associati all'asset).
 - Riproduzione di una sola sezione di un video (anziché del video intero).
 - Regolazione della finestra di presentazione DVR
 
@@ -182,8 +182,8 @@ L'argomento seguente descrive le entità di Servizi multimediali correlati ai fi
 
 Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
 
-1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili del dispositivo. Come indicato in precedenza, i filtri globali possono essere utilizzati per tutte le attività con lo stesso account di servizi multimediali senza altre associazioni. 
-2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro locale, impostare l'ora di inizio e fine. 
+1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili del dispositivo. Come indicato in precedenza, i filtri globali possono essere utilizzati per tutte le attività con lo stesso account di servizi multimediali senza altre associazioni.
+2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro locale, impostare l'ora di inizio e fine.
 3. Si desidera combinare entrambi questi filtri (senza combinazione sarebbe necessario aggiungere il filtro qualità al filtro di taglio, il che rende difficile l'utilizzo del filtro).
 
 Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL delimitati dal punto e virgola. Si supponga di disporre di un filtro denominato *MyMobileDevice* che filtra le qualità e si dispone di un altro denominato *MyStartTime* per impostare una determinata ora di inizio. È possibile combinarli nel seguente modo:
@@ -197,7 +197,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 
 ##Problemi noti e limitazioni
 
-- Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 
+- Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP.
 - È possibile usare lo stesso nome di filtro per i filtri globali e locali. I filtri locali, tuttavia, hanno la precedenza e sovrascrivono quindi i filtri globali.
 - Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento dei filtri può determinare un errore del lettore. È consigliabile quindi cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.
 
@@ -236,4 +236,4 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

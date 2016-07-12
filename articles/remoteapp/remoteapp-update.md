@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/05/2016"
    ms.author="elizapo"/>
 
 # Aggiornare una raccolta in Azure RemoteApp
@@ -34,4 +34,4 @@ Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
 1. Fare clic sul segno di spunta per avviare l'aggiornamento.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

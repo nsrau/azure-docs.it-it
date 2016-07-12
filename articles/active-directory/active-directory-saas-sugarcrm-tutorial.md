@@ -2,17 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con SugarCRM | Microsoft Azure" 
     description="Informazioni su come usare SugarCRM con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SugarCRM
   
@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per Sugar CRM, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.png "Active Directory")
 
@@ -68,9 +68,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
   
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Sugar CRM tramite il proprio account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant Sugar CRM. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Sugar CRM** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Sugar CRM** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configura accesso Single Sign-On")
 
@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Sugar CRM** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Sugar CRM (ad esempio, **http://company.sugarondemand.com*"), quindi fare clic su **Avanti**:
+3.  Nella casella di testo **URL di accesso Sugar CRM** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Sugar CRM, ad esempio "*http://company.sugarondemand.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configura URL app")
 
@@ -104,16 +104,16 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Autenticazione SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML Authentication")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **SLO URL**.
+    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **SLO URL** (URL SLO).
     3.  Creare un file **con codifica Base 64** dal certificato scaricato.
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509**.
     5.  Fare clic su **Save**.
 
-10. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa**.
+10. Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configura accesso Single Sign-On")
 
@@ -152,7 +152,7 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario es
     1.  Digitare la password nella casella di controllo correlata.
     2.  Fare clic su **Save**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento di creazione di account utente Sugar CRM o qualsiasi API fornita da Sugar CRM per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento di creazione di account utente Sugar CRM o qualsiasi API fornita da Sugar CRM per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
   
@@ -160,7 +160,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a Sugar CRM, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione di **Sugar CRM**, fare clic su **Assegna utenti**.
 
@@ -172,4 +172,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

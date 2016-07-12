@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
@@ -38,7 +38,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ###Per abilitare l'integrazione dell'applicazione per SuccessFactors, eseguire la procedura seguente:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -70,9 +70,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
   
 Per configurare l'accesso Single Sign-On, è necessario contattare il team di supporto di SuccessFactors.
 
-###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
+###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **SuccessFactors** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **SuccessFactors** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configura accesso Single Sign-On")
 
@@ -84,7 +84,7 @@ Per configurare l'accesso Single Sign-On, è necessario contattare il team di su
 
     ![Configura URL app](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso a SuccessFactors** digitare l'URL utilizzato dagli utenti per accedere all'applicazione SuccessFactors (ad esempio: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    1.  Nella casella di testo **URL di accesso SuccessFactors** digitare l'URL usato dagli utenti per accedere all'applicazione SuccessFactors, ad esempio "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*".
     2.  Nella casella di testo **URL di risposta SuccessFactors** digitare **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Questo valore è solo un segnaposto temporaneo. Ottenere il valore effettivo del team di supporto di SuccessFactors. Più avanti in questa esercitazione sono disponibili le istruzioni su come contattare il team di SuccessFactors. Nel contesto della conversazione, viene fornito l'URL di risposta SuccessFactors effettivo.
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On, è necessario contattare il team di su
 
     Il team di supporto di Successfactors invierà il corretto**URL di risposta Successfactors** necessario per la finestra di dialogo **Configura URL app**.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Configura accesso Single Sign-On")
 
@@ -119,9 +119,9 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 ###Per assegnare gli utenti a SuccessFactors, eseguire la procedura seguente:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **SuccessFactors** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **SuccessFactors ** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Assegna utenti")
 
@@ -131,4 +131,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -27,7 +27,7 @@ L'autenticazione di Azure Active Directory è un meccanismo di connessione al da
 - I clienti possono gestire le autorizzazioni del database tramite gruppi (AAD) esterni.
 - Può eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 - L'autenticazione di Azure Active Directory usa gli utenti di database indipendente per autenticare le identità a livello di database.
-- Azure Active Directory supporta l'autenticazione basata su token per l'autenticazione di applicazioni che si connettono al database SQL.
+- Azure Active Directory supporta l'autenticazione basata su token per le applicazioni che si connettono al database SQL.
 - L'autenticazione di Azure Active Directory supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.
 
 > [AZURE.IMPORTANT] L'autenticazione di Azure Active Directory è una funzionalità in anteprima ed è soggetta alle condizioni per l'anteprima del contratto di licenza (ad esempio, il Contratto Enterprise, il Contratto di Microsoft Azure o il Contratto di Sottoscrizione Microsoft Online), nonché alle [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -336,7 +336,7 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 ### 7\.3 Connessione con un token di Azure AD
 Questo tipo di autenticazione consente ai servizi di livello intermedio di connettersi al database SQL di Azure o ad Azure SQL Data Warehouse ottenendo un token da Azure Active Directory (AAD). Consente scenari complessi, tra cui l'autenticazione basata su certificato. Per usare l'autenticazione tramite token di Azure AD, è necessario completare quattro passaggi fondamentali:
 
-1. Registrare l'applicazione in Azure Active Directory e ottenere l'ID client per il codice. 
+1. Registrare l'applicazione in Azure Active Directory e ottenere l'ID client per il codice.
 2. Creare un utente del database che rappresenta l'applicazione. (Completato in precedenza al passaggio 6).
 3. Creare un certificato nel computer client che eseguirà l'applicazione.
 4. Aggiungere il certificato come chiave per l'applicazione.
@@ -367,4 +367,4 @@ Per altre informazioni, vedere il [blog sulla sicurezza di SQL Server](https://b
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

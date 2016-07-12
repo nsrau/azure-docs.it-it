@@ -34,7 +34,7 @@ Le applicazioni multi-tenant sono un esempio significativo di applicazione in cu
 Si tratta di applicazioni che abbracciano l'intera gamma di applicazioni basate su cloud, ad esempio:
 - Applicazioni di database ISV di cui è in corso la transizione nel cloud come applicazioni SaaS.
 - Applicazioni SaaS compilate per il cloud da zero.
-- Applicazioni rivolte al consumer diretto o all'utente finale. 
+- Applicazioni rivolte al consumer diretto o all'utente finale.
 - Applicazioni aziendali rivolte ai dipendenti.
 
 Sia le applicazioni SaaS nate nel cloud che le applicazioni SaaS originate da applicazioni di database ISV danno luogo, in genere, ad applicazioni multi-tenant. Queste applicazioni SaaS distribuiscono ai tenant un'applicazione software specializzata come un servizio. I tenant hanno accesso al servizio dell'applicazione e hanno la proprietà completa dei dati associati, archiviati come parte dell'applicazione. Tuttavia, per poter sfruttare i vantaggi del modello SaaS, i relativi tenant devono cedere un certo livello di controllo sui dati, affidandone la sicurezza e l'isolamento dai dati di altri tenant al fornitore della soluzione SaaS. MyOB, SnelStart, Salesforce e così via ne sono esempi tipici. Tutte queste applicazioni consentono il partizionamento in base ai limiti dei tenant e supportano quindi i modelli di applicazione illustrati nelle sezioni successive di questo articolo.
@@ -49,7 +49,7 @@ Gli schemi progettuali multi-tenant illustrati nelle sezioni seguenti si applica
 
 Gli sviluppatori che compilano applicazioni multi-tenant nel cloud devono tenere conto delle dimensioni generali seguenti:
 
--	***Isolamento del tenant***: gli sviluppatori devono prevenire l'accesso non autorizzato ai dati di altri tenant. Il requisito di isolamento si estende ad altre proprietà, come la protezione da altri tenant, la possibilità di ripristinare i dati di un determinato tenant, le personalizzazioni specifiche dei tenant e così via. 
+-	***Isolamento del tenant***: gli sviluppatori devono prevenire l'accesso non autorizzato ai dati di altri tenant. Il requisito di isolamento si estende ad altre proprietà, come la protezione da altri tenant, la possibilità di ripristinare i dati di un determinato tenant, le personalizzazioni specifiche dei tenant e così via.
 -	***Costo delle risorse cloud***: le applicazioni SaaS devono essere convenienti. Per questo motivo, nella progettazione delle applicazioni multi-tenant gli sviluppatori tendono a ottimizzare le applicazioni SaaS per costi inferiori di utilizzo delle risorse cloud, come calcolo, archiviazione e così via.
 -	***Facilità della metodologia DevOps***: i provider di applicazioni multi-tenant devono garantirne l'isolamento, gestire le applicazioni e lo schema del database, monitorare l'integrità e risolvere i problemi dei tenant. La complessità di funzionamento e di sviluppo delle applicazioni si traduce direttamente in costi maggiori e minore soddisfazione dei tenant.
 -	***Scalabilità***: l'aggiunta incrementale di altri tenant è fondamentale per la riuscita delle operazioni SaaS, così come l'aggiunta di capacità aggiuntiva per i singoli tenant che richiedono più risorse.
@@ -71,7 +71,7 @@ Le comuni procedure di progettazione per l'inserimento dei dati dei tenant seguo
   
 1.	***Database per tenant***: questo approccio inserisce ogni tenant nel relativo database. Tutti i dati specifici di un tenant vengono limitati a quel database e isolati dagli altri tenant e dai relativi dati.
 2.	***Database condiviso partizionato***: questo approccio usa più database, con più tenant che condividono un database. A ogni database viene assegnato un set distinto di tenant con una strategia di partizionamento, come il partizionamento hash, a intervallo oppure a elenco. Questa strategia di distribuzione dei dati è spesso detta partizionamento orizzontale.
-3.	***Database condiviso singolo***: questo approccio usa un unico database, talvolta di grandi dimensioni, contenente i dati di tutti i tenant identificati senza ambiguità tramite una colonna ID tenant. 
+3.	***Database condiviso singolo***: questo approccio usa un unico database, talvolta di grandi dimensioni, contenente i dati di tutti i tenant identificati senza ambiguità tramite una colonna ID tenant.
   
 > [AZURE.NOTE] In alcuni casi tenant diversi vengono anche inseriti in schemi di database differenti, in cui il nome dello schema viene usato per eliminare l'ambiguità tra i diversi tenant. Questo approccio non è consigliato, perché in genere richiede l'uso di SQL dinamico e non può fare un uso efficace della memorizzazione nella cache del piano. La parte restante di questo articolo sarà quindi incentrata sull'approccio tabella condivisa in questa categoria.
  
@@ -80,8 +80,8 @@ Le comuni procedure di progettazione per l'inserimento dei dati dei tenant seguo
 Quando si valuta l'uso di questi modelli di dati multi-tenant è importante inquadrarli in termini di compromessi nella progettazione delle applicazioni, come illustrato nella sezione precedente.
 
 -	***Isolamento***: livello di isolamento tra tenant come misura della quantità di isolamento dei tenant offerta da un modello di dati.
--	***Costo delle risorse cloud***: livello di condivisione delle risorse tra i tenant per ottimizzare il costo delle risorse cloud. Una risorsa può essere definita come costo di calcolo e archiviazione. 
--	***Costo della metodologia DevOps***: la facilità di sviluppo e distribuzione e la gestibilità delle applicazioni riducono il costo complessivo delle operazioni SaaS.  
+-	***Costo delle risorse cloud***: livello di condivisione delle risorse tra i tenant per ottimizzare il costo delle risorse cloud. Una risorsa può essere definita come costo di calcolo e archiviazione.
+-	***Costo della metodologia DevOps***: la facilità di sviluppo e distribuzione e la gestibilità delle applicazioni riducono il costo complessivo delle operazioni SaaS.
 
 Queste dimensioni permettono di caratterizzare i modelli di dati multi-tenant descritti in precedenza e il relativo utilizzo di database con lo spazio diviso in quadranti illustrato nella figura 2. Il grado di isolamento dei tenant e il livello di condivisione delle risorse rappresentano gli assi X e Y dello spazio. La grande freccia diagonale nella parte centrale indica i costi della metodologia DevOps.
 
@@ -148,9 +148,11 @@ Per i provider di applicazioni multi-tenant che non hanno requisiti di isolament
 
 Per un'app di esempio che illustra la libreria client, vedere l'[introduzione agli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 
-Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
+Per un'applicazione di esempio che offra una soluzione per uno scenario SaaS (Software-as-a-Solution) che sfrutta i pool elastici per fornire un back-end di database economico e scalabile per un'applicazione SaaS, vedere [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Dashboard personalizzato pool elastico per Saas).
 
-Per creare un nuovo pool, vedere il [Creare un nuovo pool di database elastici con il portale di Azure](sql-database-elastic-pool-create-portal.md).
+Per convertire i database esistenti e usare gli strumenti, vedere [Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+Per creare un nuovo pool, vedere [Creare un nuovo pool di database elastici con il portale di Azure](sql-database-elastic-pool-create-portal.md).
 
 Per monitorare e gestire un pool di database elastici, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
 
@@ -159,8 +161,9 @@ Per monitorare e gestire un pool di database elastici, vedere [Monitorare e gest
 - [Che cos'è un pool di database elastici di Azure?](sql-database-elastic-pool.md)
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 - [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticazione in app multi-tenant con Azure AD e OpenID Connect)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect (Autenticazione in app multi-tenant con Azure AD e OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Informazioni sull'applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Avvio rapido: esplorare soluzioni del database SQL di Azure](sql-database-solution-quick-starts.md)
 
 ## Domande e richieste di funzionalità
 
@@ -176,4 +179,4 @@ Per domande è possibile visitare il [forum sul database SQL](http://social.msdn
 
 	
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

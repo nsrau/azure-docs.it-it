@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -35,11 +35,11 @@ Gli asset crittografati devono essere associati alle entità **ContentKey**. Que
 
 Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare.
 
-1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione). 
+1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione).
 
-	Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia. 
+	Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia.
 2.	Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
-3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
+3.	Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509.
 
 	L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia. È disponibile un esempio nella funzione [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Creare un valore di checksum (basato sull'algoritmo checksum della chiave AES PlayReady) calcolato usando l'identificatore chiave e la chiave simmetrica. Per altre informazioni, vedere la sezione sull'algoritmo checksum della chiave AES PlayReady nel documento relativo all'oggetto intestazione di PlayReady disponibile [qui](http://www.microsoft.com/playready/documents/).
@@ -262,4 +262,4 @@ Risposta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

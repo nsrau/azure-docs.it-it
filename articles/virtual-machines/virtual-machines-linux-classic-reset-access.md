@@ -22,9 +22,9 @@
 
 Se non è possibile connettersi a una macchina virtuale Linux su Azure perché si è dimenticata la password o una chiave SSH (Secure Shell) non è valida o per un problema di configurazione di SSH, usare l'estensione VMAccessForLinux con l'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza del disco.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-Con l'interfaccia della riga di comando di Azure, per accedere ai comandi si usa il comando **azure vm extension set** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi). Per informazioni dettagliate sull'utilizzo dell'estensione, eseguire **azure help vm extension set**.
+Con l'interfaccia della riga di comando di Azure, per accedere ai comandi si usa il comando **azure vm extension set** dell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi). Per informazioni dettagliate sull'uso dell'estensione, eseguire **azure help vm extension set**.
 
 Con l’interfaccia della riga di comando di Azure è possibile eseguire le attività seguenti:
 
@@ -122,7 +122,7 @@ Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche
 
 Se si desidera eliminare un account utente senza accedere alla macchina virtuale direttamente, è possibile usare questo script.
 
-1. Creare un file denominato PrivateConf json con questo contenuto, sostituendo il nome utente da rimuovere in &#60;usernametoremove&#62;. 
+1. Creare un file denominato PrivateConf json con questo contenuto, sostituendo il nome utente da rimuovere in &#60;usernametoremove&#62;.
 
         {
         "remove_user":"<usernametoremove>"
@@ -142,7 +142,7 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 
 Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario eseguire le operazioni seguenti:
 
-1. Creare un file denominato PublicConf.json con questo contenuto. Il controllo del disco accetta un valore booleano che indica se controllare o meno i dischi collegati alla macchina virtuale. 
+1. Creare un file denominato PublicConf.json con questo contenuto. Il controllo del disco accetta un valore booleano che indica se controllare o meno i dischi collegati alla macchina virtuale.
 
         {   
         "check_disk": "true"
@@ -156,7 +156,7 @@ Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario
 
 Per ripristinare i dischi che presentano problemi di montaggio o errori di configurazione di montaggio, usare l'estensione VMAccess per reimpostare la configurazione di montaggio nella macchina virtuale Linux. Sostituendo il nome del disco in & #60; disco& #62;.
 
-1. Creare un file denominato PublicConf.json con questo contenuto. 
+1. Creare un file denominato PublicConf.json con questo contenuto.
 
         {
         "repair_disk":"true",
@@ -171,10 +171,10 @@ Per ripristinare i dischi che presentano problemi di montaggio o errori di confi
 
 ## Passaggi successivi
 
-* Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 * Per reimpostare la password o la chiave SSH di una VM Linux distribuita con il modello di distribuzione classica è anche possibile usare il [portale di Azure](https://portal.azure.com). Non è attualmente possibile usare il portale per eseguire queste operazioni per una VM Linux distribuita con il modello di distribuzione Resource Manager.
 
 * Per altre informazioni sull'uso di estensioni VM per macchine virtuali di Azure vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](virtual-machines-linux-extensions-features.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

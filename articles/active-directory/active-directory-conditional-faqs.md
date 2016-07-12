@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Domande frequenti sull'accesso condizionale | Microsoft Azure"
-	description="Domande frequenti sull'accesso condizionale"
+	description="Domande frequenti sull'accesso condizionale "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Domande frequenti sull'accesso condizionale
@@ -30,4 +30,4 @@ Sì.
 ## Perché non è possibile impostare criteri nelle app client, ad esempio Word o Outlook?
 I criteri di accesso condizionale stabiliscono requisiti per l'accesso a un servizio e vengono applicati al momento dell'autenticazione al servizio in questione. Pertanto, i criteri non sono impostati direttamente su un'applicazione client, ma vengono applicati quando quest'ultima effettua una chiamata a un servizio. Ad esempio, i criteri impostati in SharePoint verranno applicate ai client che chiamano SharePoint e i criteri impostati in Exchange verranno applicati ad Outlook.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

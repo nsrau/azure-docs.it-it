@@ -42,9 +42,8 @@ La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazion
 
 Per altre informazioni sugli strumenti di database elastici per i database SQL di Azure, la replica geografica e il ripristino, vedere:
 
-* [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](sql-database-business-continuity.md) 
-* [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md)
-* [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)  
+* [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](sql-database-business-continuity.md)
+* [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)
 * [Gestione di mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
 
 ## Ripristino di RecoveryManager da un oggetto ShardMapManager 
@@ -63,8 +62,8 @@ Poiché questo codice dell'applicazione manipola la mappa partizioni stessa, le 
 
 Il [metodo DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) scollega la partizione specificata dalla mappa partizioni ed elimina i mapping associati alla partizione.
 
-* Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata. 
-* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo. 
+* Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata.
+* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
 **Importante**: usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
 
@@ -82,8 +81,8 @@ Il [metodo DetectMappingDifferences](https://msdn.microsoft.com/library/azure/mi
 
 	rm.DetectMappingDifferences(location, shardMapName);
 
-* Il *percorso* specifica il nome del server e il nome del database. 
-* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo. 
+* Il *percorso* specifica il nome del server e il nome del database.
+* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
 ## Per risolvere le differenze nei mapping
 
@@ -91,7 +90,7 @@ Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/m
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
-* Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica. 
+* Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica.
 
 * L'[enumerazione MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione.
 * È consigliabile usare **MappingDifferenceResolution.KeepShardMapping** qualora la mappa locale partizioni contenga il mapping corretto e quindi si dovrà usare il mapping presente nella partizione. Questo si verifica in genere nel caso di un failover, dove la partizione ora risiede in un nuovo server. Poiché la partizione deve essere prima rimossa dalla mappa globale partizioni, tramite il metodo RecoveryManager.DetachShard, non esiste più un mapping nella mappa globale partizioni. Per ristabilire il mapping della partizione è quindi necessario usare la mappa locale partizioni.
@@ -102,7 +101,7 @@ Il [metodo AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure
 
 	rm.AttachShard(location, shardMapName) 
 
-* Il parametro *location* corrisponde al nome del server e al nome del database della partizione che viene collegata. 
+* Il parametro *location* corrisponde al nome del server e al nome del database della partizione che viene collegata.
 
 * Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo.
 
@@ -123,17 +122,17 @@ Nel caso di failover geografico, il database secondario è reso accessibile in s
 
 Il failover geografico e il ripristino sono operazioni che di solito sono gestite da un amministratore del cloud dell'applicazione usando intenzionalmente una delle funzionalità di continuità aziendale dei database SQL di Azure. La pianificazione della continuità aziendale richiede la definizione di processi, procedure e misure che garantiscano la continuità delle operazioni aziendali senza interruzioni. In questo flusso di lavoro è necessario usare i metodi disponibili come parte della classe RecoveryManager per assicurare che la mappa globale partizioni e la mappa locale partizioni siano mantenute aggiornate con l'azione di ripristino eseguita. Per assicurare che la mappa globale partizioni e la mappa locale partizioni riflettano le informazioni corrette dopo un evento di failover, occorre eseguire 5 passaggi. Il codice dell'applicazione per eseguire questi passaggi può essere integrato negli strumenti e nel flusso di lavoro esistenti.
 
-1. Recuperare Gestione ripristino da ShardMapManager. 
+1. Recuperare Gestione ripristino da ShardMapManager.
 2. Scollegare la partizione precedente dalla mappa partizioni.
 3. Collegare la nuova partizione alla mappa partizioni, includendo il percorso della nuova partizione.
-4. Rilevare le incoerenze nel mapping tra la mappa globale partizioni e la mappa locale partizioni. 
-5. Risolvere le differenze tra la mappa globale partizioni e la mappa locale partizioni, considerando attendibile la mappa locale partizioni. 
+4. Rilevare le incoerenze nel mapping tra la mappa globale partizioni e la mappa locale partizioni.
+5. Risolvere le differenze tra la mappa globale partizioni e la mappa locale partizioni, considerando attendibile la mappa locale partizioni.
 
 L'esempio segue questa procedura:
 1. Rimuove le partizioni dalla mappa partizioni che riflette i percorsi precedenti all'evento di failover.
 2. Collega le partizioni alla mappa partizioni riflettendo i nuovi percorsi delle partizioni. Il parametro "Configuration.SecondaryServer" è il nuovo nome del server, ma lo stesso nome del database.
-3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione. 
-4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione. 
+3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione.
+4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione.
 
 	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
@@ -159,4 +158,4 @@ L'esempio segue questa procedura:
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

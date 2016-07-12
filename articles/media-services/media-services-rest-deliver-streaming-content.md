@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -42,10 +42,10 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 
    1. Se il contenuto viene crittografato, definire i criteri di accesso.
    2. Creare un localizzatore di streaming OnDemand.
-   3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset. 
+   3. Se si pianifica lo streaming, ottenere il file manifesto di streaming (.ism) nell'asset.
    		
-	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset. 
-   4. Creare URL che puntano al file manifesto o ai file MP4. 
+	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.
+   4. Creare URL che puntano al file manifesto o ai file MP4.
    5. Si noti che non è possibile creare un localizzatore di streaming utilizzando un criterio di accesso che include autorizzazioni alla scrittura o all’eliminazione.
 
 
@@ -191,4 +191,4 @@ esempio:
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

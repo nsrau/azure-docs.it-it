@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Definizione delle dipendenze nei modelli di gestione risorse di Azure
@@ -101,11 +101,11 @@ La funzione di riferimento consente un'espressione per derivare il valore da alt
 
 È possibile utilizzare questo elemento o l'elemento dependsOn per specificare le dipendenze, ma non è necessario utilizzare entrambi per la stessa risorsa dipendente. Le linee guida prevedono l’utilizzo del riferimento implicito per evitare il rischio di avere inavvertitamente un elemento dependsOn che arresti il motore di distribuzione tanto che gli aspetti della distribuzione in parallelo siano poi interrotti.
 
-Per altre informazioni, vedere la [funzione del riferimento](../resource-group-template-functions/#reference).
+Per altre informazioni, vedere la [funzione del riferimento](resource-group-template-functions.md#reference).
 
 ## Passaggi successivi
 
-- Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
+- Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md).
 - Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

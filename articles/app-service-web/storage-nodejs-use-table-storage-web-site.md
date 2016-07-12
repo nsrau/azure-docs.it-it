@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # App Web Node.js con il servizio tabelle di Azure
@@ -37,7 +37,7 @@ Di seguito è riportata l'applicazione completata:
 
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -53,7 +53,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano installa
 
 Creare un account di archiviazione di Azure L'app utilizzerà questo account per archiviare gli elementi dell'elenco attività.
 
-1.  Accedere al [Portale di Azure](https://portal.azure.com).
+1.  Accedere al [Portale di Azure](https://portal.azure.com/).
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
@@ -72,7 +72,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 
 ### Installare Express e generare lo scaffolding
 
-1. Nella riga di comando creare una nuova directory denominata **elenco attività** e passare a tale directory.  
+1. Nella riga di comando creare una nuova directory denominata **elenco attività** e passare a tale directory.
 
 2. Immettere il comando seguente per installare il modulo Express.
 
@@ -423,7 +423,7 @@ Dalla cartella **views** aprire **layout.jade** e sostituire l'intero contenuto 
 
 ### Creare un file config
 
-Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* *con il seguente JSON:
+Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* * con il contenuto JSON seguente:
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -478,7 +478,7 @@ Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati ne
 
 Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
-> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
+> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com/). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
@@ -497,6 +497,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
@@ -637,4 +638,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

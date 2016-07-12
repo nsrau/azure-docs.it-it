@@ -98,7 +98,7 @@ Una coda permanente sul lato client, quindi, mantiene l'ordine dei messaggi e pr
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
 
 - [Continuità aziendale del database SQL di Azure][]
-- [Informazioni tecniche sulla continuità aziendale di Azure][]
+- [Indicazioni tecniche sulla resilienza di Azure][]
 
   [Autenticazione del bus di servizio]: service-bus-authentication-and-authorization.md
   [Entità di messaggistica partizionate]: service-bus-partitioning.md
@@ -109,6 +109,6 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
   [replica geografica con i messaggi negoziati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [mittente del messaggio permanente]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
-  [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Indicazioni tecniche sulla resilienza di Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

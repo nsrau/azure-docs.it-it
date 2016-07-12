@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
- 	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -57,7 +57,7 @@ Per preparare l'asset per lo streaming dinamico sono disponibili due opzioni:
 
 -OPPURE-
  
-1. Caricare i file MP4 precodificati. 
+1. Caricare i file MP4 precodificati.
 
 	>[AZURE.NOTE] Questa opzione non è consigliata.
 	
@@ -80,4 +80,4 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 # Protocollo SAML per Single Sign-On
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Questo articolo illustra le richieste di autenticazione SAML 2.0 e le risposte supportate da Azure Active Directory (Azure AD) per Single Sign-On.
 
@@ -74,7 +72,7 @@ Un elemento `NameIdPolicy` di esempio è simile al seguente:
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
-Se viene specificato `NameIDPolicy` è possibile includere l'attributo facoltativo `Format`. L'attributo `Format` può avere solo uno dei seguenti valori; qualsiasi altro valore causa un errore.
+Se viene specificato `NameIDPolicy` è possibile includere l'attributo facoltativo `Format`. L'attributo `Format` può avere solo uno dei valori seguenti; qualsiasi altro valore causa un errore.
 
 -  `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory rilascia l'attestazione NameID come identificatore pairwise.
 - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory rilascia l'attestazione NameID in formato di indirizzo di posta elettronica.
@@ -94,7 +92,7 @@ Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPLi
 
 ### Firma
 
-Non includere un elemento `Signature` negli elementi `AuthnRequest`perché Azure AD non supporta le richieste di autenticazione firmate.
+Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azure AD non supporta le richieste di autenticazione firmate.
 
 ### Oggetto
 
@@ -168,7 +166,7 @@ Una risposta di esempio con elemento Issuer può avere un aspetto simile al segu
 
 Azure AD firma l'elemento `Response` quando l'accesso viene completato. L'elemento `Signature` contiene una firma digitale che l'applicazione può usare per autenticare l'origine e verificare l'integrità della risposta.
 
-Azure AD usa la chiave di firma specificata nell'elemento `IDPSSODescriptor` del relativo documento metadati. Per altre informazioni vedere [Documento di metadati della federazione](active-directory-federation-metadata.md).
+Azure AD usa la chiave di firma specificata nell'elemento `IDPSSODescriptor` del relativo documento di metadati. Per altre informazioni, vedere [Metadati della federazione](active-directory-federation-metadata.md).
 
 Azure AD firma anche l'elemento `Assertion`, ma i due elementi di firma sono indipendenti.
 
@@ -182,7 +180,7 @@ Un esempio di elemento `Signature` nella risposta può essere simile al seguente
 
 ### Stato
 
-L'elemento `Status` indica l'esito positivo o negativo dell'accesso. Include l'elemento `StatusCode` che contiene un codice o un set di codici nidificati che rappresentano lo stato della richiesta. Include anche l'elemento `StatusMessage` che contiene i messaggi di errore personalizzati generati durante il processo di accesso.
+L'elemento `Status` indica l'esito positivo o negativo dell'accesso. Include l'elemento `StatusCode` che contiene un codice o un set di codici annidati che rappresentano lo stato della richiesta. Include anche l'elemento `StatusMessage` che contiene i messaggi di errore personalizzati generati durante il processo di accesso.
 
 <!-- TODO: Add a authentication protocol error reference -->
 
@@ -217,7 +215,7 @@ Viene impostato su `https://sts.windows.net/<TenantIDGUID>/`, dove <TenantIDGUID
 
 Azure AD firma l'asserzione in risposta a un accesso riuscito. L'elemento `Signature` contiene una firma digitale che il servizio cloud può usare per autenticare l'origine e verificare l'integrità dell'asserzione.
 
-Per generare questa firma digitale, Azure AD usa la chiave di firma specificata nell'elemento `IDPSSODescriptor` del relativo documento metadati.
+Per generare questa firma digitale, Azure AD usa la chiave di firma specificata nell'elemento `IDPSSODescriptor` del relativo documento di metadati.
 
 ```
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -259,7 +257,7 @@ Gli attributi `NotBefore` e `NotOnOrAfter` specificano l'intervallo durante il q
 
 #### Destinatari
 
-Contiene un URI che identifica un gruppo di destinatari. Azure AD imposta il valore di questo elemento sul valore dell'elemento `Issuer` della `AuthnRequest` che ha avviato l'accesso. Per valutare valore di `Audience`, usare il valore di `App ID URI` specificato durante la registrazione dell'applicazione.
+Contiene un URI che identifica un gruppo di destinatari. Azure AD imposta il valore di questo elemento sul valore dell'elemento `Issuer` della `AuthnRequest` che ha avviato l'accesso. Per valutare il valore di `Audience`, usare il valore di `App ID URI` specificato durante la registrazione dell'applicazione.
 
 ```
 <AudienceRestriction>
@@ -303,4 +301,4 @@ Questo elemento asserisce che l'oggetto dell'asserzione è stato autenticato in 
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

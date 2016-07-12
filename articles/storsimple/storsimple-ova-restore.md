@@ -68,9 +68,7 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 1.  Passare a **Catalogo backup**. Filtrare per dispositivo e intervallo di tempo appropriati per ricercare i backup. Fare clic sull'icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png) per eseguire la query.
 
-2.  Nell'elenco dei set di backup visualizzati, fare clic su un backup specifico per selezionarlo. Espandere il backup per visualizzare i diversi volumi riportati sotto. Questi volumi devono essere portati offline nell'host e nel dispositivo prima di poterli ripristinare. Accedere ai volumi nella pagina **Volumi** e portarli offline.
-
-3.  Tornare alla scheda **Catalogo di backup** e selezionare un set di backup.
+2.  Nell'elenco dei set di backup visualizzati, fare clic su un backup specifico per selezionarlo. Espandere il backup per visualizzare i diversi volumi riportati sotto. Selezionare il volume da ripristinare.
 
 5.  Nella parte inferiore della pagina fare clic su **Ripristina come nuovo**. Viene avviata la procedura guidata per il **ripristino come nuovo volume**.
 
@@ -79,7 +77,7 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 	1.  Verificare il nome del dispositivo di origine. Deve essere il dispositivo contenente il volume che si desidera ripristinare. La selezione del dispositivo non è disponibile. Per selezionare un dispositivo di origine diverso, è necessario uscire dalla procedura guidata e selezionare di nuovo il set di backup.
 
-	2.  Fornire un nome per il volume. Il nome del volume deve contenere da 3 a 127 caratteri.
+	2.  Fornire un nome per il volume da ripristinare come nuovo volume. Il nome del volume deve contenere da 3 a 127 caratteri.
 
 	3.  Fare clic sull'icona a forma di freccia.
 
@@ -93,9 +91,15 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 2.  Al completamento del processo di ripristino, verrà avviato il ripristino e un'altra notifica verrà visualizzata. Per monitorare lo stato del ripristino, fare clic su **Visualizza processo**. Viene visualizzata la pagina **Processi**.
 
-3.  È possibile monitorare lo stato del processo di ripristino. Quando il ripristino è stato completato al 100%, tornare alla pagina **Volumi** nel dispositivo.
+3.  È possibile monitorare lo stato del processo di ripristino. Tornare alla pagina **Volumi** nel dispositivo.
 
 4.  È ora possibile visualizzare il nuovo volume ripristinato nell'elenco dei volumi nel dispositivo. Si noti che il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
+
+5.  Quando viene visualizzato nell'elenco dei volumi online, il volume è disponibile per l'uso. Aggiornare l'elenco delle destinazioni nella finestra Proprietà iniziatore iSCSI nell'host dell'iniziatore iSCSI. Una nuova destinazione contenente il nome del volume ripristinato verrà visualizzata come "inattiva" nella colonna dello stato.
+
+6.  Selezionare la destinazione e fare clic su **Connetti**. Dopo avere connesso il dispositivo, lo stato deve essere modificato in **Connesso**.
+
+7.  Nella finestra **Gestione disco**, i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
 
 > [AZURE.IMPORTANT] Quando si tenta di ripristinare un volume o una condivisione da un set di backup, anche se il processo di ripristino non riesce, è comunque possibile creare nel portale un volume o una condivisione di destinazione. È importante eliminare questo volume o questa condivisione di destinazione nel portale per ridurre al minimo eventuali problemi futuri causati da questo elemento.
 
@@ -132,4 +136,4 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

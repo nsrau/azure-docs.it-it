@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -279,8 +279,8 @@ Nota: nei sistemi operativi non Windows le impostazioni **Emulator deployment** 
 
 Indipendentemente dal sistema operativo in uso, sono disponibili le due opzioni **Cloud deployment** seguenti per l'origine e il tipo di pacchetto JDK:
 
-* **Deploy a 3rd party JDK package available on Azure** 
-* **Deploy from a custom download** 
+* **Deploy a 3rd party JDK package available on Azure**
+* **Deploy from a custom download**
 
 Se si usa l'opzione **Deploy a 3rd party JDK package available from Azure**:
 
@@ -323,7 +323,7 @@ Se si usa l'opzione **Deploy a 3rd party server available on Azure**:
 Se si usa l'opzione **Deploy from a custom download**:
 
 1. Assicurarsi di avere già selezionato un tipo di server seguendo i passaggi precedenti. In questo modo verrà indicata al plug-in la modalità di distribuzione del server dal download personalizzato, che deve appartenere alla stessa famiglia del tipo di server selezionato.
-1. Selezionare la casella di controllo denominata **Deploy from a custom download**. Se si vuole effettuare il download dall'account di archiviazione di Azure, selezionarlo dall'elenco a discesa **Storage account**. È possibile fare clic sul collegamento**Accounts** per modificare il contenuto dell'elenco. In questo modo, verrà compilato parzialmente il campo **URL** e quindi verrà compilata la parte rimanente dell'URL. del file ZIP di download del server. Quando si usa l'archiviazione di Azure, i nomi di BLOB nell'URL devono essere specificati in lettere minuscole. Se non si vuole usare l'archiviazione di Azure, selezionare **(none)** dall'elenco a discesa **Storage account** e quindi immettere l'URL del file ZIP di download del server nel campo **URL**. Il file ZIP contiene una cartella figlio che rappresenta la directory di installazione del server applicazioni. Se ad esempio si usa un file ZIP per Apache Tomcat 7.0.35, il file conterrà una cartella figlio che rappresenta la directory di installazione, ad esempio **apache-tomcat-7.0.35**. 
+1. Selezionare la casella di controllo denominata **Deploy from a custom download**. Se si vuole effettuare il download dall'account di archiviazione di Azure, selezionarlo dall'elenco a discesa **Storage account**. È possibile fare clic sul collegamento**Accounts** per modificare il contenuto dell'elenco. In questo modo, verrà compilato parzialmente il campo **URL** e quindi verrà compilata la parte rimanente dell'URL. del file ZIP di download del server. Quando si usa l'archiviazione di Azure, i nomi di BLOB nell'URL devono essere specificati in lettere minuscole. Se non si vuole usare l'archiviazione di Azure, selezionare **(none)** dall'elenco a discesa **Storage account** e quindi immettere l'URL del file ZIP di download del server nel campo **URL**. Il file ZIP contiene una cartella figlio che rappresenta la directory di installazione del server applicazioni. Se ad esempio si usa un file ZIP per Apache Tomcat 7.0.35, il file conterrà una cartella figlio che rappresenta la directory di installazione, ad esempio **apache-tomcat-7.0.35**.
 1. Specificare il valore per la variabile di ambiente della home directory. Per impostazione predefinita, verrà usato il valore del server applicazioni locale, se disponibile, ma è possibile specificare un valore diverso se il server applicazioni cloud è diverso da quello locale. Tuttavia, è necessario assicurarsi che il server applicazioni cloud sia della stessa famiglia del tipo di server selezionato in precedenza. Se in futuro si aggiorna il file ZIP del server applicazioni cloud, è possibile modificare manualmente l'impostazione della home directory oppure fare in modo che corrisponda di nuovo all'impostazione locale, se è stato modificato anche il server applicazioni locale.
 1. Fare clic su **OK** per salvare le modifiche.
 
@@ -439,4 +439,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

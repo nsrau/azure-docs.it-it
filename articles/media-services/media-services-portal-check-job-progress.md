@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Procedura: Controllare lo stato dei processi
@@ -26,7 +26,7 @@
 ##Usare il portale per controllare lo stato dei processi
 
 1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409) fare clic su **Servizi multimediali** e quindi sul nome dell'account di Servizi multimediali.
-2. Selezionare la pagina **PROCESSI**. 
+2. Selezionare la pagina **PROCESSI**.
 
 	Nella pagina è possibile visualizzare lo stato di tutti i processi in uso. È inoltre possibile filtrare i processi in base allo stato, all'ora o all'ID.
 
@@ -50,4 +50,4 @@ Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

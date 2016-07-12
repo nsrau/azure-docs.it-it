@@ -122,19 +122,19 @@ Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprie
 
 ## Caricamento di file
 
-Per utilizzare la funzionalità di caricamento di file nell'hub IoT, è innanzitutto necessario associare un account di archiviazione di Azure con l'hub. Selezionare le impostazioni di **caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l’hub IoT da modificare.
+Per usare la funzionalità di caricamento di file nell'hub IoT, è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l’hub IoT da modificare.
 
-**Account di archiviazione**: utilizzare il portale per selezionare un account di archiviazione nella sottoscrizione corrente da associare con l’hub IoT. L’hub IoT genererà URI di firma di accesso condiviso da questo account di archiviazione per i dispositivi da utilizzare durante il caricamento di file.
+**Contenitore di archiviazione**: usare il portale per selezionare il contenitore BLOB in un account di archiviazione nella sottoscrizione corrente da associare all'hub IoT. Se necessario, è possibile creare un nuovo account di archiviazione nel pannello **Account di archiviazione** e un nuovo contenitore BLOB nel pannello **Contenitori**. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
 ![][14]
 
-**Ricezione di notifiche per i file caricati**: abilitare o disabilitare le notifiche di caricamento del file mediante l’apposita opzione.
+**Receive notifications for uploaded files** (Ricezione di notifiche per i file caricati): abilitare o disabilitare le notifiche di caricamento del file mediante l'apposita opzione.
 
-**TTL di firma di accesso condiviso**: questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Per impostazione predefinita è impostato su 1 ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+**SAS TTL** (TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Per impostazione predefinita è impostato su 1 ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-**TTL predefinito per le impostazioni di notifica dei file**: la durata di una notifica di caricamento del file. Per impostazione predefinita è impostato su 1 giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+**File notification settings default TTL** (TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Per impostazione predefinita è impostato su 1 giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-**Numero massimo di recapiti per le notifiche dei file**: il numero di tentativi che l’hub IoT farà per distribuire una notifica di caricamento del file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+**File notification maximum delivery count** (Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno effettuati dall'hub IoT per distribuire una notifica di caricamento del file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
 ![][13]
 
@@ -173,4 +173,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

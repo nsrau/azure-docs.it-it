@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory
@@ -36,7 +36,7 @@ Nonostante l'aggiunta al dominio tradizionale offra ancora un'esperienza miglior
 * **Istituti di istruzione**: gli istituti di istruzione hanno due tipi di utenti, i docenti e gli studenti. I docenti sono considerati membri dell'organizzazione più a lungo termine, per i quali è consigliabile creare account locali. Gli studenti sono invece membri dell'organizzazione a breve termine e possono quindi essere gestiti in Azure AD. Ciò significa che è possibile eseguire il push di tutta la directory nel cloud anziché archiviarle in locale. Significa anche che gli studenti possono accedere a Windows con i propri account Azure AD e usufruire delle risorse di Office 365, nel browser o nelle applicazioni Office.
 
 * **Attività commerciali**: alcuni clienti hanno bisogno di soluzioni che permettano di gestire più facilmente i lavoratori stagionali. Anche in questo caso, è possibile creare account locali per i dipendenti a tempo pieno con contratti a lungo termine in computer aggiunti a un dominio. I lavoratori stagionali sono invece membri dell'organizzazione più a breve termine ed è quindi preferibile gestirli dove è possibile spostare le licenze utente con maggiore facilità. La creazione degli account utente nel cloud con licenze di Office 365 permette agli utenti di sfruttare i vantaggi dell'accesso a Windows e alle applicazioni Office con un account Azure AD e offre ai datori di lavoro una maggiore flessibilità con le relative licenze al termine della collaborazione.
-* **Altre aziende**: l'aggiunta degli utenti ad Azure AD può rappresentare un vantaggio anche se si gestiscono gli utenti nell'istanza di Active Directory locale. Azure AD, infatti, semplifica notevolmente l'esperienza di aggiunta, la gestione efficiente dei dispositivi e la registrazione per la gestione di dispositivi mobili automatica, oltre a offrire funzionalità Single Sign-On per le risorse locali e di Azure AD.  
+* **Altre aziende**: l'aggiunta degli utenti ad Azure AD può rappresentare un vantaggio anche se si gestiscono gli utenti nell'istanza di Active Directory locale. Azure AD, infatti, semplifica notevolmente l'esperienza di aggiunta, la gestione efficiente dei dispositivi e la registrazione per la gestione di dispositivi mobili automatica, oltre a offrire funzionalità Single Sign-On per le risorse locali e di Azure AD.
 
 ## Funzionalità offerte da Aggiunta di Azure AD
 Aggiunta di Azure AD offre le funzionalità seguenti:
@@ -79,4 +79,4 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

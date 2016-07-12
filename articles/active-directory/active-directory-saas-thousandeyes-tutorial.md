@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a ThousandEyes**, digitare l’URL che gli utenti cercano di utilizzare per accedere all’applicazione ThousandEyes (ad esempio: "**https://app.thousandeyes.com/login/sso*"), quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a ThousandEyes**, digitare l’URL che gli utenti cercano di utilizzare per accedere all’applicazione ThousandEyes (ad esempio: "*https://app.thousandeyes.com/login/sso*"), quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configura URL app")
 

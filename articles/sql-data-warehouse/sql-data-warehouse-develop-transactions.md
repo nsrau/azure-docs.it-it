@@ -18,7 +18,7 @@
 
 # Transazioni in SQL Data Warehouse
 
-Come è prevedibile, SQL Data Warehouse offre il supporto per tutte le proprietà transazionali. Tuttavia, per garantire che le prestazioni di SQL Data Warehouse siano mantenute al massimo livello, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre.
+Come si può immaginare, SQL Data Warehouse supporta le transazioni come parte del carico di lavoro del data warehouse. Tuttavia, per garantire che le prestazioni di SQL Data Warehouse siano mantenute al massimo livello, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre.
 
 ## Livelli di isolamento delle transazioni
 SQL Data Warehouse implementa le transazioni ACID. Tuttavia, l'isolamento del supporto delle transazioni è limitato a `READ UNCOMMITTED` e non può essere modificato. È possibile implementare numerosi metodi di codifica per evitare letture dirty dei dati se ciò costituisce un problema. I metodi più diffusi usano CTAS e il cambio della partizione di tabella (spesso noto come modello di finestra temporale scorrevole) per impedire agli utenti di eseguire query sui dati ancora in fase di preparazione. Anche le visualizzazioni che filtrano preventivamente i dati costituiscono un approccio comune.
@@ -28,7 +28,7 @@ Le dimensioni di una singola transazione di modifica dati sono limitate. Il limi
 
 Ecco alcuni presupposti riportati nella tabella seguente:
 
-* Si è verificata una distribuzione uniforme dei dati 
+* Si è verificata una distribuzione uniforme dei dati
 * La lunghezza media delle righe è 250 byte
 
 | DWU | Limite per ogni distribuzione (GiB) | Numero di distribuzioni | Dimensioni MAX delle transazioni (GiB) | N. di righe distribuzione | Righe max per transazione |
@@ -127,6 +127,7 @@ Ecco quali sono:
 - Nessuna transazione distribuita
 - Non sono consentite transazioni annidate
 - Non sono consentiti punti di salvataggio
+- Nessun supporto per DDL, ad esempio `CREATE TABLE` all'interno della transazione definita dall'utente
 
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
@@ -141,4 +142,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -33,8 +33,8 @@ Il seguente diagramma illustra le parti principali della piattaforma di Servizi 
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
 	
-	Si consiglia di applicare all'asset l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti sia durante il caricamento sia mentre si trovano nella risorsa di archiviazione. 
-1. Eseguire la codifica in Set MP4 a velocità in bit adattiva. 
+	Si consiglia di applicare all'asset l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti sia durante il caricamento sia mentre si trovano nella risorsa di archiviazione.
+1. Eseguire la codifica in Set MP4 a velocità in bit adattiva.
 
 	Si consiglia di applicare all'asset di output l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti anche quando non vengono usati.
 	
@@ -58,7 +58,7 @@ Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un
 2. Configurare i criteri di autorizzazione della chiave simmetrica.
 1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
 1. Pubblicare l'asset creando un localizzatore OnDemand.
-1. Trasmettere in streaming i contenuti pubblicati. 
+1. Trasmettere in streaming i contenuti pubblicati.
 
 ###Indicizzazione dei contenuti
 
@@ -101,4 +101,4 @@ Per concetti relativi alla distribuzione di contenuti su richiesta, vedere [Conc
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

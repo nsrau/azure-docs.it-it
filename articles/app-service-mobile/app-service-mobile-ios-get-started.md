@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="04/19/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 #Creare un'app iOS
@@ -29,7 +29,7 @@ Questa esercitazione illustra come aggiungere [app per dispositivi mobili di Azu
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/)
-* Un PC con installato [Visual Studio Community 2013] o versione successiva 
+* Un PC con installato [Visual Studio Community 2013] o versione successiva
 * Un Mac con Xcode 7.3 o versione successiva
 
 ## Passaggio I: Creare un nuovo back-end dell'app per dispositivi mobili di Azure
@@ -52,4 +52,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

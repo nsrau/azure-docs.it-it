@@ -18,8 +18,7 @@
 
 # SQL Server Business Intelligence in Macchine virtuali di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 La raccolta di macchine virtuali di Microsoft Azure include immagini che contengono installazioni SQL Server. Le edizioni di SQL Server supportate nelle immagini della raccolta sono gli stessi file di installazione che è possibile installare in computer locali e macchine virtuali. Questo argomento riepiloga le funzionalità di SQL Server Business Intelligence (BI) installate nelle immagini e i passaggi di configurazione necessari dopo il provisioning di una macchina virtuale. Questo argomento descrive inoltre le topologie di distribuzione supportate per le funzionalità di Business Intelligence e le procedure consigliate.
 
@@ -316,7 +315,7 @@ Per installare servizi aggiuntivi di SQL Server, ad esempio Analysis Services in
 
 1. Fare clic su **Centro installazione SQL Server**.
 
-O eseguire C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe
+Oppure eseguire C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.exe o C:\\SQLServer_11.0\_full\\setup.exe
 
 >[AZURE.NOTE] La prima volta che si esegue l'installazione di SQL Server, possono essere scaricati più file di installazione che richiedono un riavvio della macchina virtuale e il riavvio del programma di installazione di SQL Server.
 >
@@ -334,11 +333,11 @@ I passaggi descritti in questa sezione **riepilogano** l'installazione della mod
 
 1. Nell'installazione guidata di SQL Server fare clic su **Installazione** nel riquadro sinistro e quindi fare clic su **Nuova installazione autonoma di SQL Server o aggiunta di funzionalità a un'installazione esistente**.
 
-	- Se viene visualizzato **Sfoglia cartella**, passare a c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full or c:\\SQLServer\_11.0\_full e quindi fare clic su **OK**.
+	- Se viene visualizzato **Sfoglia cartella**, passare a C:\\SQLServer\_13.0_full, C:\\SQLServer_12.0_full oppure C:\\SQLServer_11.0\_full e quindi fare clic su **OK**.
 
 1. Fare clic su **Avanti** nella pagina degli aggiornamenti del prodotto.
 
-1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server** e fare clic su **Avanti**.
+1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server ** e fare clic su **Avanti**.
 
 1. Nella pagina **Impostazione ruolo** fare clic su **Installazione funzionalità SQL Server**.
 
@@ -392,7 +391,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 	|Port|Tipo|Descrizione|
 |---|---|---|
-|**80**|TCP|Accesso remoto al server di report (*). |
+|**80**|TCP|Accesso remoto al server di report (*).|
 |**1433**|TCP|SQL Server Management Studio (*).|
 |**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
 |**2382**|TCP|Browser SQL Server.|
@@ -437,4 +436,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

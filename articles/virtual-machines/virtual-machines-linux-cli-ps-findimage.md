@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Individuare e selezionare immagini di macchine virtuali Linux | Microsoft Azure"
+   pageTitle="Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure | Microsoft Azure"
    description="Informazioni su come determinare l'editore, l'offerta e lo SKU per le immagini durante la creazione di una macchina virtuale Linux con il modello di distribuzione di Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rasquill"/>
 
-# Individuare e selezionare immagini di macchine virtuali Linux in Azure con l'interfaccia della riga di comando o PowerShell
+# Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure
 
 Questo argomento descrive come trovare editori, offerte, SKU e versioni per ciascuna località di distribuzione. Per fare un esempio, alcune immagini di macchine virtuali Linux usate comunemente sono:
 
@@ -38,4 +38,4 @@ Questo argomento descrive come trovare editori, offerte, SKU e versioni per cias
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

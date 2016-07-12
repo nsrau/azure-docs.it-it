@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="cenkdin;anilmur;juliako"/>
 
 #Usare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola.
@@ -72,22 +72,22 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 **Video**:
  
-- Codec: H.264 
-- Profilo: alto (livello 4.0) 
-- Velocità in bit: 5000 kbps 
-- Fotogramma chiave: 2 secondi (60 secondi) 
+- Codec: H.264
+- Profilo: alto (livello 4.0)
+- Velocità in bit: 5000 kbps
+- Fotogramma chiave: 2 secondi (60 secondi)
 - Frequenza dei fotogrammi: 30
  
 **Audio**:
 
-- Codec: AAC (LC) 
-- Velocità in bit: 192 kbps 
+- Codec: AAC (LC)
+- Velocità in bit: 192 kbps
 - Frequenza di campionamento: 44,1 kHz
 
 
 ####Procedura di configurazione
 
-1. Passare all'interfaccia Web di **Elemental Live** e configurare il codificatore per lo streaming **UDP/TS**. 
+1. Passare all'interfaccia Web di **Elemental Live** e configurare il codificatore per lo streaming **UDP/TS**.
 
 2. Dopo aver creato un nuovo evento, scorrere verso il basso fino ai gruppi di output e aggiungere il gruppo di output **UDP/TS**.
 
@@ -98,17 +98,17 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 	>[AZURE.NOTE] È consigliabile che per l'evento Elemental il codice temporale sia impostato sull'orologio di sistema per facilitare la riconnessione del codificatore in caso di un errore di flusso.
 
 4. Dopo aver creato l'output, fare clic su **Aggiungi flusso**. È ora possibile configurare le impostazioni di output.
-5. Scorrere verso il basso fino al flusso "Flusso 1" appena creato, fare clic sulla scheda **Video** a sinistra ed espandere la sezione delle impostazioni **Avanzate**. 
+5. Scorrere verso il basso fino al flusso "Flusso 1" appena creato, fare clic sulla scheda **Video** a sinistra ed espandere la sezione delle impostazioni **Avanzate**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
 	Anche se per Elemental Live è disponibile un'ampia gamma di personalizzazioni, per iniziare con lo streaming verso AMS sono consigliate le impostazioni seguenti.
 	
-	- Risoluzione: 1280 x 720 
-	- Frequenza fotogrammi: 30 
-	- Dimensioni GOP: 60 fotogrammi 
-	- Modalità interlacciamento: progressivo 
-	- Velocità in bit: 5000000 bit/s (regolabile in base alle limitazioni di rete) 
+	- Risoluzione: 1280 x 720
+	- Frequenza fotogrammi: 30
+	- Dimensioni GOP: 60 fotogrammi
+	- Modalità interlacciamento: progressivo
+	- Velocità in bit: 5000000 bit/s (regolabile in base alle limitazioni di rete)
 	
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
@@ -135,7 +135,7 @@ Dopo 30 secondi di esecuzione del flusso, tornare allo strumento AMSE e testare 
 
 ###Testare la riproduzione
   
-1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.  
+1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu, passare il mouse su **Riproduci anteprima** e scegliere **con Azure Media Player**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -145,18 +145,18 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 
 ###Creare un programma.
 
-1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.  
+1. Una volta che viene confermata la riproduzione del canale, creare un programma. Sotto la scheda **Live** nello strumento AMSE, fare clic con il pulsante destro all'interno dell'area di programma e selezionare **Creare un nuovo programma**.
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
 2. Assegnare un nome al programma e, se necessario, modificare l'opzione **Archive Window Length** (con impostazione predefinita di 4 ore). È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.
 3. Selezionare la casella di controllo **Start the Program now**.
-4. Fare clic su **Create Program**.  
+4. Fare clic su **Create Program**.
   
 	Nota: la creazione di un programma richiede meno tempo rispetto alla creazione del canale.
  
 5. Quando il programma è in esecuzione, verificare il funzionamento della riproduzione. A tale scopo, fare clic con il pulsante destro del mouse sul programma e passare **Playback the program(s)**, quindi scegliere **with Azure Media Player**.
-6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu). 
+6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (o recuperare queste informazioni dall'opzione **Program information and settings** nel menu).
 
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.
 
@@ -173,4 +173,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

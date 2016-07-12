@@ -34,10 +34,11 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 | [Apache Zookeeper](http://zookeeper.apache.org/) | HDInsight 3.2 e 3.4 |
 | [Apache HBase](http://hbase.apache.org/) | HDInsight 3.2 e 3.4 |
 | [Apache Tez](http://tez.apache.org/) | HDInsight 3.2 e 3.4 |
+| [Apache Spark](http://spark.apache.org/) | HDInsight 3.4 |
 
 
 ## Vedere anche
 
 - [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -23,7 +23,7 @@
 
 ## Panoramica dei requisiti di autenticazione per il ripristino di emergenza
 
-Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il ripristino geografico. Per altre informazioni sulle opzioni di ripristino, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
+Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Per altre informazioni sulle opzioni di ripristino, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md).
 
 ## Ripristino di emergenza con gli utenti indipendenti
 
@@ -82,7 +82,7 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 
 >[AZURE.NOTE] Se si vuole concedere l'accesso utente al database secondario, ma non al database primario, è possibile modificare l'account di accesso utente nel server primario usando la sintassi seguente.
 >
->ALTER LOGIN <login name> DISABLE
+>ALTER LOGIN <nome login> DISABLE
 >
 >DISABLE non modifica la password, pertanto è sempre possibile abilitare l'accesso, se necessario.
 
@@ -91,17 +91,8 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 - Per altre informazioni sulla gestione dell'accesso al database e degli account di accesso, vedere [Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso](sql-database-manage-logins.md).
 - Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 - Per informazioni sull'uso e la configurazione della replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- Per informazioni sull'utilizzo del ripristino geografico, vedere l'argomento sul [ripristino geografico](sql-database-geo-restore.md)
+- Per informazioni sull'uso del ripristino geografico, vedere l'argomento sul [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Risorse aggiuntive
 
-- [Continuità aziendale e ripristino di emergenza nel database SQL](sql-database-business-continuity.md)
-- [Ripristino temporizzato](sql-database-point-in-time-restore.md)
-- [Ripristino geografico](sql-database-geo-restore.md)
-- [Replica geografica attiva](sql-database-geo-replication-overview.md)
-- [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizzare il database SQL di Azure ripristinato](sql-database-recovered-finalize.md)
-- [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md)
-- [Domande frequenti su continuità aziendale e ripristino di emergenza nel database SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -15,11 +15,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/22/2016"
 	ms.author="genli"/>
 
 # Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato?
 Se l'utente è l'amministratore account per la sottoscrizione di Azure e non ha eseguito il pagamento nei tempi previsti, riceverà una notifica tramite messaggio di posta elettronica in merito alla scadenza del saldo oppure vedrà visualizzato un avviso su [https://account.windowsazure.com](https://account.windowsazure.com) o su [https://portal.azure.com](https://portal.azure.com).
+
+Se non saremo in grado elaborare il pagamento per qualsiasi motivo, ricevere un messaggio di posta elettronica con un testo simile a:
+
+**Non è stato possibile effettuare l’addebito sulla carta di credito per la sottoscrizione. Per evitare interruzioni del servizio, aggiornare le informazioni di pagamento.**
+
+Assicurarsi che i messaggi di posta elettronica di notifica vengano ricevuti. Se non si ricevono i messaggi di posta elettronica di notifica, è possibile che si stiano usando indirizzi di posta elettronica diversi per l'accesso e per l'amministratore account. L'indirizzo di posta elettronica nel profilo dell'amministratore account viene usato da Microsoft per comunicare aggiornamenti importanti relativi alla fatturazione per la sottoscrizione. È consigliabile specificare un indirizzo di posta elettronica di contatto che viene controllato regolarmente.
 
 ## Cosa succede se ci si dimentica di effettuare il pagamento
 Il servizio verrà annullato e le risorse non saranno più disponibili. Tutti i dati verranno eliminati 90 giorni dopo il termine del servizio.
@@ -37,4 +43,6 @@ Per istruzioni su come modificare il metodo di pagamento in Azure, vedere [come 
 
 **Scenario 3**: se l'avviso di pagamento non è stato ricevuto in quanto l'amministratore account ha lasciato la società o sono stati modificati i ruoli, contattare [il supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per risolvere il problema.
 
-<!---HONumber=AcomDC_0615_2016-->
+> [AZURE.NOTE] Se la sottoscrizione di Azure viene disabilitata, seguire la procedura disponibile nell'articolo [Cosa fare in caso di annullamento della sottoscrizione di Azure](billing-subscription-become-disable.md) per riattivarla.
+
+<!---HONumber=AcomDC_0629_2016-->

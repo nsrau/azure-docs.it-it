@@ -44,4 +44,4 @@ Interfaccia di rete | $vnet = [Get-AzureRmVirtualNetwork](https://msdn.microsoft
 - Usare l'interfaccia di rete appena creata quando si [crea una VM](virtual-machines-windows-ps-create.md).
 - Informazioni su come [creare una VM con più interfacce di rete](../virtual-network/virtual-networks-multiple-nics.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

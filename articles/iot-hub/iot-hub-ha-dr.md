@@ -18,7 +18,7 @@
 
 # Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
-Come servizio di Azure, l'hub IoT offre velocità elevata usando le ridondanze a livello di area di Azure, senza richiedere attività aggiuntive alla soluzione. Azure offre anche numerose funzionalità che facilitano la compilazione di soluzioni con funzionalità di ripristino di emergenza o disponibilità tra aree, se necessario. Le soluzioni devono essere progettate e preparate per sfruttare i vantaggi delle funzionalità di ripristino di emergenza, per poter fornire la disponibilità elevata globale e tra aree a dispositivi o utenti. L'articolo [Informazioni tecniche sulla continuità aziendale di Azure][] descrive le funzionalità integrate in Azure per la continuità aziendale e il ripristino di emergenza. Il documento [Ripristino di emergenza e disponibilità elevata per applicazioni Azure][] fornisce informazioni sull'architettura nelle strategie per permettere alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza.
+Come servizio di Azure, l'hub IoT offre velocità elevata usando le ridondanze a livello di area di Azure, senza richiedere attività aggiuntive alla soluzione. Azure offre anche numerose funzionalità che facilitano la compilazione di soluzioni con funzionalità di ripristino di emergenza o disponibilità tra aree, se necessario. Le soluzioni devono essere progettate e preparate per sfruttare i vantaggi delle funzionalità di ripristino di emergenza, per poter fornire la disponibilità elevata globale e tra aree a dispositivi o utenti. L'articolo [Indicazioni tecniche sulla resilienza di Azure][] descrive le funzionalità integrate in Azure per la continuità aziendale e il ripristino di emergenza. Il documento [Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure][] fornisce informazioni sull'architettura nelle strategie per permettere alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza.
 
 ## Ripristino di emergenza dell'hub IoT di Azure
 Oltre alla disponibilità elevata all'interno della stessa area, l'hub IoT implementa meccanismi di failover per il ripristino di emergenza che non richiedono alcun intervento da parte dell'utente. Il ripristino di emergenza dell'hub IoT viene avviato automaticamente e ha un obiettivo del tempo di ripristino (RTO) di 2-26 ore e obiettivi del punto di ripristino (RPO) successivi.
@@ -51,8 +51,8 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 - [Introduzione agli hub IoT (esercitazione)][lnk-get-started]
 - [Che cos'è l’hub IoT Azure?][]
 
-[Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
-[Ripristino di emergenza e disponibilità elevata per applicazioni Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[Ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
 [Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Gestione traffico di Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [guida per sviluppatori dell'hub IoT - Registro di identità]: iot-hub-devguide.md#identityregistry
@@ -60,4 +60,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1| Microsoft Azure"
-	description="Procedura di configurazione dei criteri di gruppo per i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD."
+	description=" Procedura di configurazione dei criteri di gruppo per i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1
@@ -61,4 +61,4 @@ L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che vie
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

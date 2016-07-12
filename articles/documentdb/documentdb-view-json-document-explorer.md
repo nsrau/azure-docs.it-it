@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON con Esplora documenti di DocumentDB
 
 Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare, modificare, creare, caricare e filtrare documenti JSON con DocumentDB.
+
+Si noti che Esplora documenti non è abilitato per gli account DocumentDB con supporto del protocollo per MongoDB. Questa pagina verrà aggiornata quando verrà abilitata questa funzionalità.
 
 ## Avviare Esplora documenti
 
@@ -92,19 +94,19 @@ Infine, Esplora documenti consente di visualizzare facilmente le proprietà di s
 ## Filtrare documenti
 Esplora documenti supporta numerose opzioni di navigazione e impostazioni avanzate.
 
-Per impostazione predefinita, Esplora documenti carica i primi 100 documenti della raccolta selezionata, dal meno recente al più recente, in base alla data di creazione. È possibile caricare altri documenti (in batch di 100) selezionando l'opzione **Carica altro** nella parte inferiore del pannello di Esplora documenti. È possibile scegliere i documenti da caricare usando il **Filtro** comando.
+Per impostazione predefinita, Esplora documenti carica i primi 100 documenti della raccolta selezionata, dal meno recente al più recente, in base alla data di creazione. È possibile caricare altri documenti (in batch di 100) selezionando l'opzione **Carica altro** nella parte inferiore del pannello di Esplora documenti. È possibile scegliere i documenti da caricare usando il comando **Filtra**.
 
 1. [Avviare Esplora documenti](#launch-document-explorer).
 
-2. Nella parte superiore del pannello **Esplora documenti** fare clic su **Filtro**.
+2. Nella parte superiore del pannello **Esplora documenti** fare clic su **Filtra**.
 
     ![Screenshot delle impostazioni filtro di Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings.png)
   
-3.  Le impostazioni del filtro vengono visualizzate sotto la barra dei comandi. Nelle impostazioni del filtro fornire una clausola WHERE e/o una clausola ORDER BY e quindi fare clic su **Filtro**.
+3.  Le impostazioni del filtro vengono visualizzate sotto la barra dei comandi. Nelle impostazioni del filtro specificare una clausola WHERE e/o una clausola ORDER BY e quindi fare clic su **Filtro**.
 
 	![Screenshot del pannello Impostazioni di Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings2.png)
 
-	Esplora documenti aggiorna automaticamente i risultati con i documenti corrispondenti alla query del filtro. Per altre informazioni sulla grammatica SQL di DocumentDB, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [foglio informativo sulle query SQL](documentdb-sql-query-cheat-sheet.md).
+	Esplora documenti aggiorna automaticamente i risultati con i documenti corrispondenti alla query del filtro. Per altre informazioni sulla grammatica SQL di DocumentDB, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [Foglio informativo PDF di SQL DocumentDB](documentdb-sql-query-cheat-sheet.md).
 
     Gli elenchi a discesa **Database** e **Raccolta** possono essere usati per modificare facilmente la raccolta da cui sono attualmente visualizzati i documenti senza dover chiudere e riavviare Esplora documenti.
 
@@ -154,8 +156,8 @@ Per eseguire la migrazione o importare file da un'altra origine, ad esempio file
 
 ## Passaggi successivi
 
-Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora documenti, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [foglio informativo sulle query SQL](documentdb-sql-query-cheat-sheet.md).
+Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora documenti, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [Foglio informativo PDF di SQL DocumentDB](documentdb-sql-query-cheat-sheet.md).
 
-Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile che assiste l'utente nell'apprendimento di DocumentDB.
+Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

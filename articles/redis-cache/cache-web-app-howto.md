@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/30/2016" 
 	ms.author="sdanie"/>
 
 # Come creare un'app Web con la cache Redis
@@ -82,7 +82,7 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
 ### Aggiungere il modello
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi**, **Classe**. 
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi**, **Classe**.
 
     ![Aggiungi modello][cache-model-add-class]
 
@@ -190,7 +190,7 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
 ### Aggiungere il controller
 
-1. Premere **F6** per compilare il progetto. 
+1. Premere **F6** per compilare il progetto.
 2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, quindi scegliere **Aggiungi**, **Controller**.
 
     ![Aggiungi controller][cache-add-controller]
@@ -238,9 +238,9 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, quindi la cartella **Condiviso** e infine fare doppio clic su **\_Layout.cshtml**.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![file \_Layout.cshtml][cache-layout-cshtml]
 
-2. Cambiare i contenuti dell'elemento `title` e sostituire `My ASP.NET Application` con `Contoso Team Stats`, come illustrato nell'esempio seguente.
+2. Cambiare il contenuto dell'elemento `title` e sostituire `My ASP.NET Application` con `Contoso Team Stats`, come illustrato nell'esempio seguente.
 
 
 	    <title>@ViewBag.Title - Contoso Team Stats</title>
@@ -252,7 +252,7 @@ In questa sezione dell'esercitazione verrà creata l'applicazione di base che le
 
     ![Modifiche al codice][cache-layout-cshtml-code]
 
-4. Premere **CTRL+F5** per compilare ed eseguire l'applicazione. Questa versione dell'applicazione legge i risultati direttamente dal database. Si notino le azioni **Crea nuovo**, **Modifica**, **Dettagli** ed **Elimina**, aggiunte automaticamente all'applicazione dallo scaffolding **Controller MVC 5 con visualizzazioni, che utilizza Entity Framework**. Nella sezione successiva dell'esercitazione verrà aggiunta la cache Redis, per ottimizzare l'accesso ai dati e fornire funzionalità aggiuntive all'applicazione.
+4. Premere **CTRL+F5** per compilare ed eseguire l'applicazione. Questa versione dell'applicazione legge i risultati direttamente dal database. Si notino le azioni **Crea nuovo**, **Modifica**, **Dettagli** ed **Elimina** aggiunte automaticamente all'applicazione dallo scaffolding **Controller MVC 5 con visualizzazioni, che usa Entity Framework**. Nella sezione successiva dell'esercitazione verrà aggiunta la cache Redis, per ottimizzare l'accesso ai dati e fornire funzionalità aggiuntive all'applicazione.
 
 ![Applicazione iniziale][cache-starter-application]
 
@@ -268,11 +268,11 @@ In questa sezione dell'esercitazione verrà configurata l'applicazione di esempi
 
 ### Configurare l'applicazione per l'uso di StackExchange.Redis
 
-1. Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet StackExchange.Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. 
+1. Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet StackExchange.Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 
     ![Manage NuGet packages][redis-cache-manage-nuget-menu]
 
-2. Immettere **StackExchange.Redis** nella casella di testo della ricerca, selezionare la versione desiderata dai risultati, quindi fare clic su **Installa**.
+2. Immettere **StackExchange.Redis** nella casella di testo di ricerca, selezionare la versione desiderata dai risultati e fare clic su **Installa**.
 
     ![StackExchange.Redis NuGet package][redis-cache-stack-exchange-nuget]
 
@@ -306,7 +306,7 @@ In questa sezione dell'esercitazione verrà configurata l'applicazione di esempi
   
 1. Creare un file nel computer denominato `WebAppPlusCacheAppSecrets.config` e inserirlo in una posizione che non verrà archiviata con il codice sorgente dell'applicazione di esempio, nel caso in cui si decidesse di archiviarlo. In questo esempio il file `AppSettingsSecrets.config` si trova in `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
-    Modificare il file `WebAppPlusCacheAppSecrets.config` e aggiungere i contenuti seguenti. Se si esegue localmente l'applicazione, queste informazioni vengono usate per connettersi all'istanza della cache Redis di Azure. Successivamente nell'esercitazione verrà effettuato il provisioning di un'istanza della cache Redis di Azure e verranno aggiornati il nome e la password della cache. Se non si prevede di eseguire localmente l'applicazione di esempio, è possibile ignorare la creazione di questo file e i passaggi successivi che fanno riferimento al file, perché, quando si esegue la distribuzione in Azure, l'applicazione recupera le informazioni di connessione della cache dall'impostazione dell'app per l'app Web, non da questo file. Poiché `WebAppPlusCacheAppSecrets.config` non viene distribuito in Azure con l'applicazione, sarà necessario solo se si esegue l'applicazione localmente.
+    Modificare il file `WebAppPlusCacheAppSecrets.config` e aggiungere il contenuto seguente. Se si esegue localmente l'applicazione, queste informazioni vengono usate per connettersi all'istanza della cache Redis di Azure. Successivamente nell'esercitazione verrà effettuato il provisioning di un'istanza della cache Redis di Azure e verranno aggiornati il nome e la password della cache. Se non si prevede di eseguire localmente l'applicazione di esempio, è possibile ignorare la creazione di questo file e i passaggi successivi che fanno riferimento al file, perché, quando si esegue la distribuzione in Azure, l'applicazione recupera le informazioni di connessione della cache dall'impostazione dell'app per l'app Web, non da questo file. Poiché `WebAppPlusCacheAppSecrets.config` non viene distribuito in Azure con l'applicazione, sarà necessario solo se si esegue l'applicazione localmente.
 
 
 		<appSettings>
@@ -322,12 +322,12 @@ In questa sezione dell'esercitazione verrà configurata l'applicazione di esempi
 	-	Prima: `<appSettings>`
 	-	Dopo: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    Il runtime ASP.NET unisce i contenuti del file esterno con il markup nell'elemento `<appSettings>`. Il runtime ignora l'attributo del file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione per la cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file `WebAppPlusCacheAppSecrests.config` non verrà distribuito (approccio consigliato). È possibile specificare in molti modi questi segreti in Azure e in questa esercitazione vengono configurati automaticamente quando si effettua il [provisioning delle risorse di Azure](#provision-the-azure-resources) in un passaggio successivo dell'esercitazione. Per altre informazioni sull'uso dei segreti in Azure, vedere l'articolo [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e nel servizio app di Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+    Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'elemento `<appSettings>`. Il runtime ignora l'attributo del file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione per la cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file `WebAppPlusCacheAppSecrests.config` non verrà distribuito (approccio consigliato). È possibile specificare in molti modi questi segreti in Azure e in questa esercitazione vengono configurati automaticamente quando si effettua il [provisioning delle risorse di Azure](#provision-the-azure-resources) in un passaggio successivo dell'esercitazione. Per altre informazioni sull'uso dei segreti in Azure, vedere l'articolo [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e nel servizio app di Azure).
 
 
 ### Aggiornare la classe TeamsController per restituire risultati dalla cache o dal database
 
-In questo esempio è possibile recuperare le statistiche del team dal database o dalla cache. Le statistiche del team vengono archiviate nella cache come elemento `List<Team>` serializzato e anche come set ordinato mediante i tipi di dati Redis. Quando si recuperano elementi da un set ordinato, è possibile recuperare alcuni o tutti gli elementi o eseguire query per determinati elementi. In questo esempio verrà eseguita una query sul set ordinato per i primi cinque team classificati in base al numero di vittorie.
+In questo esempio è possibile recuperare le statistiche del team dal database o dalla cache. Le statistiche del team vengono archiviate nella cache come elemento `List<Team>` serializzato e anche come set ordinato usando tipi di dati Redis. Quando si recuperano elementi da un set ordinato, è possibile recuperare alcuni o tutti gli elementi o eseguire query per determinati elementi. In questo esempio verrà eseguita una query sul set ordinato per i primi cinque team classificati in base al numero di vittorie.
 
 >[AZURE.NOTE] Per usare la cache Redis di Azure, non è necessario archiviare le statistiche del team in più formati nella cache. Questa esercitazione usa più formati per illustrare alcuni dei modi diversi e dei tipi di dati diversi che è possibile usare per memorizzare i dati nella cache.
 
@@ -688,13 +688,13 @@ Il pulsante **Distribuisci in Azure** usa il modello per [Creare un'app Web con 
 
 >[AZURE.NOTE] Se non si ha un account Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in pochi minuti.
 
-Se si seleziona il pulsante **Distribuisci in Azure**, verrà aperto il portale di Azure e verrà avviato il processo di creazione delle risorse descritte dal modello.
+Se si fa clic sul pulsante **Distribuisci in Azure**, verrà aperto il portale di Azure e verrà avviato il processo di creazione delle risorse descritte dal modello.
 
 ![Distribuzione in Azure][cache-deploy-to-azure-step-1]
 
 1. Nel pannello **Distribuzione personalizzata** selezionare la sottoscrizione di Azure da usare, quindi selezionare un gruppo di risorse esistente o crearne uno nuovo e infine specificare la posizione del gruppo di risorse.
 2. Nel pannello **Parametri** specificare un nome di account amministratore (**ADMINISTRATORLOGIN**, non usare **admin**), la password di accesso dell'amministratore (**ADMINISTRATORLOGINPASSWORD**) e il nome del database (**DATABASENAME**). Gli altri parametri vengono configurati per un piano di hosting del Servizio app gratuito e per i piani con opzioni di costo inferiori per il database SQL e la cache Redis di Azure, non disponibili con un livello gratuito.
-3. Cambiare altre impostazioni, se si vuole, oppure mantenere le impostazioni predefinite e fare clic su **OK**.
+3. Cambiare altre impostazioni, se necessario, oppure mantenere le impostazioni predefinite e fare clic su **OK**.
 
 
 ![Distribuzione in Azure][cache-deploy-to-azure-step-2]
@@ -703,7 +703,7 @@ Se si seleziona il pulsante **Distribuisci in Azure**, verrà aperto il portale 
 2. Leggere le condizioni nel pannello **Acquista** e fare clic su **Acquista**.
 3. Per avviare il provisioning delle risorse, fare clic su **Crea** nel pannello **Distribuzione personalizzata**.
 
-Per visualizzare lo stato della distribuzione, fare clic sull'icona di notifica e quindi su **Distribuzione avviata**.
+Per visualizzare lo stato della distribuzione, fare clic sull'icona di notifica e quindi su **La distribuzione è stata avviata**.
 
 ![Distribuzione avviata][cache-deployment-started]
 
@@ -719,7 +719,7 @@ Al termine del provisioning, è possibile pubblicare l'applicazione in Azure da 
 
 In questo passaggio dell'esercitazione l'applicazione verrà pubblicata in Azure e verrà eseguita sul cloud.
 
-1. Fare clic con il pulsante destro del mouse sul progetto **ContosoTeamStats** in Visual Studio, quindi scegliere **Pubblica**.
+1. Fare clic con il pulsante destro del mouse sul progetto **ContosoTeamStats** in Visual Studio e scegliere **Pubblica**.
 
     ![Publish][cache-publish-app]
 
@@ -801,7 +801,7 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 
 ## Passaggi successivi
 
--	Altre informazioni sull'[Introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sono disponibili nel sito [ASP.NET](http://asp.net/).
+-	Altre informazioni su [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Introduzione ad ASP.NET MVC 5) sono disponibili nel sito [ASP.NET](http://asp.net/).
 -	Altre informazioni sull'approccio [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542) per Entity Framework usato in questa esercitazione.
 -	Altre informazioni sulle [app Web nel servizio app di Azure](../app-service-web/app-service-web-overview.md).
 -	Altre informazioni sul [monitoraggio](cache-how-to-monitor.md) della cache nel portale di Azure.
@@ -810,7 +810,7 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 	-	[Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md)
 	-	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
 	-	[Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md)
-	-	Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
+	-	Per altri dettagli su dimensioni, velocità effettiva e larghezza di banda con le cache Premium, vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 
 <!-- IMAGES -->
@@ -846,4 +846,4 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

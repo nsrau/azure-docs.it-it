@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="06/23/2016"
    ms.author="navale;tomfitz;"/>
    
 # API REST di Resource Manager
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 La lunga risposta JSON per questa richiesta è stata omessa per migliorare la leggibilità della documentazione. La risposta conterrà informazioni sulla distribuzione basata su modelli appena creata.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

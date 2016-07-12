@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="06/24/2016"
    ms.author="toddabel"/>
 
 
@@ -192,5 +192,6 @@ Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric
 
 ## Articoli correlati
 * [Informazioni su come raccogliere i contatori delle prestazioni o i registri mediante le estensioni di diagnostica](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Soluzione Service Fabric in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

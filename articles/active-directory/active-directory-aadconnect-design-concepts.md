@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Concetti relativi alla progettazione
@@ -37,7 +37,7 @@ Il valore dell'attributo deve rispettare le regole seguenti:
 
 - La lunghezza del testo deve essere inferiore a 60 caratteri
     - I caratteri diversi da a-z, A-Z o 0-9 verranno codificati e conteggiati come 3 caratteri
-- Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
+- Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { }| ~ < > ( ) ' ; : , [ ] " @ _
 - Deve essere globalmente univoco
 - Deve essere una stringa, un valore intero o un numero binario
 - Non deve essere basato sul nome dell'utente, queste modifiche
@@ -76,7 +76,7 @@ Quando si seleziona l'attributo per specificare il valore di UPN da usare in Azu
 * I valori di attributo devono essere conformi alla sintassi UPN (RFC 822), ovvero devono essere nel formato username@domain.
 * Il suffisso nei valori deve corrispondere a uno dei domini personalizzati verificati in Azure AD
 
-Nelle impostazioni rapide come attributo deve essere scelto userPrincipalName. Tuttavia, se si ritiene che l'attributo userPrincipalName non contenga il valore che gli utenti dovrebbero usare per l'accesso ad Azure, è necessario scegliere **Installazione personalizzata** e indicare l'attributo appropriato.
+Nelle impostazioni rapide come attributo deve essere scelto userPrincipalName. Se tuttavia si ritiene che l'attributo userPrincipalName non contenga il valore che gli utenti dovrebbero usare per l'accesso ad Azure, è necessario scegliere **Installazione personalizzata** e indicare l'attributo appropriato.
 
 ### Stato del dominio personalizzato e UPN
 È importante verificare che esista un dominio verificato per il suffisso UPN.
@@ -93,4 +93,4 @@ Azure AD Connect rileva se l'esecuzione avviene in un ambiente di dominio non in
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

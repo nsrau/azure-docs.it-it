@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma" />
 
 # Eseguire attività di preparazione e completamento di processi in nodi di calcolo di Azure Batch
@@ -24,23 +24,23 @@ Prima dell'esecuzione di qualsiasi attività di un processo, **l'attività di pr
 
 Nelle sezioni seguenti viene descritto come usare questi due particolari tipi di attività mediante le classi [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] nell'API [.NET di Batch][api_net].
 
-> [AZURE.TIP] Le attività di preparazione e rilascio dei processi sono particolarmente utili in ambienti con "pool condivisi", ossia ambienti in cui un pool di nodi di calcolo viene mantenuto durante l'esecuzione di un processo e viene condiviso tra più processi.
+> [AZURE.TIP] Le attività di preparazione e rilascio del processo sono particolarmente utili in ambienti con "pool condivisi", ossia ambienti in cui un pool di nodi di calcolo viene mantenuto durante l'esecuzione di un processo e viene condiviso tra più processi.
 
 ## Quando usare le attività di preparazione e rilascio dei processi
 
-Le attività di preparazione e rilascio dei processi risultano utili in numerose situazioni, tra cui i seguenti:
+Ogni volta che è necessario preparare i nodi con una configurazione o con dati specifici per un processo e quindi pulire o rendere permanenti i dati dei risultati, è consigliabile usare attività di preparazione e rilascio del processo. Ecco alcuni esempi di queste situazioni:
 
 **Trasferimento dei dati di attività comuni**
 
-I processi di Batch spesso richiedono un set comune di dati come input per le attività del processo. Ad esempio, nei calcoli di analisi dei rischi giornalieri, i dati di mercato sono specifici del processo ma comuni a tutte le attività del processo. Tali dati di mercato, spesso di grandi dimensioni, devono essere scaricati una sola volta da ogni nodo di calcolo in modo che qualsiasi attività eseguita su un nodo possa usarli. Usare un'*attività di preparazione del processo* per scaricare i dati in ogni nodo prima dell'esecuzione di altre attività del processo.
+I processi di Batch spesso richiedono un set comune di dati come input per le attività del processo. Ad esempio, nei calcoli di analisi dei rischi giornalieri, i dati di mercato sono specifici del processo ma comuni a tutte le attività del processo. Tali dati di mercato, spesso di grandi dimensioni, devono essere scaricati una sola volta da ogni nodo di calcolo in modo che qualsiasi attività eseguita su un nodo possa usarli. Usare un'**attività di preparazione del processo** per scaricare i dati in ogni nodo prima dell'esecuzione di altre attività del processo.
 
 **Eliminazione dei dati del processo**
 
-In un ambiente di pool condiviso in cui i nodi di calcolo del pool non vengono rimossi tra i processi, l'eliminazione dei dati del processo tra le esecuzioni può essere necessaria per risparmiare spazio su disco sui nodi o per soddisfare i criteri di sicurezza di un'organizzazione. Usare un'*attività di rilascio del processo* per eliminare i dati scaricati da un'attività di preparazione del processo o generati durante l'esecuzione dell'attività.
+In un ambiente di pool condiviso in cui i nodi di calcolo del pool non vengono rimossi tra i processi, potrebbe essere necessario eliminare i dati dei processi tra le esecuzioni, per risparmiare spazio su disco o per soddisfare i criteri di sicurezza dell'organizzazione. Usare un'**attività di rilascio del processo** per eliminare i dati scaricati da un'attività di preparazione del processo o generati durante l'esecuzione dell'attività.
 
 **Conservazione dei log**
 
-È possibile conservare una copia dei file di log generati dalle attività o dei file dump di arresto anomalo generati da errori nelle applicazioni. In questi casi, usare un'*attività di rilascio del processo* per comprimere e caricare dati in un account [di Archiviazione di Azure][azure_storage].
+È possibile conservare una copia dei file di log generati dalle attività o dei file dump di arresto anomalo generati da errori nelle applicazioni. In questi casi, usare un'**attività di rilascio del processo** per comprimere e caricare dati in un account [di Archiviazione di Azure][azure_storage].
 
 ## Attività di preparazione del processo
 
@@ -56,7 +56,7 @@ Dopo aver contrassegnato un processo come completato , viene eseguita l'attivit�
 
 > [AZURE.NOTE] Anche l'eliminazione del processo esegue l'attività di rilascio del processo. Tuttavia, se un processo è già stato terminato, l'attività di rilascio non viene eseguita una seconda volta se tale processo viene eliminato successivamente.
 
-## Attività di preparazione e rilascio dei processi nell'API .NET di Batch
+## Attività di preparazione e di rilascio del processo con Batch .NET
 
 Per specificare un'attività di preparazione del processo, creare e configurare un oggetto [JobPreparationTask][net_job_prep] e assegnarlo alla proprietà [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del processo. In modo analogo, inizializzare un oggetto [JobReleaseTask][net_job_release] e assegnarlo alla proprietà [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
 
@@ -85,9 +85,7 @@ Come indicato in precedenza, l'attività di rilascio viene eseguita quando un pr
 		// thus you need not call Terminate if you typically delete your jobs upon task completion.
 		await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
-## Passaggi successivi
-
-### Progetto di esempio su GitHub
+## Esempio di codice in GitHub
 
 Esaminare il progetto di esempio [JobPrepRelease][job_prep_release_sample] su GitHub per vedere il funzionamento delle attività di preparazione e rilascio dei processi. Questa applicazione console esegue le operazioni seguenti:
 
@@ -104,64 +102,74 @@ L'output dell'applicazione di esempio è simile al seguente:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-The pool already existed when we tried to create it
+Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
 All tasks completed.
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_1-20151015t150030z:
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_1-20160623t173951z:
 -------------------------------------------
-tvm-3105992504_1-20151015t150030z tasks:
+tvm-2434664350_1-20160623t173951z tasks:
   task001
-  task002
+  task004
+  task005
   task006
+
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_2-20160623t173951z:
+-------------------------------------------
+tvm-2434664350_2-20160623t173951z tasks:
+  task008
+  task002
+  task003
   task007
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_2-20151015t150030z:
--------------------------------------------
-tvm-3105992504_2-20151015t150030z tasks:
-  task003
-  task005
-  task004
-  task008
-
 Waiting for job JobPrepReleaseSampleJob to reach state Completed
-....
+...
 
-tvm-3105992504_1-20151015t150030z:
+tvm-2434664350_1-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
-tvm-3105992504_2-20151015t150030z:
+tvm-2434664350_2-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
 Delete job? [yes] no
 yes
 Delete pool? [yes] no
-no
+yes
 
 Sample complete, hit ENTER to exit...
 ```
 
-### Controllare le attività di preparazione e rilascio del processo con Batch Explorer
+>[AZURE.NOTE] A causa degli orari variabili di creazione e di inizio per i nodi in un nuovo pool, poiché alcuni nodi sono pronti per le attività prima di altri, è possibile che l'output visualizzato sia diverso. Poiché le attività vengono completate rapidamente, in particolare, è possibile che uno dei nodi del pool esegua tutte le attività del processo. In questo caso, si potrà notare che le attività di preparazione e di rilascio dei processi non esistono per il nodo che non ha eseguito alcuna attività.
 
-[Azure Batch Explorer][batch_explorer_article], disponibile anche nel [repository del codice di esempio][batch_explorer_project] di Batch in GitHub, è uno strumento eccellente da usare per lo sviluppo di soluzioni con Azure Batch. Quando, ad esempio, si esegue l'applicazione di esempio precedente, è possibile usare Batch Explorer per visualizzare le proprietà del processo e le relative attività o anche scaricare il file di testo condiviso modificato dalle attività del processo.
+### Controllare le attività di preparazione e rilascio del processo nel portale di Azure
 
-L'immagine seguente illustra le proprietà dell'attività di preparazione e rilascio dei processi nel riquadro **Dettagli processo** quando il processo *JobPrepReleaseSampleJob* viene selezionato nella scheda **Processi**.
+Quando si esegue l'applicazione di esempio precedente, è possibile usare il [portale di Azure][portal] per visualizzare le proprietà del processo e le rispettive attività oppure per scaricare il file di testo condiviso modificato dalle attività del processo.
 
-![Batch Explorer][1]
+Lo screenshot seguente mostra il pannello **Preparation tasks** (Attività di preparazione) nel portale di Azure dopo un'esecuzione dell'applicazione di esempio. Passare alle proprietà *JobPrepReleaseSampleJob* dopo il completamento delle attività ma prima dell'eliminazione del processo e del pool, quindi fare clic su **Preparation tasks** (Attività di preparazione) o **Release tasks** (Attività di rilascio) per visualizzare le rispettive proprietà.
 
-*Schermata di Batch Explorer che illustra le attività di preparazione e rilascio dei processi*
+![Proprietà di preparazione del processo nel portale di Azure][1]
+
+## Passaggi successivi
+
+### Pacchetti dell'applicazione
+
+Oltre all'attività di preparazione del processo, è possibile usare anche la funzionalità [pacchetti dell'applicazione](batch-application-packages.md) di Batch per preparare i nodi di calcolo per l'esecuzione dell'attività. Questa funzionalità è particolarmente utile per la distribuzione di applicazioni che non richiedono l'esecuzione di un programma di installazione, applicazioni che contengono molti file (100+) o applicazioni che richiedono un controllo delle versioni rigoroso.
+
+### Installazione delle applicazioni e staging dei dati
+
+Per una panoramica dei diversi metodi di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog sull'[installazione di applicazioni e sullo staging dei dati nei nodi di calcolo di Batch][forum_post] nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche utili per ogni metodo.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_explorer_article]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
+[forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
@@ -184,6 +192,6 @@ L'immagine seguente illustra le proprietà dell'attività di preparazione e rila
 [net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
-[1]: ./media/batch-job-prep-release/batchexplorer-01.png
+[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

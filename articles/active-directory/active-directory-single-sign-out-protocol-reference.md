@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Protocollo SAML per Single Sign-Out
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) supporta il profilo di Single Sign-Out per Web browser SAML 2.0. Per il corretto funzionamento di Single Sign-Out, Azure AD deve registrare l'URL dei metadati durante la registrazione dell'applicazione. Azure AD ottiene l'URL disconnessione e la chiave di firma del servizio cloud dai metadati. Azure AD usa la chiave di firma per verificare la firma sul valore di LogoutRequest in ingresso e usa LogoutURL per reindirizzare gli utenti dopo che si sono disconnessi.
 
@@ -86,4 +84,4 @@ Per valutare il valore dell'elemento `Issuer` usare il valore dell'**URI ID app*
 
 Azure AD usa l'elemento `StatusCode` nell'elemento `Status` per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione non riesce, l'elemento `StatusCode` può anche contenere messaggi di errore personalizzati.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

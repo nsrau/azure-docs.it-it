@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Unità richiesta in DocumentDB
@@ -64,6 +64,9 @@ Per semplificare l'ottimizzazione delle stime di velocità effettiva da parte de
 - Creazioni di documenti (scritture)
 - Letture di documenti
 - Eliminazioni di documenti
+- Aggiornamenti di documenti
+
+Lo strumento include anche il supporto per la stima delle esigenze di archiviazione dei dati in base ai documenti di esempio forniti.
 
 L'uso dello strumento è molto semplice:
 
@@ -71,11 +74,13 @@ L'uso dello strumento è molto semplice:
 
 	![Caricare documenti nel calcolatore di unità richiesta][2]
 
-2. Immettere il numero di operazioni di creazione, lettura ed eliminazione dei documenti necessarie (al secondo).
+2. Per stimare i requisiti di archiviazione, immettere il numero totale di documenti che si prevede di archiviare.
+
+3. Immettere il numero di operazioni di creazione, lettura, aggiornamento ed eliminazione dei documenti necessarie (al secondo). Per stimare gli addebiti delle unità richiesta per le operazioni di aggiornamento di documenti, caricare una copia del documento di esempio usato nel passaggio 1 precedente che include aggiornamenti di campi tipici. Ad esempio, se gli aggiornamenti di documenti modificano in genere due proprietà denominate lastLogin e userVisits, è sufficiente copiare il documento di esempio, aggiornare i valori per queste due proprietà e caricare il documento copiato.
 
 	![Immettere i requisiti relativi alla velocità effettiva nel calcolatore di unità richiesta][3]
 
-3. Fare clic su Calcola ed esaminare i risultati.
+4. Fare clic su Calcola ed esaminare i risultati.
 
 	![Risultati del calcolatore di unità richiesta][4]
 
@@ -92,7 +97,7 @@ Con questa premessa, un metodo per stimare la quantità di velocità effettiva r
 
 Ad esempio:
 
-1. Registrare l'addebito delle unità richiesta di creazione (inserimento) di un documento tipico. 
+1. Registrare l'addebito delle unità richiesta di creazione (inserimento) di un documento tipico.
 2. Registrare l'addebito delle unità richiesta di lettura di un documento tipico.
 3. Registrare l'addebito delle unità richiesta di aggiornamento di un documento tipico.
 3. Registrare l'addebito delle unità richiesta di query tipiche su documenti comuni.
@@ -185,7 +190,7 @@ Selezionare i primi 10|15|Totale 150|155|1275
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo. Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
 ##Superamento dei limiti della velocità effettiva riservata
-Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLarge (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
+Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
 
 	HTTP Status 429
 	Status Line: RequestRateTooLarge
@@ -200,7 +205,7 @@ Se più client operano collettivamente al di sopra della frequenza delle richies
 Per altre informazioni sulla velocità effettiva riservata con Azure DocumentDB, vedere queste risorse:
  
 - [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-- [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md) 
+- [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md)
 - [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
 - [Livelli di prestazioni in DocumentDB](documentdb-partition-data.md)
 
@@ -215,4 +220,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

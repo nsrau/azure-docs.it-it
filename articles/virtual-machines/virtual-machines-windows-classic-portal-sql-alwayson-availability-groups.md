@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Questa esercitazione end-to-end illustra come implementare i gruppi di disponibilità tramite SQL Server AlwaysOn in esecuzione in macchine virtuali di Azure.
@@ -88,8 +88,8 @@ Si inizia con un nuovo account di prova di Azure. Una volta terminata la configu
 	|Page|Impostazioni|
 |---|---|
 |Selezionare il sistema operativo della macchina virtuale|Windows Server 2012 R2 Datacenter|
-|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoDC<br/>**LIVELLO** = STANDARD<br/>**DIMESIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
-|Configurazione macchina virtuale|**SERVIZIO CLOUD** = Crea un nuovo servizio cloud<br/>**NOME DNS DEL SERVIZIO CLOUD** = Nome univoco del servizio cloud<br/>**NOME DNS** = Nome univoco (ad esempio, ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back-end (10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = (Nessuno)|
+|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoDC<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONI** = A2 (2 core)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
+|Configurazione macchina virtuale|**SERVIZIO CLOUD** = Crea un nuovo servizio cloud<br/>**NOME DNS DEL SERVIZIO CLOUD** = Nome univoco del servizio cloud<br/>**NOME DNS** = Nome univoco (ad esempio, ContosoDC123)<br/>**AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back-end (10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = (Nessuno)|
 |Opzioni macchina virtuale|Valori predefiniti|
 
 Una volta terminata la configurazione della nuova macchina virtuale, attendere l’esecuzione del relativo provisioning. Il completamento di questo processo richiede del tempo e, se si fa clic sulla scheda **Macchina virtuale** nel portale di Azure classico, è possibile visualizzare il passaggio degli stati di ContosoDC da **Starting (Provisioning)** ad **Arrestato**, **Avvio in corso**, **Running (Provisioning)** e infine **In esecuzione**.
@@ -197,8 +197,8 @@ Successivamente, creare tre macchine virtuali, tra cui un nodo del cluster WSFC 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Selezionare il sistema operativo della macchina virtuale|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoWSFCNode<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A2 (2 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL1<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL2<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 cores)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
-|Configurazione macchina virtuale|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = Crea set di disponibilità<br/>**NOME SET DI DISPONIBILITÀ** = SQLHADR|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/SET DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|
+|Configurazione macchina virtuale|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoWSFCNode<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A2 (2 core)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL1<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 core)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|**DATA DI RILASCIO VERSIONE** = (la più recente)<br/>**NOME MACCHINA VIRTUALE** = ContosoSQL2<br/>**LIVELLO** = STANDARD<br/>**DIMENSIONE** = A3 (4 core)<br/>**NUOVO NOME UTENTE** = AzureAdmin<br/>**NUOVA PASSWORD** = Contoso!000<br/>**CONFERMA** = Contoso!000|
+|Configurazione macchina virtuale|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = Crea set di disponibilità<br/>**NOME SET DI DISPONIBILITÀ** = SQLHADR|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|**SERVIZIO CLOUD** = Nome DNS del servizio cloud univoco creato in precedenza (ad esempio ContosoDC123)<br/>**AREA/GRUPPO DI AFFINITÀ/RETE VIRTUALE** = ContosoNET<br/>**SUBNET DELLA RETE VIRTUALE** = Back(10.10.2.0/24)<br/>**ACCOUNT DI ARCHIVIAZIONE** = Usa un account di archiviazione generato automaticamente<br/>**SET DI DISPONIBILITÀ** = SQLHADR. È inoltre possibile configurare il set di disponibilità dopo la creazione della macchina virtuale. Tutte e tre le macchine virtuali devono essere assegnate al set di disponibilità SQLHADR.|
 |Opzioni macchina virtuale|Valori predefiniti|Valori predefiniti|Valori predefiniti|
 
 <br/>
@@ -221,7 +221,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -231,7 +231,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
-1. Fare clic su O**K** e quindi su **Chiudi** per eseguire il commit delle modifiche. A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com**.
+1. Fare clic su **OK** e quindi su **Chiudi** per eseguire il commit delle modifiche. A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com**.
 
 1. Tornando alla finestra **Server locale**, fare clic sul collegamento **WORKGROUP**.
 
@@ -417,7 +417,7 @@ Queste azioni possono essere eseguite in qualsiasi ordine. Tuttavia, i passaggi 
 
 1. Nella struttura del browser fare clic su **Servizi di SQL**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)**, quindi scegliere **Proprietà**.
 
-1. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come mostrato di seguito, quindi scegliere **Applica**. Fare clic su **OK** nella finestra di dialogo popup e non chiudere ancora la finestra delle proprietà. Verrà riavviato il servizio SQL Server dopo la modifica dell'account del servizio.
+1. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, quindi scegliere **Applica**, come mostrato di seguito. Fare clic su **OK** nella finestra di dialogo popup e non chiudere ancora la finestra delle proprietà. Verrà riavviato il servizio SQL Server dopo la modifica dell'account del servizio.
 
 	![Abilita gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
@@ -445,7 +445,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. Avviare il file RDP per **ContosoSQL1** e accedere come **CORP\\Install**.
 
-1. In **Esplora file**, creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
+1. In **Esplora file** in **C:** creare una directory denominata **backup**. Questa directory verrà utilizzata per eseguire il backup e il ripristino del database.
 
 1. Fare clic con il pulsante destro del mouse sulla nuova directory, puntare a **Condividi con**, quindi scegliere **Utenti specifici**, come mostrato di seguito.
 
@@ -548,4 +548,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

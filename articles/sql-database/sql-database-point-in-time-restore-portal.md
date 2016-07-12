@@ -21,18 +21,17 @@
 
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-database-point-in-time-restore.md)
-- [Portale di Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Panoramica](sql-database-recovery-using-backups.md)
+- [Ripristino temporizzato: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-Questo articolo illustra come ripristinare un database a un momento precedente da [Backup automatici del database SQL](sql-database-automated-backups.md) tramite il portale di Azure.
+Questo articolo illustra come ripristinare un database a un momento precedente usando i [backup automatici del database SQL](sql-database-automated-backups.md) tramite il portale di Azure.
 
 ## Selezionare un database da ripristinare a un momento precedente
 
 Per ripristinare un database nel portale di Azure, seguire questa procedura:
 
 1.	Aprire il [portale di Azure](https://portal.azure.com).
-2.  Sul lato sinistro della schermata fare clic su **ESPLORA** > **Database SQL**.
+2.  Sul lato sinistro della schermata fare clic su **SFOGLIA** > **Database SQL**.
 3.  Passare al database da ripristinare e selezionarlo.
 4.  Nella parte superiore del pannello del database selezionare **Ripristina**:
 
@@ -43,15 +42,14 @@ Per ripristinare un database nel portale di Azure, seguire questa procedura:
     ![Ripristinare un database SQL di Azure](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
+
 ## Passaggi successivi
 
-- Per istruzioni dettagliate su come eseguire il ripristino temporizzato utilizzando PowerShell, vedere l'articolo sul [ripristino temporizzato tramite PowerShell](sql-database-point-in-time-restore-powershell.md).
-- Per informazioni su come eseguire il ripristino temporizzato tramite l'API REST, vedere l'articolo sul [ripristino temporizzato mediante l'API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Per una panoramica del ripristino temporizzato, vedere l'articolo sul [ripristino temporizzato](sql-database-point-in-time-restore.md). ore.md)
-- Per una spiegazione completa su come eseguire il ripristino dall'errore di un utente o di un'applicazione, vedere l'articolo sul [ripristino da errori dell'utente](sql-database-user-error-recovery.md).
+- Per una panoramica sulla continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
+- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
+- Per altre informazioni sull'uso di backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+- Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
 
-## Risorse aggiuntive
-
-- [Scenari di continuità aziendale](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

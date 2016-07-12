@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="06/27/2016" 
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -29,13 +29,15 @@ I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'
 Esistono requisiti di connettività di rete per gli ambienti del servizio app che potrebbero non essere inizialmente soddisfatti in una rete virtuale connessa a ExpressRoute. I requisiti per il corretto funzionamento degli ambienti del servizio app sono i seguenti:
 
 
--  Connettività di rete in uscita per endpoint di archiviazione di Azure su entrambe le porte, 80 e 443. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
--  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*.
--  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
+-  Connettività di rete in uscita per endpoint di archiviazione di Azure su entrambe le porte, 80 e 443. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
+-  Connettività di rete in uscita verso il servizio File di Azure sulla porta 445.
+-  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*. Ciò richiede l'apertura dell'accesso alle porte 1433, 11000-11999 e 14000-14999. Per altri dettagli, vedere [questo articolo sull'utilizzo delle porte per il database SQL versione 12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*.
 -  Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. È necessario per supportare la funzionalità SSL.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
--  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app. 
--  Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale. In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati. Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.  
+-  L'accesso in uscita sulla porta 53 è necessario per la comunicazione con i server DNS.
+-  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app.
+-  Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale. In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati. Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.
 -  L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito come spiegato in questo [articolo][requiredports].
 
 I requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L’attivazione di un riavvio di ambiente in sequenza mediante l'icona "Riavvia" posizionata nella parte superiore dell’ambiente di servizio app del pannello di gestione nel [Portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
@@ -106,15 +108,15 @@ Nell'ultimo passaggio della configurazione si associa la tabella di route alla s
 Una volta associata la tabella di route alla subnet, si consiglia di testare e verificare l'effetto desiderato. Ad esempio, distribuire una macchina virtuale nella subnet e verificare che:
 
 
-- Il traffico in uscita per endpoint di Azure e non indicato in precedenza in questo articolo **non** è indirizzato verso il basso nel circuito ExpressRoute. È molto importante verificare questo comportamento, poiché se il traffico in uscita dalla subnet è comunque sottoposto a tunneling forzato in un ambiente locale, la creazione dell’ambiente di servizio app avrà sempre esito negativo. 
-- Le ricerche DNS per gli endpoint indicati in precedenza hanno tutte esito positivo. 
+- Il traffico in uscita per endpoint di Azure e non indicato in precedenza in questo articolo **non** è indirizzato verso il basso nel circuito ExpressRoute. È molto importante verificare questo comportamento, poiché se il traffico in uscita dalla subnet è comunque sottoposto a tunneling forzato in un ambiente locale, la creazione dell’ambiente di servizio app avrà sempre esito negativo.
+- Le ricerche DNS per gli endpoint indicati in precedenza hanno tutte esito positivo.
 
 Una volta che i passaggi sopra riportati vengono confermati, è necessario eliminare la macchina virtuale perché la subnet deve essere "vuota" al momento della creazione dell’ambiente di servizio app.
  
 Procedere quindi con la creazione di un ambiente di servizio app.
 
 ## Introduzione
-Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment].
 
@@ -138,4 +140,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

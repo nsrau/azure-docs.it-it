@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Implementazione di uno scenario di streaming con failover
@@ -22,10 +22,10 @@ Questa procedura dettagliata illustra come copiare contenuto (BLOB) da un asset 
 
 1. Impostare un account di Servizi multimediali nel "data center A".
 1. Caricare in un asset di origine un file in formato intermedio.
-1. Codificare l'asset in file MP4 a bit multipli. 
+1. Codificare l'asset in file MP4 a bit multipli.
 1. Creare per l'asset di origine un localizzatore SAS di sola lettura che consenta l'accesso in lettura al contenitore nell'account di archiviazione associato all'asset.
 1. Ottenere il nome del contenitore dell'asset di origine dal localizzatore SAS di sola lettura creato nel passaggio precedente. Queste informazioni sono necessarie per copiare i BLOB tra account di archiviazione, operazione descritta più avanti in questo argomento.
-1. Creare un localizzatore di origine per l'asset creato mediante l'attività di codifica. 
+1. Creare un localizzatore di origine per l'asset creato mediante l'attività di codifica.
 
 A quel punto, per gestire il failover:
 
@@ -33,17 +33,17 @@ A quel punto, per gestire il failover:
 1. Creare un asset di destinazione vuoto nell'account di Servizi multimediali di destinazione.
 1. Creare per l'asset vuoto di destinazione un localizzatore SAS di scrittura che consenta l'accesso in scrittura al contenitore nell'account di archiviazione di destinazione associato all'asset.
 1. Usare Azure Storage SDK per copiare i BLOB (file di asset) tra l'account di archiviazione di origine nel "data center A" e l'account di archiviazione di destinazione nel "data center B" (tali account sono associati agli asset di interesse).
-1. Associare all'asset di destinazione i BLOB (file di asset) copiati nel contenitore BLOB di destinazione. 
-1. Creare un localizzatore di origine per l'asset nel "data center B" e specificarne l'ID generato per l'asset nel "data center A". 
-1. In questo modo si ottengono URL di streaming in cui i percorsi relativi sono uguali (differiscono solo gli URL di base). 
+1. Associare all'asset di destinazione i BLOB (file di asset) copiati nel contenitore BLOB di destinazione.
+1. Creare un localizzatore di origine per l'asset nel "data center B" e specificarne l'ID generato per l'asset nel "data center A".
+1. In questo modo si ottengono URL di streaming in cui i percorsi relativi sono uguali (differiscono solo gli URL di base).
  
 Per gestire eventuali guasti, è quindi possibile creare una rete CDN basata su tali localizzatori di origine.
 
 Si applicano le considerazioni seguenti:
 
 - La versione corrente di Media Services SDK non supporta la creazione di un localizzatore con un ID specificato. Per eseguire questa attività, è necessario usare l'API REST di Servizi multimediali.
-- La versione corrente di Media Services SDK non supporta la generazione a livello di codice delle informazioni IAssetFile per l'associazione di un asset ai file di asset. Per eseguire questa attività, è necessario usare l'API REST CreateFileInfos di Servizi multimediali. 
-- Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia sarà diversa nei due account di Servizi multimediali. 
+- La versione corrente di Media Services SDK non supporta la generazione a livello di codice delle informazioni IAssetFile per l'associazione di un asset ai file di asset. Per eseguire questa attività, è necessario usare l'API REST CreateFileInfos di Servizi multimediali.
+- Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia sarà diversa nei due account di Servizi multimediali.
 - Se si desidera sfruttare la funzionalità di creazione dinamica dei pacchetti, è prima necessario ottenere almeno un'unità riservata di streaming on demand. Per altre informazioni, vedere [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
  
 
@@ -61,7 +61,7 @@ Si applicano le considerazioni seguenti:
 In questa sezione si creerà e si configurerà un progetto di applicazione console in C#.
 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere HandleRedundancyForOnDemandStreaming come nome e quindi fare clic su OK.
-1. Creare la cartella SupportFiles allo stesso livello del file di progetto HandleRedundancyForOnDemandStreaming.csproj. Nella cartella SupportFiles creare le sottocartelle OutputFiles e MP4Files. Copiare nella cartella MP4Files un file con estensione mp4 (in questo esempio viene usato il file BigBuckBunny.mp4). 
+1. Creare la cartella SupportFiles allo stesso livello del file di progetto HandleRedundancyForOnDemandStreaming.csproj. Nella cartella SupportFiles creare le sottocartelle OutputFiles e MP4Files. Copiare nella cartella MP4Files un file con estensione mp4 (in questo esempio viene usato il file BigBuckBunny.mp4).
 1. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -> Gestione pacchetti libreria -> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
 1. Aggiungere gli altri riferimenti necessari per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
 1. Sostituire le istruzioni using aggiunte per impostazione predefinita al file Programs.cs con le seguenti:
@@ -972,4 +972,4 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

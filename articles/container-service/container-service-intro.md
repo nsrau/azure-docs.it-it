@@ -45,11 +45,11 @@ Il servizio contenitore di Azure consente di scegliere tra Docker Swarm e DC/OS 
 
 ### Uso di DC/OS
 
-DC/OS è un progetto open source ospitato nell'Apache Software Foundation. Vengono elencati alcuni dei [protagonisti in IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) come utenti e collaboratori.
+DC/OS è un sistema operativo distribuito basato sul kernel dei sistemi distribuiti Apache Mesos. Apache Mesos fa parte di Apache Software Foundation e annovera tra gli utenti e i collaboratori alcuni dei [nomi più importanti del panorama IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/).
 
 ![Servizio contenitore di Azure configurato per Swarm che mostra agenti e schemi.](media/acs-intro/dcos.png)
 
-DC/OS include un set di funzionalità eccezionali:
+DC/OS e Apache Mesos offrono un set di funzionalità molto ampio:
 
 -   Scalabilità fino a decine di migliaia di nodi
 
@@ -65,15 +65,15 @@ DC/OS include un set di funzionalità eccezionali:
 
 -   Interfaccia utente Web per la visualizzazione dello stato del cluster
 
-DC/OS include il supporto di un numero elevato di [framework](http://mesos.apache.org/documentation/latest/frameworks/) che possono essere usati per la pianificazione dei carichi di lavoro del servizio contenitore di Azure. Per impostazione predefinita, il servizio contenitore di Azure include i framework Marathon e Chronos.
+Per impostazione predefinita, DC/OS in esecuzione nel servizio contenitore di Azure include la piattaforma di orchestrazione Marathon per la pianificazione dei carichi di lavoro.
 
-#### Utilizzo di Marathon e Chronos
+#### Uso di Marathon
 
-Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Si tratta di un partner ideale per Chronos, un'utilità di pianificazione processi a tolleranza d'errore per DC/OS che gestisce le dipendenze e le pianificazioni in base al tempo.
+Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Si tratta di un partner ideale per [Chronos](https://mesos.github.io/chronos/), un'utilità di pianificazione processi con tolleranza di errore per DC/OS che gestisce le dipendenze e le pianificazioni in base al tempo.
 
-Marathon e Chronos forniscono un'interfaccia utente Web da cui è possibile distribuire le applicazioni. L'accesso sarà possibile con un URL simile a `http://DNS\_PREFIX.REGION.cloudapp.azure.com` dove DNS\_PREFIX e REGION sono entrambi definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori tramite l'interfaccia utente Web](container-service-mesos-marathon-ui.md).
+Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. L'accesso avviene tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, dove DNS\_PREFIX e REGION vengono entrambi definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori tramite l'interfaccia utente Web](container-service-mesos-marathon-ui.md).
 
-Inoltre, è possibile utilizzare le API REST per la comunicazione con Marathon e Chronos. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi e, naturalmente, è possibile utilizzare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per queste utilità di pianificazione. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio contenitore di Azure. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md).
+È anche possibile usare le API REST per la comunicazione con Marathon. Esistono una serie di librerie client disponibili per ogni strumento. Coprono un'ampia gamma di linguaggi e, naturalmente, è possibile utilizzare il protocollo HTTP in qualsiasi linguaggio. Inoltre, molti strumenti comuni di DevOps forniscono il supporto per queste utilità di pianificazione. Ciò fornisce flessibilità massima per il team operativo quando si lavora con un cluster del servizio contenitore di Azure. Per altre informazioni sull'esecuzione di un contenitore tramite l'API REST di Marathon, vedere [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md).
 
 ### Utilizzo di Docker Swarm
 
@@ -105,4 +105,4 @@ Creazione di applicazioni mediante il servizio contenitore di Azure
 
 > [https://channel9.msdn.com/Events/Build/2016/B822]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->
