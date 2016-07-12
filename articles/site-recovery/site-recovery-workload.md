@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/27/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
@@ -39,7 +39,7 @@ Site Recovery contribuisce alla protezione e al ripristino a livello di applicaz
 - Replica quasi sincrona con RPO di 30 secondi per soddisfare le esigenze delle app aziendali più critiche.
 - Snapshot coerenti con l'app per le applicazioni a uno o più livelli.
 - Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, tra cui la replica di AD, SQL AlwaysOn, i gruppi di disponibilità dei database di Exchange e Oracle Data Guard.
-- Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un singolo clic e includono script esterni o azioni manuali. 
+- Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un singolo clic e includono script esterni o azioni manuali.
 - Gestione di rete avanzata in Site Recovery e in Azure per semplificare i requisiti di rete per le app, incluse la prenotazione di indirizzi IP, la configurazione del servizio di bilanciamento del carico o l'integrazione di Gestione traffico di Azure per transizioni di rete con RTO ridotto.
 -  Una libreria di automazione avanzata che fornisce script pronti per la produzione e specifici per ogni applicazione, che possono essere scaricati e integrati nei piani di ripristino.
 
@@ -77,7 +77,7 @@ Un'infrastruttura DNS e Active Directory sono essenziali per la maggior parte de
 
 SQL Server fornisce un base per i servizi dati di molte app aziendali in un data center locale. Site Recovery può essere usato con le tecnologie a disponibilità elevata/ripristino di emergenza di SQL Server per proteggere le app aziendali a più livelli che usano SQL Server. Site Recovery offre:
 
-- Una soluzione di ripristino di emergenza semplice ed economica per SQL Server. Consente di replicare più versioni ed edizioni di server SQL autonomi e cluster in Azure o in un sito secondario.  
+- Una soluzione di ripristino di emergenza semplice ed economica per SQL Server. Consente di replicare più versioni ed edizioni di server SQL autonomi e cluster in Azure o in un sito secondario.
 - Integrazione con i gruppi di disponibilità SQL AlwaysOn per gestire failover e failback con piani di ripristino in Azure Site Recovery.
 - Piani di ripristino end-to-end per tutti i livelli di un'applicazione, inclusi i database SQL Server.
 - Possibilità di ridimensionamento di SQL Server per i picchi di carico con Site Recovery, espandendoli in macchine virtuali IaaS di dimensioni maggiori in Azure.
@@ -149,4 +149,4 @@ Usare Site Recovery per proteggere la distribuzione SAP. In particolare, è poss
 
 [Preparare](site-recovery-best-practices.md) la distribuzione di Site Recovery
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

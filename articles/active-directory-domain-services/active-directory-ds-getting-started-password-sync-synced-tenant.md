@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Passaggio successivo *(anteprima)*: Abilitare la sincronizzazione password in Servizi di dominio Azure AD.
@@ -40,7 +40,7 @@ Sarà necessario installare l’ultima versione consigliata a livello generale d
 
 **[Scaricare Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versione consigliata: **1.1.130.0**, pubblicata il 12 aprile 2016.
+Versione consigliata: **1.1.189.0**, pubblicata il 3 giugno 2016.
 
   > [AZURE.WARNING] L'installazione dell'ultima versione consigliata di Azure AD Connect è NECESSARIA per abilitare le credenziali di password legacy (obbligatorio per l'autenticazione NTLM e Kerberos) da sincronizzare nel tenant di Azure AD. Questa funzionalità non è disponibile nelle versioni precedenti di Azure AD Connect o con lo strumento DirSync legacy.
 
@@ -80,4 +80,4 @@ A seconda delle dimensioni della directory (numero di utenti, gruppi e così via
 
 - [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

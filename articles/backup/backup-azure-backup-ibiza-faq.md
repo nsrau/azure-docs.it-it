@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Versione di anteprima pubblica del servizio Backup di Azure: Domande frequenti
@@ -43,4 +43,4 @@ La versione di anteprima pubblica introduce l'insieme di credenziali di Servizi 
 
 **D1. Sono previste limitazioni al supporto di Azure Resource Manager per le macchine virtuali di Azure?** <br/> R1. Attualmente i cmdlet di PowerShell per Azure Resource Manager non sono disponibili. Per aggiungere risorse a un gruppo di risorse è necessario usare l'interfaccia utente del portale di Azure.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

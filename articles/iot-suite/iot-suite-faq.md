@@ -25,9 +25,13 @@
 
 - Eliminando il gruppo di risorse nel [portale di Azure][lnk-azure-portal], vengono eliminate solo le risorse presenti nel gruppo di risorse. È necessario eliminare anche l'applicazione Azure Active Directory associata alla soluzione preconfigurata nel [portale di Azure classico][lnk-classic-portal].
 
+### Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione? 
+
+Dieci. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di dieci hub IoT per ogni sottoscrizione, come descritto in [Limiti relativi alle sottoscrizioni di Azure][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di dieci soluzioni preconfigurate in una determinata sottoscrizione.
+
 ### Di quante istanze di DocumentDB è possibile eseguire il provisioning in una sottoscrizione?
 
-Cinquanta. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di cinquanta istanze di DocumentDB per ogni sottoscrizione. Di conseguenza, è possibile eseguire il provisioning di un massimo di cinque soluzioni preconfigurate per il monitoraggio remoto in una determinata sottoscrizione.
+Cinquanta. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di cinquanta istanze di DocumentDB per ogni sottoscrizione.
 
 ### Di quante API di Bing Maps gratuite è possibile eseguire il provisioning in una sottoscrizione?
 
@@ -39,7 +43,7 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
  2. Fare clic su Tutte le impostazioni, quindi su Gestione chiavi.
  3. Si noteranno due chiavi: MasterKey e QueryKey. Copiare il valore per QueryKey.
 
-     > [AZURE.NOTE] Se non si ha un account Bing Maps API for Enterprise, è possibile crearne uno nel [portale di Azure][lnk-azure-portal]. A questo scopo fare clic su + Nuovo, cercare Bing Maps API for Enterprise e seguire i prompt per la creazione.
+     > [AZURE.NOTE] Se non si ha un account Bing Maps API for Enterprise, è possibile crearne uno nel [portale di Azure][lnk-azure-portal]. A questo scopo fare clic su +Nuovo, cercare Bing Maps API for Enterprise e seguire le istruzioni per la creazione.
 
 2. Ottenere il codice più recente da [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
 
@@ -52,13 +56,14 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
   `<setting name="MapApiQueryKey" value="" />`
 
 ### È possibile creare una soluzione preconfigurata se è disponibile Microsoft Azure per DreamSpark?
-Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure per DreamSpark][lnk-dreamspark]. Tuttavia, è possibile creare un [account di valutazione gratuito per Azure][lnk-30daytrial] in pochi minuti che consentirà di creare una soluzione preconfigurata.
+Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure per DreamSpark][lnk-dreamspark]. Tuttavia, è possibile creare un [account di valutazione gratuito per Azure][lnk-30daytrial] in pochi minuti, che consentirà di creare una soluzione preconfigurata.
 
 ### Come si elimina un tenant AAD?
 
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD][lnk-delete-aad-tennant].
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[link-azuresublimits]: https://azure.microsoft.com/it-IT/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -67,4 +72,4 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

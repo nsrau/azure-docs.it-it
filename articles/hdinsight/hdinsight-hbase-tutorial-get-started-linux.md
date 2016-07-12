@@ -61,7 +61,7 @@ La procedura seguente usa un modello di Gestione risorse di Azure per creare un 
 6. Fare clic su **Create**. La creazione di un cluster richiede circa 20 minuti.
 
 
->[AZURE.NOTE] Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso contenitore di BLOB predefinito. Il nuovo cluster selezionerà le tabelle HBase create nel cluster originale. È consigliabile disabilitare le tabelle HBase prima di eliminare il cluster per evitare incoerenze.
+>[AZURE.NOTE] Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso contenitore di BLOB predefinito. Il nuovo cluster selezionerà le tabelle HBase create nel cluster originale. Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
 
 ## Creare tabelle e inserire dati
 
@@ -285,7 +285,7 @@ In un cluster a disponibilità elevata verrà invece visualizzato un collegament
 
 ##Eliminazione del cluster
 
-È consigliabile disabilitare le tabelle HBase prima di eliminare il cluster per evitare incoerenze.
+Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -325,4 +325,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

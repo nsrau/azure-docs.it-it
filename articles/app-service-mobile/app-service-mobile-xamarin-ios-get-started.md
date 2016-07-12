@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/13/2016"
+	ms.date="06/28/2016"
 	ms.author="normesta"/>
 
 
@@ -108,4 +108,4 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

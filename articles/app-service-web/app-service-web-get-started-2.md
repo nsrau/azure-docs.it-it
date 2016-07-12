@@ -64,7 +64,7 @@ Poiché il servizio app offre una soluzione pronta all'uso per alcune comuni esi
 
 ## Ridimensionare automaticamente l'app in base alla richiesta
 
-È ora possibile ridimensionare automaticamente l'app in modo che la capacità dell'app venga adeguata automaticamente alla richiesta degli utenti. Per altre informazioni, vedere [Ridimensionare il piano tariffario nel Servizio app di Azure](app-service-scale) e [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../azure-portal/insights-how-to-scale.md).
+È ora possibile ridimensionare automaticamente l'app in modo che la capacità dell'app venga adeguata automaticamente alla richiesta degli utenti. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md) e [Ridimensionare il numero di istanze manualmente o automaticamente](../azure-portal/insights-how-to-scale.md).
 
 In breve, è possibile ridimensionare l'app Web in due modi:
 
@@ -99,7 +99,7 @@ Si sarà notato che nel pannello **Impostazioni scalabilità** è possibile eseg
 - Ridimensionare automaticamente in base a una pianificazione
 - Impostare il comportamento del ridimensionamento automatico per un evento futuro
 
-Per altre informazioni sul passaggio dell'app a un piano superiore, vedere [Ridimensionare il piano tariffario nel servizio app di Azure](../app-service/app-service-scale.md). Per altre informazioni sull'aumento del numero di istanze, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../azure-portal/insights-how-to-scale.md).
+Per altre informazioni sul passaggio dell'app a un piano superiore, vedere [Aumentare le prestazioni di un'app in Azure](../app-service-web/web-sites-scale.md). Per altre informazioni sull'aumento del numero di istanze, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../azure-portal/insights-how-to-scale.md).
 
 ## Ricevere avvisi per l'app
 
@@ -128,13 +128,13 @@ Durante la configurazione dell'avviso, è possibile che nel pannello **Strumenti
 Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco parziale:
 
 - [Acquistare e configurare un nome di dominio personalizzato](custom-dns-web-site-buydomains-web-app.md): è possibile acquistare un dominio accattivante per l'app Web invece del dominio *.azurewebsites.net. In alternativa, è possibile usare un dominio già disponibile.
-- [Configurare gli ambienti di staging](web-sites-staged-publishing.md): è possibile distribuire l'app in un URL di staging prima del passaggio in produzione, aggiornare l'app Web live in modo affidabile e configurare una soluzione DevOps complessa con più slot di distribuzione. 
+- [Configurare gli ambienti di staging](web-sites-staged-publishing.md): è possibile distribuire l'app in un URL di staging prima del passaggio in produzione, aggiornare l'app Web live in modo affidabile e configurare una soluzione DevOps complessa con più slot di distribuzione.
 - [Configurare la distribuzione continua](web-sites-publish-source-control.md): è possibile integrare lo sviluppo di app nel sistema di controllo del codice sorgente ed eseguire la distribuzione in Azure con ogni commit.
 - [Accedere alle risorse locali](web-sites-hybrid-connection-get-started.md): è possibile accedere a un database locale esistente o a un sistema CRM.
 - [Eseguire il backup dell'app](web-sites-backup.md): è possibile configurare il backup e il ripristino per l'app Web e prepararsi a errori imprevisti ed eseguire il ripristino da tali errori.
 - [Abilitare i log di diagnostica](web-sites-enable-diagnostic-log.md): è possibile leggere i log IIS da tracce di Azure o dell'applicazione. È possibile leggerli in un flusso, scaricarli o trasferirli in [Application Insights](../application-insights/app-insights-overview.md) per un'analisi pronta all'uso.
 - [Analizzare l'app per individuare vulnerabilità](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/): è possibile analizzare l'app Web per cercare minacce attuali mediante il servizio fornito da [Tinfoil Security](https://www.tinfoilsecurity.com/).
 - [Eseguire processi in background](../azure-functions/functions-overview.md): è possibile eseguire processi per l'elaborazione di dati, la creazione di report e così via.
-- [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md) 
+- [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->
