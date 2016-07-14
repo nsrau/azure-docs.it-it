@@ -61,9 +61,12 @@ Quando un'applicazione Web Java è pronta per il test, è possibile usare la sco
 
 1. In Project Explorer di Eclipse fare clic su **MyHelloWorld**.
 1. Sulla barra degli strumenti di Eclipse, fare clic sul pulsante a discesa **Publish** (Pubblica) e quindi fare clic su **Publish As Azure Cloud Service** (Pubblica come servizio cloud di Azure)
-    ![][publishDropdownButton]
+
+	![][publishDropdownButton]
+
 1. Se si pubblica l'applicazione in Azure per la prima volta e non si è creato in precedenza un progetto di distribuzione di Azure per l'applicazione, verrà creato automaticamente un progetto di questo tipo. Dovrebbe essere visualizzato il prompt seguente, in cui sono elencati anche il pacchetto JDK e il server applicazioni che verranno distribuiti automaticamente per l'esecuzione dell'applicazione.
-    ![][ic789598]
+
+	![][ic789598]
 
     Questo approccio rapido consente di testare l'applicazione in Azure in modo semplice e rapido senza dover configurare un server o un pacchetto JDK specifico, diverso da quello predefinito. Se si accettano i valori predefiniti, è possibile fare clic su **OK** per continuare con i passaggi successivi.
     Tuttavia, se si desidera modificare il pacchetto JDK o il server applicazioni da usare per l'applicazione, è possibile farlo in un secondo momento modificando il progetto di distribuzione di Azure che è stato creato automaticamente. In alternativa, è possibile fare clic su **Cancel** e leggere la sezione **Informazioni sui progetti di distribuzione di Azure** di questa esercitazione.
@@ -73,14 +76,18 @@ Quando un'applicazione Web Java è pronta per il test, è possibile usare la sco
         1. Nella finestra di dialogo **Import Subscription Information** fare clic su **Download PUBLISH-SETTINGS File**. Se non ci si è ancora connessi al proprio account Azure, verrà richiesto di farlo. Quindi verrà richiesto di salvare un file di impostazioni di pubblicazione di Azure. Salvarlo nel computer locale.
         1. Sempre nella finestra di dialogo **Import Subscription Information** fare clic sul pulsante **Browse**, selezionare il file di impostazioni di pubblicazione salvato in locale nel passaggio precedente e quindi fare clic su **Open**. La schermata dovrebbe essere simile alla seguente:
 
-            ![][ic644267]
+ 			![][ic644267]
+
         1. Fare clic su **OK**.
     1. Per **Subscription** selezionare la sottoscrizione che si desidera usare per la distribuzione.
     1. Per **Storage account** selezionare l'account di archiviazione che si desidera usare oppure fare clic su **New** per creare un nuovo account di archiviazione.
     1. Per **Service name** selezionare il servizio cloud che si desidera usare oppure fare clic su **New** per creare un nuovo servizio cloud.
     1. Per **Target OS** selezionare la versione del sistema operativo che si desidera usare per la distribuzione.
     1. Per **Target environment** selezionare, ai fini di questa esercitazione, **Staging**. Quando si è pronti a eseguire la distribuzione nel sito di produzione, sarà necessario impostare questa opzione su **Production**.
-    1. Facoltativo: assicurarsi che l'opzione **Overwrite previous deployment** sia selezionata se si desidera che la nuova distribuzione sovrascriva automaticamente la distribuzione precedente. Se si abilita questa opzione, non si verificheranno problemi di "conflitto 409" durante la pubblicazione nello stesso percorso. Si noti che la finestra di dialogo **Publish to Azure** contiene una sezione denominata **Remote Access**. Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][]. Verrà visualizzata una finestra di dialogo **Publish to Azure** simile alla seguente: ![][ic719488]
+    1. Facoltativo: assicurarsi che l'opzione **Overwrite previous deployment** sia selezionata se si desidera che la nuova distribuzione sovrascriva automaticamente la distribuzione precedente. Se si abilita questa opzione, non si verificheranno problemi di "conflitto 409" durante la pubblicazione nello stesso percorso. Si noti che la finestra di dialogo **Publish to Azure** contiene una sezione denominata **Remote Access**. Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][]. Verrà visualizzata una finestra di dialogo **Publish to Azure** simile alla seguente: 
+
+		![][ic719488]
+
 1. Fare clic su **Publish** per eseguire la pubblicazione nell'ambiente di gestione temporanea. Se viene richiesto di eseguire una build completa, fare clic su **Yes**. Questa operazione può richiedere alcuni minuti nel caso della prima build. Nella scheda **Azure Activity Log** della sezione a schede relativa alle visualizzazioni di Eclipse verrà visualizzato un log. ![][ic719489] È possibile usare questo log e la visualizzazione **Console** per vedere lo stato di avanzamento della distribuzione. In alternativa, è possibile accedere al [portale di gestione di Azure][] e monitorare lo stato mediante la sezione **Servizi cloud**.
 1. Dopo aver eseguito la distribuzione, in **Azure Activity Log** verrà visualizzato lo stato **Published**. Fare clic su **Published**, come illustrato nell'immagine seguente, e nel browser verrà aperta un'istanza della distribuzione.
     ![][ic719490]
