@@ -130,7 +130,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Slack ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Slack** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-slack-tutorial/IC794990.png "Assegna utenti")
 
