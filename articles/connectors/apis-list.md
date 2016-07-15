@@ -31,7 +31,7 @@ Selezionare un'icona per informazioni su come usare rapidamente i connettori per
 
 |Connettori||||
 |-----------|-----------|-----------|-----------|
-|[![Icona API][blobicon]<br/>**BLOB di Azure**][azureblobdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icona API][blobicon]<br/>**BLOB<br/>di Azure**][azureblobdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icona API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icona API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icona API][githubicon]<br/>**GitHub**][githubdoc]|[![Icona API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icona API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icona API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|
 |[![Icona API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icona API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icona API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|
