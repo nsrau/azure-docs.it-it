@@ -31,7 +31,7 @@ Selezionare un'icona per informazioni su come usare rapidamente i connettori per
 
 |Connettori||||
 |-----------|-----------|-----------|-----------|
-|[![Icona API][blobicon]<br/>**BLOB<br/>di Azure**][azureblobdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icona API][blobicon]<br/>**BLOB di Azure**][azureblobdoc]|[![Icona API][boxicon]<br/>**Box**][boxDoc]|[![Icona API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icona API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icona API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icona API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icona API][githubicon]<br/>**GitHub**][githubdoc]|[![Icona API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icona API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icona API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icona API][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|
 |[![Icona API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icona API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icona API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|[![Icona API][outlookicon]<br/>**Outlook**][outlookdoc]|
@@ -62,7 +62,10 @@ Sono disponibili due tipi di trigger:
 I connettori possono anche essere usati come azioni all'interno delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
 
 
-[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)
+[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Introduzione a PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
+[Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)  
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connettersi al BLOB di Azure per gestire file nel contenitore BLOB."
