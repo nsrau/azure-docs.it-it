@@ -61,7 +61,7 @@ Si sta rilasciando un aggiornamento importante dell'applicazione che comporta mo
 La tabella seguente include un elenco delle funzionalità di continuità aziendale del database SQL e descrive le differenze dei vari [livelli di servizio](sql-database-service-tiers.md):
 
 | Funzionalità | Livello Basic | Livello Standard |Livello Premium
-| --- |--- | --- | ---
+| --- | --- | --- | ---
 | Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 35 giorni | Qualsiasi punto di ripristino entro 35 giorni
 | Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
 | Replica geografica attiva | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec | ERT < 30 sec, RPO < 5 sec

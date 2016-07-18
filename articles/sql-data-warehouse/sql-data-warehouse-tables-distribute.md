@@ -171,7 +171,7 @@ Un modo semplice per identificare eventuali asimmetrie dei dati in una tabella c
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse). Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse). Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
 
 ```sql
 select *

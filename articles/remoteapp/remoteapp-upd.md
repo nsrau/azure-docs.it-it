@@ -111,7 +111,7 @@ No, tutti gli UPD hanno 50 GB di spazio di archiviazione. Se si desidera archivi
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
-Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione*prima*di eseguire sysprep.)
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione *prima* di eseguire sysprep.)
 
 ![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
 

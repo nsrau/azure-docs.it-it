@@ -561,7 +561,7 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità dei dispositivi.
 
-Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post di blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
+Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post di blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitazione dell'hub IoT).
 
 >[AZURE.NOTE] È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 

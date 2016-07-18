@@ -41,9 +41,9 @@ Al termine di questa esercitazione si eseguiranno due applicazioni console Java:
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Java per questa esercitazione in Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Java per questa esercitazione in Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Maven per questa esercitazione in Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Maven per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
@@ -153,7 +153,7 @@ In questa sezione si creerà un'app console Java che invia messaggi da cloud a d
     }
     ```
 
-    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 ## Eseguire le applicazioni
 

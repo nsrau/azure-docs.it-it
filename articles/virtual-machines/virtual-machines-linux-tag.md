@@ -53,7 +53,7 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 
 
 
-[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
+[ambiente CLI di Azure]: ./xplat-cli-azure-resource-manager.md
 [Panoramica di Azure Resource Manager]: ../resource-group-overview.md
 [Uso dei tag per organizzare le risorse di Azure]: ../resource-group-using-tags.md
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md

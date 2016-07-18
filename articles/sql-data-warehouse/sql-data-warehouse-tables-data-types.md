@@ -81,7 +81,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse), [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Indicizzazione di tabelle in SQL Data Warehouse][Index], [Partitioning tables in SQL Data Warehouse][Partition] (Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] (Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse), [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Indicizzazione di tabelle in SQL Data Warehouse][Index], [Partitioning tables in SQL Data Warehouse][Partition] \(Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] \(Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 

@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. Caricare i dati in nuove tabelle
 
-Per caricare i dati dall'archiviazione BLOB di Azure e salvarli in una tabella all'interno del database, utilizzare l'istruzione [CREATE TABLE AS SELECT][] (CTAS) T-SQL. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate appena create. Per caricare i dati in nuove tabelle, usare una sola istruzione [CTAS][] per ogni tabella.
+Per caricare i dati dall'archiviazione BLOB di Azure e salvarli in una tabella all'interno del database, utilizzare l'istruzione [CREATE TABLE AS SELECT][] \(CTAS) T-SQL. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate appena create. Per caricare i dati in nuove tabelle, usare una sola istruzione [CTAS][] per ogni tabella.
 
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
 
@@ -282,7 +282,7 @@ Per altre informazioni sulla gestione degli indici columnstore, vedere [Indicizz
 
 È consigliabile creare statistiche a colonna singola subito dopo un caricamento. Sono disponibili alcune opzioni per le statistiche. Ad esempio, se si creano statistiche a colonna singola su ogni colonna, ricompilare tutte le statistiche potrebbe richiedere molto tempo. Se si sa che alcune colonne non si aggiungeranno ai predicati di query, è possibile ignorare la creazione delle statistiche su tali colonne.
 
-Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` disponibile in [Managing statistics on tables in SQL Data Warehouse][] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
+Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` disponibile in [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
 
 L'esempio seguente è un buon punto di partenza per la creazione delle statistiche. Qui vengono create statistiche a colonna singola su ogni colonna nella tabella della dimensione e su ogni colonna di join nelle tabelle dei fatti. È sempre possibile aggiungere in un secondo momento statistiche a colonna singola o a più colonne per altre colonne delle tabelle dei fatti.
 

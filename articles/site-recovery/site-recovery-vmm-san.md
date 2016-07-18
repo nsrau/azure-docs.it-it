@@ -325,7 +325,9 @@ Tenere traccia dello stato dell'azione di abilitazione della protezione, inclusa
 Eseguire il test della distribuzione per verificare che il failover delle macchine virtuali e dei dati venga eseguito correttamente. Per effettuare questa operazione, creare un piano di ripristino selezionando i gruppi di replica, quindi eseguire un failover di test sul piano.
 
 1. Nella scheda **Piani di ripristino** fare clic su **Crea piano di ripristino**.
-2. Specificare un nome per il piano di ripristino e per i server VMM di origine e di destinazione. Sul server di origine devono essere eseguite macchine virtuali abilitate per il failover e il ripristino. Selezionare **SAN** per visualizzare solo i cloud configurati per la replica SAN. 3. ![Crea piano di ripristino](./media/site-recovery-vmm-san/r-plan.png)
+2. Specificare un nome per il piano di ripristino e per i server VMM di origine e di destinazione. Sul server di origine devono essere eseguite macchine virtuali abilitate per il failover e il ripristino. Selezionare **SAN** per visualizzare solo i cloud configurati per la replica SAN.
+3.
+	![Crea piano di ripristino](./media/site-recovery-vmm-san/r-plan.png)
 
 4. In **Seleziona macchine virtuali** selezionare i gruppi di replica. Tutte le macchine virtuali associate al gruppo di replica verranno selezionate e aggiunte al piano di ripristino. In questa esercitazione, le macchine virtuali vengono aggiunte al gruppo predefinito del piano di ripristino Gruppo 1. Se necessario, è possibile aggiungere altri gruppi. Si noti che al termine della replica le macchine virtuali verranno avviate in base all'ordine dei gruppi del piano di ripristino.
 

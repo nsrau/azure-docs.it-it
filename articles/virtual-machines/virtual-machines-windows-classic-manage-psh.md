@@ -67,7 +67,7 @@ Eseguire questo comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Collegamento di un disco dati
-Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la cmdlet****Aggiungi-DiscoDatiAzure**** per aggiungere il disco per l'oggetto $vm. Quindi è possibile utilizzare il cmdlet **Aggiorna-MacchinaVirtualeAzure** per aggiornare la configurazione della macchina virtuale.
+Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la cmdlet ***Aggiungi-DiscoDatiAzure*** per aggiungere il disco per l'oggetto $vm. Quindi è possibile utilizzare il cmdlet **Aggiorna-MacchinaVirtualeAzure** per aggiornare la configurazione della macchina virtuale.
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 

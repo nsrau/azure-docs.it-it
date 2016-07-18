@@ -94,7 +94,7 @@ Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'
 
 - Fare clic su **Aggiungi** per aprire un pannello in cui è possibile immettere il nome dei nuovi criteri e le autorizzazioni da associare a questi criteri, come illustrato nella figura seguente.
 
-	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema ** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
+	Sono disponibili numerose autorizzazioni che possono essere associate a questi criteri condivisi. I primi due criteri di **lettura del Registro di sistema** e di **scrittura del Registro di sistema** consentono di concedere diritti di accesso in lettura e scrittura per l'archivio identità del dispositivo o per il registro delle identità. Scegliendo l'opzione di scrittura, verrà scelta automaticamente l'opzione di lettura.
 
  	I criteri **Connessione servizio** concedono l'autorizzazione di accesso agli endpoint sul lato cloud, ad esempio al gruppo di consumer per i servizi che si connettono all'hub IoT, mentre i criteri di **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi negli endpoint sul lato dispositivo dell'hub IoT.
 

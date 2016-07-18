@@ -247,7 +247,7 @@ Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è
 	* Selezionare **Spark on HDInsight Local Run Sample (Scala)** (Spark su esecuzione di esempio locale HDInsight (Scala)) nel riquadro destro.
 	* Fare clic su **Avanti**.
 
-2. Per fornire i dettagli del progetto, seguire i passaggi da 3 a 6, come illustrato nella sezione precedente [Configurare un progetto di un'applicazione Spark in Scala per un cluster HDInsight Spark] (#set-up-a-spark-scala-application-project-for-an-hdinsight-spark cluster).
+2. Per fornire i dettagli del progetto, seguire i passaggi da 3 a 6, come illustrato nella sezione precedente [Configurare un progetto di un'applicazione Spark in Scala per un cluster HDInsight Spark] \(#set-up-a-spark-scala-application-project-for-an-hdinsight-spark cluster).
 
 3. Il modello aggiunge un codice di esempio (**LogQuery**) sotto la cartella **src** che è possibile eseguire in locale sul computer in uso.
 

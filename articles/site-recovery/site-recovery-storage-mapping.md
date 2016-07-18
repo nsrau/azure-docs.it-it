@@ -53,7 +53,7 @@ Quando si usa la replica Hyper-V con Site Recovery, si esegue il mapping tra le 
 Se le classificazioni sono configurate correttamente in VMM quando si selezionano il server VMM di origine e destinazione durante il mapping di archiviazione, verranno visualizzate le classificazioni di origine e destinazione. Di seguito è riportato un esempio di condivisioni di file di archiviazione e le classificazioni per un'organizzazione con due posizioni a New York e Chicago.
 
 **Posizione** | **Server VMM** | **Condivisione file (origine)** | **Classificazione (origine)** | **Mappata a** | **Condivisione file (destinazione)**
----|---|--- |---|---|---
+---|---|---|---|---|---
 New York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
  | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
  | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3

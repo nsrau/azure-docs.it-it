@@ -35,7 +35,7 @@ L'elenco seguente riepiloga le funzionalità principali che non sono supportate 
 - Funzioni inline definite dall'utente
 - Funzioni a istruzioni multiple
 - [espressioni di tabella comune](#Common-table-expressions)
-- [espressioni tabella comune ricorsive (CTE)] (#Recursive-common-table-expressions-(CTE)
+- [espressioni tabella comune ricorsive (CTE)] \(#Recursive-common-table-expressions-(CTE)
 - Funzioni e procedure CLR
 - Funzione $partition
 - Variabili di tabella

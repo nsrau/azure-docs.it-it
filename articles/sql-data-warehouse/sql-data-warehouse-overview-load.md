@@ -107,7 +107,7 @@ Molti partner Microsoft dispongono di soluzioni di caricamento. Per altre inform
 
 Se i dati provengono da un'origine non relazionale e si intende caricarli in SQL Data Warehouse, è necessario trasformarli in righe e colonne prima di caricarli. I dati trasformati non devono essere archiviati in un database e possono essere archiviati in file di testo.
 
-Creare statistiche sui dati appena caricati. SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per informazioni dettagliate, vedere [Managing statistics on tables in SQL Data Warehouse][] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
+Creare statistiche sui dati appena caricati. SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per informazioni dettagliate, vedere [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse).
 
 
 ## Passaggi successivi

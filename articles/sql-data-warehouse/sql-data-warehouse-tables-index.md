@@ -244,7 +244,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
-La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] (Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
+La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline. Per altre informazioni sulla ricompilazione degli indici, vedere la sezione relativa ad ALTER INDEX REBUILD in [Columnstore Indexes Defragmentation][] \(Deframmentazione degli indici columnstore) e l'argomento relativo alla sintassi [ALTER INDEX][].
  
 ### Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 Eseguire nuovamente la query che ha identificato la tabella con una qualità scadente dei segmenti e verificare che la qualità sia migliorata. Se la qualità dei segmenti non è migliorata, le righe della tabella potrebbero essere troppo larghe. È consigliabile usare una classe di risorse superiore o una DWU durante la ricompilazione degli indici. Se è necessaria una quantità di memoria maggiore,
@@ -296,7 +296,7 @@ Per altre informazioni sulla ricompilazione di partizioni con `CTAS`, vedere l'a
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] (Panoramica sulle tabelle in SQL Data Warehouse), [Tipi di dati per le tabelle in SQL Data Warehouse][Data Types], [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Partitioning tables in SQL Data Warehouse][Partition] (Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] (Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per altre informazioni, vedere gli articoli [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse), [Tipi di dati per le tabelle in SQL Data Warehouse][Data Types], [Distribuzione di tabelle in SQL Data Warehouse][Distribute], [Partitioning tables in SQL Data Warehouse][Partition] \(Partizionamento di tabelle in SQL Data Warehouse), [Managing statistics on tables in SQL Data Warehouse][Statistics] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse) e [Temporary tables in SQL Data Warehouse][Temporary] \(Tabelle temporanee in SQL Data Warehouse). Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
 
 <!--Image references-->
 

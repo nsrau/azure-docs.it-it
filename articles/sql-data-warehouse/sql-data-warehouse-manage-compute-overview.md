@@ -104,11 +104,11 @@ Per riavviare un database, usare uno di questi metodi singoli.
 Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
 
 - [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][]
-- [Overview of tables in SQL Data Warehouse][] (Panoramica sulle tabelle in SQL Data Warehouse)
+- [Overview of tables in SQL Data Warehouse][] \(Panoramica sulle tabelle in SQL Data Warehouse)
 - [Distribuzione di tabelle in SQL Data Warehouse][]
 - [Indicizzazione di tabelle in SQL Data Warehouse][]
 - [Partizionamento delle tabelle][]
-- [Managing statistics on tables in SQL Data Warehouse][] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)
+- [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse)
 - [Procedure consigliate][]
 
 <!--Image reference-->
